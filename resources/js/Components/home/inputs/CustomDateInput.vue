@@ -3,6 +3,7 @@ import DatePicker, { DatePickerApi } from '@/Components/home/pickers/DatePicker.
 import { useMomentLocaleForceUpdate } from '@/composables/useMomentLocaleForceUpdate';
 import { formControlId, positionAnchor, timestamp } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
+import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
 
 const ts = inject(timestamp);
@@ -13,23 +14,14 @@ const selectedDate = computed(() => momentLocale.value ? ts?.currentTimestamp.va
 const datepicker = useTemplateRef<DatePickerApi>('date-picker');
 const inputEl = useTemplateRef<InputApi>('input-el');
 
-const openPopup = (e: KeyboardEvent | MouseEvent) => {
-  let viaKeyboard = false;
-  if ('key' in e) {
-    if (e.key === 'Tab' || e.key === 'Shift') {
-      return;
-    }
-    viaKeyboard = true;
-  }
+const openPopup = keyboardOrMouseEventHandlerFactory((e: KeyboardEvent | MouseEvent, viaKeyboard: boolean) => {
+  if (!ts) return;
 
-  e.preventDefault();
-  if (ts) {
-    datepicker.value?.open(ts.currentTimestamp.value, viaKeyboard ? inputEl.value?.inputEl : null);
-    window.requestAnimationFrame(() => {
-      datepicker.value?.changeFocus('year', true);
-    });
-  }
-};
+  datepicker.value?.open(ts.currentTimestamp.value, viaKeyboard ? inputEl.value?.inputEl : null);
+  window.requestAnimationFrame(() => {
+    datepicker.value?.changeFocus('year', true);
+  });
+});
 
 const changeDate = (value: string) => {
   ts?.changeDateString(value);
