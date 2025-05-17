@@ -13,6 +13,12 @@ import HtInputGropupText from '@/Reusable/HtInputGropupText.vue';
 import { inputRangeLimitBlurHandlerFactory } from '@/utils/app';
 import { inject, ref, useTemplateRef } from 'vue';
 
+withDefaults(defineProps<{
+  saveOnClose?: boolean;
+}>(), {
+  saveOnClose: true,
+});
+
 const dtl = inject(dateTimeLibraryInject);
 const defaultZoneName = dtl?.value.guessInitialTimezoneName() ?? 'Etc/UTC';
 const offsetHours = ref(0);
@@ -156,7 +162,7 @@ defineExpose<TimeZonePickerApi>({
           :justify-center="true"
           type="submit"
         >
-          {{ $t('actions.save_and_close') }}
+          {{ saveOnClose ? $t('actions.save_and_close') : $t('actions.select') }}
         </HtButton>
         <HtButton
           :justify-center="true"
