@@ -55,6 +55,22 @@ const searchParamsString = computed(() => {
   return searchParams.value && searchParams.value.size > 0 ? `?${searchParams.value}` : '';
 });
 
+const parameterRequiredRegex = /Ziggy error: '([^']+)' parameter is required/i;
+const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record<string, string>) => {
+  const currentRouteName = route().current() ?? 'home';
+  const currentRouteParams = route().params;
+  try {
+    return route(currentRouteName, { ...currentRouteParams, ...additionalParameters, locale });
+  } catch (e) {
+    if (typeof e === 'object' && e !== null && 'message' in e && typeof e.message === 'string') {
+      const parameterMatch = e.message.match(parameterRequiredRegex);
+      if (parameterMatch) {
+        return getCurrentRouteFromLocale(locale, { ...additionalParameters, [parameterMatch[1]]: '' });
+      }
+    }
+  }
+};
+
 const navigateListener = () => {
   searchParams.value = new URLSearchParams(window.location.search);
 };
@@ -91,7 +107,7 @@ onMounted(router.on('success', navigateListener));
             :key="sortedLocale"
           >
             <a
-              :href="route(route().current() ?? 'home', { locale: sortedLocale })+searchParamsString"
+              :href="getCurrentRouteFromLocale(sortedLocale)+searchParamsString"
               :class="['language-link', { disabled: !currentLanguage?.supportedLanguages?.has(sortedLocale) }]"
               :dir="config.rtl ? 'rtl' : 'ltr'"
             >
