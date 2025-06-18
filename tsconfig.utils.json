@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "target": "ESNext"
+  },
+  "include": ["utils/**/*.ts"],
+  "ts-node": {
+    "experimentalResolver": true,
+    "compilerOptions": {
+      "resolveJsonModule": true,
+      "module": "ESNext"
+    }
+  }
+}

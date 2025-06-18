@@ -30,7 +30,7 @@ const selectedDate = computed(() => {
 const datepicker = useTemplateRef<DatePickerApi>('date-picker');
 const inputEl = useTemplateRef<InputApi>('input-el');
 
-const openPopup = keyboardOrMouseEventHandlerFactory((e: KeyboardEvent | MouseEvent, viaKeyboard: boolean) => {
+const openPopup = keyboardOrMouseEventHandlerFactory((_: KeyboardEvent | MouseEvent, viaKeyboard: boolean) => {
   if (!ts) return;
 
   const currentTs = ts.currentTimestamp.value;

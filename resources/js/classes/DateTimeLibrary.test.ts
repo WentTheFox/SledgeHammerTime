@@ -2,9 +2,13 @@ import { DateFnsDTL } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryMonth } from '@/classes/DateTimeLibraryValue';
 import { MomentDTL } from '@/classes/MomentDTL';
-import { LanguageConfig } from '@/model/language-config';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
-import { AvailableLanguage, FALLBACK_LANGUAGE, LANGUAGES } from '@/utils/language-settings';
+import {
+  AvailableLanguage,
+  FALLBACK_LANGUAGE,
+  LANGUAGES,
+  LatestLanguageConfigType,
+} from '@/utils/language-settings';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('DateTimeLibrary', () => {
@@ -48,7 +52,7 @@ describe('DateTimeLibrary', () => {
     describe('getLocaleNameFromLanguageConfig', () => {
       it('should return the correct locale name for a language config', () => {
         const language: AvailableLanguage = 'pt-BR';
-        const languageConfig: LanguageConfig = LANGUAGES[language];
+        const languageConfig: LatestLanguageConfigType = LANGUAGES[language];
         const result = dtl.getLocaleNameFromLanguageConfig(language, languageConfig);
         const expectedMap = {
           moment: 'pt-br',

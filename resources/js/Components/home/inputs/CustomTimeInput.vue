@@ -28,7 +28,7 @@ const selectedTime = computed(() => {
 const timepicker = useTemplateRef<TimePickerPopupApi>('time-picker');
 const inputEl = useTemplateRef<InputApi>('input-el');
 
-const openPopup = keyboardOrMouseEventHandlerFactory((e: KeyboardEvent | MouseEvent, viaKeyboard) => {
+const openPopup = keyboardOrMouseEventHandlerFactory((_: KeyboardEvent | MouseEvent, viaKeyboard) => {
   if (!ts) return;
 
   const currentTsWithTimezone = ts.currentTimestamp.value?.replaceZone(ts.currentTimezone.value);

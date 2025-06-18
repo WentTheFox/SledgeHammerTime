@@ -2,10 +2,14 @@ import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { dateFnsLocaleMap } from '@/date-fns';
-import { LanguageConfig } from '@/model/language-config';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
-import { AvailableLanguage, FALLBACK_LANGUAGE, LANGUAGES } from '@/utils/language-settings';
+import {
+  AvailableLanguage,
+  FALLBACK_LANGUAGE,
+  LANGUAGES,
+  LatestLanguageConfigType,
+} from '@/utils/language-settings';
 import { getUtcOffsetString, rangeLimit } from '@/utils/time';
 import { TZDate } from '@date-fns/tz';
 import {
@@ -239,7 +243,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return this.getLocaleNameFromLanguageConfig(language, languageConfig);
   }
 
-  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LanguageConfig | undefined): string {
+  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LatestLanguageConfigType | undefined): string {
     return languageConfig?.dateFnsLocale ?? language ?? FALLBACK_LANGUAGE;
   }
 

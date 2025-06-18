@@ -5,7 +5,7 @@ import { currentLanguageInject, localSettings } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { reportData } from '@/utils/crowdin';
-import { normalizeCredit } from '@/utils/translation';
+import { getTranslatorIds, normalizeCredit, NormalizedCredits } from '@/utils/translation';
 import { faGithub, faOsi } from '@fortawesome/free-brands-svg-icons';
 import { faBan, faCode, faFileContract, faInfo, faLanguage, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -15,10 +15,16 @@ import { computed, inject } from 'vue';
 const currentLanguage = inject(currentLanguageInject);
 
 const translationCredits = computed(() => {
-  if (!currentLanguage?.value?.languageConfig?.credits) return null;
+  if (!currentLanguage?.value) return null;
 
-  return currentLanguage?.value?.languageConfig?.credits
-    .map((c) => normalizeCredit(c, reportData))
+  const currentLocaleReportData = reportData.languages[currentLanguage.value.locale];
+  const translatorIds = getTranslatorIds(currentLanguage.value.languageConfig, currentLocaleReportData);
+
+  if (translatorIds.length === 0) return null;
+
+  return translatorIds
+    .map((crowdinId) => normalizeCredit(crowdinId, currentLanguage.value.languageConfig?.creditOverrides, reportData))
+    .filter((credit): credit is NormalizedCredits => credit !== null)
     .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName));
 });
 
