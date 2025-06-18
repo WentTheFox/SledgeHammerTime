@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
 import { currentLanguageInject } from '@/injection-keys';
-import { LanguageConfig } from '@/model/language-config';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
-import { reportData } from '@/utils/crowdin';
-import { AvailableLanguage, LANGUAGES } from '@/utils/language-settings';
+import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
+import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faGlobe, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
@@ -31,7 +30,7 @@ const noTranslationsNeededLocales = new Set(['en', 'en-GB', 'hu']);
 const languagesDropdownVisible = ref(false);
 
 const sortedLanguages = computed(() =>
-  (Object.entries(LANGUAGES) as [AvailableLanguage, LanguageConfig][])
+  (Object.entries(LANGUAGES) as [AvailableLanguage, LatestLanguageConfigType][])
     .filter(([key, config]) => {
       if (!currentLanguage?.value.languages) return true;
       if (config.laravelLocale) {
@@ -48,7 +47,7 @@ const displayContributionHints = computed(() =>
 
 const currentLanguageApprovalPercent = computed(() =>
   currentLanguage?.value.locale
-    ? reportData.progress[currentLanguage.value.locale].approval
+    ? getTranslationCompletePercent(reportData.languages[currentLanguage.value.locale]?.progress)
     : 100,
 );
 

@@ -9,6 +9,9 @@
     "target": "ESNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noEmit": true,
     "skipLibCheck": true,
     "paths": {
@@ -16,6 +19,7 @@
     }
   },
   "include": ["resources/js/**/*.ts", "resources/js/**/*.d.ts", "resources/js/**/*.vue", "eslint.config.js"],
+  "exclude": ["utils/**/*.ts"],
   "ts-node": {
     "experimentalResolver": true,
     "compilerOptions": {

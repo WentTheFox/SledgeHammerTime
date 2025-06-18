@@ -1,9 +1,8 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import { LanguageConfig } from '@/model/language-config';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps } from '@/types';
-import { AvailableLanguage } from '@/utils/language-settings';
+import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
 export const timestamp = Symbol('timestamp') as InjectionKey<{
@@ -55,7 +54,7 @@ export const pagePropsInject = Symbol('pagePropsInject') as InjectionKey<Ref<Pag
 export interface CurrentLanguageData {
   locale: AvailableLanguage;
   languages: Record<string, AvailableLanguage>;
-  languageConfig: LanguageConfig | undefined;
+  languageConfig: LatestLanguageConfigType | undefined;
   supportedLanguages: Set<string>;
   crowdinProjectId: string;
 }

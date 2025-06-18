@@ -1,6 +1,6 @@
-import { TranslationCreditOverride } from '@/model/translation-credit-override';
+import { TranslationCredit } from '@/model/translation-credit';
 
-export interface LanguageConfigV2 {
+export interface LanguageConfigV1 {
   /**
    * Language name in English
    */
@@ -24,5 +24,5 @@ export interface LanguageConfigV2 {
   weekendDays?: number[];
   firstDayOfWeek?: number;
   blueDay?: number;
-  creditOverrides?: Record<string | number, TranslationCreditOverride | null>;
+  credits?: TranslationCredit[];
 }

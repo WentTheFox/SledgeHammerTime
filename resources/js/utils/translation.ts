@@ -1,5 +1,17 @@
-import { TranslationCredit } from '@/model/translation-credit';
+import { TranslationCreditOverride } from '@/model/translation-credit-override';
+import { LatestLanguageConfigType } from '@/utils/language-settings';
 import { IndexedReportData, ReportUserData } from './crowdin';
+
+export const getTranslatorIds = (
+  currentLocaleConfig?: LatestLanguageConfigType,
+  currentLocaleReportData?: IndexedReportData['languages'][string],
+): string[] =>
+  Array.from(
+    new Set([
+      ...(currentLocaleReportData?.translatorIds ?? []),
+      ...(currentLocaleConfig?.creditOverrides ? Object.keys(currentLocaleConfig?.creditOverrides) : []),
+    ]),
+  );
 
 export interface NormalizedCredits {
   displayName: string;
@@ -7,8 +19,15 @@ export interface NormalizedCredits {
   avatarUrl?: string;
 }
 
-export const normalizeCredit = (credit: TranslationCredit, reportData?: IndexedReportData): NormalizedCredits => {
-  const { crowdinId } = credit;
+export const normalizeCredit = (
+  crowdinId: string,
+  overridesRecord?: Record<string, TranslationCreditOverride | null>,
+  reportData?: IndexedReportData,
+): NormalizedCredits | null => {
+  const overrides = overridesRecord?.[crowdinId];
+  if (overrides === null) {
+    return null;
+  }
   let details: ReportUserData | undefined;
   if (crowdinId) {
     details = reportData?.users?.[crowdinId];
@@ -16,21 +35,21 @@ export const normalizeCredit = (credit: TranslationCredit, reportData?: IndexedR
       console.warn(`Missing crowdin data for user ID ${crowdinId}`);
     }
   }
-  const displayName = credit.displayName ?? details?.fullName ?? details?.username;
+  const displayName = overrides?.displayName ?? details?.fullName ?? details?.username;
   if (!displayName) {
-    throw new Error(`Display name is required for credit:\n${JSON.stringify(credit)}`);
+    throw new Error(`Display name is required for credit:\n${JSON.stringify(overrides)}`);
   }
-  let url = credit.url;
+  let url = overrides?.url;
   if (!url) {
     if (!details) {
-      throw new Error(`URL is required for credit:\n${JSON.stringify(credit)}`);
+      throw new Error(`URL is required for credit:\n${JSON.stringify(overrides)}`);
     }
     url = `https://crowdin.com/profile/${details.username}`;
   }
   return {
     displayName,
     url,
-    avatarUrl: credit.avatarUrl ?? details?.avatarUrl,
+    avatarUrl: overrides?.avatarUrl ?? details?.avatarUrl,
   };
 };
 

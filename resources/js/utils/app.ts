@@ -1,7 +1,6 @@
 import { CurrentLanguageData } from '@/injection-keys';
-import { LanguageConfig } from '@/model/language-config';
 import { PageProps } from '@/types';
-import { AvailableLanguage, LANGUAGES } from '@/utils/language-settings';
+import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { rangeLimitInput } from '@/utils/time';
 import { ModelRef, Ref } from 'vue';
 
@@ -25,7 +24,7 @@ export const inputRangeLimitBlurHandlerFactory = (numberRef: Ref<number> | Model
 export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => {
   const languages = page.app.languages as Record<string, AvailableLanguage>;
   const locale = languages[page.app.locale];
-  const languageConfig: LanguageConfig | undefined = LANGUAGES[locale];
+  const languageConfig: LatestLanguageConfigType | undefined = LANGUAGES[locale];
   const supportedLanguages = new Set(page.app.supportedLanguages);
   const crowdinProjectId = page.app.crowdinProjectId;
 

@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev:translation-credits": "tsx ./utils/translation-credits.ts",
+    "predev:translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts",
     "predev": "concurrently -p name npm:predev:*",
     "dev": "vite",
     "lint": "eslint resources/**/*.{ts,vue}",

@@ -1,11 +1,15 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale, WeekInfo } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
-import { LanguageConfig } from '@/model/language-config';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { momentLocaleMap } from '@/moment';
-import { AvailableLanguage, FALLBACK_LANGUAGE, LANGUAGES } from '@/utils/language-settings';
+import {
+  AvailableLanguage,
+  FALLBACK_LANGUAGE,
+  LANGUAGES,
+  LatestLanguageConfigType,
+} from '@/utils/language-settings';
 import { getUtcOffsetString, offsetZoneRegex, rangeLimit } from '@/utils/time';
 import moment, { Moment } from 'moment-timezone';
 
@@ -179,7 +183,7 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
     return this.getLocaleNameFromLanguageConfig(language, languageConfig);
   }
 
-  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LanguageConfig | undefined): string {
+  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LatestLanguageConfigType | undefined): string {
     return languageConfig?.momentLocale ?? language ?? FALLBACK_LANGUAGE;
   }
 

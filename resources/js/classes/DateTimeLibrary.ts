@@ -1,8 +1,7 @@
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import { LanguageConfig } from '@/model/language-config';
 import { TimezoneSelection } from '@/model/timezone-selection';
-import { AvailableLanguage } from '@/utils/language-settings';
+import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Needed for testing
 export interface DateTimeLibrary<T = any, L = any> {
@@ -10,7 +9,7 @@ export interface DateTimeLibrary<T = any, L = any> {
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string;
 
-  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LanguageConfig | undefined): string;
+  getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LatestLanguageConfigType | undefined): string;
 
   loadLocaleLowLevel(localeName: string): Promise<L | undefined>;
 
