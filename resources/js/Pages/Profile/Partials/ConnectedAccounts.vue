@@ -1,11 +1,17 @@
 <script setup lang="ts">
+import CrowdinUserInfo, { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import DiscordUserInfo, { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
+import ConnectedAccountsHeading from '@/Pages/Profile/Partials/ConnectedAccountsHeading.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
+import { computed } from 'vue';
 
-defineProps<{
-  discordUsers: DiscordUserInfoProps[]
+const props = defineProps<{
+  discordUsers: DiscordUserInfoProps[];
+  crowdinUsers: CrowdinUserInfoProps[];
 }>();
+
+const connectedAccountCount = computed(() => props.crowdinUsers.length + props.discordUsers.length);
 </script>
 
 <template>
@@ -23,14 +29,23 @@ defineProps<{
     </p>
 
     <template v-if="discordUsers.length > 0">
+      <ConnectedAccountsHeading service="discord" />
       <DiscordUserInfo
         v-for="info of discordUsers"
         v-bind="info"
         :key="info.id"
       />
     </template>
+    <template v-if="crowdinUsers.length > 0">
+      <ConnectedAccountsHeading service="crowdin" />
+      <CrowdinUserInfo
+        v-for="info of crowdinUsers"
+        v-bind="info"
+        :key="info.id"
+      />
+    </template>
     <HtAlert
-      v-else
+      v-if="connectedAccountCount === 0"
       type="info"
       :closable="false"
     >

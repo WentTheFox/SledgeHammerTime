@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import { currentLanguageInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
@@ -13,6 +14,7 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 
 defineProps<{
   discordUsers: DiscordUserInfoProps[];
+  crowdinUsers: CrowdinUserInfoProps[];
 }>();
 
 const currentLanguage = inject(currentLanguageInject);
@@ -31,7 +33,10 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
 
     <UpdateProfileInformationForm />
 
-    <ConnectedAccounts :discord-users="discordUsers" />
+    <ConnectedAccounts
+      :discord-users="discordUsers"
+      :crowdin-users="crowdinUsers"
+    />
 
     <LinkAdditionalAccounts :locale="routeLocale" />
 
