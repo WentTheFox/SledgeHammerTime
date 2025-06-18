@@ -38,6 +38,13 @@ return [
     'redirect' => 'https://example.com',
   ],
 
+  'crowdin' => [
+    'client_id' => env('CROWDIN_CLIENT_ID'),
+    'client_secret' => env('CROWDIN_CLIENT_SECRET'),
+    // Changed in controllers, but required in config
+    'redirect' => 'https://example.com',
+  ],
+
   'top-gg' => [
     'token' => env('TOP_GG_TOKEN'),
     'base_url' => 'https://top.gg/api',

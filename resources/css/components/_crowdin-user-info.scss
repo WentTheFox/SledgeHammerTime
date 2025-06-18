@@ -1,6 +1,6 @@
 @use "../design";
 
-.discord-user-info {
+.crowdin-user-info {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -13,7 +13,11 @@
     border-radius: design.app-value('profile-user-info-image-border-radius');
   }
 
-  .user-name {
+  .full-name, .username {
     font-size: design.app-value('profile-user-info-name-font-size');
+  }
+
+  .username {
+    opacity: .8;
   }
 }

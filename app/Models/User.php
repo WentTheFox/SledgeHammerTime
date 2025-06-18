@@ -28,6 +28,10 @@ class User extends Authenticatable {
     return $this->hasMany(DiscordUser::class);
   }
 
+  function crowdinUsers():HasMany {
+    return $this->hasMany(CrowdinUser::class);
+  }
+
   function mapToUiInfo():array {
     return [
       'id' => $this->id,

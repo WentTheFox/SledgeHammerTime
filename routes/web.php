@@ -46,7 +46,7 @@ Route::get('/{locale}/discord', [RedirectController::class, 'discord'])->name('d
 Route::get('/oauth', [NotFoundController::class, 'notFound']);
 Route::get('/oauth/callback', [NotFoundController::class, 'notFound']);
 Route::get('/{locale}/oauth/redirect', [NotFoundController::class, 'notFound']);
-Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect']);
+Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect'])->name('oauthRedirect');
 
 $languages = config('languages');
 $addLocalePrefix = function (string $path, bool $set_names):string {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\SocialProvider;
 use App\Http\Requests\BotLoginRequest;
 use App\Http\Requests\OauthProviderRequest;
+use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -22,9 +23,10 @@ class AuthController extends Controller {
   protected const LOGIN_LOCALE_SESSION_KEY = 'login_locale';
 
   private static function createRedirectUrl(string $provider):string {
+    $baseUrl = config('app.url');
     $callback_path = Auth::check() ? 'callback-auth' : 'callback';
 
-    return config('app.url')."/oauth/$callback_path/$provider";
+    return "$baseUrl/oauth/$callback_path/$provider";
   }
 
   private static function createSocialiteDriver(string $provider):ProviderContract {
@@ -40,6 +42,9 @@ class AuthController extends Controller {
       case SocialProvider::Discord->value:
         // Overwrite scopes from socialite provider package, we do not need nor want user e-mails
         $driver->setScopes(['identify']);
+      break;
+      case SocialProvider::Crowdin->value:
+        // Prevent not found page from showing, no changes needed otherwise
       break;
       default:
         throw new NotFoundHttpException();
@@ -91,12 +96,17 @@ class AuthController extends Controller {
     $validated = $request->validated();
     $driver = self::createSocialiteDriver($validated['provider']);
     $data = $driver->user();
-    if ($validated['provider'] !== SocialProvider::Discord->value){
-      abort(500, "Validated provider {$validated['provider']} does not match expectations");
+    switch ($validated['provider']){
+      case SocialProvider::Discord->value:
+        $discord_user = $this->updateOrCreateDiscordUser($data);
+        $discord_user->update(['user_id' => $user->id]);
+      break;
+      case SocialProvider::Crowdin->value:
+        $discord_user = $this->updateOrCreateCrowdinUser($data);
+        $discord_user->update(['user_id' => $user->id]);
+      default:
+        abort(500, "Validated provider {$validated['provider']} does not match expectations");
     }
-
-    $discord_user = $this->updateOrCreateDiscordUser($data);
-    $discord_user->update(['user_id' => $user->id]);
 
     $login_locale = session()?->pull(self::LOGIN_LOCALE_SESSION_KEY) ?? App::getLocale();
 
@@ -118,6 +128,26 @@ class AuthController extends Controller {
       'access_token' => $data->token,
       'refresh_token' => $data->refreshToken,
       'scopes' => $data->accessTokenResponseBody['scope'],
+      'token_expires' => (new Carbon())->add('seconds', $data->expiresIn),
+    ]);
+
+    return $result;
+  }
+
+  protected function updateOrCreateCrowdinUser($data) {
+    /**
+     * @var CrowdinUser $result
+     */
+    $result = CrowdinUser::updateOrCreate([
+      'id' => $data->getId(),
+    ], [
+      'id' => $data->getId(),
+      'username' => $data->getName(),
+      'full_name' => $data->getNickname(),
+      'avatar_url' => $data->getAvatar(),
+      'access_token' => $data->token,
+      'refresh_token' => $data->refreshToken,
+      'scopes' => $data->accessTokenResponseBody['scope'] ?? null,
       'token_expires' => (new Carbon())->add('seconds', $data->expiresIn),
     ]);
 

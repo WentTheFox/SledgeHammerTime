@@ -25,6 +25,7 @@ class ProfileController extends Controller {
 
     return Inertia::render('Profile/EditProfile', [
       'discordUsers' => $discordUsers,
+      'crowdinUsers' => [],
     ]);
   }
 
