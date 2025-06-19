@@ -12,6 +12,7 @@ enum SettingNames: string {
   case FORMAT_MINIMAL_REPLY = "formatMinimalReply";
   case TELEMETRY = "telemetry";
   case DEFAULT_AT_HOUR = "defaultAtHour";
+  case DEFAULT_AT12_HOUR = "defaultAt12Hour";
   case DEFAULT_AT_MINUTE = "defaultAtMinute";
   case DEFAULT_AT_SECOND = "defaultAtSecond";
 }
