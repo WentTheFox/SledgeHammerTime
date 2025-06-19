@@ -7,6 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Advanced settings',
     'atCommandName' => 'at',
+    'at12CommandName' => 'at12',
     'hourOptionName' => 'hour',
     'minuteOptionName' => 'minute',
     'secondOptionName' => 'second',
@@ -64,6 +65,9 @@ return [
     'telemetry' => [
       'displayName' => 'Allow Telemetry collection',
       'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+    ],
+    'defaultAt12Hour' => [
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
   'saveSuccess' => 'Your settings have been saved successfully.',
