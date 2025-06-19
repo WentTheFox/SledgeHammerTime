@@ -17,6 +17,9 @@ export default defineConfig(({ mode }) => {
   }
 
   return ({
+    server: {
+      host: 'localhost',
+    },
     resolve: {
       alias: {
         '~@picocss': resolve(__dirname, 'node_modules/@picocss'),

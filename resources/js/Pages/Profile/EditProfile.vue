@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
-import { currentLanguageInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import ConnectedAccounts from '@/Pages/Profile/Partials/ConnectedAccounts.vue';
 import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccounts.vue';
 import HtCard from '@/Reusable/HtCard.vue';
-import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { Head } from '@inertiajs/vue3';
-import { computed, inject } from 'vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 
@@ -16,9 +13,6 @@ defineProps<{
   discordUsers: DiscordUserInfoProps[];
   crowdinUsers: CrowdinUserInfoProps[];
 }>();
-
-const currentLanguage = inject(currentLanguageInject);
-const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE);
 </script>
 
 <template>
@@ -38,7 +32,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
       :crowdin-users="crowdinUsers"
     />
 
-    <LinkAdditionalAccounts :locale="routeLocale" />
+    <LinkAdditionalAccounts />
 
     <DeleteUserForm />
   </Layout>

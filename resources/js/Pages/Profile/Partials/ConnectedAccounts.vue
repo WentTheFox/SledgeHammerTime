@@ -28,22 +28,28 @@ const connectedAccountCount = computed(() => props.crowdinUsers.length + props.d
       {{ $t('profile.accounts.description.1') }}
     </p>
 
-    <template v-if="discordUsers.length > 0">
+    <section
+      v-if="discordUsers.length > 0"
+      class="connected-accounts-section"
+    >
       <ConnectedAccountsHeading service="discord" />
       <DiscordUserInfo
         v-for="info of discordUsers"
         v-bind="info"
         :key="info.id"
       />
-    </template>
-    <template v-if="crowdinUsers.length > 0">
+    </section>
+    <section
+      v-if="crowdinUsers.length > 0"
+      class="connected-accounts-section"
+    >
       <ConnectedAccountsHeading service="crowdin" />
       <CrowdinUserInfo
         v-for="info of crowdinUsers"
         v-bind="info"
         :key="info.id"
       />
-    </template>
+    </section>
     <HtAlert
       v-if="connectedAccountCount === 0"
       type="info"
