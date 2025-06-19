@@ -31,6 +31,7 @@ return [
     'shortDescription' => 'Rövid Leírás',
     'commandOptions' => 'Paraméterek',
     'requiredOption' => 'Kötelező',
+    'removedOption' => 'Removed',
     'optionType' => 'Típus',
     'optionTypes' => [
       1 => 'Al-parancs',
