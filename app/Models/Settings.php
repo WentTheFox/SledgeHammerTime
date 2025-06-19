@@ -61,6 +61,7 @@ class Settings extends Model {
       case SettingNames::TIMEZONE:
         return "GMT";
       case SettingNames::DEFAULT_AT_HOUR:
+      case SettingNames::DEFAULT_AT12_HOUR:
       case SettingNames::DEFAULT_AT_MINUTE:
         return null;
       case SettingNames::DEFAULT_AT_SECOND:

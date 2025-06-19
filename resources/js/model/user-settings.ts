@@ -7,6 +7,7 @@ export interface UserSettings {
   format: string | null;
   formatMinimalReply: boolean | null;
   telemetry: boolean | null;
+  defaultAt12Hour: number | null;
   defaultAtHour: number | null;
   defaultAtMinute: number | null;
   defaultAtSecond: number | null;

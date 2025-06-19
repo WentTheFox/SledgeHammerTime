@@ -42,6 +42,7 @@ const form = useForm({
   boldPreview: props.entry.settings.boldPreview ?? props.defaultSettings.boldPreview ?? true,
   columns: props.entry.settings.columns ?? props.formatOptions?.[0] ?? props.defaultSettings.columns,
   telemetry: props.entry.settings.telemetry ?? props.defaultSettings.telemetry ?? true,
+  defaultAt12Hour: props.entry.settings.defaultAtHour ?? props.defaultSettings.defaultAt12Hour,
   defaultAtHour: props.entry.settings.defaultAtHour ?? props.defaultSettings.defaultAtHour,
   defaultAtMinute: props.entry.settings.defaultAtMinute ?? props.defaultSettings.defaultAtMinute,
   defaultAtSecond: props.entry.settings.defaultAtSecond ?? props.defaultSettings.defaultAtSecond,
@@ -230,6 +231,29 @@ const form = useForm({
             {{ $t('botSettings.advancedSettings.toggleText') }}
           </HtButton>
           <HtCollapsible :visible="showAdvancedSettings">
+            <HtFormControl
+              :id="'defaultAt12Hour-'+entry.user.id"
+              :label="$t('botSettings.fields.defaultAt12Hour.displayName', {
+                at12CommandName: $t('botSettings.advancedSettings.at12CommandName'),
+                hourOptionName: $t('botSettings.advancedSettings.hourOptionName'),
+              })"
+            >
+              <HtInput
+                v-model="form.defaultAt12Hour"
+                name="defaultAt12Hour"
+                class="mt-1"
+                type="number"
+                :min="1"
+                :max="12"
+              />
+              <template #message>
+                <FormMessage
+                  type="error"
+                  class="mt-2"
+                  :message="form.errors.defaultAt12Hour"
+                />
+              </template>
+            </HtFormControl>
             <HtFormControl
               :id="'defaultAtHour-'+entry.user.id"
               :label="$t('botSettings.fields.defaultAtHour.displayName', {
