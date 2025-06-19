@@ -1,0 +1,47 @@
+@use "../design";
+
+.connected-accounts-section {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.discord-user-info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: design.app-value('profile-user-info-spacing');
+
+  .user-image {
+    width: design.app-value('profile-user-info-image-size');
+    height: design.app-value('profile-user-info-image-size');
+    border-radius: design.app-value('profile-user-info-image-border-radius');
+  }
+
+  .user-name {
+    font-size: design.app-value('profile-user-info-name-font-size');
+  }
+}
+
+.crowdin-user-info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: design.app-value('profile-user-info-spacing');
+
+  .user-image {
+    width: design.app-value('profile-user-info-image-size');
+    height: design.app-value('profile-user-info-image-size');
+    border-radius: design.app-value('profile-user-info-image-border-radius');
+  }
+
+  .full-name, .username {
+    font-size: design.app-value('profile-user-info-name-font-size');
+  }
+
+  .username {
+    opacity: .65;
+  }
+}

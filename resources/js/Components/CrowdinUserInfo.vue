@@ -1,6 +1,6 @@
 <script setup lang="ts">
 export interface CrowdinUserInfoProps {
-  id: string;
+  id: number;
   fullName?: string;
   username: string;
   avatarUrl: string;
@@ -16,9 +16,9 @@ defineProps<CrowdinUserInfoProps>();
       :src="avatarUrl"
       class="user-image"
     >
-    <span class="display-name">{{ fullName || username }}</span>
+    <span class="full-name">{{ fullName || username }}</span>
     <template v-if="fullName">
-      <span class="username ms-2">({{ username }})</span>
+      <span class="username">({{ username }})</span>
     </template>
   </figure>
 </template>

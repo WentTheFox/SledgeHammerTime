@@ -102,12 +102,11 @@ class AuthController extends Controller {
         $discord_user->update(['user_id' => $user->id]);
       break;
       case SocialProvider::Crowdin->value:
-        $discord_user = $this->updateOrCreateCrowdinUser($data);
-        $discord_user->update(['user_id' => $user->id]);
+        $this->updateOrCreateCrowdinUser($data, $user);
+      break;
       default:
         abort(500, "Validated provider {$validated['provider']} does not match expectations");
     }
-
     $login_locale = session()?->pull(self::LOGIN_LOCALE_SESSION_KEY) ?? App::getLocale();
 
     return redirect()->route('profile.edit', ['locale' => $login_locale]);
@@ -134,11 +133,11 @@ class AuthController extends Controller {
     return $result;
   }
 
-  protected function updateOrCreateCrowdinUser($data) {
+  protected function updateOrCreateCrowdinUser($data, User $user) {
     /**
      * @var CrowdinUser $result
      */
-    $result = CrowdinUser::updateOrCreate([
+    $result = $user->crowdinUsers()->updateOrCreate([
       'id' => $data->getId(),
     ], [
       'id' => $data->getId(),

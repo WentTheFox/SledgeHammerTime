@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import { devModeInject } from '@/injection-keys';
+import { currentLanguageInject, devModeInject } from '@/injection-keys';
 import ConnectedAccountsHeading from '@/Pages/Profile/Partials/ConnectedAccountsHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
+import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { inject } from 'vue';
-
-defineProps<{
-  locale: string;
-}>();
+import { computed, inject } from 'vue';
 
 const devMode = inject(devModeInject);
+const currentLanguage = inject(currentLanguageInject);
+const locale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE);
 </script>
 
 <template>
-  <HtCard v-if="devMode">
+  <HtCard>
     <template #header>
       <h2>
         {{ $t('profile.accounts.linkAdditional.heading') }}
@@ -24,7 +23,10 @@ const devMode = inject(devModeInject);
       {{ $t('profile.accounts.linkAdditional.description') }}
     </p>
 
-    <section class="mb-3">
+    <section
+      v-if="devMode"
+      class="mb-3"
+    >
       <ConnectedAccountsHeading service="discord" />
       <p class="mb-3">
         {{ $t('profile.accounts.linkAdditional.discord.description') }}

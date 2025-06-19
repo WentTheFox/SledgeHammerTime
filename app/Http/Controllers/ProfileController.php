@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,14 +19,16 @@ class ProfileController extends Controller {
    */
   public function edit(Request $request):Response {
     $discordUsers = [];
+    $crowdinUsers = [];
     $authUser = Auth::user();
     if ($authUser){
       $discordUsers = $authUser->discordUsers()->get(['id', 'name', 'display_name', 'discriminator', 'avatar'])->map(fn(DiscordUser $du) => $du->mapToUiInfo());
+      $crowdinUsers = $authUser->crowdinUsers()->get(['id', 'username', 'full_name', 'avatar_url'])->map(fn(CrowdinUser $cu) => $cu->mapToUiInfo());
     }
 
     return Inertia::render('Profile/EditProfile', [
       'discordUsers' => $discordUsers,
-      'crowdinUsers' => [],
+      'crowdinUsers' => $crowdinUsers,
     ]);
   }
 

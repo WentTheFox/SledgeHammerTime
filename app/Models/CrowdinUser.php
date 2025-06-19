@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CrowdinUser extends Model {
+  use HasUiInfo;
+
   /**
    * The attributes that are mass assignable.
    *
@@ -22,6 +25,15 @@ class CrowdinUser extends Model {
     'token_expires',
     'user_id',
   ];
+
+  function mapToUiInfo():array {
+    return [
+      'id' => $this->id,
+      'username' => $this->username,
+      'fullName' => $this->full_name,
+      'avatarUrl' => $this->avatar_url,
+    ];
+  }
 
   function user():BelongsTo {
     return $this->belongsTo(User::class);
