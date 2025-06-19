@@ -7,6 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Haladó beállítások',
     'atCommandName' => 'ekkor',
+    'at12CommandName' => 'at12',
     'hourOptionName' => 'óra',
     'minuteOptionName' => 'perc',
     'secondOptionName' => 'másodperc',
@@ -64,6 +65,9 @@ return [
     'telemetry' => [
       'displayName' => 'Telemetria gyűjtésének engedélyezése',
       'explanation' => 'Ez teljesen opcionális, és nincs hatással arra, hogy tudod-e használni az appot. További információ itt: <1/>.',
+    ],
+    'defaultAt12Hour' => [
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
   'saveSuccess' => 'A beállításaid sikeresen mentéstre kerültek.',
