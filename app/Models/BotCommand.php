@@ -21,6 +21,7 @@ class BotCommand extends Model {
 
   function options():HasMany {
     return $this->hasMany(BotCommandOption::class)
+      ->withTrashed()
       ->orderBy('required', 'desc')
       ->orderBy('order');
   }

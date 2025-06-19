@@ -22,6 +22,7 @@ export interface BotCommandOption {
   max_length: number | null;
   choices?: BotCommandOptionChoiceList;
   total_uses: number | null;
+  deleted_at: string | null;
 }
 
 const props = defineProps<{
@@ -62,17 +63,24 @@ const hasMaxValue = computed(() => typeof props.option.max_value === 'number');
 const hasMinLength = computed(() => typeof props.option.min_length === 'number');
 const hasMaxLength = computed(() => typeof props.option.max_length === 'number');
 const totalUses = computed(() => props.option.total_uses ?? 0);
+const isDeleted = computed(() => props.option.deleted_at !== null);
 </script>
 
 <template>
-  <dt :class="['bot-command-option-name', { required: option.required }]">
+  <dt :class="['bot-command-option-name', { required: option.required, deleted: isDeleted }]">
     {{ localizedName }}
   </dt>
-  <dd class="bot-command-option-details">
+  <dd :class="['bot-command-option-details', { deleted: isDeleted }]">
     <p class="bot-command-option-description mb-2">
       {{ localizedDescription }}
     </p>
     <HtBadgeGroup class="bot-command-option-badges mb-2">
+      <HtBadge
+        v-if="isDeleted"
+        color="muted"
+      >
+        {{ $t('botInfo.commandsReference.removedOption') }}
+      </HtBadge>
       <HtBadge
         :prefix="$t('botInfo.commandsReference.optionType')"
         :color="optionColors[option.type]"
