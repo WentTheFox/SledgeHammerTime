@@ -696,7 +696,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 95
+        "translation": 91
       }
     },
     "en-GB": {
@@ -704,8 +704,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 95,
+        "translation": 95
       }
     },
     "es": {
@@ -762,7 +762,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 9
+        "translation": 7
       }
     },
     "he": {
@@ -803,8 +803,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 95,
+        "translation": 95
       }
     },
     "id": {
@@ -930,7 +930,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 45
+        "translation": 42
       }
     },
     "pt-BR": {
@@ -967,7 +967,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 95
+        "translation": 91
       }
     },
     "ru": {
@@ -993,7 +993,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 24
+        "translation": 22
       }
     },
     "sr": {
@@ -1028,7 +1028,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 22
+        "translation": 21
       }
     },
     "tr": {
@@ -1091,7 +1091,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 20
+        "translation": 18
       }
     },
     "zh-TW": {
