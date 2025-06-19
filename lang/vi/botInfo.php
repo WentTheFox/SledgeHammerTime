@@ -31,6 +31,7 @@ return [
     'shortDescription' => 'Short Description',
     'commandOptions' => 'Options',
     'requiredOption' => 'Required',
+    'removedOption' => 'Removed',
     'optionType' => 'Type',
     'optionTypes' => [
       1 => 'Sub-command',
