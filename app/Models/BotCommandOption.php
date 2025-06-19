@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BotCommandOption extends Model {
-  use HasUuids;
+  use HasUuids, SoftDeletes;
 
   protected $fillable = [
     'bot_command_id',
@@ -23,6 +24,10 @@ class BotCommandOption extends Model {
     'max_length',
     'deleted_at',
     'total_uses',
+  ];
+
+  protected $casts = [
+    'deleted_at' => 'datetime',
   ];
 
   function command():BelongsTo {

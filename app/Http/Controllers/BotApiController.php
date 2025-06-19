@@ -16,6 +16,7 @@ use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\Settings;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -114,6 +115,7 @@ class BotApiController extends Controller {
            */
           $option = $command->options()->updateOrCreate([
             'name' => $optionData['name'],
+            'type' => $optionData['type'],
           ], [
             'name' => $optionData['name'],
             'description' => $optionData['description'],
@@ -147,6 +149,16 @@ class BotApiController extends Controller {
               );
             }
           }
+
+          if ($option->deleted_at !== null){
+            $option->deleted_at = null;
+            $option->save();
+          }
+
+          $command->options()
+            ->where('name', $option->name)
+            ->whereNot('id', $option->id)
+            ->update(['deleted_at' => Carbon::now()]);
 
           switch ($option->type){
             case DiscordBotCommandOptionType::STRING->value:

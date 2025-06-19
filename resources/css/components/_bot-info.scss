@@ -53,6 +53,13 @@
         font-weight: bold;
       }
     }
+
+
+    .bot-command-option-name, .bot-command-option-details {
+      &.deleted {
+        opacity: .5;
+      }
+    }
   }
 
   .bot-command-option-choices {
