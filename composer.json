@@ -7,20 +7,6 @@
     "framework"
   ],
   "license": "MIT",
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../SocialiteProviders/src/Crowdin",
-      "options": {
-        "symlink": true
-      }
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/WentTheFox/SocialiteProviders",
-      "package-path": "src/Crowdin/"
-    }
-  ],
   "require": {
     "php": "^8.2",
     "ext-pdo": "*",
@@ -32,8 +18,8 @@
     "laravel/sanctum": "^4.0",
     "laravel/socialite": "^v5.21",
     "laravel/tinker": "^2.8",
+    "socialiteproviders/crowdin": "^5.0",
     "socialiteproviders/discord": "^4.2",
-    "socialiteproviders/crowdin": "dev-provider-crowdin",
     "spatie/laravel-google-fonts": "^1.2",
     "tightenco/ziggy": "^1.0",
     "zonuexe/http-accept-language": "~0.6.0"
