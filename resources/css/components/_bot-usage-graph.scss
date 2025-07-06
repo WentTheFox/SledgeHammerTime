@@ -1,0 +1,85 @@
+@use "../design";
+
+.tippy-box[data-theme~="bot-info-usage"] {
+  .tippy-content {
+    padding: design.app-value('bot-usage-graph-tooltip-padding') !important;
+  }
+}
+
+.bot-usage-graph {
+  width: design.app-value('bot-usage-graph-width');
+  max-width: 100%;
+  height: design.app-value('bot-usage-graph-height');
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+  position: relative;
+
+  .bot-usage-graph-no-data {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .bot-usage-graph-no-data-label {
+      display: inline-block;
+      font-style: italic;
+      text-align: center;
+      padding: design.app-value('bot-usage-graph-tooltip-padding');
+      @include design.drop-shadow;
+    }
+
+    ~ * {
+      // Fade out the following lines in case of no data
+      opacity: .5;
+    }
+  }
+
+  .bot-usage-graph-line {
+    position: relative;
+    z-index: 1;
+    --line-bg-color: #{design.app-color-light('bot-usage-graph-line-bg')};
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 0;
+    background-color: var(--line-bg-color);
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    @include design.if-dark {
+      --line-bg-color: #{design.app-color-dark('bot-usage-graph-line-bg')};
+    }
+  }
+
+  .bot-usage-graph-line-fill {
+    background-color: design.app-color-light('bot-usage-graph-line-color');
+    width: 100%;
+    height: calc((var(--value) / var(--highest-value)) * 100%);
+    min-height: calc(#{design.app-value('bot-usage-graph-line-gap')} * 2);
+    border: calc(#{design.app-value('bot-usage-graph-line-gap')} / 2) solid var(--line-bg-color);
+    box-sizing: border-box;
+
+    @include design.if-dark {
+      background-color: design.app-color-dark('bot-usage-graph-line-color');
+    }
+  }
+}
+
+.bot-usage-graph-tooltip-usage {
+  font-size: design.app-value('bot-usage-graph-tooltip-usage-font-size');
+  text-align: center;
+}
+
+.bot-usage-graph-tooltip-date {
+  font-size: design.app-value('bot-usage-graph-tooltip-date-font-size');
+  text-align: center;
+}

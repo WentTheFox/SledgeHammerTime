@@ -16,6 +16,8 @@ class LanguageDetector {
     'bot-login',
     // oAuth flow related
     'oauth',
+    // Frontend API
+    'frontend',
   ];
 
   protected const LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';

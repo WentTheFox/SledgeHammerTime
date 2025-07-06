@@ -45,4 +45,8 @@ class BotCommandOption extends Model {
   function telemetryUses():HasMany {
     return $this->hasMany(TelemetryCommandOptionUse::class);
   }
+
+  function telemetryUsage() {
+    return $this->morphMany(TelemetryUsage::class, 'source');
+  }
 }
