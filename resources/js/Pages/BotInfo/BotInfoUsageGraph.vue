@@ -53,7 +53,7 @@ const augmentedData = computed(() => {
     const pastDate = now.addDays(i + 1);
     const pastIsoDateString = pastDate.toISODateString();
     augmented.push({
-      timestamp: pastDate.getUnixSeconds(),
+      timestamp: pastDate.getUnixSeconds() * 1e3,
       value: indexedData.value[pastIsoDateString] ?? 0,
     });
   }
