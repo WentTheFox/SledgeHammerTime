@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useNumberFormatter } from '@/composables/useNumberFormatter';
 import BotCommandOptionChoices, { BotCommandOptionChoiceList } from '@/Pages/BotInfo/BotCommandOptionChoices.vue';
+import BotInfoUsageBadge from '@/Pages/BotInfo/BotInfoUsageBadge.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { BadgeColor } from '@/utils/badges';
 import { getBotCommandTranslationKey } from '@/utils/translation';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed } from 'vue';
 
 export interface BotCommandOption {
@@ -30,7 +28,6 @@ const props = defineProps<{
   option: BotCommandOption,
   translations: Record<string, string>,
 }>();
-const nf = useNumberFormatter();
 
 const localizedName = computed(() => {
   const key = getBotCommandTranslationKey({
@@ -153,13 +150,12 @@ const isDeleted = computed(() => props.option.deleted_at !== null);
           <code>{{ option.max_length }}</code>
         </HtBadge>
       </template>
-      <HtBadge
-        :color="totalUses > 0 ? undefined : 'muted'"
+      <BotInfoUsageBadge
+        :id="option.id"
+        type="command"
         :title="$t('botInfo.commandsReference.totalUses')"
-      >
-        <FontAwesomeIcon :icon="faChartLine" />
-        {{ nf.format(totalUses) }}
-      </HtBadge>
+        :total-usage="totalUses"
+      />
     </HtBadgeGroup>
     <BotCommandOptionChoices
       v-if="option.choices && option.choices.length > 0"

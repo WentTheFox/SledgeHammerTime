@@ -15,7 +15,7 @@ const nonStick = computed(() => page.props.ziggy.location === route('legal', rou
       <slot name="left" />
     </div>
     <Link
-      :href="route('home', route().params)"
+      :href="route('root')"
       class="header-brand"
     >
       <ApplicationLogo :size="10" />

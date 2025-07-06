@@ -71,7 +71,7 @@ watch([dateString, timeString, currentTimezone], () => {
   const params = new URLSearchParams();
   params.set('dt', (dateString.value + '.' + timeString.value).replace(/[^\d.]/g, ''));
   params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
-  router.get(`${route('home', { locale: locale.value })}?${params}`, undefined, { replace: true });
+  router.get(`/${locale.value}?${params}`, undefined, { replace: true });
 });
 </script>
 

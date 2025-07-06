@@ -99,6 +99,12 @@ $value-map: (
   bot-shard-tick-height: 2em,
   bot-shard-tick-gap: .25em,
   bot-shard-tick-border-radius: .25em,
+  bot-usage-graph-width: 200px,
+  bot-usage-graph-height: 100px,
+  bot-usage-graph-line-gap: 2px,
+  bot-usage-graph-tooltip-padding: .25rem,
+  bot-usage-graph-tooltip-usage-font-size: 1.5rem,
+  bot-usage-graph-tooltip-date-font-size: .75rem,
 );
 
 $_text-color-light: #313131;
@@ -425,6 +431,14 @@ $color-map: (
   bot-shard-inactvie-bg: (
     light: color.adjust(#efe, $saturation: -100%),
     dark: color.adjust(#559933, $saturation: -100%),
+  ),
+  bot-usage-graph-line-bg: (
+    light: #ccc,
+    dark: #444,
+  ),
+  bot-usage-graph-line-color: (
+    light: #57b,
+    dark: #8af,
   ),
 );
 
