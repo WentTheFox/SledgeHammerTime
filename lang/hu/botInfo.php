@@ -56,6 +56,7 @@ return [
     'minLength' => 'Minimum hossz',
     'maxLength' => 'Maximum hossz',
     'choices' => 'Lehetséges értékek:',
+    'usageGraphNoData' => 'No recent usage data found',
     'additionalDescription' => [
       'commands' => [
         'in' => 'Legalább egy módosítandó időegység megadása kötelező',
