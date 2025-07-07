@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { themeInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faPalette, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { inject, ref } from 'vue';
 import { Tippy } from 'vue-tippy';
 
@@ -22,12 +23,16 @@ const isDesktop = ref(true);
       @contextmenu.prevent="theme?.changeTheme(null)"
     />
     <template #content>
+      <FontAwesomeIcon
+        :icon="faPalette"
+        class="me-1"
+      />
       {{ theme?.isLightTheme ? $t('global.sidebar.themeButton.dark') : $t('global.sidebar.themeButton.light') }}
       <small
         v-if="!theme?.usingSystemStyle"
         class="theme-button-tooltip-reset-hint"
       >
-        {{ isDesktop ? $t('global.sidebar.themeButton.resetDesktop') : $t('global.sidebar.themeButton.resetMobile') }}
+        {{ isDesktop ? $t('global.sidebar.themeButton.resetMouse') : $t('global.sidebar.themeButton.resetTouch') }}
       </small>
     </template>
   </Tippy>
