@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
@@ -22,7 +23,8 @@ interface BotInfoUsageData {
 }
 
 interface AugmentedBotInfoUsageData {
-  timestamp: number;
+  key: number;
+  timestamp: DateTimeLibraryValue;
   value: number;
 }
 
@@ -53,7 +55,8 @@ const augmentedData = computed(() => {
     const pastDate = now.addDays(i + 1);
     const pastIsoDateString = pastDate.toISODateString();
     augmented.push({
-      timestamp: pastDate.getUnixSeconds() * 1e3,
+      key: pastDate.getUnixSeconds(),
+      timestamp: pastDate,
       value: indexedData.value[pastIsoDateString] ?? 0,
     });
   }
@@ -85,7 +88,7 @@ watch(data, (newData) => {
         </div>
         <Tippy
           v-for="dataPoint in augmentedData"
-          :key="dataPoint.timestamp"
+          :key="dataPoint.key"
           :follow-cursor="true"
           class="bot-usage-graph-line"
         >
@@ -103,7 +106,7 @@ watch(data, (newData) => {
                 class="me-2"
               />
               <TimestampPreview
-                :ts="dtl?.fromTimestampMsUtc(dataPoint.timestamp)"
+                :ts="dataPoint.timestamp"
                 :format="MessageTimestampFormat.SHORT_DATE"
               />
             </div>
