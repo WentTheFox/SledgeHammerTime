@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
-import { dateTimeLibraryInject, theme } from '@/injection-keys';
+import { dateTimeLibraryInject, themeInject } from '@/injection-keys';
 import {
   DialColors,
   DialEnvironment,
@@ -37,7 +37,7 @@ const emit = defineEmits<{
   (e: 'select'): void
 }>();
 
-const themeData = inject(theme);
+const themeData = inject(themeInject);
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
 

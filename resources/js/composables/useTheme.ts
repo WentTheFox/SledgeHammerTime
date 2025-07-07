@@ -1,8 +1,10 @@
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { LocalSettingsValue } from '@/injection-keys';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 
-export function useIsLightTheme() {
-  const isLightTheme = ref<boolean>(false);
-
+export function useTheme(settings: LocalSettingsValue) {
+  const darkMediaMatches = ref<boolean>(false);
+  const isLightTheme = computed(() => settings.isLightTheme ?? !darkMediaMatches.value);
+  const usingSystemStyle = computed(() => settings.isLightTheme === null);
   const themeWatcher = (value: boolean) => {
     if (typeof document === 'undefined') return;
 
@@ -14,7 +16,7 @@ export function useIsLightTheme() {
     ? window.matchMedia('(prefers-color-scheme: dark)')
     : undefined;
   const handleMediaChange = (e: Pick<MediaQueryListEvent, 'matches'>) => {
-    isLightTheme.value = !e.matches;
+    darkMediaMatches.value = e.matches;
   };
 
   onMounted(() => {
@@ -28,5 +30,11 @@ export function useIsLightTheme() {
     colorSchemeMedia?.removeEventListener('change', handleMediaChange);
   });
 
-  return isLightTheme;
+  return {
+    isLightTheme,
+    usingSystemStyle,
+    changeTheme: (isLight: boolean | null) => {
+      settings.setLightTheme(isLight);
+    },
+  };
 }

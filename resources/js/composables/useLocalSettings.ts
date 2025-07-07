@@ -6,6 +6,7 @@ const customPrefKey = 'custom-input';
 const sidebarPrefKey = 'sidebar-right';
 const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const legacyDateLibPrefKey = 'legacy-date-lib';
+const lightThemePrefKey = 'light-theme';
 
 export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => {
   const customInputEnabled = ref<boolean | null>(null);
@@ -13,6 +14,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const sidebarOnRight = ref<boolean | null>(null);
   const sidebarOffDesktop = ref<boolean | null>(null);
   const dateFnsEnabled = ref<boolean | null>(null);
+  const isLightTheme = ref<boolean | null>(null);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -32,6 +34,9 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   });
   watch(dateFnsEnabled, (newValue) => {
     localStorage.setItem(legacyDateLibPrefKey, newValue ? 'true' : 'false');
+  });
+  watch(isLightTheme, (newValue) => {
+    localStorage.setItem(lightThemePrefKey, newValue ? 'true' : 'false');
   });
 
   const setInitialCombinedInput = () => {
@@ -68,6 +73,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     // Feature is enabled by default
     dateFnsEnabled.value = storedPref === 'true';
   };
+  const setInitialLightTheme = () => {
+    const storedPref = localStorage.getItem(lightThemePrefKey);
+    // Feature is enabled by default
+    isLightTheme.value = storedPref !== null ? storedPref === 'true' : null;
+  };
 
   onMounted(() => {
     setInitialCombinedInput();
@@ -75,6 +85,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     setInitialSidebarOnRight();
     setInitialSidebarOffDesktop();
     setInitialDateFnsEnabled();
+    setInitialLightTheme();
   });
 
   return {
@@ -84,6 +95,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     rawSidebarOnRight: sidebarOnRight,
     sidebarOffDesktop,
     dateFnsEnabled,
+    isLightTheme,
     toggleCustomInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
@@ -104,6 +116,9 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
       if (!(e.target instanceof HTMLInputElement)) return;
 
       dateFnsEnabled.value = e.target.checked;
+    },
+    setLightTheme(isLight: boolean | null) {
+      isLightTheme.value = isLight;
     },
   };
 };

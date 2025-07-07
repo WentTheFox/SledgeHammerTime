@@ -17,8 +17,10 @@ export const timestamp = Symbol('timestamp') as InjectionKey<{
   setCurrentTime: () => void,
 }>;
 
-export const theme = Symbol('theme') as InjectionKey<{
-  readonly isLightTheme: boolean
+export const themeInject = Symbol('theme') as InjectionKey<{
+  readonly isLightTheme: boolean;
+  readonly usingSystemStyle: boolean;
+  readonly changeTheme: (isLight: boolean | null) => void;
 }>;
 
 export const sidebarState = Symbol('sidebarState') as InjectionKey<{
@@ -36,11 +38,13 @@ export interface LocalSettingsValue {
   readonly sidebarOnRight: boolean | null;
   readonly sidebarOffDesktop: boolean | null;
   readonly dateFnsEnabled: boolean | null;
+  readonly isLightTheme: boolean | null;
   readonly toggleCustomInput: (e: Event) => void;
   readonly toggleSeparateInputs: (e: Event) => void;
   readonly toggleDateFnsEnabled: (e: Event) => void;
   readonly toggleSidebarOnRight: VoidFunction;
   readonly setSidebarOffDesktop: (value: boolean) => void;
+  readonly setLightTheme: (isLight: boolean | null) => void;
 }
 
 export const localSettings = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

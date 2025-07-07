@@ -3,6 +3,7 @@ import LanguageSelector from '@/Components/LanguageSelector.vue';
 import InputSettings from '@/Components/sidebar/InputSettings.vue';
 import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
+import ThemeButton from '@/Components/sidebar/ThemeButton.vue';
 import UserInfo from '@/Components/UserInfo.vue';
 import { localSettings, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -40,11 +41,12 @@ const close = () => {
     <hr class="sidebar-divider">
     <div class="sidebar-bottom">
       <ul class="actions-wrapper">
-        <li class="p-0">
+        <li>
           <LanguageSelector />
         </li>
-        <li class="p-0">
+        <li class="parallel-actions">
           <UserInfo />
+          <ThemeButton />
         </li>
       </ul>
     </div>
