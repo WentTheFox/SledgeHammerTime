@@ -1,4 +1,4 @@
-export type ButtonColors = 'primary' | 'success' | 'danger' | 'warning';
+export type ButtonColors = 'primary' | 'success' | 'danger' | 'warning' | 'light' | 'dark';
 
 export interface GetButtonClassesOptions {
   'class'?: string | Record<string, boolean> | Array<string | undefined | Record<string, boolean>>,

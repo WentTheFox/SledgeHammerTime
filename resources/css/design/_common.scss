@@ -124,6 +124,8 @@ $_badge-green-hue: -60;
 $_badge-cyan-hue: -25;
 $_badge-purple-hue: 50;
 $_badge-red-hue: 120;
+$_dark_theme_color: #222;
+$_light_theme_color: #eee;
 
 $color-map: (
   layout-bg: (
@@ -249,6 +251,30 @@ $color-map: (
   button-warning-border-color: (
     light: color.adjust(#997733, $lightness: 20%, $saturation: -10%),
     dark: color.adjust(#997733, $lightness: -10%, $saturation: -10%),
+  ),
+  button-light-color: (
+    light: $_dark_theme_color,
+    dark: $_dark_theme_color,
+  ),
+  button-light-bg: (
+    light: $_light_theme_color,
+    dark: $_light_theme_color,
+  ),
+  button-light-border-color: (
+    light: #aaa,
+    dark: #aaa,
+  ),
+  button-dark-color: (
+    light: $_light_theme_color,
+    dark: $_light_theme_color,
+  ),
+  button-dark-bg: (
+    light: $_dark_theme_color,
+    dark: $_dark_theme_color,
+  ),
+  button-dark-border-color: (
+    light: #000,
+    dark: #000,
   ),
   sidebar-bg: (
     light: color.adjust($_base-blue, $lightness: 30%, $saturation: -10%),
