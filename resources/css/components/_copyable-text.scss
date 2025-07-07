@@ -6,11 +6,13 @@
   justify-content: flex-start;
   align-items: stretch;
 
-  @include design.if-ltr {
-    @include design.combined-border-radius;
-  }
-  @include design.if-rtl {
-    @include design.combined-border-radius-inverted;
+  > * {
+    @include design.if-ltr {
+      @include design.combined-border-radius;
+    }
+    @include design.if-rtl {
+      @include design.combined-border-radius-inverted;
+    }
   }
 
   .copyable-text-data {
