@@ -54,6 +54,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Jackie](https://crowdin.com/profile/jckcr)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [notlin4](https://crowdin.com/profile/notlin4)
+  - [呂宥廷](https://crowdin.com/profile/avery11111102)
 - 🇭🇷 Croatian
   - [net-tech-](https://crowdin.com/profile/net-tech-)
   - [tovhov](https://crowdin.com/profile/tovhov)

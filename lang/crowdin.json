@@ -616,6 +616,11 @@
       "username": "vinny7x",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17159146/medium/a29ad481201a2fba5b59a24197326d73.jpeg",
       "fullName": "Vinny7x"
+    },
+    "17175290": {
+      "username": "avery11111102",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17175290/medium/a203b17152fcb570882043aa4c440726.png",
+      "fullName": "呂宥廷"
     }
   },
   "languages": {
@@ -1098,11 +1103,12 @@
       "translatorIds": [
         "15258052",
         "15434450",
-        "15980591"
+        "15980591",
+        "17175290"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 12
       }
     }
   }
