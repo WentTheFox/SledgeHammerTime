@@ -54,4 +54,9 @@ const close = () => {
   <div class="sidebar-spacing-wrapper">
     <slot />
   </div>
+  <div
+    class="sidebar-close-overlay"
+    :hidden="!isOpen"
+    @click="close"
+  />
 </template>

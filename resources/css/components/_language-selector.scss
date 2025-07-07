@@ -54,7 +54,7 @@
     white-space: nowrap;
   }
 
-  .change-language-button {
+  .change-language-button-wrap {
     flex: 1 0 50%;
   }
 
@@ -66,6 +66,13 @@
 }
 
 .language-list {
+  width: 300px;
+  max-width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
   .language-link {
     display: flex;
     flex-flow: row nowrap;

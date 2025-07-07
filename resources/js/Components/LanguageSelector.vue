@@ -2,7 +2,6 @@
 import CustomFlag from '@/Components/CustomFlag.vue';
 import { currentLanguageInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
-import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
 import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
@@ -10,6 +9,7 @@ import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/
 import { faCaretDown, faCaretUp, faGlobe, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
+import { Tippy } from 'vue-tippy';
 import nativeLocaleNames from '../../../vendor/laravel-lang/native-locale-names/data/_native.json';
 
 const searchParams = ref<URLSearchParams | null>(null);
@@ -27,7 +27,6 @@ const extendedNativeLocaleNames: Record<AvailableLanguage, string> = {
 };
 
 const noTranslationsNeededLocales = new Set(['en', 'en-GB', 'hu']);
-const languagesDropdownVisible = ref(false);
 
 const sortedLanguages = computed(() =>
   (Object.entries(LANGUAGES) as [AvailableLanguage, LatestLanguageConfigType][])
@@ -94,35 +93,6 @@ onMounted(router.on('success', navigateListener));
         {{ extendedNativeLocaleNames[currentLanguage.locale] }}
       </div>
     </div>
-    <div class="translation-progress" />
-    <HtCollapsible
-      :visible="languagesDropdownVisible"
-      class="language-list"
-      :max-height="200"
-    >
-      <div dir="ltr">
-        <template v-for="[sortedLocale, config] in sortedLanguages">
-          <div
-            v-if="sortedLocale !== currentLanguage?.locale"
-            :key="sortedLocale"
-          >
-            <a
-              :href="getCurrentRouteFromLocale(sortedLocale)+searchParamsString"
-              :class="['language-link', { disabled: !currentLanguage?.supportedLanguages?.has(sortedLocale) }]"
-              :dir="config.rtl ? 'rtl' : 'ltr'"
-            >
-              <span class="language-flag">
-                <CustomFlag
-                  :country="config.countryCode"
-                  :custom-flag="config.customFlag"
-                />
-              </span>
-              <span class="language-name">{{ extendedNativeLocaleNames[sortedLocale] }}</span>
-            </a>
-          </div>
-        </template>
-      </div>
-    </HtCollapsible>
     <div
       v-if="displayContributionHints && currentLanguageApprovalPercent < 100"
       class="language-progress mb-2"
@@ -133,17 +103,51 @@ onMounted(router.on('success', navigateListener));
       <HtProgress :progress="currentLanguageApprovalPercent" />
     </div>
     <div class="language-controls">
-      <HtButton
-        :block="true"
-        class="change-language-button"
-        :icon-start="faGlobe"
-        :icon-end="languagesDropdownVisible ? faCaretDown : faCaretUp"
-        :justify-center="true"
-        :pressed="languagesDropdownVisible"
-        @click.prevent="languagesDropdownVisible = !languagesDropdownVisible"
-      >
-        <span>{{ $t('global.changeLanguage') }}</span>
-      </HtButton>
+      <div class="change-language-button-wrap">
+        <Tippy
+          content-class="language-list"
+          trigger="click"
+          :interactive="true"
+          :arrow="false"
+        >
+          <template #default="{ state }">
+            <HtButton
+              :block="true"
+              class="change-language-button"
+              :icon-start="faGlobe"
+              :icon-end="state.isVisible ? faCaretDown : faCaretUp"
+              :justify-center="true"
+              :pressed="state.isVisible"
+            >
+              <span>{{ $t('global.changeLanguage') }}</span>
+            </HtButton>
+          </template>
+          <template #content>
+            <template v-for="[sortedLocale, config] in sortedLanguages">
+              <div
+                v-if="sortedLocale !== currentLanguage?.locale"
+                :key="sortedLocale"
+                dir="ltr"
+                class="language-link-wrap"
+              >
+                <a
+                  :href="getCurrentRouteFromLocale(sortedLocale)+searchParamsString"
+                  :class="['language-link', { disabled: !currentLanguage?.supportedLanguages?.has(sortedLocale) }]"
+                  :dir="config.rtl ? 'rtl' : 'ltr'"
+                >
+                  <span class="language-flag">
+                    <CustomFlag
+                      :country="config.countryCode"
+                      :custom-flag="config.customFlag"
+                    />
+                  </span>
+                  <span class="language-name">{{ extendedNativeLocaleNames[sortedLocale] }}</span>
+                </a>
+              </div>
+            </template>
+          </template>
+        </Tippy>
+      </div>
       <HtLinkButton
         v-if="displayContributionHints"
         color="success"
