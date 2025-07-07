@@ -9,6 +9,8 @@ return [
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
+  'copyToClipboard' => 'Copy to clipboard',
+  'copiedToClipboard' => 'Copied to clipboard!',
   'guest' => 'Látogató',
   'jsDisabled' => [
     'title' => 'JavaScript szükséges',
@@ -32,7 +34,7 @@ return [
       ],
       'newDateTimeLibrary' => [
         'label' => 'Modern dátum-idő könyvtár használata',
-        'description' => 'Az alkalmazás által az időbélyegek kiszámításához használt könyvtárat már nem karbantartják, ezért le kell cserélni. Ez a lehetőség lehetővé teszi az új könyvtár kipróbálását, mielőtt az élesbe kerülne.',
+        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
@@ -56,8 +58,7 @@ return [
     'themeButton' => [
       'dark' => 'Dark Theme',
       'light' => 'Light Theme',
-      'resetMouse' => 'Right click to reset',
-      'resetTouch' => 'Press and hold to reset',
+      'system' => 'Use System Theme',
     ],
   ],
   'designEditor' => [
