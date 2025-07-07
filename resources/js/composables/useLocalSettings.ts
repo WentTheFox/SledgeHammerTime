@@ -36,6 +36,10 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     localStorage.setItem(legacyDateLibPrefKey, newValue ? 'true' : 'false');
   });
   watch(isLightTheme, (newValue) => {
+    if (newValue === null) {
+      localStorage.removeItem(lightThemePrefKey);
+      return;
+    }
     localStorage.setItem(lightThemePrefKey, newValue ? 'true' : 'false');
   });
 
