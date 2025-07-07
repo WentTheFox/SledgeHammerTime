@@ -1,5 +1,7 @@
 @use '../design';
 
+$_sidebar_space_reserved_from_breakpoint: 'lg';
+
 .sidebar {
   position: fixed;
   z-index: design.app-z-index('sidebar');
@@ -50,12 +52,14 @@
   &.is-open {
     transform: translateX(0);
 
-    &.position-left + .sidebar-spacing-wrapper {
-      padding-left: design.app-value('sidebar-max-width');
-    }
+    @include design.screen-above($_sidebar_space_reserved_from_breakpoint) {
+      &.position-left + .sidebar-spacing-wrapper {
+        padding-left: design.app-value('sidebar-max-width');
+      }
 
-    &.position-right + .sidebar-spacing-wrapper {
-      padding-right: design.app-value('sidebar-max-width');
+      &.position-right + .sidebar-spacing-wrapper {
+        padding-right: design.app-value('sidebar-max-width');
+      }
     }
   }
 
@@ -110,6 +114,21 @@
         }
       }
     }
+  }
+}
+
+.sidebar-close-overlay {
+  position: fixed;
+  z-index: design.app-z-index('sidebar-close-overlay');
+  background-color: rgba(0, 0, 0, .75);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+
+  @include design.screen-above($_sidebar_space_reserved_from_breakpoint) {
+    display: none !important;
   }
 }
 

@@ -5,8 +5,9 @@ $z-index-map: (
   default: 2,
   focus: 3,
   header: 4,
-  sidebar: 5,
-  combobox-suggestions: 6,
+  sidebar-close-overlay: 5,
+  sidebar: 6,
+  combobox-suggestions: 7,
 );
 
 $value-map: (
