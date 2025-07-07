@@ -16,6 +16,18 @@
   position: relative;
 
   .bot-usage-graph-no-data {
+    font-style: italic;
+    justify-content: center !important;
+    align-items: center !important;
+    pointer-events: initial !important;
+
+    ~ * {
+      // Fade out the following lines in case of no data
+      opacity: .5;
+    }
+  }
+
+  .bot-usage-graph-legend {
     position: absolute;
     z-index: 2;
     top: 0;
@@ -24,20 +36,16 @@
     bottom: 0;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    pointer-events: none;
+    user-select: none;
 
-    .bot-usage-graph-no-data-label {
+    .bot-usage-graph-legend-label {
       display: inline-block;
-      font-style: italic;
       text-align: center;
       padding: design.app-value('bot-usage-graph-tooltip-padding');
       @include design.drop-shadow;
-    }
-
-    ~ * {
-      // Fade out the following lines in case of no data
-      opacity: .5;
     }
   }
 

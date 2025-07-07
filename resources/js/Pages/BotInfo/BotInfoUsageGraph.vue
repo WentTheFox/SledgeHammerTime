@@ -44,7 +44,7 @@ const indexedData = computed<Record<string, number>>(() => data.value?.reduce((a
   ...acc,
   [c.date]: c.value,
 }), {}) ?? {});
-const biggestDataPoint = computed(() => data.value?.reduce((acc, c) => c.value > acc ? c.value : acc, 0) ?? 0);
+const highestValue = computed(() => data.value?.reduce((acc, c) => c.value > acc ? c.value : acc, 0) ?? 0);
 
 const augmentedData = computed(() => {
   let augmented: AugmentedBotInfoUsageData[] = [];
@@ -71,17 +71,28 @@ watch(data, (newData) => {
   <TippySingleton>
     <div
       class="bot-usage-graph"
-      :style="`--highest-value: ${biggestDataPoint}`"
+      :style="`--highest-value: ${highestValue}`"
     >
       <div
         v-if="data === null || data.length === 0"
-        class="bot-usage-graph-no-data"
+        class="bot-usage-graph-legend bot-usage-graph-no-data"
       >
-        <span class="bot-usage-graph-no-data-label">
+        <span class="bot-usage-graph-legend-label bot-usage-graph-no-data-label">
           <HtLoadingIndicator v-if="data === null" />
           <template v-else>
             {{ $t('botInfo.commandsReference.usageGraphNoData') }}
           </template>
+        </span>
+      </div>
+      <div
+        v-else
+        class="bot-usage-graph-legend"
+      >
+        <span class="bot-usage-graph-legend-label high">
+          {{ highestValue }}
+        </span>
+        <span class="bot-usage-graph-legend-label low">
+          0
         </span>
       </div>
       <Tippy
