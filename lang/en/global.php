@@ -9,6 +9,8 @@ return [
   ],
   'incompleteTranslations' => 'Translations are incomplete',
   'contributeTranslations' => 'Contribute',
+  'copyToClipboard' => 'Copy to clipboard',
+  'copiedToClipboard' => 'Copied to clipboard!',
   'guest' => 'Guest',
   'jsDisabled' => [
     'title' => 'JavaScript is necessary',

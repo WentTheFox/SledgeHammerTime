@@ -7,11 +7,17 @@
   align-items: stretch;
 
   > * {
+    border-radius: design.app-value('button-border-radius');
+
     @include design.if-ltr {
       @include design.combined-border-radius;
     }
     @include design.if-rtl {
       @include design.combined-border-radius-inverted;
+    }
+
+    > .button {
+      border-radius: inherit !important;
     }
   }
 

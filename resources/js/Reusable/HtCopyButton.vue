@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HtButton from '@/Reusable/HtButton.vue';
 import { faCheck, faClipboard } from '@fortawesome/free-solid-svg-icons';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 const props = defineProps<{
   text: string | number | undefined;
@@ -11,6 +11,10 @@ const props = defineProps<{
 const copied = ref<boolean>(false);
 const releaseTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
 const isDisabled = computed(() => typeof props.text === 'undefined');
+
+const emit = defineEmits<{
+  (e: 'copied', value: boolean): void;
+}>();
 
 const handleClick = () => {
   if (typeof props.text === 'undefined') return;
@@ -25,6 +29,10 @@ const handleClick = () => {
     releaseTimeout.value = null;
   }, 1e3);
 };
+
+watch(copied, (newCopied) => {
+  emit('copied', newCopied);
+});
 </script>
 
 <template>
