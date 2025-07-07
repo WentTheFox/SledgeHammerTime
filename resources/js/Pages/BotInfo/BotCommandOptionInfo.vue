@@ -152,7 +152,7 @@ const isDeleted = computed(() => props.option.deleted_at !== null);
       </template>
       <BotInfoUsageBadge
         :id="option.id"
-        type="command"
+        type="option"
         :title="$t('botInfo.commandsReference.totalUses')"
         :total-usage="totalUses"
       />
