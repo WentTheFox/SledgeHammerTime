@@ -53,6 +53,12 @@ return [
       'viewSourceCode' => 'Forráskód megtekintése',
       'notAffiliated' => 'A projektnek semmilyen kapcsolata nincs a Discord-al.',
     ],
+    'themeButton' => [
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
+      'resetMouse' => 'Right click to reset',
+      'resetTouch' => 'Press and hold to reset',
+    ],
   ],
   'designEditor' => [
     'title' => 'Arculattervező',
