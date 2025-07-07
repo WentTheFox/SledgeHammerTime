@@ -16,6 +16,7 @@ export interface BotInfoUsageGraphProps {
 }
 
 const props = defineProps<BotInfoUsageGraphProps>();
+const historyDays = 90;
 
 interface BotInfoUsageData {
   date: string;
@@ -49,7 +50,7 @@ const augmentedData = computed(() => {
   let augmented: AugmentedBotInfoUsageData[] = [];
   const now = dtl?.value.now();
   if (!now) return augmented;
-  for (let i = -30; i < 0; i++) {
+  for (let i = -historyDays; i < 0; i++) {
     const pastDate = now.addDays(i + 1);
     const pastIsoDateString = pastDate.toISODateString();
     augmented.push({

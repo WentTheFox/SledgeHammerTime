@@ -23,14 +23,14 @@ class CalculateTelemetryUsage extends Command {
    */
   protected $description = 'Upsert telemetry usage records and remove stale ones';
 
-  protected const STALE_DAYS_THRESHOLD = 30;
+  protected const STATISTICS_DAYS_CUTOFF = 90;
 
   /**
    * Execute the console command.
    */
   public function handle() {
     DB::transaction(function () {
-      $staleDaysThreshold = self::STALE_DAYS_THRESHOLD;
+      $cutoff = self::STATISTICS_DAYS_CUTOFF;
       $sourceCommand = BotCommand::class;
       $sourceOption = BotCommandOption::class;
       TelemetryUsage::truncate();
@@ -42,7 +42,7 @@ class CalculateTelemetryUsage extends Command {
             ce.bot_command_id::varchar as source_id,
             :sourceCommand AS source_type
         FROM telemetry_command_executions ce
-        WHERE ce.created_at >= NOW() - INTERVAL '$staleDaysThreshold DAY'
+        WHERE ce.created_at >= NOW() - INTERVAL '$cutoff DAY'
         GROUP BY date, source_id
         UNION ALL
         SELECT
@@ -51,7 +51,7 @@ class CalculateTelemetryUsage extends Command {
             cou.bot_command_option_id::varchar as source_id,
             :sourceOption AS source_type
         FROM telemetry_command_option_uses cou
-        WHERE cou.created_at >= NOW() - INTERVAL '$staleDaysThreshold DAY'
+        WHERE cou.created_at >= NOW() - INTERVAL '$cutoff DAY'
         GROUP BY date, source_id
       SQL
         , [':sourceCommand' => $sourceCommand, ':sourceOption' => $sourceOption]);
