@@ -7,8 +7,7 @@
 }
 
 .bot-usage-graph {
-  width: design.app-value('bot-usage-graph-width');
-  max-width: 100%;
+  min-width: 0;
   height: design.app-value('bot-usage-graph-height');
   display: flex;
   flex-flow: row nowrap;
@@ -45,18 +44,17 @@
   .bot-usage-graph-line {
     position: relative;
     z-index: 1;
-    --line-bg-color: #{design.app-color-light('bot-usage-graph-line-bg')};
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
     height: 100%;
-    min-width: 0;
-    background-color: var(--line-bg-color);
+    min-width: design.app-value('bot-usage-graph-line-min-width');
+    background-color: design.app-color-light('bot-usage-graph-line-bg');
     flex-grow: 1;
     flex-shrink: 1;
 
     @include design.if-dark {
-      --line-bg-color: #{design.app-color-dark('bot-usage-graph-line-bg')};
+      background-color: design.app-color-dark('bot-usage-graph-line-bg');
     }
   }
 
@@ -64,8 +62,7 @@
     background-color: design.app-color-light('bot-usage-graph-line-color');
     width: 100%;
     height: calc((var(--value) / var(--highest-value)) * 100%);
-    min-height: calc(#{design.app-value('bot-usage-graph-line-gap')} * 2);
-    border: calc(#{design.app-value('bot-usage-graph-line-gap')} / 2) solid var(--line-bg-color);
+    min-height: design.app-value('bot-usage-graph-line-min-width');
     box-sizing: border-box;
 
     @include design.if-dark {
