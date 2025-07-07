@@ -218,5 +218,8 @@
 }
 
 @mixin drop-shadow {
-  filter: drop-shadow(0 0.0625em 0.0625em rgba(0, 0, 0, .5));
+  filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color-light('drop-shadow')});
+  @include if-dark {
+    filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color-dark('drop-shadow')});
+  }
 }
