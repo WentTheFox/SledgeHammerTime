@@ -34,7 +34,7 @@ return [
       ],
       'newDateTimeLibrary' => [
         'label' => 'Use modern datetime library',
-        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live.',
+        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
