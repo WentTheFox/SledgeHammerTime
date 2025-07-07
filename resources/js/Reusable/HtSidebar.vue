@@ -3,7 +3,7 @@ import LanguageSelector from '@/Components/LanguageSelector.vue';
 import InputSettings from '@/Components/sidebar/InputSettings.vue';
 import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
-import ThemeButton from '@/Components/sidebar/ThemeButton.vue';
+import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
 import UserInfo from '@/Components/UserInfo.vue';
 import { localSettings, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -46,7 +46,7 @@ const close = () => {
         </li>
         <li class="parallel-actions">
           <UserInfo />
-          <ThemeButton />
+          <ThemeButtonGroup />
         </li>
       </ul>
     </div>

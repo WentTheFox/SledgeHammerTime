@@ -56,8 +56,7 @@ return [
     'themeButton' => [
       'dark' => 'Dark Theme',
       'light' => 'Light Theme',
-      'resetMouse' => 'Right click to reset',
-      'resetTouch' => 'Press and hold to reset',
+      'system' => 'Use System Theme',
     ],
   ],
   'designEditor' => [
