@@ -56,6 +56,7 @@ return [
     'minLength' => 'Minimum length',
     'maxLength' => 'Maximum length',
     'choices' => 'Possible values:',
+    'usageGraphNoData' => 'No recent usage data found',
     'additionalDescription' => [
       'commands' => [
         'in' => 'You must specify at least one time component to change',
