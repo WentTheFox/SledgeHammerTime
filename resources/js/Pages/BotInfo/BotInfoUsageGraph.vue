@@ -46,8 +46,6 @@ const indexedData = computed<Record<string, number>>(() => data.value?.reduce((a
 const biggestDataPoint = computed(() => data.value?.reduce((acc, c) => c.value > acc ? c.value : acc, 0) ?? 0);
 
 const augmentedData = computed(() => {
-  if (data.value == null) return null;
-
   let augmented: AugmentedBotInfoUsageData[] = [];
   const now = dtl?.value.now();
   if (!now) return augmented;
@@ -69,50 +67,48 @@ watch(data, (newData) => {
 </script>
 
 <template>
-  <template v-if="!augmentedData">
-    <HtLoadingIndicator />
-  </template>
-  <template v-else>
-    <TippySingleton>
+  <TippySingleton>
+    <div
+      class="bot-usage-graph"
+      :style="`--highest-value: ${biggestDataPoint}`"
+    >
       <div
-        class="bot-usage-graph"
-        :style="`--highest-value: ${biggestDataPoint}`"
+        v-if="data === null || data.length === 0"
+        class="bot-usage-graph-no-data"
+      >
+        <span class="bot-usage-graph-no-data-label">
+          <HtLoadingIndicator v-if="data === null" />
+          <template v-else>
+            {{ $t('botInfo.commandsReference.usageGraphNoData') }}
+          </template>
+        </span>
+      </div>
+      <Tippy
+        v-for="dataPoint in augmentedData"
+        :key="dataPoint.key"
+        :follow-cursor="true"
+        class="bot-usage-graph-line"
       >
         <div
-          v-if="!data || data.length === 0"
-          class="bot-usage-graph-no-data"
-        >
-          <span class="bot-usage-graph-no-data-label">
-            {{ $t('botInfo.commandsReference.usageGraphNoData') }}
-          </span>
-        </div>
-        <Tippy
-          v-for="dataPoint in augmentedData"
-          :key="dataPoint.key"
-          :follow-cursor="true"
-          class="bot-usage-graph-line"
-        >
-          <div
-            class="bot-usage-graph-line-fill"
-            :style="`--value: ${dataPoint.value}`"
-          />
-          <template #content>
-            <div class="bot-usage-graph-tooltip-usage">
-              {{ dataPoint.value }}
-            </div>
-            <div class="bot-usage-graph-tooltip-date">
-              <FontAwesomeIcon
-                :icon="faCalendar"
-                class="me-2"
-              />
-              <TimestampPreview
-                :ts="dataPoint.timestamp"
-                :format="MessageTimestampFormat.SHORT_DATE"
-              />
-            </div>
-          </template>
-        </Tippy>
-      </div>
-    </TippySingleton>
-  </template>
+          class="bot-usage-graph-line-fill"
+          :style="`--value: ${dataPoint.value}`"
+        />
+        <template #content>
+          <div class="bot-usage-graph-tooltip-usage">
+            {{ dataPoint.value }}
+          </div>
+          <div class="bot-usage-graph-tooltip-date">
+            <FontAwesomeIcon
+              :icon="faCalendar"
+              class="me-2"
+            />
+            <TimestampPreview
+              :ts="dataPoint.timestamp"
+              :format="MessageTimestampFormat.SHORT_DATE"
+            />
+          </div>
+        </template>
+      </Tippy>
+    </div>
+  </TippySingleton>
 </template>
