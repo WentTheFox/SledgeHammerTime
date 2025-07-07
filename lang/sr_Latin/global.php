@@ -53,6 +53,12 @@ return [
       'viewSourceCode' => 'View source code',
       'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
+    'themeButton' => [
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
+      'resetMouse' => 'Right click to reset',
+      'resetTouch' => 'Press and hold to reset',
+    ],
   ],
   'designEditor' => [
     'title' => 'Design Editor',
