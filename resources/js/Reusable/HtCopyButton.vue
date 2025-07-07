@@ -39,7 +39,6 @@ watch(copied, (newCopied) => {
   <HtButton
     :color="copied ? 'success' : 'primary'"
     :class="['cursor-pointer', props.class]"
-    :title="$t('timestampPicker.table.clickToCopy')"
     :pressed="copied"
     :icon-only="true"
     :icon-start="copied ? faCheck : faClipboard"
