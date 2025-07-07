@@ -86,6 +86,30 @@
 
   .sidebar-bottom {
     flex: 0 0 auto;
+
+    .actions-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: design.app-value('nav-element-spacing-horizontal');
+
+      > li {
+        display: block;
+        padding: 0;
+
+        &.parallel-actions {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        > a {
+          margin-top: 0;
+          margin-bottom: 0;
+          border: 2px solid transparent;
+        }
+      }
+    }
   }
 }
 
@@ -122,5 +146,14 @@
 
   @media print {
     padding: 0 !important;
+  }
+}
+
+.theme-button-tooltip {
+  text-align: center;
+
+  .theme-button-tooltip-reset-hint {
+    display: block;
+    font-size: .75rem;
   }
 }

@@ -25,25 +25,6 @@ nav {
     align-items: center;
   }
 
-  .actions-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: design.app-value('nav-element-spacing-horizontal');
-
-    > li {
-      display: block;
-      height: 2.5em;
-
-      > a {
-        margin-top: 0;
-        margin-bottom: 0;
-        border: 2px solid transparent;
-      }
-    }
-  }
-
-
   details.dropdown {
     margin: 0;
 

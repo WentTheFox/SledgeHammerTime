@@ -2,9 +2,9 @@ import { DateFnsDTL } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { MomentDTL } from '@/classes/MomentDTL';
 import { IDDQD, useCheatCode } from '@/composables/useCheatCode';
-import { useIsLightTheme } from '@/composables/useIsLightTheme';
 import { useLocalSettings } from '@/composables/useLocalSettings';
 import { useSidebarState } from '@/composables/useSidebarState';
+import { useTheme } from '@/composables/useTheme';
 import {
   CurrentLanguageData,
   currentLanguageInject,
@@ -14,7 +14,7 @@ import {
   pagePropsInject,
   scrollToAnchorInject,
   sidebarState,
-  theme,
+  themeInject,
 } from '@/injection-keys';
 import { PageProps } from '@/types';
 import { computeCurrentLanguage } from '@/utils/app';
@@ -48,10 +48,11 @@ export const useLayout = () => {
 
   const currentLanguage = ref<CurrentLanguageData>(computeCurrentLanguage(pagePropsRef.value));
   provide(currentLanguageInject, currentLanguage);
-  
+
   const localSettingsValue = readonly(useLocalSettings(currentLanguage));
   provide(sidebarState, readonly(useSidebarState(localSettingsValue)));
   provide(localSettings, localSettingsValue);
+  provide(themeInject, readonly(useTheme(localSettingsValue)));
 
   const dateTimeLibrary = computed((): DateTimeLibrary => localSettingsValue.dateFnsEnabled ? new DateFnsDTL() : new MomentDTL());
   provide(dateTimeLibraryInject, readonly(dateTimeLibrary));
@@ -75,9 +76,6 @@ export const useLayout = () => {
   }, {
     immediate: true,
   });
-
-  const isLightTheme = useIsLightTheme();
-  provide(theme, readonly({ isLightTheme }));
 
   let scrollFunction: ((progress?: number) => void) | null = null;
   const scrollMaxFrames = 2;
