@@ -88,6 +88,7 @@ watch(data, (newData) => {
         :key="dataPoint.key"
         :follow-cursor="true"
         class="bot-usage-graph-line"
+        :animation="false"
       >
         <div
           class="bot-usage-graph-line-fill"
