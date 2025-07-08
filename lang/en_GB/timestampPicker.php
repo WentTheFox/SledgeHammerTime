@@ -25,7 +25,6 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat syntax',
     'resultColumn' => 'Example result',
-    'clickToCopy' => 'Copy to clipboard',
   ],
   'usefulLinks' => [
     'lead' => 'You may also find these useful:',

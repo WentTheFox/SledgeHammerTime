@@ -25,7 +25,6 @@ return [
   'table' => [
     'syntaxColumn' => 'Üzenet formája',
     'resultColumn' => 'Példa megjelenés',
-    'clickToCopy' => 'Vágólapra másolás',
   ],
   'usefulLinks' => [
     'lead' => 'Ezeket is hasznosnak találhatod:',

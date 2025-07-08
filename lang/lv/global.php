@@ -9,6 +9,8 @@ return [
   ],
   'incompleteTranslations' => 'Translations are incomplete',
   'contributeTranslations' => 'Contribute',
+  'copyToClipboard' => 'Copy to clipboard',
+  'copiedToClipboard' => 'Copied to clipboard!',
   'guest' => 'Guest',
   'jsDisabled' => [
     'title' => 'JavaScript is necessary',
@@ -32,7 +34,7 @@ return [
       ],
       'newDateTimeLibrary' => [
         'label' => 'Use modern datetime library',
-        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live.',
+        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
@@ -52,6 +54,11 @@ return [
       'openSourceSoftware' => 'Open-source software',
       'viewSourceCode' => 'View source code',
       'notAffiliated' => 'This project is not affiliated with Discord.',
+    ],
+    'themeButton' => [
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
+      'system' => 'Use System Theme',
     ],
   ],
   'designEditor' => [
