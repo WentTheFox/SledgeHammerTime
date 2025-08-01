@@ -227,6 +227,10 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     return getUnixTime(this.value);
   }
 
+  getUnixMilliseconds(): number {
+    return this.value.getTime();
+  }
+
   formatCalendarContext(): string {
     return format(this.value, 'LLLL yyyy', { locale: this.getLocale().lowLevelValue });
   }

@@ -8,6 +8,7 @@ use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StaticController;
+use App\Http\Controllers\TimeSyncController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
 // Vue frontend API
 Route::prefix('/frontend')->group(function () {
   Route::get('/app-usage', [BotInfoController::class, 'usage'])->name('app.usage');
+  Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
 });
 
 Route::get('/discord', [RedirectController::class, 'discord']);

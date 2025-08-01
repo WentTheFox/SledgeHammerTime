@@ -121,3 +121,18 @@ export const convertTimeZoneSelectionToString = (currentTimezone: TimezoneSelect
       return currentTimezone.name;
   }
 };
+
+/**
+ * Calculates the client's clock offset based on NTP timestamps.
+ * @param t0 - Client send time (ms)
+ * @param t1 - Server receive time (ms)
+ * @param t2 - Server transmit time (ms)
+ * @param t3 - Client receive time (ms)
+ * @returns The estimated offset in milliseconds
+ */
+export const calculateNtpOffset = (t0: number | undefined, t1: number | undefined, t2: number | undefined, t3: number | undefined): number | undefined => {
+  if (typeof t0 !== 'number' || typeof t1 !== 'number' || typeof t2 !== 'number' || typeof t3 !== 'number') {
+    return undefined;
+  }
+  return ((t1 - t0) + (t2 - t3)) / 2;
+};
