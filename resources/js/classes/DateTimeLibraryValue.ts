@@ -82,6 +82,8 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract getUnixSeconds(): number;
 
+  abstract getUnixMilliseconds(): number;
+
   abstract getUtcOffsetMinutes(): number;
 
   abstract daysInMonth(): number;

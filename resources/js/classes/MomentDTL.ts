@@ -113,6 +113,10 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
     return this.value.unix();
   }
 
+  getUnixMilliseconds(): number {
+    return (this.getUnixSeconds() * 1e3) + this.value.milliseconds();
+  }
+
   getUtcOffsetMinutes() {
     return this.value.utcOffset();
   }
