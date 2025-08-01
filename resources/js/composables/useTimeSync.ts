@@ -10,7 +10,7 @@ export const useTimeSync = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => 
   const t2 = ref<DateTimeLibraryValue | null>(null);
   const t3 = ref<DateTimeLibraryValue | null>(null);
 
-  const ntpOffsetMs = ref(() => 0);
+  const ntpOffsetMs = ref(0);
 
   const syncing = ref(false);
 
@@ -18,29 +18,38 @@ export const useTimeSync = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => 
     if (!dtl) return;
 
     syncing.value = true;
-    let newT1: DateTimeLibraryValue | undefined, newT2: DateTimeLibraryValue | undefined;
+    let newT1: DateTimeLibraryValue, newT2: DateTimeLibraryValue;
     const newT0 = dtl.value.now();
     const result = await axios.get(route('app.ntp'));
     const newT3 = dtl.value.now();
     if (result.status !== 200) {
       console.error(`Sync failed (HTTP ${result.status})`);
-    } else {
-      const { data } = result;
-      if ('requestTs' in data && typeof data.requestTs === 'number') {
-        newT1 = dtl.value.fromTimestampMsUtc(data.requestTs);
-      }
-      if ('responseTs' in data && typeof data.requestTs === 'number') {
-        newT2 = dtl.value.fromTimestampMsUtc(data.responseTs);
-      }
+      return;
     }
+
+    const { data } = result;
+    if ('requestTs' in data && typeof data.requestTs === 'number') {
+      newT1 = dtl.value.fromTimestampMsUtc(data.requestTs);
+    } else {
+      console.error(`requestTs missing from response data`, data);
+      return;
+    }
+    if ('responseTs' in data && typeof data.requestTs === 'number') {
+      newT2 = dtl.value.fromTimestampMsUtc(data.responseTs);
+    } else {
+      console.error(`responseTs missing from response data`, data);
+      return;
+    }
+
     const newNtpOffsetMs = calculateNtpOffset(
       newT0?.getUnixMilliseconds(),
       newT1?.getUnixMilliseconds(),
       newT2?.getUnixMilliseconds(),
       newT3?.getUnixMilliseconds(),
     );
-
-    ntpOffsetMs.value = newNtpOffsetMs;
+    if (typeof newNtpOffsetMs === 'number') {
+      ntpOffsetMs.value = newNtpOffsetMs;
+    }
     t0.value = newT0;
     t1.value = newT1;
     t2.value = newT2;
@@ -48,7 +57,7 @@ export const useTimeSync = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => 
     syncing.value = false;
 
     if (apply) {
-      dtl.value.updateOffset(Math.round(newNtpOffsetMs));
+      dtl.value.updateOffset(Math.round(ntpOffsetMs.value));
     }
   };
 
