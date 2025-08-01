@@ -70,4 +70,11 @@ return [
     'variableColumnHeader' => 'CSS Változó',
     'valueColumnHeader' => 'Érték',
   ],
+  'timeSync' => [
+    'title' => 'Server Time Sync',
+    'description' => 'This is experimental functionality, allowing you to synchronize your local time with the HammerTime servers. This will be done automatically in the future, completely transparent to the user, but for now this is a manual processs to make sure it works as intended.',
+    'dtlOffsetCell' => 'DateTime Library Offset',
+    'offsetAmount' => ':offset ms',
+    'networkOffsetCell' => 'Network Offset',
+  ],
 ];
