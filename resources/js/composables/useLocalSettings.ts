@@ -126,3 +126,5 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     },
   };
 };
+
+export type LocalSettingsValue = ReturnType<typeof useLocalSettings>;
