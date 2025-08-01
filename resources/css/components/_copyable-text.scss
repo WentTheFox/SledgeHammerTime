@@ -7,6 +7,7 @@
   align-items: stretch;
 
   > * {
+    display: flex;
     border-radius: design.app-value('button-border-radius');
 
     @include design.if-ltr {
