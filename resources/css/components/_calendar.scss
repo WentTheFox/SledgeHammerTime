@@ -55,19 +55,11 @@
   }
 
   .red {
-    color: #c00;
-
-    @include design.if-dark {
-      color: #faa;
-    }
+    color: light-dark(#c00, #faa);
   }
 
   .blue {
-    color: #0af;
-
-    @include design.if-dark {
-      color: #adf;
-    }
+    color: light-dark(#0af, #adf);
   }
 
   .calendar-weekdays > * {
@@ -105,11 +97,7 @@
 
     &.selected {
       font-weight: bold;
-      background-color: design.app-color-light('calendar-day-selected-bg');
-
-      @include design.if-dark {
-        background-color: design.app-color-dark('calendar-day-selected-bg');
-      }
+      background-color: design.app-color('calendar-day-selected-bg');
     }
   }
 }

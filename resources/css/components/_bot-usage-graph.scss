@@ -57,25 +57,17 @@
     justify-content: flex-end;
     height: 100%;
     min-width: design.app-value('bot-usage-graph-line-min-width');
-    background-color: design.app-color-light('bot-usage-graph-line-bg');
+    background-color: design.app-color('bot-usage-graph-line-bg');
     flex-grow: 1;
     flex-shrink: 1;
-
-    @include design.if-dark {
-      background-color: design.app-color-dark('bot-usage-graph-line-bg');
-    }
   }
 
   .bot-usage-graph-line-fill {
-    background-color: design.app-color-light('bot-usage-graph-line-color');
+    background-color: design.app-color('bot-usage-graph-line-color');
     width: 100%;
     height: calc((var(--value) / var(--highest-value)) * 100%);
     min-height: design.app-value('bot-usage-graph-line-min-width');
     box-sizing: border-box;
-
-    @include design.if-dark {
-      background-color: design.app-color-dark('bot-usage-graph-line-color');
-    }
   }
 }
 

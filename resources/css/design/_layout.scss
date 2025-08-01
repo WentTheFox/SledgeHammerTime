@@ -13,18 +13,18 @@ html {
   @include mixins.base-font;
 
   @media not print {
-    background-color: functions.app-color-light('layout-bg');
+    background-color: functions.app-color('layout-bg');
   }
 }
 
 body {
   --bg-gradient-angle: #{functions.app-value('bg-gradient-angle')};
-  --bg-gradient-start: #{functions.app-color-light('bg-gradient-start')};
-  --bg-gradient-mid: #{functions.app-color-light('bg-gradient-mid')};
-  --bg-gradient-end: #{functions.app-color-light('bg-gradient-end')};
+  --bg-gradient-start: #{functions.app-color('bg-gradient-start')};
+  --bg-gradient-mid: #{functions.app-color('bg-gradient-mid')};
+  --bg-gradient-end: #{functions.app-color('bg-gradient-end')};
   min-height: 100vh;
   @include mixins.base-font;
-  color: functions.app-color-light('layout-color');
+  color: functions.app-color('layout-color');
 
   &:before {
     content: "";
@@ -44,14 +44,6 @@ body {
     @media print {
       display: none !important;
     }
-  }
-
-  @include mixins.if-dark {
-    --bg-gradient-start: #{functions.app-color-dark('bg-gradient-start')};
-    --bg-gradient-mid: #{functions.app-color-dark('bg-gradient-mid')};
-    --bg-gradient-end: #{functions.app-color-dark('bg-gradient-end')};
-    background-color: functions.app-color-dark('layout-bg');
-    color: functions.app-color-dark('layout-color');
   }
 
   @include mixins.if-rtl {

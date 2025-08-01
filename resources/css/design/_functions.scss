@@ -23,26 +23,21 @@ $value-var-prefix: 'ht-value';
   @return 0;
 }
 
-@function app-color-light($key) {
-  @return _app-color($key, false)
-}
-
-@function app-color-dark($key) {
-  @return _app-color($key, true)
-}
-
 $color-var-prefix: 'ht-color';
 
-@function _app-color($key, $dark: false) {
+@function app-color($key) {
   @if (map.has-key(common.$color-map, $key)) {
-    $variant: 'light';
-    @if ($dark) {
-      $variant: 'dark';
-    }
     $color-data: map.get(common.$color-map, $key);
-    @if (map.has-key($color-data, $variant)) {
-      @return var(--#{$color-var-prefix}-#{$key}-#{$variant});
+    $light-color: #FF00FF;
+    $dark-color: #FF00FF;
+    @if (map.has-key($color-data, 'light')) {
+      $light-color: var(--#{$color-var-prefix}-#{$key}-light);
     }
+    @if (map.has-key($color-data, 'dark')) {
+      $dark-color: var(--#{$color-var-prefix}-#{$key}-dark);
+    }
+
+    @return light-dark(#{$light-color}, #{$dark-color});
   }
 
   @return #FF00FF;

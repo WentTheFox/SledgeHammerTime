@@ -23,16 +23,8 @@
 }
 
 @mixin if-dark {
-  @media not print {
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) & {
-        @content;
-      }
-    }
-
-    :root[data-theme="dark"] {
-      @content;
-    }
+  body > html {
+    @content;
   }
 }
 
@@ -104,29 +96,17 @@
 
 @mixin button-color-variation($color) {
   &.button-#{$color} {
-    color: functions.app-color-light('button-' + $color + '-color');
-    background-color: functions.app-color-light('button-' + $color + '-bg');
-    --button-border-color: #{functions.app-color-light('button-' + $color + '-border-color')};
-
-    @include if-dark {
-      color: functions.app-color-dark('button-' + $color + '-color');
-      background-color: functions.app-color-dark('button-' + $color + '-bg');
-      --button-border-color: #{functions.app-color-dark('button-' + $color + '-border-color')};
-    }
+    color: functions.app-color('button-' + $color + '-color');
+    background-color: functions.app-color('button-' + $color + '-bg');
+    border-color: #{functions.app-color('button-' + $color + '-border-color')};
   }
 }
 
 @mixin badge-color-variation($color) {
   &.badge-#{$color} {
-    color: functions.app-color-light('badge-' + $color + '-color');
-    background-color: functions.app-color-light('badge-' + $color + '-bg');
-    border-color: #{functions.app-color-light('badge-' + $color + '-bg')};
-
-    @include if-dark {
-      color: functions.app-color-dark('badge-' + $color + '-color');
-      background-color: functions.app-color-dark('badge-' + $color + '-bg');
-      border-color: #{functions.app-color-dark('badge-' + $color + '-bg')};
-    }
+    color: functions.app-color('badge-' + $color + '-color');
+    background-color: functions.app-color('badge-' + $color + '-bg');
+    border-color: #{functions.app-color('badge-' + $color + '-bg')};
   }
 }
 
@@ -180,12 +160,8 @@
 
 @mixin content-link-style {
   a {
-    color: functions.app-color-light('content-link');
+    color: functions.app-color('content-link');
     text-decoration: underline;
-
-    @include if-dark {
-      color: functions.app-color-dark('content-link');
-    }
   }
 }
 
@@ -218,8 +194,5 @@
 }
 
 @mixin drop-shadow {
-  filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color-light('drop-shadow')});
-  @include if-dark {
-    filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color-dark('drop-shadow')});
-  }
+  filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color('drop-shadow')});
 }

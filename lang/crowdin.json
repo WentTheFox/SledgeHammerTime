@@ -621,6 +621,10 @@
       "username": "avery11111102",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17175290/medium/a203b17152fcb570882043aa4c440726.png",
       "fullName": "呂宥廷"
+    },
+    "17217834": {
+      "username": "AwayFrom-Keyboard",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17217834/medium/d93fd15efe82f69fec1b3b5737a78595.png"
     }
   },
   "languages": {
@@ -701,7 +705,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 90
+        "translation": 89
       }
     },
     "en-GB": {
@@ -709,8 +713,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 93,
+        "translation": 93
       }
     },
     "es": {
@@ -808,8 +812,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 93,
+        "translation": 93
       }
     },
     "id": {
@@ -851,11 +855,12 @@
         "14469636",
         "14531480",
         "15404404",
-        "14153733"
+        "14153733",
+        "17217834"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "lt": {
@@ -935,7 +940,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 42
+        "translation": 40
       }
     },
     "pt-BR": {
@@ -972,7 +977,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 90
+        "translation": 89
       }
     },
     "ru": {
@@ -998,7 +1003,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 22
+        "translation": 20
       }
     },
     "sr": {
@@ -1033,7 +1038,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 21
+        "translation": 20
       }
     },
     "tr": {
@@ -1046,7 +1051,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 10
+        "translation": 9
       }
     },
     "uk": {
@@ -1096,7 +1101,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 18
+        "translation": 17
       }
     },
     "zh-TW": {

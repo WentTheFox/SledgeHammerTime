@@ -89,11 +89,7 @@
 .credits-section {
   .open-source {
     text-transform: uppercase;
-    color: design.app-color-light('open-source');
-
-    @include design.if-dark {
-      color: design.app-color-dark('open-source');
-    }
+    color: design.app-color('open-source');
   }
 
   .view-source {

@@ -6,18 +6,13 @@ nav.sticky {
 }
 
 nav.backdrop {
-  background-color: var(--bg-color);
+  background-color: design.app-color('nav-bg');
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 10px var(--bg-color);
+  box-shadow: 0 0 10px design.app-color('nav-bg');
 }
 
 nav {
-  --bg-color: #{design.app-color-light('nav-bg')};
   z-index: 5;
-
-  @include design.if-dark {
-    --bg-color: #{design.app-color-dark('nav-bg')};
-  }
 
   .brand {
     font-weight: bold;

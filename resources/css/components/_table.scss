@@ -22,10 +22,6 @@
   }
 
   tbody tr {
-    border-top: design.app-value('table-border-size') solid design.app-color-light('table-border');
-
-    @include design.if-dark {
-      border-top-color: design.app-color-dark('table-border');
-    }
+    border-top: design.app-value('table-border-size') solid design.app-color('table-border');
   }
 }

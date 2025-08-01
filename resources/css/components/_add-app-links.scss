@@ -56,29 +56,17 @@
   align-items: center;
   gap: 1em;
   padding: 0.5em 1em;
-  background-color: design.app-color-light('add-app-link-bg');
+  background-color: design.app-color('add-app-link-bg');
   text-decoration: none;
 
   &:hover {
-    background-color: design.app-color-light('add-app-link-hover-bg');
-  }
-
-  @include design.if-dark {
-    background-color: design.app-color-dark('add-app-link-bg');
-
-    &:hover {
-      background-color: design.app-color-dark('add-app-link-hover-bg');
-    }
+    background-color: design.app-color('add-app-link-hover-bg');
   }
 }
 
 .add-link-icon {
-  color: design.app-color-light('add-app-link-icon');
+  color: design.app-color('add-app-link-icon');
   font-size: 1.4em;
-
-  @include design.if-dark {
-    color: design.app-color-dark('add-app-link-icon');
-  }
 }
 
 .add-link-text {
@@ -89,21 +77,13 @@
 
   .add-link-title {
     font-size: 1rem;
-    color: design.app-color-light('add-app-link-title');
+    color: design.app-color('add-app-link-title');
     margin: 0;
-
-    @include design.if-dark {
-      color: design.app-color-dark('add-app-link-title');
-    }
   }
 
   .add-link-description {
     font-size: 0.8rem;
-    color: design.app-color-light('add-app-link-description');
+    color: design.app-color('add-app-link-description');
     margin: 0;
-
-    @include design.if-dark {
-      color: design.app-color-dark('add-app-link-description');
-    }
   }
 }

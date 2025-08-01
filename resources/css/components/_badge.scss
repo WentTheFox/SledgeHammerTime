@@ -1,31 +1,21 @@
 @use "../design";
 
 .badge {
-  color: design.app-color-light('badge-default-color');
-  background-color: design.app-color-light('badge-default-bg');
+  color: design.app-color('badge-default-color');
+  background-color: design.app-color('badge-default-bg');
   border-radius: design.app-value('badge-border-radius');
   overflow: hidden;
   font-weight: normal;
-  border: design.app-value('badge-border') solid design.app-color-light('badge-default-bg');
+  border: design.app-value('badge-border') solid design.app-color('badge-default-bg');
   display: inline-flex;
   font-size: design.app-value('badge-font-size');
-
-  @include design.if-dark {
-    color: design.app-color-dark('badge-default-color');
-    background-color: design.app-color-dark('badge-default-bg');
-    border-color: design.app-color-dark('badge-default-bg');
-  }
 
   > * {
     padding: 0 design.app-value('badge-spacing');
   }
 
   .badge-prefix, .badge-suffix {
-    background-color: design.app-color-light('badge-secondary-bg');
-
-    @include design.if-dark {
-      background-color: design.app-color-dark('badge-secondary-bg');
-    }
+    background-color: design.app-color('badge-secondary-bg');
   }
 
   .badge-prefix {

@@ -8,13 +8,9 @@
   transition-duration: .2s;
   transition-timing-function: linear;
   border-radius: design.app-value('collapsible-border-radius');
-  background-color: design.app-color-light('collapsible-bg');
+  background-color: design.app-color('collapsible-bg');
   box-sizing: border-box;
   margin: 0;
-
-  @include design.if-dark {
-    background-color: design.app-color-dark('collapsible-bg');
-  }
 
   &:not(.visible) {
     height: 0 !important;

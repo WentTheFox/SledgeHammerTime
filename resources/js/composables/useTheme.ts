@@ -5,12 +5,12 @@ export function useTheme(settings: LocalSettingsValue) {
   const darkMediaMatches = ref<boolean>(false);
   const isLightTheme = computed(() => settings.isLightTheme ?? !darkMediaMatches.value);
   const usingSystemStyle = computed(() => settings.isLightTheme === null);
-  const themeWatcher = (value: boolean) => {
+  const themeWatcher = ([lightValue, isSystem]: [boolean, boolean]) => {
     if (typeof document === 'undefined') return;
 
-    document.documentElement.dataset.theme = value ? 'light' : 'dark';
+    document.documentElement.style.colorScheme = isSystem ? '' : (lightValue ? 'light' : 'dark');
   };
-  watch(isLightTheme, themeWatcher, { immediate: true });
+  watch([isLightTheme, usingSystemStyle], themeWatcher, { immediate: true });
 
   const colorSchemeMedia = typeof window !== 'undefined'
     ? window.matchMedia('(prefers-color-scheme: dark)')
