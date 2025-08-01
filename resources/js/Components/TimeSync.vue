@@ -67,7 +67,6 @@ watch([ntpOffsetMs, syncing], ([newNtpOffsetMs, isSyncing]) => {
   }
 
   dtl.value.updateOffset(Math.round(newNtpOffsetMs));
-  console.log(dtl.value.offset, newNtpOffsetMs);
 
   instance?.proxy?.$forceUpdate();
 });
