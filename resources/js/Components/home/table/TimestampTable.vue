@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import SyntaxDisplay from '@/Components/home/table/SyntaxDisplay.vue';
-import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import TimestampTableRow from '@/Components/home/table/TimestampTableRow.vue';
 import { dateTimeLibraryInject, timestamp } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtTable from '@/Reusable/HtTable.vue';
@@ -18,7 +17,10 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
 </script>
 
 <template>
-  <HtTable :responsive="true">
+  <HtTable
+    :responsive="true"
+    class="timestamp-table"
+  >
     <colgroup>
       <col style="width: 3rem">
       <col style="width: 16rem">
@@ -28,89 +30,55 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
         <th colspan="2">
           {{ $t('timestampPicker.table.syntaxColumn') }}
         </th>
-        <th>{{ $t('timestampPicker.table.resultColumn') }}</th>
+        <th class="result-column">
+          {{ $t('timestampPicker.table.resultColumn') }}
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td
-          rowspan="2"
-          class="text-center"
-        >
+      <TimestampTableRow
+        :icon="{ cellHeight: 2}"
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.SHORT_DATE"
+      >
+        <template #icon>
           <FontAwesomeIcon
             :icon="faCalendar"
             size="2x"
           />
-        </td>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.SHORT_DATE"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.SHORT_DATE"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.LONG_DATE"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.LONG_DATE"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td
-          rowspan="2"
-          class="text-center"
-        >
+        </template>
+      </TimestampTableRow>
+      <TimestampTableRow
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.LONG_DATE"
+      />
+      <TimestampTableRow
+        :icon="{ cellHeight: 2}"
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.SHORT_TIME"
+      >
+        <template #icon>
           <FontAwesomeIcon
             :icon="faClock"
             size="2x"
           />
-        </td>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.SHORT_TIME"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.SHORT_TIME"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.LONG_TIME"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.LONG_TIME"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td
-          rowspan="2"
-          class="text-center"
-        >
+        </template>
+      </TimestampTableRow>
+      <TimestampTableRow
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.LONG_TIME"
+      />
+      <TimestampTableRow
+        :icon="{ cellHeight: 2}"
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.SHORT_FULL"
+      >
+        <template #icon>
           <span class="fa-stack fa-1x">
             <FontAwesomeIcon
               :icon="faRegularCalendar"
@@ -122,66 +90,38 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
               :transform="{ y: 4.5 }"
             />
           </span>
-        </td>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.SHORT_FULL"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.SHORT_FULL"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.LONG_FULL"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.LONG_FULL"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td class="text-center">
+        </template>
+      </TimestampTableRow>
+      <TimestampTableRow
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.LONG_FULL"
+      />
+      <TimestampTableRow
+        :icon="true"
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.RELATIVE"
+      >
+        <template #icon>
           <FontAwesomeIcon
             :icon="faUserClock"
             size="2x"
           />
-        </td>
-        <td>
-          <SyntaxDisplay
-            :unix-ts="unixTs"
-            :format="MessageTimestampFormat.RELATIVE"
-          />
-        </td>
-        <td>
-          <TimestampPreview
-            :ts="currentTimestamp"
-            :format="MessageTimestampFormat.RELATIVE"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td class="text-center">
+        </template>
+      </TimestampTableRow>
+      <TimestampTableRow
+        :icon="true"
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+      >
+        <template #icon>
           <FontAwesomeIcon
             :icon="faCode"
             size="2x"
           />
-        </td>
-        <td>
-          <SyntaxDisplay :unix-ts="unixTs" />
-        </td>
-        <td>{{ unixTs }}</td>
-      </tr>
+        </template>
+      </TimestampTableRow>
     </tbody>
   </HtTable>
 </template>

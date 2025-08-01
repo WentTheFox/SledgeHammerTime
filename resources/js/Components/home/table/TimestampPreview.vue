@@ -5,10 +5,13 @@ import { dateTimeLibraryInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { computed, getCurrentInstance, inject, ref, watch } from 'vue';
 
-const props = defineProps<{
+export interface TimestampPreviewProps {
   ts: DateTimeLibraryValue | undefined,
+  unixTs?: number;
   format?: MessageTimestampFormat;
-}>();
+}
+
+const props = defineProps<TimestampPreviewProps>();
 
 const updateInterval = ref<ReturnType<typeof setInterval> | null>(null);
 const instance = getCurrentInstance();
@@ -38,8 +41,11 @@ const localTimestamp = computed(() => props.ts?.local());
 </script>
 
 <template>
+  <template v-if="!format && unixTs">
+    {{ unixTs }}
+  </template>
   <time
-    v-if="localTimestamp && dateLibLocale"
+    v-else-if="localTimestamp && dateLibLocale"
     :title="localTimestamp.setLocale(dateLibLocale).formatDiscordTimestamp(MessageTimestampFormat.LONG_FULL)"
     :datetime="localTimestamp.toISOString()"
   >

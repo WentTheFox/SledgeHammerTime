@@ -2,10 +2,12 @@
 import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import { computed } from 'vue';
 
-const props = defineProps<{
+export interface SyntaxDisplayProps {
   unixTs: number | undefined;
   format?: string;
-}>();
+}
+
+const props = defineProps<SyntaxDisplayProps>();
 
 const data = computed(() => props.format ? `<t:${props.unixTs}:${props.format}>` : props.unixTs);
 </script>

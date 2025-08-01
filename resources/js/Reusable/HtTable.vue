@@ -1,11 +1,12 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   responsive?: boolean,
+  class?: string,
 }>();
 </script>
 
 <template>
-  <div :class="['table-wrap', { responsive }]">
+  <div :class="['table-wrap', props.class, { responsive }]">
     <table class="table">
       <slot />
     </table>
