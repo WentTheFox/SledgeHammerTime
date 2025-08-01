@@ -34,12 +34,20 @@ const discordFormatMap: Record<MessageTimestampFormat, string> = {
 };
 
 class MomentDTLValue extends DateTimeLibraryValue<Moment> {
+  get value(): Moment {
+    return this.rawValue;
+  }
+
+  set value(value: Moment) {
+    this.rawValue = value;
+  }
+
   toString(): string {
     return `[object MomentDTLValue(${this.toISOString()})}]`;
   }
 
   setLocale(locale: DateTimeLibraryLocale<moment.Locale>) {
-    return new MomentDTLValue(this.value, locale);
+    return new MomentDTLValue(this.value, { ...this.context, locale });
   }
 
   getLocale() {
@@ -50,7 +58,7 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
   }
 
   local() {
-    return new MomentDTLValue(this.value.local(), this.locale);
+    return new MomentDTLValue(this.value.local(), this.context);
   }
 
   fromNow() {
@@ -58,11 +66,11 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
   }
 
   addDays(days: number) {
-    return new MomentDTLValue(moment(this.value).add(days, 'days'), this.locale);
+    return new MomentDTLValue(moment(this.value).add(days, 'days'), this.context);
   }
 
   addYears(years: number) {
-    return new MomentDTLValue(moment(this.value).add(years, 'years'), this.locale);
+    return new MomentDTLValue(moment(this.value).add(years, 'years'), this.context);
   }
 
   toDate() {
@@ -152,9 +160,9 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
   replaceZone(zone: TimezoneSelection) {
     switch (zone.type) {
       case TimeZoneSelectionType.OFFSET:
-        return new MomentDTLValue(moment.utc(this.value).utcOffset(getUtcOffsetString(zone)), this.locale);
+        return new MomentDTLValue(moment.utc(this.value).utcOffset(getUtcOffsetString(zone)), this.context);
       case TimeZoneSelectionType.ZONE_NAME:
-        return new MomentDTLValue(moment.tz(this.value, zone.name), this.locale);
+        return new MomentDTLValue(moment.tz(this.value, zone.name), this.context);
     }
   }
 
@@ -181,6 +189,19 @@ const timezoneNames = moment.tz
 
 export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
   readonly timezoneNames = timezoneNames;
+  private _offset: number = 0;
+
+  constructor() {
+    moment.now = () => (+new Date()) + this.offset;
+  }
+
+  get offset(): number {
+    return this._offset;
+  }
+
+  updateOffset(offsetMs: number) {
+    this._offset = offsetMs;
+  }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
     const languageConfig = LANGUAGES[language];
@@ -294,7 +315,7 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
   }
 
   now(): DateTimeLibraryValue<Moment> {
-    return new MomentDTLValue(moment());
+    return new MomentDTLValue(moment(), { library: this });
   }
 
   convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<moment.Locale>): string {
@@ -321,9 +342,9 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
     const inputString = `${date} ${time}`;
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET:
-        return new MomentDTLValue(moment.utc(inputString, isoFormat).utcOffset(getUtcOffsetString(timezone), true));
+        return new MomentDTLValue(moment.utc(inputString, isoFormat).utcOffset(getUtcOffsetString(timezone), true), { library: this });
       case TimeZoneSelectionType.ZONE_NAME:
-        return new MomentDTLValue(moment.tz(inputString, isoFormat, timezone.name));
+        return new MomentDTLValue(moment.tz(inputString, isoFormat, timezone.name), { library: this });
     }
   }
 
@@ -336,14 +357,14 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
       minute: 0,
       second: 0,
       milliseconds: 0,
-    }));
+    }), { library: this });
   }
 
   fromIsoString(iso: string): DateTimeLibraryValue<Moment> {
-    return new MomentDTLValue(moment(iso));
+    return new MomentDTLValue(moment(iso), { library: this });
   }
 
   fromTimestampMsUtc(timestamp: number): DateTimeLibraryValue<Moment> {
-    return new MomentDTLValue(moment.utc(timestamp));
+    return new MomentDTLValue(moment.utc(timestamp), { library: this });
   }
 }

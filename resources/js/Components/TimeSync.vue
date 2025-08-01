@@ -8,9 +8,10 @@ import HtTable from '@/Reusable/HtTable.vue';
 import { calculateNtpOffset } from '@/utils/time';
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { inject, ref } from 'vue';
+import { computed, getCurrentInstance, inject, ref, watch } from 'vue';
 
 const dtl = inject(dateTimeLibraryInject);
+const instance = getCurrentInstance();
 
 /**
  * The client's timestamp of the request packet transmission
@@ -29,6 +30,13 @@ const t2 = ref<DateTimeLibraryValue | null>(null);
  */
 const t3 = ref<DateTimeLibraryValue | null>(null);
 
+const ntpOffsetMs = computed(() => calculateNtpOffset(
+  t0.value?.getUnixMilliseconds(),
+  t1.value?.getUnixMilliseconds(),
+  t2.value?.getUnixMilliseconds(),
+  t3.value?.getUnixMilliseconds(),
+));
+
 const syncing = ref(false);
 
 const syncTime = async () => {
@@ -41,8 +49,7 @@ const syncTime = async () => {
   if (result.status !== 200) {
     console.error(`Sync failed (HTTP ${result.status})`);
   } else {
-    const data = result.data;
-    console.info(`Sync successful`, data);
+    const { data } = result;
     if ('requestTs' in data && typeof data.requestTs === 'number') {
       t1.value = dtl.value.fromTimestampMsUtc(data.requestTs);
     }
@@ -53,6 +60,17 @@ const syncTime = async () => {
 
   syncing.value = false;
 };
+
+watch([ntpOffsetMs, syncing], ([newNtpOffsetMs, isSyncing]) => {
+  if (typeof newNtpOffsetMs !== 'number' || typeof dtl === 'undefined' || isSyncing) {
+    return;
+  }
+
+  dtl.value.updateOffset(Math.round(newNtpOffsetMs));
+  console.log(dtl.value.offset, newNtpOffsetMs);
+
+  instance?.proxy?.$forceUpdate();
+});
 </script>
 
 <template>
@@ -82,6 +100,10 @@ const syncTime = async () => {
     <HtTable>
       <tbody>
         <tr>
+          <th>{{ $t('global.timeSync.dtlOffsetCell') }}</th>
+          <td> {{ $t('global.timeSync.offsetAmount', { offset: String(dtl?.offset) }) }}</td>
+        </tr>
+        <tr>
           <th>t<sub>0</sub></th>
           <td>{{ t0?.getUnixMilliseconds() }}</td>
         </tr>
@@ -98,18 +120,8 @@ const syncTime = async () => {
           <td>{{ t3?.getUnixMilliseconds() }}</td>
         </tr>
         <tr>
-          <th>{{ $t('global.timeSync.offsetCell') }}</th>
-          <td>
-            {{
-              $t('global.timeSync.offsetAmount', {
-                offset: String(calculateNtpOffset(
-                  t0?.getUnixMilliseconds(),
-                  t1?.getUnixMilliseconds(),
-                  t2?.getUnixMilliseconds(),
-                  t3?.getUnixMilliseconds())),
-              })
-            }}
-          </td>
+          <th>{{ $t('global.timeSync.networkOffsetCell') }}</th>
+          <td> {{ $t('global.timeSync.offsetAmount', { offset: String(ntpOffsetMs) }) }}</td>
         </tr>
       </tbody>
     </HtTable>

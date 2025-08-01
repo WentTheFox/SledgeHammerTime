@@ -5,7 +5,11 @@ import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-se
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Needed for testing
 export interface DateTimeLibrary<T = any, L = any> {
-  timezoneNames: string[];
+  readonly timezoneNames: string[];
+
+  get offset(): number;
+
+  updateOffset(offsetMs: number): void;
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string;
 

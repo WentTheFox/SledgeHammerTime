@@ -1,3 +1,4 @@
+import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection } from '@/model/timezone-selection';
@@ -28,9 +29,27 @@ export enum DateTimeLibraryMonth {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required to allow extension
+export interface DateTimeLibraryValueContext<T = any, L = any> {
+  locale?: DateTimeLibraryLocale<L> | null,
+  library: DateTimeLibrary<T, L>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required to allow extension
 export abstract class DateTimeLibraryValue<T = any, L = any> {
-  constructor(protected value: T, protected locale: DateTimeLibraryLocale<L> | null = null) {
+  constructor(protected rawValue: T, protected readonly context: DateTimeLibraryValueContext) {
   }
+
+  protected get locale(): DateTimeLibraryLocale<L> | null {
+    return this.context.locale || null;
+  }
+
+  protected get library(): DateTimeLibrary<T, L> {
+    return this.context.library;
+  }
+
+  abstract get value(): T;
+
+  abstract set value(value: T);
 
   abstract toString(): string;
 
