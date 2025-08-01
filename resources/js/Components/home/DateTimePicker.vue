@@ -13,6 +13,7 @@ import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { inject } from 'vue';
+import { Tippy } from 'vue-tippy';
 
 const ts = inject(timestamp);
 const settings = inject(localSettings);
@@ -53,16 +54,20 @@ const settings = inject(localSettings);
     </HtFormControl>
     <div
       v-if="ts"
-      class="form-control"
+      class="form-control pt-4"
     >
-      <HtButton
-        :title="$t('timestampPicker.picker.tooltip.setToCurrent')"
-        class="mt-4 mb-0 secondary outline"
-        role="button"
-        @click="ts.setCurrentTime"
-      >
-        <FontAwesomeIcon :icon="faClockRotateLeft" />
-      </HtButton>
+      <Tippy>
+        <HtButton
+          class="mb-0 secondary outline"
+          role="button"
+          @click="ts.setCurrentTime"
+        >
+          <FontAwesomeIcon :icon="faClockRotateLeft" />
+        </HtButton>
+        <template #content>
+          {{ $t('timestampPicker.picker.tooltip.setToCurrent') }}
+        </template>
+      </Tippy>
     </div>
   </HtFormControlGroup>
 </template>
