@@ -70,4 +70,10 @@ return [
     'variableColumnHeader' => 'CSS Variable',
     'valueColumnHeader' => 'Value',
   ],
+  'timeSync' => [
+    'title' => 'Server Time Sync',
+    'description' => 'This is experimental functionality, allowing you to synchronize your local time with the HammerTime servers. This will be done automatically in the future, completely transparent to the user, but for now this is a manual processs to make sure it works as intended.',
+    'offsetCell' => 'Offset',
+    'offsetAmount' => ':offset ms',
+  ],
 ];
