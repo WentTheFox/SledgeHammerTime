@@ -72,3 +72,13 @@ export type ScrollToSectionFunction = (id: string | undefined) => void;
 export const scrollToAnchorInject = Symbol('scrollToSectionInject') as InjectionKey<ScrollToSectionFunction>;
 
 export const dateTimeLibraryInject = Symbol('dateTimeLibraryInject') as InjectionKey<DeepReadonly<ComputedRef<DateTimeLibrary>>>;
+
+export const timeSyncInject = Symbol('timeSyncInject') as InjectionKey<DeepReadonly<{
+  t0: DateTimeLibraryValue | null;
+  t1: DateTimeLibraryValue | null;
+  t2: DateTimeLibraryValue | null;
+  t3: DateTimeLibraryValue | null;
+  ntpOffsetMs: number;
+  syncing: boolean;
+  syncTime(apply: boolean): void;
+}>>;

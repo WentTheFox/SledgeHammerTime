@@ -1,7 +1,5 @@
-import { DateFnsDTL } from '@/classes/DateFnsDTL';
-import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
-import { MomentDTL } from '@/classes/MomentDTL';
 import { IDDQD, useCheatCode } from '@/composables/useCheatCode';
+import { useDateTimeLibrary } from '@/composables/useDateTimeLibrary';
 import { useLocalSettings } from '@/composables/useLocalSettings';
 import { useSidebarState } from '@/composables/useSidebarState';
 import { useTheme } from '@/composables/useTheme';
@@ -15,12 +13,13 @@ import {
   scrollToAnchorInject,
   sidebarState,
   themeInject,
+  timeSyncInject,
 } from '@/injection-keys';
 import { PageProps } from '@/types';
 import { computeCurrentLanguage } from '@/utils/app';
 import { router, usePage } from '@inertiajs/vue3';
 import { loadLanguageAsync } from 'laravel-vue-i18n';
-import { computed, onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
+import { onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
 
 export const useLayout = () => {
   const pagePropsRef = ref<PageProps>(usePage().props);
@@ -54,8 +53,9 @@ export const useLayout = () => {
   provide(localSettings, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
 
-  const dateTimeLibrary = computed((): DateTimeLibrary => localSettingsValue.dateFnsEnabled ? new DateFnsDTL() : new MomentDTL());
+  const { dateTimeLibrary, timeSync } = useDateTimeLibrary(localSettingsValue);
   provide(dateTimeLibraryInject, dateTimeLibrary);
+  provide(timeSyncInject, readonly(timeSync));
 
   watch(pagePropsRef, (currentPage) => {
     currentLanguage.value = computeCurrentLanguage(currentPage);
