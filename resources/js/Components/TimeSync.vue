@@ -62,28 +62,44 @@ const autoApply = ref(false);
               t<sub>0</sub>
             </HtBadge>
           </th>
-          <td>{{ $t('global.timeSync.timestampValue', { value: timeSync?.t0?.getUnixMilliseconds() / 1e3 }) }}</td>
+          <td>
+            {{
+              $t('global.timeSync.timestampValue', { value: String((timeSync?.t0?.getUnixMilliseconds() ?? 0) / 1e3) })
+            }}
+          </td>
         </tr>
         <tr>
           <th>
             {{ $t('global.timeSync.t1') }}
             <HtBadge>t<sub>1</sub></HtBadge>
           </th>
-          <td>{{ $t('global.timeSync.timestampValue', { value: timeSync?.t1?.getUnixMilliseconds() / 1e3 }) }}</td>
+          <td>
+            {{
+              $t('global.timeSync.timestampValue', { value: String((timeSync?.t1?.getUnixMilliseconds() ?? 0) / 1e3) })
+            }}
+          </td>
         </tr>
         <tr>
           <th>
             {{ $t('global.timeSync.t2') }}
             <HtBadge>t<sub>2</sub></HtBadge>
           </th>
-          <td>{{ $t('global.timeSync.timestampValue', { value: timeSync?.t2?.getUnixMilliseconds() / 1e3 }) }}</td>
+          <td>
+            {{
+              $t('global.timeSync.timestampValue', { value: String((timeSync?.t2?.getUnixMilliseconds() ?? 0) / 1e3) })
+            }}
+          </td>
         </tr>
         <tr>
           <th>
             {{ $t('global.timeSync.t3') }}
             <HtBadge>t<sub>3</sub></HtBadge>
           </th>
-          <td>{{ $t('global.timeSync.timestampValue', { value: timeSync?.t3?.getUnixMilliseconds() / 1e3 }) }}</td>
+          <td>
+            {{
+              $t('global.timeSync.timestampValue', { value: String((timeSync?.t3?.getUnixMilliseconds() ?? 0) / 1e3) })
+            }}
+          </td>
         </tr>
         <tr>
           <th>{{ $t('global.timeSync.networkOffsetCell') }}</th>
