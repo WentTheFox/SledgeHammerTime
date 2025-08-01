@@ -1,0 +1,33 @@
+@use "../design";
+
+.timestamp-table {
+  .icon-column {
+    text-align: center;
+  }
+
+  @include design.screen-below('md') {
+    text-align: center;
+
+    .result-column,
+    .icon-column {
+      display: none !important;
+    }
+
+    .syntax-column {
+      width: 100% !important;
+
+      > * {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-content: center;
+      }
+    }
+  }
+
+  @include design.screen-above('md') {
+    .result-mobile {
+      display: none;
+    }
+  }
+}
