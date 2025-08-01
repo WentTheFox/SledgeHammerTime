@@ -55,7 +55,7 @@ export const useLayout = () => {
   provide(themeInject, readonly(useTheme(localSettingsValue)));
 
   const dateTimeLibrary = computed((): DateTimeLibrary => localSettingsValue.dateFnsEnabled ? new DateFnsDTL() : new MomentDTL());
-  provide(dateTimeLibraryInject, readonly(dateTimeLibrary));
+  provide(dateTimeLibraryInject, dateTimeLibrary);
 
   watch(pagePropsRef, (currentPage) => {
     currentLanguage.value = computeCurrentLanguage(currentPage);

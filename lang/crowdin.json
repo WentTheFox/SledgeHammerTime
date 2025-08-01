@@ -705,7 +705,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 89
+        "translation": 87
       }
     },
     "en-GB": {
@@ -713,8 +713,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 93,
-        "translation": 93
+        "approval": 91,
+        "translation": 91
       }
     },
     "es": {
@@ -812,8 +812,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 93,
-        "translation": 93
+        "approval": 91,
+        "translation": 91
       }
     },
     "id": {
@@ -834,7 +834,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 16
+        "translation": 15
       }
     },
     "ja": {
@@ -955,7 +955,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 7
+        "translation": 6
       }
     },
     "pt": {
@@ -977,7 +977,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 89
+        "translation": 87
       }
     },
     "ru": {
@@ -1051,7 +1051,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 9
+        "translation": 8
       }
     },
     "uk": {
@@ -1101,7 +1101,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 17
+        "translation": 16
       }
     },
     "zh-TW": {

@@ -90,6 +90,18 @@ const getDiscordToUnicodeFormat = (format: MessageTimestampFormat, language: str
  * Implementation of DateTimeLibraryValue using date-fns
  */
 class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
+  get value(): TZDate {
+    const valueCopy = new TZDate(this.rawValue, this.rawValue.timeZone);
+    valueCopy.setTime(this.rawValue.getTime() + this.library.offset);
+    return valueCopy;
+  }
+
+  set value(value: TZDate) {
+    const valueCopy = new TZDate(value, value.timeZone);
+    valueCopy.setTime(value.getTime() - this.library.offset);
+    this.rawValue = value;
+  }
+
   toString(): string {
     return `[object DateFnsDTLValue(${this.toISOString()})}]`;
   }
@@ -99,7 +111,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     if (!localeLow || !('formatLong' in localeLow)) {
       console.error('[DateFnsDTLValue#setLocale] incomplete locale definition:', localeLow);
     }
-    return new DateFnsDTLValue(this.value, locale);
+    return new DateFnsDTLValue(this.value, { ...this.context, locale });
   }
 
   getLocale() {
@@ -110,7 +122,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   }
 
   local() {
-    return new DateFnsDTLValue(new TZDate(this.value), this.locale);
+    return new DateFnsDTLValue(new TZDate(this.value), this.context);
   }
 
   fromNow() {
@@ -121,11 +133,11 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   }
 
   addDays(days: number) {
-    return new DateFnsDTLValue(addDays(this.value, days), this.locale);
+    return new DateFnsDTLValue(addDays(this.value, days), this.context);
   }
 
   addYears(years: number) {
-    return new DateFnsDTLValue(addYears(this.value, years), this.locale);
+    return new DateFnsDTLValue(addYears(this.value, years), this.context);
   }
 
   getFullYear(): number {
@@ -157,15 +169,15 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   }
 
   setHours(hours: number): DateTimeLibraryValue<TZDate, Locale> {
-    return new DateFnsDTLValue(setHours(this.value, hours), this.locale);
+    return new DateFnsDTLValue(setHours(this.value, hours), this.context);
   }
 
   setMinutes(minutes: number): DateTimeLibraryValue<TZDate, Locale> {
-    return new DateFnsDTLValue(setMinutes(this.value, minutes), this.locale);
+    return new DateFnsDTLValue(setMinutes(this.value, minutes), this.context);
   }
 
   setSeconds(seconds: number): DateTimeLibraryValue<TZDate, Locale> {
-    return new DateFnsDTLValue(setSeconds(this.value, seconds), this.locale);
+    return new DateFnsDTLValue(setSeconds(this.value, seconds), this.context);
   }
 
   getUtcOffsetMinutes(): number {
@@ -192,9 +204,9 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   replaceZone(zone: TimezoneSelection) {
     switch (zone.type) {
       case TimeZoneSelectionType.ZONE_NAME:
-        return new DateFnsDTLValue(new TZDate(this.value, zone.name), this.locale);
+        return new DateFnsDTLValue(new TZDate(this.value, zone.name), this.context);
       case TimeZoneSelectionType.OFFSET:
-        return new DateFnsDTLValue(new TZDate(this.value, getUtcOffsetString(zone)), this.locale);
+        return new DateFnsDTLValue(new TZDate(this.value, getUtcOffsetString(zone)), this.context);
     }
   }
 
@@ -241,6 +253,15 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
  */
 export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   readonly timezoneNames = timezoneNames;
+  private _offset: number = 0;
+
+  get offset(): number {
+    return this._offset;
+  }
+
+  updateOffset(offsetMs: number) {
+    this._offset = offsetMs;
+  }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
     const languageConfig = LANGUAGES[language];
@@ -385,7 +406,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
   now() {
     const systemTimezone = this.guessInitialTimezoneName();
-    return new DateFnsDTLValue(new TZDate(new Date(), systemTimezone));
+    return new DateFnsDTLValue(new TZDate(new Date(), systemTimezone), { library: this });
   }
 
   convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<Locale>): string {
@@ -444,28 +465,28 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const parsedDate = parse(inputString, isoFormat, new TZDate(new Date(), getUtcOffsetString(timezone)));
-        return new DateFnsDTLValue(parsedDate);
+        return new DateFnsDTLValue(parsedDate, { library: this });
       }
       case TimeZoneSelectionType.ZONE_NAME: {
         const parsedDate = parse(inputString, isoFormat, new TZDate(new Date(), timezone.name));
-        return new DateFnsDTLValue(parsedDate);
+        return new DateFnsDTLValue(parsedDate, { library: this });
       }
     }
   }
 
   getValueForDate(year: number, month: number, date: number): DateTimeLibraryValue<TZDate> {
     const systemTimezone = this.guessInitialTimezoneName();
-    return new DateFnsDTLValue(new TZDate(new Date(year, month, date, 0, 0, 0, 0), systemTimezone));
+    return new DateFnsDTLValue(new TZDate(new Date(year, month, date, 0, 0, 0, 0), systemTimezone), { library: this });
   }
 
   fromIsoString(iso: string): DateTimeLibraryValue<TZDate> {
     const systemTimezone = this.guessInitialTimezoneName();
-    return new DateFnsDTLValue(new TZDate(new Date(iso), systemTimezone));
+    return new DateFnsDTLValue(new TZDate(new Date(iso), systemTimezone), { library: this });
   }
 
   fromTimestampMsUtc(timestamp: number): DateTimeLibraryValue<TZDate> {
     const utcDate = new Date(timestamp);
     // Create TZDate with explicit UTC timezone
-    return new DateFnsDTLValue(new TZDate(utcDate, 'Etc/UTC'));
+    return new DateFnsDTLValue(new TZDate(utcDate, 'Etc/UTC'), { library: this });
   }
 }
