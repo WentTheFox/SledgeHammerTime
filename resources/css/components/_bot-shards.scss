@@ -40,23 +40,13 @@
 }
 
 .bot-shard-active {
-  color: design.app-color-light('bot-shard-actvie-color');
-  background-color: design.app-color-light('bot-shard-actvie-bg');
-
-  @include design.if-dark {
-    color: design.app-color-dark('bot-shard-actvie-color');
-    background-color: design.app-color-dark('bot-shard-actvie-bg');
-  }
+  color: design.app-color('bot-shard-actvie-color');
+  background-color: design.app-color('bot-shard-actvie-bg');
 }
 
 .bot-shard-inactive {
-  color: design.app-color-light('bot-shard-inactvie-color');
-  background-color: design.app-color-light('bot-shard-inactvie-bg');
-
-  @include design.if-dark {
-    color: design.app-color-dark('bot-shard-inactvie-color');
-    background-color: design.app-color-dark('bot-shard-inactvie-bg');
-  }
+  color: design.app-color('bot-shard-inactvie-color');
+  background-color: design.app-color('bot-shard-inactvie-bg');
 }
 
 .tippy-box[data-theme~="shard-tooltip"] {

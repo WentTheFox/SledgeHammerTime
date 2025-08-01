@@ -31,8 +31,8 @@ const appName = getAppName();
 @use "../../../css/design";
 
 .page {
-  color: design.app-color-light('add-app-color');
-  background-color: design.app-color-light('add-app-bg');
+  color: design.app-color('add-app-color');
+  background-color: design.app-color('add-app-bg');
   padding: 1em;
   width: 100%;
   min-height: 100vh;
@@ -40,11 +40,6 @@ const appName = getAppName();
   flex-flow: column;
   justify-content: center;
   align-items: center;
-
-  @include design.if-dark {
-    background-color: design.app-color-dark('add-app-bg');
-    color: design.app-color-dark('add-app-color');
-  }
 }
 
 .logo {
@@ -52,11 +47,7 @@ const appName = getAppName();
   height: 80px;
   border-radius: 20px;
   background-color: #000;
-  border: 1px solid design.app-color-light('add-app-logo-border');
-
-  @include design.if-dark {
-    border-color: design.app-color-dark('add-app-logo-border');
-  }
+  border: 1px solid design.app-color('add-app-logo-border');
 }
 
 .title {

@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: design.app-color-light('header-bg');
+  background-color: design.app-color('header-bg');
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -16,7 +16,7 @@
   padding: design.app-value('header-spacing-vertical') design.app-value('header-spacing-horizontal');
   gap: design.app-value('header-spacing');
   box-sizing: border-box;
-  border-bottom: design.app-value('header-border') solid design.app-color-light('header-border');
+  border-bottom: design.app-value('header-border') solid design.app-color('header-border');
 
   &.non-stick {
     position: absolute;
@@ -30,22 +30,13 @@
     display: none;
   }
 
-  @include design.if-dark {
-    background-color: design.app-color-dark('header-bg');
-    border-bottom-color: design.app-color-dark('header-border');
-  }
-
   .header-brand {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     font-size: design.app-value('header-brand-font-size');
-    color: design.app-color-light('header-brand');
-
-    @include design.if-dark {
-      color: design.app-color-dark('header-brand');
-    }
+    color: design.app-color('header-brand');
 
     .header-brand-text {
       font-weight: bold;

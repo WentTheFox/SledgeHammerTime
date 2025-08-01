@@ -5,13 +5,8 @@
   width: 100%;
   height: design.app-value('progress-bar-height');
   border-radius: calc(#{design.app-value('progress-bar-height')} * 0.5);
-  background-color: design.app-color-light('button-default-bg');
-  border: 1px solid design.app-color-light('button-default-border-color');
-
-  @include design.if-dark {
-    background-color: design.app-color-dark('button-default-bg');
-    border-color: design.app-color-dark('button-default-border-color');
-  }
+  background-color: design.app-color('button-default-bg');
+  border: 1px solid design.app-color('button-default-border-color');
 
   .progress-bar {
     height: inherit;

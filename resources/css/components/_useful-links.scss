@@ -34,13 +34,9 @@
 
       .link-card {
         border-radius: design.app-value('card-border-radius');
-        background-color: design.app-color-light('useful-link-card-bg');
+        background-color: design.app-color('useful-link-card-bg');
         padding: design.app-value('useful-link-padding');
         text-align: center;
-
-        @include design.if-dark {
-          background-color: design.app-color-dark('useful-link-card-bg');
-        }
       }
 
       @media (min-width: 576px) {

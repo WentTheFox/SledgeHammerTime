@@ -116,6 +116,7 @@ English and Hungarian translations have been included, so no translators will be
   - [sakana](https://crowdin.com/profile/sakana0580)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
 - 🇰🇷 Korean
+  - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
   - [Phrygia](https://github.com/sjkim04)
   - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)

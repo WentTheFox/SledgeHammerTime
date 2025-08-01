@@ -4,10 +4,10 @@
   padding: design.app-value('code-padding-vertical') design.app-value('code-padding-horizontal');
   line-height: design.app-value('code-line-height');
   border-radius: design.app-value('code-border-radius');
-  color: design.app-color-light('code-color');
-  background-color: design.app-color-light('code-bg');
+  color: design.app-color('code-color');
+  background-color: design.app-color('code-bg');
   box-sizing: border-box;
-  border: design.app-value('code-border') solid design.app-color-light('code-border');
+  border: design.app-value('code-border') solid design.app-color('code-border');
 
   @include design.monospace-font;
 
@@ -17,11 +17,5 @@
 
   &.small {
     font-size: design.app-value('code-small-font-size');
-  }
-
-  @include design.if-dark {
-    color: design.app-color-dark('code-color');
-    background-color: design.app-color-dark('code-bg');
-    border-color: design.app-color-dark('code-border');
   }
 }
