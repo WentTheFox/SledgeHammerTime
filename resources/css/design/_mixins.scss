@@ -98,7 +98,7 @@
   &.button-#{$color} {
     color: functions.app-color('button-' + $color + '-color');
     background-color: functions.app-color('button-' + $color + '-bg');
-    border-color: #{functions.app-color('button-' + $color + '-border-color')};
+    --button-border-color: #{functions.app-color('button-' + $color + '-border-color')};
   }
 }
 
