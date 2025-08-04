@@ -36,6 +36,7 @@ return [
     'client_secret' => env('DISCORD_CLIENT_SECRET'),
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
+    'invite_url' => env('DISCORD_INVITE_URL'),
   ],
 
   'crowdin' => [

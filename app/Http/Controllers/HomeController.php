@@ -7,11 +7,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller {
   function index() {
-    return Inertia::render('Picker/TimestampPicker');
+    return Inertia::render('Picker/PickerView');
   }
 
   function discord() {
-    $inviteUrl = env('DISCORD_INVITE_URL');
+    $inviteUrl = config('services.discord.invite_url');
     if (empty($inviteUrl)){
       throw new NotFoundHttpException();
     }
