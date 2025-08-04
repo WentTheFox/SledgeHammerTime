@@ -26,15 +26,15 @@ return [
       'title' => 'Beviteli beállítások',
       'customInputs' => [
         'label' => 'Egyéni beviteli mezők',
-        'description' => "Lecseréli az alapértelmezett beviteli mezőket olyanokkal, melyek az aktuális nyelvhez igazodnak a böngészőé helyett",
+        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
         'label' => 'Külön beviteli mezők',
         'description' => "Két különböző mezőt jelenít meg a dátumnak és az időnek egy összevont helyett (ami néhány böngészőben nem támogatott)",
       ],
-      'newDateTimeLibrary' => [
-        'label' => 'Modern dátum-idő könyvtár használata',
-        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live. It\'s recommended to completely reload the page after changing this setting.',
+      'legacyDateTimeLibrary' => [
+        'label' => 'Use legacy datetime library',
+        'description' => 'The library used by the old application to calculate timestamps is not maintained anymore, so it needed to be replaced. This option lets you return to the old library in cse you encounter issues. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
