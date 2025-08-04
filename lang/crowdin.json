@@ -407,7 +407,7 @@
     },
     "16122526": {
       "username": "Poseidon281",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16122526/medium/836bb4682752a0d724255f7147fc0b5d.png",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16122526/medium/e92d7bf1388e563a2ff44dbba0bfb59b.png",
       "fullName": "Senna"
     },
     "16172948": {
@@ -705,7 +705,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 87
+        "translation": 86
       }
     },
     "en-GB": {
@@ -713,8 +713,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 91,
-        "translation": 91
+        "approval": 90,
+        "translation": 90
       }
     },
     "es": {
@@ -812,8 +812,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 91,
-        "translation": 91
+        "approval": 90,
+        "translation": 90
       }
     },
     "id": {
@@ -940,7 +940,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 40
+        "translation": 39
       }
     },
     "pt-BR": {
@@ -977,7 +977,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 87
+        "translation": 86
       }
     },
     "ru": {
@@ -1038,7 +1038,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 20
+        "translation": 19
       }
     },
     "tr": {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DateTimePicker from '@/Components/home/DateTimePicker.vue';
 import TimestampTable from '@/Components/home/table/TimestampTable.vue';
+import TimestampPicker from '@/Components/home/TimestampPicker.vue';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -53,7 +53,7 @@ onMounted(() => {
   </HtAlert>
 
   <HtCard>
-    <DateTimePicker />
+    <TimestampPicker />
 
     <TimestampTable />
   </HtCard>

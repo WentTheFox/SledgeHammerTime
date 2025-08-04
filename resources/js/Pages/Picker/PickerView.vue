@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Layout from '@/Layouts/DefaultLayout.vue';
-import TimestampPickerInner from '@/Pages/Picker/TimestampPickerInner.vue';
+import PickerContent from '@/Pages/Picker/PickerContent.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
@@ -8,6 +8,6 @@ import { Head } from '@inertiajs/vue3';
   <Head title="" />
 
   <Layout>
-    <TimestampPickerInner />
+    <PickerContent />
   </Layout>
 </template>
