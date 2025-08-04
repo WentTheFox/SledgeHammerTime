@@ -64,22 +64,22 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   };
   const setInitialSidebarOnRight = () => {
     const storedPref = localStorage.getItem(sidebarPrefKey);
-    // Sidebar is on the left by default
+    // The sidebar is on the left by default
     sidebarOnRight.value = storedPref === 'true';
   };
   const setInitialSidebarOffDesktop = () => {
     const storedPref = localStorage.getItem(sidebarOffDesktopPrefKey);
-    // Sidebar is shown on desktop by default
+    // The sidebar is shown on desktop by default
     sidebarOffDesktop.value = storedPref === 'true';
   };
   const setInitialDateFnsEnabled = () => {
     const storedPref = localStorage.getItem(legacyDateLibPrefKey);
-    // Feature is enabled by default
-    dateFnsEnabled.value = storedPref === 'true';
+    // The feature is enabled by default
+    dateFnsEnabled.value = storedPref !== 'false';
   };
   const setInitialLightTheme = () => {
     const storedPref = localStorage.getItem(lightThemePrefKey);
-    // Feature is enabled by default
+    // The feature is enabled by default
     isLightTheme.value = storedPref !== null ? storedPref === 'true' : null;
   };
 
@@ -119,7 +119,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     toggleDateFnsEnabled(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
-      dateFnsEnabled.value = e.target.checked;
+      dateFnsEnabled.value = !e.target.checked;
     },
     setLightTheme(isLight: boolean | null) {
       isLightTheme.value = isLight;
