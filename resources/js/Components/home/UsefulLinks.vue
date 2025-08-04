@@ -33,7 +33,7 @@ const currentLanguage = inject(currentLanguageInject);
       <UsefulLinkItem
         :name="$t('timestampPicker.usefulLinks.oldSite.header')"
         :desc="$t('timestampPicker.usefulLinks.oldSite.p')"
-        :href="'https://hammertime.cyou' + (!currentLanguage || currentLanguage.locale === 'en' ? '' : '/' + currentLanguage.locale)"
+        :href="'https://old.hammertime.cyou' + (!currentLanguage || currentLanguage.locale === 'en' ? '' : '/' + currentLanguage.locale)"
         image="/useful-links/oldsite.png"
       />
       <UsefulLinkItem
