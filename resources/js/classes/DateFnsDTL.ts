@@ -10,7 +10,7 @@ import {
   LANGUAGES,
   LatestLanguageConfigType,
 } from '@/utils/language-settings';
-import { getUtcOffsetString, rangeLimit } from '@/utils/time';
+import { getUtcOffsetString, offsetZoneRegex, rangeLimit } from '@/utils/time';
 import { TZDate } from '@date-fns/tz';
 import {
   addDays,
@@ -36,9 +36,6 @@ const urlFormat = 'yyyyMMdd.HHmmss';
 // Default values
 const defaultDate = '2023-01-01';
 const defaultTime = '00:00:00';
-
-// Regular expression for parsing offset timezone hints
-const offsetZoneRegex = /^GMT([+-]\d{1,2})(?::?(\d{2}))?$/i;
 
 const timezoneNames = Intl.supportedValuesOf('timeZone')
   .filter((name) => !name.startsWith('Etc/GMT'))

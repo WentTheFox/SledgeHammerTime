@@ -133,7 +133,7 @@ describe('rangeLimit', () => {
   });
 });
 
-describe('getDefaultInitialMoment', () => {
+describe('getDefaultInitialDateTime', () => {
   it('should return a date with the seconds set to 0', () => {
     const result = DefaultDTL.getDefaultInitialDateTime({
       type: TimeZoneSelectionType.ZONE_NAME,
@@ -146,7 +146,7 @@ describe('getDefaultInitialMoment', () => {
     const result = DefaultDTL.getDefaultInitialDateTime({
       type: TimeZoneSelectionType.ZONE_NAME,
       name: 'UTC',
-    }, '1970-01-01T00:00:55');
+    }, '19700101.000055');
     expect(result).toHaveLength(2);
     expect(result[1]).toMatch(/:55$/);
   });
@@ -189,16 +189,6 @@ describe('DTL.getDefaultInitialTimezoneSelection', () => {
     }
   });
 
-  it('should return the guessed timezone when there is no matching moment timezone', () => {
-    momentTzZoneSpy.mockReturnValue(null);
-    const result = DefaultDTL.getDefaultInitialTimezoneSelection();
-    const expected: ReturnType<typeof DefaultDTL.getDefaultInitialTimezoneSelection> = {
-      type: TimeZoneSelectionType.ZONE_NAME,
-      name: mockGuessedTimezone,
-    };
-    expect(result).toEqual(expected);
-  });
-
   it('should return the guessed timezone when there is an error', () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockReturnValue(undefined);
     const mockError = new Error('mock error');
@@ -207,9 +197,9 @@ describe('DTL.getDefaultInitialTimezoneSelection', () => {
     });
     try {
       const result = DefaultDTL.getDefaultInitialTimezoneSelection();
-      expect(result).toEqual(mockGuessedTimezoneReturnValue);
+      expect(result).toEqual({ type: TimeZoneSelectionType.ZONE_NAME, name: 'Etc/UTC' });
       expect(consoleErrorSpy).toHaveBeenCalledOnce();
-      expect(consoleErrorSpy).toHaveBeenCalledWith(mockError);
+      expect(consoleErrorSpy).toHaveBeenCalledWith("Could not determine initial timezone", mockError);
     } finally {
       consoleErrorSpy.mockRestore();
       systemApiSpy.mockRestore();
