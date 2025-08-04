@@ -1,4 +1,4 @@
+import { DateFnsDTL } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
-import { MomentDTL } from '@/classes/MomentDTL';
 
-export const DefaultDTL: DateTimeLibrary = new MomentDTL();
+export const DefaultDTL: DateTimeLibrary = new DateFnsDTL();

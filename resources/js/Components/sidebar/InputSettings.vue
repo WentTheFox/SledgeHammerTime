@@ -48,13 +48,13 @@ const settings = inject(localSettings);
       </HtFormCheckboxControlled>
       <HtFormCheckboxControlled
         id="date-time-library"
-        :label="$t('global.sidebar.inputSettings.newDateTimeLibrary.label')"
-        :checked="Boolean(settings?.dateFnsEnabled)"
+        :label="$t('global.sidebar.inputSettings.legacyDateTimeLibrary.label')"
+        :checked="!settings?.dateFnsEnabled"
         @change="settings?.toggleDateFnsEnabled"
       >
         <template #message>
           <FormMessage
-            :message="$t('global.sidebar.inputSettings.newDateTimeLibrary.description')"
+            :message="$t('global.sidebar.inputSettings.legacyDateTimeLibrary.description')"
             class="mt-1"
           />
         </template>

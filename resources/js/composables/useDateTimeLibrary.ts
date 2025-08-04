@@ -3,8 +3,7 @@ import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { MomentDTL } from '@/classes/MomentDTL';
 import { LocalSettingsValue } from '@/composables/useLocalSettings';
 import { useTimeSync } from '@/composables/useTimeSync';
-import { UnwrapNestedRefs } from 'vue';
-import { computed, DeepReadonly, watch } from 'vue';
+import { computed, DeepReadonly, UnwrapNestedRefs, watch } from 'vue';
 
 export const useDateTimeLibrary = (localSettingsValue: DeepReadonly<UnwrapNestedRefs<LocalSettingsValue>>) => {
   const dateTimeLibrary = computed((): DateTimeLibrary => localSettingsValue.dateFnsEnabled ? new DateFnsDTL() : new MomentDTL());
