@@ -26,15 +26,15 @@ return [
       'title' => 'Input settings',
       'customInputs' => [
         'label' => 'Custom inputs',
-        'description' => "Replaces the default inputs with ones that match the current language instead of your browser's",
+        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
         'label' => 'Separate inputs',
         'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
-      'newDateTimeLibrary' => [
-        'label' => 'Use modern datetime library',
-        'description' => 'The library used by the application to calculate timestamps is not maintained anymore, so it needs to be replaced. This option lets you preview the new library before it goes live. It\'s recommended to completely reload the page after changing this setting.',
+      'legacyDateTimeLibrary' => [
+        'label' => 'Use legacy datetime library',
+        'description' => 'The library used by the old application to calculate timestamps is not maintained anymore, so it needed to be replaced. This option lets you return to the old library in cse you encounter issues. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
