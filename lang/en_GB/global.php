@@ -34,7 +34,7 @@ return [
       ],
       'legacyDateTimeLibrary' => [
         'label' => 'Use legacy datetime library',
-        'description' => 'The library used by the old application to calculate timestamps is not maintained anymore, so it needed to be replaced. This option lets you return to the old library in cse you encounter issues. It\'s recommended to completely reload the page after changing this setting.',
+        'description' => 'The library used by the old application to calculate timestamps is not maintained anymore, so it needed to be replaced. This option lets you return to the old library in case you encounter issues. It\'s recommended to completely reload the page after changing this setting.',
       ],
     ],
     'localSettings' => [
