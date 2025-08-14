@@ -7,6 +7,7 @@ import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
 export const timestamp = Symbol('timestamp') as InjectionKey<{
   currentTimestamp: ComputedRef<DateTimeLibraryValue | null>,
+  isLocked: ComputedRef<boolean>,
   currentDate: Readonly<Ref<string>>,
   currentTime: Readonly<Ref<string>>,
   currentTimezone: Ref<TimezoneSelection>,
@@ -15,6 +16,8 @@ export const timestamp = Symbol('timestamp') as InjectionKey<{
   changeDateTimeString: (value: string) => void,
   changeTimezone: (value: TimezoneSelection) => void,
   setCurrentTime: () => void,
+  lock: () => void,
+  unlock: () => void,
 }>;
 
 export const themeInject = Symbol('theme') as InjectionKey<{

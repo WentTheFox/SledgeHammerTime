@@ -27,12 +27,12 @@ export interface DateTimeLibrary<T = any, L = any> {
 
   getDefaultInitialDateTime(
     timezone: TimezoneSelection,
-    defaultDateTime: string | undefined | null,
+    defaultUnixTimestamp: string | undefined | null,
   ): [string, string];
 
   getInitialDateTime(
     timezone: TimezoneSelection,
-    defaultDateTime?: string | null,
+    defaultUnixTimestamp?: string | null,
     zeroSeconds?: boolean,
   ): [string, string];
 

@@ -43,4 +43,8 @@
       background-color: transparent;
     }
   }
+
+  &[disabled] {
+    opacity: .6;
+  }
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import TimePicker, { TimePickerPopupApi } from '@/Components/home/pickers/TimePicker.vue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { dateTimeLibraryInject, formControlId, positionAnchor, timestamp } from '@/injection-keys';
@@ -6,6 +7,10 @@ import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
+
+withDefaults(defineProps<InputSelectorImplProps>(), {
+  disabled: false,
+});
 
 const ts = inject(timestamp);
 const id = inject(formControlId);
@@ -57,6 +62,7 @@ provide(positionAnchor, positionAnchorName);
       ref="input-el"
       :model-value="selectedTime"
       :readonly="true"
+      :disabled="disabled"
       :hide-selection="true"
       :position-anchor-name="positionAnchorName"
       @click.prevent="openPopup"

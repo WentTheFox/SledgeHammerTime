@@ -17,7 +17,6 @@ const isoTimeFormat = 'HH:mm:ss';
 const isoFormattingDateFormat = 'YYYY-MM-DD';
 const isoParsingDateFormat = 'Y-MM-DD';
 const isoFormat = `${isoParsingDateFormat} ${isoTimeFormat}`;
-const urlFormat = `YYYYMMDD.HHmmss`;
 const calendarDateDisplayFormat = 'D';
 const calendarContextFormat = 'MMMM YYYY';
 const defaultDate = '1970-01-01';
@@ -184,7 +183,7 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
 
 const timezoneNames = moment.tz
   .names()
-  .filter((name) => !name.startsWith('Etc/GMT'))
+  .filter((name) => !name.startsWith('Etc/UTC'))
   .sort((a, b) => a.localeCompare(b));
 
 export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
@@ -200,7 +199,8 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
   }
 
   updateOffset(offsetMs: number) {
-    this._offset = offsetMs;
+    // Only apply offsets in whole seconds
+    this._offset = Math.round(offsetMs / 1e3) * 1e3;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
@@ -260,6 +260,12 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
 
   getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection {
     if (hint) {
+      if (hint === 'Etc/GMT') {
+        return {
+          type: TimeZoneSelectionType.ZONE_NAME,
+          name: 'Etc/UTC',
+        };
+      }
       const offsetZoneMatch = hint.match(offsetZoneRegex);
       if (offsetZoneMatch !== null) {
         const hours = rangeLimit(parseInt(offsetZoneMatch[1], 10), -14, 14);
@@ -279,14 +285,17 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
     return { type: TimeZoneSelectionType.ZONE_NAME, name: this.guessInitialTimezoneName() };
   }
 
-  getDefaultInitialDateTime(timezone: TimezoneSelection, defaultDateTime: string | undefined | null): [string, string] {
-    const hasDefaultTs = typeof defaultDateTime === 'string';
-    return this.getInitialDateTime(timezone, defaultDateTime, !hasDefaultTs);
+  getDefaultInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp: string | undefined | null): [string, string] {
+    const hasDefaultTs = typeof defaultUnixTimestamp === 'string';
+    return this.getInitialDateTime(timezone, defaultUnixTimestamp, !hasDefaultTs);
   }
 
   getInitialDateTime(timezone: TimezoneSelection, defaultDateTime?: string | null, zeroSeconds?: boolean): [string, string] {
     if (typeof defaultDateTime === 'string') {
-      const parseResult = moment(defaultDateTime, urlFormat);
+      const parseResult = moment.tz(parseInt(defaultDateTime, 10) * 1000, timezone.type === TimeZoneSelectionType.ZONE_NAME ? timezone.name : 'UTC');
+      if (timezone.type === TimeZoneSelectionType.OFFSET) {
+        parseResult.utcOffset(getUtcOffsetString(timezone), true);
+      }
       if (zeroSeconds) {
         parseResult.seconds(0);
       }
