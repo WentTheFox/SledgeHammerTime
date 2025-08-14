@@ -24,6 +24,10 @@
   flex-flow: column nowrap;
   align-items: flex-start;
   gap: design.app-value('form-control-spacing');
+
+  &.form-control-buttons {
+    flex-direction: row;
+  }
 }
 
 .form-control-checkbox {

@@ -194,7 +194,7 @@ describe('DateTimeLibrary', () => {
       });
 
       it('should use the provided default date time', () => {
-        const defaultDateTime = '20250101.120000'; // January 1, 2025, 12:00:00
+        const defaultDateTime = '1735732800'; // January 1, 2025, 12:00:00
         const result = dtl.getDefaultInitialDateTime(utcTimezone, defaultDateTime);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');
@@ -223,7 +223,7 @@ describe('DateTimeLibrary', () => {
       });
 
       it('should use the provided default date time with zone offset', () => {
-        const defaultDateTime = '20250101.120000'; // January 1, 2025, 12:00:00
+        const defaultDateTime = '1735732800'; // January 1, 2025, 12:00:00
         const result = dtl.getInitialDateTime(utcTimezone, defaultDateTime);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');
@@ -236,7 +236,7 @@ describe('DateTimeLibrary', () => {
           hours: 1,
           minutes: 0,
         };
-        const defaultDateTime = '20250101.120000'; // January 1, 2025, 12:00:00
+        const defaultDateTime = '1735732800'; // January 1, 2025, 12:00:00
         const result = dtl.getInitialDateTime(timezone, defaultDateTime);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');
@@ -244,7 +244,7 @@ describe('DateTimeLibrary', () => {
       });
 
       it('should zero seconds when requested', () => {
-        const defaultDateTime = '20250101.120030'; // January 1, 2025, 12:00:30
+        const defaultDateTime = '1735732830'; // January 1, 2025, 12:00:30
         const result = dtl.getInitialDateTime(utcTimezone, defaultDateTime, true);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');

@@ -31,7 +31,6 @@ const isoTimeFormat = 'HH:mm:ss';
 const isoFormattingDateFormat = 'yyyy-MM-dd';
 const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
-const urlFormat = 'yyyyMMdd.HHmmss';
 
 // Default values
 const defaultDate = '2023-01-01';
@@ -257,7 +256,8 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   updateOffset(offsetMs: number) {
-    this._offset = offsetMs;
+    // Only apply offsets in whole seconds
+    this._offset = Math.round(offsetMs / 1e3) * 1e3;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
@@ -332,6 +332,12 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
   getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection {
     if (hint) {
+      if (hint === 'Etc/GMT') {
+        return {
+          type: TimeZoneSelectionType.ZONE_NAME,
+          name: 'Etc/UTC',
+        };
+      }
       const offsetZoneMatch = hint.match(offsetZoneRegex);
       if (offsetZoneMatch !== null) {
         const hours = rangeLimit(parseInt(offsetZoneMatch[1], 10), -14, 14);
@@ -351,21 +357,13 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return { type: TimeZoneSelectionType.ZONE_NAME, name: this.guessInitialTimezoneName() };
   }
 
-  getDefaultInitialDateTime(timezone: TimezoneSelection, defaultDateTime: string | undefined | null): [string, string] {
-    const hasDefaultTs = typeof defaultDateTime === 'string';
-    return this.getInitialDateTime(timezone, defaultDateTime, !hasDefaultTs);
+  getDefaultInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp: string | undefined | null): [string, string] {
+    const hasDefaultTs = typeof defaultUnixTimestamp === 'string';
+    return this.getInitialDateTime(timezone, defaultUnixTimestamp, !hasDefaultTs);
   }
 
-  getInitialDateTime(timezone: TimezoneSelection, defaultDateTime?: string | null, zeroSeconds?: boolean): [string, string] {
-    if (typeof defaultDateTime === 'string') {
-      let date = parse(defaultDateTime, urlFormat, this.applyOffsetToDate());
-      if (zeroSeconds) {
-        date = setSeconds(date, 0);
-      }
-      const dateString = format(date, isoFormattingDateFormat);
-      const timeString = format(date, isoTimeFormat);
-      return [dateString, timeString];
-    }
+  getInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp?: string | null, zeroSeconds?: boolean): [string, string] {
+    const initialTs = typeof defaultUnixTimestamp === 'string' ? parseInt(defaultUnixTimestamp, 10) * 1000 : new Date().getTime();
 
     let tzDate: TZDate;
     switch (timezone.type) {
@@ -373,11 +371,11 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
         const offsetString = getUtcOffsetString(timezone);
         // Create a virtual timezone name based on the offset
         const virtualTimezoneName = `Etc/GMT${offsetString.replace(':', '')}`;
-        tzDate = new TZDate(this.applyOffsetToDate(), virtualTimezoneName);
+        tzDate = this.applyOffsetToDate(new TZDate(initialTs, virtualTimezoneName));
         break;
       }
       case TimeZoneSelectionType.ZONE_NAME:
-        tzDate = new TZDate(this.applyOffsetToDate(), timezone.name);
+        tzDate = this.applyOffsetToDate(new TZDate(initialTs, timezone.name));
         break;
     }
 

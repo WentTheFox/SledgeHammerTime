@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import DatePicker, { DatePickerApi } from '@/Components/home/pickers/DatePicker.vue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { dateTimeLibraryInject, formControlId, positionAnchor, timestamp } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
+
+withDefaults(defineProps<InputSelectorImplProps>(), {
+  disabled: false,
+});
 
 const ts = inject(timestamp);
 const id = inject(formControlId);
@@ -59,6 +64,7 @@ provide(positionAnchor, positionAnchorName);
       ref="input-el"
       :model-value="selectedDate"
       :readonly="true"
+      :disabled="disabled"
       :hide-selection="true"
       :position-anchor-name="positionAnchorName"
       @click.prevent="openPopup"
