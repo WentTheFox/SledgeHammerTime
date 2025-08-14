@@ -16,6 +16,8 @@ return [
     ],
     'tooltip' => [
       'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
