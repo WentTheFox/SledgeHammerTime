@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller {
   function index() {
-    return Inertia::render('Picker/PickerView');
+    return Inertia::render('Picker/Index');
   }
 
   function discord() {
