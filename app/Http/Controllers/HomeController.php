@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller {
   function index() {
-    return Inertia::render('Picker/Index');
+    return Inertia::render('Picker/IndexComponent');
   }
 
   function discord() {

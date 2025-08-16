@@ -6,15 +6,15 @@ use Inertia\Inertia;
 
 class StaticController extends Controller {
   public function addBot() {
-    return Inertia::render('AddApp/Index');
+    return Inertia::render('AddApp/IndexComponent');
   }
 
   public function design() {
-    return Inertia::render('Design/Index');
+    return Inertia::render('Design/IndexComponent');
   }
 
   public function legal() {
-    return Inertia::render('Legal/Index', [
+    return Inertia::render('Legal/IndexComponent', [
       'fallbackLocale' => config('app.fallback_locale'),
     ]);
   }
