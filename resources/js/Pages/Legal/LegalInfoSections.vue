@@ -22,13 +22,13 @@ const handleHashChange = () => {
 
 let cleanupRouterOnHashChange: VoidFunction | undefined;
 onMounted(() => {
-  window.addEventListener('load', handleHashChange);
+  handleHashChange();
   window.addEventListener('popstate', handleHashChange);
   cleanupRouterOnHashChange = router.on('success', handleHashChange);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('load', handleHashChange);
+  window.removeEventListener('popstate', handleHashChange);
   cleanupRouterOnHashChange?.();
 });
 </script>
