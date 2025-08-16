@@ -14,7 +14,7 @@ use Inertia\Inertia;
 
 class BotInfoController extends Controller {
   public function index() {
-    return Inertia::render('BotInfo/Index', [
+    return Inertia::render('BotInfo/IndexComponent', [
       'discordAppId' => config('services.discord.client_id'),
       'commands' => BotCommand::with(['options' => ['choices']])->orderBy('type')->orderBy('total_executions', 'desc')->orderBy('name')->get(),
       'translations' => BotCommandTranslation::where('locale', App::getLocale())->get()

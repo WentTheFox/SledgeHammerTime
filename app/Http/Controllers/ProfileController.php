@@ -26,7 +26,7 @@ class ProfileController extends Controller {
       $crowdinUsers = $authUser->crowdinUsers()->get(['id', 'username', 'full_name', 'avatar_url'])->map(fn(CrowdinUser $cu) => $cu->mapToUiInfo());
     }
 
-    return Inertia::render('Profile/Index', [
+    return Inertia::render('Profile/IndexComponent', [
       'discordUsers' => $discordUsers,
       'crowdinUsers' => $crowdinUsers,
     ]);
