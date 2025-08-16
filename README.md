@@ -48,6 +48,7 @@ English and Hungarian translations have been included, so no translators will be
   - [FTVTC\_ Alex.`](https://crowdin.com/profile/htcqqcomm)
   - [Jack Batele](https://crowdin.com/profile/BateleJack)
   - [User670](https://crowdin.com/profile/User670)
+  - [xianxiaojiu](https://crowdin.com/profile/xianxiaojiu)
   - [姓甚名谁](https://crowdin.com/profile/febilly)
   - [正阳](https://crowdin.com/profile/zhengyang3552)
 - 🇹🇼 Chinese Traditional
