@@ -625,6 +625,10 @@
     "17217834": {
       "username": "AwayFrom-Keyboard",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17217834/medium/d93fd15efe82f69fec1b3b5737a78595.png"
+    },
+    "17273286": {
+      "username": "xianxiaojiu",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17273286/medium/ba93d5bcbddb071b58b05414cc8d9f42_default.png"
     }
   },
   "languages": {
@@ -1097,11 +1101,12 @@
         "16939833",
         "15176660",
         "16611181",
-        "16478035"
+        "16478035",
+        "17273286"
       ],
       "progress": {
         "approval": 0,
-        "translation": 15
+        "translation": 18
       }
     },
     "zh-TW": {
