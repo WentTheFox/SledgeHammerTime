@@ -59,6 +59,19 @@ const settings = inject(localSettings);
           />
         </template>
       </HtFormCheckboxControlled>
+      <HtFormCheckboxControlled
+        id="auto-time-sync"
+        :label="$t('global.sidebar.inputSettings.autoTimeSync.label')"
+        :checked="Boolean(settings?.autoTimeSync)"
+        @change="settings?.toggleAutoTimeSync"
+      >
+        <template #message>
+          <FormMessage
+            :message="$t('global.sidebar.inputSettings.autoTimeSync.description')"
+            class="mt-1"
+          />
+        </template>
+      </HtFormCheckboxControlled>
     </HtFormControlGroup>
   </section>
 </template>

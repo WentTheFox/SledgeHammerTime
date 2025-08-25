@@ -31,6 +31,8 @@ const isoTimeFormat = 'HH:mm:ss';
 const isoFormattingDateFormat = 'yyyy-MM-dd';
 const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
+const oneMinuteInSeconds = 1e3 * 60;
+const fifteenMinutesInSeconds = oneMinuteInSeconds * 15;
 
 // Default values
 const defaultDate = '2023-01-01';
@@ -256,8 +258,13 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   updateOffset(offsetMs: number) {
-    // Only apply offsets in whole seconds
-    this._offset = Math.round(offsetMs / 1e3) * 1e3;
+    if (offsetMs < fifteenMinutesInSeconds) {
+      this._offset = 0;
+      return;
+    }
+
+    // Only apply offsets in whole minutes
+    this._offset = Math.round(offsetMs / oneMinuteInSeconds) * oneMinuteInSeconds;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {

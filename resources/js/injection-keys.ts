@@ -42,12 +42,14 @@ export interface LocalSettingsValue {
   readonly sidebarOffDesktop: boolean | null;
   readonly dateFnsEnabled: boolean | null;
   readonly isLightTheme: boolean | null;
+  readonly autoTimeSync: boolean | null;
   readonly toggleCustomInput: (e: Event) => void;
   readonly toggleSeparateInputs: (e: Event) => void;
   readonly toggleDateFnsEnabled: (e: Event) => void;
   readonly toggleSidebarOnRight: VoidFunction;
   readonly setSidebarOffDesktop: (value: boolean) => void;
   readonly setLightTheme: (isLight: boolean | null) => void;
+  readonly toggleAutoTimeSync: (e: Event) => void;
 }
 
 export const localSettings = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

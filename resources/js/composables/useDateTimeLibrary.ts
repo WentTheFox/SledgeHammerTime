@@ -10,6 +10,13 @@ export const useDateTimeLibrary = (localSettingsValue: DeepReadonly<UnwrapNested
   const timeSync = useTimeSync(dateTimeLibrary);
 
   watch(dateTimeLibrary, () => {
+    if (!localSettingsValue.autoTimeSync) {
+      if (dateTimeLibrary.value.offset !== 0) {
+        dateTimeLibrary.value.updateOffset(0);
+      }
+      return;
+    }
+
     void timeSync.syncTime();
   }, { immediate: true });
 
