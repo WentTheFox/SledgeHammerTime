@@ -7,6 +7,7 @@ const sidebarPrefKey = 'sidebar-right';
 const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const legacyDateLibPrefKey = 'legacy-date-lib';
 const lightThemePrefKey = 'light-theme';
+const autoTimeSyncPrefKey = 'auto-time-sync';
 
 export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => {
   const customInputEnabled = ref<boolean | null>(null);
@@ -15,6 +16,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const sidebarOffDesktop = ref<boolean | null>(null);
   const dateFnsEnabled = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
+  const autoTimeSync = ref<boolean | null>(null);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -41,6 +43,9 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
       return;
     }
     localStorage.setItem(lightThemePrefKey, newValue ? 'true' : 'false');
+  });
+  watch(autoTimeSync, (newValue) => {
+    localStorage.setItem(autoTimeSyncPrefKey, newValue ? 'true' : 'false');
   });
 
   const setInitialCombinedInput = () => {
@@ -82,6 +87,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     // The feature is enabled by default
     isLightTheme.value = storedPref !== null ? storedPref === 'true' : null;
   };
+  const setInitialAutoTimeSync = () => {
+    const storedPref = localStorage.getItem(autoTimeSyncPrefKey);
+    // The feature is enabled by default
+    autoTimeSync.value = storedPref === 'true';
+  };
 
   onMounted(() => {
     setInitialCombinedInput();
@@ -90,6 +100,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     setInitialSidebarOffDesktop();
     setInitialDateFnsEnabled();
     setInitialLightTheme();
+    setInitialAutoTimeSync();
   });
 
   return {
@@ -100,6 +111,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     sidebarOffDesktop,
     dateFnsEnabled,
     isLightTheme,
+    autoTimeSync,
     toggleCustomInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
@@ -123,6 +135,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     },
     setLightTheme(isLight: boolean | null) {
       isLightTheme.value = isLight;
+    },
+    toggleAutoTimeSync(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+
+      autoTimeSync.value = !e.target.checked;
     },
   };
 };

@@ -21,6 +21,8 @@ const calendarDateDisplayFormat = 'D';
 const calendarContextFormat = 'MMMM YYYY';
 const defaultDate = '1970-01-01';
 const defaultTime = '00:00:00';
+const oneMinuteInSeconds = 1e3 * 60;
+const fifteenMinutesInSeconds = oneMinuteInSeconds * 15;
 
 const discordFormatMap: Record<MessageTimestampFormat, string> = {
   [MessageTimestampFormat.SHORT_DATE]: 'L',
@@ -199,8 +201,13 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
   }
 
   updateOffset(offsetMs: number) {
-    // Only apply offsets in whole seconds
-    this._offset = Math.round(offsetMs / 1e3) * 1e3;
+    if (offsetMs < fifteenMinutesInSeconds) {
+      this._offset = 0;
+      return;
+    }
+
+    // Only apply offsets in whole minutes
+    this._offset = Math.round(offsetMs / oneMinuteInSeconds) * oneMinuteInSeconds;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
