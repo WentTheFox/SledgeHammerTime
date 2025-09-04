@@ -86,6 +86,7 @@ const settings = inject(localSettings);
           :icon-start="faLockOpen"
           :icon-only="true"
           :href="ts.unlockedTimestampUrl.value"
+          @click.prevent="ts.unlock"
         />
         <template #content>
           {{ $t('timestampPicker.picker.tooltip.unlock') }}
@@ -97,6 +98,7 @@ const settings = inject(localSettings);
           :icon-start="faLock"
           :icon-only="true"
           :href="ts.lockedTimestampUrl.value"
+          @click.prevent="ts.lock"
         />
         <template #content>
           {{ $t('timestampPicker.picker.tooltip.lock') }}

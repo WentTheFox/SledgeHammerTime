@@ -4,7 +4,7 @@ import UsefulLinks from '@/Components/home/UsefulLinks.vue';
 import { dateTimeLibraryInject, timestamp } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
-import { usePage } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
 import { computed, inject, onMounted, provide, readonly, Ref, ref } from 'vue';
 import { useRoute } from 'ziggy-js';
 
@@ -70,7 +70,22 @@ const setCurrentTime = () => {
 };
 const locale = computed(() => page.props.app.locale);
 const uiLocale = computed(() => page.props.app.languages[locale.value] ?? locale.value);
-
+const lock = () => {
+  router.get(lockedTimestampUrl.value, undefined, { replace: true });
+};
+const unlock = () => {
+  backupLastTime([dateString.value, timeString.value]);
+  router.get(unlockedTimestampUrl.value, undefined, { replace: true });
+};
+const backupLastTime = (value: [string, string]) => {
+  sessionStorage.setItem('lockedDateTime', value.join('T'));
+};
+const restoreLastTime = () => {
+  const backupValue = sessionStorage.getItem('lockedDateTime');
+  if (!backupValue) return null;
+  sessionStorage.removeItem('lockedDateTime');
+  return backupValue.split('T');
+};
 
 provide(timestamp, {
   currentTimestamp,
@@ -85,10 +100,12 @@ provide(timestamp, {
   changeDateTimeString,
   changeTimezone,
   setCurrentTime,
+  unlock,
+  lock,
 });
 
 onMounted(() => {
-  [dateString.value, timeString.value] = dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
+  [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
 });
 </script>
 

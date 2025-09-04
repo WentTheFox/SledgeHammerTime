@@ -18,6 +18,8 @@ export const timestamp = Symbol('timestamp') as InjectionKey<{
   changeDateTimeString: (value: string) => void,
   changeTimezone: (value: TimezoneSelection) => void,
   setCurrentTime: () => void,
+  lock: () => void,
+  unlock: () => void,
 }>;
 
 export const themeInject = Symbol('theme') as InjectionKey<{
