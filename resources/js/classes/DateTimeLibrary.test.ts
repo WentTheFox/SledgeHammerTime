@@ -21,6 +21,10 @@ describe('DateTimeLibrary', () => {
     type: TimeZoneSelectionType.ZONE_NAME,
     name: 'Etc/UTC',
   };
+  const berlinTimezone: TimezoneSelection = {
+    type: TimeZoneSelectionType.ZONE_NAME,
+    name: 'Europe/Berlin',
+  };
 
   describe.each(implementations)('Implementation: %s', (dtlName, dtl) => {
     describe('getLocaleNameFromLanguage', () => {
@@ -224,14 +228,13 @@ describe('DateTimeLibrary', () => {
 
       it('should use the provided default date time with zone offset', () => {
         const defaultDateTime = '1735732800'; // January 1, 2025, 12:00:00
-        const result = dtl.getInitialDateTime(utcTimezone, defaultDateTime);
+        const result = dtl.getInitialDateTime(berlinTimezone, defaultDateTime);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');
-        expect(result[1]).toBe('12:00:00');
+        expect(result[1]).toBe('13:00:00');
       });
 
-      // TODO Fix parsing zoned datetime in DateFNS
-      it.skip('should use the provided default date time with UTC offset', () => {
+      it('should use the provided default date time with UTC offset', () => {
         const timezone: TimezoneSelection = {
           type: TimeZoneSelectionType.OFFSET,
           hours: 1,
@@ -241,7 +244,7 @@ describe('DateTimeLibrary', () => {
         const result = dtl.getInitialDateTime(timezone, defaultDateTime);
         expect(result).toHaveLength(2);
         expect(result[0]).toBe('2025-01-01');
-        expect(result[1]).toBe('12:00:00');
+        expect(result[1]).toBe('13:00:00');
       });
 
       it('should zero seconds when requested', () => {

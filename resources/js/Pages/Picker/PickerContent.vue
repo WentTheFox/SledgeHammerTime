@@ -4,7 +4,7 @@ import UsefulLinks from '@/Components/home/UsefulLinks.vue';
 import { dateTimeLibraryInject, timestamp } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
-import { router, usePage } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3';
 import { computed, inject, onMounted, provide, readonly, Ref, ref } from 'vue';
 import { useRoute } from 'ziggy-js';
 
@@ -33,6 +33,17 @@ const timeString = ref('');
 
 const currentTimestamp = computed(() => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
 const isLocked = computed(() => defaultUnixTimestamp.value !== null);
+const lockedTimestampUrl = computed(() => {
+  const params = new URLSearchParams();
+  params.set('t', String(currentTimestamp.value?.getUnixSeconds()));
+  params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
+  return `/${uiLocale.value}?${params}`;
+});
+const unlockedTimestampUrl = computed(() => {
+  const params = new URLSearchParams();
+  params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
+  return `/${uiLocale.value}?${params}`;
+});
 
 const changeDateString = (value: string) => {
   dateString.value = value;
@@ -58,31 +69,14 @@ const setCurrentTime = () => {
   changeTimeString(newTimeString);
 };
 const locale = computed(() => page.props.app.locale);
-const lock = () => {
-  const params = new URLSearchParams();
-  params.set('t', String(dtl?.value.fromIsoString(dateString.value + 'T' + timeString.value).getUnixSeconds()));
-  params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
-  router.get(`/${locale.value}?${params}`, undefined, { replace: true });
-};
-const unlock = () => {
-  const params = new URLSearchParams();
-  params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
-  backupLastTime([dateString.value, timeString.value]);
-  router.get(`/${locale.value}?${params}`, undefined, { replace: true });
-};
-const backupLastTime = (value: [string, string]) => {
-  sessionStorage.setItem('lockedDateTime', value.join('T'));
-};
-const restoreLastTime = () => {
-  const backupValue = sessionStorage.getItem('lockedDateTime');
-  if (!backupValue) return null;
-  sessionStorage.removeItem('lockedDateTime');
-  return backupValue.split('T');
-};
+const uiLocale = computed(() => page.props.app.languages[locale.value] ?? locale.value);
+
 
 provide(timestamp, {
   currentTimestamp,
   isLocked,
+  lockedTimestampUrl,
+  unlockedTimestampUrl,
   currentDate: readonly(dateString),
   currentTime: readonly(timeString),
   currentTimezone,
@@ -91,12 +85,10 @@ provide(timestamp, {
   changeDateTimeString,
   changeTimezone,
   setCurrentTime,
-  unlock,
-  lock,
 });
 
 onMounted(() => {
-  [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
+  [dateString.value, timeString.value] = dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
 });
 </script>
 
