@@ -629,6 +629,11 @@
     "17273286": {
       "username": "xianxiaojiu",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17273286/medium/ba93d5bcbddb071b58b05414cc8d9f42_default.png"
+    },
+    "17302298": {
+      "username": "timakimit",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17302298/medium/feb212dbfc401643e47b19007d8ee69f.jpeg",
+      "fullName": "Timofey K."
     }
   },
   "languages": {
@@ -709,7 +714,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 85
+        "translation": 84
       }
     },
     "en-GB": {
@@ -717,8 +722,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 89,
-        "translation": 89
+        "approval": 88,
+        "translation": 88
       }
     },
     "es": {
@@ -816,8 +821,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 89,
-        "translation": 89
+        "approval": 88,
+        "translation": 88
       }
     },
     "id": {
@@ -838,7 +843,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 15
+        "translation": 14
       }
     },
     "ja": {
@@ -981,7 +986,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 85
+        "translation": 84
       }
     },
     "ru": {
@@ -1003,11 +1008,12 @@
         "16602531",
         "16587533",
         "16608543",
-        "12773366"
+        "12773366",
+        "17302298"
       ],
       "progress": {
         "approval": 0,
-        "translation": 19
+        "translation": 22
       }
     },
     "sr": {
@@ -1042,7 +1048,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 19
+        "translation": 18
       }
     },
     "tr": {

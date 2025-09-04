@@ -173,6 +173,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
   - [stolarchukboris](https://crowdin.com/profile/PleasedontslammykeyboarddfsdoijfwR)
+  - [Timofey K.](https://crowdin.com/profile/timakimit)
   - [Vitaliy Kanev](https://crowdin.com/profile/vitalkanev)
   - [Vladimir](https://crowdin.com/profile/bill876)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
