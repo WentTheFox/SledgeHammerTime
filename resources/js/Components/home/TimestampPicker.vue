@@ -7,7 +7,7 @@ import NativeDateInput from '@/Components/home/inputs/NativeDateInput.vue';
 import NativeDateTimeInput from '@/Components/home/inputs/NativeDateTimeInput.vue';
 import NativeTimeInput from '@/Components/home/inputs/NativeTimeInput.vue';
 import TimeZonePicker from '@/Components/home/inputs/TimeZoneInput.vue';
-import { devModeInject, localSettings, timestamp } from '@/injection-keys';
+import { localSettings, timestamp } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
@@ -18,7 +18,6 @@ import { Tippy } from 'vue-tippy';
 
 const ts = inject(timestamp);
 const settings = inject(localSettings);
-const devMode = inject(devModeInject);
 </script>
 
 <template>
