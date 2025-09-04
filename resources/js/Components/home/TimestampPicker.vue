@@ -11,6 +11,7 @@ import { devModeInject, localSettings, timestamp } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
+import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faClockRotateLeft, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import { inject } from 'vue';
 import { Tippy } from 'vue-tippy';
@@ -80,30 +81,28 @@ const devMode = inject(devModeInject);
           {{ $t('timestampPicker.picker.tooltip.setToCurrent') }}
         </template>
       </Tippy>
-      <template v-if="devMode || ts.isLocked.value">
-        <Tippy v-if="ts.isLocked.value">
-          <HtButton
-            color="danger"
-            :icon-start="faLockOpen"
-            :icon-only="true"
-            @click="ts.unlock"
-          />
-          <template #content>
-            {{ $t('timestampPicker.picker.tooltip.unlock') }}
-          </template>
-        </Tippy>
-        <Tippy v-else>
-          <HtButton
-            color="primary"
-            :icon-start="faLock"
-            :icon-only="true"
-            @click="ts.lock"
-          />
-          <template #content>
-            {{ $t('timestampPicker.picker.tooltip.lock') }}
-          </template>
-        </Tippy>
-      </template>
+      <Tippy v-if="ts.isLocked.value">
+        <HtLinkButton
+          color="danger"
+          :icon-start="faLockOpen"
+          :icon-only="true"
+          :href="ts.unlockedTimestampUrl.value"
+        />
+        <template #content>
+          {{ $t('timestampPicker.picker.tooltip.unlock') }}
+        </template>
+      </Tippy>
+      <Tippy v-else>
+        <HtLinkButton
+          color="primary"
+          :icon-start="faLock"
+          :icon-only="true"
+          :href="ts.lockedTimestampUrl.value"
+        />
+        <template #content>
+          {{ $t('timestampPicker.picker.tooltip.lock') }}
+        </template>
+      </Tippy>
     </div>
   </HtFormControlGroup>
 </template>

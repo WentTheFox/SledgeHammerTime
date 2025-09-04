@@ -301,7 +301,7 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
     if (typeof defaultDateTime === 'string') {
       const parseResult = moment.tz(parseInt(defaultDateTime, 10) * 1000, timezone.type === TimeZoneSelectionType.ZONE_NAME ? timezone.name : 'UTC');
       if (timezone.type === TimeZoneSelectionType.OFFSET) {
-        parseResult.utcOffset(getUtcOffsetString(timezone), true);
+        parseResult.utcOffset(getUtcOffsetString(timezone));
       }
       if (zeroSeconds) {
         parseResult.seconds(0);

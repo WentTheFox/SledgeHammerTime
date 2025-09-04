@@ -376,9 +376,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const offsetString = getUtcOffsetString(timezone);
-        // Create a virtual timezone name based on the offset
-        const virtualTimezoneName = `Etc/GMT${offsetString.replace(':', '')}`;
-        tzDate = this.applyOffsetToDate(new TZDate(initialTs, virtualTimezoneName));
+        tzDate = this.applyOffsetToDate(new TZDate(initialTs, offsetString));
         break;
       }
       case TimeZoneSelectionType.ZONE_NAME:
