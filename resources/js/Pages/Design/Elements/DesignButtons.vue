@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 </script>
 
 <template>
+  <p class="mb-3">
+    Buttons
+  </p>
   <div>
     <HtButton>Simple button</HtButton>
     &nbsp;
