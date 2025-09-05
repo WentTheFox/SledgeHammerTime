@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject, devModeInject } from '@/injection-keys';
 import ConnectedAccountsHeading from '@/Pages/Profile/Partials/ConnectedAccountsHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -6,6 +7,8 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { computed, inject } from 'vue';
+
+const route = useRoute();
 
 const devMode = inject(devModeInject);
 const currentLanguage = inject(currentLanguageInject);

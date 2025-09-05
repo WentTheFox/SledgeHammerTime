@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
@@ -14,6 +15,7 @@ import nativeLocaleNames from '../../../vendor/laravel-lang/native-locale-names/
 
 const searchParams = ref<URLSearchParams | null>(null);
 
+const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
 
 const extendedNativeLocaleNames: Record<AvailableLanguage, string> = {

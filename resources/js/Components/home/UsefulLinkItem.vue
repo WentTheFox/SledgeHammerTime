@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject } from '@/injection-keys';
+// noinspection ES6UnusedImports
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
@@ -13,6 +15,7 @@ defineProps<{
   isLocal?: boolean;
 }>();
 
+const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
 </script>
 

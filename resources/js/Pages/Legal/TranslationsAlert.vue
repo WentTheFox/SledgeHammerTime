@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
@@ -8,6 +9,8 @@ import { inject } from 'vue';
 defineProps<{
   fallbackLocale: string;
 }>();
+
+const route = useRoute();
 
 const currentLanguage = inject(currentLanguageInject);
 </script>

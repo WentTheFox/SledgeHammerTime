@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import { useRoute } from '@/composables/useRoute';
 import { usageDataFetcherInject } from '@/injection-keys';
 import { BotCommand } from '@/model/discord';
 import BotCommandInfo from '@/Pages/BotInfo/BotCommandInfo.vue';
 import HtCard from '@/Reusable/HtCard.vue';
-import { fetchUsageData } from '@/utils/app';
+import { usageDataFetcherFactory } from '@/utils/app';
 import { provide } from 'vue';
 
 defineProps<{
@@ -12,7 +13,8 @@ defineProps<{
   translations: Record<string, string>;
 }>();
 
-provide(usageDataFetcherInject, fetchUsageData);
+const route = useRoute();
+provide(usageDataFetcherInject, usageDataFetcherFactory(route('app.usage')));
 </script>
 
 <template>

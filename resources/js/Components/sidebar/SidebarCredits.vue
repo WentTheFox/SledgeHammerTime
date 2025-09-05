@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DeveloperCredit from '@/Components/sidebar/DeveloperCredit.vue';
 import TranslationCredits from '@/Components/sidebar/TranslationCredits.vue';
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject, localSettings } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
@@ -12,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
+const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
 
 const translationCredits = computed(() => {
