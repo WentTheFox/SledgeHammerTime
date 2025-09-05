@@ -1,27 +1,24 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import {
+  BotInfoUsageData,
+  BotInfoUsageFetchOptions,
+  dateTimeLibraryInject,
+  usageDataFetcherInject,
+} from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import axios from 'axios';
 import { computed, inject, ref, watch } from 'vue';
 import { Tippy, TippySingleton } from 'vue-tippy';
 
-export interface BotInfoUsageGraphProps {
-  id: string;
-  type: 'command' | 'option';
-}
+export type BotInfoUsageGraphProps = BotInfoUsageFetchOptions;
 
 const props = defineProps<BotInfoUsageGraphProps>();
+const usageDataFetcher = inject(usageDataFetcherInject);
 const historyDays = 90;
-
-interface BotInfoUsageData {
-  date: string;
-  value: number;
-}
 
 interface AugmentedBotInfoUsageData {
   key: number;
@@ -33,11 +30,12 @@ const data = ref<BotInfoUsageData[] | null>(null);
 const dtl = inject(dateTimeLibraryInject);
 
 watch(() => [props.id, props.type], async () => {
-  const params = new URLSearchParams();
-  params.set('id', props.id);
-  params.set('type', props.type);
-  const result = await axios.get(route('app.usage') + '?' + params);
-  data.value = result.data as BotInfoUsageData[];
+  if (!usageDataFetcher) {
+    data.value = [];
+    return;
+  }
+
+  data.value = await usageDataFetcher(props);
 }, { immediate: true });
 
 const indexedData = computed<Record<string, number>>(() => data.value?.reduce((acc, c) => ({
@@ -60,10 +58,6 @@ const augmentedData = computed(() => {
     });
   }
   return augmented;
-});
-
-watch(data, (newData) => {
-  if (!newData) return;
 });
 </script>
 

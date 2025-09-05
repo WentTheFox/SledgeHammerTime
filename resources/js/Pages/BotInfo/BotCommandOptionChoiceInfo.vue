@@ -1,13 +1,8 @@
 <script setup lang="ts">
+import { BotCommandOptionChoice } from '@/model/discord';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import { getBotCommandTranslationKey } from '@/utils/translation';
 import { computed } from 'vue';
-
-export interface BotCommandOptionChoice {
-  id: string;
-  name: string;
-  value: string;
-}
 
 const props = defineProps<{
   commandId: string;
@@ -15,7 +10,6 @@ const props = defineProps<{
   choice: BotCommandOptionChoice;
   translations: Record<string, string>,
 }>();
-
 
 const localizedName = computed(() => {
   const key = getBotCommandTranslationKey({

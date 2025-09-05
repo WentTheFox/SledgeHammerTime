@@ -1,7 +1,9 @@
-import { CurrentLanguageData } from '@/injection-keys';
+import { BotInfoUsageData, BotInfoUsageFetchOptions, CurrentLanguageData } from '@/injection-keys';
 import { PageProps } from '@/types';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { rangeLimitInput } from '@/utils/time';
+import axios from 'axios';
+import { format, subDays } from 'date-fns';
 import { ModelRef, Ref } from 'vue';
 
 export const getAppName = () => import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -35,4 +37,32 @@ export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => 
     supportedLanguages,
     crowdinProjectId,
   };
+};
+
+export const fetchUsageData = async (options: BotInfoUsageFetchOptions): Promise<BotInfoUsageData[]> => {
+  const params = new URLSearchParams();
+  params.set('id', options.id);
+  params.set('type', options.type);
+  const result = await axios.get(route('app.usage') + '?' + params);
+  return result.data as BotInfoUsageData[];
+};
+
+export const randomlyGenerateCommandUsageData = (totalCount: number): BotInfoUsageData[] => {
+  const results: BotInfoUsageData[] = [];
+  let remainingCount = totalCount;
+  const distributeDays = 90;
+  const amplifyFactor = totalCount / 500;
+  const averageDailyUse = totalCount / distributeDays;
+  const now = new Date();
+  for (let i = distributeDays; i >= 0; i--) {
+    const dailyCount = i === 0 || remainingCount < averageDailyUse
+      ? remainingCount
+      : Math.round(averageDailyUse + (Math.sin(remainingCount / distributeDays) * amplifyFactor));
+    remainingCount -= dailyCount;
+    results.push({
+      date: format(subDays(now, i), 'yyyy-MM-dd'),
+      value: dailyCount,
+    });
+  }
+  return results;
 };

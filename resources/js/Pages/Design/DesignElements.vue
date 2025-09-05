@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { localSettings, sidebarState } from '@/injection-keys';
-import DesignBadges from '@/Pages/Design/DesignBadges.vue';
-import HtAlert from '@/Reusable/HtAlert.vue';
+import DesignAlerts from '@/Pages/Design/Elements/DesignAlerts.vue';
+import DesignBadges from '@/Pages/Design/Elements/DesignBadges.vue';
+import DesignBotInfo from '@/Pages/Design/Elements/DesignBotInfo.vue';
+import DesignButtons from '@/Pages/Design/Elements/DesignButtons.vue';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { loremIpsum } from 'lorem-ipsum';
 import { inject } from 'vue';
 
@@ -17,46 +17,7 @@ const localSettingsValue = inject(localSettings);
 </script>
 
 <template>
-  <HtAlert type="info">
-    <template #title>
-      Info Alert
-    </template>
-    <template #text>
-      {{ placeholderText }}
-    </template>
-  </HtAlert>
-  <HtAlert type="warning">
-    <template #title>
-      Warning Alert
-    </template>
-    <template #text>
-      {{ placeholderText }}
-    </template>
-  </HtAlert>
-  <HtAlert type="unknown">
-    <template #title>
-      Unknown Alert
-    </template>
-    <template #text>
-      {{ placeholderText }}
-    </template>
-  </HtAlert>
-  <HtAlert
-    type="unknown"
-    :closable="false"
-  >
-    <template #title>
-      Un-closable Alert
-    </template>
-  </HtAlert>
-  <HtAlert
-    type="unknown"
-    :closable="false"
-  >
-    <template #text>
-      Text-only
-    </template>
-  </HtAlert>
+  <DesignAlerts :placeholder-text="placeholderText" />
 
   <HtCard>
     <template #header>
@@ -73,67 +34,7 @@ const localSettingsValue = inject(localSettings);
       Components
     </p>
 
-    <div>
-      <HtButton>Simple button</HtButton>
-      &nbsp;
-      <HtButton :disabled="true">
-        Disabled default button
-      </HtButton>
-      &nbsp;
-      <HtButton :loading="true">
-        Loading default button
-      </HtButton>
-      &nbsp;
-      <HtButton>
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-      &nbsp;
-      <HtButton :disabled="true">
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-      &nbsp;
-      <HtButton :loading="true">
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-    </div>
-    <div>&nbsp;</div>
-    <div>
-      <HtButton color="primary">
-        Primary button
-      </HtButton>
-      &nbsp;
-      <HtButton
-        color="primary"
-        :disabled="true"
-      >
-        Disabled primary button
-      </HtButton>
-      &nbsp;
-      <HtButton
-        color="primary"
-        :loading="true"
-      >
-        Loading primary button
-      </HtButton>
-      &nbsp;
-      <HtButton color="primary">
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-      &nbsp;
-      <HtButton
-        color="primary"
-        :disabled="true"
-      >
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-      &nbsp;
-      <HtButton
-        color="primary"
-        :loading="true"
-      >
-        <FontAwesomeIcon :icon="faClipboard" />
-      </HtButton>
-    </div>
+    <DesignButtons />
     <div>&nbsp;</div>
     <div>
       <DesignBadges />
@@ -148,6 +49,7 @@ const localSettingsValue = inject(localSettings);
       />
     </div>
   </HtCard>
+  <DesignBotInfo />
   <HtCard>
     <template #header>
       Sidebar control

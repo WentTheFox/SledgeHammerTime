@@ -89,3 +89,17 @@ export const timeSyncInject = Symbol('timeSyncInject') as InjectionKey<DeepReado
   syncing: boolean;
   syncTime(apply: boolean): void;
 }>>;
+
+export interface BotInfoUsageFetchOptions {
+  id: string;
+  type: 'command' | 'option';
+}
+
+export interface BotInfoUsageData {
+  date: string;
+  value: number;
+}
+
+export type UsageDataFetchFunction = (options: BotInfoUsageFetchOptions) => Promise<BotInfoUsageData[]>;
+
+export const usageDataFetcherInject = Symbol('usageDataFetcherInject') as InjectionKey<UsageDataFetchFunction>;

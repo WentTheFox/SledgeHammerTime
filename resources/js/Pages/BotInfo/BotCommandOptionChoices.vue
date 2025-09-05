@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import BotCommandOptionChoiceInfo, { BotCommandOptionChoice } from '@/Pages/BotInfo/BotCommandOptionChoiceInfo.vue';
+import { BotCommandOptionChoice } from '@/model/discord';
+import BotCommandOptionChoiceInfo from '@/Pages/BotInfo/BotCommandOptionChoiceInfo.vue';
 
 export type BotCommandOptionChoiceList = BotCommandOptionChoice[];
 
