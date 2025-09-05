@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-import BotCommandOptionInfo, { BotCommandOption } from '@/Pages/BotInfo/BotCommandOptionInfo.vue';
+import { BotCommand, DiscordBotCommandType } from '@/model/discord';
+import BotCommandOptionInfo from '@/Pages/BotInfo/BotCommandOptionInfo.vue';
 import BotInfoUsageBadge from '@/Pages/BotInfo/BotInfoUsageBadge.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
@@ -8,30 +9,6 @@ import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import { getBotCommandTranslationKey } from '@/utils/translation';
 import { wTrans } from 'laravel-vue-i18n';
 import { computed } from 'vue';
-
-enum DiscordBotCommandType {
-  /**
-   * Slash commands
-   */
-  ChatInput = 1,
-  /**
-   * User right-click menu
-   */
-  User = 2,
-  /**
-   * Message right-click menu
-   */
-  Message = 3,
-}
-
-export interface BotCommand {
-  id: string;
-  name: string;
-  description: string;
-  options?: BotCommandOption[];
-  type: DiscordBotCommandType;
-  total_executions: number | null;
-}
 
 const props = defineProps<{
   command: BotCommand,

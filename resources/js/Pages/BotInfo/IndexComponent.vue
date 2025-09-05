@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Layout from '@/Layouts/DefaultLayout.vue';
-import { BotCommand } from '@/Pages/BotInfo/BotCommandInfo.vue';
+import { BotCommand } from '@/model/discord';
 import BotInfoCard from '@/Pages/BotInfo/BotInfoCard.vue';
 import BotShards, { BotShardData } from '@/Pages/BotInfo/BotShards.vue';
 import CommandsReference from '@/Pages/BotInfo/CommandsReference.vue';

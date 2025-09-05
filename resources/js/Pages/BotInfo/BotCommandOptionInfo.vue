@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import BotCommandOptionChoices, { BotCommandOptionChoiceList } from '@/Pages/BotInfo/BotCommandOptionChoices.vue';
+import { BotCommandOption, DiscordBotCommandOptionType } from '@/model/discord';
+import BotCommandOptionChoices from '@/Pages/BotInfo/BotCommandOptionChoices.vue';
 import BotInfoUsageBadge from '@/Pages/BotInfo/BotInfoUsageBadge.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
@@ -7,21 +8,6 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { BadgeColor } from '@/utils/badges';
 import { getBotCommandTranslationKey } from '@/utils/translation';
 import { computed } from 'vue';
-
-export interface BotCommandOption {
-  id: string;
-  name: string;
-  description: string;
-  type: number;
-  required: boolean | null;
-  min_value: number | null;
-  max_value: number | null;
-  min_length: number | null;
-  max_length: number | null;
-  choices?: BotCommandOptionChoiceList;
-  total_uses: number | null;
-  deleted_at: string | null;
-}
 
 const props = defineProps<{
   commandId: string,
@@ -49,10 +35,10 @@ const localizedDescription = computed(() => {
 });
 
 const optionColors: Partial<Record<number, BadgeColor>> = {
-  1: 'purple',
-  4: 'blue',
-  5: 'green',
-  10: 'cyan',
+  [DiscordBotCommandOptionType.SUB_COMMAND]: 'purple',
+  [DiscordBotCommandOptionType.INTEGER]: 'blue',
+  [DiscordBotCommandOptionType.BOOLEAN]: 'green',
+  [DiscordBotCommandOptionType.NUMBER]: 'cyan',
 };
 
 const hasMinValue = computed(() => typeof props.option.min_value === 'number');

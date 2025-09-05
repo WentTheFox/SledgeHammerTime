@@ -1,12 +1,18 @@
 <script setup lang="ts">
 
-import BotCommandInfo, { BotCommand } from '@/Pages/BotInfo/BotCommandInfo.vue';
+import { usageDataFetcherInject } from '@/injection-keys';
+import { BotCommand } from '@/model/discord';
+import BotCommandInfo from '@/Pages/BotInfo/BotCommandInfo.vue';
 import HtCard from '@/Reusable/HtCard.vue';
+import { fetchUsageData } from '@/utils/app';
+import { provide } from 'vue';
 
 defineProps<{
   commands: BotCommand[];
   translations: Record<string, string>;
 }>();
+
+provide(usageDataFetcherInject, fetchUsageData);
 </script>
 
 <template>
