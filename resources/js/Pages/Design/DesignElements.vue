@@ -5,8 +5,8 @@ import DesignAlerts from '@/Pages/Design/Elements/DesignAlerts.vue';
 import DesignBadges from '@/Pages/Design/Elements/DesignBadges.vue';
 import DesignBotInfo from '@/Pages/Design/Elements/DesignBotInfo.vue';
 import DesignButtons from '@/Pages/Design/Elements/DesignButtons.vue';
-import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
+import HtTable from '@/Reusable/HtTable.vue';
 import { loremIpsum } from 'lorem-ipsum';
 import { inject } from 'vue';
 
@@ -30,12 +30,13 @@ const localSettingsValue = inject(localSettings);
 
     <ApplicationLogo :size="100" />
 
-    <p class="mb-3">
-      Components
-    </p>
 
     <DesignButtons />
     <div>&nbsp;</div>
+
+    <p class="mb-3">
+      Badges
+    </p>
     <div>
       <DesignBadges />
       <div>&nbsp;</div>
@@ -48,39 +49,39 @@ const localSettingsValue = inject(localSettings);
         suffix="Suffixed"
       />
     </div>
+
+    <p class="mt-3 mb-3">
+      Table
+    </p>
+    <HtTable>
+      <thead>
+        <tr>
+          <th>Table Header Cell 1</th>
+          <th>Table Header Cell 2</th>
+          <th>Table Header Cell 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Table Body Data Cell 1 / 1</td>
+          <td>Table Body Data Cell 1 / 2</td>
+          <td>Table Body Data Cell 1 / 3</td>
+        </tr>
+        <tr>
+          <th>Table Body header Cell 2 / 1</th>
+          <td>Table Body Data Cell 2 / 2</td>
+          <td>Table Body Data Cell 2 / 3</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Table Footer Cell 1</td>
+          <td>Table Footer Cell 2</td>
+          <td>Table Footer Cell 3</td>
+        </tr>
+      </tfoot>
+    </HtTable>
   </HtCard>
   <DesignBotInfo />
-  <HtCard>
-    <template #header>
-      Sidebar control
-    </template>
-
-    <dl class="mb-3">
-      <dt>isOpen</dt>
-      <dd>{{ sidebarStateValue?.isOpen }}</dd>
-      <dt>isOnRight</dt>
-      <dd>{{ localSettingsValue?.sidebarOnRight }}</dd>
-    </dl>
-
-    <div>
-      <HtButton
-        color="success"
-        @click="sidebarStateValue?.setIsOpen(true)"
-      >
-        Open
-      </HtButton>
-      &nbsp;
-      <HtButton
-        color="danger"
-        @click="sidebarStateValue?.setIsOpen(false)"
-      >
-        Close
-      </HtButton>
-      &nbsp;
-      <HtButton @click="localSettingsValue?.toggleSidebarOnRight()">
-        Toggle Left/Right
-      </HtButton>
-    </div>
-  </HtCard>
 </template>
 
