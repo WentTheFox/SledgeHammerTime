@@ -7,11 +7,11 @@ import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import { getBotCommandTranslationKey } from '@/utils/translation';
-import { wTrans } from 'laravel-vue-i18n';
 import { computed } from 'vue';
 
 const props = defineProps<{
   command: BotCommand,
+  additionalDescription?: string,
   translations: Record<string, string>,
 }>();
 
@@ -31,9 +31,8 @@ const localizedDescription = computed(() => {
 
   return props.translations[key] ?? props.command.description;
 });
-const additionalDescriptionI18nKey = `botInfo.commandsReference.additionalDescription.commands.${props.command.name}`;
-const additionalDescription = wTrans(additionalDescriptionI18nKey);
-const hasDescription = computed(() => localizedDescription.value || additionalDescription.value !== additionalDescriptionI18nKey);
+const hasAdditionalDescription = computed(() => !!props.additionalDescription && !props.additionalDescription.startsWith('botInfo.'));
+const hasDescription = computed(() => localizedDescription.value || hasAdditionalDescription);
 const totalExecutions = computed(() => props.command.total_executions ?? 0);
 </script>
 
@@ -69,7 +68,7 @@ const totalExecutions = computed(() => props.command.total_executions ?? 0);
         </p>
       </template>
       <HtAlert
-        v-if="additionalDescription !== additionalDescriptionI18nKey"
+        v-if="hasAdditionalDescription"
         :closable="false"
         type="info"
       >

@@ -125,6 +125,11 @@ const usageDataGenerator: UsageDataFetchFunction = (options) => {
   });
 };
 provide(usageDataFetcherInject, usageDataGenerator);
+const getAdditionalDescription = (command: BotCommand) => (
+  command.id === 'slash-command'
+    ? 'Additional command description defined in website localization files, unlimited length.'
+    : `botInfo.commandsReference.additionalDescription.commands.${command.name}`
+);
 </script>
 
 <template>
@@ -135,6 +140,7 @@ provide(usageDataFetcherInject, usageDataGenerator);
     v-for="command in staticCommands"
     :key="command.id"
     :command="command"
+    :additional-description="getAdditionalDescription(command)"
     :translations="staticTranslations"
   />
 </template>
