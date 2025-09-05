@@ -2,6 +2,7 @@
 
 import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject } from '@/injection-keys';
+import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 // noinspection ES6UnusedImports
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { Link } from '@inertiajs/vue3';
@@ -30,10 +31,10 @@ const currentLanguage = inject(currentLanguageInject);
     >
       <div class="link-card">
         <div class="card-top-half">
-          <img
+          <HtOptimizedImage
             :src="image"
             alt=""
-          >
+          />
         </div>
 
         <div class="card-bottom-half">

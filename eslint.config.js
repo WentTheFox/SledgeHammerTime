@@ -7,6 +7,7 @@ import pluginVue from 'eslint-plugin-vue';
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  // @ts-expect-error TS is drunk
   ...pluginVue.configs['flat/recommended'],
   {
     files: ['**/*.{ts,tsx,mts,cts,vue}'],

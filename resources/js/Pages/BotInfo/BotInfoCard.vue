@@ -6,9 +6,11 @@ import AddAppLinks from '@/Pages/AddApp/AddAppLinks.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
+import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import usefulLinksBot from '@img/useful-links/bot.png';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
@@ -22,12 +24,12 @@ defineProps<{ discordAppId: string }>();
 <template>
   <HtCard class="bot-info">
     <template #header>
-      <img
+      <HtOptimizedImage
         class="bot-info-image"
-        src="/useful-links/bot.png"
-        alt=""
+        :src="usefulLinksBot"
       >
-      <h2>{{ $t('botInfo.heading') }}</h2>
+        <h2>{{ $t('botInfo.heading') }}</h2>
+      </HtOptimizedImage>
     </template>
 
     <p class="mb-3">
