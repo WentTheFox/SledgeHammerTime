@@ -29,6 +29,7 @@ provide(usageDataFetcherInject, fetchUsageData);
       v-for="command in commands"
       :key="command.id"
       :command="command"
+      :additional-description="$t(`botInfo.commandsReference.additionalDescription.commands.${command.name}`)"
       :translations="translations"
     />
   </HtCard>
