@@ -39,11 +39,11 @@ export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => 
   };
 };
 
-export const fetchUsageData = async (options: BotInfoUsageFetchOptions): Promise<BotInfoUsageData[]> => {
+export const usageDataFetcherFactory = (apiEndpoint: string) => async (options: BotInfoUsageFetchOptions): Promise<BotInfoUsageData[]> => {
   const params = new URLSearchParams();
   params.set('id', options.id);
   params.set('type', options.type);
-  const result = await axios.get(route('app.usage') + '?' + params);
+  const result = await axios.get(apiEndpoint + '?' + params);
   return result.data as BotInfoUsageData[];
 };
 

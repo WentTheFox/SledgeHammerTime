@@ -2,6 +2,7 @@
 import DiscordUserInfo, { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import FormMessage from '@/Components/FormMessage.vue';
 import TimeZoneInput from '@/Components/TimeZoneSelect.vue';
+import { useRoute } from '@/composables/useRoute';
 import { devModeInject } from '@/injection-keys';
 import { UserSettings } from '@/model/user-settings';
 import HtAlert from '@/Reusable/HtAlert.vue';
@@ -30,6 +31,7 @@ const props = defineProps<{
   columnsOptions?: Record<string, string>;
 }>();
 
+const route = useRoute();
 const devMode = inject(devModeInject);
 const showAdvancedSettings = ref(false);
 

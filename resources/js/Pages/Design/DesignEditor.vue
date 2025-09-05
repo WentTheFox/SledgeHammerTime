@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCode from '@/Reusable/HtCode.vue';
@@ -35,6 +36,8 @@ interface ColorCssVar {
 
 type CssVar = StringCssVar | NumberCssVar | ColorCssVar;
 type NamedCssVar = CssVar & { name: string, displayName: string };
+
+const route = useRoute();
 
 const cssVars = ref<NamedCssVar[]>([]);
 

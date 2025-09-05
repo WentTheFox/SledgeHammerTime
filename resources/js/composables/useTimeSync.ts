@@ -4,7 +4,7 @@ import { calculateNtpOffset } from '@/utils/time';
 import axios from 'axios';
 import { ComputedRef, DeepReadonly, ref } from 'vue';
 
-export const useTimeSync = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => {
+export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => {
   const t0 = ref<DateTimeLibraryValue | null>(null);
   const t1 = ref<DateTimeLibraryValue | null>(null);
   const t2 = ref<DateTimeLibraryValue | null>(null);
@@ -20,7 +20,7 @@ export const useTimeSync = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => 
     syncing.value = true;
     let newT1: DateTimeLibraryValue, newT2: DateTimeLibraryValue;
     const newT0 = dtl.value.now();
-    const result = await axios.get(route('app.ntp'));
+    const result = await axios.get(apiEndpoint);
     const newT3 = dtl.value.now();
     if (result.status !== 200) {
       console.error(`Sync failed (HTTP ${result.status})`);

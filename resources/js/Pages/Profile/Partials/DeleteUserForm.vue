@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
@@ -9,6 +10,7 @@ import { nextTick, ref } from 'vue';
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref<HTMLInputElement | null>(null);
 
+const route = useRoute();
 const form = useForm({});
 
 const confirmUserDeletion = () => {

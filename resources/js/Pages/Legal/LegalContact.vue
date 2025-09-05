@@ -1,11 +1,13 @@
 <script setup lang="ts">
-
+import { useRoute } from '@/composables/useRoute';
 import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_CONTACT_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
+
+const route = useRoute();
 </script>
 
 <template>

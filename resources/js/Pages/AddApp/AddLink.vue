@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject } from '@/injection-keys';
+// noinspection ES6UnusedImports
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +17,8 @@ withDefaults(defineProps<{
 }>(), {
   openInNewTab: false,
 });
+
+const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
 </script>
 

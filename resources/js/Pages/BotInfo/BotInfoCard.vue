@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { useRoute } from '@/composables/useRoute';
 import { pagePropsInject } from '@/injection-keys';
 import AddAppLinks from '@/Pages/AddApp/AddAppLinks.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -11,6 +12,7 @@ import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
+const route = useRoute();
 const page = inject(pagePropsInject);
 const userInfo = computed(() => page?.value?.auth?.user);
 

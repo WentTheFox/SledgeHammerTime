@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import { useRoute } from '@/composables/useRoute';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -13,6 +14,8 @@ import { Link } from '@inertiajs/vue3';
 defineProps<{
   lastUpdated: DateTimeLibraryValue | undefined;
 }>();
+
+const route = useRoute();
 </script>
 
 <template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from '@/composables/useRoute';
 import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
@@ -8,10 +9,12 @@ import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 import { Tippy } from 'vue-tippy';
 
+const route = useRoute();
 const page = inject(pagePropsInject);
 const currentLanguage = inject(currentLanguageInject);
 const userInfo = computed(() => page?.value?.auth?.user);
 
+// noinspection JSUnusedGlobalSymbols
 const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE);
 </script>
 

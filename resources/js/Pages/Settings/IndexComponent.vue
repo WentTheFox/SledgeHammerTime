@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
+import { useRoute } from '@/composables/useRoute';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import { UserSettings } from '@/model/user-settings';
 import UserSettingsForm from '@/Pages/Settings/UserSettingsForm.vue';
@@ -17,6 +18,8 @@ defineProps<{
   formatOptions?: string[];
   columnsOptions?: Record<string, string>;
 }>();
+
+const route = useRoute();
 </script>
 
 <template>

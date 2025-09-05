@@ -1,6 +1,7 @@
 import { IDDQD, useCheatCode } from '@/composables/useCheatCode';
 import { useDateTimeLibrary } from '@/composables/useDateTimeLibrary';
 import { useLocalSettings } from '@/composables/useLocalSettings';
+import { useRoute } from '@/composables/useRoute';
 import { useSidebarState } from '@/composables/useSidebarState';
 import { useTheme } from '@/composables/useTheme';
 import {
@@ -53,7 +54,8 @@ export const useLayout = () => {
   provide(localSettings, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
 
-  const { dateTimeLibrary, timeSync } = useDateTimeLibrary(localSettingsValue);
+  const route = useRoute();
+  const { dateTimeLibrary, timeSync } = useDateTimeLibrary(route, localSettingsValue);
   provide(dateTimeLibraryInject, dateTimeLibrary);
   provide(timeSyncInject, readonly(timeSync));
 

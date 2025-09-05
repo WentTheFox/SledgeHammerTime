@@ -4,10 +4,11 @@ import { MomentDTL } from '@/classes/MomentDTL';
 import { LocalSettingsValue } from '@/composables/useLocalSettings';
 import { useTimeSync } from '@/composables/useTimeSync';
 import { computed, DeepReadonly, UnwrapNestedRefs, watch } from 'vue';
+import type { route as ziggyRoute } from 'ziggy-js';
 
-export const useDateTimeLibrary = (localSettingsValue: DeepReadonly<UnwrapNestedRefs<LocalSettingsValue>>) => {
+export const useDateTimeLibrary = (route: typeof ziggyRoute, localSettingsValue: DeepReadonly<UnwrapNestedRefs<LocalSettingsValue>>) => {
   const dateTimeLibrary = computed((): DateTimeLibrary => localSettingsValue.dateFnsEnabled ? new DateFnsDTL() : new MomentDTL());
-  const timeSync = useTimeSync(dateTimeLibrary);
+  const timeSync = useTimeSync(route('app.ntp'), dateTimeLibrary);
 
   watch(dateTimeLibrary, () => {
     if (!localSettingsValue.autoTimeSync) {

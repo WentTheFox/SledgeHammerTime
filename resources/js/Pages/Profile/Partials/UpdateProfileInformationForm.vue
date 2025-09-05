@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FormMessage from '@/Components/FormMessage.vue';
+import { useRoute } from '@/composables/useRoute';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
@@ -13,6 +14,8 @@ const user = usePage().props.auth.user;
 const form = useForm({
   name: user.name,
 });
+
+const route = useRoute();
 </script>
 
 <template>

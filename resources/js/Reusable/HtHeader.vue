@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import { useRoute } from '@/composables/useRoute';
 import { getAppName } from '@/utils/app';
 import { Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
+const route = useRoute();
 const appName = getAppName();
 const page = usePage();
 const nonStick = computed(() => page.props.ziggy.location === route('legal', route().params));

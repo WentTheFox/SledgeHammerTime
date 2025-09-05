@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import TimestampCard from '@/Components/home/TimestampCard.vue';
 import UsefulLinks from '@/Components/home/UsefulLinks.vue';
+import { useRoute } from '@/composables/useRoute';
 import { dateTimeLibraryInject, timestamp } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
 import { router, usePage } from '@inertiajs/vue3';
 import { computed, inject, onMounted, provide, readonly, Ref, ref } from 'vue';
-import { useRoute } from 'ziggy-js';
 
 const page = usePage();
 const route = useRoute();
