@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { localSettings, sidebarState } from '@/injection-keys';
 import DesignAlerts from '@/Pages/Design/Elements/DesignAlerts.vue';
 import DesignBadges from '@/Pages/Design/Elements/DesignBadges.vue';
 import DesignBotInfo from '@/Pages/Design/Elements/DesignBotInfo.vue';
@@ -9,12 +8,8 @@ import DesignCollapsible from '@/Pages/Design/Elements/DesignCollapsible.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTable from '@/Reusable/HtTable.vue';
 import { loremIpsum } from 'lorem-ipsum';
-import { inject } from 'vue';
 
 const placeholderText = loremIpsum();
-
-const sidebarStateValue = inject(sidebarState);
-const localSettingsValue = inject(localSettings);
 </script>
 
 <template>
