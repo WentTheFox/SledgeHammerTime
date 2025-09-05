@@ -5,6 +5,7 @@ import DesignAlerts from '@/Pages/Design/Elements/DesignAlerts.vue';
 import DesignBadges from '@/Pages/Design/Elements/DesignBadges.vue';
 import DesignBotInfo from '@/Pages/Design/Elements/DesignBotInfo.vue';
 import DesignButtons from '@/Pages/Design/Elements/DesignButtons.vue';
+import DesignCollapsible from '@/Pages/Design/Elements/DesignCollapsible.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTable from '@/Reusable/HtTable.vue';
 import { loremIpsum } from 'lorem-ipsum';
@@ -30,11 +31,9 @@ const localSettingsValue = inject(localSettings);
 
     <ApplicationLogo :size="100" />
 
-
     <DesignButtons />
-    <div>&nbsp;</div>
 
-    <p class="mb-3">
+    <p class="mt-3 mb-3">
       Badges
     </p>
     <div>
@@ -81,6 +80,8 @@ const localSettingsValue = inject(localSettings);
         </tr>
       </tfoot>
     </HtTable>
+
+    <DesignCollapsible />
   </HtCard>
   <DesignBotInfo />
 </template>

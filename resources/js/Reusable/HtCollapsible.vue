@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
 
 const props = withDefaults(defineProps<{
   visible: boolean,
@@ -14,6 +14,8 @@ const isSsr = typeof window === 'undefined';
 const collapsibleRef = useTemplateRef('collapsibleRef');
 const height = ref(props.maxHeight);
 const isTransitioning = ref(false);
+
+const effectiveHeight = computed(() => props.maxHeight && height.value ? Math.min(props.maxHeight, height.value) : height.value);
 
 const handleResize = () => {
   if (isTransitioning.value) return;
@@ -57,13 +59,17 @@ onUnmounted(() => {
     collapsibleRef.value.removeEventListener('transitionend', handleTransitionEnd);
   }
 });
+
+watch(() => props.maxHeight, () => {
+  handleResize();
+});
 </script>
 
 <template>
   <div
     ref="collapsibleRef"
     :class="['collapsible', { visible: visible, 'limited-height': !!maxHeight }, props.class]"
-    :style="`height: ${height}px`"
+    :style="`height: ${effectiveHeight}px`"
     :inert="!visible"
   >
     <slot />
