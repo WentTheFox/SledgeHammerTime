@@ -28,6 +28,8 @@
 
   {{-- Fonts --}}
   @googlefonts
+  {{-- FontAwesome styles are critical to avoid "large icon" FOUC, so inline them --}}
+  <style>@php include base_path('node_modules/@fortawesome/fontawesome-free/css/svg-with-js.min.css') @endphp</style>
 
   {{-- Scripts --}}
   @routes
