@@ -2,11 +2,11 @@
 import Layout from '@/Layouts/DefaultLayout.vue';
 import LegalInfoSections from '@/Pages/Legal/LegalInfoSections.vue';
 import TranslationsAlert from '@/Pages/Legal/TranslationsAlert.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
-defineProps<{
-  fallbackLocale: string;
-}>();
+const page = usePage();
+const fallbackLocale = computed(() => page.props.app.fallbackLocale);
 </script>
 
 <template>

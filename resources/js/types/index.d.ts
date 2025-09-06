@@ -11,6 +11,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
   app: {
     name: string;
     locale: string;
+    fallbackLocale: string;
     /** Mapping Laravel app locales to UI locales **/
     languages: Record<string, AvailableLanguage>;
     /** List of all supported Laravel app locales **/

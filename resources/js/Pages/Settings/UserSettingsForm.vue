@@ -3,7 +3,8 @@ import DiscordUserInfo, { DiscordUserInfoProps } from '@/Components/DiscordUserI
 import FormMessage from '@/Components/FormMessage.vue';
 import TimeZoneInput from '@/Components/TimeZoneSelect.vue';
 import { useRoute } from '@/composables/useRoute';
-import { devModeInject } from '@/injection-keys';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { devModeInject, pagePropsInject } from '@/injection-keys';
 import { UserSettings } from '@/model/user-settings';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -32,6 +33,8 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 const devMode = inject(devModeInject);
 const showAdvancedSettings = ref(false);
 
@@ -199,7 +202,7 @@ const form = useForm({
             <p class="mb-2">
               <HtTranslate i18n-key="botSettings.fields.telemetry.explanation">
                 <template #1>
-                  <Link :href="`${route('legal', route().params)}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
+                  <Link :href="`${route('legal', routeParams)}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
                     {{ $t('global.nav.legal') }}
                   </Link>
                 </template>

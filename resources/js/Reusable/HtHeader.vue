@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import { getAppName } from '@/utils/app';
-import { Link, usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import { Link } from '@inertiajs/vue3';
+import { computed, inject } from 'vue';
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 const appName = getAppName();
-const page = usePage();
-const nonStick = computed(() => page.props.ziggy.location === route('legal', route().params));
+const nonStick = computed(() => pageProps?.value.ziggy.location === route('legal', routeParams.value));
 </script>
 
 <template>
