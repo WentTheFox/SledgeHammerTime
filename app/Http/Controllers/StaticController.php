@@ -14,8 +14,6 @@ class StaticController extends Controller {
   }
 
   public function legal() {
-    return Inertia::render('Legal/IndexComponent', [
-      'fallbackLocale' => config('app.fallback_locale'),
-    ]);
+    return Inertia::render('Legal/IndexComponent');
   }
 }

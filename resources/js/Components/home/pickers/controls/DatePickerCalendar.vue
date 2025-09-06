@@ -2,14 +2,13 @@
 import { DateTimeLibraryMonth, DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { useCurrentDate } from '@/composables/useCurrentDate';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import { dateTimeLibraryInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtButtonGroup from '@/Reusable/HtButtonGroup.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import { CalendarDay, generateCalendar, getWeekdayItems, WeekdayItem, WEEKEND_DAYS } from '@/utils/calendar';
 import { faBackwardFast, faChevronLeft, faChevronRight, faForwardFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { usePage } from '@inertiajs/vue3';
 import classNames from 'classnames';
 import { computed, getCurrentInstance, inject, ref } from 'vue';
 
@@ -27,7 +26,8 @@ const year = ref(props.selectedYear);
 const month = ref(props.selectedMonth);
 const date = ref(props.selectedDate);
 
-const locale = computed(() => usePage().props.app.locale);
+const pageProps = inject(pagePropsInject);
+const locale = computed(() => pageProps!.value.app.locale);
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
 

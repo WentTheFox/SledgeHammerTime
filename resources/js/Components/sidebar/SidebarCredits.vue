@@ -2,7 +2,8 @@
 import DeveloperCredit from '@/Components/sidebar/DeveloperCredit.vue';
 import TranslationCredits from '@/Components/sidebar/TranslationCredits.vue';
 import { useRoute } from '@/composables/useRoute';
-import { currentLanguageInject, localSettings } from '@/injection-keys';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { currentLanguageInject, localSettings, pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { reportData } from '@/utils/crowdin';
@@ -14,6 +15,8 @@ import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 const currentLanguage = inject(currentLanguageInject);
 
 const translationCredits = computed(() => {
@@ -145,7 +148,7 @@ const settings = inject(localSettings);
       {{ $t('global.sidebar.credits.notAffiliated') }}
     </p>
     <p>
-      <Link :href="route('legal', route().params)">
+      <Link :href="route('legal', routeParams)">
         <FontAwesomeIcon
           :icon="faFileContract"
           class="me-1"

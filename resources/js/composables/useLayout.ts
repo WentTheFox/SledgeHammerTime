@@ -23,7 +23,8 @@ import { loadLanguageAsync } from 'laravel-vue-i18n';
 import { onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
 
 export const useLayout = () => {
-  const pagePropsRef = ref<PageProps>(usePage().props);
+  const inertiaPage = usePage();
+  const pagePropsRef = ref<PageProps>(inertiaPage.props);
   provide(pagePropsInject, pagePropsRef);
   const devModeRef = useCheatCode(IDDQD);
   provide(devModeInject, devModeRef);
@@ -41,7 +42,6 @@ export const useLayout = () => {
     routerHandlerCleanup?.();
   });
 
-  const inertiaPage = usePage();
   watch(() => inertiaPage.props, newProps => {
     pagePropsRef.value = newProps;
   }, { immediate: true });
