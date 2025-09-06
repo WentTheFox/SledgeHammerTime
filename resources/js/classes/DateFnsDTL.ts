@@ -251,6 +251,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
  */
 export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   readonly timezoneNames = timezoneNames;
+  protected is24HourLocaleSet = new Set(['hu', 'de', 'fr', 'es', 'it', 'pt-br', 'en-gb']);
   private _offset: number = 0;
 
   get offset(): number {
@@ -307,12 +308,11 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
         }
         return dayNames;
       },
-      getHourCycleInfo() {
+      getHourCycleInfo: () => {
         // Determine hour cycle based on locale
         // This is a simplified approach
-        const is24HourLocale = ['hu', 'de', 'fr', 'es', 'it', 'pt-br'].includes(localeName.toLowerCase());
         return {
-          hourCycle: is24HourLocale ? 'h24' : 'h12',
+          hourCycle: this.is24HourLocaleSet.has(localeName.toLowerCase()) ? 'h24' : 'h12',
         };
       },
       getWeekInfo(): { firstDay: DateTimeLibraryWeekday; weekend: DateTimeLibraryWeekday[] } {
