@@ -31,7 +31,7 @@ return [
     'shortDescription' => 'Rövid Leírás',
     'commandOptions' => 'Paraméterek',
     'requiredOption' => 'Kötelező',
-    'removedOption' => 'Removed',
+    'removedOption' => 'Megszűnt',
     'optionType' => 'Típus',
     'optionTypes' => [
       1 => 'Al-parancs',
@@ -56,7 +56,7 @@ return [
     'minLength' => 'Minimum hossz',
     'maxLength' => 'Maximum hossz',
     'choices' => 'Lehetséges értékek:',
-    'usageGraphNoData' => 'No recent usage data found',
+    'usageGraphNoData' => 'Nem találhatóak friss használati adatok',
     'additionalDescription' => [
       'commands' => [
         'in' => 'Legalább egy módosítandó időegység megadása kötelező',
