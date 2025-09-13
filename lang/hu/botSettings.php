@@ -33,7 +33,7 @@ return [
       ],
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Rövid válasz a formátum opció használatakor',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
       'displayName' => 'Oszlopok',
