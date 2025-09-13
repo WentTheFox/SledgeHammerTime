@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Haladó beállítások',
     'atCommandName' => 'ekkor',
-    'at12CommandName' => 'at12',
+    'at12CommandName' => 'ekkor12',
     'hourOptionName' => 'óra',
     'minuteOptionName' => 'perc',
     'secondOptionName' => 'másodperc',
@@ -33,7 +33,7 @@ return [
       ],
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Csak előnézet a válaszban a formátum opció használatakor',
     ],
     'columns' => [
       'displayName' => 'Oszlopok',
@@ -67,7 +67,7 @@ return [
       'explanation' => 'Ez teljesen opcionális, és nincs hatással arra, hogy tudod-e használni az appot. További információ itt: <1/>.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Alapértelmezett ":hourOptionName" paraméter az /:at12CommandName parancshoz',
     ],
   ],
   'saveSuccess' => 'A beállításaid sikeresen mentéstre kerültek.',
