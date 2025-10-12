@@ -27,9 +27,8 @@ defineProps<{ discordAppId: string }>();
       <HtOptimizedImage
         class="bot-info-image"
         :src="usefulLinksBot"
-      >
-        <h2>{{ $t('botInfo.heading') }}</h2>
-      </HtOptimizedImage>
+      />
+      <h2>{{ $t('botInfo.heading') }}</h2>
     </template>
 
     <p class="mb-3">
