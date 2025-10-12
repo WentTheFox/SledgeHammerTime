@@ -35,7 +35,6 @@
     "js-cookie": "^3.0.5",
     "laravel-vite-plugin": "^1.2.0",
     "laravel-vue-i18n": "^2.7.8",
-    "moment-timezone": "^0.5.45",
     "postcss": "^8.4.47",
     "sass": "^1.80.4",
     "sharp": "^0.34.3",

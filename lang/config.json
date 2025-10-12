@@ -35,7 +35,6 @@
       "countryCode": "CN",
       "emoji": "🇨🇳",
       "crowdinLocale": "zh-CN",
-      "momentLocale": "zh-cn",
       "laravelLocale": "zh_CN",
       "calendarLabelFormat": "YYYY年MMM",
       "calendarYearLabelFormat": "YYYY年"
@@ -45,7 +44,6 @@
       "nativeName": "繁體中文",
       "countryCode": "TW",
       "emoji": "🇹🇼",
-      "momentLocale": "zh-tw",
       "laravelLocale": "zh_TW",
       "calendarLabelFormat": "YYYY年MMM",
       "calendarYearLabelFormat": "YYYY年",
@@ -96,7 +94,6 @@
       "nativeName": "English, UK",
       "countryCode": "GB",
       "emoji": "🇬🇧",
-      "momentLocale": "en-gb",
       "laravelLocale": "en_GB",
       "creditOverrides": {
         "13533384": null
@@ -295,8 +292,6 @@
       "nativeName": "Português do Brasil",
       "countryCode": "BR",
       "emoji": "🇧🇷",
-      "momentLocale": "pt-br",
-      "dayjsLocale": "pt-br",
       "calendarWeekdayFormat": "ddd",
       "creditOverrides": {
         "13533384": null

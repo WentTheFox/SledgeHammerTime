@@ -3,7 +3,7 @@ import DeveloperCredit from '@/Components/sidebar/DeveloperCredit.vue';
 import TranslationCredits from '@/Components/sidebar/TranslationCredits.vue';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
-import { currentLanguageInject, localSettings, pagePropsInject } from '@/injection-keys';
+import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { reportData } from '@/utils/crowdin';
@@ -32,8 +32,6 @@ const translationCredits = computed(() => {
     .filter((credit): credit is NormalizedCredits => credit !== null)
     .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName));
 });
-
-const settings = inject(localSettings);
 </script>
 
 <template>
@@ -86,14 +84,9 @@ const settings = inject(localSettings);
                   {{ $t('global.sidebar.credits.vueJs') }}
                 </HtExternalLink>
               </li>
-              <li v-if="settings?.dateFnsEnabled">
+              <li>
                 <HtExternalLink href="https://date-fns.org/">
                   {{ $t('global.sidebar.credits.dateFns') }}
-                </HtExternalLink>
-              </li>
-              <li v-else>
-                <HtExternalLink href="https://momentjs.com/">
-                  {{ $t('global.sidebar.credits.momentJs') }}
                 </HtExternalLink>
               </li>
               <li>
