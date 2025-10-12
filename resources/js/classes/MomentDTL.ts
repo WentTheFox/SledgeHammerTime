@@ -19,6 +19,7 @@ const isoParsingDateFormat = 'Y-MM-DD';
 const isoFormat = `${isoParsingDateFormat} ${isoTimeFormat}`;
 const calendarDateDisplayFormat = 'D';
 const calendarContextFormat = 'MMMM YYYY';
+const calendarContextFormatShort = 'MMM YY';
 const defaultDate = '1970-01-01';
 const defaultTime = '00:00:00';
 const oneMinuteInSeconds = 1e3 * 60;
@@ -138,8 +139,8 @@ class MomentDTLValue extends DateTimeLibraryValue<Moment> {
     return this.value.format(calendarDateDisplayFormat);
   }
 
-  formatCalendarContext() {
-    return this.value.format(calendarContextFormat);
+  formatCalendarContext(short: boolean) {
+    return this.value.format(short ? calendarContextFormatShort : calendarContextFormat);
   }
 
   formatHoursDisplay() {
