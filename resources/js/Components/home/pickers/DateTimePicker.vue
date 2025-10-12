@@ -176,13 +176,27 @@ defineExpose<DateTimePickerApi>({
 </template>
 
 <style lang="scss">
+@use "../../../../css/design";
+
 .datetime-picker-controls {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+
+  @include design.screen-above('md') {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
   .picker-date-control {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
+
+    @include design.screen-above('md') {
+      flex-basis: auto;
+    }
   }
 
   .picker-time-control {
