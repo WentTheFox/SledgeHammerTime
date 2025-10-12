@@ -230,12 +230,15 @@ describe('DateTimeLibraryValue', () => {
     });
 
     describe('formatCalendarContext', () => {
-      it('should format calendar context correctly', () => {
+      it('should format long calendar context correctly', () => {
         const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
-        const result = value.formatCalendarContext();
-        // Calendar context usually includes month and year
-        expect(result).toContain('January');
-        expect(result).toContain('2025');
+        const result = value.formatCalendarContext(false);
+        expect(result).toEqual('January 2025');
+      });
+      it('should format short calendar context correctly', () => {
+        const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
+        const result = value.formatCalendarContext(true);
+        expect(result).toEqual(dtlName === 'moment' ? 'Jan 25' : 'Jan 2025');
       });
     });
 
