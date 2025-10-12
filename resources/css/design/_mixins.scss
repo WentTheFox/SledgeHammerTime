@@ -170,6 +170,18 @@
   font-family: functions.app-value('font-family-base');
 }
 
+@mixin hide-spin-buttons {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  & {
+    -moz-appearance: textfield;
+  }
+}
+
 @mixin monospace-font {
   //noinspection CssNoGenericFontName
   font-family: functions.app-value('font-family-mono');

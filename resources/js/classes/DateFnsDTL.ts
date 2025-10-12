@@ -241,8 +241,8 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     return this.value.getTime();
   }
 
-  formatCalendarContext(): string {
-    return format(this.value, 'LLLL yyyy', { locale: this.getLocale().lowLevelValue });
+  formatCalendarContext(short: boolean): string {
+    return format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue });
   }
 }
 

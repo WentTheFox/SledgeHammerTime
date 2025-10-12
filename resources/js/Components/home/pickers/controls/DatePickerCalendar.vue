@@ -156,12 +156,16 @@ defineExpose<DatePickerCalendarApi>({
         />
       </HtButton>
     </HtButtonGroup>
-    <span
+    <template
       v-if="dateLibLocale && dateTime"
-      class="calendar-context"
-    >{{
-      dateTime.setLocale(dateLibLocale).formatCalendarContext()
-    }}</span>
+    >
+      <span class="calendar-context long-context">{{
+        dateTime.setLocale(dateLibLocale).formatCalendarContext(false)
+      }}</span>
+      <span class="calendar-context short-context">{{
+        dateTime.setLocale(dateLibLocale).formatCalendarContext(true)
+      }}</span>
+    </template>
     <HtButtonGroup>
       <HtButton
         :aria-label="$t('timestampPicker.picker.tooltip.nextMonth')"

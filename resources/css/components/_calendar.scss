@@ -9,7 +9,7 @@
   user-select: none;
 
   @include design.screen-below('md') {
-    --button-size: 2.5em;
+    --button-size: 2em;
   }
 }
 
@@ -23,6 +23,26 @@
   .calendar-context {
     font-size: calc(var(--button-size) * 0.65);
     line-height: var(--button-size);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.short-context {
+      display: inline;
+    }
+
+    &.long-context {
+      display: none;
+    }
+
+    @include design.screen-above('md') {
+      &.short-context {
+        display: none;
+      }
+      &.long-context {
+        display: inline;
+      }
+    }
   }
 
   @include design.if-ltr {

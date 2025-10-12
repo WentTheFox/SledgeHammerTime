@@ -71,7 +71,7 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract formatCalendarDateDisplay(): string;
 
-  abstract formatCalendarContext(): string;
+  abstract formatCalendarContext(short: boolean): string;
 
   abstract formatHoursDisplay(): string;
 

@@ -119,7 +119,7 @@ defineExpose<DateTimePickerApi>({
     >
       <HtFormInputGroup
         dir="ltr"
-        class="picker-date-control"
+        class="picker-date-inputs"
       >
         <DatePickerInputs
           v-model:date-input="dateInput"
@@ -177,6 +177,15 @@ defineExpose<DateTimePickerApi>({
 
 <style lang="scss">
 @use "../../../../css/design";
+
+.picker-date-inputs {
+  @include design.screen-below('md') {
+    input {
+      text-align: center;
+      @include design.hide-spin-buttons;
+    }
+  }
+}
 
 .datetime-picker-controls {
   display: flex;
