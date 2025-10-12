@@ -48,19 +48,6 @@ const devMode = inject(devModeInject);
         </template>
       </HtFormCheckboxControlled>
       <HtFormCheckboxControlled
-        id="date-time-library"
-        :label="$t('global.sidebar.inputSettings.legacyDateTimeLibrary.label')"
-        :checked="!settings?.dateFnsEnabled"
-        @change="settings?.toggleDateFnsEnabled"
-      >
-        <template #message>
-          <FormMessage
-            :message="$t('global.sidebar.inputSettings.legacyDateTimeLibrary.description')"
-            class="mt-1"
-          />
-        </template>
-      </HtFormCheckboxControlled>
-      <HtFormCheckboxControlled
         v-if="devMode"
         id="auto-time-sync"
         :label="$t('global.sidebar.inputSettings.autoTimeSync.label')"

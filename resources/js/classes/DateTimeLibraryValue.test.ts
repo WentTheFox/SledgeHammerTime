@@ -5,7 +5,6 @@ import {
   DateTimeLibraryValue,
   DateTimeLibraryWeekday,
 } from '@/classes/DateTimeLibraryValue';
-import { MomentDTL } from '@/classes/MomentDTL';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { DefaultDTL } from '@/utils/dtl';
@@ -13,7 +12,6 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('DateTimeLibraryValue', () => {
   const implementations = [
-    ['moment', new MomentDTL()],
     ['date-fns', new DateFnsDTL()],
   ] as const satisfies [string, DateTimeLibrary][];
 
@@ -32,7 +30,6 @@ describe('DateTimeLibraryValue', () => {
         const value = dtl.fromTimestampMsUtc(testTimestamp);
         const expected = {
           'date-fns': '2025-01-15T12:30:45.000+00:00',
-          'moment': '2025-01-15T12:30:45.000Z',
         };
         expect(value.toISOString()).toBe(expected[dtlName]);
       });
@@ -238,7 +235,7 @@ describe('DateTimeLibraryValue', () => {
       it('should format short calendar context correctly', () => {
         const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
         const result = value.formatCalendarContext(true);
-        expect(result).toEqual(dtlName === 'moment' ? 'Jan 25' : 'Jan 2025');
+        expect(result).toEqual('Jan 2025');
       });
     });
 
@@ -402,18 +399,19 @@ describe('DateTimeLibraryValue', () => {
   });
 });
 
-describe('DateTimeLibraryValue Direct Tests', () => {
+describe('DateTimeLibraryValue Direct Tests', async () => {
   // Create a fixed date for testing
-  const testDate = new Date('2025-01-15T12:30:45Z');
+  const testDate = DefaultDTL.fromIsoString('2025-01-15T12:30:45Z');
   let instance: DateTimeLibraryValue;
+  const enLocale = await DefaultDTL.localeLoader('en');
 
   beforeEach(() => {
-    instance = new MomentDTL().fromIsoString(testDate.toISOString());
+    instance = DefaultDTL.fromIsoString(testDate.toISOString());
   });
 
   describe('Initialization and toDate', () => {
     it('should be properly initialized with a value', () => {
-      expect(instance.toDate()).toEqual(testDate);
+      expect(instance.toDate()).toEqual(testDate.toDate());
     });
   });
 
@@ -487,8 +485,8 @@ describe('DateTimeLibraryValue Direct Tests', () => {
     });
 
     it('should set hours correctly', () => {
-      instance.setHours(15);
-      expect(instance.getHours()).toBe(15);
+      const newInstance = instance.setHours(15);
+      expect(newInstance.getHours()).toBe(15);
     });
   });
 
@@ -498,8 +496,8 @@ describe('DateTimeLibraryValue Direct Tests', () => {
     });
 
     it('should set minutes correctly', () => {
-      instance.setMinutes(10);
-      expect(instance.getMinutes()).toBe(10);
+      const newInstance = instance.setMinutes(10);
+      expect(newInstance.getMinutes()).toBe(10);
     });
   });
 
@@ -509,26 +507,26 @@ describe('DateTimeLibraryValue Direct Tests', () => {
     });
 
     it('should set seconds correctly', () => {
-      instance.setSeconds(20);
-      expect(instance.getSeconds()).toBe(20);
+      const newInstance = instance.setSeconds(20);
+      expect(newInstance.getSeconds()).toBe(20);
     });
   });
 
   describe('formatHoursDisplay', () => {
     it('should correctly format hours display', () => {
-      expect(instance.formatHoursDisplay()).toBe('12');
+      expect(instance.setLocale(enLocale).formatHoursDisplay()).toBe('12');
     });
   });
 
   describe('formatMinutesDisplay', () => {
     it('should correctly format minutes display', () => {
-      expect(instance.formatMinutesDisplay()).toBe('30');
+      expect(instance.setLocale(enLocale).formatMinutesDisplay()).toBe('30');
     });
   });
 
   describe('formatSecondsDisplay', () => {
     it('should correctly format seconds display', () => {
-      expect(instance.formatSecondsDisplay()).toBe('45');
+      expect(instance.setLocale(enLocale).formatSecondsDisplay()).toBe('45');
     });
   });
 
@@ -540,10 +538,10 @@ describe('DateTimeLibraryValue Direct Tests', () => {
 
   describe('Time Component Setters Chaining', () => {
     it('should chain method calls for setting time components', () => {
-      instance.setHours(14).setMinutes(25).setSeconds(10);
-      expect(instance.getHours()).toBe(14);
-      expect(instance.getMinutes()).toBe(25);
-      expect(instance.getSeconds()).toBe(10);
+      const newInstance = instance.setHours(14).setMinutes(25).setSeconds(10);
+      expect(newInstance.getHours()).toBe(14);
+      expect(newInstance.getMinutes()).toBe(25);
+      expect(newInstance.getSeconds()).toBe(10);
     });
   });
 });

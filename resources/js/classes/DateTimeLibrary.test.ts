@@ -1,7 +1,6 @@
 import { DateFnsDTL } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryMonth } from '@/classes/DateTimeLibraryValue';
-import { MomentDTL } from '@/classes/MomentDTL';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import {
   AvailableLanguage,
@@ -13,7 +12,6 @@ import { describe, expect, it, vi } from 'vitest';
 
 describe('DateTimeLibrary', () => {
   const implementations = [
-    ['moment', new MomentDTL()],
     ['date-fns', new DateFnsDTL()],
   ] as const satisfies [string, DateTimeLibrary][];
   const testLanguages = ['en', 'en-GB', 'hu'] as const satisfies AvailableLanguage[];
@@ -36,11 +34,6 @@ describe('DateTimeLibrary', () => {
 
       it('should return the correct locale name for different languages', () => {
         const expectedMap = {
-          moment: {
-            enGB: 'en-gb',
-            hu: 'hu',
-            ptBR: 'pt-br',
-          },
           'date-fns': {
             enGB: 'en-GB',
             hu: 'hu',
@@ -59,7 +52,6 @@ describe('DateTimeLibrary', () => {
         const languageConfig: LatestLanguageConfigType = LANGUAGES[language];
         const result = dtl.getLocaleNameFromLanguageConfig(language, languageConfig);
         const expectedMap = {
-          moment: 'pt-br',
           'date-fns': 'pt-BR',
         };
         expect(result).toBe(expectedMap[dtlName]);
@@ -279,11 +271,6 @@ describe('DateTimeLibrary', () => {
 
     describe('convertIsoToLocalizedDateTimeInputValue', () => {
       const expectedFormats = {
-        moment: {
-          'en': 'January 1, 2025 12:00 PM',
-          'en-GB': '1 January 2025 12:00',
-          'hu': '2025. január 1. 12:00',
-        },
         'date-fns': {
           'en': 'January 1, 2025 12:00 PM',
           'en-GB': '1 January 2025 12:00',
@@ -325,11 +312,6 @@ describe('DateTimeLibrary', () => {
 
     describe('convertIsoToLocalizedDateInputValue', () => {
       const expectedFormats = {
-        'moment': {
-          'en': 'January 2, 1970',
-          'en-GB': '2 January 1970',
-          'hu': '1970. január 2.',
-        },
         'date-fns': {
           'en': 'January 2, 1970',
           'en-GB': '2 January 1970',

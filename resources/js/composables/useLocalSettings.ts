@@ -5,7 +5,6 @@ const splitPrefKey = 'split-input';
 const customPrefKey = 'custom-input';
 const sidebarPrefKey = 'sidebar-right';
 const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
-const legacyDateLibPrefKey = 'legacy-date-lib';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
 
@@ -14,7 +13,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const combinedInputsEnabled = ref<boolean | null>(null);
   const sidebarOnRight = ref<boolean | null>(null);
   const sidebarOffDesktop = ref<boolean | null>(null);
-  const dateFnsEnabled = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
   const autoTimeSync = ref<boolean | null>(null);
 
@@ -33,9 +31,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   });
   watch(sidebarOffDesktop, (newValue) => {
     localStorage.setItem(sidebarOffDesktopPrefKey, newValue ? 'true' : 'false');
-  });
-  watch(dateFnsEnabled, (newValue) => {
-    localStorage.setItem(legacyDateLibPrefKey, newValue ? 'true' : 'false');
   });
   watch(isLightTheme, (newValue) => {
     if (newValue === null) {
@@ -77,11 +72,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     // The sidebar is shown on desktop by default
     sidebarOffDesktop.value = storedPref === 'true';
   };
-  const setInitialDateFnsEnabled = () => {
-    const storedPref = localStorage.getItem(legacyDateLibPrefKey);
-    // The feature is enabled by default
-    dateFnsEnabled.value = storedPref !== 'false';
-  };
   const setInitialLightTheme = () => {
     const storedPref = localStorage.getItem(lightThemePrefKey);
     // The feature is enabled by default
@@ -98,7 +88,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     setInitialCustomInput();
     setInitialSidebarOnRight();
     setInitialSidebarOffDesktop();
-    setInitialDateFnsEnabled();
     setInitialLightTheme();
     setInitialAutoTimeSync();
   });
@@ -109,7 +98,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     sidebarOnRight: effectiveSidebarOnRight,
     rawSidebarOnRight: sidebarOnRight,
     sidebarOffDesktop,
-    dateFnsEnabled,
     isLightTheme,
     autoTimeSync,
     toggleCustomInput(e: Event) {
@@ -127,11 +115,6 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     },
     setSidebarOffDesktop(value: boolean) {
       sidebarOffDesktop.value = value;
-    },
-    toggleDateFnsEnabled(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      dateFnsEnabled.value = !e.target.checked;
     },
     setLightTheme(isLight: boolean | null) {
       isLightTheme.value = isLight;

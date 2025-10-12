@@ -42,12 +42,10 @@ export interface LocalSettingsValue {
   readonly rawSidebarOnRight: boolean | null;
   readonly sidebarOnRight: boolean | null;
   readonly sidebarOffDesktop: boolean | null;
-  readonly dateFnsEnabled: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
   readonly toggleCustomInput: (e: Event) => void;
   readonly toggleSeparateInputs: (e: Event) => void;
-  readonly toggleDateFnsEnabled: (e: Event) => void;
   readonly toggleSidebarOnRight: VoidFunction;
   readonly setSidebarOffDesktop: (value: boolean) => void;
   readonly setLightTheme: (isLight: boolean | null) => void;

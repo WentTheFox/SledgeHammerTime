@@ -12,18 +12,7 @@ import {
   toTwelveHours,
   toTwentyFourHours,
 } from '@/utils/time';
-import moment, { MomentZone } from 'moment-timezone';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  MockInstance,
-  vi,
-} from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
 describe('toTwentyFourHours', () => {
   const AM = true;
@@ -159,17 +148,6 @@ describe('DTL.getDefaultInitialTimezoneSelection', () => {
     type: TimeZoneSelectionType.ZONE_NAME,
     name: mockGuessedTimezone,
   };
-  let momentTzGuessSpy: MockInstance;
-  let momentTzZoneSpy: MockInstance;
-
-  beforeEach(() => {
-    momentTzGuessSpy = vi.spyOn(moment.tz, 'guess').mockReturnValue(mockGuessedTimezone);
-    momentTzZoneSpy = vi.spyOn(moment.tz, 'zone');
-  });
-  afterEach(() => {
-    momentTzGuessSpy.mockRestore();
-    momentTzZoneSpy.mockRestore();
-  });
 
   it('should return the native timezone when it\'s available in date library', () => {
     const mockTimezone = 'Mock/Constant';
@@ -181,8 +159,6 @@ describe('DTL.getDefaultInitialTimezoneSelection', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
     try {
-      const mockZone = {} as MomentZone;
-      momentTzZoneSpy.mockReturnValue(mockZone);
       const result = DefaultDTL.getDefaultInitialTimezoneSelection();
       expect(result).toEqual({ ...mockGuessedTimezoneReturnValue, name: mockTimezone });
     } finally {
@@ -251,7 +227,7 @@ describe('getUtcOffsetString', () => {
 });
 
 describe('DTLValue.replaceZone', () => {
-  it('should return a moment timestamp with the correct utc offset', () => {
+  it('should return a timestamp with the correct utc offset', () => {
     const now = DefaultDTL.fromTimestampMsUtc(0);
     const defaultObject: TimezoneSelectionByOffset = {
       type: TimeZoneSelectionType.OFFSET,
@@ -270,7 +246,7 @@ describe('DTLValue.replaceZone', () => {
       minutes: 30,
     }).getUtcOffsetMinutes()).toEqual(-870);
   });
-  it('should return a moment timestamp with the correct zone name', () => {
+  it('should return a timestamp with the correct zone name', () => {
     const now = DefaultDTL.fromTimestampMsUtc(0);
     const defaultObject: TimezoneSelectionByName = {
       type: TimeZoneSelectionType.ZONE_NAME,
