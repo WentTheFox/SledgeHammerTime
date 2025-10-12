@@ -202,6 +202,7 @@ defineExpose<DateTimePickerApi>({
 
   .picker-date-control {
     flex: 1 1 100%;
+    max-width: 20em;
 
     @include design.screen-above('md') {
       flex-basis: auto;

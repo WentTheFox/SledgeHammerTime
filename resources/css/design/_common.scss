@@ -11,7 +11,11 @@ $z-index-map: (
 );
 
 $value-map: (
-  base-font-size: 16px,
+  base-font-size: (
+    default: 16px,
+    lg: 18px,
+    xxl: 20px,
+  ),
   font-family-base: #{'Montserrat', sans-serif},
   font-family-mono: #{'Source Code Pro', 'Consolas', monospace},
   bg-gradient-opacity: .5,
@@ -30,12 +34,26 @@ $value-map: (
   content-heading-3: 1.4em,
   content-heading-4: 1.25em,
   content-heading-margin-bottom: .25em,
-  button-padding-horizontal: .5rem,
-  button-padding-vertical: .25rem,
+  button-padding-horizontal: (
+    default: .4rem,
+    md: .5rem,
+    lg: .6rem,
+    xl: .7rem,
+  ),
+  button-padding-vertical: (
+    default: .25rem,
+    md: .35rem,
+    lg: .4rem,
+    xl: .5rem,
+  ),
   button-border-width: .0625rem,
   button-shadow-size: .125rem,
   button-border-radius: .25rem,
-  button-font-size: .875rem,
+  button-font-size: (
+    default: .875rem,
+    md: .95rem,
+    lg: 1rem,
+  ),
   button-content-gap: .3rem,
   card-padding: 1rem,
   card-border-radius: 0.25rem,
@@ -53,14 +71,23 @@ $value-map: (
   sidebar-dev-credit-line-height: 1.55,
   popup-border: .125rem,
   popup-box-shadow: 1rem,
-  input-field-padding: .25rem,
+  input-field-padding: (
+    default: .25rem,
+    md: .35rem,
+    lg: .5rem,
+    xl: .75rem,
+  ),
   input-field-border: .0625rem,
   input-field-border-radius: .25rem,
   input-field-box-shadow-inset-y: .05rem,
   input-field-box-shadow: .15rem,
   form-control-spacing: .5rem,
   focus-outline: .2em,
-  language-selector-spacing: .5em,
+  language-selector-spacing: (
+    default: .5em,
+    md: .6em,
+    lg: .7em,
+  ),
   user-info-spacing: .5em,
   collapsible-padding: .35em,
   collapsible-border-radius: .5em,
@@ -483,6 +510,7 @@ $breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1200px,
+  xxl: 1600px,
 );
 
 $spacing: (
