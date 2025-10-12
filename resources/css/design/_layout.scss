@@ -3,9 +3,9 @@
 @use "common";
 
 :root {
+  @include mixins.z-index-variables;
   @include mixins.color-variables;
   @include mixins.value-variables;
-  @include mixins.z-index-variables;
 }
 
 html {
@@ -58,4 +58,8 @@ body {
 
 * {
   z-index: functions.app-z-index('default');
+}
+
+.tippy-box {
+  font-size: #{functions.app-value('base-font-size')};
 }

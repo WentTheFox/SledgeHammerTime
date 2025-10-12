@@ -14,26 +14,27 @@
   gap: design.app-value('language-selector-spacing');
   margin-bottom: design.app-value('language-selector-spacing');
 
-  .language-flag {
-    font-size: 1rem;
-    width: 2.5em;
-    height: 2em;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: .5em;
-
-    .flag {
-      display: block;
-    }
-  }
-
   .language-name {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.25em;
   }
 
+}
+
+.language-flag {
+  font-size: 1em;
+  width: 2.5em;
+  height: 2em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+
+  .flag {
+    display: block;
+    font-size: 1em !important;
+    transform: scale(.75) !important;
+  }
 }
 
 .language-progress {

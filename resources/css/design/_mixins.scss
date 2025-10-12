@@ -1,6 +1,7 @@
 @use "common";
 @use "functions";
 @use "sass:map";
+@use "sass:meta";
 
 @mixin color-variables {
   @each $key, $variants in common.$color-map {
@@ -12,7 +13,23 @@
 
 @mixin value-variables {
   @each $key, $value in common.$value-map {
+    @if meta.type-of($value) == 'map' {
+      @if map.has-key($value, default) {
+        $value: #{map.get($value, default)};
+      }
+    }
     --#{functions.$value-var-prefix}-#{$key}: #{$value};
+  }
+  @each $key, $value in common.$value-map {
+    @if meta.type-of($value) == 'map' {
+      @each $bp, $val in $value {
+        @if $bp != default {
+          @include screen-above($bp) {
+            --#{functions.$value-var-prefix}-#{$key}: #{$val};
+          }
+        }
+      }
+    }
   }
 }
 
