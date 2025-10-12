@@ -65,7 +65,7 @@ class DiscordUser extends Model {
   }
 
   public function clearSettingsCache():void {
-    Redis::delete($this->getSettingsCacheKey());
+    Redis::del($this->getSettingsCacheKey());
   }
 
   public function getSettingsRecord():array {

@@ -278,6 +278,7 @@
 }
 
 .form-message {
+  display: block;
   font-size: 0.9em;
 
   &.error {
@@ -286,5 +287,17 @@
 
   &.success {
     color: #afa;
+  }
+}
+
+.from-control-submit {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: design.app-value('form-control-spacing');
+
+  .form-message {
+    margin-top: 0;
   }
 }

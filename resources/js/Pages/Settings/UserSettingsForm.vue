@@ -15,10 +15,11 @@ import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormControlWrap from '@/Reusable/HtFormControlWrap.vue';
 import HtFormSelect from '@/Reusable/HtFormSelect.vue';
+import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { LegalSectionIds } from '@/utils/legal';
-import { faChevronDown, faChevronUp, faExclamationTriangle, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { Link, useForm } from '@inertiajs/vue3';
 import { inject, ref } from 'vue';
 
@@ -334,26 +335,10 @@ const form = useForm({
 
       <pre v-if="devMode"><code>{{ JSON.stringify(form.data(), null, 2) }}</code></pre>
 
-      <div>
-        <HtButton
-          color="primary"
-          :loading="form.processing"
-          type="submit"
-          :icon-start="faSave"
-        >
-          {{ $t('actions.save') }}
-        </HtButton>
-
-        <FormMessage
-          type="success"
-          :message="form.recentlySuccessful ? $t('botSettings.saveSuccess') : undefined"
-          class="mt-2"
-        />
-      </div>
+      <HtFormSubmitButton
+        :form="form"
+        :success-text="$t('botSettings.saveSuccess')"
+      />
     </form>
   </HtCard>
 </template>
-
-<style scoped>
-
-</style>

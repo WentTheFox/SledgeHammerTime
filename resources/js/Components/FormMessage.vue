@@ -7,9 +7,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div v-show="message">
-    <p :class="['form-message', type, props.class]">
-      {{ message }}
-    </p>
-  </div>
+  <p
+    v-show="message"
+    :class="['form-message', type, props.class]"
+  >
+    {{ message }}
+  </p>
 </template>
