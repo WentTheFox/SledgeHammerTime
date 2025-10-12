@@ -6,6 +6,12 @@
   }
 }
 
+// Make alt text visually hidden
+.user-image {
+  overflow: hidden;
+  color: transparent;
+}
+
 .discord-user-info {
   display: flex;
   flex-flow: row nowrap;
