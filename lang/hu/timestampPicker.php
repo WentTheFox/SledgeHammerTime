@@ -16,8 +16,8 @@ return [
     ],
     'tooltip' => [
       'setToCurrent' => 'Aktuális idő beállítása',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'lock' => 'Időbélyeg rögzítése URL-el',
+      'unlock' => 'Időbélyeg feloldása',
       'previousYear' => 'Előző év',
       'previousMonth' => 'Előző hónap',
       'nextMonth' => 'Következő hónap',
