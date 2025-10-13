@@ -2,6 +2,7 @@
 
 return [
   'title' => 'Profile',
+  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
     'heading' => 'Profile Information',
     'description' => "Update your account's profile information.",
