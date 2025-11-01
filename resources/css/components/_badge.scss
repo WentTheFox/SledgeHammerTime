@@ -44,4 +44,12 @@
   display: flex;
   flex-flow: row wrap;
   gap: design.app-value('badge-grooup-spacing');
+
+  &.compact {
+    gap: calc(#{design.app-value('badge-grooup-spacing')} * 0.5);
+
+    .badge {
+      font-size: calc(#{design.app-value('badge-font-size')} * 0.75);
+    }
+  }
 }

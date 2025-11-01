@@ -7,6 +7,7 @@ export const highlightedSelector = `.${highlightedClass}`;
 export interface ComboboxOption {
   label: string;
   value: string;
+  aliases?: string[];
 }
 
 export const normalizeQueryValue = (value: string) => value.trim().toLowerCase().replace(/\s+/g, '_');
