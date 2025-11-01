@@ -634,6 +634,11 @@
       "username": "timakimit",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17302298/medium/feb212dbfc401643e47b19007d8ee69f.jpeg",
       "fullName": "Timofey K."
+    },
+    "17378908": {
+      "username": "premium.global.co",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17378908/medium/b6aaec34086216c309ae7885bb4d1b8c.jpeg",
+      "fullName": "Premium Global"
     }
   },
   "languages": {
@@ -714,15 +719,16 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 83
+        "translation": 82
       }
     },
     "en-GB": {
       "translatorIds": [
-        "13533384"
+        "13533384",
+        "17378908"
       ],
       "progress": {
-        "approval": 100,
+        "approval": 98,
         "translation": 100
       }
     },
@@ -798,11 +804,12 @@
     "hi": {
       "translatorIds": [
         "15923883",
-        "16677355"
+        "16677355",
+        "17378908"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 2
       }
     },
     "hr": {
@@ -821,8 +828,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 98,
+        "translation": 98
       }
     },
     "id": {
@@ -949,7 +956,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 38
+        "translation": 37
       }
     },
     "pt-BR": {
@@ -986,7 +993,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 100
+        "translation": 98
       }
     },
     "ru": {
@@ -1061,7 +1068,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 8
+        "translation": 7
       }
     },
     "uk": {
