@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LocalTimeComboboxAddon from '@/Components/LocalTimeComboboxAddon.vue';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import HtFormCombobox, { FormComboboxApi } from '@/Reusable/HtFormCombobox.vue';
 import { ComboboxOption } from '@/utils/combobox';
@@ -49,6 +50,7 @@ defineExpose<TimeZoneSelectApi>({
     :class="props.class ?? 'mb-0'"
     :tabindex="tabindex"
     :options="timezones"
+    :addon-component="LocalTimeComboboxAddon"
     @change="changeTimezone"
     @focus="emit('focus')"
   />

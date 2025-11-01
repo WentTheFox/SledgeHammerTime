@@ -230,16 +230,37 @@
   box-sizing: border-box;
 
   .combobox-suggestion-item {
-    display: block;
+    display: flex;
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    flex-flow: row nowrap;
     padding: design.app-value('input-field-padding');
+    gap: design.app-value('input-field-padding');
     cursor: pointer;
+    justify-content: space-between;
 
-    mark {
-      font-weight: bold;
+    .combobox-suggestion-item-text {
+      flex: 1 1 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      mark {
+        font-weight: bold;
+      }
+    }
+
+    .combobox-suggestion-item-addon {
+      flex: 0 0 auto;
+      text-align: right;
+      font-variant: tabular-nums;
+    }
+
+    &:hover {
+      .combobox-suggestion-item-addon {
+        // Take the element out of the flex layout while visually hiding it to allow the text to become full-width
+        position: absolute;
+        z-index: -1;
+      }
     }
 
     &.selected {

@@ -5,7 +5,7 @@ import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
 import { ComboboxOption, suggestionItemClass } from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { computed, inject, nextTick, onMounted, onUnmounted, ref, toRef, useTemplateRef, watch } from 'vue';
+import { Component, computed, inject, nextTick, onMounted, onUnmounted, ref, toRef, useTemplateRef, watch } from 'vue';
 
 const id = inject(formControlId);
 const model = defineModel<string>();
@@ -15,6 +15,7 @@ const props = defineProps<{
   name?: string;
   class?: string;
   tabindex?: number | string;
+  addonComponent?: Component<{ option: ComboboxOption }>;
 }>();
 
 const emit = defineEmits<{ (e: 'change', option: ComboboxOption): void; (e: 'focus', ev: FocusEvent): void }>();
@@ -49,6 +50,22 @@ const optionMatchingInputIndex = computed<number>(() =>
   filteredOptions.value.findIndex(option => option.label === inputValue.value),
 );
 const inputMatchesOption = computed<boolean>(() => optionMatchingInputIndex.value !== -1);
+const visibleEntries = ref(new Set<string>());
+
+const suggestionIO = computed(() => suggestionsRef.value ? new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const entryValue = String((entry.target as HTMLElement).dataset.value);
+
+    if (entry.isIntersecting) {
+      visibleEntries.value.add(entryValue);
+    } else {
+      visibleEntries.value.delete(entryValue);
+    }
+  });
+}, {
+  root: suggestionsRef.value,
+  threshold: 0.2,
+}) : null);
 
 const scrollHighlightedOptionIntoView = () => {
   nextTick(() => {
@@ -335,6 +352,7 @@ onUnmounted(() => {
   if (document) {
     document.body.removeEventListener('mouseup', globalMouseupHandler);
   }
+  suggestionIO.value?.disconnect();
 });
 
 watch(model, (newModelValue) => {
@@ -381,6 +399,9 @@ watch(model, (newModelValue) => {
         :option="option"
         :selected-option="model"
         :is-highlighted="highlightedIndex === i"
+        :is-visible="visibleEntries.has(option.value)"
+        :intersection-observer="suggestionIO"
+        :addon-component="addonComponent"
         :input-value="mode === 'typing' ? inputValue : typingModeValue"
         @click.passive="handleSuggestionClick(option, i)"
         @mouseenter.passive="highlightedIndex = i"
