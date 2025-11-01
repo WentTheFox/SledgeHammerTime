@@ -335,6 +335,10 @@ export class MomentDTL implements DateTimeLibrary<Moment, moment.Locale> {
     return new MomentDTLValue(moment(), { library: this });
   }
 
+  nowInZone(timezone: string): DateTimeLibraryValue<Moment> {
+    return new MomentDTLValue(moment.tz(timezone), { library: this });
+  }
+
   convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<moment.Locale>): string {
     return moment(`${date} ${time}`, isoFormat).locale(locale.name).format('LLL');
   }

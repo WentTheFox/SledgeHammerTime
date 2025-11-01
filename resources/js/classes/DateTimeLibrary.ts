@@ -1,7 +1,7 @@
-import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
-import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import { TimezoneSelection } from '@/model/timezone-selection';
-import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
+import {DateTimeLibraryLocale} from '@/classes/DateTimeLibraryLocale';
+import {DateTimeLibraryValue} from '@/classes/DateTimeLibraryValue';
+import {TimezoneSelection} from '@/model/timezone-selection';
+import {AvailableLanguage, LatestLanguageConfigType} from '@/utils/language-settings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Needed for testing
 export interface DateTimeLibrary<T = any, L = any> {
@@ -37,6 +37,8 @@ export interface DateTimeLibrary<T = any, L = any> {
   ): [string, string];
 
   now(): DateTimeLibraryValue<T, L>;
+
+  nowInZone(timezone: string): DateTimeLibraryValue<T, L>;
 
   convertIsoToLocalizedDateTimeInputValue(
     date: string,

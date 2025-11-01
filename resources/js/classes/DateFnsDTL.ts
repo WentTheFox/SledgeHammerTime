@@ -404,9 +404,13 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     }
   }
 
-  now() {
+  now(): DateTimeLibraryValue<TZDate> {
     const systemTimezone = this.guessInitialTimezoneName();
-    return new DateFnsDTLValue(new TZDate(this.applyOffsetToDate(), systemTimezone), { library: this });
+    return this.nowInZone(systemTimezone);
+  }
+
+  nowInZone(timezone: string): DateTimeLibraryValue<TZDate> {
+    return new DateFnsDTLValue(new TZDate(this.applyOffsetToDate(), timezone), { library: this });
   }
 
   convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<Locale>): string {
