@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import HtBadge from '@/Reusable/HtBadge.vue';
+import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTextHighlighter from '@/Reusable/HtTextHighlighter.vue';
 import { ComboboxOption, highlightedClass, selectedClass, suggestionItemClass } from '@/utils/combobox';
 import { Component as ComponentType, onMounted, onUnmounted, useTemplateRef, watch } from 'vue';
@@ -50,20 +52,36 @@ onUnmounted(() => {
     :data-value="option.value"
     @click.prevent="emit('click', option)"
   >
-    <span class="combobox-suggestion-item-text">
-      <HtTextHighlighter
-        :text="option.label"
-        :query="inputValue"
-      />
+    <span class="combobox-suggestion-item-label">
+      <span class="combobox-suggestion-item-text">
+        <HtTextHighlighter
+          :text="option.label"
+          :query="inputValue"
+        />
+      </span>
+      <span
+        v-if="isVisible && addonComponent"
+        class="combobox-suggestion-item-addon"
+      >
+        <component
+          :is="addonComponent"
+          :option="option"
+        />
+      </span>
     </span>
-    <span
-      v-if="isVisible && addonComponent"
-      class="combobox-suggestion-item-addon"
+    <HtBadgeGroup
+      v-if="option.aliases"
+      :compact="true"
     >
-      <component
-        :is="addonComponent"
-        :option="option"
-      />
-    </span>
+      <HtBadge
+        v-for="alias in option.aliases"
+        :key="alias"
+      >
+        <HtTextHighlighter
+          :text="alias"
+          :query="inputValue"
+        />
+      </HtBadge>
+    </HtBadgeGroup>
   </button>
 </template>

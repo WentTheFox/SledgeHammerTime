@@ -232,34 +232,63 @@
   .combobox-suggestion-item {
     display: flex;
     width: 100%;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+    align-items: stretch;
     padding: design.app-value('input-field-padding');
     gap: design.app-value('input-field-padding');
     cursor: pointer;
     justify-content: space-between;
+    position: relative;
+    order: 2;
 
-    .combobox-suggestion-item-text {
-      flex: 1 1 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-
-      mark {
-        font-weight: bold;
-      }
+    &:has(mark) {
+      order: 1;
     }
 
-    .combobox-suggestion-item-addon {
-      flex: 0 0 auto;
-      text-align: right;
-      font-variant: tabular-nums;
+    mark {
+      font-weight: bold;
+    }
+
+    .combobox-suggestion-item-label {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: inherit;
+
+      .combobox-suggestion-item-text {
+        flex: 1 1 100%;
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .combobox-suggestion-item-addon {
+        flex: 0 0 auto;
+        font-variant: tabular-nums;
+
+        @include design.if-ltr {
+          text-align: right;
+        }
+        @include design.if-rtl {
+          text-align: left;
+        }
+      }
     }
 
     &:hover {
       .combobox-suggestion-item-addon {
         // Take the element out of the flex layout while visually hiding it to allow the text to become full-width
         position: absolute;
-        z-index: -1;
+        top: 0;
+        font-size: .65em;
+        padding: .2em .4em;
+
+        @include design.if-ltr {
+          right: 0;
+        }
+        @include design.if-rtl {
+          left: 0;
+        }
       }
     }
 

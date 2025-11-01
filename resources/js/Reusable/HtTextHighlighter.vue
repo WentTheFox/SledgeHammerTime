@@ -8,15 +8,18 @@ const props = defineProps<{
 }>();
 
 const normalizedQuery = computed(() => props.query ? normalizeQueryValue(props.query) : '');
-const splitInput = computed(() => (
-  /^[a-z\d/_]+$/i.test(normalizedQuery.value)
-    ? props.text.replace(new RegExp(`(${normalizedQuery.value.replace(/(.)/g, '$1_?')})`, 'ig'), '|$1|').split(/\|+/g)
-    : null
-));
+const splitInput = computed<string[]>(() => {
+  if (!/^[a-z\d/_]+$/i.test(normalizedQuery.value)) {
+    return [];
+  }
+
+  const queryRegex = new RegExp(`(${normalizedQuery.value.replace(/(.)/g, '$1[_ -]?')})`, 'ig');
+  return props.text.replace(queryRegex, '|$1|').split(/\|+/g);
+});
 </script>
 
 <template>
-  <template v-if="splitInput">
+  <template v-if="splitInput.length > 1">
     <template
       v-for="(part, i) in splitInput"
       :key="i"

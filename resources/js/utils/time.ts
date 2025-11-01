@@ -4,12 +4,14 @@ import {
   TimeZoneSelectionType,
 } from '@/model/timezone-selection';
 import { pad } from '@/utils/pad';
+import { timeZoneAliases } from '@/utils/time-zone-aliases';
 
 export const offsetZoneRegex = /^(?:Etc\/)?(?:GMT|UTC)\+?(-?\d{1,2})(?::?(\d{2}))?$/i;
 
 export const getTimezoneValue = (timezone: string) => ({
   value: timezone,
   label: timezone,
+  aliases: timeZoneAliases[timezone as keyof typeof timeZoneAliases],
 });
 
 export const rangeLimit = (value: number, min: number, max: number): number => {

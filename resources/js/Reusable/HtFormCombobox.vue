@@ -31,21 +31,27 @@ const mode = ref<'typing' | 'select'>('typing');
 const showSuggestions = ref<boolean>(false);
 const isInteractingWithSuggestions = ref(false);
 
+type OptionMeta = { [k in keyof Omit<ComboboxOption, 'value'>]: Record<string, ComboboxOption[k]> };
+
 const timezoneIndex = useTimezoneIndex(toRef(() => props.options));
-const optionsRecord = computed(() => props.options.reduce((acc: Record<string, string>, option) => ({
+const optionMeta = computed(() => props.options.reduce((acc: OptionMeta, option) => ({
   ...acc,
-  [option.value]: option.label,
-}), {}));
-const filteredOptions = computed<ComboboxOption[]>(() => {
-    const normalizedInputValue = (mode.value === 'select' ? (typingModeValue.value ?? '') : inputValue.value).trim();
-    return normalizedInputValue
-      ? timezoneIndex.find(normalizedInputValue).map(value => ({
-        value,
-        label: optionsRecord.value[value],
-      }))
-      : props.options;
+  label: {
+    ...acc.label,
+    [option.value]: option.label,
   },
-);
+  aliases: option.aliases ? { ...acc.aliases, [option.value]: option.aliases } : acc.aliases,
+}), { label: {}, aliases: {} }));
+const filteredOptions = computed<ComboboxOption[]>(() => {
+  const normalizedInputValue = (mode.value === 'select' ? (typingModeValue.value ?? '') : inputValue.value).trim();
+  return normalizedInputValue
+    ? timezoneIndex.find.value(normalizedInputValue).map(value => ({
+      value,
+      label: optionMeta.value.label[value],
+      aliases: optionMeta.value.aliases?.[value],
+    }))
+    : props.options;
+});
 const optionMatchingInputIndex = computed<number>(() =>
   filteredOptions.value.findIndex(option => option.label === inputValue.value),
 );
