@@ -108,6 +108,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     const localeLow = locale.lowLevelValue;
     if (!localeLow || !('formatLong' in localeLow)) {
       console.error('[DateFnsDTLValue#setLocale] incomplete locale definition:', localeLow);
+      throw new Error('Incomplete locale definition provided');
     }
     return new DateFnsDTLValue(this.value, { ...this.context, locale });
   }

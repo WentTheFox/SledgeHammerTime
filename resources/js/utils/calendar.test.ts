@@ -54,7 +54,7 @@ describe('Calendar Utils', () => {
 
   describe('generateCalendar', () => {
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Monday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
@@ -66,7 +66,7 @@ describe('Calendar Utils', () => {
     });
 
     it('should generate the correct calendar for a month that starts on Friday and the first day of week is Monday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
@@ -79,7 +79,7 @@ describe('Calendar Utils', () => {
 
 
     it('should generate the correct calendar for a month that starts on Thursday and the first day of week is Monday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
@@ -91,7 +91,7 @@ describe('Calendar Utils', () => {
     });
 
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Sunday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
@@ -101,7 +101,7 @@ describe('Calendar Utils', () => {
     });
 
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Saturday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
@@ -111,7 +111,7 @@ describe('Calendar Utils', () => {
     });
 
     it('should generate the correct calendar for a month that starts on Saturday and the first day of week is Sunday', async () => {
-      const locale = await DefaultDTL.loadLocaleLowLevel('en');
+      const locale = await DefaultDTL.localeLoader('en');
       const actual = generateCalendar({
         dtl: DefaultDTL,
         locale,
