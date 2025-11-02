@@ -1,36 +1,36 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Genereer tijdsaanduidingen voor Discord chatberichten',
+  'changeLanguage' => 'Wijzig taal',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Niets te zien hier.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Vertalingen zijn onvolledig',
+  'contributeTranslations' => 'Draag bij',
+  'copyToClipboard' => 'Kopiëren naar klembord',
   'copiedToClipboard' => 'Copied to clipboard!',
   'guest' => 'Guest',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript is noodzakelijk',
+    'body' => "Uw browser ondersteunt JavaScript niet of het is momenteel uitgeschakeld. Sommige browsers deactiveren JavaScript standaard om veiligheidsredenen, maar het is noodzakelijk voor de werking van deze webapplicatie. Activeer JavaScript en ververs de pagina of gebruik een andere browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'profile' => 'Profiel',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Input instellingen',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Aangepaste inputs',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Gescheiden inputs',
+        'description' => "Toon twee gescheiden inputs voor datum en tijd in plaats van één gecombineerde (sommige browsers ondersteunen de gecombineerde input niet)",
       ],
       'legacyDateTimeLibrary' => [
         'label' => 'Use legacy datetime library',
@@ -45,9 +45,9 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Met dank aan',
+      'developedBy' => 'Ontwikkeld door <1></1>',
+      'using' => 'Met behulp van <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
