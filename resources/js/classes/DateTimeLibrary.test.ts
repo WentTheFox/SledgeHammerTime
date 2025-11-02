@@ -269,6 +269,28 @@ describe('DateTimeLibrary', () => {
       });
     });
 
+    describe('nowInZone', () => {
+      it('should return the current date and time in specified timezone', () => {
+        const before = new Date();
+        const result = dtl.nowInZone('Etc/GMT-10');
+        const after = new Date();
+
+        // Convert to timestamps for comparison
+        const beforeTimestamp = before.getTime();
+        const resultTimestamp = result.toDate().getTime();
+        const afterTimestamp = after.getTime();
+
+        // Result should be between before and after
+        expect(resultTimestamp).toBeGreaterThanOrEqual(beforeTimestamp);
+        expect(resultTimestamp).toBeLessThanOrEqual(afterTimestamp);
+
+        // Verify that the returned object has the right structure
+        expect(result.getFullYear()).toBe(before.getFullYear());
+        expect(result.getMonth()).toBe(dtl.fromTimestampMsUtc(before.getTime()).getMonth());
+        expect(result.getUtcOffsetMinutes()).toBe(600);
+      });
+    });
+
     describe('convertIsoToLocalizedDateTimeInputValue', () => {
       const expectedFormats = {
         'date-fns': {
