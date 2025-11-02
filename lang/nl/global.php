@@ -54,10 +54,10 @@ return [
       'momentJs' => 'Moment.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
+      'translatedBy' => 'Vertalingen door <1></1>',
       'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'viewSourceCode' => 'Bekijk de source code',
+      'notAffiliated' => 'Dit project is niet geassocieerd met Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
