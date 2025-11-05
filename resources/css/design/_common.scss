@@ -11,10 +11,7 @@ $z-index-map: (
 );
 
 $value-map: (
-  base-font-size: (
-    default: 16px,
-    lg: 18px,
-  ),
+  base-font-size: 16px,
   font-family-base: #{'Montserrat', sans-serif},
   font-family-mono: #{'Source Code Pro', 'Consolas', monospace},
   bg-gradient-opacity: .5,
@@ -37,13 +34,11 @@ $value-map: (
     default: .4rem,
     md: .5rem,
     lg: .6rem,
-    xl: .7rem,
   ),
   button-padding-vertical: (
     default: .25rem,
     md: .35rem,
     lg: .4rem,
-    xl: .5rem,
   ),
   button-border-width: .0625rem,
   button-shadow-size: .125rem,
