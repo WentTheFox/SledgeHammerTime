@@ -32,10 +32,6 @@ return [
         'label' => 'Separate inputs',
         'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
-      'legacyDateTimeLibrary' => [
-        'label' => 'Use legacy datetime library',
-        'description' => 'The library used by the old application to calculate timestamps is not maintained anymore, so it needed to be replaced. This option lets you return to the old library in case you encounter issues. It\'s recommended to completely reload the page after changing this setting.',
-      ],
       'autoTimeSync' => [
         'label' => 'Synchronize time with server (beta)',
         'description' => 'If your system clock is over 15 minutes off compared to the server time (excluding timezone differences), all calculations will be adjusted to take this into account, so your timestamps remain accurate. Synchronization happens on each reload.',
@@ -51,7 +47,6 @@ return [
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
-      'momentJs' => 'Moment.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'translatedBy' => 'Translations by <1></1>',
