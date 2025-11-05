@@ -69,7 +69,7 @@ export const useTimezoneIndex = (dataSource: Ref<ComboboxOption[]>): DynamicInde
 
       return candidates;
     };
-  });
+  }, { immediate: true });
 
   return { find };
 };
