@@ -17,19 +17,19 @@ return [
       'displayName' => 'Raw data (for debugging purposes)',
     ],
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Tijdzone',
     ],
     'format' => [
       'displayName' => 'Format',
       'option' => [
-        'd' => 'Short date',
-        'f' => 'Date and time',
-        't' => 'Short time',
-        'D' => 'Long date',
-        'F' => 'Weekday, date and time',
-        'R' => 'Relative',
-        'T' => 'Long time',
-        'default' => 'Default',
+        'd' => 'Verkorte datum notatie',
+        'f' => 'Datum en tijd',
+        't' => 'Uren en minuten',
+        'D' => 'Uitgeschreven datum',
+        'F' => 'Dag, datum en tijd',
+        'R' => 'Relatief',
+        'T' => 'Uren, minuten en seconden',
+        'default' => 'Standaard',
       ],
     ],
     'formatMinimalReply' => [
@@ -41,7 +41,7 @@ return [
         'syntax' => 'Syntax only',
         'preview' => 'Preview only',
         'both' => 'Both syntax and preview',
-        'default' => 'Default',
+        'default' => 'Standaard',
       ],
     ],
     'ephemeral' => [

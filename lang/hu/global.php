@@ -32,10 +32,6 @@ return [
         'label' => 'Külön beviteli mezők',
         'description' => "Két különböző mezőt jelenít meg a dátumnak és az időnek egy összevont helyett (ami néhány böngészőben nem támogatott)",
       ],
-      'legacyDateTimeLibrary' => [
-        'label' => 'Elavult dátum-idő könyvtár használata',
-        'description' => 'A régi alkalmazás által az időbélyegek kiszámításához használt könyvtár már nem támogatott, ezért le kellett cserélni. Ez az opció lehetővé teszi a régi könyvtár használatát, ha problémák merülnek fel az újjal. A beállítás megváltoztatása után erősen ajánlott teljesen újratölteni az oldalt.',
-      ],
       'autoTimeSync' => [
         'label' => 'Idő szinkronizálása a szerverrel (béta)',
         'description' => 'Ha a rendszered órája több mint 15 perccel eltér a szerver idejéhez képest (az időzónáktól függetlenül), ezzel a beállítzással imnden időszámítás figyelembe fogja venni ezt, így az időbélyegek pontosak maradnak. A szinkronizálás újratöltéskor történik.',
@@ -51,7 +47,6 @@ return [
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
-      'momentJs' => 'Moment.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'translatedBy' => 'Fordítók: <1></1>',
