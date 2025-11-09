@@ -19,6 +19,7 @@ import {
   formatDistanceToNowStrict,
   getDaysInMonth,
   getUnixTime,
+  isValid,
   Locale,
   parse,
   setHours,
@@ -209,6 +210,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
 
   formatDiscordTimestamp(mtf: MessageTimestampFormat): string {
     const locale = this.getLocale();
+    if (!isValid(this.value)) return '';
     return format(this.value, getDiscordToUnicodeFormat(mtf, locale.name), { locale: locale.lowLevelValue });
   }
 
