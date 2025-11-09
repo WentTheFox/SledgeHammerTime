@@ -36,6 +36,7 @@
       "emoji": "🇨🇳",
       "crowdinLocale": "zh-CN",
       "laravelLocale": "zh_CN",
+      "dateFnsLocale": "zh-CN",
       "calendarLabelFormat": "YYYY年MMM",
       "calendarYearLabelFormat": "YYYY年"
     },
