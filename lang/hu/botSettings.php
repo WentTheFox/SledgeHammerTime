@@ -9,9 +9,6 @@ return [
   ],
   'defaultOption' => 'Default',
   'fields' => [
-    'rawData' => [
-      'displayName' => 'Nyers adatok (hibakeresés céljából)',
-    ],
     'timezone' => [
       'displayName' => 'Időzóna',
     ],
