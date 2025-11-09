@@ -124,6 +124,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   }
 
   fromNow() {
+    if (!isValid(this.value)) return '';
     return formatDistanceToNowStrict(this.value, {
       locale: this.getLocale().lowLevelValue,
       addSuffix: true,
@@ -196,6 +197,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   }
 
   toISOString(): string {
+    if (!isValid(this.value)) return '';
     return format(this.value, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
   }
 
