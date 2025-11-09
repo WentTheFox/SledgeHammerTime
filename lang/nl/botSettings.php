@@ -9,9 +9,6 @@ return [
   ],
   'defaultOption' => 'Default',
   'fields' => [
-    'rawData' => [
-      'displayName' => 'Raw data (for debugging purposes)',
-    ],
     'timezone' => [
       'displayName' => 'Tijdzone',
     ],
