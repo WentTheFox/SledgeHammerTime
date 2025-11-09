@@ -1,7 +1,7 @@
 @use "../design";
 
 @include design.screen-below('md') {
-  body:has(.popup) {
+  body:has(.popup[open]) {
     overflow: hidden;
   }
 }
@@ -9,6 +9,7 @@
 .popup {
   position: absolute;
   max-width: 400px;
+  width: 100%;
   background-color: design.app-color('card-bg');
   color: design.app-color('card-color');
   border: design.app-value('popup-border') solid design.app-color('popup-border-color');
