@@ -9,7 +9,7 @@ import {
   currentLanguageInject,
   dateTimeLibraryInject,
   devModeInject,
-  localSettings,
+  localSettingsInject,
   pagePropsInject,
   scrollToAnchorInject,
   sidebarState,
@@ -51,7 +51,7 @@ export const useLayout = () => {
 
   const localSettingsValue = readonly(useLocalSettings(currentLanguage));
   provide(sidebarState, readonly(useSidebarState(localSettingsValue)));
-  provide(localSettings, localSettingsValue);
+  provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
 
   const route = useRoute();

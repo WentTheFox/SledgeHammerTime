@@ -4,13 +4,16 @@
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  transition: height, margin;
-  transition-duration: .2s;
-  transition-timing-function: linear;
   border-radius: design.app-value('collapsible-border-radius');
   background-color: design.app-color('collapsible-bg');
   box-sizing: border-box;
   margin: 0;
+
+  &.animate {
+    transition: height, margin;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+  }
 
   &:not(.visible) {
     height: 0 !important;
@@ -26,7 +29,11 @@
   }
 
 
-  > * {
-    margin: design.app-value('collapsible-padding');
+  .collapsible-inner {
+    padding: design.app-value('collapsible-padding');
+
+    > :not(:last-child) {
+      margin-bottom: design.app-value('collapsible-padding');
+    }
   }
 }

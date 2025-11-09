@@ -15,13 +15,11 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
   const syncing = ref(false);
 
   const syncTime = async (apply: boolean = true) => {
-    if (!dtl) return;
-
     syncing.value = true;
-    let newT1: DateTimeLibraryValue, newT2: DateTimeLibraryValue;
-    const newT0 = dtl.value.now();
+    let newT1: number, newT2: number;
+    const newT0 = Date.now();
     const result = await axios.get(apiEndpoint);
-    const newT3 = dtl.value.now();
+    const newT3 = Date.now();
     if (result.status !== 200) {
       console.error(`Sync failed (HTTP ${result.status})`);
       return;
@@ -29,31 +27,26 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
 
     const { data } = result;
     if ('requestTs' in data && typeof data.requestTs === 'number') {
-      newT1 = dtl.value.fromTimestampMsUtc(data.requestTs);
+      newT1 = data.requestTs;
     } else {
       console.error(`requestTs missing from response data`, data);
       return;
     }
     if ('responseTs' in data && typeof data.requestTs === 'number') {
-      newT2 = dtl.value.fromTimestampMsUtc(data.responseTs);
+      newT2 = data.responseTs;
     } else {
       console.error(`responseTs missing from response data`, data);
       return;
     }
 
-    const newNtpOffsetMs = calculateNtpOffset(
-      newT0?.getUnixMilliseconds(),
-      newT1?.getUnixMilliseconds(),
-      newT2?.getUnixMilliseconds(),
-      newT3?.getUnixMilliseconds(),
-    );
+    const newNtpOffsetMs = calculateNtpOffset(newT0, newT1, newT2, newT3);
     if (typeof newNtpOffsetMs === 'number') {
       ntpOffsetMs.value = newNtpOffsetMs;
     }
-    t0.value = newT0;
-    t1.value = newT1;
-    t2.value = newT2;
-    t3.value = newT3;
+    t0.value = dtl.value.fromTimestampMsUtc(newT0);
+    t1.value = dtl.value.fromTimestampMsUtc(newT1);
+    t2.value = dtl.value.fromTimestampMsUtc(newT2);
+    t3.value = dtl.value.fromTimestampMsUtc(newT3);
     syncing.value = false;
 
     if (apply) {

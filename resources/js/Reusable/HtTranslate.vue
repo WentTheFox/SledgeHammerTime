@@ -4,9 +4,10 @@ import { computed } from 'vue';
 
 const props = defineProps<{
   i18nKey: string;
+  replacements?: Record<string, string>;
 }>();
 
-const textRef = wTrans(props.i18nKey);
+const textRef = wTrans(props.i18nKey, props.replacements);
 
 const tags = computed(() => {
   const regex = /<(\d+)(?:>(.*)<\/\1|\/)>/g;

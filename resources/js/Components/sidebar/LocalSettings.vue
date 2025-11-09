@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { devModeInject, localSettings } from '@/injection-keys';
+import { devModeInject, localSettingsInject } from '@/injection-keys';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { inject } from 'vue';
 
-const settings = inject(localSettings);
+const settings = inject(localSettingsInject);
 const devMode = inject(devModeInject);
 </script>
 

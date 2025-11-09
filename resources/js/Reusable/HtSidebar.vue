@@ -4,15 +4,16 @@ import InputSettings from '@/Components/sidebar/InputSettings.vue';
 import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
+import TimeSync from '@/Components/sidebar/TimeSync.vue';
 import UserInfo from '@/Components/UserInfo.vue';
-import { localSettings, sidebarState } from '@/injection-keys';
+import { localSettingsInject, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import { faAlignLeft, faAlignRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, inject } from 'vue';
 
 const state = inject(sidebarState);
-const localSettingsValue = inject(localSettings);
+const localSettingsValue = inject(localSettingsInject);
 const isOnRight = computed(() => Boolean(localSettingsValue?.sidebarOnRight));
 const isOpen = computed(() => Boolean(state?.isOpen));
 
@@ -35,6 +36,7 @@ const close = () => {
     <hr class="sidebar-divider">
     <div class="sidebar-content">
       <InputSettings />
+      <TimeSync />
       <LocalSettings />
       <SidebarCredits />
     </div>

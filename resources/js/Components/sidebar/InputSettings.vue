@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import FormMessage from '@/Components/FormMessage.vue';
-import { devModeInject, localSettings } from '@/injection-keys';
+import { localSettingsInject } from '@/injection-keys';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { inject } from 'vue';
 
-const settings = inject(localSettings);
-const devMode = inject(devModeInject);
+const settings = inject(localSettingsInject);
 </script>
 
 <template>
@@ -47,24 +46,6 @@ const devMode = inject(devModeInject);
           />
         </template>
       </HtFormCheckboxControlled>
-      <HtFormCheckboxControlled
-        v-if="devMode"
-        id="auto-time-sync"
-        :label="$t('global.sidebar.inputSettings.autoTimeSync.label')"
-        :checked="Boolean(settings?.autoTimeSync)"
-        @change="settings?.toggleAutoTimeSync"
-      >
-        <template #message>
-          <FormMessage
-            :message="$t('global.sidebar.inputSettings.autoTimeSync.description')"
-            class="mt-1"
-          />
-        </template>
-      </HtFormCheckboxControlled>
     </HtFormControlGroup>
   </section>
 </template>
-
-<style scoped>
-
-</style>

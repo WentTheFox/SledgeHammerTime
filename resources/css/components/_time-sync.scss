@@ -1,6 +1,38 @@
+@use "../design";
+
 .time-sync {
   sub {
     vertical-align: sub;
     font-size: .75em;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.time-sync-visualization {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: design.app-value('sidebar-spacing');
+  position: relative;
+
+  &:after {
+    --border-size: .25em;
+    content: '';
+    display: block;
+    border-top: var(--border-size) solid #{design.app-color('badge-muted-bg')};
+    position: absolute;
+    top: calc((#{design.app-value('badge-font-size')} - var(--border-size)));
+    width: 100%;
+  }
+
+  .time-sync-item {
+    font-size: .75em;
+
+    &[data-v-tippy] {
+      cursor: help;
+    }
   }
 }

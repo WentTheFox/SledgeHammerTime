@@ -31,8 +31,8 @@ const isoTimeFormat = 'HH:mm:ss';
 const isoFormattingDateFormat = 'yyyy-MM-dd';
 const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
-const oneMinuteInSeconds = 1e3 * 60;
-const fifteenMinutesInSeconds = oneMinuteInSeconds * 15;
+const oneSecondInMs = 1e3 * 60;
+const oneMinuteInSecondsMs = 1e3 * 60;
 
 // Default values
 const defaultDate = '2023-01-01';
@@ -89,9 +89,7 @@ const getDiscordToUnicodeFormat = (format: MessageTimestampFormat, language: str
  */
 class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   get value(): TZDate {
-    const valueCopy = new TZDate(this.rawValue, this.rawValue.timeZone);
-    valueCopy.setTime(this.rawValue.getTime() + this.library.offset);
-    return valueCopy;
+    return new TZDate(this.rawValue, this.rawValue.timeZone);
   }
 
   set value(value: TZDate) {
@@ -259,14 +257,19 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return this._offset;
   }
 
+  getMinimumOffsetMs(): number {
+    return oneMinuteInSecondsMs * 5;
+  }
+
   updateOffset(offsetMs: number) {
-    if (offsetMs < fifteenMinutesInSeconds) {
+    const offsetMinimum = this.getMinimumOffsetMs();
+    if (Math.abs(offsetMs) < offsetMinimum) {
       this._offset = 0;
       return;
     }
 
-    // Only apply offsets in whole minutes
-    this._offset = Math.round(offsetMs / oneMinuteInSeconds) * oneMinuteInSeconds;
+    // Only apply offsets in whole seconds
+    this._offset = Math.round(offsetMs / oneSecondInMs) * oneSecondInMs;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
@@ -496,7 +499,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   private applyOffsetToDate<T extends Date>(date: T = new Date() as T): T {
-    date.setTime(date.getTime() + this.offset);
+    date.setTime(date.getTime() - this.offset);
     return date;
   }
 }

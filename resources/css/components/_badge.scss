@@ -9,6 +9,7 @@
   border: design.app-value('badge-border') solid design.app-color('badge-default-bg');
   display: inline-flex;
   font-size: design.app-value('badge-font-size');
+  align-items: center;
 
   > * {
     padding: 0 design.app-value('badge-spacing');
