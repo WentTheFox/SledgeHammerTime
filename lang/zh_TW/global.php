@@ -11,7 +11,6 @@ return [
   'contributeTranslations' => 'Contribute',
   'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
-  'guest' => 'Guest',
   'jsDisabled' => [
     'title' => 'JavaScript is necessary',
     'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
@@ -49,7 +48,6 @@ return [
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
-      'syncResultsHeading' => 'Synchronization Results',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
       't1' => 'The server\'s timestamp of the request reception',
