@@ -126,16 +126,17 @@ provide(timestampInject, {
   lock,
 });
 
-onMounted(() => {
-  refresh();
-});
-
-watch(() => settings?.autoTimeSync, async (newAutoTimeSync) => {
+const handleTimeSync = async (newAutoTimeSync: boolean | null | undefined) => {
+  if (typeof window === 'undefined') return;
   await nextTick();
   await timeSync?.syncTime(newAutoTimeSync === true);
   await nextTick();
   refresh();
-}, { immediate: true });
+};
+onMounted(() => {
+  handleTimeSync(settings?.autoTimeSync);
+});
+watch(() => settings?.autoTimeSync, handleTimeSync);
 </script>
 
 <template>
