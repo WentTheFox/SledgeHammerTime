@@ -6,12 +6,8 @@ return [
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
     'toggleText' => 'Advanced settings',
-    'atCommandName' => 'at',
-    'at12CommandName' => 'at12',
-    'hourOptionName' => 'hour',
-    'minuteOptionName' => 'minute',
-    'secondOptionName' => 'second',
   ],
+  'defaultOption' => 'Default',
   'fields' => [
     'rawData' => [
       'displayName' => 'Raw data (for debugging purposes)',
@@ -21,28 +17,12 @@ return [
     ],
     'format' => [
       'displayName' => 'Format',
-      'option' => [
-        'd' => 'Short date',
-        'f' => 'Date and time',
-        't' => 'Short time',
-        'D' => 'Long date',
-        'F' => 'Weekday, date and time',
-        'R' => 'Relative',
-        'T' => 'Long time',
-        'default' => 'Default',
-      ],
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
       'displayName' => 'Columns',
-      'option' => [
-        'syntax' => 'Syntax only',
-        'preview' => 'Preview only',
-        'both' => 'Both syntax and preview',
-        'default' => 'Default',
-      ],
     ],
     'ephemeral' => [
       'displayName' => 'Ephemeral',
