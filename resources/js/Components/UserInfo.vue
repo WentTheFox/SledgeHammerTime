@@ -34,7 +34,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
           :pressed="state.isVisible"
           @click="state.isVisible ? hide : show"
         >
-          {{ userInfo?.name ?? $t('global.guest') }}
+          {{ userInfo.name }}
         </HtButton>
       </template>
       <template #content="{ hide }">
