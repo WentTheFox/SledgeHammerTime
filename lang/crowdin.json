@@ -654,7 +654,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 5
+        "translation": 6
       }
     },
     "bg": {
@@ -833,7 +833,7 @@
         "13533384"
       ],
       "progress": {
-        "approval": 99,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -855,7 +855,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 13
+        "translation": 14
       }
     },
     "ja": {
@@ -962,7 +962,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 38
+        "translation": 37
       }
     },
     "pt-BR": {
@@ -977,7 +977,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 6
+        "translation": 5
       }
     },
     "pt": {
@@ -1074,7 +1074,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 7
+        "translation": 8
       }
     },
     "uk": {

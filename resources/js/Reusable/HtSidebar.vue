@@ -6,6 +6,7 @@ import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
 import TimeSync from '@/Components/sidebar/TimeSync.vue';
 import UserInfo from '@/Components/UserInfo.vue';
+import { useRoute } from '@/composables/useRoute';
 import { localSettingsInject, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import { faAlignLeft, faAlignRight, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +17,7 @@ const state = inject(sidebarState);
 const localSettingsValue = inject(localSettingsInject);
 const isOnRight = computed(() => Boolean(localSettingsValue?.sidebarOnRight));
 const isOpen = computed(() => Boolean(state?.isOpen));
+const route = useRoute();
 
 const close = () => {
   state?.setIsOpen(false);
@@ -36,7 +38,7 @@ const close = () => {
     <hr class="sidebar-divider">
     <div class="sidebar-content">
       <InputSettings />
-      <TimeSync />
+      <TimeSync v-if="route().current() === 'home'" />
       <LocalSettings />
       <SidebarCredits />
     </div>
