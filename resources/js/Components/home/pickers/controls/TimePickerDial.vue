@@ -11,7 +11,15 @@ import {
   drawIndividualDial,
 } from '@/utils/dial';
 import { getPositionAngleInElement, integerInRangeByAngle, Point2D } from '@/utils/math';
-import { computed, getCurrentInstance, inject, onMounted, onUnmounted, ref, watchEffect } from 'vue';
+import {
+  computed,
+  getCurrentInstance,
+  inject,
+  onMounted,
+  onUnmounted,
+  ref,
+  watchEffect,
+} from 'vue';
 
 const hoursCanvas = ref<HTMLCanvasElement>();
 const minutesCanvas = ref<HTMLCanvasElement>();
@@ -40,6 +48,7 @@ const emit = defineEmits<{
 const themeData = inject(themeInject);
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
+const isCanvasTransitioning = ref(false);
 
 const colors = computed((): DialColors => ({
   numbers: themeData?.isLightTheme ? '#333' : '#ccc',
@@ -203,6 +212,12 @@ const onTouchmove = (e: TouchEvent) => {
     touchmoveAnimationFrameRequest = undefined;
   });
 };
+const handleTransitionStart = () => {
+  isCanvasTransitioning.value = true;
+};
+const handleTransitionEnd = () => {
+  isCanvasTransitioning.value = false;
+};
 
 // Starters
 const startMovementTracking = () => {
@@ -285,27 +300,33 @@ onUnmounted(() => {
   >
     <canvas
       ref="hoursCanvas"
-      class="hours-canvas"
+      :class="['hours-canvas', { transitioning: isCanvasTransitioning }]"
       :width="CANVAS_SIZE"
       :height="CANVAS_SIZE"
       @mousedown.passive="startMouseMovementTracking"
       @touchstart.passive="startTouchMovementTracking"
+      @transitionstart="handleTransitionStart"
+      @transitionend="handleTransitionEnd"
     />
     <canvas
       ref="minutesCanvas"
-      class="minutes-canvas"
+      :class="['minutes-canvas', { transitioning: isCanvasTransitioning }]"
       :width="CANVAS_SIZE"
       :height="CANVAS_SIZE"
       @mousedown.passive="startMouseMovementTracking"
       @touchstart.passive="startTouchMovementTracking"
+      @transitionstart="handleTransitionStart"
+      @transitionend="handleTransitionEnd"
     />
     <canvas
       ref="secondsCanvas"
-      class="seconds-canvas"
+      :class="['seconds-canvas', { transitioning: isCanvasTransitioning }]"
       :width="CANVAS_SIZE"
       :height="CANVAS_SIZE"
       @mousedown.passive="startMouseMovementTracking"
       @touchstart.passive="startTouchMovementTracking"
+      @transitionstart="handleTransitionStart"
+      @transitionend="handleTransitionEnd"
     />
   </div>
 </template>
