@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import TimeZonePicker, { TimeZonePickerApi } from '@/Components/home/pickers/TimeZonePicker.vue';
-import { formControlId, positionAnchor, timestamp } from '@/injection-keys';
+import { formControlId, positionAnchor, timestampInject } from '@/injection-keys';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
@@ -11,7 +11,7 @@ withDefaults(defineProps<InputSelectorImplProps>(), {
   disabled: false,
 });
 
-const ts = inject(timestamp);
+const ts = inject(timestampInject);
 const id = inject(formControlId);
 
 const timezonepicker = useTemplateRef<TimeZonePickerApi>('timezone-picker');

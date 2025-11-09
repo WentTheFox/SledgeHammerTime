@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HtButton from '@/Reusable/HtButton.vue';
+import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faInfo, faTimes, faWarning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -10,8 +11,10 @@ export type AlertType = 'info' | 'warning' | 'error' | string;
 const props = withDefaults(defineProps<{
   type: AlertType;
   closable?: boolean;
+  loading?: boolean;
 }>(), {
   closable: true,
+  loading: false,
 });
 
 const icon: ComputedRef<IconDefinition | null> = computed(() => {
@@ -32,10 +35,15 @@ const emit = defineEmits<{
 <template>
   <div :class="['alert', type]">
     <div
-      v-if="icon"
+      v-if="icon || loading"
       class="alert-icon"
     >
+      <HtLoadingIndicator
+        v-if="loading"
+        :size="16"
+      />
       <FontAwesomeIcon
+        v-else-if="icon"
         :icon="icon"
         :fixed-width="true"
       />
@@ -46,6 +54,9 @@ const emit = defineEmits<{
       </div>
       <div class="alert-text">
         <slot name="text" />
+      </div>
+      <div class="alert-actions">
+        <slot name="actions" />
       </div>
     </div>
     <div class="alert-close">

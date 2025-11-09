@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
-import { formControlId, timestamp } from '@/injection-keys';
+import { formControlId, timestampInject } from '@/injection-keys';
 import HtInput from '@/Reusable/HtInput.vue';
 import { inject, ref, watch } from 'vue';
 
@@ -8,7 +8,7 @@ withDefaults(defineProps<InputSelectorImplProps>(), {
   disabled: false,
 });
 
-const ts = inject(timestamp);
+const ts = inject(timestampInject);
 const id = inject(formControlId);
 
 const selectedDateTime = ref('');

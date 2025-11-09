@@ -5,9 +5,11 @@ const props = withDefaults(defineProps<{
   visible: boolean,
   'class'?: string,
   maxHeight?: number;
+  animate?: boolean;
 }>(), {
   'class': undefined,
   maxHeight: undefined,
+  animate: true,
 });
 
 const isSsr = typeof window === 'undefined';
@@ -21,7 +23,10 @@ const handleResize = () => {
   if (isTransitioning.value) return;
 
   if (collapsibleRef.value) {
-    height.value = Math.min(props.maxHeight ?? Infinity, collapsibleRef.value.scrollHeight);
+    const contentHeight = Array.from(collapsibleRef.value.children).reduce((totalContentHeight, childNode) => {
+      return totalContentHeight + childNode.getBoundingClientRect().height;
+    }, 0);
+    height.value = Math.min(props.maxHeight ?? Infinity, contentHeight);
   }
 };
 const resizeObserver = !isSsr ? new ResizeObserver(handleResize) : undefined;
@@ -63,15 +68,29 @@ onUnmounted(() => {
 watch(() => props.maxHeight, () => {
   handleResize();
 });
+
+export interface CollapsibleAPI {
+  recalculateHeight: VoidFunction;
+}
+
+const api: CollapsibleAPI = {
+  recalculateHeight() {
+    handleResize();
+  },
+};
+
+defineExpose(api);
 </script>
 
 <template>
   <div
     ref="collapsibleRef"
-    :class="['collapsible', { visible: visible, 'limited-height': !!maxHeight }, props.class]"
+    :class="['collapsible', { visible: visible, 'limited-height': !!maxHeight, animate }, props.class]"
     :style="`height: ${effectiveHeight}px`"
     :inert="!visible"
   >
-    <slot />
+    <div class="collapsible-inner">
+      <slot />
+    </div>
   </div>
 </template>

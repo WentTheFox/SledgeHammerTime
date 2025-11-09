@@ -639,6 +639,11 @@
       "username": "premium.global.co",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17378908/medium/b6aaec34086216c309ae7885bb4d1b8c.jpeg",
       "fullName": "Premium Global"
+    },
+    "17413820": {
+      "username": "nico_everywhere",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17413820/medium/6db5a24bf5b3b5b623a45f2206c008fa.jpg",
+      "fullName": "🐧 Nico"
     }
   },
   "languages": {
@@ -938,11 +943,12 @@
         "13533384",
         "14730100",
         "17155466",
+        "17413820",
         "16122526"
       ],
       "progress": {
         "approval": 6,
-        "translation": 9
+        "translation": 20
       }
     },
     "pl": {

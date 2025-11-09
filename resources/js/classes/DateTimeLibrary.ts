@@ -1,13 +1,15 @@
-import {DateTimeLibraryLocale} from '@/classes/DateTimeLibraryLocale';
-import {DateTimeLibraryValue} from '@/classes/DateTimeLibraryValue';
-import {TimezoneSelection} from '@/model/timezone-selection';
-import {AvailableLanguage, LatestLanguageConfigType} from '@/utils/language-settings';
+import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
+import { TimezoneSelection } from '@/model/timezone-selection';
+import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Needed for testing
 export interface DateTimeLibrary<T = any, L = any> {
   readonly timezoneNames: string[];
 
   get offset(): number;
+
+  getMinimumOffsetMs(): number;
 
   updateOffset(offsetMs: number): void;
 

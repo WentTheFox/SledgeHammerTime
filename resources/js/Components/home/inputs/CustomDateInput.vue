@@ -2,7 +2,12 @@
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import DatePicker, { DatePickerApi } from '@/Components/home/pickers/DatePicker.vue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
-import { dateTimeLibraryInject, formControlId, positionAnchor, timestamp } from '@/injection-keys';
+import {
+  dateTimeLibraryInject,
+  formControlId,
+  positionAnchor,
+  timestampInject,
+} from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
@@ -11,7 +16,7 @@ withDefaults(defineProps<InputSelectorImplProps>(), {
   disabled: false,
 });
 
-const ts = inject(timestamp);
+const ts = inject(timestampInject);
 const id = inject(formControlId);
 const dtl = inject(dateTimeLibraryInject);
 

@@ -2,15 +2,22 @@
 import TimestampCard from '@/Components/home/TimestampCard.vue';
 import UsefulLinks from '@/Components/home/UsefulLinks.vue';
 import { useRoute } from '@/composables/useRoute';
-import { dateTimeLibraryInject, timestamp } from '@/injection-keys';
+import {
+  dateTimeLibraryInject,
+  localSettingsInject,
+  timestampInject,
+  timeSyncInject,
+} from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
 import { router, usePage } from '@inertiajs/vue3';
-import { computed, inject, onMounted, provide, readonly, Ref, ref } from 'vue';
+import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref, watch } from 'vue';
 
 const page = usePage();
 const route = useRoute();
 const dtl = inject(dateTimeLibraryInject);
+const settings = inject(localSettingsInject);
+const timeSync = inject(timeSyncInject);
 
 const routeParams = computed(() => route().params);
 
@@ -30,6 +37,7 @@ const currentTimezone: Ref<TimezoneSelection> = ref(dtl?.value.getDefaultInitial
 });
 const dateString = ref('');
 const timeString = ref('');
+const dateTimeSelectionChanged = ref(false);
 
 const currentTimestamp = computed(() => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
 const isLocked = computed(() => defaultUnixTimestamp.value !== null);
@@ -46,12 +54,21 @@ const unlockedTimestampUrl = computed(() => {
 });
 
 const changeDateString = (value: string) => {
+  if (!dateTimeSelectionChanged.value) {
+    dateTimeSelectionChanged.value = true;
+  }
   dateString.value = value;
 };
 const changeTimeString = (value: string) => {
+  if (!dateTimeSelectionChanged.value) {
+    dateTimeSelectionChanged.value = true;
+  }
   timeString.value = value;
 };
 const changeDateTimeString = (value: string) => {
+  if (!dateTimeSelectionChanged.value) {
+    dateTimeSelectionChanged.value = true;
+  }
   const [newDateString, newTimeString] = value.split(/[ T]/);
   dateString.value = newDateString;
   timeString.value = newTimeString;
@@ -77,17 +94,22 @@ const unlock = () => {
   backupLastTime([dateString.value, timeString.value]);
   router.get(unlockedTimestampUrl.value, undefined, { replace: true });
 };
+const backupSessionStorageKey = 'lockedDateTime';
 const backupLastTime = (value: [string, string]) => {
-  sessionStorage.setItem('lockedDateTime', value.join('T'));
+  sessionStorage.setItem(backupSessionStorageKey, value.join('T'));
 };
 const restoreLastTime = () => {
-  const backupValue = sessionStorage.getItem('lockedDateTime');
+  const backupValue = sessionStorage.getItem(backupSessionStorageKey);
   if (!backupValue) return null;
-  sessionStorage.removeItem('lockedDateTime');
+  sessionStorage.removeItem(backupSessionStorageKey);
   return backupValue.split('T');
 };
+const refresh = () => {
+  if (dateTimeSelectionChanged.value) return;
+  [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
+};
 
-provide(timestamp, {
+provide(timestampInject, {
   currentTimestamp,
   isLocked,
   lockedTimestampUrl,
@@ -105,8 +127,15 @@ provide(timestamp, {
 });
 
 onMounted(() => {
-  [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
+  refresh();
 });
+
+watch(() => settings?.autoTimeSync, async (newAutoTimeSync) => {
+  await nextTick();
+  await timeSync?.syncTime(newAutoTimeSync === true);
+  await nextTick();
+  refresh();
+}, { immediate: true });
 </script>
 
 <template>

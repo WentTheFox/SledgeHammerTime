@@ -70,6 +70,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Lennart Christiansen](https://crowdin.com/profile/LennartDenmark)
   - [MikeyDK](https://crowdin.com/profile/MikeyDK)
 - 🇳🇱 Dutch
+  - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [Jesse](https://github.com/Jessuhh)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)

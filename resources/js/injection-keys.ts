@@ -5,7 +5,7 @@ import { PageProps } from '@/types';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
-export const timestamp = Symbol('timestamp') as InjectionKey<{
+export const timestampInject = Symbol('timestamp') as InjectionKey<{
   currentTimestamp: ComputedRef<DateTimeLibraryValue | null>,
   isLocked: ComputedRef<boolean>,
   lockedTimestampUrl: ComputedRef<string>,
@@ -52,7 +52,7 @@ export interface LocalSettingsValue {
   readonly toggleAutoTimeSync: (e: Event) => void;
 }
 
-export const localSettings = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;
+export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;
 
 export const formControlId = Symbol('formControlId') as InjectionKey<string>;
 
@@ -85,7 +85,7 @@ export const timeSyncInject = Symbol('timeSyncInject') as InjectionKey<DeepReado
   t3: DateTimeLibraryValue | null;
   ntpOffsetMs: number;
   syncing: boolean;
-  syncTime(apply: boolean): void;
+  syncTime(apply: boolean): Promise<void>;
 }>>;
 
 export interface BotInfoUsageFetchOptions {

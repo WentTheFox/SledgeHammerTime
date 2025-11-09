@@ -17,6 +17,10 @@
     flex-grow: 1;
     flex-basis: 100%;
     font-size: 0.875rem;
+
+    > :not(:last-child) {
+      margin-bottom: design.app-value('alert-spacing');
+    }
   }
 
   .alert-title {
@@ -24,10 +28,6 @@
 
     &:empty {
       display: none;
-    }
-
-    &:not(:empty) + .alert-text {
-      margin-top: design.app-value('alert-spacing');
     }
   }
 
@@ -37,6 +37,12 @@
     }
 
     @include design.content-link-style;
+  }
+
+  .alert-actions {
+    &:empty {
+      display: none;
+    }
   }
 
   &.warning {
