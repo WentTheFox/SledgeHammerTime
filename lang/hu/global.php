@@ -11,7 +11,6 @@ return [
   'contributeTranslations' => 'Közreműködés',
   'copyToClipboard' => 'Vágólapra másolás',
   'copiedToClipboard' => 'Vágólapra másolva!',
-  'guest' => 'Látogató',
   'jsDisabled' => [
     'title' => 'JavaScript szükséges',
     'body' => "A böngésződ vagy nem támogatja a JavaScript-et vagy jelenleg ki van kapcsolva. Egyes böngészők biztonsági okokból alapértelmezetten kikapcsolják, viszont ennek az alkalmazásnak szüksége van rá. Kérlek engedélyezd és töltsd újra az oldalt, vagy használj egy másik böngészőt.",
@@ -49,7 +48,6 @@ return [
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
-      'syncResultsHeading' => 'Synchronization Results',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
       't1' => 'The server\'s timestamp of the request reception',
