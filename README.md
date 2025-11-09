@@ -74,7 +74,6 @@ English and Hungarian translations have been included, so no translators will be
   - [Jesse](https://github.com/Jessuhh)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
-- 🇬🇧 English, United Kingdom: [Premium Global](https://crowdin.com/profile/premium.global.co)
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
