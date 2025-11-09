@@ -6,12 +6,8 @@ return [
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
     'toggleText' => 'Advanced settings',
-    'atCommandName' => 'at',
-    'at12CommandName' => 'at12',
-    'hourOptionName' => 'hour',
-    'minuteOptionName' => 'minute',
-    'secondOptionName' => 'second',
   ],
+  'defaultOption' => 'Default',
   'fields' => [
     'rawData' => [
       'displayName' => 'Raw data (for debugging purposes)',
@@ -21,28 +17,12 @@ return [
     ],
     'format' => [
       'displayName' => 'Format',
-      'option' => [
-        'd' => 'Verkorte datum notatie',
-        'f' => 'Datum en tijd',
-        't' => 'Uren en minuten',
-        'D' => 'Uitgeschreven datum',
-        'F' => 'Dag, datum en tijd',
-        'R' => 'Relatief',
-        'T' => 'Uren, minuten en seconden',
-        'default' => 'Standaard',
-      ],
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
       'displayName' => 'Columns',
-      'option' => [
-        'syntax' => 'Syntax only',
-        'preview' => 'Preview only',
-        'both' => 'Both syntax and preview',
-        'default' => 'Standaard',
-      ],
     ],
     'ephemeral' => [
       'displayName' => 'Ephemeral',
