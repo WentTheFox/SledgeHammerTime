@@ -79,7 +79,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   };
   const setInitialAutoTimeSync = () => {
     const storedPref = localStorage.getItem(autoTimeSyncPrefKey);
-    // The feature is enabled by default
+    // The feature is disabled by default
     autoTimeSync.value = storedPref === 'true';
   };
 
@@ -122,7 +122,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     toggleAutoTimeSync(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
-      autoTimeSync.value = !e.target.checked;
+      autoTimeSync.value = e.target.checked;
     },
   };
 };
