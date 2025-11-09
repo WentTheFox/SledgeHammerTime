@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Haladó beállítások',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Alapértelmezett',
   'fields' => [
     'timezone' => [
       'displayName' => 'Időzóna',
