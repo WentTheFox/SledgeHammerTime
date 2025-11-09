@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use App\Enums\DiscordTimestampFormat;
 use App\Enums\TimestampMessageColumns;
 use App\Http\Requests\BotSettingsUpdate;
+use App\Models\BotCommand;
+use App\Models\BotCommandOption;
+use App\Models\BotCommandOptionChoice;
+use App\Models\BotCommandTranslation;
 use App\Models\DiscordUser;
 use App\Models\Settings;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -23,6 +28,7 @@ class BotSettingsController extends Controller {
       'defaultSettings' => Settings::mergeWithDefaults([]),
       'formatOptions' => array_map(static fn($x) => $x->value, DiscordTimestampFormat::cases()),
       'columnsOptions' => array_map(static fn($x) => $x->value, TimestampMessageColumns::cases()),
+      'botTranslations' => $this->getBotTranslations(),
     ]);
   }
 
@@ -64,5 +70,75 @@ class BotSettingsController extends Controller {
     $discordUser->clearSettingsCache();
 
     return response()->noContent(200);
+  }
+
+  private function getBotTranslations():array {
+    $commandNameToIdMap = (array)BotCommand::whereIn('name', ['at', 'at12'])
+      ->get()
+      ->reduce(fn(array $acc, BotCommand $command) => [...$acc, $command->name => $command->id], []);
+    $commandIds = array_values($commandNameToIdMap);
+    $commandNameTranslations = BotCommandTranslation::where('locale', App::getLocale())
+      ->whereIn('command_id', $commandIds)
+      ->whereNull('option_id')
+      ->where('field', 'name')
+      ->get();
+    $optionNameToIdMap = (array)BotCommandOption::whereIn('bot_command_id', $commandIds)
+      ->whereIn('name', ['hour', 'minute', 'second', 'format', 'columns'])
+      ->get()
+      ->reduce(fn(array $acc, BotCommandOption $option) => [...$acc, $option->name => $option->id], []);
+    $optionIds = array_values($optionNameToIdMap);
+    $optionChoiceIdToValueMap = (array)BotCommandOptionChoice::whereIn('bot_command_option_id', [$optionNameToIdMap['format'], $optionNameToIdMap['columns']])
+      ->get()
+      ->reduce(fn(array $acc, BotCommandOptionChoice $choice) => [...$acc, $choice->id => $choice->value], []);
+    $optionNameTranslations = BotCommandTranslation::where('locale', App::getLocale())
+      ->whereIn('command_id', $commandIds)
+      ->whereIn('option_id', $optionIds)
+      ->where('field', 'name')
+      ->get();
+
+    $result = [
+      'atCommandName' => 'at',
+      'at12CommandName' => 'at12',
+      'hourOptionName' => 'hour',
+      'minuteOptionName' => 'minute',
+      'secondOptionName' => 'second',
+      'formatOptionChoices' => [],
+      'columnsOptionChoices' => [],
+    ];
+    foreach ($commandNameTranslations as $commandNameTranslation){
+      switch ($commandNameTranslation->command_id){
+        case $commandNameToIdMap['at']:
+          $result['atCommandName'] = $commandNameTranslation->value;
+        break;
+        case $commandNameToIdMap['at12']:
+          $result['at12CommandName'] = $commandNameTranslation->value;
+        break;
+      }
+    }
+    foreach ($optionNameTranslations as $optionNameTranslation){
+      switch ($optionNameTranslation->option_id){
+        case $optionNameToIdMap['hour']:
+          $result['hourOptionName'] = $optionNameTranslation->value;
+        break;
+        case $optionNameToIdMap['minute']:
+          $result['minuteOptionName'] = $optionNameTranslation->value;
+        break;
+        case $optionNameToIdMap['second']:
+          $result['secondOptionName'] = $optionNameTranslation->value;
+        break;
+        case $optionNameToIdMap['format']:
+          if ($optionNameTranslation->choice_id !== null){
+            $result['formatOptionChoices'][$optionChoiceIdToValueMap[$optionNameTranslation->choice_id]] = $optionNameTranslation->value;
+          }
+        break;
+        case $optionNameToIdMap['columns']:
+          if ($optionNameTranslation->choice_id !== null && array_key_exists($optionNameTranslation->choice_id, $optionChoiceIdToValueMap)){
+            $result['columnsOptionChoices'][$optionChoiceIdToValueMap[$optionNameTranslation->choice_id]] = $optionNameTranslation->value;
+          }
+        break;
+      }
+    }
+
+    return $result;
   }
 }
