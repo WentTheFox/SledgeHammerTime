@@ -54,7 +54,7 @@ const routeParams = useRouteParams(route, pageProps);
 const devMode = inject(devModeInject);
 const showAdvancedSettings = ref(false);
 
-const form = useForm({
+const settingsForm = useForm({
   timezone: props.entry.settings.timezone ?? props.defaultSettings.timezone ?? '',
   format: props.entry.settings.format ?? props.formatOptions?.[0] ?? props.defaultSettings.format,
   formatMinimalReply: props.entry.settings.formatMinimalReply ?? props.defaultSettings.formatMinimalReply ?? true,
@@ -75,7 +75,7 @@ const form = useForm({
     <template #header>
       <DiscordUserInfo v-bind="entry.user" />
     </template>
-    <form @submit.prevent="form.put(route('settings.set', { discordUserId: entry.user.id }))">
+    <form @submit.prevent="settingsForm.put(route('settings.set', { discordUserId: entry.user.id }))">
       <HtFormControlGroup :vertical="true">
         <HtFormControl
           :id="'timezone-'+entry.user.id"
@@ -83,14 +83,14 @@ const form = useForm({
           :combo-box="true"
         >
           <ControlledTimeZoneInput
-            v-model="form.timezone"
+            v-model="settingsForm.timezone"
             name="timezone"
           />
           <template #message>
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.timezone"
+              :message="settingsForm.errors.timezone"
             />
           </template>
         </HtFormControl>
@@ -101,7 +101,7 @@ const form = useForm({
           :label="$t('botSettings.fields.format.displayName')"
         >
           <HtFormSelect
-            v-model="form.format"
+            v-model="settingsForm.format"
             name="format"
             class="mt-1"
           >
@@ -119,14 +119,14 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.format"
+              :message="settingsForm.errors.format"
             />
           </template>
         </HtFormControl>
 
         <HtFormCheckboxModelled
           :id="'formatMinimalReply-'+entry.user.id"
-          v-model="form.formatMinimalReply"
+          v-model="settingsForm.formatMinimalReply"
           name="formatMinimalReply"
           :label="$t('botSettings.fields.formatMinimalReply.displayName')"
         >
@@ -134,7 +134,7 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.formatMinimalReply"
+              :message="settingsForm.errors.formatMinimalReply"
             />
           </template>
         </HtFormCheckboxModelled>
@@ -145,7 +145,7 @@ const form = useForm({
           :label="$t('botSettings.fields.columns.displayName')"
         >
           <HtFormSelect
-            v-model="form.columns"
+            v-model="settingsForm.columns"
             name="columns"
             class="mt-1"
           >
@@ -163,14 +163,14 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.columns"
+              :message="settingsForm.errors.columns"
             />
           </template>
         </HtFormControl>
 
         <HtFormCheckboxModelled
           :id="'ephemeral-'+entry.user.id"
-          v-model="form.ephemeral"
+          v-model="settingsForm.ephemeral"
           name="ephemeral"
           :label="$t('botSettings.fields.ephemeral.displayName')"
         >
@@ -178,14 +178,14 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.ephemeral"
+              :message="settingsForm.errors.ephemeral"
             />
           </template>
         </HtFormCheckboxModelled>
 
         <HtFormCheckboxModelled
           :id="'header-'+entry.user.id"
-          v-model="form.header"
+          v-model="settingsForm.header"
           name="header"
           :label="$t('botSettings.fields.header.displayName')"
         >
@@ -193,14 +193,14 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.header"
+              :message="settingsForm.errors.header"
             />
           </template>
         </HtFormCheckboxModelled>
 
         <HtFormCheckboxModelled
           :id="'boldPreview-'+entry.user.id"
-          v-model="form.boldPreview"
+          v-model="settingsForm.boldPreview"
           name="boldPreview"
           :label="$t('botSettings.fields.boldPreview.displayName')"
         >
@@ -208,7 +208,7 @@ const form = useForm({
             <FormMessage
               type="error"
               class="mt-2"
-              :message="form.errors.boldPreview"
+              :message="settingsForm.errors.boldPreview"
             />
           </template>
         </HtFormCheckboxModelled>
@@ -229,7 +229,7 @@ const form = useForm({
             </p>
             <HtFormCheckboxModelled
               :id="'telemetry-'+entry.user.id"
-              v-model="form.telemetry"
+              v-model="settingsForm.telemetry"
               name="telemetry"
               :label="$t('botSettings.fields.telemetry.displayName')"
             >
@@ -237,7 +237,7 @@ const form = useForm({
                 <FormMessage
                   type="error"
                   class="mt-2"
-                  :message="form.errors.telemetry"
+                  :message="settingsForm.errors.telemetry"
                 />
               </template>
             </HtFormCheckboxModelled>
@@ -263,7 +263,7 @@ const form = useForm({
               })"
             >
               <HtInput
-                v-model="form.defaultAt12Hour"
+                v-model="settingsForm.defaultAt12Hour"
                 name="defaultAt12Hour"
                 class="mt-1"
                 type="number"
@@ -274,7 +274,7 @@ const form = useForm({
                 <FormMessage
                   type="error"
                   class="mt-2"
-                  :message="form.errors.defaultAt12Hour"
+                  :message="settingsForm.errors.defaultAt12Hour"
                 />
               </template>
             </HtFormControl>
@@ -286,7 +286,7 @@ const form = useForm({
               })"
             >
               <HtInput
-                v-model="form.defaultAtHour"
+                v-model="settingsForm.defaultAtHour"
                 name="defaultAtHour"
                 class="mt-1"
                 type="number"
@@ -297,7 +297,7 @@ const form = useForm({
                 <FormMessage
                   type="error"
                   class="mt-2"
-                  :message="form.errors.defaultAtHour"
+                  :message="settingsForm.errors.defaultAtHour"
                 />
               </template>
             </HtFormControl>
@@ -309,7 +309,7 @@ const form = useForm({
               })"
             >
               <HtInput
-                v-model="form.defaultAtMinute"
+                v-model="settingsForm.defaultAtMinute"
                 name="defaultAtMinute"
                 class="mt-1"
                 type="number"
@@ -320,7 +320,7 @@ const form = useForm({
                 <FormMessage
                   type="error"
                   class="mt-2"
-                  :message="form.errors.defaultAtMinute"
+                  :message="settingsForm.errors.defaultAtMinute"
                 />
               </template>
             </HtFormControl>
@@ -332,7 +332,7 @@ const form = useForm({
               })"
             >
               <HtInput
-                v-model="form.defaultAtSecond"
+                v-model="settingsForm.defaultAtSecond"
                 name="defaultAtSecond"
                 class="mt-1"
                 type="number"
@@ -343,7 +343,7 @@ const form = useForm({
                 <FormMessage
                   type="error"
                   class="mt-2"
-                  :message="form.errors.defaultAtSecond"
+                  :message="settingsForm.errors.defaultAtSecond"
                 />
               </template>
             </HtFormControl>
@@ -351,10 +351,10 @@ const form = useForm({
         </HtFormControlWrap>
       </HtFormControlGroup>
 
-      <pre v-if="devMode"><code>{{ JSON.stringify(form.data(), null, 2) }}</code></pre>
+      <pre v-if="devMode"><code>{{ JSON.stringify(settingsForm.data(), null, 2) }}</code></pre>
 
       <HtFormSubmitButton
-        :form="form"
+        :form="settingsForm"
         :success-text="$t('botSettings.saveSuccess')"
       />
     </form>
