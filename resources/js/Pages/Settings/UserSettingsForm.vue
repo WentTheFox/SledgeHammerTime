@@ -19,9 +19,23 @@ import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { LegalSectionIds } from '@/utils/legal';
-import { faChevronDown, faChevronUp, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronDown,
+  faChevronUp,
+  faExclamationTriangle,
+} from '@fortawesome/free-solid-svg-icons';
 import { Link, useForm } from '@inertiajs/vue3';
 import { inject, ref } from 'vue';
+
+export interface UserSettingsFormBotTranslations {
+  atCommandName: string;
+  at12CommandName: string;
+  hourOptionName: string;
+  minuteOptionName: string;
+  secondOptionName: string;
+  formatOptionChoices: Record<string, string>;
+  columnsOptionChoices: Record<string, string>;
+}
 
 const props = defineProps<{
   entry: {
@@ -31,6 +45,7 @@ const props = defineProps<{
   defaultSettings: UserSettings;
   formatOptions?: string[];
   columnsOptions?: Record<string, string>;
+  botTranslations: UserSettingsFormBotTranslations;
 }>();
 
 const route = useRoute();
@@ -95,7 +110,9 @@ const form = useForm({
               :key="formatLetter"
               :value="formatLetter"
             >
-              {{ $t(`botSettings.fields.format.option.${formatLetter}`) }}
+              {{
+                formatLetter === 'default' ? $t('botSettings.defaultOption') : botTranslations.formatOptionChoices[formatLetter]
+              }}
             </option>
           </HtFormSelect>
           <template #message>
@@ -137,7 +154,9 @@ const form = useForm({
               :key="columnsOption"
               :value="columnsOption"
             >
-              {{ $t(`botSettings.fields.columns.option.${columnsOption}`) }}
+              {{
+                columnsOption === 'default' ? $t('botSettings.defaultOption') : botTranslations.columnsOptionChoices[columnsOption]
+              }}
             </option>
           </HtFormSelect>
           <template #message>
@@ -239,8 +258,8 @@ const form = useForm({
             <HtFormControl
               :id="'defaultAt12Hour-'+entry.user.id"
               :label="$t('botSettings.fields.defaultAt12Hour.displayName', {
-                at12CommandName: $t('botSettings.advancedSettings.at12CommandName'),
-                hourOptionName: $t('botSettings.advancedSettings.hourOptionName'),
+                at12CommandName: botTranslations.at12CommandName,
+                hourOptionName: botTranslations.hourOptionName,
               })"
             >
               <HtInput
@@ -262,8 +281,8 @@ const form = useForm({
             <HtFormControl
               :id="'defaultAtHour-'+entry.user.id"
               :label="$t('botSettings.fields.defaultAtHour.displayName', {
-                atCommandName: $t('botSettings.advancedSettings.atCommandName'),
-                hourOptionName: $t('botSettings.advancedSettings.hourOptionName'),
+                atCommandName: botTranslations.atCommandName,
+                hourOptionName: botTranslations.hourOptionName,
               })"
             >
               <HtInput
@@ -285,8 +304,8 @@ const form = useForm({
             <HtFormControl
               :id="'defaultAtMinute-'+entry.user.id"
               :label="$t('botSettings.fields.defaultAtMinute.displayName', {
-                atCommandName: $t('botSettings.advancedSettings.atCommandName'),
-                minuteOptionName: $t('botSettings.advancedSettings.minuteOptionName'),
+                atCommandName: botTranslations.atCommandName,
+                minuteOptionName: botTranslations.minuteOptionName,
               })"
             >
               <HtInput
@@ -308,8 +327,8 @@ const form = useForm({
             <HtFormControl
               :id="'defaultAtSecond-'+entry.user.id"
               :label="$t('botSettings.fields.defaultAtSecond.displayName', {
-                atCommandName: $t('botSettings.advancedSettings.atCommandName'),
-                secondOptionName: $t('botSettings.advancedSettings.secondOptionName'),
+                atCommandName: botTranslations.atCommandName,
+                secondOptionName: botTranslations.secondOptionName,
               })"
             >
               <HtInput

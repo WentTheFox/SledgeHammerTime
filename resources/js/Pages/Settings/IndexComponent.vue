@@ -3,7 +3,9 @@ import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import { useRoute } from '@/composables/useRoute';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import { UserSettings } from '@/model/user-settings';
-import UserSettingsForm from '@/Pages/Settings/UserSettingsForm.vue';
+import UserSettingsForm, {
+  UserSettingsFormBotTranslations,
+} from '@/Pages/Settings/UserSettingsForm.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
@@ -17,6 +19,7 @@ defineProps<{
   defaultSettings: UserSettings;
   formatOptions?: string[];
   columnsOptions?: Record<string, string>;
+  botTranslations: UserSettingsFormBotTranslations;
 }>();
 
 const route = useRoute();
@@ -60,6 +63,7 @@ const route = useRoute();
       :default-settings="defaultSettings"
       :format-options="formatOptions"
       :columns-options="columnsOptions"
+      :bot-translations="botTranslations"
     />
   </Layout>
 </template>
