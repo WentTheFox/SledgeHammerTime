@@ -654,7 +654,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 6
+        "translation": 5
       }
     },
     "bg": {
@@ -733,8 +733,8 @@
         "17378908"
       ],
       "progress": {
-        "approval": 93,
-        "translation": 93
+        "approval": 100,
+        "translation": 100
       }
     },
     "es": {
@@ -833,8 +833,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 93,
-        "translation": 93
+        "approval": 99,
+        "translation": 100
       }
     },
     "id": {
@@ -1125,7 +1125,7 @@
       ],
       "progress": {
         "approval": 0,
-        "translation": 15
+        "translation": 14
       }
     },
     "zh-TW": {
