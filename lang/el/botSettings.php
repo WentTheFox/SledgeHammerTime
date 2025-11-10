@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'App Settings',
+  'title' => 'Ρυθμίσεις Εφαρμογής',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'learnMore' => 'Δεν είστε σίγουροι για το τι είναι η εφαρμογή ή είστε περίεργοι για το τι μπορεί να κάνει; Επισκεφθείτε τον σύνδεσμο <1>Discord App</1> για να μάθετε περισσότερα.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Προχωρημένες ρυθμίσεις',
   ],
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Ζώνη ώρας',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Μορφοποίηση',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Προεπισκόπηση απάντησης μόνο όταν χρησιμοποιείται η επιλογή μορφοποίησης',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Στήλες',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Ορατότητα',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Επικεφαλίδα',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Μορφοποίηση προεπισκόπησης ως έντονη',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Προεπιλεγμένη επιλογή ":hourOptionName" για την εντολή /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Προεπιλεγμένη επιλογή ":minuteOptionName" για την εντολή /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Προεπιλεγμένη επιλογή ":secondOptionName" για την εντολή /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Επιτρέψτε τη συλλογή τηλεμετρίας',
+      'explanation' => 'Αυτό είναι εντελώς προαιρετικό και δεν επηρεάζει την ικανότητά σας να χρησιμοποιείτε το bot. Δείτε τη σελίδα <1/> για λεπτομέρειες.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Προεπιλεγμένη επιλογή ":hourOptionName" για την εντολή /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Οι ρυθμίσεις σας αποθηκεύτηκαν με επιτυχία.',
 ];
