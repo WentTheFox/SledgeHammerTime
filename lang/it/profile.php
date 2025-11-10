@@ -33,11 +33,11 @@ return [
   ],
   'deletion' => [
     'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'description' => 'Una volta eliminato il tuo account, tutte le sue risorse e i relativi dati verranno eliminati definitivamente. Prima di eliminarlo, scarica tutti i dati o le informazioni che desideri conservare.',
+    'deleteButton' => 'Elimina Account',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Sei sicuro di voler eliminare il tuo account?',
+      'body' => 'Una volta cancellato il suo account, tutte le sue risorse e i suoi dati saranno eliminati in modo permanente.',
     ],
   ],
 ];
