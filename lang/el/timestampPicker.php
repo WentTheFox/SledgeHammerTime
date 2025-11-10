@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Επιλέξτε μια ημερομηνία, αντιγράψτε την επιθυμητή χρονοσήμανση από την στήλη :syntaxColName, και στη συνέχεια επικολλήστε την σε οποιοδήποτε μήνυμα συνομιλίας. Το αποτέλεσμα θα είναι μια δυναμική χρονοσήμανση που εμφανίζεται διαφορετικά για τον καθένα με βάση τη δική του ζώνη ώρας.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => 'Ημερομηνία',
+      'time' => 'Ώρα',
+      'dateAndTime' => 'Ημερομηνία και ώρα',
+      'timezone' => 'Ζώνη ώρας',
+      'modeOffset' => 'Απόλυτη Μετατόπιση',
+      'modeZoneName' => 'Όνομα Ζώνης ώρας',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Μετάβαση στον τρέχοντα μήνα',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => 'Ορισμός τρέχουσας ώρας',
+      'lock' => 'Κλείδωμα χρονοσήμανσης μέσω URL',
+      'unlock' => 'Ξεκλείδωμα χρονοσήμανσης',
+      'previousYear' => 'Προηγούμενο έτος',
+      'previousMonth' => 'Προηγούμενος μήνας',
+      'nextMonth' => 'Επόμενος μήνας',
+      'nextYear' => 'Επόμενο έτος',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Σύνταξη συνομιλίας',
+    'resultColumn' => 'Παράδειγμα αποτελέσματος',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Μπορεί επίσης να σας φανούν χρήσιμα:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Επίσημος Σέρβερ HammerTime',
+      'p' => 'Συζητήστε για τον ιστότοπο, δοκιμάστε τις εντολές και προτείνετε χαρακτηριστικά',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'Εφαρμογή HammerTime',
+      'p' => 'Δημιουργία χρονοσημάνσεων μέσα από το Discord χρησιμοποιώντας εντολές slash',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'HammerTime Beta Ιστοσελίδα',
+      'p' => 'Η παλιά ιστοσελίδα του προγράμματος, ακόμα διαθέσιμη μέχρι η έκδοση Beta να βγει ζωντανά',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Δημιουργία <1>Χρωματιστού</1> κειμένου Rebane',
+      'p' => 'Μια απλή εφαρμογή που δημιουργεί πολύχρωμα μηνύματα Discord χρησιμοποιώντας χρωματικούς κώδικες ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Η κοινότητα που φιλοξενεί εβδομαδιαίες προκλήσεις για ένα υποτιμημένο παιχνίδι αγώνων που ενέπνευσε τη δημιουργία αυτού του προγράμματος",
     ],
   ],
 ];

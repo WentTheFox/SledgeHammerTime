@@ -1,43 +1,44 @@
 <?php
 
 return [
-  'title' => 'Profile',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'title' => 'โปรไฟล์',
+  'intro' => 'หน้าโปรไฟล์ช่วยให้คุณจัดการข้อมูลบัญชีของคุณที่เกี่ยวข้องกับเว็บไซต์โดยเฉพาะ
+หากคุณต้องการเปลี่ยนค่าพื้นฐานหรือการตั้งค่าอื่น ๆ สำหรับแอป Discord โปรดไปที่หน้า <1>การตั้งค่าแอป</1>',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => 'ข้อมูลโปรไฟล์',
+    'description' => "อัปเดตข้อมูลโปรไฟล์บัญชีของคุณ",
+    'displayName' => 'ชื่อที่ใช้แสดง',
+    'saveSuccess' => 'โปรไฟล์ของคุณได้รับการอัปเดตเรียบร้อยแล้ว',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'บัญชีที่เชื่อมต่อ',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'บัญชี HammerTime จะช่วยให้คุณสามารถเชื่อมโยงหลายบัญชี Discord เข้าด้วยกัน เพื่อให้สามารถจัดการทรัพยากรของแต่ละบัญชีได้จากที่เดียวในอนาคต',
+      'ด้านล่างนี้คือรายการบัญชี Discord ทั้งหมดที่เชื่อมโยงกับบัญชี HammerTime นี้',
     ],
-    'discord' => 'Discord Accounts',
-    'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'discord' => 'บัญชี Discord',
+    'crowdin' => 'บัญชี Crowdin',
+    'noConnectedAccounts' => 'ขณะนี้คุณยังไม่มีบัญชีที่เชื่อมต่ออยู่',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'ลิงก์หรืออัปเดตบัญชี',
+      'description' => 'การเชื่อมโยงหลายบัญชีเข้ากับบัญชี HammerTime จะช่วยให้คุณสามารถจัดการการตั้งค่าของบัญชีทั้งหมดที่เชื่อมต่อไว้ได้จากที่เดียว',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'description' => 'หากรูปโปรไฟล์หรือชื่อที่แสดงของคุณมีการเปลี่ยนแปลง คุณสามารถใช้ฟังก์ชันนี้เพื่ออัปเดตข้อมูลนั้นให้กับบัญชี Discord ใด ๆ ที่เชื่อมโยงไว้แล้วได้เช่นกัน',
+        'authorize' => 'อนุญาตบัญชี Discord',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Authorize Crowdin account',
+        'description' => 'หากคุณเป็นผู้แปลสำหรับโปรเจ็กต์นี้ การเชื่อมโยงบัญชี Crowdin ของคุณจะช่วยให้คุณสามารถปรับแต่งวิธีการแสดงชื่อของคุณในส่วนเครดิตของการแปลได้ในภายหลัง และยังทำหน้าที่เป็นระดับการยืนยันเพิ่มเติม เพื่อยืนยันว่าบัญชีเหล่านี้เป็นของคุณจริง หากคุณเข้าร่วมเซิร์ฟเวอร์ Discord ของโปรเจ็กต์',
+        'authorize' => 'อนุญาตบัญชี Crowdin',
       ],
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => 'การลบบัญชี',
+    'description' => 'เมื่อบัญชีของคุณถูกลบ ข้อมูลและทรัพยากรทั้งหมดที่เกี่ยวข้องกับบัญชีนั้นจะถูกลบอย่างถาวร ก่อนที่จะทำการลบบัญชี โปรดดาวน์โหลดข้อมูลหรือรายละเอียดใด ๆ ที่คุณต้องการเก็บไว้ก่อน',
+    'deleteButton' => 'ลบบัญชีผู้ใช้',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีของคุณ?',
+      'body' => 'เมื่อบัญชีของคุณถูกลบแล้ว ทรัพยากรและข้อมูลทั้งหมดจะถูกลบอย่างถาวร',
     ],
   ],
 ];

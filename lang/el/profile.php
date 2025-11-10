@@ -1,43 +1,43 @@
 <?php
 
 return [
-  'title' => 'Profile',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'title' => 'Προφίλ',
+  'intro' => 'Η σελίδα προφίλ σας επιτρέπει να διαχειρίζεστε τις πληροφορίες του λογαριασμού σας που σχετίζονται με τον ιστότοπο. Αν ψάχνετε πού μπορείτε να αλλάξετε τις προεπιλογές και άλλες ρυθμίσεις για την εφαρμογή Discord, επισκεφθείτε τη σελίδα <1>Ρυθμίσεις εφαρμογής</1>.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => 'Πληροφορίες Προφίλ',
+    'description' => "Ενημερώστε τις πληροφορίες προφίλ του λογαριασμού σας.",
+    'displayName' => 'Εμφανιζόμενο Όνομα',
+    'saveSuccess' => 'Το προφίλ σας έχει ενημερωθεί με επιτυχία.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Συνδεδεμένοι Λογαριασμοί',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'Ένας λογαριασμός HammerTime θα σας επιτρέψει να συνδέσετε πολλαπλούς λογαριασμούς του Discord για να είστε σε θέση να διαχειριστείτε τις ρυθμίσεις τους από ένα μέρος στο μέλλον.',
+      'Παρακάτω μπορείτε να βρείτε μια λίστα με όλους τους λογαριασμούς του Discord που σχετίζονται με αυτόν τον λογαριασμό HammerTime.',
     ],
-    'discord' => 'Discord Accounts',
-    'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'discord' => 'Λογαριασμοί Discord',
+    'crowdin' => 'Λογαριασμοί Crowdin',
+    'noConnectedAccounts' => 'Δεν έχετε κανέναν λογαριασμό συνδεδεμένο αυτή τη στιγμή',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Σύνδεση ή Ενημέρωση Λογαριασμού',
+      'description' => 'Συνδέοντας πολλούς λογαριασμούς με έναν ενιαίο λογαριασμό HammerTime, μπορείτε να διαχειρίζεστε τις ρυθμίσεις όλων των συνδεδεμένων λογαριασμών σε ένα μόνο σημείο.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'description' => 'Αν η εικόνα προφίλ ή το όνομα προφίλ σας έχει αλλάξει, μπορείτε επίσης να χρησιμοποιήσετε αυτό το στοιχείο για να ενημερώσετε τις πληροφορίες αυτές για οποιονδήποτε λογαριασμό Discord που είναι ήδη συνδεδεμένος.',
+        'authorize' => 'Εξουσιοδότηση λογαριασμού Discord',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Authorize Crowdin account',
+        'description' => 'Αν είστε μεταφραστής για το HammerTime, η σύνδεση του λογαριασμού σας στο Crowdin θα σας επιτρέψει να προσαρμόσετε τον τρόπο με τον οποίο εμφανίζεται το όνομά σας στα credits της μετάφρασης, και χρησιμεύει επίσης ως ένα επιπλέον επίπεδο επαλήθευσης ότι αυτοί οι λογαριασμοί σας ανήκουν σε περίπτωση που συμμετάσχετε στον διακομιστή Discord του HammerTime.',
+        'authorize' => 'Εξουσιοδότηση λογαριασμού Crowdin',
       ],
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => 'Διαγραφή Λογαριασμού',
+    'description' => 'Μόλις διαγραφεί ο λογαριασμός σας, όλες οι ρυθμίσεις και τα δεδομένα του θα διαγραφούν οριστικά. Πριν διαγράψετε το λογαριασμό σας, παρακαλούμε κατεβάστε τυχόν δεδομένα ή πληροφορίες που επιθυμείτε να διατηρήσετε.',
+    'deleteButton' => 'Διαγραφή Λογαριασμού',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Σίγουρα θέλετε να διαγράψετε τον λογαριασμό σας;',
+      'body' => 'Μόλις διαγραφεί ο λογαριασμός σας, όλες οι ρυθμίσεις και τα δεδομένα του θα διαγραφούν οριστικά.',
     ],
   ],
 ];

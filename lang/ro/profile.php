@@ -1,43 +1,43 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => 'Profil',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => 'Informații profil',
+    'description' => "Actualizați informațiile de profil ale contului dvs.",
+    'displayName' => 'Nume afișat',
+    'saveSuccess' => 'Profilul dvs. a fost actualizat cu succes.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Conturi conectate',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'Un cont HammerTime vă va permite să legați mai multe conturi Discord pentru a putea gestiona resursele într-un singur loc în viitor.',
+      'Mai jos puteți găsi o listă a tuturor conturilor Discord asociate cu acest cont HammerTime.',
     ],
-    'discord' => 'Discord Accounts',
-    'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'discord' => 'Conturi Discord',
+    'crowdin' => 'Conturi Crowdin',
+    'noConnectedAccounts' => 'Nu aveți niciun cont conectat în acest moment',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Conectarea sau actualizarea contului',
+      'description' => 'Prin conectarea mai multor conturi la un singur cont HammerTime, puteți gestiona toate setările conturilor conectate dintr-un singur loc.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'description' => 'Dacă fotografia de profil sau numele afișat s-au schimbat, poți utiliza această opțiune pentru a actualiza informațiile pentru orice cont Discord care este deja conectat.',
+        'authorize' => 'Autorizați contul Discord',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Authorize Crowdin account',
+        'description' => 'Dacă sunteți traducător pentru proiect, conectarea contului dvs. Crowdin vă va permite în cele din urmă să personalizați modul în care numele dvs. apare în creditele de traducere și servește, de asemenea, ca un nivel suplimentar de verificare a faptului că aceste conturi vă aparțin, în cazul în care vă alăturați serverului Discord al proiectului.',
+        'authorize' => 'Autorizați contul Crowdin',
       ],
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => 'Ștergerea contului',
+    'description' => 'Odată ce contul dvs. este șters, toate resursele și datele acestuia vor fi șterse definitiv. Înainte de a vă șterge contul, vă rugăm să descărcați orice date sau informații pe care doriți să le păstrați.',
+    'deleteButton' => 'Ștergeți contul',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Sunteți sigur că doriți să vă ștergeți contul?',
+      'body' => 'Odată ce contul dvs. este șters, toate resursele și datele acestuia vor fi șterse definitiv.',
     ],
   ],
 ];

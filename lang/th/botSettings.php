@@ -1,51 +1,52 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'การตั้งค่าแอปพลิเคชั่น',
+  'description' => 'ด้านล่างนี้คุณสามารถดูการตั้งค่าปัจจุบันของคุณในแอป HammerTime สำหรับแต่ละบัญชีที่เชื่อมต่ออยู่',
+  'learnMore' => 'ไม่แน่ใจว่าแอปนี้คืออะไร หรืออยากรู้ว่ามันทำอะไรได้บ้างใช่ไหม?
+ไปที่ลิงก์ <1>Discord App</1> เพื่อเรียนรู้เพิ่มเติม',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'การตั้งค่าขั้นสูง',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'ค่าเริ่มต้น',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'เขตเวลา',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'รูปแบบ',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'การตอบกลับแบบแสดงตัวอย่างเท่านั้น จะเกิดขึ้นเมื่อใช้ตัวเลือกการจัดรูปแบบ',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'คอลัมน์',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'ชั่วคราว',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'ส่วนหัว',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'แสดงตัวอย่างเป็นตัวหนา',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'ค่าเริ่มต้น ":hourOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'ค่าเริ่มต้น ":minuteOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'ค่าเริ่มต้น ":hourOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'อนุญาตให้เก็บข้อมูลการใช้งาน',
+      'explanation' => 'สิ่งนี้เป็นตัวเลือกเสริมทั้งหมด และไม่มีผลต่อความสามารถในการใช้งานบอทของคุณ ดูรายละเอียดเพิ่มเติมได้ที่หน้า <1/>',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'ค่าเริ่มต้น ":hourOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'การตั้งค่าของคุณถูกบันทึกเรียบร้อยแล้ว',
 ];
