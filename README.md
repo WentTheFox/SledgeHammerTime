@@ -196,7 +196,9 @@ English and Hungarian translations have been included, so no translators will be
   - [Patrick Tobias](https://crowdin.com/profile/patricktobias)
   - [Stryxen](https://crowdin.com/profile/Stryxen)
   - [tunket](https://crowdin.com/profile/tunket)
-- 🇹🇭 Thai: [timelessnesses](https://github.com/timelessnesses)
+- 🇹🇭 Thai
+  - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
+  - [timelessnesses](https://github.com/timelessnesses)
 - 🇹🇷 Turkish
   - [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
   - [korayharman](https://crowdin.com/profile/korayharman)
