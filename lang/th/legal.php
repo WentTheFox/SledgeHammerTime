@@ -2,60 +2,83 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'title' => 'เนื้อหาที่ถูกแปลแล้ว',
+    'text' => 'โปรเจ็กต์นี้มีการแปลภาษาโดยผู้แปลอาสาและสมาชิกคนอื่น ๆ ในชุมชน การแปลเหล่านี้จัดทำขึ้นเพื่อความสะดวกของผู้ใช้ และอาจไม่อัปเดตตามต้นฉบับเสมอไป
+ในทุกกรณี ให้ถือว่า <1>เวอร์ชั่นภาษาต้นฉบับ</1> ของหน้านี้เป็นฉบับที่มีผลบังคับใช้อย่างเป็นทางการ',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => 'อัปเดทล่าสุด: <1/>',
   'privacy' => [
-    'heading' => 'Privacy Policy',
-    'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
-    'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
+    'heading' => 'นโยบายความเป็นส่วนตัว',
+    'operator' => '<0/> (“เรา”, “ผู้พัฒนา”, หรือ “ของเรา”) เป็นผู้ดำเนินงานเว็บไซต์ HammerTime (หรือ “ไซต์”) และ HammerTimeBot (“บอท” หรือ “แอป”) ซึ่งรวมกันเรียกว่า โปรเจ็ค HammerTime (“โปรเจ็ค”)
+หน้านี้จัดทำขึ้นเพื่อแจ้งให้คุณทราบถึงนโยบายของเราเกี่ยวกับการเก็บรวบรวม การใช้ และการเปิดเผยข้อมูลส่วนบุคคลที่เราได้รับจากผู้ใช้ของโปรเจ็ค (“คุณ”, “ผู้ใช้”, หรือรวมกันคือ “ผู้ใช้งาน”)',
+    'notAffiliated' => 'แม้ว่า ชื่อ “HammerTime” (“ชื่อโปรเจ็กต์”) จะได้แรงบันดาลใจมาจากชื่อเดิม “Hammer & Chisel” ของบริษัท Discord, Inc. (“Discord”)<1/>
+แต่โปรเจ็กต์นี้ ไม่มีความเกี่ยวข้อง ไม่อยู่ภายใต้ความร่วมมือ หรือการเชื่อมโยงใด ๆ กับทั้ง Discord และ M.C. Hammer ซึ่งเป็นศิลปินที่มีเพลง<3/>ซึ่งมีวลีนี้ปรากฏอย่างโดดเด่น
+ผู้พัฒนา ไม่ได้ถือสิทธิ์เครื่องหมายการค้า หรือ ลิขสิทธิ์ใด ๆ เหนือชื่อของโปรเจ็กต์นี้',
     'infoCollection' => [
-      'heading' => 'Information Collection And Use',
-      'pii' => 'While using the Project we do not ask nor encourage you to provide us with any Personally Identifiable Information ("PII", "Personal Information") that can be used to identify you as an individual. PII may include, but is not limited to: your name, birth date, national identification numbers, location, phone number.',
-      'auth' => 'Sign in is provided using Discord\'s OAuth 2 API ("API") which is also secured using HTTPS. During the OAuth authentication process our Site does not receive the username or password, only a token that can be used to verify the user\'s identity using this API. For performance reasons we store the basic information provided by the API (user ID, current username, display name, avatar link) locally.',
-      'removal' => 'This information is not removed from our database automatically if you deactivate your Discord account, so be sure to reach out to us if you would like your data removed.',
+      'heading' => 'การเก็บรวบรวมและการใช้งานข้อมูล',
+      'pii' => 'ขณะใช้งานโปรเจ็กต์นี้ เรา จะไม่ร้องขอหรือสนับสนุน ให้คุณให้ข้อมูลส่วนบุคคลที่สามารถระบุตัวตนของคุณได้ (“ข้อมูลส่วนบุคคล” หรือ “PII”) PII ข้อมูลส่วนบุคคลอาจรวมถึง: ชื่อของคุณ, วันเกิด, หมายเลขประจำตัวประชาชน, ตำแหน่งที่อยู่, หรือหมายเลขโทรศัพท์',
+      'auth' => 'การลงชื่อเข้าใช้ดำเนินการผ่าน Discord’s OAuth 2 API (“API”) ซึ่งมีการรักษาความปลอดภัยด้วย HTTPS เช่นกัน ในระหว่างกระบวนการยืนยันตัวตนผ่าน OAuth เว็บไซต์ของเรา จะไม่ได้รับชื่อผู้ใช้หรือรหัสผ่าน แต่จะได้รับเพียงโทเค็นที่ใช้สำหรับตรวจสอบตัวตนของผู้ใช้ผ่าน API นี้เท่านั้น เพื่อประสิทธิภาพในการทำงาน เราจะจัดเก็บข้อมูลพื้นฐานบางส่วนที่ได้จาก API ไว้ในระบบชั่วคราว เช่น (รหัสผู้ใช้,ชื่อผู้ใช้ปัจจุบัน,ชื่อที่แสดง และ ลิงก์รูปโปรไฟล์)',
+      'removal' => 'ข้อมูลเหล่านี้จะ ไม่ถูกลบออกจากฐานข้อมูลของเราโดยอัตโนมัติ หากคุณปิดใช้งานบัญชี Discord ของคุณ
+ดังนั้น หากคุณต้องการให้เราลบข้อมูลของคุณ โปรดติดต่อเราโดยตรง เพื่อดำเนินการลบข้อมูลดังกล่าว',
     ],
     'logData' => [
-      'heading' => 'Log Data',
-      'browserInfo' => 'We collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer\'s IP address, operating system, browser type, browser version, the pages of our Site that you visit, the time and date of your visit.',
-      'thirdParty' => 'This Log Data is stored only within our server and is not shared with any third party. Log Data is used for diagnostic purposes, and shared with law enforcement agencies if explicitly requested. It is kept for up to 14 days and discarded afterwards.',
-      'debugging' => 'The Bot can receive interactions from Users via the Discord client, which includes slash commands and context menu commands ("Action", "Command", or collectively "Commands"). Slash commands can additionally be executed with User-supplied structured key-value pairs ("Options"). The Bot records Command executions for debugging purposes, namely: the Discord username and Snowflake identifier ("ID") of the User that executed the Command, the name of the Command (including all Options) and the ID of the Server the Command was executed in. This data is stored on the Project server for up to 30 days, and is only accessible by the Developer.',
-      'noPii' => 'When executing Commands you should avoid including any Personal Information. Some information may still be retained in our Application Log, so please contact us using the methods described at the end of this document to notify us if our intervention is needed.',
+      'heading' => 'ข้อมูลบันทึก',
+      'browserInfo' => 'เราจะเก็บข้อมูลที่เบราว์เซอร์ของคุณส่งมาเมื่อคุณเข้าชมเว็บไซต์ของเรา (“ข้อมูลบันทึก”) ข้อมูลบันทึกนี้อาจประกอบด้วยข้อมูล เช่น ที่อยู่ IP ของคอมพิวเตอร์ของคุณ, ระบบปฏิบัติการ, ประเภทและเวอร์ชันของเบราว์เซอร์, หน้าที่คุณเข้าชมในเว็บไซต์ของเรา, รวมถึง เวลาและวันที่ที่คุณเข้าชม',
+      'thirdParty' => 'ข้อมูลบันทึกนี้จะถูกจัดเก็บไว้เฉพาะภายในเซิร์ฟเวอร์ของเราเท่านั้น และจะ ไม่ถูกเปิดเผยหรือแบ่งปันให้กับบุคคลภายนอก ข้อมูลดังกล่าวจะถูกใช้เพื่อ วัตถุประสงค์ในการวิเคราะห์และแก้ไขปัญหาทางเทคนิคเท่านั้น และจะถูกเปิดเผยต่อ หน่วยงานบังคับใช้กฎหมาย ก็ต่อเมื่อมีการร้องขออย่างเป็นทางการเท่านั้น
+ข้อมูลบันทึกจะถูกเก็บรักษาไว้ ไม่เกิน 14 วัน ก่อนที่จะถูกลบออกจากระบบ',
+      'debugging' => 'บอทสามารถรับการโต้ตอบจากผู้ใช้ผ่านไคลเอนต์ Discord ได้ ซึ่งรวมถึงคำสั่งแบบ สแลช และ คำสั่งจากเมนู (“การกระทำ”, “คำสั่ง” หรือรวมเรียกว่า “คำสั่งต่างๆ”) คำสั่งแบบสแลช อาจมีการใช้ ตัวเลือก ซึ่งเป็นข้อมูลแบบคู่คีย์-ค่าที่ผู้ใช้ระบุเพิ่มเติม ("ตัวเลือก")บอทจะบันทึกการใช้งานคำสั่งไว้เพื่อวัตถุประสงค์ในการดีบักเท่านั้น โดยบันทึกข้อมูลดังต่อไปนี้:ชื่อผู้ใช้ Discord และ รหัสตัวเลขเฉพาะ ("ID") ของผู้ที่เรียกใช้คำสั่งชื่อของคำสั่ง (รวมถึงตัวเลือกทั้งหมดที่ใช้) ไอดีของเซิร์ฟเวอร์ ที่มีการเรียกใช้คำสั่งนั้น ข้อมูลเหล่านี้จะถูกจัดเก็บไว้ในเซิร์ฟเวอร์ของโปรเจ็กต์เป็นระยะเวลา ไม่เกิน 30 วันและสามารถเข้าถึงได้เฉพาะโดย นักพัฒนาเท่านั้น',
+      'noPii' => 'เมื่อคุณเรียกใช้คำสั่ง ควรหลีกเลี่ยงการใส่ข้อมูลส่วนบุคคลใด ๆ ลงไป
+เนื่องจากข้อมูลบางส่วนอาจถูกเก็บไว้ใน บันทึกการทำงานของแอปพลิเคชัน หากคุณต้องการให้เราช่วยลบหรือจัดการข้อมูลดังกล่าว โปรดติดต่อเราผ่านช่องทางที่ระบุไว้ในตอนท้ายของเอกสารนี้',
     ],
     'telemetry' => [
-      'heading' => 'Telemetry & Statistics',
-      'statsCollection' => 'In order to assess the Bot\'s usage and thereby drive development decisions (e.g. the addition/removal of features) a specific set of data about Commands and their usage may be collected ("Telemetry"). Telemetry information is limited to which command and options were used, and when they were used, without any identifying information (therefore it never includes server or user IDs, nor any user-supplied values, and is fully anonymous). Telemetry is stored indefinitely and statistics derived from it are intended to be displayed and shared publicly in aggregate form.',
-      'telemetryOptOut' => 'By using the Project, Users agree to the collection of Telemetry by default. If a User wishes to opt out of Telemetry collection, they may indicate their preference via the appropriate option on the <1/> page.',
+      'heading' => 'ข้อมูลการใช้งานและสถิติ',
+      'statsCollection' => 'เพื่อประเมินรูปแบบการใช้งานของบอท และใช้เป็นแนวทางในการตัดสินใจพัฒนา (เช่น การเพิ่มหรือลบฟีเจอร์) ระบบอาจเก็บข้อมูลเฉพาะชุดหนึ่งเกี่ยวกับคำสั่งและการใช้งานของคำสั่งเหล่านั้น (“ข้อมูลการใช้งาน”)
+ข้อมูลการใช้งานจะถูกจำกัดเฉพาะ ชื่อคำสั่งและตัวเลือกที่ถูกใช้งาน รวมถึง เวลาที่มีการใช้งาน เท่านั้น โดย จะไม่มีข้อมูลที่สามารถระบุตัวตนได้ (เช่น รหัสเซิร์ฟเวอร์หรือรหัสผู้ใช้ และ จะไม่บันทึกค่าที่ผู้ใช้กรอกใด ๆ ทำให้ข้อมูลนี้ ไม่สามารถระบุตัวบุคคลได้อย่างสมบูรณ์) ข้อมูลการใช้งานจะถูกจัดเก็บไว้โดยไม่มีกำหนดเวลา และสถิติที่ได้จากข้อมูลเหล่านี้อาจถูกนำมา แสดงผลหรือเผยแพร่ต่อสาธารณะในรูปแบบสรุปรวม',
+      'telemetryOptOut' => 'โดยการใช้งานโปรเจ็กต์นี้ ผู้ใช้จะถือว่ายินยอมให้มีการเก็บข้อมูลการใช้งานเป็นค่าเริ่มต้น
+หากผู้ใช้ต้องการ ปฏิเสธหรือยกเลิกการเก็บข้อมูลการใช้งานสามารถระบุความต้องการของตนได้ผ่านตัวเลือกที่เหมาะสมบนหน้า <1/>',
     ],
     'cookies' => [
-      'heading' => 'Cookies',
-      'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
-      'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
-      'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
+      'heading' => 'คุกกี้',
+      'intro' => 'คุกกี้ คือ ไฟล์ที่มีข้อมูลขนาดเล็ก ซึ่งถูกส่งจากเว็บไซต์ไปยังเบราว์เซอร์ของคุณ และถูกจัดเก็บไว้ในฮาร์ดไดรฟ์บนคอมพิวเตอร์ของคุณ',
+      'disable' => 'เราใช้ “คุกกี้” เพื่อเก็บรักษาข้อมูลบางอย่าง
+คุณสามารถตั้งค่าเบราว์เซอร์ของคุณให้ ปฏิเสธคุกกี้ทั้งหมด หรือให้ แจ้งเตือนเมื่อมีการส่งคุกกี้ ได้
+อย่างไรก็ตาม หากคุณไม่ยอมรับการใช้คุกกี้ บางส่วนของเว็บไซต์ของเราอาจไม่สามารถใช้งานได้',
+      'session' => 'สำหรับผู้ใช้ที่เข้าสู่ระบบแล้ว เว็บไซต์จะใช้ คุกกี้แบบถาวร เพื่อจดจำสถานะการเข้าสู่ระบบต่อเนื่องระหว่างการใช้งานเบราว์เซอร์เป็นเวลา 30 วัน
+หากคุณไม่ต้องการให้ระบบจำการเข้าสู่ระบบอีกต่อไป คุณสามารถ ออกจากระบบ หรือ ล้างคุกกี้ ที่เว็บไซต์ของเราตั้งค่าไว้ได้',
     ],
     'security' => [
-      'heading' => 'Security',
-      'noGuarantee' => 'The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.',
-      'httpsCloudFlare' => 'The Site makes use of HTTPS using modern TLS encryption suites to protect the integrity and secure transport of data between the browser and our Site. However, we make use of CloudFlare\'s Reverse Proxy service, meaning some portion of the data sent to our Site passes through their servers. CloudFlare operates under their own <1>privacy policy</1>.',
-      'breachNotify' => 'In the event of a security breach all users will be notified within 24 hours of discovery through a notice posted on this website, in replies posted by the Bot and via an announcement in the Bot\'s Discord support server.',
+      'heading' => 'ความปลอดภัย',
+      'noGuarantee' => 'ความปลอดภัยของข้อมูลส่วนบุคคลของคุณเป็นสิ่งสำคัญสำหรับเรา
+อย่างไรก็ตาม โปรดจำไว้ว่า ไม่มีวิธีการส่งข้อมูลผ่านอินเทอร์เน็ตหรือการจัดเก็บข้อมูลทางอิเล็กทรอนิกส์ใดที่ปลอดภัยได้ 100%
+แม้ว่าเราจะพยายามใช้วิธีการที่ยอมรับได้ในเชิงพาณิชย์เพื่อปกป้องข้อมูลส่วนบุคคลของคุณ แต่เราไม่สามารถรับประกันความปลอดภัยได้อย่างสมบูรณ์',
+      'httpsCloudFlare' => 'เว็บไซต์นี้ใช้ HTTPS พร้อมกับชุดการเข้ารหัส TLS สมัยใหม่ เพื่อปกป้องความสมบูรณ์และความปลอดภัยของข้อมูลระหว่างเบราว์เซอร์ของคุณกับเว็บไซต์ของเรา
+อย่างไรก็ตาม เราใช้บริการ Reverse Proxy ของ CloudFlare ซึ่งหมายความว่าข้อมูลบางส่วนที่ส่งมายังเว็บไซต์ของเราอาจผ่านเซิร์ฟเวอร์ของ CloudFlare ก่อน
+ทั้งนี้ CloudFlare ดำเนินการภายใต้นโยบายความเป็นส่วนตัวของตนเอง<1>นโยบายความเป็นส่วนตัว</1>',
+      'breachNotify' => 'ในกรณีที่เกิดเหตุการณ์ละเมิดความปลอดภัยผู้ใช้ทุกคนจะได้รับการแจ้งเตือนภายใน 24 ชั่วโมงหลังจากการตรวจพบเหตุการณ์โดยจะมีการประกาศผ่านช่องทางต่อไปนี้ ประกาศแจ้งบนเว็บไซต์นี้,การตอบกลับที่โพสต์โดยบอท และประกาศในเซิร์ฟเวอร์สนับสนุน Discord ของบอท',
     ],
   ],
   'terms' => [
-    'heading' => 'Terms & Conditions',
-    'license' => 'All of the Project\'s source code is provided on GitHub as-is, without any warranty or liability. For the full license terms, please see the <1>MIT license</1>, a copy of which can be found in each repository. The terms outlined below apply to the version of the Project hosted by the Developer ("Instance") and the limitations imposed within are not to be treated as  restrictions on the usage of the Project source code.',
-    'noAbuse' => 'You must not set up automations to run Commands via the Instance repeatedly. This Bot is not meant to be used by automated tools, such as other bots, or any other software designed to mimic legitimate user activity. Instead of relying on our Bot\'s output for automation purposes, please refer to the documentation of the programming language used by your bot on how to generate and manipulate UNIX timestamps.',
-    'fuckWeb3' => 'This Instance shall not be used to aid in the process of training generative AI models, nor to help facilitate any events and/or transactions related to non-fungible tokens ("NFTs") or any form of cryptocurrency (e.g. Ethereum, Bitcoin).',
-    'accessRevocation' => 'Your access to the Instance may be revoked for any reason (including no reason) at the Developer\'s discretion. Reasons can include, but are not limited to: violation of these terms, intentional abuse of the Instance\'s features, threats of violence towards the Developer or any of the Project\'s contributors, use of the Instance for malicious purposes.',
+    'heading' => 'ข้อกำหนดและเงื่อนไข',
+    'license' => 'ซอร์สโค้ดทั้งหมดของโปรเจ็กต์นี้ถูกเผยแพร่บน GitHub ตามสภาพที่เป็นอยู่ โดยไม่มีการรับประกันหรือความรับผิดใด ๆ ทั้งสิ้น
+สำหรับเงื่อนไขการอนุญาตใช้งานฉบับเต็ม โปรดดูที่ <1>ใบอนุญาต MIT</1> ซึ่งมีสำเนาอยู่ในแต่ละพื้นที่เก็บซอร์สโค้ด
+เงื่อนไขที่ระบุไว้ด้านล่างนี้ ใช้กับเวอร์ชันของโปรเจ็กต์ที่โฮสต์โดยนักพัฒนา (“อินสแตนซ์”) เท่านั้น และข้อจำกัดที่กำหนดไว้ในที่นี้ ไม่ถือเป็นข้อจำกัดในการใช้งานซอร์สโค้ดของโปรเจ็กต์',
+    'noAbuse' => 'คุณไม่ต้องตั้งค่าระบบอัตโนมัติ เพื่อให้รันคำสั่งต่าง ๆ ผ่านอินสแตนซ์ ซ้ำ ๆ
+บอทนี้ ไม่ได้ถูกออกแบบมาให้ใช้งานร่วมกับเครื่องมืออัตโนมัติอื่น เช่น บอทตัวอื่น หรือซอฟต์แวร์ใด ๆ ที่สร้างขึ้นเพื่อเลียนแบบพฤติกรรมของผู้ใช้จริง
+หากคุณต้องการสร้างหรือจัดการข้อมูลโดยอัตโนมัติ ควรอ้างอิงจาก เอกสารของภาษาการเขียนโปรแกรมที่คุณใช้สำหรับบอทของคุณแทน
+โดยเฉพาะเมื่อคุณต้องการ สร้างหรือจัดการค่าเวลารูปแบบ UNIX timestamps ควรศึกษาวิธีการจากเอกสารของภาษานั้น ๆ โดยตรง',
+    'fuckWeb3' => 'อินสแตนซ์นี้ ต้องไม่ถูกนำไปใช้เพื่อช่วยในกระบวนการฝึกสอนโมเดลปัญญาประดิษฐ์เชิงสร้างสรรค์
+รวมถึงต้องไม่ถูกใช้เพื่ออำนวยความสะดวกในการจัดกิจกรรมหรือการทำธุรกรรมที่เกี่ยวข้องกับโทเค็นที่ไม่สามารถทดแทนกันได้ (NFTs) หรือ สกุลเงินดิจิทัลใด ๆ เช่น (Ethereum,Bitcoin)',
+    'accessRevocation' => 'การเข้าถึง อินสแตนซ์ ของคุณอาจถูกเพิกถอนด้วยเหตุผลใดก็ตาม (หรือไม่มีเหตุผลเลยก็ได้) ขึ้นอยู่กับดุลยพินิจของนักพัฒนา เหตุผลที่อาจทำให้ถูกเพิกถอนรวมถึงแต่ไม่จำกัดเพียง:การละเมิดข้อตกลงเหล่านี้ การใช้งานฟีเจอร์ของ อินสแตนซ์ ในทางที่ไม่เหมาะสมหรือเจตนาร้าย การข่มขู่หรือใช้ความรุนแรงต่อผู้พัฒนาหรือผู้ร่วมพัฒนาโปรเจ็กต์ และการใช้ อินสแตนซ์ เพื่อวัตถุประสงค์ที่เป็นอันตราย',
   ],
   'changes' => [
-    'heading' => 'Changes & Revisions',
-    'effectiveFrom' => 'The Terms & Conditions and Privacy Policy, collectively "Documents", are effective as of their last update date and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.',
-    'rightToChange' => 'We reserve the right to update or change these Documents at any time and you should check this page periodically. Your continued use of the Project after we post any modifications to the Documents on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Documents.',
-    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
+    'heading' => 'การเปลี่ยนแปลงและการแก้ไข',
+    'effectiveFrom' => 'ข้อกำหนดและเงื่อนไข และนโยบายความเป็นส่วนตัว ซึ่งรวมเรียกว่า “เอกสาร” มีผลบังคับใช้ตั้งแต่วันที่อัปเดตล่าสุด และจะยังคงมีผลต่อไป เว้นแต่จะมีการเปลี่ยนแปลงในส่วนใดในอนาคต ซึ่งการเปลี่ยนแปลงนั้นจะมีผลทันทีหลังจากที่ถูกประกาศบนหน้านี้',
+    'rightToChange' => 'เราขอสงวนสิทธิ์ในการอัปเดตหรือแก้ไขเอกสารเหล่านี้ได้ทุกเมื่อ และคุณควรตรวจสอบหน้านี้เป็นระยะ ๆ
+การที่คุณยังคงใช้งานโปรเจ็กต์หลังจากที่เราได้เผยแพร่การแก้ไขใด ๆ ของเอกสารเหล่านี้บนหน้านี้ จะถือว่าคุณได้รับทราบการเปลี่ยนแปลงนั้นแล้ว และยินยอมที่จะปฏิบัติตามและผูกพันตามเอกสารที่ได้รับการแก้ไขแล้ว',
+    'willNotify' => 'หากเรามีการเปลี่ยนแปลงที่สำคัญต่อเอกสารเหล่านี้ เราจะแจ้งให้คุณทราบโดยการแสดงประกาศอย่างชัดเจนบนเว็บไซต์ของเรา รวมถึงโพสต์ประกาศในเซิร์ฟเวอร์สนับสนุน Discord ของบอท',
   ],
   'contact' => [
-    'heading' => 'Contact Us',
-    'whereToContact' => 'If you have any questions about these Documents or want to ask for the removal of any PII we store please contact us via <1>the Bot\'s Discord server</1> or using any of the methods listed on the <3>Developer\'s website</3>.',
+    'heading' => 'ติดต่อเรา',
+    'whereToContact' => 'หากคุณมีคำถามใด ๆ เกี่ยวกับเอกสารเหล่านี้ หรือประสงค์จะขอให้ลบข้อมูลส่วนบุคคล ที่เราจัดเก็บไว้ โปรดติดต่อเราผ่านทาง <1>เซิร์ฟเวอร์ Discord ของบอท</1> หรือผ่านช่องทางอื่น ๆ ที่ระบุไว้บน <3>เว็บไซต์ของนักพัฒนา</3>',
   ],
 ];

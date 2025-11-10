@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Alegeți o dată, copiați timestamp-ul dorit din coloana :syntaxColName, apoi adăugați-l oriunde într-un mesaj de chat. Rezultatul va fi o marcă de timp dinamică care se afișează diferit pentru fiecare în funcție de propriul fus orar.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => 'Data',
+      'time' => 'Timpu',
+      'dateAndTime' => 'Data și timpu',
+      'timezone' => 'Fus orar',
+      'modeOffset' => 'Offset absolut',
+      'modeZoneName' => 'Numele zonei',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Salt la luna curentă',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => 'Setat la ora curentă',
+      'lock' => 'Blocare timestamp prin URL',
+      'unlock' => 'Deblocare timestamp',
+      'previousYear' => 'Anul precedent',
+      'previousMonth' => 'Luna precedentă',
+      'nextMonth' => 'Luna viitoare',
+      'nextYear' => 'Anul următor',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Sintaxa chat-ului',
+    'resultColumn' => 'Exemplu de rezultat',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'S-ar putea să vă fie utile și acestea:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Server oficial HammerTime',
+      'p' => 'Discutați site-ul web, testați sintaxa și sugerați caracteristici',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'Aplicația HammerTime',
+      'p' => 'Generați timestamp-uri din cadrul Discord folosind comenzi slash',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'Vechiul site web HammerTime',
+      'p' => 'Vechiul site web al proiectului, încă disponibil până la lansarea versiunii Beta',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Generatorul de text <1>colorat</1> al lui Rebane',
+      'p' => 'O aplicație simplă care creează mesaje Discord colorate folosind coduri de culoare ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Comunitatea care organizează provocări săptămânale pentru un joc de curse subestimat care a inspirat crearea acestui proiect",
     ],
   ],
 ];
