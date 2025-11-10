@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'เลือกวันที่ จากนั้นคัดลอกเวลาที่ต้องการจากคอลัมน์ :syntaxColName แล้ววางที่ใดก็ได้ในข้อความแชท ผลลัพธ์จะเป็นไทม์สแตมป์แบบไดนามิกที่จะแสดงแตกต่างกันสำหรับแต่ละคนตามโซนเวลาของพวกเขาเอง',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => 'วันที่',
+      'time' => 'เวลา',
+      'dateAndTime' => 'วันและเวลา',
+      'timezone' => 'เขตเวลา',
+      'modeOffset' => 'ค่าความคลาดเคลื่อนสัมบูรณ์',
+      'modeZoneName' => 'ชื่อเขต',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'ไปที่เดือนปัจจุบัน',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => 'ตั้งค่าเป็นเวลาปัจจุบัน',
+      'lock' => 'ล็อคเวลาโดยใช้ URL',
+      'unlock' => 'ปลดล็อควันเวลา',
+      'previousYear' => 'ปีที่แล้ว',
+      'previousMonth' => 'เดือนที่แล้ว',
+      'nextMonth' => 'เดือนถัดไป',
+      'nextYear' => 'ปีหน้า',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'ไวยากรณ์ของแชท',
+    'resultColumn' => 'ตัวอย่างผลลัพธ์',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'คุณอาจจะพบว่าสิ่งพวกนี้มีประโยชน์สำหรับคุณ',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'เซิร์ฟเวอร์ HammerTime อย่างเป็นทางการ',
+      'p' => 'พูดคุยเกี่ยวกับเว็บไซต์ ทดสอบโค้ด หรือ แนะนำฟีเจอร์ใหม่ๆ',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'แอปพลิเคชัน HammerTime',
+      'p' => 'สร้างการประทับเวลาภายใน Discord โดยใช้คำสั่งสแลช',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'เว็บไซต์ HammerTime เวอร์ชันเก่า',
+      'p' => 'เว็บไซต์เวอร์ชันเก่าของโปรเจ็กต์ ซึ่งจะยังคงเปิดให้ใช้งานได้จนกว่าเวอร์ชันเบต้า จะเปิดให้บริการ',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebane <1>สีสันต่างๆ</1> ตัวสร้างข้อความ',
+      'p' => 'แอปแบบง่าย ๆ ที่ใช้สร้างข้อความสีสำหรับ Discord โดยอาศัย รหัสสี ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "ชุมชนที่จัดกิจกรรม ท้าทายประจำสัปดาห์ สำหรับเกมแข่งรถที่ไม่ได้รับความนิยมมากนัก แต่เป็นแรงบันดาลใจในการสร้างโปรเจ็กต์นี้",
     ],
   ],
 ];
