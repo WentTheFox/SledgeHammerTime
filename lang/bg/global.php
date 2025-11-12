@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Генерирай времева марка за Discord съобщение',
+  'changeLanguage' => 'Промяна на езика',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Тук няма нищо за гледане.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Преводът е недовършен',
+  'contributeTranslations' => 'Допринасяне',
+  'copyToClipboard' => 'Копирай в клипборда',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript е необходим',
+    'body' => "Вашият браузър не поддържа JavaScript или сте го изключили. Някой браузъри изключват JavaScript по подразбиране по съображения за сигурност, но е необходим за този сайт. Моля включете и опреснете или използвайте друг браузър.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Настройки за въвеждане',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Персонализирано въвеждане',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Раздели полетата за въвеждане',
+        'description' => "Показва две отделни полета за дата и час, вместо едно (което не е поддържано от някои браузъри)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +44,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'Подробности',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Заслуги',
+      'developedBy' => 'Разработя <1></1>',
+      'using' => 'Използувам <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Превод от <1></1>',
+      'openSourceSoftware' => 'Софтуер с отворен код',
+      'viewSourceCode' => 'Виж програмния код',
+      'notAffiliated' => 'Този проект не е свързан с Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
