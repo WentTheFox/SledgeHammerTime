@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Tạo lập định dạng thời gian tự động cho các tin nhắn trên Discord',
+  'changeLanguage' => 'Thay đổi ngôn ngữ',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Chẳng có gì ở đây cả.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
+  'contributeTranslations' => 'Đóng góp',
+  'copyToClipboard' => 'Sao chép vào bảng nhớ tạm',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'Cần sử dụng JavaScript',
+    'body' => "Trình duyệt của bạn có thể không hỗ trợ JavaScript hoặc chức năng này đã bị tắt. Một số trình duyệt mặc định vô hiệu hóa JavaScript vì lý do bảo mật, nhưng nó cần thiết cho hoạt động của ứng dụng chúng tôi. Vui lòng bật JavaScript và tải lại trang, hoặc sử dụng một trình duyệt khác.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Tùy chỉnh định dạng nhập vào',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Dữ liệu nhập tùy chỉnh',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Phân tách ô nhập dữ liệu',
+        'description' => "Hiển thị hai ô nhập dữ liệu tách biệt cho ngày và giờ thay vì để chung một ô (việc để chung có thể không được hỗ trợ ở một số trình duyệt)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +44,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'Chi tiết',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Các sự đóng góp',
+      'developedBy' => 'Được phát triển bởi <1></1>',
+      'using' => 'Sử dụng <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Bản dịch bởi <1></1>',
+      'openSourceSoftware' => 'Phần mềm mã nguồn mở',
+      'viewSourceCode' => 'Xem mã nguồn',
+      'notAffiliated' => 'Dự án này không liên kết với Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
