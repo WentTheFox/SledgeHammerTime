@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'اختر تاريخ، وانسخ الختم الزمني الذي تريده من صف :syntaxColName، ثم الصقه في أي مكان في رسالة شات. ستكون النتيجة هي ختم زمني يتغير بشكل تلقائي حسب توقيت كل مستخدم.',
   'picker' => [
     'label' => [
       'date' => 'تاريخ',
