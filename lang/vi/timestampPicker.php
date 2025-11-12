@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Lựa chọn một thời điểm, sao chép định dạng thời gian theo nhu cầu từ cột :syntaxColName, và gắn định dạng này vào bất cứ đâu trong tin nhắn. Kết quả thu được sẽ là một con dấu thời gian tự động cập nhật dựa trên múi giờ của từng người dùng.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Ngày tháng năm',
+      'time' => 'Giờ phút giây',
+      'dateAndTime' => 'Ngày giờ',
+      'timezone' => 'Múi giờ',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Đặt về thời điểm hiện tại',
+      'lock' => 'Cố định thời gian sử dụng đường dẫn URL',
+      'unlock' => 'Bỏ cố định thời gian',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,30 +25,30 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Định dạng tin nhắn',
+    'resultColumn' => 'Kết quả ví dụ',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Những đường dẫn dưới đây có thể có ích đối với bạn:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Server chính thức của HammerTime',
+      'p' => 'Thảo luận về trang web, thử nghiệm định dạng và góp ý thêm các tính năng mới',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'Ứng dụng HammerTime',
+      'p' => 'Tạo lập định dạng thời gian tự động ngay trong Discord bằng các câu lệnh sử dụng gạch chéo',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Trình tạo lập Tin nhắn <1>Sắc màu</1> của Rebane',
+      'p' => 'Một ứng dụng đơn giản để tạo ra những tin nhắn đầy màu sắc trên Discord sử dụng mã màu ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Cộng đồng tổ chức các thử thách hàng tuần cho một trò chơi đua xe ít được biết đến, trò chơi này đã truyền cảm hứng cho việc tạo ra dự án này",
     ],
   ],
 ];
