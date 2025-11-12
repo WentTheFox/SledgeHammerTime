@@ -1,34 +1,34 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Настройки приложения',
+  'description' => 'Ниже вы можете увидеть ваши текущие настройки в проложении HammerTime для каждого подключённого аккаунта.',
+  'learnMore' => 'Не знаете, что такое приложение или интересуетесь, что оно может делать? Посетите <1>Приложения Discord</1>, чтобы узнать больше.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Расширенные настройки',
   ],
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Часовой пояс',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Формат',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Столбики',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Кратковременный',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Заголовок',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Просмотр форматирования в виде жирного текста',
     ],
     'defaultAtHour' => [
       'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
@@ -47,5 +47,5 @@ return [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Ваши настройки успешно сохранены.',
 ];

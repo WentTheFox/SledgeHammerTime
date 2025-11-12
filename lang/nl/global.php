@@ -4,28 +4,28 @@ return [
   'seoDescription' => 'Genereer tijdsaanduidingen voor Discord chatberichten',
   'changeLanguage' => 'Wijzig taal',
   "notFound" => [
-    "heading" => "Page Not Found",
+    "heading" => "Pagina Niet Gevonden",
     "content" => "Niets te zien hier.",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
   'copyToClipboard' => 'Kopiëren naar klembord',
-  'copiedToClipboard' => 'Copied to clipboard!',
+  'copiedToClipboard' => 'Naar klembord gekopieerd!',
   'jsDisabled' => [
     'title' => 'JavaScript is noodzakelijk',
     'body' => "Uw browser ondersteunt JavaScript niet of het is momenteel uitgeschakeld. Sommige browsers deactiveren JavaScript standaard om veiligheidsredenen, maar het is noodzakelijk voor de werking van deze webapplicatie. Activeer JavaScript en ververs de pagina of gebruik een andere browser.",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
+    'botSettings' => 'App-instellingen',
     'profile' => 'Profiel',
-    'legal' => 'Legal Information',
+    'legal' => 'Juridische informatie',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Input instellingen',
       'customInputs' => [
         'label' => 'Aangepaste inputs',
-        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
+        'description' => "Vervangt de standaardinstellingen van de browser door aangepaste instellingen die rekening houden met de door u gekozen websitetaal",
       ],
       'separateInputs' => [
         'label' => 'Gescheiden inputs',
@@ -59,7 +59,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Lokale Instellingen',
     ],
     'credits' => [
       'title' => 'Met dank aan',
@@ -76,18 +76,18 @@ return [
       'notAffiliated' => 'Dit project is niet geassocieerd met Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Donker Thema',
+      'light' => 'Licht Thema',
+      'system' => 'Systeemthema gebruiken',
     ],
   ],
   'designEditor' => [
-    'title' => 'Design Editor',
-    'description' => 'You can adjust many aspects of the website\'s appearance using the inputs in the table below. Variable names are based on identifiers in the code and therefore cannot be translated. Values will be reset when refreshing the page.',
-    'designPageLink' => 'Design Page',
-    'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
-    'export' => 'Export as UserStyle',
-    'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'title' => 'Ontwerp-editor',
+    'description' => 'U kunt veel aspecten van het uiterlijk van de website aanpassen met behulp van de invoervelden in de onderstaande tabel. Variabelenamen zijn gebaseerd op identificatoren in de code en kunnen daarom niet worden vertaald. Waarden worden teruggezet bij het vernieuwen van de pagina.',
+    'designPageLink' => 'Ontwerp Pagina',
+    'exportInfo' => 'U kunt uw aanpassingen exporteren naar een UserStyle-bestand, dat kan worden gebruikt met een extensie zoals <1>Stylus</1> om het uiterlijk van de app permanent aan te passen. Houd er echter rekening mee dat deze variabelen op elk moment kunnen veranderen, waardoor u uw aangepaste stijlen handmatig moet bijwerken.',
+    'export' => 'Exporteren als UserStyle',
+    'variableColumnHeader' => 'CSS Variabele',
+    'valueColumnHeader' => 'Waarde',
   ],
 ];

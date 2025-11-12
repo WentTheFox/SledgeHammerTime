@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Aikavyöhyke',
     ],
     'format' => [
       'displayName' => 'Format',

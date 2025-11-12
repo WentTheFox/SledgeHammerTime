@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Kies een datum, kopieer de gewenste tijdsaanduiding van de :syntaxColName kolom en plak deze dan ergens in een chatbericht. Het resultaat zal een dynamische tijdsaanduiding zijn die voor iedereen anders wordt weergegeven, gebaseerd op hun eigen tijdzone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Datum',
+      'time' => 'Tijd',
+      'dateAndTime' => 'Datum en tijd',
+      'timezone' => 'Tijdzone',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,40 +15,40 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => 'Zet naar huidige tijd',
+      'lock' => 'Tijdsaanduiding vergrendelen via de URL',
+      'unlock' => 'Tijdsaanduiding ontgrendelen',
+      'previousYear' => 'Vorig jaar',
+      'previousMonth' => 'Vorige maand',
+      'nextMonth' => 'Volgende maand',
+      'nextYear' => 'Volgend jaar',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Chat syntaxis',
+    'resultColumn' => 'Voorbeeld resultaat',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Dit is mogelijk ook handig:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Officiële HammerTime server',
+      'p' => 'Bespreek de website, test de syntaxis en stel nieuwe functies voor',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'p' => 'Genereer tijdstempels in Discord door middel van slash-opdrachten',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'HammerTime Oude Website',
+      'p' => 'De oude website van het project, nog beschikbaar totdat deze bètaversie live gaat',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebane\'s <1>gekleurde</1> tekst generator',
+      'p' => 'Een eenvoudige app die gekleurde Discord-berichten maakt met behulp van ANSI-kleurcodes',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "De community die wekelijkse uitdagingen organiseert voor een ondergewaardeerde race-game die de inspiratie vormde voor dit project",
     ],
   ],
 ];
