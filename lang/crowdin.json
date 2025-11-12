@@ -82,6 +82,10 @@
       "username": "sware",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/13533384/medium/3f23c22f45a145db5c2fb24ceb3df6e0.png"
     },
+    "13617551": {
+      "username": "WentTheFox",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/13617551/medium/c28ad401b4d2ae04e61d66924b1cbca2.png"
+    },
     "13898663": {
       "username": "GrifGrif",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/13898663/medium/e31d444ee931ff2fab9ddea0a201c260.jpg",
@@ -655,33 +659,36 @@
     "ar": {
       "translatorIds": [
         "13533384",
+        "13617551",
         "14914643"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 6
+        "approval": 12,
+        "translation": 12
       }
     },
     "bg": {
       "translatorIds": [
         "13533384",
         "15078949",
-        "16601907"
+        "16601907",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 7,
+        "translation": 7
       }
     },
     "ca": {
       "translatorIds": [
         "15659129",
         "13533384",
-        "16655625"
+        "16655625",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 8,
+        "translation": 8
       }
     },
     "cs": {
@@ -689,22 +696,24 @@
         "15709863",
         "14311950",
         "15193976",
-        "15044779"
+        "15044779",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 8,
+        "translation": 8
       }
     },
     "da": {
       "translatorIds": [
         "16066210",
         "12852355",
-        "12426169"
+        "12426169",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 8,
+        "translation": 8
       }
     },
     "de": {
@@ -715,26 +724,29 @@
         "15169912",
         "15199922",
         "16622391",
-        "16603607"
+        "16603607",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 3
+        "approval": 99,
+        "translation": 100
       }
     },
     "el": {
       "translatorIds": [
         "14459560",
-        "13365555"
+        "13365555",
+        "13617551"
       ],
       "progress": {
         "approval": 93,
-        "translation": 93
+        "translation": 94
       }
     },
     "en-GB": {
       "translatorIds": [
         "13533384",
+        "13617551",
         "17378908"
       ],
       "progress": {
@@ -748,21 +760,23 @@
         "14524626",
         "14699026",
         "13524864",
-        "16655625"
+        "16655625",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 10,
+        "translation": 10
       }
     },
     "fa": {
       "translatorIds": [
         "15419858",
-        "16684353"
+        "16684353",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 6
       }
     },
     "fi": {
@@ -792,11 +806,12 @@
         "16629243",
         "16723857",
         "15453302",
+        "13617551",
         "17134580"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 6
+        "approval": 13,
+        "translation": 13
       }
     },
     "he": {
@@ -804,38 +819,42 @@
         "13533384",
         "15269410",
         "14240276",
-        "16669695"
+        "16669695",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "hi": {
       "translatorIds": [
         "15923883",
         "16677355",
+        "13617551",
         "17378908"
       ],
       "progress": {
         "approval": 0,
-        "translation": 1
+        "translation": 9
       }
     },
     "hr": {
       "translatorIds": [
         "14936099",
         "15734961",
-        "16878119"
+        "16878119",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 0
+        "approval": 7,
+        "translation": 7
       }
     },
     "hu": {
       "translatorIds": [
-        "13533384"
+        "13533384",
+        "13617551"
       ],
       "progress": {
         "approval": 100,
@@ -845,18 +864,20 @@
     "id": {
       "translatorIds": [
         "15258052",
-        "13533384"
+        "13533384",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "it": {
       "translatorIds": [
         "15096881",
         "16601907",
-        "16603067"
+        "16603067",
+        "13617551"
       ],
       "progress": {
         "approval": 100,
@@ -869,11 +890,12 @@
         "15218810",
         "15980591",
         "16187048",
-        "13047240"
+        "13047240",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "ko": {
@@ -882,11 +904,12 @@
         "14531480",
         "15404404",
         "14153733",
+        "13617551",
         "17217834"
       ],
       "progress": {
         "approval": 0,
-        "translation": 4
+        "translation": 9
       }
     },
     "lt": {
@@ -894,39 +917,43 @@
         "13533384",
         "15270240",
         "14785728",
-        "16654645"
+        "16654645",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "lv": {
       "translatorIds": [
         "15659129",
-        "16211718"
+        "16211718",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "mn": {
       "translatorIds": [
-        "16733607"
+        "16733607",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "ms": {
       "translatorIds": [
-        "12680006"
+        "12680006",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "nb": {
@@ -936,11 +963,12 @@
         "16466619",
         "16611703",
         "16773913",
-        "16840813"
+        "16840813",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "nl": {
@@ -948,12 +976,13 @@
         "13533384",
         "14730100",
         "17155466",
+        "13617551",
         "17413820",
         "16122526"
       ],
       "progress": {
-        "approval": 5,
-        "translation": 15
+        "approval": 17,
+        "translation": 17
       }
     },
     "pl": {
@@ -963,11 +992,12 @@
         "14031231",
         "14428048",
         "16172948",
-        "14673608"
+        "14673608",
+        "13617551"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 37
+        "approval": 37,
+        "translation": 38
       }
     },
     "pt-BR": {
@@ -978,11 +1008,12 @@
         "13379819",
         "17159146",
         "12931321",
-        "17151532"
+        "17151532",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 5
+        "translation": 11
       }
     },
     "pt": {
@@ -990,21 +1021,23 @@
         "15659129",
         "15281318",
         "16669695",
-        "15682999"
+        "15682999",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "ro": {
       "translatorIds": [
         "14999657",
-        "16601907"
+        "16601907",
+        "13617551"
       ],
       "progress": {
         "approval": 92,
-        "translation": 92
+        "translation": 93
       }
     },
     "ru": {
@@ -1027,20 +1060,22 @@
         "16587533",
         "16608543",
         "12773366",
+        "13617551",
         "17302298"
       ],
       "progress": {
-        "approval": 0,
+        "approval": 21,
         "translation": 21
       }
     },
     "sr": {
       "translatorIds": [
-        "14936099"
+        "14936099",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 6
       }
     },
     "sv": {
@@ -1053,16 +1088,18 @@
         "14428048",
         "17147262",
         "16622315",
-        "16737021"
+        "16737021",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "th": {
       "translatorIds": [
         "15514192",
+        "13617551",
         "16240978"
       ],
       "progress": {
@@ -1076,11 +1113,12 @@
         "14391214",
         "16669493",
         "14744332",
+        "13617551",
         "13477087"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 8
+        "approval": 20,
+        "translation": 24
       }
     },
     "uk": {
@@ -1090,31 +1128,34 @@
         "17111570",
         "14495070",
         "16036800",
-        "14236042"
+        "14236042",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "ur": {
       "translatorIds": [
         "15767931",
-        "15745113"
+        "15745113",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 7
       }
     },
     "vi": {
       "translatorIds": [
         "16061216",
-        "16601907"
+        "16601907",
+        "13617551"
       ],
       "progress": {
         "approval": 0,
-        "translation": 0
+        "translation": 8
       }
     },
     "zh": {
@@ -1126,12 +1167,13 @@
         "16939833",
         "15176660",
         "16611181",
+        "13617551",
         "16478035",
         "17273286"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 14
+        "approval": 19,
+        "translation": 19
       }
     },
     "zh-TW": {
@@ -1139,11 +1181,12 @@
         "15258052",
         "15434450",
         "15980591",
+        "13617551",
         "17175290"
       ],
       "progress": {
-        "approval": 0,
-        "translation": 10
+        "approval": 14,
+        "translation": 14
       }
     }
   }
