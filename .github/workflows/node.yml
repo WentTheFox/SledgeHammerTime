@@ -40,6 +40,7 @@ jobs:
         env:
           CROWDIN_API_KEY: ${{ secrets.CROWDIN_API_KEY }}
           CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
+          CROWDIN_DEVELOPER_ID: ${{ vars.CROWDIN_DEVELOPER_ID }}
           CROWDIN_REPORT_CACHE: false
           CROWDIN_REPORT_DEBUG: false
 
