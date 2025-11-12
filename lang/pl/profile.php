@@ -1,25 +1,25 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => 'Profil',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => 'Informacje profilowe',
+    'description' => "Zaktualizuj informacje profilowe swojego konta.",
+    'displayName' => 'Wyświetlana nazwa',
+    'saveSuccess' => 'Twój profil został pomyślnie zaktualizowany.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Połączone konta',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'Konto HammerTime pozwoli Ci połączyć wiele kont Discord, aby w przyszłości móc zarządzać ich zasobami w jednym miejscu.',
+      'Poniżej znajduje się lista wszystkich kont Discorda powiązanych z tym kontem HammerTime.',
     ],
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'noConnectedAccounts' => 'W tej chwili nie masz żadnych połączonych kont',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
+      'heading' => 'Połącz lub zaktualizuj konto',
       'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
@@ -32,12 +32,12 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => 'Usunięcie konta',
+    'description' => 'Po usunięciu Twojego konta, wszystkie jego zasoby i dane zostaną trwale usunięte. Przed usunięciem konta pobierz wszelkie dane lub informacje, które chcesz zachować.',
+    'deleteButton' => 'Usuń konto',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Na pewno chcesz usunąć swoje konto?',
+      'body' => 'Po usunięciu Twojego konta, wszystkie jego zasoby i dane zostaną trwale usunięte.',
     ],
   ],
 ];
