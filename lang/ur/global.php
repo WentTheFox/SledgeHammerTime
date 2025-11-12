@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'ڈسکارڈ میسج چیٹ کے لیے ٹائم اسٹیمپ اشارے تیار کریں۔',
+  'changeLanguage' => 'زبان تبدیل کریں',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "یہاں دیکھنے کے لیے کچھ نہیں ہے۔",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'ترجمے نامکمل ہیں۔',
+  'contributeTranslations' => 'تعاون کریں۔',
+  'copyToClipboard' => 'کلپ بورڈ پر کاپی کریں۔',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'جاوا اسکرپٹ ضروری ہے۔',
+    'body' => "آپ کا براؤزر یا تو جاوا اسکرپٹ کو سپورٹ نہیں کرتا یا یہ فی الحال غیر فعال ہے۔ کچھ براؤزرز سیکیورٹی وجوہات کی بنا پر جاوا اسکرپٹ کو بطور ڈیفالٹ غیر فعال کرتے ہیں، لیکن یہ اس ایپلیکیشن کے لیے ضروری ہے۔ براہ کرم اسے فعال کریں اور صفحہ کو ریفریش کریں، یا کوئی مختلف براؤزر استعمال کریں۔",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'ان پٹ سیٹنگ',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'اپنی مرضی کے مطابق ان پٹ',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'الگ الگ ان پٹ',
+        'description' => "تاریخ اور وقت کے لیے مشترکہ کی بجائے دو مختلف ان پٹ ڈسپلے کریں   (جو کچھ براؤزرز میں تعاون یافتہ نہیں ہے)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +44,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'تفصیلات',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'کریڈٹس',
+      'developedBy' => 'تیار کنندہ <1></1>',
+      'using' => 'استعمال میں <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'ترجمہ بذریعہ <1></1>',
+      'openSourceSoftware' => 'اوپن سورس سافٹ ویئر',
+      'viewSourceCode' => 'سورس کوڈ دیکھیں',
+      'notAffiliated' => 'یہ پروجیکٹ ڈسکارڈ سے وابستہ نہیں ہے۔',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
