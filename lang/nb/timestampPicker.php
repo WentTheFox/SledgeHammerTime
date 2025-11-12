@@ -4,10 +4,10 @@ return [
   'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Dato',
+      'time' => 'Tidspunkt',
+      'dateAndTime' => 'Dato og klokkeslett',
+      'timezone' => 'Tidssone',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Sett til nåværende tid',
+      'lock' => 'Lås tidsstempel via nettadresse',
+      'unlock' => 'Lås opp tidsstempel',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,30 +25,30 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Chat syntaks',
+    'resultColumn' => 'Eksempel resultat',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Du kan også finne dette nyttig:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Offisiell HammerTime Server',
+      'p' => 'Diskuter nettstedet, test syntaksen og foreslå nye funksjoner',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'p' => 'Generer tidsstempler fra Discord ved hjelp av slash-kommandoer',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebane\'s generator for <1>farget</1> tekst',
+      'p' => 'En enkel app som skaper fargede Discord-meldinger ved hjelp av ANSI-fargekoder',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Fellesskapet som arrangerer ukentlige utfordringer for et undervurdert racingspill som inspirerte opprettelsen av dette prosjektet",
     ],
   ],
 ];
