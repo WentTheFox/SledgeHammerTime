@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'title' => 'App Settings',
+  'title' => 'Ustawienia aplikacji',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Ustawienia zaawansowane',
   ],
   'defaultOption' => 'Default',
   'fields' => [
@@ -22,30 +22,30 @@ return [
       'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Efemeryczna',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Nagłówek',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Formatuj podgląd jako pogrubienie',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Domyślna opcja ":hourOptionName" dla komendy /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Domyślna opcja ":minuteOptionName" dla komendy /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Domyślna opcja ":secondOptionName" dla komendy /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Zezwól na zbieranie telemetrii',
+      'explanation' => 'Jest to całkowicie opcjonalne i nie ma wpływu na możliwość korzystania z bota. Zobacz stronę <1/> aby uzyskać więcej informacji.',
     ],
     'defaultAt12Hour' => [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Twoje ustawienia zostały pomyślnie zapisane.',
 ];
