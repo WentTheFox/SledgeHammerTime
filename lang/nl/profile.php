@@ -1,16 +1,16 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => 'Profiel',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profile Information',
+    'heading' => 'Profiel Informatie',
     'description' => "Update your account's profile information.",
     'displayName' => 'Display Name',
     'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Gekoppelde accounts',
     'description' => [
       'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
       'Below you can find a list of all Discord accounts associated with this HammerTime account.',
