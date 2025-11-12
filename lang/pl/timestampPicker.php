@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Wybierz datę, skopiuj wybrany znacznik czasu z kolumny :syntaxColName, a następnie wklej go w dowolnym miejscu w wiadomości. Rezultatem będzie dynamiczny znacznik czasu, który będzie wyświetlany inaczej dla każdego, w zależności od jego własnej strefy czasowej.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => 'Data',
+      'time' => 'Czas',
+      'dateAndTime' => 'Data i czas',
+      'timezone' => 'Strefa czasowa',
+      'modeOffset' => 'Przesunięcie bezwzględne',
+      'modeZoneName' => 'Nazwa strefy',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Przejdź do bieżącego miesiąca',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
+      'setToCurrent' => 'Ustaw bieżący czas',
       'lock' => 'Lock timestamp via URL',
       'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Poprzedni rok',
+      'previousMonth' => 'Poprzedni miesiąc',
+      'nextMonth' => 'Następny miesiąc',
+      'nextYear' => 'Następny rok',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Składnia',
+    'resultColumn' => 'Przykładowy wynik',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Możesz również uznać to za przydatne:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Oficjalny serwer HammerTime',
+      'p' => 'Dyskutuj na temat strony, testuj składnię i proponuj nowe funkcje',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'Aplikacja HammerTime',
+      'p' => 'Generuj znaczniki czasu z poziomu Discorda za pomocą poleceń typu slash',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'Stara strona HammerTime',
+      'p' => 'Stara strona projektu, nadal dostępna do czasu uruchomienia tej wersji beta',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Generator <1>Kolorowego</1> Tekstu Rebane\'a',
+      'p' => 'Prosta aplikacja do tworzenia kolorowych wiadomości na Discord przy użyciu kodów kolorów ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Społeczność organizująca cotygodniowe wyzwania dla niedocenianej gry wyścigowej, która zainspirowała powstanie tego projektu",
     ],
   ],
 ];
