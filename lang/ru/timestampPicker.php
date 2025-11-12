@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Выберите дату и время, скопируйте желаемый формат из столбца :syntaxColName, и вставьте в своё сообщение в Discord. В результате вы получите динамическую метку времени, которая будет отображаться по-разному для каждого пользователя в зависимости от его часового пояса.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => 'Дата',
+      'time' => 'Время',
+      'dateAndTime' => 'Дата и время',
+      'timezone' => 'Часовой пояс',
+      'modeOffset' => 'Смещение времени',
+      'modeZoneName' => 'Название зоны',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Перейти к текущему месяцу',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
+      'setToCurrent' => 'Задать текущее время',
       'lock' => 'Lock timestamp via URL',
       'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Предыдущий год',
+      'previousMonth' => 'Предыдущий месяц',
+      'nextMonth' => 'Следующий месяц',
+      'nextYear' => 'Следующий год',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Синтаксис в чате',
+    'resultColumn' => 'Пример',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Возможно вы заинтересуетесь этим:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Официальный сервер HammerTime',
+      'p' => 'Обсуждайте сайт, проверяйте синтаксис и предлагайте функции',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'Приложение HammerTime',
+      'p' => 'Создавайте временные метки в Discord с помощью slash-команд',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'p' => 'Последняя версия сайта, позволяющая управлять параметрами приложения в Discord',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Генератор <1>цветного</1> текста Rebane',
+      'p' => 'Простое приложение, которое создает цветные сообщения Discord, используя цветовые коды ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Сообщество, организующее еженедельные испытания для малоизвестной гоночной игры, ставшей источником вдохновения для этого проекта",
     ],
   ],
 ];

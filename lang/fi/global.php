@@ -2,18 +2,18 @@
 
 return [
   'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'changeLanguage' => 'Vaihda kieltä',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Täällä ei ole mitään nähtävää.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
+  'contributeTranslations' => 'Avusta',
+  'copyToClipboard' => 'Kopioi leikepöydälle',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript on tarpeellinen',
+    'body' => "Sinun selaimesi joko ei tue JavaScriptiä, tai se on pois käytöstä. Jotkut selaimet poistaa JavaScriptin käytöstä oletuksena turvallisuussyistä, mutta se on tarpeellinen tälle sovellukselle. Ole hyvä ja ota se käyttöön ja päivitä sivu, tai käytä eri selainta.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Syöttöasetukset',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Mukautetut syötteet',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Erilliset tulot',
+        'description' => "Näytä kaksi eri päivämäärän ja kellonajan syötettä yhdistetyn syötteen sijaan (mitä ei tueta joissakin selaimissa)",
       ],
     ],
     'timeSync' => [
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Tekijät',
+      'developedBy' => 'Kehittänyt <1></1>',
+      'using' => 'Käyttämällä <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Käännökset <1></1>',
+      'openSourceSoftware' => 'avoimen lähdekoodin ohjelmisto',
+      'viewSourceCode' => 'Vilkaise lähdekoodia',
+      'notAffiliated' => 'Tämä projekti ei ole sidoksissa Discordin kanssa.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Valitse päivämäärä, kopioi haluamasi aikaleima :syntaxColName -sarakkeeseen ja liitä se mihin tahansa chat-viestin kohtaan. Tuloksena on dynaaminen aikaleima, joka näkyy eri tavalla jokaiselle oman aikavyöhykkeensä perusteella.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Päivämäärä',
+      'time' => 'Aika',
+      'dateAndTime' => 'Päivämäärä ja aika',
+      'timezone' => 'Aikavyöhyke',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,40 +15,40 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => 'Aseta nykyiseen aikaan',
+      'lock' => 'Lukitse aikaleima URL',
+      'unlock' => 'Avaa aikaleima',
+      'previousYear' => 'Edellinen vuosi',
+      'previousMonth' => 'Edellinen kuukausi',
+      'nextMonth' => 'Seuraava kuukausi',
+      'nextYear' => 'Ensi vuonna',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Chat-syntaksi',
+    'resultColumn' => 'Esimerkki tuloksesta',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Saatat myös löytää nämä hyödyllisenä:',
     'server' => [
       'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'p' => 'Keskustele verkkosivustosta, testaa syntaksia ja ehdota ominaisuuksia',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'HammerTime-sovellus',
+      'p' => 'Luo aikaleimoja Discordissa kauttaviivakomennoilla',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebanen <1>Värillinen</1> Tekstigeneraattori',
+      'p' => 'Yksinkertainen sovellus joka luo värillisiä Discord viestejä käyttäen ANSI-värijärjestelmää',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Yhteisön viikottainen aliarvostetun kilpapelin isännöinti inspiroi tämän projektin tekemisen",
     ],
   ],
 ];
