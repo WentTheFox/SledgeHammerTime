@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Genera marcas de tiempo para mensajes de chat de Discord',
+  'changeLanguage' => 'Cambiar Idioma',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "No hay resultados para mostrar.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Las traducciones están incompletas',
+  'contributeTranslations' => 'Contribuye',
+  'copyToClipboard' => 'Copiar al portapapeles',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript es necesario',
+    'body' => "Su navegador no soporta JavaScript o está actualmente deshabilitado. Algunos navegadores deshabilitan JavaScript por defecto por razones de seguridad, pero es necesario para esta aplicación. Por favor, actívelo y actualice la página o utilice un navegador diferente.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Ajustes de entrada',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Entradas personalizadas',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Entradas separadas',
+        'description' => "Muestra dos entradas diferentes para la fecha y la hora en lugar de una combinada (que no es compatible con algunos navegadores)",
       ],
     ],
     'timeSync' => [
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Créditos',
+      'developedBy' => 'Desarrollado por <1></1>',
+      'using' => 'Utilizando <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Traducciones por <1></1>',
+      'openSourceSoftware' => 'Software de código abierto',
+      'viewSourceCode' => 'Ver código fuente',
+      'notAffiliated' => 'Este proyecto no está afiliado con Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
@@ -88,6 +88,6 @@ return [
     'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
     'export' => 'Export as UserStyle',
     'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'valueColumnHeader' => 'Valor',
   ],
 ];
