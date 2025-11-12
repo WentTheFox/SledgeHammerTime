@@ -4,10 +4,10 @@ return [
   'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => '日付',
+      'time' => '時刻',
+      'dateAndTime' => '日付と時刻',
+      'timezone' => 'タイムゾーン',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => '現在時刻にする',
+      'lock' => 'リンクでタイムスタンプをセーブ',
+      'unlock' => 'タイムスタンプをアンロック',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,30 +25,30 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'メッセージの構文',
+    'resultColumn' => '例',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => '関連するもの',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'HammerTime公式サーバー',
+      'p' => 'サイトについての議論・タイムスタンプのテスト・機能のリクエストができます',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'HammerTimeアプリ',
+      'p' => 'Discord内からコマンドでタイムスタンプを生成できます',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebaneの<1>色付き</1>テキストジェネレーター',
+      'p' => 'ANSIカラーコードを使って、色を付けたDiscordメッセージを作るアプリ',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "このプロジェクトのきっかけとなった、過小評価されているレースゲームを対象に、週次チャレンジを開催しているコミュニティ",
     ],
   ],
 ];
