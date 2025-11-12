@@ -5,9 +5,9 @@ return [
   'picker' => [
     'label' => [
       'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'time' => 'Temps',
+      'dateAndTime' => 'Date et heure',
+      'timezone' => 'Fuseau horaire',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Régler a l\'heure actuelle',
+      'lock' => 'Bloquer l\'horodatage via l\'URL',
+      'unlock' => 'Débloquer l\'horodatage',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,30 +25,30 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Syntaxe du chat',
+    'resultColumn' => 'Exemple du résultat',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Cela pourrait vous être utile :',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Le serveur officiel de HammerTime',
+      'p' => 'Discutez du site, testez la syntaxe et suggérez de nouvelles fonctionnalités',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'App HammerTime',
+      'p' => 'Générer des horodatages à partir de Discord à l\'aide de commandes slash',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Le générateur de texte <1>coloré</1> de Rebane',
+      'p' => 'Une app simple qui crée des messages Discord colorés grâce aux codes couleur ANSI',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "La communauté organise des défis hebdomadaires pour un jeu de course méconnu qui a inspiré la création de ce projet",
     ],
   ],
 ];
