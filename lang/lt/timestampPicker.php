@@ -4,10 +4,10 @@ return [
   'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Data',
+      'time' => 'Laikas',
+      'dateAndTime' => 'Data ir laikas',
+      'timezone' => 'Laiko juosta',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Nustatyti į dabartinį laiką',
+      'lock' => 'Užrakinti laiko žymą per URL',
+      'unlock' => 'Atrakinti laiko žymą',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,26 +25,26 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Pokalbio sintaksė',
+    'resultColumn' => 'Pavyzdinis rezultatas',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Galbūt tau taip pat naudingos šios nuorodos:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Oficialus „HammerTime“ serveris',
+      'p' => 'Aptark tinklalapį, patikrink sintaksę ir siūlyk funkcijas',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'p' => 'Laiko žymų generavimas "Discord" programoje su pasviraus brūkšnio komandomis',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => '<1>Spalvoto</1> teksto generatorius, sukurtas Rebane',
+      'p' => 'Paprasta programėlė, kuri sukuria spalvotus „Discord“ pranešimus naudodama ANSI kodus',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
