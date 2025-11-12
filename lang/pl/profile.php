@@ -23,7 +23,7 @@ return [
       'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'authorize' => 'Autoryzuj konto Discord',
       ],
       'crowdin' => [
         'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
