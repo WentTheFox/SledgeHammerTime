@@ -3,11 +3,11 @@
 return [
   "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Add to My Apps",
-    "description" => "Use this app everywhere!",
+    "title" => "Добавено към „Моите приложения“",
+    "description" => "Използвай това приложение навсякъде!",
   ],
   "guild" => [
-    "title" => "Add to Server",
-    "description" => "Customize your server by adding this app",
+    "title" => "Добави към сървър",
+    "description" => "Персонализирай своя сървър като добавиш това приложение",
   ],
 ];
