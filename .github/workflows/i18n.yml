@@ -2,12 +2,6 @@ name: I18n integration
 
 on: [ push, pull_request ]
 
-env:
-  CROWDIN_API_KEY: ${{ secrets.CROWDIN_API_KEY }}
-  CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
-  CROWDIN_REPORT_CACHE: false
-  CROWDIN_REPORT_DEBUG: false
-
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -41,6 +35,11 @@ jobs:
 
       - name: Re-generate translation credits
         run: npm run predev:translation-credits
+        env:
+          CROWDIN_API_KEY: ${{ secrets.CROWDIN_API_KEY }}
+          CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
+          CROWDIN_REPORT_CACHE: false
+          CROWDIN_REPORT_DEBUG: false
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
