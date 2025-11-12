@@ -3,11 +3,11 @@
 return [
   "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Add to My Apps",
-    "description" => "Use this app everywhere!",
+    "title" => "मेरे ऐप में ऐड करें",
+    "description" => "इस ऐप का हर जगह इस्तेमाल करें!",
   ],
   "guild" => [
-    "title" => "Add to Server",
-    "description" => "Customize your server by adding this app",
+    "title" => "सर्वर में ऐड करें",
+    "description" => "ये ऐप जोड़कर अपना सर्वर कस्टमाइज़ करें",
   ],
 ];

@@ -3,11 +3,11 @@
 return [
   "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Add to My Apps",
-    "description" => "Use this app everywhere!",
+    "title" => "Pridėti prie Mano programėlių",
+    "description" => "Naudok šią programėlę visur!",
   ],
   "guild" => [
-    "title" => "Add to Server",
-    "description" => "Customize your server by adding this app",
+    "title" => "Pridėti į serverį",
+    "description" => "Tinkink savo serverį pridėdamas (-a) šią programėlę",
   ],
 ];

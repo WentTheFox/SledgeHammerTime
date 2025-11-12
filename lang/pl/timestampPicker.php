@@ -16,8 +16,8 @@ return [
     ],
     'tooltip' => [
       'setToCurrent' => 'Ustaw bieżący czas',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'lock' => 'Zablokuj znacznik czasu przez adres URL',
+      'unlock' => 'Odblokuj znacznik czasu',
       'previousYear' => 'Poprzedni rok',
       'previousMonth' => 'Poprzedni miesiąc',
       'nextMonth' => 'Następny miesiąc',

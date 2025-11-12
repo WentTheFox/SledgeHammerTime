@@ -1,25 +1,25 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'ऐप सेटिंग्स',
+  'description' => 'नीचे आप हर जुड़े हुए अकाउंट के लिए HammerTime ऐप में अपनी वर्तमान सेटिंग्स देख सकते हैं।',
+  'learnMore' => 'पता नहीं ऐप क्या है या यह क्या कर सकता है? अधिक जानने के लिए <1>Discord App</1> लिंक पर जाएं ।',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'उन्नत सेटिंग',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'डिफ़ॉल्ट',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'टाइम जोन या समय मंडल',
     ],
     'format' => [
       'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'केवल पूर्वावलोकन उत्तर जब फॉर्मेट विकल्प का उपयोग किया जाए',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'कॉलम',
     ],
     'ephemeral' => [
       'displayName' => 'Ephemeral',

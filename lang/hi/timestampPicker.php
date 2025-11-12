@@ -4,10 +4,10 @@ return [
   'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'दिनांक',
+      'time' => 'समय',
+      'dateAndTime' => 'तारीख और समय',
+      'timezone' => 'टाइम जोन या समय मंडल',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'वर्तमान समय पर सेट करें',
+      'lock' => 'यूआरएल के माध्यम से टाइमस्टैम्प लॉक करें',
+      'unlock' => 'टाइमस्टैम्प अनलॉक करें',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,26 +25,26 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'चैट वाक्य - विन्यास (सिंटैक्स)',
+    'resultColumn' => 'उदाहरण परिणाम',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'आपको ये भी उपयोगी लग सकते हैं:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'आधिकारिक (ऑफिशियल) हैमरटाइम सर्वर',
+      'p' => 'वेबसाइट पर चर्चा करें, वाक्य - विन्यास (सिंटैक्स) का परीक्षण करें और सुविधाओं का सुझाव दें',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'हैमरटाइम ऐप',
+      'p' => 'स्लैश कमांड का उपयोग करके डिस्कॉर्ड में से टाइमस्टैम्प उत्पन्न करें',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'रेबेन का <1>रंगीन</1> टेक्स्ट जेनरेटर',
+      'p' => 'एक सरल ऐप जो एएनएसआई रंग कोड का उपयोग करके रंगीन डिस्कॉर्ड संदेश बनाता है',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",

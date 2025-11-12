@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Дицкорд чат мэссэжэд цагийн үзэлтүүд бүтээ',
+  'changeLanguage' => 'Хэлээ өөрчил',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Энд юу ч харагдахгүй.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Очуулгууд бүрэн биш',
+  'contributeTranslations' => 'Хувь нэмэр оруулсан',
+  'copyToClipboard' => 'Түр санах ой рүү татах',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'ЖаваСкрипт хэрэгтэй',
+    'body' => "Таны бровсэр ЖаваСкриптийг бологдоггүй, эсвэл одоо унтраачихсан байгаа. Зарим бровсэрүүд ЖаваСкриптийг аюулгүй байдалийн талаар унтраачихсан байдаг, тэгэхдээ энэ аппликатионд хэрэгтэй. Өөр бровсэр ашигла, пажээ рэфрэш хий эсвэл тэрийгээ асаа, гуйж байна.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Сэттингс хий',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Энгийн биш оролтууд',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Оролтуудыг тусдаа болго',
+        'description' => "Өдөр ба цагийн нийлүүлсэн оролтуудийг, хоёр өөр оролтоор тавих. (зарим бровсэрд болдоггүй)",
       ],
     ],
     'timeSync' => [
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
-      'fontAwesomeFree' => 'Font Awesome Free',
+      'title' => 'Кредитс',
+      'developedBy' => '<1></1> аар бүтээгджээ',
+      'using' => '<1></1> ийг ашилган хийгджээ',
+      'fontAwesomeFree' => 'Фонт Авсом Фрий',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Орчуулга нь <1></1> аар хийгджээ',
+      'openSourceSoftware' => 'Нээлттэй эхийн програмын хангамж',
+      'viewSourceCode' => 'Эх сурвалжийн кодыг харах',
+      'notAffiliated' => 'Энэ прожект Дискордтай хамааралгүй.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
