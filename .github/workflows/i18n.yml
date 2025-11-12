@@ -10,6 +10,8 @@ jobs:
   update-i18n-credits:
     name: 'Update i18n credits'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
