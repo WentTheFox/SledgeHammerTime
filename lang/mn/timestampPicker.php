@@ -4,10 +4,10 @@ return [
   'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Өдөр',
+      'time' => 'Цаг',
+      'dateAndTime' => 'Өдөр ба цаг',
+      'timezone' => 'Цагийн бүс',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Одоогийн цаг руу шилжүүлэх',
+      'lock' => 'URL-аар цагийн тэмдэлгээгээ түгжих',
+      'unlock' => 'Цагийн тэмдэлгээг онгоолгох',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,26 +25,26 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Чат синтакс',
+    'resultColumn' => 'Жишээ үр дүн',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Та бас энийг хэрэгтэй гэж божод магадгүй:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Албан ёсны ХаммэрТимэ апп',
+      'p' => 'Вэбсайтын тухай ярих, синтаксийг турш, онцлогуудыг санал болго',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'ХаммэрТимэ апп',
+      'p' => 'Дискордын дотор слаш коммандыг ашиглан цагийн тэмдэлгээ бүтээ',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Ребэний <1>будсан</1> тэкст генератор',
+      'p' => 'Дискорд мэссэжийг ANSI будгийн кодоор хийдэг энгийн, амархан апп',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
