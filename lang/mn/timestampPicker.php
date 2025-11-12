@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Цаг хугацааг сонгон, хүссэн цагийн тэмдэглэгээ :syntaxColName баганад хуул. Дараа нь чат мэссэжэд хамаагүй тавь. Үр дүн нь бүх хүнд өөрийн цагийн бүсэд хамаарагдах, динамик цагийн тэмдэглэгээ гарна.',
   'picker' => [
     'label' => [
       'date' => 'Өдөр',
