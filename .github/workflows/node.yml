@@ -7,6 +7,47 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  update-i18n-credits:
+    name: 'Update i18n credits'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Cache node_modules folder
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: node_modules-${{ hashFiles('./package-lock.json') }}
+
+      - name: Upgrade NPM
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm install -g npm
+
+      - name: Install npm dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Re-generate translation credits
+        run: npm run predev:translation-credits
+        env:
+          CROWDIN_API_KEY: ${{ secrets.CROWDIN_API_KEY }}
+          CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
+          CROWDIN_REPORT_CACHE: false
+          CROWDIN_REPORT_DEBUG: false
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Update translation credits
+          file_pattern: 'README.md lang/*.json'
   lint-and-test:
     name: 'Building, Linting and Unit Tests'
     runs-on: ubuntu-latest
