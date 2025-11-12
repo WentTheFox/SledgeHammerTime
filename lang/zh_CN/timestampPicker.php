@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => '选择一个日期，从 :syntaxColName 列复制想要的时间戳代码，然后粘贴到 Discord 消息中。在聊天消息中，该时间戳会动态地根据每个用户的时区更改显示的时间。',
   'picker' => [
     'label' => [
       'date' => '日期',
