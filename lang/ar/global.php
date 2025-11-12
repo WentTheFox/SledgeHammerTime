@@ -1,35 +1,36 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'إنشاء مؤشرات الطابع الزمني لرسائل دردشة ديسكورد',
+  'changeLanguage' => 'تغيير اللغة',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "لا يوجد شيء هنا.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'الترجمة غير مكتملة',
+  'contributeTranslations' => 'المشاركة في الترجمة',
+  'copyToClipboard' => 'نسخ إلى الحافظة',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'جافا سكريبت ضرورية',
+    'body' => "متصفحك لا يدعم جافا سكريبت أو الخاصية غير مفعّلة، بعض المتصفحات تمنع جافا سكريبت لأسباب أمنية ولكنها ضرورية لهذا التطبيق.
+من فضلك قم بتفعيلها ثم أعد فتح الصفحة أو استخدم متصفح آخر.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'profile' => 'الملف الشخصي',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'خصائص الإدخال',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'الإدخال باللغة المختارة',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'الإدخال المنفصل',
+        'description' => "عرض إدخال التاريخ والزمن بشكل منفصل بدلا من دمجهما (لا يدعمه بعض المتصفحات)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +45,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'تفاصيل',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +63,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'المساهمون في العمل',
+      'developedBy' => 'طوّره <1></1>',
+      'using' => 'باستخدام <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'ترجمة <1></1>',
+      'openSourceSoftware' => 'الموقع مفتوح المصدر',
+      'viewSourceCode' => 'عرض الكود المصدري',
+      'notAffiliated' => 'هذا المشروع غير مرتبط بديسكورد.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

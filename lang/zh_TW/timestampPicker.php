@@ -1,54 +1,54 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => '選擇一個日期，從 {{syntaxColName}} 列複製所需的時間戳，並將其貼上到聊天訊息的任何位置。 結果將是一個動態時間戳，每個人都會根據他們的時區以不同的方式顯示。',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'date' => '日期',
+      'time' => '時間',
+      'dateAndTime' => '日期和時間',
+      'timezone' => '時區',
+      'modeOffset' => '絕對位移',
+      'modeZoneName' => '區域名稱',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => '跳至目前月份',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'setToCurrent' => '設定為目前時間',
+      'lock' => '通過 url 鎖定時間戳。',
+      'unlock' => '解鎖時間戳',
+      'previousYear' => '去年',
+      'previousMonth' => '上個月',
+      'nextMonth' => '下個月',
+      'nextYear' => '明年',
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => '聊天語法',
+    'resultColumn' => '結果範例',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => '您可能也會發現這些資訊很有用：',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => '官方 HammerTime 服務器',
+      'p' => '討論網站、測試語法並建議功能',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'HammerTime 機器人',
+      'p' => '在 Discord 中使用斜線指令生成時間戳記',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'HammerTime 測試版網站',
+      'p' => '專案的舊網站，在此 Beta 版正式啟用前仍可使用',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebane 的<1>彩色</1>文字產生器',
+      'p' => '使用 ANSI 顏色代碼建立彩色 Discord 訊息的簡單應用程式',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "這個專案的靈感來源，是一個社群為一款被低估的賽車遊戲每週舉辦挑戰賽",
     ],
   ],
 ];

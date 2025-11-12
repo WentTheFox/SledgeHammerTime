@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Select where you would like to add the app",
+  "title" => "Pilih di manakah anda ingin tambahkan apl",
   "user" => [
-    "title" => "Add to My Apps",
-    "description" => "Use this app everywhere!",
+    "title" => "Tambah ke Apl Saya",
+    "description" => "Gunakan apl ini di mana-mana saja!",
   ],
   "guild" => [
-    "title" => "Add to Server",
-    "description" => "Customize your server by adding this app",
+    "title" => "Tambah ke Pelayan",
+    "description" => "Sesuaikan pelayan anda dengan menambah apl ini",
   ],
 ];

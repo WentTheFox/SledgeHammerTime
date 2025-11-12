@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'title' => 'App Settings',
+  'title' => 'Paramètre de l\'application',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Fuseau horaire',
     ],
     'format' => [
       'displayName' => 'Format',

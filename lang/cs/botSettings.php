@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'Časové pásmo',
     ],
     'format' => [
       'displayName' => 'Format',

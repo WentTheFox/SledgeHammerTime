@@ -1,35 +1,35 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'डिस्कॉर्ड चैट संदेशों के लिए टाइमस्टैम्प संकेतक उत्पन्न करें।',
+  'changeLanguage' => 'भाषा बदलें',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "यहाँ देखने के लिए कुछ नहीं है।",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'अनुवाद अधूरे हैं',
+  'contributeTranslations' => 'योगदान दें',
+  'copyToClipboard' => 'क्लिपबोर्ड पर कॉपी करें',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'जावास्क्रिप्ट आवश्यक है',
+    'body' => "आपका ब्राउज़र या तो जावास्क्रिप्ट का समर्थन नहीं करता है या यह वर्तमान में अक्षम है। कुछ ब्राउज़र सुरक्षा कारणों से डिफ़ॉल्ट रूप से जावास्क्रिप्ट को अक्षम कर देते हैं, लेकिन इस एप्लिकेशन के लिए यह आवश्यक है। कृपया इसे सक्षम करें और पृष्ठ को ताज़ा करें, या किसी भिन्न ब्राउज़र का उपयोग करें।",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
+    'botSettings' => 'ऐप सेटिंग्स',
     'profile' => 'Profile',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'इनपुट सेटिंग',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'कस्टम इनपुट',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'अलग इनपुट',
+        'description' => "दिनांक और समय के लिए संयुक्त इनपुट के बजाय दो अलग-अलग इनपुट प्रदर्शित करें (जो कुछ ब्राउज़रों में समर्थित नहीं है)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +44,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'विवरण',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'क्रेडिटस',
+      'developedBy' => 'विकसितकर्ता <1></1>',
+      'using' => 'उपयोगिता <1> </1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => '<1></1> द्वारा अनुवाद',
+      'openSourceSoftware' => 'खुला स्त्रोत सॉफ़्टवेयर',
+      'viewSourceCode' => 'स्रोत कोड देखें',
+      'notAffiliated' => 'यह प्रोजेक्ट डिस्कॉर्ड से संबंधित नहीं है',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

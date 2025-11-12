@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Generování ukazatelů časových razítek pro zprávy chatu Discord',
+  'changeLanguage' => 'Změnit jazyk',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Není zde nic k zobrazení.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Překlad není úplný',
+  'contributeTranslations' => 'Přispět',
+  'copyToClipboard' => 'Zkopírovat do schránky',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript je nezbytný',
+    'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript ve výchozím nastavení z bezpečnostních důvodů zakazují, ale pro tuto aplikaci je nezbytný. Povolte jej a obnovte stránku nebo použijte jiný prohlížeč.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Nastavení vstupu',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Vlastní vstupy',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Oddělit vstupy',
+        'description' => "Zobrazí dva odlišné vstupy pro datum a čas namísto jednoho kombinovaného (což v některých prohlížečích nemusí být podporováno)",
       ],
     ],
     'timeSync' => [
@@ -44,7 +44,7 @@ return [
         'label' => 'Apply server time offset to calculations (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
-      'details' => 'Details',
+      'details' => 'Podrobnosti',
       'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
+      'title' => 'Zásluhy',
+      'developedBy' => 'Vytvořili <1></1>',
+      'using' => 'Použitím <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Přeložili <1></1>',
+      'openSourceSoftware' => 'Otevřený software',
+      'viewSourceCode' => 'Zobrazit zdrojový kód',
+      'notAffiliated' => 'Tento projekt není nijak přidružen k společnosti Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
