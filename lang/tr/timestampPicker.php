@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Bir tarih seçin, ":syntaxColName" sütunundan istediğiniz zaman damgasını kopyalayın ve ardından bunu mesajın herhangi bir yerine yapıştırın. Sonuç, herkes için kendi saat dilimine göre farklı görüntülenen dinamik bir zaman damgası olacaktır.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Tarih',
+      'time' => 'Zaman',
+      'dateAndTime' => 'Tarih ve zaman',
+      'timezone' => 'Zaman dilimi',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Geçerli zamana ayarla',
+      'lock' => 'URL aracılığıyla zaman damgasını kilitle',
+      'unlock' => 'Zaman damgasının kilidini aç',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,30 +25,30 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Sohbet Görünümü',
+    'resultColumn' => 'Örnek sonuç',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Bunları da faydalı bulabilirsiniz:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Resmi HammerTime Sunucusu',
+      'p' => 'Siteyi tartışın, zaman damgalarını test edin ve özellikler önerin',
     ],
     'bot' => [
-      'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'header' => 'HammerTime Uygulaması',
+      'p' => 'Slash komutlarını kullanarak Discord üzerinden zaman damgaları oluşturun',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebane\'in <1>Renkli</1> Metin Oluşturucusu',
+      'p' => 'ANSI renk kodlarını kullanarak renkli Discord mesajları oluşturan basit bir uygulama',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+      "p" => "Bu projenin oluşturulmasına ilham veren, yeterince takdir edilmemiş bir yarış oyunu için haftalık meydan okumalara ev sahipliği yapan topluluk",
     ],
   ],
 ];
