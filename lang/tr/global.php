@@ -9,7 +9,7 @@ return [
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
   'contributeTranslations' => 'Katkıda Bulun',
-  'copyToClipboard' => 'Copy to clipboard',
+  'copyToClipboard' => 'Panoya kopyala',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
     'title' => 'JavaScript gerekli',
