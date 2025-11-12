@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'seoDescription' => 'Luo aikaleimailmaisimet Discord-chat-viesteille',
   'changeLanguage' => 'Vaihda kieltä',
   "notFound" => [
     "heading" => "Page Not Found",
