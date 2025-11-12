@@ -7,25 +7,25 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'افتراضي',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Timezone',
+      'displayName' => 'المنطقة الزمنية',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'تنسيق',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'أعمدة',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'سريع الزوال',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'رأس',
     ],
     'boldPreview' => [
       'displayName' => 'Format preview as bold',
@@ -47,5 +47,5 @@ return [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'تم حفظ إعداداتك بنجاح.',
 ];
