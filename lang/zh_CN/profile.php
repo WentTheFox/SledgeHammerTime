@@ -1,29 +1,29 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => '个人资料',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => '个人资料信息',
+    'description' => "更新您账户的个人资料信息。",
+    'displayName' => '显示名称',
+    'saveSuccess' => '您个人资料的更改已保存。',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => '已关联账户',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'HammerTime 账户未来将支持关联多个 Discord 账户，以便在一个地方集中管理相关资源。',
+      '下方是与此 HammerTime 账户关联的所有 Discord 账户列表。',
     ],
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'noConnectedAccounts' => '您目前没有关联任何账户',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
+      'heading' => '关联或更新账户',
       'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'authorize' => '授权 Discord 账户',
       ],
       'crowdin' => [
         'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
