@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Az alábbi linket is megoszthatod másokkal, amivel bármilyen zavaró tényező nélkül hozzá tudják adni az appot:',
   'shardStats' => [
     'title' => 'Shard Statisztikák',
-    'description' => 'Miután egy app elér egy bizonyos számú szervert, ahol teleptyve van, a Discord kötelezővé tesz ia shard-olás használatát, ami lényegében a parancsok több különálló folyamat általi feldolgozását jelenti.',
+    'description' => 'Miután egy app elér egy bizonyos számú szervert, ahol telepítve van, a Discord kötelezővé tesz ia shard-olás használatát, ami lényegében a parancsok több különálló folyamat általi feldolgozását jelenti.',
     'boxesDescription' => 'Alább néhány téglalap látható, amelyek az alkalmazás által jelenleg használt shard-okat képviselik. Szélességük arányos azzal, hogy az adott shard hány szerverhez van hozzárendelve az összesből (:totalServerCount). Rámutatás után további információk jelennek meg az adott shardról.',
     'shardId' => 'Shard Szám',
     'assignedServers' => 'Hozzárendelt Szerverek',
