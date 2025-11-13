@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Tidszon',
+      'displayName' => 'Horzono',
     ],
     'format' => [
       'displayName' => 'Format',

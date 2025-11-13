@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
-  'changeLanguage' => 'Change language',
+  'seoDescription' => 'Generišite vremenske oznake za poruke na Discord aplikaciji',
+  'changeLanguage' => 'Promeni jezik',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Nothing to see here.",
+    "content" => "Nema ništa da se vidi ovde.",
   ],
-  'incompleteTranslations' => 'Translations are incomplete',
-  'contributeTranslations' => 'Contribute',
-  'copyToClipboard' => 'Copy to clipboard',
+  'incompleteTranslations' => 'Prevodi su nepotpuni',
+  'contributeTranslations' => 'Pomogni u prevodu',
+  'copyToClipboard' => 'Kopiraj u klipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript is necessary',
-    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
+    'title' => 'JavaScript je neophodan',
+    'body' => "Vaš internet pretraživač ne podržava JavaScript ili ga je onemogućio. Neki internet pretraživači podrazumevano onemogućavaju JavaScript iz bezbednosnih razloga, ali on je neophodan za ovu aplikaciju. Omogućite ga i osvežite stranicu ili koristite drugi internet pretraživač.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -22,14 +22,14 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input settings',
+      'title' => 'Podešavanja unosa',
       'customInputs' => [
-        'label' => 'Custom inputs',
+        'label' => 'Prilagođeni ulazi',
         'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
       ],
       'separateInputs' => [
-        'label' => 'Separate inputs',
-        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+        'label' => 'Odvojeni ulazi',
+        'description' => "Prikaži dva različita unosa za datum i vreme umesto kombinovanog (što nije podržano u nekim internet pretraživačima)",
       ],
     ],
     'timeSync' => [
@@ -62,18 +62,18 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Credits',
-      'developedBy' => 'Developed by <1></1>',
-      'using' => 'Using <1></1>',
-      'fontAwesomeFree' => 'Font Awesome Free',
+      'title' => 'Autori',
+      'developedBy' => 'Naprvaio <1></1>',
+      'using' => 'Koristeći <1></1>',
+      'fontAwesomeFree' => 'Font Awesome (Besplatna Verzija)',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'Open-source software',
-      'viewSourceCode' => 'View source code',
-      'notAffiliated' => 'This project is not affiliated with Discord.',
+      'translatedBy' => 'Prevod <1></1>',
+      'openSourceSoftware' => 'Softver otvorenog koda',
+      'viewSourceCode' => 'Pogledajte izvorni kod',
+      'notAffiliated' => 'Ovaj projekat nije povezan sa Discord-om.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
