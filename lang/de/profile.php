@@ -10,10 +10,10 @@ return [
     'saveSuccess' => 'Dein Profil wurde erfolgreich aktualisiert.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Verknüpfte Konten',
     'description' => [
       'Ein HammerTime-Konto wird es Ihnen ermöglichen, mehrere Discord-Konten zu verknüpfen, um ihre Ressourcen in Zukunft an einem Ort zu verwalten.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'Unten findest du eine Liste aller Discord Konten, die mit diesem HammerTime Konto verbunden sind.',
     ],
     'discord' => 'Discord Konten',
     'crowdin' => 'Crowdin-Konten',
