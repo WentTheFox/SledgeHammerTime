@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Izvēlies datumu, nokopē vēlamo laika zīmogu no :syntaxColName kolonnas un ievieto to jebkurā čata ziņā. Rezultāts būs dinamisks laika zīmogs, kas izskatīsies atšķirīgi visiem, atkarībā no viņu pašu laika joslas.',
   'picker' => [
     'label' => [
       'date' => 'Datums',

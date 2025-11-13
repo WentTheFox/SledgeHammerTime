@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Izaberite datum, kopirajte željenu vremensku oznaku iz kolone :syntaxColName, a zatim je nalepite bilo gde u poruci. Rezultat će biti dinamička vremenska oznaka koja se prikazuje različito za svakoga na osnovu njihove vremenske zone.',
   'picker' => [
     'label' => [
-      'date' => 'Date',
-      'time' => 'Time',
-      'dateAndTime' => 'Date and time',
-      'timezone' => 'Timezone',
+      'date' => 'Datum',
+      'time' => 'Vreme',
+      'dateAndTime' => 'Datum i vreme',
+      'timezone' => 'Vremenska zona',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -15,9 +15,9 @@ return [
       'jumpToToday' => 'Jump to current month',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Set to current time',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'setToCurrent' => 'Podesi na trenutno vreme',
+      'lock' => 'Zaključaj vremensku oznaku preko URL-a',
+      'unlock' => 'Otključaj vremensku oznaku',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
       'nextMonth' => 'Next month',
@@ -25,26 +25,26 @@ return [
     ],
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntax',
-    'resultColumn' => 'Example result',
+    'syntaxColumn' => 'Sintaksa u poruci',
+    'resultColumn' => 'Primer rezultata',
   ],
   'usefulLinks' => [
-    'lead' => 'You may also find these useful:',
+    'lead' => 'Ovo Vam takođe može biti korisno:',
     'server' => [
-      'header' => 'Official HammerTime Server',
-      'p' => 'Discuss the website, test the syntax and suggest features',
+      'header' => 'Zvanični HammerTime server',
+      'p' => 'Razgovarajte o websajtu, testirajte sintakse i predložite funkcije',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generate timestamps from within Discord using slash commands',
+      'p' => 'Generišite vremenske oznake iz Discord-a pomoću slash komandi',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
-      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
+      'header' => 'Rebaneov generator <1>obojenog</1> teksta',
+      'p' => 'Jednostavna aplikacija koja kreira obojene Discord poruke koristeći ANSI kodove boja',
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
