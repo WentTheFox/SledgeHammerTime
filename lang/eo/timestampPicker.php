@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
+  'howTo' => 'Elektu daton, kopiu la bezonatan tempindikon de la :syntaxColName kolono, tiam algluu tion ie ajn en babilmesaĝon. La rezulto estos dinamika tempindiko kiu montras malsame por ĉiuj laŭ la propran horzonon.',
   'picker' => [
     'label' => [
       'date' => 'Dato',
