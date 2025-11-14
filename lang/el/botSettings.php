@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Προχωρημένες ρυθμίσεις',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Προεπιλογή',
   'fields' => [
     'timezone' => [
       'displayName' => 'Ζώνη ώρας',
