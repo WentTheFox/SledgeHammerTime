@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Setări avansate',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Implicit',
   'fields' => [
     'timezone' => [
       'displayName' => 'Fus orar',
