@@ -96,6 +96,18 @@
     justify-content: space-between;
     gap: design.app-value('button-content-gap');
     pointer-events: none;
+
+    .button-icon {
+      flex: 0 0 auto;
+    }
+
+    .button-text {
+      flex: 0 1 auto;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
