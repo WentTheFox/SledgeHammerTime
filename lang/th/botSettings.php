@@ -45,7 +45,7 @@ return [
       'explanation' => 'สิ่งนี้เป็นตัวเลือกเสริมทั้งหมด และไม่มีผลต่อความสามารถในการใช้งานบอทของคุณ ดูรายละเอียดเพิ่มเติมได้ที่หน้า <1/>',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'ค่าเริ่มต้น ":hourOptionName" สำหรับคำสั่ง /:atCommandName',
+      'displayName' => 'ค่าเริ่มต้น ":hourOptionName" สำหรับคำสั่ง /:at12CommandName',
     ],
   ],
   'saveSuccess' => 'การตั้งค่าของคุณถูกบันทึกเรียบร้อยแล้ว',
