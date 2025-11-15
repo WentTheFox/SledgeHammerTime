@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HtAlert from '@/Reusable/HtAlert.vue';
+import HtButton from '@/Reusable/HtButton.vue';
 
 defineProps<{
   placeholderText: string;
@@ -45,6 +46,21 @@ defineProps<{
   >
     <template #text>
       Text-only
+    </template>
+  </HtAlert>
+  <HtAlert
+    type="info"
+    :closable="false"
+    :compact="true"
+  >
+    <template #title>
+      Compact alert title
+    </template>
+    <template #text>
+      Compact alert text
+    </template>
+    <template #actions>
+      <HtButton>Compact alert actions</HtButton>
     </template>
   </HtAlert>
 </template>

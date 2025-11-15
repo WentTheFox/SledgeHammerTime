@@ -50,6 +50,7 @@ watch(() => timeSync?.syncing, (newValue) => {
 
     <HtAlert
       :closable="false"
+      :compact="true"
       :type="isSystemClockAccurate ? 'info' : 'warning'"
       :loading="timeSync?.syncing"
     >

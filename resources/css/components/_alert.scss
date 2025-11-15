@@ -1,13 +1,18 @@
 @use "../design";
 
 .alert {
+  --spacing: #{design.app-value('alert-spacing')};
   display: flex;
   flex-flow: row nowrap;
-  gap: design.app-value('alert-spacing');
-  padding: design.app-value('alert-spacing');
+  gap: var(--spacing);
+  padding: var(--spacing);
   border-radius: design.app-value('alert-border-radius');
   background-color: design.app-color('alert-bg');
   color: design.app-color('alert-color');
+
+  &.compact {
+    --spacing: calc(#{design.app-value('alert-spacing')} * 0.5);
+  }
 
   .alert-icon:empty {
     display: none;
@@ -19,7 +24,7 @@
     font-size: 0.875rem;
 
     > :not(:last-child) {
-      margin-bottom: design.app-value('alert-spacing');
+      margin-bottom: var(--spacing);
     }
   }
 

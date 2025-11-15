@@ -12,9 +12,11 @@ const props = withDefaults(defineProps<{
   type: AlertType;
   closable?: boolean;
   loading?: boolean;
+  compact?: boolean;
 }>(), {
   closable: true,
   loading: false,
+  compact: false,
 });
 
 const slots = useSlots();
@@ -35,7 +37,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div :class="['alert', type]">
+  <div :class="['alert', type, { compact }]">
     <div
       v-if="icon || loading"
       class="alert-icon"
