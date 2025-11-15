@@ -4,7 +4,7 @@ import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faInfo, faTimes, faWarning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { computed, ComputedRef } from 'vue';
+import { computed, ComputedRef, useSlots } from 'vue';
 
 export type AlertType = 'info' | 'warning' | 'error' | string;
 
@@ -16,6 +16,8 @@ const props = withDefaults(defineProps<{
   closable: true,
   loading: false,
 });
+
+const slots = useSlots();
 
 const icon: ComputedRef<IconDefinition | null> = computed(() => {
   switch (props.type) {
@@ -49,13 +51,22 @@ const emit = defineEmits<{
       />
     </div>
     <div class="alert-content">
-      <div class="alert-title">
+      <div
+        v-if="slots.title"
+        class="alert-title"
+      >
         <slot name="title" />
       </div>
-      <div class="alert-text">
+      <div
+        v-if="slots.text"
+        class="alert-text"
+      >
         <slot name="text" />
       </div>
-      <div class="alert-actions">
+      <div
+        v-if="slots.actions"
+        class="alert-actions"
+      >
         <slot name="actions" />
       </div>
     </div>
