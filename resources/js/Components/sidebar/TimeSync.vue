@@ -153,7 +153,7 @@ watch(() => timeSync?.syncing, (newValue) => {
             })"
           />
         </HtFormControlGroup>
-        <HtButtonGroup>
+        <HtButtonGroup :separated="true">
           <HtButton
             type="submit"
             color="primary"
