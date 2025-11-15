@@ -36,7 +36,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         echo "# Skipping npm install, lockfile not modified"
     fi
 
-    if $GIT diff --name-only $oldrev $newrev | grep "^(resources|lang)/"; then
+    if $GIT diff --name-only $oldrev $newrev | grep "^\(resources\|lang\)/"; then
         echo "$ $CMD_BUILD"
         eval $CMD_BUILD
         echo "$ $CMD_BUILD_SSR"
