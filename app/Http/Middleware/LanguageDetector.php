@@ -24,6 +24,7 @@ class LanguageDetector {
   protected const SESSION_APP_LOCALE_KEY = 'app_locale';
 
   public function handle(Request $request, Closure $next) {
+    $session_locale = $request->session()->get(self::SESSION_APP_LOCALE_KEY);
     $request_path = $request->path();
     $request_method = $request->method();
     $first_route_segment = $request->segment(1);
@@ -38,8 +39,13 @@ class LanguageDetector {
         return $next($request);
       }
 
-      // Perform language detection
-      $route_locale = $this->detectLocale();
+      if (!empty($session_locale)){
+        $route_locale = $this->validateLocale($session_locale);
+      }
+      else {
+        // Perform language detection
+        $route_locale = $this->detectLocale();
+      }
     }
 
     if ($first_route_segment === $route_locale || $request_method !== 'GET'){
@@ -51,6 +57,9 @@ class LanguageDetector {
     $query = $request->query->all();
     $query_string = !empty($query) ? '?'.http_build_query($query) : '';
     $redirect_path = "/$route_locale/$request_path$query_string";
+    if ($session_locale !== $route_locale){
+      $this->setLocale($route_locale);
+    }
 
     return redirect($redirect_path);
   }
