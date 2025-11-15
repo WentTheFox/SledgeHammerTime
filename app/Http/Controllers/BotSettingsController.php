@@ -87,9 +87,9 @@ class BotSettingsController extends Controller {
       ->get()
       ->reduce(fn(array $acc, BotCommandOption $option) => [...$acc, $option->name => $option->id], []);
     $optionIds = array_values($optionNameToIdMap);
-    $optionChoiceIdToValueMap = (array)BotCommandOptionChoice::whereIn('bot_command_option_id', [$optionNameToIdMap['format'], $optionNameToIdMap['columns']])
+    $optionChoiceById = (array)BotCommandOptionChoice::whereIn('bot_command_option_id', [$optionNameToIdMap['format'], $optionNameToIdMap['columns']])
       ->get()
-      ->reduce(fn(array $acc, BotCommandOptionChoice $choice) => [...$acc, $choice->id => $choice->value], []);
+      ->reduce(fn(array $acc, BotCommandOptionChoice $choice) => [...$acc, $choice->id => $choice], []);
     $optionNameTranslations = BotCommandTranslation::where('locale', App::getLocale())
       ->whereIn('command_id', $commandIds)
       ->whereIn('option_id', $optionIds)
@@ -128,13 +128,23 @@ class BotSettingsController extends Controller {
         break;
         case $optionNameToIdMap['format']:
           if ($optionNameTranslation->choice_id !== null){
-            $result['formatOptionChoices'][$optionChoiceIdToValueMap[$optionNameTranslation->choice_id]] = $optionNameTranslation->value;
+            $result['formatOptionChoices'][$optionChoiceById[$optionNameTranslation->choice_id]->value] = $optionNameTranslation->value;
           }
         break;
         case $optionNameToIdMap['columns']:
-          if ($optionNameTranslation->choice_id !== null && array_key_exists($optionNameTranslation->choice_id, $optionChoiceIdToValueMap)){
-            $result['columnsOptionChoices'][$optionChoiceIdToValueMap[$optionNameTranslation->choice_id]] = $optionNameTranslation->value;
+          if ($optionNameTranslation->choice_id !== null && array_key_exists($optionNameTranslation->choice_id, $optionChoiceById)){
+            $result['columnsOptionChoices'][$optionChoiceById[$optionNameTranslation->choice_id]->value] = $optionNameTranslation->value;
           }
+        break;
+      }
+    }
+    foreach ($optionChoiceById as $optionChoice){
+      switch ($optionChoice->bot_command_option_id){
+        case $optionNameToIdMap['format']:
+          $result['formatOptionChoices'][$optionChoice->value] ??= $optionChoice->name;
+        break;
+        case $optionNameToIdMap['columns']:
+          $result['columnsOptionChoices'][$optionChoice->value] ??= $optionChoice->name;
         break;
       }
     }
