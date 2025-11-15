@@ -5,7 +5,18 @@ import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
 import { ComboboxOption, suggestionItemClass } from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { Component, computed, inject, nextTick, onMounted, onUnmounted, ref, toRef, useTemplateRef, watch } from 'vue';
+import {
+  Component,
+  computed,
+  inject,
+  nextTick,
+  onMounted,
+  onUnmounted,
+  ref,
+  toRef,
+  useTemplateRef,
+  watch,
+} from 'vue';
 
 const id = inject(formControlId);
 const model = defineModel<string>();
@@ -18,7 +29,10 @@ const props = defineProps<{
   addonComponent?: Component<{ option: ComboboxOption }>;
 }>();
 
-const emit = defineEmits<{ (e: 'change', option: ComboboxOption): void; (e: 'focus', ev: FocusEvent): void }>();
+const emit = defineEmits<{
+  (e: 'change', option: ComboboxOption): void;
+  (e: 'focus', ev: FocusEvent): void
+}>();
 
 const inputRef = useTemplateRef<HTMLInputElement>('input-el');
 const suggestionsRef = useTemplateRef<HTMLInputElement>('suggestions-el');
@@ -275,6 +289,7 @@ const handleSuggestionClick = (option: ComboboxOption, index: number) => {
   highlightedIndex.value = index;
   emit('change', option);
   showSuggestions.value = false;
+  detectSelectMode();
 };
 
 // Handle focus & blur correctly
@@ -306,6 +321,7 @@ const handleIconClick = (event: MouseEvent) => {
 };
 
 const formSelectIconClass = 'form-select-icon';
+const clickableClass = 'clickable';
 const handleBlur = (event: FocusEvent) => {
   // Check if focus is moving to a suggestion
   const relatedTarget = event.relatedTarget as HTMLElement | null;
@@ -383,7 +399,7 @@ watch(model, (newModelValue) => {
     >
     <button
       type="button"
-      :class="formSelectIconClass"
+      :class="[formSelectIconClass, { [clickableClass]: mode === 'select' }]"
       tabindex="-1"
       @click="handleIconClick"
       @mousedown="isInteractingWithSuggestions = true"
