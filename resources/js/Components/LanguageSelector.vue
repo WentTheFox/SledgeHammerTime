@@ -66,7 +66,10 @@ const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record
     if (typeof e === 'object' && e !== null && 'message' in e && typeof e.message === 'string') {
       const parameterMatch = e.message.match(parameterRequiredRegex);
       if (parameterMatch) {
-        return getCurrentRouteFromLocale(locale, { ...additionalParameters, [parameterMatch[1]]: '' });
+        return getCurrentRouteFromLocale(locale, {
+          ...additionalParameters,
+          [parameterMatch[1]]: '',
+        });
       }
     }
   }
@@ -125,28 +128,23 @@ onMounted(router.on('success', navigateListener));
             </HtButton>
           </template>
           <template #content>
-            <template v-for="[sortedLocale, config] in sortedLanguages">
-              <div
-                v-if="sortedLocale !== currentLanguage?.locale"
+            <nav class="nav">
+              <a
+                v-for="[sortedLocale, config] in sortedLanguages"
                 :key="sortedLocale"
-                dir="ltr"
-                class="language-link-wrap"
+                :href="getCurrentRouteFromLocale(sortedLocale)+searchParamsString"
+                :class="['language-link nav-link', { disabled: !currentLanguage?.supportedLanguages?.has(sortedLocale), current: sortedLocale === currentLanguage?.locale }]"
+                :dir="config.rtl ? 'rtl' : 'ltr'"
               >
-                <a
-                  :href="getCurrentRouteFromLocale(sortedLocale)+searchParamsString"
-                  :class="['language-link', { disabled: !currentLanguage?.supportedLanguages?.has(sortedLocale) }]"
-                  :dir="config.rtl ? 'rtl' : 'ltr'"
-                >
-                  <span class="language-flag">
-                    <CustomFlag
-                      :country="config.countryCode"
-                      :custom-flag="config.customFlag"
-                    />
-                  </span>
-                  <span class="language-name">{{ extendedNativeLocaleNames[sortedLocale] }}</span>
-                </a>
-              </div>
-            </template>
+                <span class="language-flag">
+                  <CustomFlag
+                    :country="config.countryCode"
+                    :custom-flag="config.customFlag"
+                  />
+                </span>
+                <span class="language-name">{{ extendedNativeLocaleNames[sortedLocale] }}</span>
+              </a>
+            </nav>
           </template>
         </Tippy>
       </div>
