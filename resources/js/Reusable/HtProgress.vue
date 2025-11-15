@@ -10,13 +10,15 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="progress">
+  <div
+    class="progress"
+    role="progressbar"
+    :aria-valuemax="max"
+    :aria-valuemin="min"
+    :aria-valuenow="progress"
+  >
     <div
       class="progress-bar"
-      role="progressbar"
-      :aria-valuemax="max"
-      :aria-valuemin="min"
-      :aria-valuenow="progress"
       :style="`width: ${progress}%`"
     />
   </div>

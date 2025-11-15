@@ -35,14 +35,12 @@ const close = () => {
         <FontAwesomeIcon :icon="isOnRight ? faAlignLeft : faAlignRight" />
       </HtButton>
     </div>
-    <hr class="sidebar-divider">
     <div class="sidebar-content">
       <InputSettings />
       <TimeSync v-if="route().current() === 'home'" />
       <LocalSettings />
       <SidebarCredits />
     </div>
-    <hr class="sidebar-divider">
     <div class="sidebar-bottom">
       <ul class="actions-wrapper">
         <li>

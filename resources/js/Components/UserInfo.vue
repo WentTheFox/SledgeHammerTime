@@ -4,7 +4,15 @@ import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
-import { faCaretDown, faCaretUp, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRightFromBracket,
+  faCaretDown,
+  faCaretUp,
+  faHammer,
+  faUser,
+  faUserGear,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 import { Tippy } from 'vue-tippy';
@@ -38,36 +46,44 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
         </HtButton>
       </template>
       <template #content="{ hide }">
-        <ul
+        <nav
           v-if="userInfo"
-          class="user-dropdown"
+          class="nav"
         >
-          <li>
-            <Link
-              :href="route('settings', { locale: routeLocale })"
-            >
-              {{ $t('global.nav.botSettings') }}
-            </Link>
-          </li>
-          <li>
-            <Link
-              :href="route('profile.edit', { locale: routeLocale })"
-            >
-              {{ $t('global.nav.profile') }}
-            </Link>
-          </li>
-          <li>
-            <Link
-              :href="route('logout')"
-              method="post"
-              as="button"
-              class="cursor-pointer"
-              @click.passive="hide"
-            >
-              {{ $t('actions.log_out') }}
-            </Link>
-          </li>
-        </ul>
+          <Link
+            :href="route('settings', { locale: routeLocale })"
+            class="nav-link"
+          >
+            <FontAwesomeIcon
+              :icon="faHammer"
+              class="me-1"
+            />
+            {{ $t('global.nav.botSettings') }}
+          </Link>
+          <Link
+            :href="route('profile.edit', { locale: routeLocale })"
+            class="nav-link"
+          >
+            <FontAwesomeIcon
+              :icon="faUserGear"
+              class="me-1"
+            />
+            {{ $t('global.nav.profile') }}
+          </Link>
+          <Link
+            :href="route('logout')"
+            method="post"
+            as="button"
+            class="nav-link"
+            @click.passive="hide"
+          >
+            <FontAwesomeIcon
+              :icon="faArrowRightFromBracket"
+              class="me-1"
+            />
+            {{ $t('actions.log_out') }}
+          </Link>
+        </nav>
       </template>
     </Tippy>
     <HtLinkButton

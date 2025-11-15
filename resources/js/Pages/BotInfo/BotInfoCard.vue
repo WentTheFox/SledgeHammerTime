@@ -9,7 +9,8 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLink, faRobot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import usefulLinksBot from '@img/useful-links/bot.png';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
@@ -28,7 +29,13 @@ defineProps<{ discordAppId: string }>();
         class="bot-info-image"
         :src="usefulLinksBot"
       />
-      <h2>{{ $t('botInfo.heading') }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="faRobot"
+          class="me-1"
+        />
+        {{ $t('botInfo.heading') }}
+      </h2>
     </template>
 
     <p class="mb-3">
