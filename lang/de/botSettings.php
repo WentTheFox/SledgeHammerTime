@@ -44,7 +44,7 @@ return [
       'explanation' => 'Dies ist völlig optional und hat keine Auswirkung auf deine Fähigkeit, den Bot zu verwenden. Details findest du auf der <1/> Seite.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Standard ":hourOptionName" Option für /:atCommandName Befehl',
+      'displayName' => 'Standard ":hourOptionName" Option für /:at12CommandName Befehl',
     ],
   ],
   'saveSuccess' => 'Deine Einstellungen wurden erfolgreich gespeichert.',
