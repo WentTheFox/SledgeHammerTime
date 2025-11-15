@@ -2,13 +2,18 @@
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTextHighlighter from '@/Reusable/HtTextHighlighter.vue';
-import { ComboboxOption, highlightedClass, selectedClass, suggestionItemClass } from '@/utils/combobox';
+import {
+  ComboboxOption,
+  highlightedClass,
+  selectedClass,
+  suggestionItemClass,
+} from '@/utils/combobox';
 import { Component as ComponentType, onMounted, onUnmounted, useTemplateRef, watch } from 'vue';
 
 const props = defineProps<{
   option: ComboboxOption;
   inputValue: string | null;
-  selectedOption?: string;
+  selectedOption: string | null;
   isHighlighted: boolean;
   isVisible: boolean;
   intersectionObserver: IntersectionObserver | null;

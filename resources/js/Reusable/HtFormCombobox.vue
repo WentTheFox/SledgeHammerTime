@@ -2,7 +2,7 @@
 import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
 import { formControlId } from '@/injection-keys';
 import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
-import { ComboboxOption, suggestionItemClass } from '@/utils/combobox';
+import { ComboboxAddonComponentProps, ComboboxOption, suggestionItemClass } from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -19,15 +19,22 @@ import {
 } from 'vue';
 
 const id = inject(formControlId);
-const model = defineModel<string>();
+const model = defineModel<string | null>({ default: null });
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   options: ComboboxOption[];
   name?: string;
   class?: string;
   tabindex?: number | string;
-  addonComponent?: Component<{ option: ComboboxOption }>;
-}>();
+  addonComponent?: Component<ComboboxAddonComponentProps>;
+  allowTyping?: boolean;
+}>(), {
+  name: undefined,
+  class: undefined,
+  tabindex: undefined,
+  addonComponent: undefined,
+  allowTyping: true,
+});
 
 const emit = defineEmits<{
   (e: 'change', option: ComboboxOption): void;
@@ -44,6 +51,8 @@ const highlightedIndex = ref<number>(-1);
 const mode = ref<'typing' | 'select'>('typing');
 const showSuggestions = ref<boolean>(false);
 const isInteractingWithSuggestions = ref(false);
+const newlyFocused = ref(false);
+const freshlyFocusedTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
 
 type OptionMeta = { [k in keyof Omit<ComboboxOption, 'value'>]: Record<string, ComboboxOption[k]> };
 
@@ -100,17 +109,37 @@ const scrollHighlightedOptionIntoView = () => {
     targetSuggestion.offsetParent.scrollTo(0, Math.max(0, targetSuggestion.offsetTop - parentHeightHalf + targetOffsetHeightHalf));
   });
 };
-const setInputValueFromModelValue = (newModelValue: string | undefined) => {
+const setInputValueFromModelValue = (newModelValue: string | null) => {
   inputValue.value = props.options.find(opt => opt.value === newModelValue)?.label ?? '';
   detectSelectMode();
 };
 
+const setTypingMode = ({ newInputValue, newTypingModeValue }: {
+  newInputValue?: string,
+  newTypingModeValue?: string
+}) => {
+  if (!props.allowTyping) {
+    return;
+  }
+  mode.value = 'typing';
+  if (typeof newInputValue !== 'undefined') {
+    inputValue.value = newInputValue;
+  }
+  if (typeof newTypingModeValue !== 'undefined') {
+    typingModeValue.value = newTypingModeValue;
+  }
+  highlightedIndex.value = -1;
+};
+
 // Detect manual user input & show suggestions
-const handleInput = () => {
+const handleInput = (e: Event) => {
+  if (!props.allowTyping) {
+    e.preventDefault();
+    return;
+  }
+
   if (mode.value === 'select') {
-    mode.value = 'typing';
-    typingModeValue.value = inputValue.value;
-    highlightedIndex.value = -1;
+    setTypingMode({ newTypingModeValue: inputValue.value });
   }
   showSuggestions.value = true;
 };
@@ -187,11 +216,10 @@ const handleKeyDown = (event: KeyboardEvent) => {
           scrollHighlightedOptionIntoView();
         } else {
           if (typingModeValue.value !== null) {
-            mode.value = 'typing';
-            inputValue.value = typingModeValue.value;
+            setTypingMode({ newInputValue: typingModeValue.value });
             if (inputRef.value) {
               inputRef.value.selectionStart = typingModeSelectionStart.value;
-              inputRef.value.selectionStart = typingModeSelectionEnd.value;
+              inputRef.value.selectionEnd = typingModeSelectionEnd.value;
             }
           } else {
             setInputValueFromModelValue(model.value);
@@ -270,9 +298,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
       event.preventDefault();
       if (mode.value === 'select' && typingModeValue.value !== null) {
         if (!inputMatchesOption.value) {
-          mode.value = 'typing';
-          inputValue.value = typingModeValue.value;
-          highlightedIndex.value = -1;
+          setTypingMode({ newInputValue: typingModeValue.value });
         }
       } else {
         highlightedIndex.value = optionMatchingInputIndex.value;
@@ -280,6 +306,10 @@ const handleKeyDown = (event: KeyboardEvent) => {
       }
       showSuggestions.value = false;
       break;
+  }
+
+  if (!props.allowTyping && !event.defaultPrevented) {
+    event.preventDefault();
   }
 };
 
@@ -295,10 +325,24 @@ const handleSuggestionClick = (option: ComboboxOption, index: number) => {
 // Handle focus & blur correctly
 const handleFocus = (event: FocusEvent) => {
   emit('focus', event);
-  if (!isInteractingWithSuggestions.value) {
+  if (!props.allowTyping) {
+    showSuggestions.value = true;
+  } else if (!isInteractingWithSuggestions.value) {
     showSuggestions.value = false; // Prevent showing suggestions immediately
   }
   detectSelectMode();
+  newlyFocused.value = true;
+  // Prevent handling click event shortly after focus
+  freshlyFocusedTimeout.value = setTimeout(() => {
+    newlyFocused.value = false;
+    freshlyFocusedTimeout.value = null;
+  }, 50);
+};
+const handleInputClick = () => {
+  if (props.allowTyping || newlyFocused.value) {
+    return;
+  }
+  showSuggestions.value = !showSuggestions.value;
 };
 const detectSelectMode = () => {
   nextTick(() => {
@@ -369,12 +413,22 @@ onMounted(() => {
   if (document) {
     document.body.addEventListener('mouseup', globalMouseupHandler, { passive: true });
   }
+  if (!props.allowTyping && mode.value === 'typing') {
+    mode.value = 'select';
+    if (!props.options.some(o => o.value === model.value)) {
+      // Select the first option if no matching option is provided
+      model.value = props.options?.[0].value ?? null;
+    }
+  }
 });
 onUnmounted(() => {
   if (document) {
     document.body.removeEventListener('mouseup', globalMouseupHandler);
   }
   suggestionIO.value?.disconnect();
+  if (freshlyFocusedTimeout.value) {
+    clearTimeout(freshlyFocusedTimeout.value);
+  }
 });
 
 watch(model, (newModelValue) => {
@@ -383,19 +437,21 @@ watch(model, (newModelValue) => {
 </script>
 
 <template>
-  <div :class="['form-control-combobox form-control-select', {'suggestions-open': showSuggestions}]">
+  <div :class="['form-control-combobox form-control-select', {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping}]">
     <input
       :id="id"
       ref="input-el"
       v-model="inputValue"
       :name="props.name"
-      :class="['form-select-input input-field', props.class]"
+      :class="['form-select-input input-field', props.class, { 'hide-selection': !allowTyping }]"
       :tabindex="props.tabindex"
       autocomplete="off"
+      :readonly="!allowTyping"
       @keydown="handleKeyDown"
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"
+      @click="handleInputClick"
     >
     <button
       type="button"

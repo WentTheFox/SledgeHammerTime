@@ -11,3 +11,7 @@ export interface ComboboxOption {
 }
 
 export const normalizeQueryValue = (value: string) => value.trim().toLowerCase().replace(/\s+/g, '_');
+
+export interface ComboboxAddonComponentProps {
+  option: ComboboxOption;
+}
