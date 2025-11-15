@@ -56,7 +56,10 @@ $value-map: (
   alert-spacing: 1rem,
   alert-border-radius: .5rem,
   sidebar-spacing: .5rem,
-  sidebar-max-width: 25rem,
+  sidebar-max-width: (
+    default: 25rem,
+    xl: 28rem,
+  ),
   sidebar-border: .0625rem,
   sidebar-divider-border: .0625rem,
   sidebar-default-open-min-width: 1024px,
@@ -64,6 +67,7 @@ $value-map: (
   sidebar-section-heading-font: 1.375rem,
   sidebar-dev-credit-font-size: 1.25rem,
   sidebar-dev-credit-line-height: 1.55,
+  sidebar-translation-credits-gap: 0.5em,
   popup-border: .125rem,
   popup-box-shadow: 1rem,
   input-field-padding: (
@@ -129,6 +133,18 @@ $value-map: (
   bot-usage-graph-tooltip-padding: .25rem,
   bot-usage-graph-tooltip-usage-font-size: 1.5rem,
   bot-usage-graph-tooltip-date-font-size: .75rem,
+  nav-spacing: .15rem,
+  nav-link-border-radius: .25rem,
+  nav-link-padding-horizontal: (
+    default: .4rem,
+    md: .5rem,
+    lg: .6rem,
+  ),
+  nav-link-padding-vertical: (
+    default: .3rem,
+    md: .4rem,
+    lg: .5rem,
+  ),
 );
 
 $_text-color-light: #313131;

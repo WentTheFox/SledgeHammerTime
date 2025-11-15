@@ -7,20 +7,3 @@
   justify-content: space-between;
   gap: design.app-value('user-info-spacing');
 }
-
-.user-dropdown {
-  list-style: disc;
-  list-style-position: outside;
-  margin: design.app-value('user-info-spacing') 0;
-
-  @include design.if-ltr {
-    padding-left: design.app-value('content-spacing');
-  }
-  @include design.if-rtl {
-    padding-right: design.app-value('content-spacing');
-  }
-
-  a, button {
-    text-decoration: underline;
-  }
-}

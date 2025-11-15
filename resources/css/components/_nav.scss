@@ -1,91 +1,24 @@
 @use "../design";
 
-nav.sticky {
-  position: sticky;
-  top: 0;
-}
 
-nav.backdrop {
-  background-color: design.app-color('nav-bg');
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 10px design.app-color('nav-bg');
-}
-
-nav {
+.nav {
   z-index: 5;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: design.app-value('nav-spacing');
 
-  .brand {
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-  }
+  .nav-link {
+    padding: design.app-value('nav-link-padding-vertical') design.app-value('nav-link-padding-horizontal');
+    border-radius: design.app-value('nav-link-border-radius');
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color .05s ease-in;
 
-  details.dropdown {
-    margin: 0;
-
-    summary {
-      overflow: hidden;
-    }
-  }
-
-  .language-dropdown {
-    max-height: 50vh;
-    overflow: auto;
-  }
-
-  .language-button, .language-link {
-    display: flex !important;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    .language-flag {
-      display: block;
-      height: 1.2em;
-      margin: -0.75em 0 0;
-    }
-  }
-
-  @include design.screen-below('md') {
-    .language-button {
-      .language-flag {
-        transform: translateY(-0.2em);
-      }
-
-      .language-name {
-        display: none;
-      }
-    }
-  }
-
-  details.dropdown > ul {
-    left: unset !important;
-    right: 0 !important;
-  }
-
-  .language-button, .language-link {
-    &[dir=ltr] .language-name {
-      margin-left: 1em;
-    }
-
-    &[dir=rtl] .language-name {
-      margin-right: 1em;
-    }
-  }
-
-  .language-link.disabled {
-    opacity: 0.5;
-  }
-
-  .user-dropdown {
-    @include design.screen-below('sm') {
-      .user-name {
-        display: none;
-      }
-    }
-    @include design.screen-above('sm') {
-      .user-icon {
-        display: none;
-      }
+    &:hover, &:focus {
+      color: design.app-color('button-default-color');
+      background-color: design.app-color('button-default-bg');
     }
   }
 }

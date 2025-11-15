@@ -68,19 +68,20 @@ $_sidebar_space_reserved_from_breakpoint: 'lg';
     justify-content: space-between;
     align-items: center;
     flex: 0 0 calc(#{design.app-value('header-height')} - #{design.app-value('header-border')} - #{design.app-value('sidebar-spacing')} * 2);
+    border-bottom: design.app-value('sidebar-divider-border') solid design.app-color('sidebar-divider-color');
+    padding-bottom: design.app-value('sidebar-spacing');
   }
 
   .sidebar-content {
-    flex: 1 0 auto;
+    flex: 0 1 100%;
     min-height: 0;
-  }
-
-  .sidebar-divider {
-    border-top: design.app-value('sidebar-divider-border') solid design.app-color('sidebar-divider-color');
+    overflow: auto;
   }
 
   .sidebar-bottom {
     flex: 0 0 auto;
+    border-top: design.app-value('sidebar-divider-border') solid design.app-color('sidebar-divider-color');
+    padding-top: design.app-value('sidebar-spacing');
 
     .actions-wrapper {
       display: flex;

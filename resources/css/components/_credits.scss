@@ -57,31 +57,19 @@
 
 .translation-credits {
   display: flex;
-  flex-flow: column nowrap;
-  gap: 0.5em;
+  flex-flow: row wrap;
+  gap: design.app-value('sidebar-translation-credits-gap');
 
   .translator-item {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     text-transform: none;
+    gap: design.app-value('sidebar-spacing');
 
-    .translator-avatar {
-      img {
-        display: block;
-      }
-
-      @include design.if-ltr {
-        margin-right: design.app-value('sidebar-spacing');
-      }
-
-      @include design.if-rtl {
-        margin-left: design.app-value('sidebar-spacing');
-      }
-
-      img {
-        background-color: #fff;
-      }
+    .translator-avatar img {
+      display: block;
+      background-color: #fff;
     }
   }
 }

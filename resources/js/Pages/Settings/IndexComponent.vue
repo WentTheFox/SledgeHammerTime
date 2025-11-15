@@ -9,6 +9,8 @@ import UserSettingsForm, {
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { faHammer } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps<{
@@ -31,7 +33,13 @@ const route = useRoute();
   <Layout>
     <HtCard class="app-settings-card">
       <template #header>
-        <h2>{{ $t('botSettings.title') }}</h2>
+        <h2>
+          <FontAwesomeIcon
+            :icon="faHammer"
+            class="me-1"
+          />
+          {{ $t('botSettings.title') }}
+        </h2>
       </template>
 
       <p class="mt-1 mb-3">

@@ -7,6 +7,8 @@ import ConnectedAccounts from '@/Pages/Profile/Partials/ConnectedAccounts.vue';
 import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccounts.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { faUserGear } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
@@ -25,7 +27,13 @@ const route = useRoute();
   <Layout>
     <HtCard class="profile-info">
       <template #header>
-        <h2>{{ $t('profile.title') }}</h2>
+        <h2>
+          <FontAwesomeIcon
+            :icon="faUserGear"
+            class="me-1"
+          />
+          {{ $t('profile.title') }}
+        </h2>
       </template>
       <p>
         <HtTranslate i18n-key="profile.intro">
