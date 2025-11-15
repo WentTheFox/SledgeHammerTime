@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import FormMessage from '@/Components/FormMessage.vue';
 import { useRoute } from '@/composables/useRoute';
-import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
+import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
-import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useForm, usePage } from '@inertiajs/vue3';
 
 const user = usePage().props.auth.user;
@@ -52,22 +51,10 @@ const route = useRoute();
         </HtFormControl>
       </HtFormControlGroup>
 
-      <div>
-        <HtButton
-          color="primary"
-          :loading="form.processing"
-          type="submit"
-          :icon-start="faSave"
-        >
-          {{ $t('actions.save') }}
-        </HtButton>
-
-        <FormMessage
-          type="success"
-          :message="form.recentlySuccessful ? $t('profile.information.saveSuccess') : undefined"
-          class="mt-2"
-        />
-      </div>
+      <HtFormSubmitButton
+        :form="form"
+        :success-text="$t('profile.information.saveSuccess')"
+      />
     </form>
   </HtCard>
 </template>
