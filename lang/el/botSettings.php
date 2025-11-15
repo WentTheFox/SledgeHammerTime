@@ -2,7 +2,7 @@
 
 return [
   'title' => 'Ρυθμίσεις Εφαρμογής',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'description' => 'Παρακάτω μπορείτε να δείτε τις τρέχουσες ρυθμίσεις σας στο HammerTime Bot για κάθε συνδεδεμένο λογαριασμό.',
   'learnMore' => 'Δεν είστε σίγουροι για το τι είναι η εφαρμογή ή είστε περίεργοι για το τι μπορεί να κάνει; Επισκεφθείτε τον σύνδεσμο <1>Discord App</1> για να μάθετε περισσότερα.',
   'advancedSettings' => [
     'toggleText' => 'Προχωρημένες ρυθμίσεις',
