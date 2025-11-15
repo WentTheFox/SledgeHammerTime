@@ -39,6 +39,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Rxshi](https://crowdin.com/profile/Rxshi)
 - Catalan
   - [Casper](https://crowdin.com/profile/JajarGG)
+  - [LAU Regi](https://crowdin.com/profile/Bala_de_plata)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [sware](https://crowdin.com/profile/sware)
 - 🇨🇳 Chinese Simplified
@@ -63,15 +64,20 @@ English and Hungarian translations have been included, so no translators will be
 - 🇨🇿 Czech
   - [Blurplix](https://crowdin.com/profile/Blurplix)
   - [HolyRadek](https://crowdin.com/profile/holyradek)
+  - [Keša mot](https://crowdin.com/profile/kesamott.6534)
   - [klauny](https://crowdin.com/profile/klauny)
+  - [O5](https://crowdin.com/profile/O5)
   - [イーテルニティ ☄️](https://crowdin.com/profile/Ethxrnity)
 - 🇩🇰 Danish
   - [jovictasor](https://crowdin.com/profile/jovictasor)
   - [Lennart Christiansen](https://crowdin.com/profile/LennartDenmark)
+  - [Lucas](https://crowdin.com/profile/LucasFromDK)
   - [MikeyDK](https://crowdin.com/profile/MikeyDK)
 - 🇳🇱 Dutch
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
+  - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
   - [Jesse](https://github.com/Jessuhh)
+  - [MadLad255](https://crowdin.com/profile/MadLad255)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
 - 🇫🇷 French
@@ -117,12 +123,18 @@ English and Hungarian translations have been included, so no translators will be
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [Phrygia](https://github.com/sjkim04)
   - [sakana](https://crowdin.com/profile/sakana0580)
+  - [Shiny4649](https://crowdin.com/profile/Shiny4649)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
+  - [undefined9651](https://crowdin.com/profile/undefined9651)
+  - [ちあたん](https://crowdin.com/profile/chiatan1006)
 - 🇰🇷 Korean
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
   - [Phrygia](https://github.com/sjkim04)
+  - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
+  - [Sehoon Park](https://crowdin.com/profile/sehoon.sese)
   - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)
+  - [공백](https://crowdin.com/profile/whiteblankzero)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
 - 🇱🇻 Latvian
   - [Casper](https://crowdin.com/profile/JajarGG)
@@ -134,8 +146,10 @@ English and Hungarian translations have been included, so no translators will be
 - 🇲🇾 Malay: [Nurul Azeera Hidayah Muhammad Nur Hidayat Yasuyoshi (MNH48)](https://crowdin.com/profile/mnh48)
 - Mongolian: [MerlinsBeard](https://crowdin.com/profile/MerlinsBeard)
 - 🇳🇴 Norwegian
+  - [Hvalomi](https://crowdin.com/profile/hvalomi)
   - [Ivy Wilson](https://crowdin.com/profile/zach.lawnmower)
   - [Joakim Ødegaard](https://crowdin.com/profile/joakim.od)
+  - [Marthine Maurlia](https://crowdin.com/profile/Angellonn)
   - [Phillip Rødseth](https://crowdin.com/profile/philliphatrod)
   - [Sverre Strømodden Jerstad](https://crowdin.com/profile/sverrejerstad)
   - [Thor](https://crowdin.com/profile/thorarne94)
@@ -195,6 +209,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Noveak](https://crowdin.com/profile/Noveak-Prime)
   - [Patrick Tobias](https://crowdin.com/profile/patricktobias)
   - [Stryxen](https://crowdin.com/profile/Stryxen)
+  - [swerocker gaming](https://crowdin.com/profile/swerocker1993)
   - [tunket](https://crowdin.com/profile/tunket)
 - 🇹🇭 Thai
   - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
@@ -210,8 +225,12 @@ English and Hungarian translations have been included, so no translators will be
   - [GameHacker](https://crowdin.com/profile/GameHacker)
   - [i](https://crowdin.com/profile/enky)
   - [Mykhailo Yaremenko](https://crowdin.com/profile/WhiteBear60)
+  - [O5](https://crowdin.com/profile/O5)
   - [Кухарчук Ярослав](https://crowdin.com/profile/Gamer_Yaroslaw)
 - 🇵🇰 Urdu (Pakistan)
   - [Muhammad Dawood](https://crowdin.com/profile/Developer_X)
   - [muharslan](https://crowdin.com/profile/muharslan)
-- 🇻🇳 Vietnamese: [Quan](https://crowdin.com/profile/quanonthecob)
+- 🇻🇳 Vietnamese
+  - [Đức N5_Trịnh Hoài](https://crowdin.com/profile/anhduc08768)
+  - [Nguyễn Hoàng Long](https://crowdin.com/profile/fangcognosphere)
+  - [Quan](https://crowdin.com/profile/quanonthecob)
