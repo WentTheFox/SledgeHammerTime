@@ -20,7 +20,7 @@ defineProps<{
   }>;
   defaultSettings: UserSettings;
   formatOptions?: string[];
-  columnsOptions?: Record<string, string>;
+  columnsOptions?: string[];
   botTranslations: UserSettingsFormBotTranslations;
 }>();
 

@@ -6,11 +6,13 @@ import { useRouteParams } from '@/composables/useRouteParams';
 import { devModeInject, pagePropsInject } from '@/injection-keys';
 import { UserSettings } from '@/model/user-settings';
 import ControlledTimeZoneInput from '@/Pages/Settings/ControlledTimeZoneInput.vue';
+import FormatComboboxAddon from '@/Pages/Settings/FormatComboboxAddon.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
+import HtFormCombobox from '@/Reusable/HtFormCombobox.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormControlWrap from '@/Reusable/HtFormControlWrap.vue';
@@ -18,6 +20,7 @@ import HtFormSelect from '@/Reusable/HtFormSelect.vue';
 import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { ComboboxOption } from '@/utils/combobox';
 import { LegalSectionIds } from '@/utils/legal';
 import {
   faChevronDown,
@@ -25,7 +28,8 @@ import {
   faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link, useForm } from '@inertiajs/vue3';
-import { inject, ref } from 'vue';
+import { wTrans } from 'laravel-vue-i18n';
+import { computed, inject, ref } from 'vue';
 
 export interface UserSettingsFormBotTranslations {
   atCommandName: string;
@@ -44,7 +48,7 @@ const props = defineProps<{
   };
   defaultSettings: UserSettings;
   formatOptions?: string[];
-  columnsOptions?: Record<string, string>;
+  columnsOptions?: string[];
   botTranslations: UserSettingsFormBotTranslations;
 }>();
 
@@ -68,6 +72,13 @@ const settingsForm = useForm({
   defaultAtMinute: props.entry.settings.defaultAtMinute ?? props.defaultSettings.defaultAtMinute,
   defaultAtSecond: props.entry.settings.defaultAtSecond ?? props.defaultSettings.defaultAtSecond,
 });
+
+const defaultOptionLabelRef = wTrans('botSettings.defaultOption');
+
+const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptions?.map(columnsOption => ({
+  label: columnsOption === 'default' ? defaultOptionLabelRef.value : props.botTranslations.formatOptionChoices[columnsOption],
+  value: columnsOption,
+})) ?? []);
 </script>
 
 <template>
@@ -99,22 +110,16 @@ const settingsForm = useForm({
           v-if="formatOptions"
           :id="'format-'+entry.user.id"
           :label="$t('botSettings.fields.format.displayName')"
+          :combo-box="true"
         >
-          <HtFormSelect
+          <HtFormCombobox
             v-model="settingsForm.format"
             name="format"
             class="mt-1"
-          >
-            <option
-              v-for="formatLetter in formatOptions"
-              :key="formatLetter"
-              :value="formatLetter"
-            >
-              {{
-                formatLetter === 'default' ? $t('botSettings.defaultOption') : botTranslations.formatOptionChoices[formatLetter]
-              }}
-            </option>
-          </HtFormSelect>
+            :options="formatComboboxOptions"
+            :allow-typing="false"
+            :addon-component="FormatComboboxAddon"
+          />
           <template #message>
             <FormMessage
               type="error"
@@ -155,7 +160,7 @@ const settingsForm = useForm({
               :value="columnsOption"
             >
               {{
-                columnsOption === 'default' ? $t('botSettings.defaultOption') : botTranslations.columnsOptionChoices[columnsOption]
+                columnsOption === 'default' ? defaultOptionLabelRef : botTranslations.columnsOptionChoices[columnsOption]
               }}
             </option>
           </HtFormSelect>

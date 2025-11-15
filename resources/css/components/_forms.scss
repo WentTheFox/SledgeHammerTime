@@ -209,13 +209,18 @@
   }
 }
 
-.form-control-wrap.combo-box, .form-control-combobox, .combobox-suggestions {
-  z-index: design.app-z-index('combobox-suggestions');
+.form-control-wrap.combo-box, .form-control-combobox {
+  z-index: unset;
 }
 
-.form-control-combobox.suggestions-open > .form-select-input {
+.form-control-combobox.suggestions-open.has-suggestions > .form-select-input {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.form-control-combobox:not(.allow-typing) > .form-select-input {
+  user-select: none;
+  cursor: default;
 }
 
 .combobox-suggestions {
@@ -231,6 +236,8 @@
   border-bottom-left-radius: design.app-value('input-field-border-radius');
   border-bottom-right-radius: design.app-value('input-field-border-radius');
   box-sizing: border-box;
+  z-index: design.app-z-index('combobox-suggestions');
+  margin-top: calc(-1 * #{design.app-value('input-field-border')});
 
   .combobox-suggestion-item {
     display: flex;
@@ -266,8 +273,11 @@
       }
 
       .combobox-suggestion-item-addon {
-        flex: 0 0 auto;
+        flex: 0 1 60%;
         font-variant: tabular-nums;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         @include design.if-ltr {
           text-align: right;
