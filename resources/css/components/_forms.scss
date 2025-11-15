@@ -194,7 +194,10 @@
     justify-content: center;
     padding: 0 design.app-value('form-select-icon-padding');
     font-size: design.app-value('form-select-icon-size');
-    pointer-events: none;
+
+    &:not(.clickable) {
+      pointer-events: none;
+    }
 
     @include design.if-ltr {
       right: 0;
