@@ -103,32 +103,39 @@
   display: flex;
   flex-flow: row nowrap;
 
-  .button {
-    min-width: 0;
-    flex-grow: 1;
-
-    @include design.if-ltr {
-      @include design.combined-border-radius;
-    }
-
-    @include design.if-rtl {
-      @include design.combined-border-radius-inverted;
-    }
+  &.separated {
+    flex-wrap: wrap;
+    gap: design.app-value('button-group-gap');
   }
 
-  > :not(.button) {
-    border-radius: design.app-value('button-border-radius');
+  &:not(.separated) {
+    .button {
+      min-width: 0;
+      flex-grow: 1;
 
-    @include design.if-ltr {
-      @include design.combined-border-radius;
+      @include design.if-ltr {
+        @include design.combined-border-radius;
+      }
+
+      @include design.if-rtl {
+        @include design.combined-border-radius-inverted;
+      }
     }
 
-    @include design.if-rtl {
-      @include design.combined-border-radius-inverted;
-    }
+    > :not(.button) {
+      border-radius: design.app-value('button-border-radius');
 
-    > .button {
-      border-radius: inherit !important;
+      @include design.if-ltr {
+        @include design.combined-border-radius;
+      }
+
+      @include design.if-rtl {
+        @include design.combined-border-radius-inverted;
+      }
+
+      > .button {
+        border-radius: inherit !important;
+      }
     }
   }
 }
