@@ -69,6 +69,9 @@ export const dateFnsLocaleMap: Record<string, () => Promise<{ default: Locale }>
   'tr': () => import('date-fns/locale/tr'),
   // @ts-expect-error (Import is correct)
   'uk': () => import('date-fns/locale/uk'),
+  // Load english as a fallback as no Urdu locale is available for date-fns
+  // @ts-expect-error (Import is correct)
+  'ur': () => import('date-fns/locale/en-US'),
   // @ts-expect-error (Import is correct)
   'vi': () => import('date-fns/locale/vi'),
   // @ts-expect-error (Import is correct)
