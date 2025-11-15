@@ -52,7 +52,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
         >
           <Link
             :href="route('settings', { locale: routeLocale })"
-            class="nav-link"
+            :class="['nav-link', { current: route().current() === 'settings'}]"
           >
             <FontAwesomeIcon
               :icon="faHammer"
@@ -62,7 +62,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
           </Link>
           <Link
             :href="route('profile.edit', { locale: routeLocale })"
-            class="nav-link"
+            :class="['nav-link', { current: route().current() === 'profile.edit'}]"
           >
             <FontAwesomeIcon
               :icon="faUserGear"
