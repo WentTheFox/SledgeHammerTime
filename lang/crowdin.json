@@ -748,6 +748,11 @@
       "username": "nico_everywhere",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17413820/medium/6db5a24bf5b3b5b623a45f2206c008fa.jpg",
       "fullName": "🐧 Nico"
+    },
+    "17428170": {
+      "username": "Daniel12321",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17428170/medium/9b3e4d73d289db94f2db3280f351759f.png",
+      "fullName": "Daniel Víquez Delgado"
     }
   },
   "languages": {
@@ -851,7 +856,8 @@
         "14524626",
         "14699026",
         "13524864",
-        "16655625"
+        "16655625",
+        "17428170"
       ],
       "progress": {
         "approval": 10,
