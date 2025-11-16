@@ -2,7 +2,7 @@
 
 return [
   'title' => 'Profil',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => 'Pagina de profil vă permite să gestionați informațiile contului dvs. legate în mod specific de site-ul web. Dacă doriți să aflați unde puteți modifica setările implicite și alte setări pentru aplicația Discord, accesați pagina <1>Setări aplicație</1>.',
   'information' => [
     'heading' => 'Informații profil',
     'description' => "Actualizați informațiile de profil ale contului dvs.",
