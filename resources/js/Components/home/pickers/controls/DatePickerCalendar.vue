@@ -44,7 +44,7 @@ const month = ref(props.selectedMonth);
 const date = ref(props.selectedDate);
 
 const pageProps = inject(pagePropsInject);
-const locale = computed(() => pageProps!.value.app.locale);
+const locale = computed(() => pageProps!.value.app?.locale ?? 'en');
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
 
