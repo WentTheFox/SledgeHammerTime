@@ -35,6 +35,10 @@ return [
         'label' => 'Oddělit vstupy',
         'description' => "Zobrazí dva odlišné vstupy pro datum a čas namísto jednoho kombinovaného (což v některých prohlížečích nemusí být podporováno)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
