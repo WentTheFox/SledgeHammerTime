@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Расширенные настройки',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'По умолчанию',
   'fields' => [
     'timezone' => [
       'displayName' => 'Часовой пояс',
