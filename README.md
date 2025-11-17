@@ -194,6 +194,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Timofey K.](https://crowdin.com/profile/timakimit)
   - [Vitaliy Kanev](https://crowdin.com/profile/vitalkanev)
   - [Vladimir](https://crowdin.com/profile/bill876)
+  - [Zeru](https://crowdin.com/profile/ZeruGames)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
