@@ -16,8 +16,8 @@ return [
     ],
     'tooltip' => [
       'setToCurrent' => 'Задать текущее время',
-      'lock' => 'Lock timestamp via URL',
-      'unlock' => 'Unlock timestamp',
+      'lock' => 'Заблокировать отметку времени через URL',
+      'unlock' => 'Разблокировать отметку времени',
       'previousYear' => 'Предыдущий год',
       'previousMonth' => 'Предыдущий месяц',
       'nextMonth' => 'Следующий месяц',
@@ -39,7 +39,7 @@ return [
       'p' => 'Создавайте временные метки в Discord с помощью slash-команд',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
+      'header' => 'Старая версия HammerTime',
       'p' => 'Последняя версия сайта, позволяющая управлять параметрами приложения в Discord',
     ],
     'textColor' => [
