@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Tùy chỉnh định dạng nhập vào',
-      'customInputs' => [
-        'label' => 'Dữ liệu nhập tùy chỉnh',
-        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'Phân tách ô nhập dữ liệu',
