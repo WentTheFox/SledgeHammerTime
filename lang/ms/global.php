@@ -35,6 +35,10 @@ return [
         'label' => 'Input berasingan',
         'description' => "Memaparkan dua input berlainan untuk tarikh dan masa menggantikan input bergabung (yang tidak disokong pada sesetengah pelayar)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
