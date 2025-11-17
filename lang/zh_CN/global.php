@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => '输入设置',
-      'customInputs' => [
-        'label' => '自定义输入',
-        'description' => "用自定义输入法替换浏览器的默认输入法，并尊重你选择的网站语言",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => '独立输入',
