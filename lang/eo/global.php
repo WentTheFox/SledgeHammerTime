@@ -35,6 +35,10 @@ return [
         'label' => 'Apartigi enigaĵoj',
         'description' => "Montri du malsamajn enigaĵojn por dato kaj horo anstataŭ kombinitaĵo (tio ne subtenas en kelkaj retulmiloj)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',

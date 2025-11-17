@@ -35,6 +35,10 @@ return [
         'label' => '單獨輸入',
         'description' => "顯示兩個不同的日期和時間輸入而不是組合一個（某些瀏覽器不支持）",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',

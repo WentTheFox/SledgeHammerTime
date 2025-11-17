@@ -35,6 +35,10 @@ return [
         'label' => 'Separate inputs',
         'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',

@@ -35,6 +35,10 @@ return [
         'label' => 'Διαχωρισμός εισαγωγών',
         'description' => "Εμφάνιση δύο διαφορετικών εισαγωγών για την ημερομηνία και την ώρα αντί για μια συνδυασμένη (που δεν υποστηρίζεται σε ορισμένα προγράμματα περιήγησης)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Συγχρονισμός Ώρας',
