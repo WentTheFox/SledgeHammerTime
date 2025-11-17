@@ -34,6 +34,7 @@ const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
 const oneSecondInMs = 1e3 * 60;
 const oneMinuteInSecondsMs = 1e3 * 60;
+const alreadyLoggedMissingLocaleNames = new Set<string>();
 
 // Default values
 const defaultDate = '2023-01-01';
@@ -289,7 +290,10 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     const normalizedLocaleName = localeName.replace(/[^a-z\d]/gi, '');
     let locale: Locale = locales[normalizedLocaleName as keyof typeof locales];
     if (typeof locale === 'undefined') {
-      console.warn(`No date-fns locale found by key ${normalizedLocaleName}`);
+      if (!alreadyLoggedMissingLocaleNames.has(localeName)) {
+        console.warn(`No date-fns locale found by key ${normalizedLocaleName}`);
+        alreadyLoggedMissingLocaleNames.add(localeName);
+      }
       // Load English as a fallback when locale is unavailable for date-fns
       locale = locales.enUS;
     }
