@@ -24,20 +24,20 @@ return [
     'inputSettings' => [
       'title' => 'Impostazioni di input',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Input data personalizzato',
+        'description' => "Sostituisci l'input predefinito della data del browser con uno personalizzato.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Input orario personalizzato',
+        'description' => "Sostituisci l'input orario predefinito del browser con uno personalizzato. Ciò è particolarmente utile se hai problemi a selezionare l'ora sui browser mobili.",
       ],
       'separateInputs' => [
         'label' => 'Input separati',
         'description' => "Mostra due input diversi per data e ora invece di uno combinato (che non è supportato in alcuni browser)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Appiattisci interfaccia',
+        'description' => "Disabilita gli effetti di ombra e altezza sugli input e sui pulsanti",
       ],
     ],
     'timeSync' => [
