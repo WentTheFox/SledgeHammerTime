@@ -35,6 +35,10 @@ return [
         'label' => '独立输入',
         'description' => "分别显示日期和时间的独立输入框，而非合并显示（部分浏览器不支持此功能）",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
