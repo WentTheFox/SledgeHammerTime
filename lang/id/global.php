@@ -35,6 +35,10 @@ return [
         'label' => 'Masukan terpisah',
         'description' => "Tampilkan dua input berbeda untuk tanggal dan waktu alih-alih input gabungan (yang tidak didukung di beberapa browser)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
