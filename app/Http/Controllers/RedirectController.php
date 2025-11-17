@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RedirectController extends Controller {
   function discord() {
-    $inviteUrl = env('DISCORD_INVITE_URL');
+    $inviteUrl = config('services.discord.invite_url');
     if (empty($inviteUrl)){
       throw new NotFoundHttpException();
     }
