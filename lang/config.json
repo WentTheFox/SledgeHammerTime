@@ -105,7 +105,8 @@
       "name": "English, United States",
       "nativeName": "English, US",
       "countryCode": "US",
-      "emoji": "🇺🇸"
+      "emoji": "🇺🇸",
+      "dateFnsLocale": "en-US"
     },
     "fr": {
       "name": "French",
