@@ -35,6 +35,10 @@ return [
         'label' => 'Phân tách ô nhập dữ liệu',
         'description' => "Hiển thị hai ô nhập dữ liệu tách biệt cho ngày và giờ thay vì để chung một ô (việc để chung có thể không được hỗ trợ ở một số trình duyệt)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
