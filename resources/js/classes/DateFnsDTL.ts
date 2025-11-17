@@ -1,7 +1,6 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
-import { dateFnsLocaleMap, defaultDateFnsLocaleLoader } from '@/date-fns';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import {
@@ -26,6 +25,7 @@ import {
   setMinutes,
   setSeconds,
 } from 'date-fns';
+import * as locales from 'date-fns/locale';
 
 // Format constants
 const isoTimeFormat = 'HH:mm:ss';
@@ -286,19 +286,15 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   async loadLocaleLowLevel(localeName: string): Promise<Locale | undefined> {
-    let localeLoader = dateFnsLocaleMap[localeName as keyof typeof dateFnsLocaleMap];
-    if (typeof localeLoader === 'undefined') {
-      console.warn(`No date-fns locale loader found by key ${localeName}`);
+    const normalizedLocaleName = localeName.replace(/[^a-z\d]/gi, '');
+    let locale: Locale = locales[normalizedLocaleName as keyof typeof locales];
+    if (typeof locale === 'undefined') {
+      console.warn(`No date-fns locale found by key ${normalizedLocaleName}`);
       // Load English as a fallback when locale is unavailable for date-fns
-      localeLoader = defaultDateFnsLocaleLoader;
+      locale = locales.enUS;
     }
 
-    try {
-      return await localeLoader().then((module) => module.default);
-    } catch (e) {
-      console.warn(`Failed to load date-fns locale ${localeName}`, e);
-      return undefined;
-    }
+    return locale;
   }
 
   async localeLoader(localeName: string): Promise<DateTimeLibraryLocale<Locale>> {
