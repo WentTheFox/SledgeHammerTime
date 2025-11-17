@@ -13,7 +13,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_NPM="npm ci"
     CMD_BUILD="npm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
-    CMD_PM2="pm2 restart pm2.json"
+    CMD_LARAVEL_STOP_SSR="php artisan inertia:stop-ssr"
 
     echo "$ $CMD_CD"
     eval ${CMD_CD}
@@ -38,8 +38,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     if $GIT diff --name-only $oldrev $newrev | grep "^\(resources\|lang\)/"; then
         echo "$ $CMD_BUILD"
         eval $CMD_BUILD
-        echo "$ $CMD_PM2"
-        eval $CMD_PM2
+        echo "$ $CMD_LARAVEL_STOP_SSR"
+        eval $CMD_LARAVEL_STOP_SSR
     else
         echo "# Skipping asset rebuild, no changes in resources/lang folders"
     fi
