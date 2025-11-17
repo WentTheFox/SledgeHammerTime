@@ -51,8 +51,6 @@ const highlightedIndex = ref<number>(-1);
 const mode = ref<'typing' | 'select'>('typing');
 const showSuggestions = ref<boolean>(false);
 const isInteractingWithSuggestions = ref(false);
-const newlyFocused = ref(false);
-const freshlyFocusedTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
 
 type OptionMeta = { [k in keyof Omit<ComboboxOption, 'value'>]: Record<string, ComboboxOption[k]> };
 
@@ -251,7 +249,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
         setInputValueFromModelValue(model.value);
       }
       showSuggestions.value = false;
-      break;
+      return;
 
     case "PageDown":
     case "PageUp":
@@ -325,21 +323,13 @@ const handleSuggestionClick = (option: ComboboxOption, index: number) => {
 // Handle focus & blur correctly
 const handleFocus = (event: FocusEvent) => {
   emit('focus', event);
-  if (!props.allowTyping) {
-    showSuggestions.value = true;
-  } else if (!isInteractingWithSuggestions.value) {
+  if (props.allowTyping && isInteractingWithSuggestions.value) {
     showSuggestions.value = false; // Prevent showing suggestions immediately
   }
   detectSelectMode();
-  newlyFocused.value = true;
-  // Prevent handling click event shortly after focus
-  freshlyFocusedTimeout.value = setTimeout(() => {
-    newlyFocused.value = false;
-    freshlyFocusedTimeout.value = null;
-  }, 50);
 };
 const handleInputClick = () => {
-  if (props.allowTyping || newlyFocused.value) {
+  if (props.allowTyping) {
     return;
   }
   showSuggestions.value = !showSuggestions.value;
@@ -426,9 +416,6 @@ onUnmounted(() => {
     document.body.removeEventListener('mouseup', globalMouseupHandler);
   }
   suggestionIO.value?.disconnect();
-  if (freshlyFocusedTimeout.value) {
-    clearTimeout(freshlyFocusedTimeout.value);
-  }
 });
 
 watch(model, (newModelValue) => {
