@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Ρυθμίσεις εισαγωγής',
-      'customInputs' => [
-        'label' => 'Προσαρμοσμένη εισαγωγή',
-        'description' => "Αντικαθιστά τις προεπιλεγμένες εισόδους του περιηγητή με προσαρμοσμένες που σέβονται την επιλεγμένη γλώσσα ιστοσελίδας σας",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'Διαχωρισμός εισαγωγών',
