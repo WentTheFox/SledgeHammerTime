@@ -762,6 +762,11 @@
     "17430050": {
       "username": "Riinku",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430050/medium/ff6f865ca37824d8c9f7edfc4759a7a5.jpg"
+    },
+    "17430436": {
+      "username": "ZeruGames",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/a1ce4f92f92907c46756a217de733d38.png",
+      "fullName": "Zeru"
     }
   },
   "languages": {
@@ -1159,7 +1164,8 @@
         "16587533",
         "16608543",
         "12773366",
-        "17302298"
+        "17302298",
+        "17430436"
       ],
       "progress": {
         "approval": 36,
