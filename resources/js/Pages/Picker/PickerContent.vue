@@ -63,7 +63,8 @@ const changeTimeString = (value: string) => {
   if (!dateTimeSelectionChanged.value) {
     dateTimeSelectionChanged.value = true;
   }
-  timeString.value = value;
+  const normalizedValue = value.length === 5 ? `${value}:00` : value;
+  timeString.value = normalizedValue;
 };
 const changeDateTimeString = (value: string) => {
   if (!dateTimeSelectionChanged.value) {
@@ -71,7 +72,7 @@ const changeDateTimeString = (value: string) => {
   }
   const [newDateString, newTimeString] = value.split(/[ T]/);
   dateString.value = newDateString;
-  timeString.value = newTimeString;
+  timeString.value = newTimeString.length === 5 ? `${newTimeString}:00` : newTimeString;
 };
 const changeTimezone = (value: TimezoneSelection) => {
   currentTimezone.value = value;

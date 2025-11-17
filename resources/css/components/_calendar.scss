@@ -4,25 +4,26 @@
   --gap: .25em;
   --column-count: 7;
   text-align: center;
-  font-size: .9em;
-  --button-size: 1.75em;
+  font-size: #{design.app-value('button-font-size')};
   user-select: none;
-
-  @include design.screen-below('md') {
-    --button-size: 2em;
-  }
+  --button-size: 1em;
 }
 
 .calendar-controls {
-  display: grid;
-  grid-template-columns: calc(var(--button-size) * 2.5) auto calc(var(--button-size) * 2.5);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   width: 100%;
   margin: .5em 0;
   gap: var(--gap);
 
+  > .button-group {
+    flex: 0 0 2em;
+  }
+
   .calendar-context {
-    font-size: calc(var(--button-size) * 0.65);
-    line-height: var(--button-size);
+    flex: 1 1 100%;
+    height: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -83,20 +84,18 @@
   }
 
   .calendar-weekdays > * {
-    border-bottom: 1px solid;
-    padding: 0 calc(var(--gap) / 2);
+    padding: var(--gap);
     white-space: nowrap;
     overflow: hidden;
   }
 
   .calendar-day {
-    padding: .1em;
+    padding: .75em;
     border: 1px solid transparent;
     border-radius: .15em;
     box-sizing: border-box;
     margin: 0;
     background-color: transparent;
-    height: var(--button-size);
     position: relative;
 
     &:focus {

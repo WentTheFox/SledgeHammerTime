@@ -34,7 +34,8 @@ export const sidebarState = Symbol('sidebarState') as InjectionKey<{
 }>;
 
 export interface LocalSettingsValue {
-  readonly customInputEnabled: boolean | null;
+  readonly customDateInputEnabled: boolean | null;
+  readonly customTimeInputEnabled: boolean | null;
   readonly combinedInputsEnabled: boolean | null;
   /**
    * This value will not be flipped on RTL layouts
@@ -44,7 +45,8 @@ export interface LocalSettingsValue {
   readonly sidebarOffDesktop: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
-  readonly toggleCustomInput: (e: Event) => void;
+  readonly toggleCustomDateInput: (e: Event) => void;
+  readonly toggleCustomTimeInput: (e: Event) => void;
   readonly toggleSeparateInputs: (e: Event) => void;
   readonly toggleSidebarOnRight: VoidFunction;
   readonly setSidebarOffDesktop: (value: boolean) => void;

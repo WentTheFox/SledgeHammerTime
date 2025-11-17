@@ -17,13 +17,20 @@ const changeDateTime = () => {
   ts?.changeDateTimeString(selectedDateTime.value);
 };
 
-watch(() => [ts?.currentDate, ts?.currentTime], ([currentDate, currentTime]) => {
-  if (!currentDate || !currentTime) {
+const updateSelectedDateTime = () => {
+  if (!ts?.currentDate?.value || !ts?.currentTime?.value) {
     selectedDateTime.value = '';
     return;
   }
 
-  selectedDateTime.value = currentDate.value + 'T' + currentTime.value;
+  selectedDateTime.value = `${ts.currentDate.value}T${ts.currentTime.value}`;
+};
+
+watch(ts!.currentDate, () => {
+  updateSelectedDateTime();
+}, { immediate: true });
+watch(ts!.currentTime, () => {
+  updateSelectedDateTime();
 }, { immediate: true });
 </script>
 

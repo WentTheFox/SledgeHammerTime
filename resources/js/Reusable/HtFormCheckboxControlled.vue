@@ -6,6 +6,7 @@ defineProps<{
   label: string,
   name?: string,
   checked: boolean;
+  disabled?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -17,6 +18,7 @@ const emit = defineEmits<{
   <HtFormCheckbox
     :id="id"
     :label="label"
+    :disabled="disabled"
   >
     <template #input>
       <input
@@ -24,6 +26,7 @@ const emit = defineEmits<{
         type="checkbox"
         :checked="checked"
         :name="name"
+        :disabled="disabled"
         class="form-checkbox-input"
         @change="emit('change', $event)"
       >

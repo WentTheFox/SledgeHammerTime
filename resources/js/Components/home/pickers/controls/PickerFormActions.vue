@@ -8,7 +8,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <HtButtonGroup>
+  <HtButtonGroup class="mt-2">
     <HtButton
       color="primary"
       :justify-center="true"

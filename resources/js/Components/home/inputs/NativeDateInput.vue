@@ -17,13 +17,13 @@ const changeDate = () => {
   ts?.changeDateString(selectedDate.value);
 };
 
-watch(() => ts?.currentDate, (currentDate) => {
+watch(ts!.currentDate, (currentDate) => {
   if (!currentDate) {
     selectedDate.value = '';
     return;
   }
 
-  selectedDate.value = currentDate.value;
+  selectedDate.value = currentDate;
 }, { immediate: true });
 </script>
 

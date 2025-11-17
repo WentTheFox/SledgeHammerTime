@@ -312,7 +312,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
         const baseDate = new Date(2021, 0, 3); // Sunday
         for (let i = 0; i < 7; i++) {
           const date = addDays(baseDate, i);
-          dayNames.push(format(date, 'EEE', { locale }));
+          dayNames.push(format(date, 'EEEEEE', { locale }));
         }
         return dayNames;
       },
