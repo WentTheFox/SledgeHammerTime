@@ -6,7 +6,7 @@ import { Head, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
 const page = usePage();
-const fallbackLocale = computed(() => page.props.app.fallbackLocale);
+const fallbackLocale = computed(() => page.props.app?.fallbackLocale ?? 'en');
 </script>
 
 <template>
