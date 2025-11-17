@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Eingabeeinstellungen',
-      'customInputs' => [
-        'label' => 'Benutzerdefinierte Eingaben',
-        'description' => "Ersetzt die Standardeingaben des Browsers durch benutzerdefinierte Eingaben, die die von dir gewählte Sprache der Website berücksichtigen",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Replace the browser default date input with a custom one.",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Getrennte Eingaben',
