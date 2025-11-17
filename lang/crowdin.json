@@ -753,6 +753,15 @@
       "username": "Daniel12321",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17428170/medium/9b3e4d73d289db94f2db3280f351759f.png",
       "fullName": "Daniel Víquez Delgado"
+    },
+    "17429540": {
+      "username": "yuuuyu",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17429540/medium/d874270e7cceeb9519ecdbbc5abc6975.png",
+      "fullName": "ゆううゆ"
+    },
+    "17430050": {
+      "username": "Riinku",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430050/medium/ff6f865ca37824d8c9f7edfc4759a7a5.jpg"
     }
   },
   "languages": {
@@ -836,8 +845,8 @@
         "13365555"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "en-GB": {
@@ -860,7 +869,7 @@
         "17428170"
       ],
       "progress": {
-        "approval": 9,
+        "approval": 10,
         "translation": 10
       }
     },
@@ -970,8 +979,8 @@
         "16603067"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "ja": {
@@ -983,11 +992,12 @@
         "17087468",
         "13047240",
         "17190310",
-        "17197940"
+        "17197940",
+        "17429540"
       ],
       "progress": {
-        "approval": 9,
-        "translation": 9
+        "approval": 13,
+        "translation": 14
       }
     },
     "ko": {
@@ -1042,7 +1052,7 @@
         "12680006"
       ],
       "progress": {
-        "approval": 9,
+        "approval": 12,
         "translation": 12
       }
     },
@@ -1070,11 +1080,12 @@
         "17155466",
         "17179168",
         "17413820",
-        "16122526"
+        "16122526",
+        "17430050"
       ],
       "progress": {
-        "approval": 20,
-        "translation": 20
+        "approval": 25,
+        "translation": 25
       }
     },
     "pl": {

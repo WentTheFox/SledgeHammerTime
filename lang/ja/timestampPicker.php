@@ -39,7 +39,7 @@ return [
       'p' => 'Discord内からコマンドでタイムスタンプを生成できます',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
+      'header' => '旧Hammer Timeサイト',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [

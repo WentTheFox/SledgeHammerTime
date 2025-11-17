@@ -12,7 +12,7 @@ return [
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Saltar al mes actual',
     ],
     'tooltip' => [
       'setToCurrent' => 'Establecer a hora actual',

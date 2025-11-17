@@ -8,20 +8,20 @@ return [
       'time' => 'Masa',
       'dateAndTime' => 'Tarikh dan masa',
       'timezone' => 'Zon waktu',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Ofset Mutlak',
+      'modeZoneName' => 'Nama Zon',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Lompat ke bulan semasa',
     ],
     'tooltip' => [
       'setToCurrent' => 'Tetapkan ke masa semasa',
       'lock' => 'Kunci cap masa melalui URL',
       'unlock' => 'Buka kunci cap masa',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Tahun sebelumnya',
+      'previousMonth' => 'Bulan sebelumnya',
+      'nextMonth' => 'Bulan seterusnya',
+      'nextYear' => 'Tahun seterusnya',
     ],
   ],
   'table' => [
@@ -39,8 +39,8 @@ return [
       'p' => 'Jana cap masa di dalam Discord sendiri menggunakan perintah palang',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'Laman Sesawang Lama HammerTime',
+      'p' => 'Laman sesawang projek ini yang lama, masih tersedia sehingga Beta ini diterbitkan',
     ],
     'textColor' => [
       'header' => 'Penjana Tulisan <1>Berwarna</1> Rebane',

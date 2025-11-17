@@ -5,9 +5,9 @@ return [
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
     'heading' => 'Profiel Informatie',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'description' => "Werk uw accounts profielinformatie bij.",
+    'displayName' => 'Weergavenaam',
+    'saveSuccess' => 'Uw profiel is succesvol bijgewerkt.',
   ],
   'accounts' => [
     'heading' => 'Gekoppelde accounts',

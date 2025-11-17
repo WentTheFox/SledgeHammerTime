@@ -34,8 +34,8 @@ return [
     'removedOption' => 'Removed',
     'optionType' => 'Typ',
     'optionTypes' => [
-      1 => 'Sub-command',
-      2 => 'Sub-command Group',
+      1 => 'Podkomenda',
+      2 => 'Grupa podkomend',
       3 => 'Ciąg znaków',
       4 => 'Liczba całkowita',
       5 => 'Wartość logiczna',
