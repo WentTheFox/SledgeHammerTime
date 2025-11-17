@@ -77,6 +77,7 @@ provide(positionAnchor, positionAnchorName);
     />
     <DatePicker
       ref="date-picker"
+      :select-on-click="true"
       @selected="changeDate"
     />
   </div>

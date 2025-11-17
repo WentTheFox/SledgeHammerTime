@@ -23,13 +23,21 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Input settings',
-      'customInputs' => [
-        'label' => 'Custom inputs',
-        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Replace the browser default date input with a custom one.",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Separate inputs',
         'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
+      ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
       ],
     ],
     'timeSync' => [

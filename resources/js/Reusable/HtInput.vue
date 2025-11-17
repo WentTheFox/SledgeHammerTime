@@ -19,6 +19,7 @@ const props = defineProps<{
   type?: 'text' | 'number' | 'date' | 'time' | 'datetime-local' | 'color';
   min?: string | number;
   max?: string | number;
+  step?: string | number;
   tabindex?: string | number;
   'class'?: string;
 }>();
@@ -57,6 +58,7 @@ defineExpose({
     :max="max"
     :tabindex="tabindex"
     :style="positionAnchorName ? `anchor-name: ${positionAnchorName}` : undefined"
+    :step="step"
     @click="emit('click', $event)"
     @focus="emit('focus', $event)"
     @blur="emit('blur', $event)"

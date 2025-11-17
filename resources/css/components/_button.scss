@@ -21,6 +21,12 @@
   cursor: pointer;
   transform: translateY(calc(#{design.app-value('button-shadow-size')} * -1));
 
+  body.flat-ui & {
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   @include design.if-prefers-reduced-motion {
     transition: none !important;
   }

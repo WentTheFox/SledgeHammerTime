@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 defineProps<{
   id: string,
   label: string,
+  disabled?: boolean,
 }>();
 </script>
 
 <template>
-  <HtFormControlWrap>
+  <HtFormControlWrap :disabled="disabled">
     <div class="form-control-checkbox">
       <span class="form-checkbox-input-wrap">
         <slot name="input" />

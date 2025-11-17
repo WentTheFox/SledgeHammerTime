@@ -6,6 +6,10 @@
   border-radius: design.app-value('input-field-border-radius');
   box-shadow: inset 0 design.app-value('input-field-box-shadow-inset-y') design.app-value('input-field-box-shadow') design.app-color('input-field-box-shadow');
 
+  body.flat-ui & {
+    box-shadow: none !important;
+  }
+
   &:not([type="color"]) {
     color: design.app-color('input-field-color');
     background-color: design.app-color('input-field-bg');
