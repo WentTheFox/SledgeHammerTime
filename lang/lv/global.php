@@ -35,6 +35,10 @@ return [
         'label' => 'Atsevišķas ievades',
         'description' => "Parādīt divus atšķirīgus ievades laukus datumam un laikam, nevis vienu kombinētu (kas dažās pārlūkprogrammās netiek atbalstīts)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
