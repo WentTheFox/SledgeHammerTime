@@ -59,6 +59,19 @@ const settings = inject(localSettingsInject);
           />
         </template>
       </HtFormCheckboxControlled>
+      <HtFormCheckboxControlled
+        id="flat-ui"
+        :label="$t('global.sidebar.inputSettings.flatUi.label')"
+        :checked="Boolean(settings?.flatUiEnabled)"
+        @change="settings?.toggleFlatUi"
+      >
+        <template #message>
+          <FormMessage
+            :message="$t('global.sidebar.inputSettings.flatUi.description')"
+            class="mt-1"
+          />
+        </template>
+      </HtFormCheckboxControlled>
     </HtFormControlGroup>
   </section>
 </template>

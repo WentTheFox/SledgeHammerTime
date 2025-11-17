@@ -2,6 +2,7 @@ import { CurrentLanguageData } from '@/injection-keys';
 import { computed, onMounted, Ref, ref, watch } from 'vue';
 
 const splitPrefKey = 'split-input';
+const flatUiPrefKey = 'flat-ui';
 const customDatePrefKey = 'custom-date-input';
 const customTimePrefKey = 'custom-time-input';
 const sidebarPrefKey = 'sidebar-right';
@@ -13,6 +14,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const customDateInputEnabled = ref<boolean | null>(null);
   const customTimeInputEnabled = ref<boolean | null>(null);
   const combinedInputsEnabled = ref<boolean | null>(null);
+  const flatUiEnabled = ref<boolean | null>(null);
   const sidebarOnRight = ref<boolean | null>(null);
   const sidebarOffDesktop = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
@@ -30,6 +32,9 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   });
   watch(combinedInputsEnabled, (newValue) => {
     localStorage.setItem(splitPrefKey, newValue ? 'false' : 'true');
+  });
+  watch(flatUiEnabled, (newValue) => {
+    localStorage.setItem(flatUiPrefKey, newValue ? 'true' : 'false');
   });
   watch(sidebarOnRight, (newValue) => {
     localStorage.setItem(sidebarPrefKey, newValue ? 'true' : 'false');
@@ -61,6 +66,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     const testValue = '1)';
     testInput.value = testValue;
     combinedInputsEnabled.value = testInput.value !== testValue;
+  };
+  const setInitialFlatUi = () => {
+    const storedPref = localStorage.getItem(flatUiPrefKey);
+    // Disable flat UI by default
+    flatUiEnabled.value = storedPref === 'true';
   };
   const setInitialCustomDateInput = () => {
     const storedPref = localStorage.getItem(customDatePrefKey);
@@ -94,6 +104,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   };
 
   onMounted(() => {
+    setInitialFlatUi();
     setInitialCombinedInput();
     setInitialCustomDateInput();
     setInitialCustomTimeInput();
@@ -107,6 +118,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     customDateInputEnabled,
     customTimeInputEnabled,
     combinedInputsEnabled,
+    flatUiEnabled,
     sidebarOnRight: effectiveSidebarOnRight,
     rawSidebarOnRight: sidebarOnRight,
     sidebarOffDesktop,
@@ -126,6 +138,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
       if (!(e.target instanceof HTMLInputElement)) return;
 
       combinedInputsEnabled.value = !e.target.checked;
+    },
+    toggleFlatUi(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+
+      flatUiEnabled.value = e.target.checked;
     },
     toggleSidebarOnRight() {
       sidebarOnRight.value = !sidebarOnRight.value;
