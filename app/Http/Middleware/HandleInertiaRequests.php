@@ -36,7 +36,10 @@ class HandleInertiaRequests extends Middleware {
         'user' => $request->user(),
       ],
     ];
-    $shared['ziggy']['location'] = $request->url();
+    $shared['ziggy'] = fn() => [
+      ...(new Ziggy)->toArray(),
+      'location' => $request->url(),
+    ];
 
     return $shared;
   }
@@ -51,9 +54,7 @@ class HandleInertiaRequests extends Middleware {
         'supportedLanguages' => Config::get('languages.supported_locales'),
         'crowdinProjectId' => Config::get('crowdin.project_id'),
       ],
-      'ziggy' => fn() => [
-        ...(new Ziggy)->toArray(),
-      ],
+      'ziggy' => fn() => (new Ziggy)->toArray(),
     ];
   }
 }
