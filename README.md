@@ -111,6 +111,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Amit Cohen](https://crowdin.com/profile/ZeRealOne)
   - [Arthur](https://crowdin.com/profile/DuperKnight)
   - [didli789](https://crowdin.com/profile/didli789)
+  - [Zeru](https://crowdin.com/profile/ZeruGames)
 - 🇮🇳 Hindi
   - [Balajiasli](https://crowdin.com/profile/Balajiasli)
   - [Natzu](https://crowdin.com/profile/natieon)
