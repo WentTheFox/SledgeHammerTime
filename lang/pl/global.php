@@ -35,6 +35,10 @@ return [
         'label' => 'Osobne pola',
         'description' => "Wyświetla dwa różne pola na datę i czas zamiast połączonych pól (które są nieobsługiwane przez niektóre przeglądarki)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
