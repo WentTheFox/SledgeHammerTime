@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Inndata innstillinger',
-      'customInputs' => [
-        'label' => 'Egendefinert inndata',
-        'description' => "Replaces the browser's default inputs with custom ones that respect your chosen website language",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'Separat inndata',
