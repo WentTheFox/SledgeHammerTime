@@ -35,6 +35,10 @@ return [
         'label' => '分離入力',
         'description' => "日付と時刻の入力を分離させます（一部ブラウザではサポートされていません）",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
