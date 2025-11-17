@@ -24,20 +24,20 @@ return [
     'inputSettings' => [
       'title' => 'Ρυθμίσεις εισαγωγής',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Προσαρμοσμένη εισαγωγή ημερομηνίας',
+        'description' => "Αντικαταστήστε την προεπιλεγμένη ημερομηνία του προγράμματος περιήγησης με μια προσαρμοσμένη.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Προσαρμοσμένη εισαγωγή ώρας',
+        'description' => "Αντικαταστήστε την προεπιλεγμένη ώρας του προγράμματος περιήγησης με μια προσαρμοσμένη. Αυτό είναι ιδιαίτερα χρήσιμο αν έχετε πρόβλημα με την επιλογή της ώρας σε προγράμματα περιήγησης για κινητά τηλέφωνα.",
       ],
       'separateInputs' => [
         'label' => 'Διαχωρισμός εισαγωγών',
         'description' => "Εμφάνιση δύο διαφορετικών εισαγωγών για την ημερομηνία και την ώρα αντί για μια συνδυασμένη (που δεν υποστηρίζεται σε ορισμένα προγράμματα περιήγησης)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Επιπεδοποίηση διεπαφής',
+        'description' => "Απενεργοποίηση εφέ σκίασης και ύψους στις εισόδους και τα κουμπιά",
       ],
     ],
     'timeSync' => [
