@@ -35,6 +35,10 @@ return [
         'label' => 'Separata inmatningar',
         'description' => "Visa två olika inmatningar för datum och tid i stället för en kombinerad (vilket inte stöds i vissa webbläsare)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
