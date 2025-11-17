@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Beviteli beállítások',
-      'customInputs' => [
-        'label' => 'Egyéni beviteli mezők',
-        'description' => "Lecseréli a böngésző alapértelmezett beviteli mezőit sajátokra, amik követik a weboldal kiválasztott nyelvét",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Replace the browser default date input with a custom one.",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Külön beviteli mezők',

@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Girdi ayarları',
-      'customInputs' => [
-        'label' => 'Özel girdiler',
-        'description' => "Tarayıcının varsayılan girdi kutucuklarını seçtiğiniz dile uygun özel girdi kutucuklarıyla değiştirir",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Replace the browser default date input with a custom one.",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Girdileri ayır',

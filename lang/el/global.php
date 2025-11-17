@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Ρυθμίσεις εισαγωγής',
-      'customInputs' => [
-        'label' => 'Προσαρμοσμένη εισαγωγή',
-        'description' => "Αντικαθιστά τις προεπιλεγμένες εισόδους του περιηγητή με προσαρμοσμένες που σέβονται την επιλεγμένη γλώσσα ιστοσελίδας σας",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Replace the browser default date input with a custom one.",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Διαχωρισμός εισαγωγών',
