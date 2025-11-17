@@ -36,6 +36,10 @@ return [
         'label' => 'الإدخال المنفصل',
         'description' => "عرض إدخال التاريخ والزمن بشكل منفصل بدلا من دمجهما (لا يدعمه بعض المتصفحات)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
