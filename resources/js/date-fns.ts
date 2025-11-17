@@ -1,6 +1,12 @@
+import { AvailableLanguage } from '@/utils/language-settings';
 import { Locale } from 'date-fns';
 
-export const dateFnsLocaleMap: Record<string, () => Promise<{ default: Locale }>> = {
+export type DateFnsLocaleLoader = () => Promise<{ default: Locale }>;
+
+// @ts-expect-error (Import is correct)
+export const defaultDateFnsLocaleLoader: DateFnsLocaleLoader = () => import('date-fns/locale/en-US');
+
+export const dateFnsLocaleMap: Partial<Record<AvailableLanguage, DateFnsLocaleLoader>> = {
   // @ts-expect-error (Import is correct)
   'ar': () => import('date-fns/locale/ar'),
   // @ts-expect-error (Import is correct)
@@ -15,8 +21,7 @@ export const dateFnsLocaleMap: Record<string, () => Promise<{ default: Locale }>
   'de': () => import('date-fns/locale/de'),
   // @ts-expect-error (Import is correct)
   'el': () => import('date-fns/locale/el'),
-  // @ts-expect-error (Import is correct)
-  'en': () => import('date-fns/locale/en-US'),
+  'en': defaultDateFnsLocaleLoader,
   // @ts-expect-error (Import is correct)
   'en-GB': () => import('date-fns/locale/en-GB'),
   // @ts-expect-error (Import is correct)
@@ -69,12 +74,10 @@ export const dateFnsLocaleMap: Record<string, () => Promise<{ default: Locale }>
   'tr': () => import('date-fns/locale/tr'),
   // @ts-expect-error (Import is correct)
   'uk': () => import('date-fns/locale/uk'),
-  // Load english as a fallback as no Urdu locale is available for date-fns
   // @ts-expect-error (Import is correct)
   'ur': () => import('date-fns/locale/en-US'),
   // @ts-expect-error (Import is correct)
   'vi': () => import('date-fns/locale/vi'),
-  // @ts-expect-error (Import is correct)
   'zh-CN': () => import('date-fns/locale/zh-CN'),
   // @ts-expect-error (Import is correct)
   'zh-TW': () => import('date-fns/locale/zh-TW'),
