@@ -35,6 +35,10 @@ return [
         'label' => 'Intrări separate',
         'description' => "Afișarea a două intrări diferite pentru dată și oră în loc de una combinată (care nu este acceptată în unele browsere)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Sincronizarea timpului',
