@@ -69,7 +69,7 @@ export interface CurrentLanguageData {
   languages: Record<string, AvailableLanguage>;
   languageConfig: LatestLanguageConfigType | undefined;
   supportedLanguages: Set<string>;
-  crowdinProjectId: string;
+  crowdinProjectId?: string;
 }
 
 export const currentLanguageInject = Symbol('currentLanguageInject') as InjectionKey<Ref<CurrentLanguageData>>;

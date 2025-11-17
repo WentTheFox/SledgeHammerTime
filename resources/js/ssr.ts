@@ -6,21 +6,25 @@ import { i18nVue } from 'laravel-vue-i18n';
 import { createSSRApp, DefineComponent, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
+const fallbackAppNmae = 'HammerTime';
 createServer((page) =>
   createInertiaApp({
     page,
     render: renderToString,
-    title: (title) => title ? `${title} - ${page.props.app.name}` : page.props.app.name,
+    title: (title) => {
+      const appName = page.props.app?.name ?? fallbackAppNmae;
+      return title ? `${title} - ${appName}` : appName;
+    },
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
     setup({ App, props, plugin }) {
       return createSSRApp({ render: () => h(App, props) })
         .use(plugin)
         .use(ZiggyVue, {
           ...page.props.ziggy,
-          location: new URL(page.props.ziggy.location),
+          location: page.props.ziggy ? new URL(page.props.ziggy.location) : undefined,
         })
         .use(i18nVue, {
-          lang: props.initialPage.props.app.locale,
+          lang: props.initialPage.props.app?.locale ?? 'en',
           fallbackLang: 'en',
           fallbackMissingTranslations: true,
           resolve: (lang: string) => {

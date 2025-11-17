@@ -18,7 +18,7 @@ createInertiaApp({
   title: (title) => title ? `${title} - ${appName}` : appName,
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    const language = props.initialPage.props.app.languages[props.initialPage.props.app.locale];
+    const language = props.initialPage.props.app?.languages[props.initialPage.props.app.locale] ?? 'en';
     const initialDateTimeLocale = DefaultDTL.getLocaleNameFromLanguage(language);
     const createAppFn = el.innerHTML.length > 0 ? createSSRApp : createApp;
     const dateTimeLocalePromise = DefaultDTL.localeLoader(initialDateTimeLocale);
