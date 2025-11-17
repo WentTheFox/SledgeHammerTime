@@ -17,6 +17,11 @@
 .form-control-wrap {
   display: block;
   flex: 1 1 auto;
+
+  &.disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
 }
 
 .form-control {

@@ -5,9 +5,10 @@ import DatePickerCalendar from '@/Components/home/pickers/controls/DatePickerCal
 import PickerFormActions from '@/Components/home/pickers/controls/PickerFormActions.vue';
 import DatePickerInputs from '@/Components/home/pickers/DatePickerInputs.vue';
 import { useDatePicker } from '@/composables/useDatePicker';
+import { devModeInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
 import { limitDate, limitMonth } from '@/utils/time';
-import { useTemplateRef, watch } from 'vue';
+import { inject, useTemplateRef, watch } from 'vue';
 
 const {
   year,
@@ -21,9 +22,13 @@ const {
   getSelectedDate,
 } = useDatePicker();
 
+const props = defineProps<{ selectOnClick?: boolean }>();
+
 const emit = defineEmits<{
   (e: 'selected', date: string): void;
 }>();
+
+const devMode = inject(devModeInject);
 
 const popupRef = useTemplateRef<CustomPopupApi>('popup-el');
 const formRef = useTemplateRef<HTMLFormElement>('form-el');
@@ -45,6 +50,11 @@ const open = (initialValue: DateTimeLibraryValue, focusOnClose?: Focusable | nul
 };
 const setDateAndSelect = (newYear: number, newMonth: number, newDate: number) => {
   setDate(newYear, newMonth, newDate);
+
+  if (props.selectOnClick) {
+    selectAndClose();
+    return;
+  }
   select();
 };
 const close = () => {
@@ -72,7 +82,10 @@ defineExpose<DatePickerApi>({
       ref="form-el"
       @submit.prevent="selectAndClose"
     >
-      <HtFormInputGroup dir="ltr">
+      <HtFormInputGroup
+        v-if="devMode"
+        dir="ltr"
+      >
         <DatePickerInputs
           v-model:date-input="dateInput"
           v-model:month-input="monthInput"
@@ -82,15 +95,17 @@ defineExpose<DatePickerApi>({
           v-model:date="date"
         />
       </HtFormInputGroup>
-      <PickerFormActions @close="close" />
+      <DatePickerCalendar
+        ref="calendar"
+        :selected-year="year"
+        :selected-month="limitMonth(month)"
+        :selected-date="limitDate(date)"
+        @set-date="setDateAndSelect"
+      />
+      <PickerFormActions
+        v-if="!selectOnClick"
+        @close="close"
+      />
     </form>
-    <hr>
-    <DatePickerCalendar
-      ref="calendar"
-      :selected-year="year"
-      :selected-month="limitMonth(month)"
-      :selected-date="limitDate(date)"
-      @set-date="setDateAndSelect"
-    />
   </Popup>
 </template>

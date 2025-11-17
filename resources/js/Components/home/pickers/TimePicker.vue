@@ -39,7 +39,6 @@ const emit = defineEmits<{
 const popupRef = useTemplateRef<CustomPopupApi>('popup-el');
 const formRef = useTemplateRef<HTMLFormElement>('form-el');
 
-
 const selectAndClose = () => {
   const focusedEl = formRef.value?.querySelector<HTMLElement>(':focus');
   if (focusedEl) {

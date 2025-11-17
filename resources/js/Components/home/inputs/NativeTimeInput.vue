@@ -17,13 +17,13 @@ const changeTime = () => {
   ts?.changeTimeString(selectedTime.value);
 };
 
-watch(() => ts?.currentTime, (currentTime) => {
+watch(ts!.currentTime, (currentTime) => {
   if (!currentTime) {
     selectedTime.value = '';
     return;
   }
 
-  selectedTime.value = currentTime.value;
+  selectedTime.value = currentTime;
 }, { immediate: true });
 </script>
 

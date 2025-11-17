@@ -21,14 +21,27 @@ const settings = inject(localSettingsInject);
     </header>
     <HtFormControlGroup>
       <HtFormCheckboxControlled
-        id="custom-inputs"
-        :label="$t('global.sidebar.inputSettings.customInputs.label')"
-        :checked="Boolean(settings?.customInputEnabled)"
-        @change="settings?.toggleCustomInput"
+        id="custom-date-input"
+        :label="$t('global.sidebar.inputSettings.customDateInput.label')"
+        :checked="Boolean(settings?.customDateInputEnabled)"
+        @change="settings?.toggleCustomDateInput"
       >
         <template #message>
           <FormMessage
-            :message="$t('global.sidebar.inputSettings.customInputs.description')"
+            :message="$t('global.sidebar.inputSettings.customDateInput.description')"
+            class="mt-1"
+          />
+        </template>
+      </HtFormCheckboxControlled>
+      <HtFormCheckboxControlled
+        id="custom-time-input"
+        :label="$t('global.sidebar.inputSettings.customTimeInput.label')"
+        :checked="Boolean(settings?.customTimeInputEnabled)"
+        @change="settings?.toggleCustomTimeInput"
+      >
+        <template #message>
+          <FormMessage
+            :message="$t('global.sidebar.inputSettings.customTimeInput.description')"
             class="mt-1"
           />
         </template>
