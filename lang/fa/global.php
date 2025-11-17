@@ -35,6 +35,10 @@ return [
         'label' => 'ورودی های جداگانه',
         'description' => "نمایش دو ورودی مختلف برای تاریخ و زمان به جای ورودی ترکیبی (که در برخی مرورگرها پشتیبانی نمی شود)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
