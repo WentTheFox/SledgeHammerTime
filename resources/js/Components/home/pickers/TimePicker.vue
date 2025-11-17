@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import Popup, { CustomPopupApi, Focusable } from '@/Components/CustomPopup.vue';
 import PickerFormActions from '@/Components/home/pickers/controls/PickerFormActions.vue';
 import TimePickerDial from '@/Components/home/pickers/controls/TimePickerDial.vue';
 import TimePickerInputs from '@/Components/home/pickers/TimePickerInputs.vue';
 import { useTimePicker } from '@/composables/useTimePicker';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
+import HtPopup, { CustomPopupApi, Focusable } from '@/Reusable/HtPopup.vue';
 import { limitHours, limitMinutesSeconds, limitToTwelveHours } from '@/utils/time';
 import { inject, useTemplateRef } from 'vue';
 
@@ -68,7 +68,7 @@ defineExpose<TimePickerPopupApi>({
 
 
 <template>
-  <Popup
+  <HtPopup
     ref="popup-el"
     @close="closeTimePicker"
     @open="openTimePicker"
@@ -107,5 +107,5 @@ defineExpose<TimePickerPopupApi>({
       @change-focus="changeTimeFocus"
       @select="selectAndClose"
     />
-  </Popup>
+  </HtPopup>
 </template>

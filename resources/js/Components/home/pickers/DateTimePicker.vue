@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import Popup, { CustomPopupApi, Focusable } from '@/Components/CustomPopup.vue';
 import DatePickerCalendar from '@/Components/home/pickers/controls/DatePickerCalendar.vue';
 import PickerFormActions from '@/Components/home/pickers/controls/PickerFormActions.vue';
 import TimePickerDial from '@/Components/home/pickers/controls/TimePickerDial.vue';
@@ -11,6 +10,7 @@ import { useTimePicker } from '@/composables/useTimePicker';
 import { dateTimeLibraryInject, devModeInject, localSettingsInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
+import HtPopup, { CustomPopupApi, Focusable } from '@/Reusable/HtPopup.vue';
 import { DialMode } from '@/utils/dial';
 import {
   limitDate,
@@ -129,7 +129,7 @@ defineExpose<DateTimePickerApi>({
 </script>
 
 <template>
-  <Popup
+  <HtPopup
     ref="popup-el"
     :wide="Boolean(settings?.customTimeInputEnabled)"
     @close="closeTimePicker"
@@ -214,7 +214,7 @@ defineExpose<DateTimePickerApi>({
       </div>
       <PickerFormActions @close="close" />
     </form>
-  </Popup>
+  </HtPopup>
 </template>
 
 <style lang="scss">
