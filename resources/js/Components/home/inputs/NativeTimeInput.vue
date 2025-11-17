@@ -33,6 +33,7 @@ watch(ts!.currentTime, (currentTime) => {
       :id="id"
       v-model="selectedTime"
       type="time"
+      step="1"
       :disabled="disabled"
       @change="changeTime"
     />

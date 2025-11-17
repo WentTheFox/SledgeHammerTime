@@ -10,7 +10,7 @@ import { useDatePicker } from '@/composables/useDatePicker';
 import { useTimePicker } from '@/composables/useTimePicker';
 import { dateTimeLibraryInject, devModeInject, localSettingsInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
-import HtInput from '@/Reusable/HtInput.vue';
+import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
 import {
   limitDate,
@@ -65,6 +65,7 @@ const emit = defineEmits<{
 
 const popupRef = useTemplateRef<CustomPopupApi>('popup-el');
 const formRef = useTemplateRef<HTMLFormElement>('form-el');
+const timeInputRef = useTemplateRef<InputApi>('time-input-el');
 
 const select = () => {
   const selectedTimeValue = devMode?.value ? getSelectedTime() : timeInputValue.value;
@@ -102,6 +103,13 @@ const changeFocus = (input: 'year' | 'month' | 'date' | DialMode, setSelection: 
     case DialMode.Seconds:
       changeTimeFocus(input, setSelection);
       break;
+  }
+};
+
+const setDateAndUpdateFocus = (newYear: number, newMonth: number, newDate: number) => {
+  setDate(newYear, newMonth, newDate);
+  if (!settings?.customTimeInputEnabled) {
+    timeInputRef.value?.focus();
   }
 };
 
@@ -153,7 +161,7 @@ defineExpose<DateTimePickerApi>({
             :selected-year="year"
             :selected-month="limitMonth(month)"
             :selected-date="limitDate(date)"
-            @set-date="setDate"
+            @set-date="setDateAndUpdateFocus"
           />
         </div>
         <div
@@ -176,7 +184,7 @@ defineExpose<DateTimePickerApi>({
               v-model:dial="dial"
             />
           </HtFormInputGroup>
-          <time-picker-dial
+          <TimePickerDial
             v-if="renderDial"
             ref="dial"
             :hours="twelveHourMode ? limitToTwelveHours(hours) : limitHours(hours)"
@@ -198,7 +206,9 @@ defineExpose<DateTimePickerApi>({
       >
         <HtInput
           id="date-time-picker-time-input"
+          ref="time-input-el"
           v-model="timeInputValue"
+          step="1"
           type="time"
         />
       </div>
