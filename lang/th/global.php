@@ -24,16 +24,20 @@ return [
     'inputSettings' => [
       'title' => 'การตั้งค่าการป้อนข้อมูล',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'การป้อนวันที่แบบกำหนดเอง',
+        'description' => "เปลี่ยนวันที่เริ่มต้นจากเบราว์เซอร์ให้เป็นสิ่งที่คุณกำหนดเอง",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'การป้อนเวลาแบบกำหนดเอง',
+        'description' => "เปลี่ยนเวลาเริ่มต้นของเบราว์เซอร์ให้เป็นสิ่งที่คุณกำหนดเอง มันสามารถช่วยได้ถ้าคุณมีปัญหาในการเลือกเวลาบนเบราว์เซอร์มือถือ",
       ],
       'separateInputs' => [
         'label' => 'แยกอินพุต',
         'description' => "แสดงอินพุตแยกเป็นวันและเวลาแทนที่จะรวมเป็นหนึ่ง (บางเบราเซอร์อาจไม่รองรับฟีเจอร์นี้)",
+      ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
       ],
     ],
     'timeSync' => [
