@@ -7,6 +7,15 @@ return [
     "heading" => "页面不存在",
     "content" => "这里空无一物。",
   ],
+  "maintenanceMode" => [
+    "heading" => "Maintenance Mode",
+    "content" => [
+      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
+      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+    ],
+    "supportServerButton" => "Support Server",
+  ],
   'incompleteTranslations' => '翻译内容不完整',
   'contributeTranslations' => '参与贡献',
   'copyToClipboard' => '复制到剪切板',
