@@ -753,6 +753,11 @@
       "username": "Daniel12321",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17428170/medium/9b3e4d73d289db94f2db3280f351759f.png",
       "fullName": "Daniel Víquez Delgado"
+    },
+    "17429540": {
+      "username": "yuuuyu",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17429540/medium/d874270e7cceeb9519ecdbbc5abc6975.png",
+      "fullName": "ゆううゆ"
     }
   },
   "languages": {
@@ -983,11 +988,12 @@
         "17087468",
         "13047240",
         "17190310",
-        "17197940"
+        "17197940",
+        "17429540"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 11
       }
     },
     "ko": {
