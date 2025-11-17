@@ -24,16 +24,20 @@ return [
     'inputSettings' => [
       'title' => 'Beviteli beállítások',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Egyéni dátum beviteli mező',
+        'description' => "Lecseréli a böngésző alapértelmezett dátum beviteli mezőjét egy egyénire.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Egyéni idő beviteli mező',
+        'description' => "Lecseréli a böngésző alapértelmezett idő beviteli mezőjét egy egyénire. Ez kifejezetten hasznos, ha gondot okoz az idő kiválasztása mobil böngészőkben.",
       ],
       'separateInputs' => [
         'label' => 'Külön beviteli mezők',
         'description' => "Két különböző mezőt jelenít meg a dátumnak és az időnek egy összevont helyett (ami néhány böngészőben nem támogatott)",
+      ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
       ],
     ],
     'timeSync' => [
