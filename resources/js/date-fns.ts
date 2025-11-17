@@ -29,6 +29,8 @@ export const dateFnsLocaleMap: Partial<Record<AvailableLanguage, DateFnsLocaleLo
   // @ts-expect-error (Import is correct)
   'fa': () => import('date-fns/locale/fa-IR'),
   // @ts-expect-error (Import is correct)
+  'fi': () => import('date-fns/locale/fi'),
+  // @ts-expect-error (Import is correct)
   'fr': () => import('date-fns/locale/fr'),
   // @ts-expect-error (Import is correct)
   'he': () => import('date-fns/locale/he'),
@@ -54,6 +56,8 @@ export const dateFnsLocaleMap: Partial<Record<AvailableLanguage, DateFnsLocaleLo
   'ms': () => import('date-fns/locale/ms'),
   // @ts-expect-error (Import is correct)
   'nl': () => import('date-fns/locale/nl'),
+  // @ts-expect-error (Import is correct)
+  'nb': () => import('date-fns/locale/nb'),
   // @ts-expect-error (Import is correct)
   'pl': () => import('date-fns/locale/pl'),
   // @ts-expect-error (Import is correct)

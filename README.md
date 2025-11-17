@@ -81,6 +81,11 @@ English and Hungarian translations have been included, so no translators will be
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
+- 🇫🇮 Finnish
+  - [Cookie](https://crowdin.com/profile/cookiethegamer33)
+  - [Deadly dead](https://crowdin.com/profile/cricribebe)
+  - [John Wick](https://crowdin.com/profile/jw6942460)
+  - [lihaisapossu](https://crowdin.com/profile/lihaisapossu)
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
