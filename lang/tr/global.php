@@ -35,6 +35,10 @@ return [
         'label' => 'Girdileri ayır',
         'description' => "Tarih ve saat için birleşik girdi yerine iki farklı ayrı girdi görüntüleyin (bazı tarayıcılarda desteklenmez)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Zaman Senkronizasyonu',

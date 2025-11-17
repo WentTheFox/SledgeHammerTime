@@ -35,6 +35,10 @@ return [
         'label' => 'Separat inndata',
         'description' => "Vis to forskjellige inndata for dato og klokkeslett i stedet for en kombinert (det støttes ikke i noen nettlesere)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',

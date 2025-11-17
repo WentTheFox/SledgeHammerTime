@@ -35,6 +35,10 @@ return [
         'label' => 'קלט נפרד',
         'description' => "הצגה של שני קלטים שונים של תאריך וזמן במקום שילוב של שניהם (אפשרות שלא נתמכת בכמה מהדפדפנים)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',

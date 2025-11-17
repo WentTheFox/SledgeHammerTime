@@ -35,6 +35,10 @@ return [
         'label' => 'Getrennte Eingaben',
         'description' => "Zeige zwei verschiedene Eingaben für Datum und Uhrzeit statt eines kombinierten (was in einigen Browsern nicht unterstützt wird)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Zeitsynchronisation',

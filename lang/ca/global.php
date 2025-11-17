@@ -35,6 +35,10 @@ return [
         'label' => 'Entrades separades',
         'description' => "Mostra dues entrades diferents per a la data i l'hora en vegada d'una combinada (cosa que no és compatible amb alguns navegadors)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
