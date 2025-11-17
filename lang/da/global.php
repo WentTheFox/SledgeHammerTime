@@ -35,6 +35,10 @@ return [
         'label' => 'Separer input',
         'description' => "Vis to forskellige inputs for dato og tid i stedet for en kombineret (som ikke understøttes i nogle browsere)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
