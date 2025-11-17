@@ -35,6 +35,10 @@ return [
         'label' => 'Окремі введення',
         'description' => "Відображення двох різних введень для дати та часу замість комбінованого (це не підтримується в деяких браузерах)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
