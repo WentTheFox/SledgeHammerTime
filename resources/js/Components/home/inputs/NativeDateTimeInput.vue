@@ -41,6 +41,7 @@ watch(ts!.currentTime, () => {
       v-model="selectedDateTime"
       type="datetime-local"
       :disabled="disabled"
+      step="1"
       @change="changeDateTime"
     />
   </div>
