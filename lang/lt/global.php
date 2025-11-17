@@ -35,6 +35,10 @@ return [
         'label' => 'Atskiros įvestys',
         'description' => "Rodyti dvi skirtingas datos ir laiko įvestis, o ne vieną bendrą (kai kurios naršyklės to nepalaiko)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
