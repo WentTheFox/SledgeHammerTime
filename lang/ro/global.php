@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Setări de intrare',
-      'customInputs' => [
-        'label' => 'Intrări personalizate',
-        'description' => "Înlocuiește intrările implicite ale browserului cu intrări personalizate care respectă limba aleasă pentru site-ul web",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'Intrări separate',
