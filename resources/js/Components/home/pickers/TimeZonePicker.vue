@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Popup, { CustomPopupApi, Focusable } from '@/Components/CustomPopup.vue';
 import TimeZoneSelect from '@/Components/TimeZoneSelect.vue';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
@@ -10,6 +9,7 @@ import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
 import HtFormRadio from '@/Reusable/HtFormRadio.vue';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import HtInputGropupText from '@/Reusable/HtInputGropupText.vue';
+import HtPopup, { CustomPopupApi, Focusable } from '@/Reusable/HtPopup.vue';
 import { inputRangeLimitBlurHandlerFactory } from '@/utils/app';
 import { inject, ref, useTemplateRef } from 'vue';
 
@@ -38,7 +38,11 @@ const formRef = useTemplateRef<HTMLFormElement>('form-el');
 const select = () => {
   switch (mode.value) {
     case TimeZoneSelectionType.OFFSET:
-      emit('change', { type: TimeZoneSelectionType.OFFSET, hours: offsetHours.value, minutes: offsetMinutes.value });
+      emit('change', {
+        type: TimeZoneSelectionType.OFFSET,
+        hours: offsetHours.value,
+        minutes: offsetMinutes.value,
+      });
       break;
     case TimeZoneSelectionType.ZONE_NAME:
       emit('change', { type: TimeZoneSelectionType.ZONE_NAME, name: zoneName.value });
@@ -100,7 +104,7 @@ defineExpose<TimeZonePickerApi>({
 </script>
 
 <template>
-  <Popup
+  <HtPopup
     ref="popup-el"
     :allow-overflow="true"
   >
@@ -172,5 +176,5 @@ defineExpose<TimeZonePickerApi>({
         </HtButton>
       </HtButtonGroup>
     </form>
-  </Popup>
+  </HtPopup>
 </template>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import Popup, { CustomPopupApi, Focusable } from '@/Components/CustomPopup.vue';
 import DatePickerCalendar from '@/Components/home/pickers/controls/DatePickerCalendar.vue';
 import PickerFormActions from '@/Components/home/pickers/controls/PickerFormActions.vue';
 import DatePickerInputs from '@/Components/home/pickers/DatePickerInputs.vue';
 import { useDatePicker } from '@/composables/useDatePicker';
 import { devModeInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
+import HtPopup, { CustomPopupApi, Focusable } from '@/Reusable/HtPopup.vue';
 import { limitDate, limitMonth } from '@/utils/time';
 import { inject, useTemplateRef, watch } from 'vue';
 
@@ -77,7 +77,7 @@ defineExpose<DatePickerApi>({
 </script>
 
 <template>
-  <Popup ref="popup-el">
+  <HtPopup ref="popup-el">
     <form
       ref="form-el"
       @submit.prevent="selectAndClose"
@@ -107,5 +107,5 @@ defineExpose<DatePickerApi>({
         @close="close"
       />
     </form>
-  </Popup>
+  </HtPopup>
 </template>
