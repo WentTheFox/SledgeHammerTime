@@ -78,6 +78,7 @@ English and Hungarian translations have been included, so no translators will be
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
+  - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
 - 🇫🇷 French
@@ -127,6 +128,7 @@ English and Hungarian translations have been included, so no translators will be
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
   - [undefined9651](https://crowdin.com/profile/undefined9651)
   - [ちあたん](https://crowdin.com/profile/chiatan1006)
+  - [ゆううゆ](https://crowdin.com/profile/yuuuyu)
 - 🇰🇷 Korean
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)

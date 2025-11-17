@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'アプリ設定',
+  'description' => 'HammerTimeアプリでは、接続済みアカウントごとの現在の設定を以下で確認できます。',
+  'learnMore' => 'アプリの内容、またはどんなことができるのか気になりますか？詳細については<1>こちら</1>をご覧ください。',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => '詳細設定',
   ],
   'defaultOption' => 'Default',
   'fields' => [
@@ -13,7 +13,7 @@ return [
       'displayName' => 'タイムゾーン',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => '形式',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',

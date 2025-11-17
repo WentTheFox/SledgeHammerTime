@@ -4,21 +4,21 @@ return [
   'seoDescription' => 'Jana penunjuk cap masa untuk mesej sembang Discord',
   'changeLanguage' => 'Tukar bahasa',
   "notFound" => [
-    "heading" => "Page Not Found",
+    "heading" => "Halaman Tidak Dijumpai",
     "content" => "Tiada apa-apa untuk dilihat di sini.",
   ],
   'incompleteTranslations' => 'Terjemahan masih belum lengkap',
   'contributeTranslations' => 'Sumbang',
   'copyToClipboard' => 'Salin ke papan keratan',
-  'copiedToClipboard' => 'Copied to clipboard!',
+  'copiedToClipboard' => 'Disalin ke papan keratan!',
   'jsDisabled' => [
     'title' => 'JavaScript diperlukan',
     'body' => "Pelayar anda sama ada tidak menyokong JavaScript ataupun ia dinyahdayakan ketika ini. Sesetengah pelayar menyahdayakan JavaScript secara lalainya atas sebab keselamatan, tetapi ia diperlukan untuk aplikasi ini. Sila mendayakannya dan segar semula halaman, atau guna pelayar yang lain.",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
-    'profile' => 'Profile',
-    'legal' => 'Legal Information',
+    'botSettings' => 'Tetapan Apl',
+    'profile' => 'Profil',
+    'legal' => 'Maklumat Undang-Undang',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -41,15 +41,15 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Penyegerakan Masa',
       'status' => [
-        'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
-        'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'syncing' => 'Jam sistem anda sedang disegerakkan dengan pelayan kami, sila tunggu.',
+        'accurate' => 'Jam sistem anda adalah tepat.',
+        'potentiallyWrong' => 'Jam sistem anda mungkin salah.',
+        'value' => 'Perbezaan antara masa tempatan dan masa pelayan ialah :offset.',
       ],
       'autoTimeSync' => [
-        'label' => 'Apply server time offset to calculations (beta)',
+        'label' => 'Terapkan ofset masa pelayan pada pengiraan (beta)',
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
       'details' => 'Butiran',
@@ -86,7 +86,7 @@ return [
     'themeButton' => [
       'dark' => 'Dark Theme',
       'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'system' => 'Guna Tema Sistem',
     ],
   ],
   'designEditor' => [
@@ -94,8 +94,8 @@ return [
     'description' => 'You can adjust many aspects of the website\'s appearance using the inputs in the table below. Variable names are based on identifiers in the code and therefore cannot be translated. Values will be reset when refreshing the page.',
     'designPageLink' => 'Design Page',
     'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
-    'export' => 'Export as UserStyle',
-    'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'export' => 'Eksport sebagai UserStyle',
+    'variableColumnHeader' => 'Pembolehubah CSS',
+    'valueColumnHeader' => 'Nilai',
   ],
 ];
