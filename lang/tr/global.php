@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Girdi ayarları',
-      'customInputs' => [
-        'label' => 'Özel girdiler',
-        'description' => "Tarayıcının varsayılan girdi kutucuklarını seçtiğiniz dile uygun özel girdi kutucuklarıyla değiştirir",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'Girdileri ayır',
