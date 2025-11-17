@@ -23,9 +23,13 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'การตั้งค่าการป้อนข้อมูล',
-      'customInputs' => [
-        'label' => 'อินพุตที่กำหนดเอง',
-        'description' => "แทนที่ช่องป้อนข้อมูลเริ่มต้นของเบราว์เซอร์ด้วยช่องป้อนข้อมูลแบบกำหนดเอง ที่สามารถแสดงผลและทำงานตามภาษาที่คุณเลือกสำหรับเว็บไซต์ของคุณ",
+      'customDateInput' => [
+        'label' => 'Custom date input',
+        'description' => "Use the date input of the project instead of the browser default",
+      ],
+      'customTimeInput' => [
+        'label' => 'Custom time input',
+        'description' => "Use the time input of the project instead of the browser default",
       ],
       'separateInputs' => [
         'label' => 'แยกอินพุต',
