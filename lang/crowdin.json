@@ -765,7 +765,7 @@
     },
     "17430436": {
       "username": "ZeruGames",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/a1ce4f92f92907c46756a217de733d38.png",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/ede6ceee5e784258bcfe7d56f42e9ca3.png",
       "fullName": "Zeru"
     }
   },
@@ -776,8 +776,8 @@
         "14914643"
       ],
       "progress": {
-        "approval": 14,
-        "translation": 14
+        "approval": 13,
+        "translation": 13
       }
     },
     "bg": {
@@ -840,8 +840,8 @@
         "16603607"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 96,
+        "translation": 96
       }
     },
     "el": {
@@ -850,8 +850,8 @@
         "13365555"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 98,
+        "translation": 98
       }
     },
     "en-GB": {
@@ -860,8 +860,8 @@
         "17378908"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 98,
+        "translation": 98
       }
     },
     "es": {
@@ -874,8 +874,8 @@
         "17428170"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 10
+        "approval": 9,
+        "translation": 9
       }
     },
     "fa": {
@@ -929,11 +929,12 @@
         "13533384",
         "15269410",
         "14240276",
-        "16669695"
+        "16669695",
+        "17430436"
       ],
       "progress": {
         "approval": 8,
-        "translation": 8
+        "translation": 10
       }
     },
     "hi": {
@@ -963,8 +964,8 @@
         "13533384"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 98,
+        "translation": 98
       }
     },
     "id": {
@@ -984,8 +985,8 @@
         "16603067"
       ],
       "progress": {
-        "approval": 100,
-        "translation": 100
+        "approval": 98,
+        "translation": 98
       }
     },
     "ja": {
@@ -1002,7 +1003,7 @@
       ],
       "progress": {
         "approval": 13,
-        "translation": 14
+        "translation": 13
       }
     },
     "ko": {
@@ -1103,8 +1104,8 @@
         "14673608"
       ],
       "progress": {
-        "approval": 37,
-        "translation": 37
+        "approval": 36,
+        "translation": 36
       }
     },
     "pt-BR": {
@@ -1118,8 +1119,8 @@
         "17151532"
       ],
       "progress": {
-        "approval": 12,
-        "translation": 12
+        "approval": 11,
+        "translation": 11
       }
     },
     "pt": {
@@ -1140,8 +1141,8 @@
         "16601907"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 96,
+        "translation": 96
       }
     },
     "ru": {
@@ -1168,8 +1169,8 @@
         "17430436"
       ],
       "progress": {
-        "approval": 36,
-        "translation": 36
+        "approval": 35,
+        "translation": 35
       }
     },
     "sr": {
@@ -1205,8 +1206,8 @@
         "16240978"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 97,
+        "translation": 97
       }
     },
     "tr": {
@@ -1218,8 +1219,8 @@
         "13477087"
       ],
       "progress": {
-        "approval": 34,
-        "translation": 34
+        "approval": 33,
+        "translation": 33
       }
     },
     "uk": {
