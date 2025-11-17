@@ -2,8 +2,8 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'title' => '翻訳コンテンツ',
+    'text' => 'このプロジェクトには、ボランティア翻訳者やコミュニティの他のメンバーによる翻訳が含まれています。これらの翻訳はユーザーの利便性のために提供されており、常に完全に最新であるとは限りません。あらゆる事項において、このページの<1>原文版</1>が有効とみなされます。',
   ],
   'lastUpdated' => 'Last updated: <1/>',
   'privacy' => [
@@ -17,7 +17,7 @@ return [
       'removal' => 'This information is not removed from our database automatically if you deactivate your Discord account, so be sure to reach out to us if you would like your data removed.',
     ],
     'logData' => [
-      'heading' => 'Log Data',
+      'heading' => 'ログ情報',
       'browserInfo' => 'We collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer\'s IP address, operating system, browser type, browser version, the pages of our Site that you visit, the time and date of your visit.',
       'thirdParty' => 'This Log Data is stored only within our server and is not shared with any third party. Log Data is used for diagnostic purposes, and shared with law enforcement agencies if explicitly requested. It is kept for up to 14 days and discarded afterwards.',
       'debugging' => 'The Bot can receive interactions from Users via the Discord client, which includes slash commands and context menu commands ("Action", "Command", or collectively "Commands"). Slash commands can additionally be executed with User-supplied structured key-value pairs ("Options"). The Bot records Command executions for debugging purposes, namely: the Discord username and Snowflake identifier ("ID") of the User that executed the Command, the name of the Command (including all Options) and the ID of the Server the Command was executed in. This data is stored on the Project server for up to 30 days, and is only accessible by the Developer.',
