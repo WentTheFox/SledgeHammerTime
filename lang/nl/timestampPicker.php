@@ -8,11 +8,11 @@ return [
       'time' => 'Tijd',
       'dateAndTime' => 'Datum en tijd',
       'timezone' => 'Tijdzone',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Absoluut tijdsverschil',
+      'modeZoneName' => 'Tijdzone Naam',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Ga naar huidige maand',
     ],
     'tooltip' => [
       'setToCurrent' => 'Zet naar huidige tijd',
