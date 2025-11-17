@@ -765,7 +765,7 @@
     },
     "17430436": {
       "username": "ZeruGames",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/a1ce4f92f92907c46756a217de733d38.png",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/ede6ceee5e784258bcfe7d56f42e9ca3.png",
       "fullName": "Zeru"
     }
   },
@@ -929,11 +929,12 @@
         "13533384",
         "15269410",
         "14240276",
-        "16669695"
+        "16669695",
+        "17430436"
       ],
       "progress": {
         "approval": 8,
-        "translation": 8
+        "translation": 10
       }
     },
     "hi": {
