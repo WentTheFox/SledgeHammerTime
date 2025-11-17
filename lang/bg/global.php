@@ -35,6 +35,10 @@ return [
         'label' => 'Раздели полетата за въвеждане',
         'description' => "Показва две отделни полета за дата и час, вместо едно (което не е поддържано от някои браузъри)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
