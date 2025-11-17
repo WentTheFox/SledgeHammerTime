@@ -35,6 +35,10 @@ return [
         'label' => 'Odvojeni ulazi',
         'description' => "Prikaži dva različita unosa za datum i vreme umesto kombinovanog (što nije podržano u nekim internet pretraživačima)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
