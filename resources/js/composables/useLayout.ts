@@ -63,7 +63,6 @@ export const useLayout = () => {
   provide(timeSyncInject, readonly(timeSync));
 
   watch(localSettings.flatUiEnabled, (isFlatUiEnabled) => {
-    console.debug('watch(localSettings.flatUiEnabled)', isFlatUiEnabled);
     if (!document) return;
 
     if (isFlatUiEnabled) {
