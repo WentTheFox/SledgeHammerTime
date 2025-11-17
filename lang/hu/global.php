@@ -36,8 +36,8 @@ return [
         'description' => "Két különböző mezőt jelenít meg a dátumnak és az időnek egy összevont helyett (ami néhány böngészőben nem támogatott)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Felület kilapítása',
+        'description' => "Kikapcsolja az árnyék és magasság hatásokat a beviteli mezőkön és gombokon",
       ],
     ],
     'timeSync' => [
