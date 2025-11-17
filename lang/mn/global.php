@@ -35,6 +35,10 @@ return [
         'label' => 'Оролтуудыг тусдаа болго',
         'description' => "Өдөр ба цагийн нийлүүлсэн оролтуудийг, хоёр өөр оролтоор тавих. (зарим бровсэрд болдоггүй)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
