@@ -35,6 +35,10 @@ return [
         'label' => 'अलग इनपुट',
         'description' => "दिनांक और समय के लिए संयुक्त इनपुट के बजाय दो अलग-अलग इनपुट प्रदर्शित करें (जो कुछ ब्राउज़रों में समर्थित नहीं है)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
