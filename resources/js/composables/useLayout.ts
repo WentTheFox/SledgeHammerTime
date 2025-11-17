@@ -22,6 +22,8 @@ import { router, usePage } from '@inertiajs/vue3';
 import { loadLanguageAsync } from 'laravel-vue-i18n';
 import { onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
 
+const noAnimClass = 'no-anim';
+const flatUiClass = 'flat-ui';
 export const useLayout = () => {
   const inertiaPage = usePage();
   const pagePropsRef = ref<PageProps>(inertiaPage.props);
@@ -35,7 +37,7 @@ export const useLayout = () => {
     });
 
     if (document) {
-      document.body.classList.remove('no-anim');
+      document.body.classList.remove(noAnimClass);
     }
   });
   onUnmounted(() => {
@@ -49,7 +51,8 @@ export const useLayout = () => {
   const currentLanguage = ref<CurrentLanguageData>(computeCurrentLanguage(pagePropsRef.value));
   provide(currentLanguageInject, currentLanguage);
 
-  const localSettingsValue = readonly(useLocalSettings(currentLanguage));
+  const localSettings = useLocalSettings(currentLanguage);
+  const localSettingsValue = readonly(localSettings);
   provide(sidebarState, readonly(useSidebarState(localSettingsValue)));
   provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
@@ -58,6 +61,16 @@ export const useLayout = () => {
   const { dateTimeLibrary, timeSync } = useDateTimeLibrary(route, localSettingsValue);
   provide(dateTimeLibraryInject, dateTimeLibrary);
   provide(timeSyncInject, readonly(timeSync));
+
+  watch(localSettings.flatUiEnabled, (isFlatUiEnabled) => {
+    if (!document) return;
+
+    if (isFlatUiEnabled) {
+      document.body.classList.add(flatUiClass);
+    } else {
+      document.body.classList.remove(flatUiClass);
+    }
+  });
 
   watch(pagePropsRef, (currentPage) => {
     currentLanguage.value = computeCurrentLanguage(currentPage);

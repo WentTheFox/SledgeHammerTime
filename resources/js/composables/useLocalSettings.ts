@@ -2,15 +2,19 @@ import { CurrentLanguageData } from '@/injection-keys';
 import { computed, onMounted, Ref, ref, watch } from 'vue';
 
 const splitPrefKey = 'split-input';
-const customPrefKey = 'custom-input';
+const flatUiPrefKey = 'flat-ui';
+const customDatePrefKey = 'custom-date-input';
+const customTimePrefKey = 'custom-time-input';
 const sidebarPrefKey = 'sidebar-right';
 const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
 
 export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => {
-  const customInputEnabled = ref<boolean | null>(null);
+  const customDateInputEnabled = ref<boolean | null>(null);
+  const customTimeInputEnabled = ref<boolean | null>(null);
   const combinedInputsEnabled = ref<boolean | null>(null);
+  const flatUiEnabled = ref<boolean | null>(null);
   const sidebarOnRight = ref<boolean | null>(null);
   const sidebarOffDesktop = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
@@ -20,11 +24,17 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
   ));
 
-  watch(customInputEnabled, (newValue) => {
-    localStorage.setItem(customPrefKey, newValue ? 'true' : 'false');
+  watch(customDateInputEnabled, (newValue) => {
+    localStorage.setItem(customDatePrefKey, newValue ? 'true' : 'false');
+  });
+  watch(customTimeInputEnabled, (newValue) => {
+    localStorage.setItem(customTimePrefKey, newValue ? 'true' : 'false');
   });
   watch(combinedInputsEnabled, (newValue) => {
     localStorage.setItem(splitPrefKey, newValue ? 'false' : 'true');
+  });
+  watch(flatUiEnabled, (newValue) => {
+    localStorage.setItem(flatUiPrefKey, newValue ? 'true' : 'false');
   });
   watch(sidebarOnRight, (newValue) => {
     localStorage.setItem(sidebarPrefKey, newValue ? 'true' : 'false');
@@ -57,10 +67,20 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     testInput.value = testValue;
     combinedInputsEnabled.value = testInput.value !== testValue;
   };
-  const setInitialCustomInput = () => {
-    const storedPref = localStorage.getItem(customPrefKey);
-    // Enable custom input by default
-    customInputEnabled.value = storedPref !== 'false';
+  const setInitialFlatUi = () => {
+    const storedPref = localStorage.getItem(flatUiPrefKey);
+    // Disable flat UI by default
+    flatUiEnabled.value = storedPref === 'true';
+  };
+  const setInitialCustomDateInput = () => {
+    const storedPref = localStorage.getItem(customDatePrefKey);
+    // Enable custom date input by default
+    customDateInputEnabled.value = storedPref !== 'false';
+  };
+  const setInitialCustomTimeInput = () => {
+    const storedPref = localStorage.getItem(customTimePrefKey);
+    // Disable custom time input by default
+    customTimeInputEnabled.value = storedPref === 'true';
   };
   const setInitialSidebarOnRight = () => {
     const storedPref = localStorage.getItem(sidebarPrefKey);
@@ -84,8 +104,10 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   };
 
   onMounted(() => {
+    setInitialFlatUi();
     setInitialCombinedInput();
-    setInitialCustomInput();
+    setInitialCustomDateInput();
+    setInitialCustomTimeInput();
     setInitialSidebarOnRight();
     setInitialSidebarOffDesktop();
     setInitialLightTheme();
@@ -93,22 +115,34 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   });
 
   return {
-    customInputEnabled,
+    customDateInputEnabled,
+    customTimeInputEnabled,
     combinedInputsEnabled,
+    flatUiEnabled,
     sidebarOnRight: effectiveSidebarOnRight,
     rawSidebarOnRight: sidebarOnRight,
     sidebarOffDesktop,
     isLightTheme,
     autoTimeSync,
-    toggleCustomInput(e: Event) {
+    toggleCustomDateInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
-      customInputEnabled.value = e.target.checked;
+      customDateInputEnabled.value = e.target.checked;
+    },
+    toggleCustomTimeInput(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+
+      customTimeInputEnabled.value = e.target.checked;
     },
     toggleSeparateInputs(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
       combinedInputsEnabled.value = !e.target.checked;
+    },
+    toggleFlatUi(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+
+      flatUiEnabled.value = e.target.checked;
     },
     toggleSidebarOnRight() {
       sidebarOnRight.value = !sidebarOnRight.value;

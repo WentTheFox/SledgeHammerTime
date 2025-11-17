@@ -1,13 +1,28 @@
 <script setup lang="ts">
-import { DateTimeLibraryMonth, DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
+import {
+  DateTimeLibraryMonth,
+  DateTimeLibraryValue,
+  DateTimeLibraryWeekday,
+} from '@/classes/DateTimeLibraryValue';
 import { useCurrentDate } from '@/composables/useCurrentDate';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
-import { dateTimeLibraryInject, pagePropsInject } from '@/injection-keys';
+import { dateTimeLibraryInject, devModeInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtButtonGroup from '@/Reusable/HtButtonGroup.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
-import { CalendarDay, generateCalendar, getWeekdayItems, WeekdayItem, WEEKEND_DAYS } from '@/utils/calendar';
-import { faBackwardFast, faChevronLeft, faChevronRight, faForwardFast } from '@fortawesome/free-solid-svg-icons';
+import {
+  CalendarDay,
+  generateCalendar,
+  getWeekdayItems,
+  WeekdayItem,
+  WEEKEND_DAYS,
+} from '@/utils/calendar';
+import {
+  faBackwardFast,
+  faChevronLeft,
+  faChevronRight,
+  faForwardFast,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import classNames from 'classnames';
 import { computed, getCurrentInstance, inject, ref } from 'vue';
@@ -21,6 +36,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'setDate', year: number, month: number, date: number): void
 }>();
+
+const devMode = inject(devModeInject);
 
 const year = ref(props.selectedYear);
 const month = ref(props.selectedMonth);
@@ -130,6 +147,7 @@ defineExpose<DatePickerCalendarApi>({
   <div class="calendar-controls">
     <HtButtonGroup>
       <HtButton
+        v-if="devMode"
         :aria-label="$t('timestampPicker.picker.tooltip.previousYear')"
         @click="stepDate(-1, 'year')"
       >
@@ -181,6 +199,7 @@ defineExpose<DatePickerCalendarApi>({
         />
       </HtButton>
       <HtButton
+        v-if="devMode"
         :aria-label="$t('timestampPicker.picker.tooltip.nextYear')"
         @click="stepDate(1, 'year')"
       >
@@ -195,7 +214,10 @@ defineExpose<DatePickerCalendarApi>({
       </HtButton>
     </HtButtonGroup>
   </div>
-  <HtFormControlGroup :vertical="true">
+  <HtFormControlGroup
+    v-if="devMode"
+    :vertical="true"
+  >
     <HtButton
       :disabled="isShowingCurrentMonth"
       :block="true"
@@ -222,6 +244,7 @@ defineExpose<DatePickerCalendarApi>({
       <button
         v-for="calendarDay in calendarWeek"
         :key="`${calendarDay.month}/${calendarDay.date}`"
+        type="button"
         :class="getDayClasses(calendarDay)"
         @click="setDate(calendarDay)"
       >

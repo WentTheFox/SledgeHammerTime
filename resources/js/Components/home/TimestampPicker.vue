@@ -28,7 +28,7 @@ const settings = inject(localSettingsInject);
         :label="$t('timestampPicker.picker.label.dateAndTime')"
       >
         <InputSelector
-          :custom-input-enabled="settings?.customInputEnabled"
+          :custom-input-enabled="settings?.customDateInputEnabled"
           :custom-impl="CustomDateTimeInput"
           :native-impl="NativeDateTimeInput"
           :disabled="ts?.isLocked.value"
@@ -41,7 +41,7 @@ const settings = inject(localSettingsInject);
         :label="$t('timestampPicker.picker.label.date')"
       >
         <InputSelector
-          :custom-input-enabled="settings?.customInputEnabled"
+          :custom-input-enabled="settings?.customDateInputEnabled"
           :custom-impl="CustomDateInput"
           :native-impl="NativeDateInput"
           :disabled="ts?.isLocked.value"
@@ -52,7 +52,7 @@ const settings = inject(localSettingsInject);
         :label="$t('timestampPicker.picker.label.time')"
       >
         <InputSelector
-          :custom-input-enabled="settings?.customInputEnabled"
+          :custom-input-enabled="settings?.customTimeInputEnabled"
           :custom-impl="CustomTimeInput"
           :native-impl="NativeTimeInput"
           :disabled="ts?.isLocked.value"

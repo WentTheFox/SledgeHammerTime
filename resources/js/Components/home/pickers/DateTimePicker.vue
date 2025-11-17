@@ -8,13 +8,22 @@ import DatePickerInputs from '@/Components/home/pickers/DatePickerInputs.vue';
 import TimePickerInputs from '@/Components/home/pickers/TimePickerInputs.vue';
 import { useDatePicker } from '@/composables/useDatePicker';
 import { useTimePicker } from '@/composables/useTimePicker';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import { dateTimeLibraryInject, devModeInject, localSettingsInject } from '@/injection-keys';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
+import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
-import { limitDate, limitHours, limitMinutesSeconds, limitMonth, limitToTwelveHours } from '@/utils/time';
-import { inject, useTemplateRef, watch } from 'vue';
+import {
+  limitDate,
+  limitHours,
+  limitMinutesSeconds,
+  limitMonth,
+  limitToTwelveHours,
+} from '@/utils/time';
+import { inject, ref, useTemplateRef, watch } from 'vue';
 
 const dtl = inject(dateTimeLibraryInject);
+const devMode = inject(devModeInject);
+const settings = inject(localSettingsInject);
 const {
   year,
   month,
@@ -48,6 +57,7 @@ const {
   openTimePicker,
   closeTimePicker,
 } = useTimePicker(dtl);
+const timeInputValue = ref<string>('');
 
 const emit = defineEmits<{
   (e: 'selected', date: string): void;
@@ -55,9 +65,11 @@ const emit = defineEmits<{
 
 const popupRef = useTemplateRef<CustomPopupApi>('popup-el');
 const formRef = useTemplateRef<HTMLFormElement>('form-el');
+const timeInputRef = useTemplateRef<InputApi>('time-input-el');
 
 const select = () => {
-  emit('selected', `${getSelectedDate()}T${getSelectedTime()}`);
+  const selectedTimeValue = devMode?.value ? getSelectedTime() : timeInputValue.value;
+  emit('selected', `${getSelectedDate()}T${selectedTimeValue}`);
 };
 const selectAndClose = () => {
   const focusedEl = formRef.value?.querySelector<HTMLElement>(':focus');
@@ -69,7 +81,10 @@ const selectAndClose = () => {
 };
 const open = (initialValue: DateTimeLibraryValue, focusOnClose?: Focusable | null) => {
   datePickerOpen(initialValue);
-  timePickerOpen(initialValue);
+  if (settings?.customTimeInputEnabled) {
+    timePickerOpen(initialValue);
+  }
+  timeInputValue.value = initialValue.toISOTimeString();
   popupRef.value?.open(focusOnClose);
 };
 const close = () => {
@@ -91,6 +106,13 @@ const changeFocus = (input: 'year' | 'month' | 'date' | DialMode, setSelection: 
   }
 };
 
+const setDateAndUpdateFocus = (newYear: number, newMonth: number, newDate: number) => {
+  setDate(newYear, newMonth, newDate);
+  if (!settings?.customTimeInputEnabled) {
+    timeInputRef.value?.focus();
+  }
+};
+
 watch([year, month, date], () => {
   calendar.value?.setSelection(year.value, month.value, date.value);
 });
@@ -109,7 +131,7 @@ defineExpose<DateTimePickerApi>({
 <template>
   <Popup
     ref="popup-el"
-    :wide="true"
+    :wide="Boolean(settings?.customTimeInputEnabled)"
     @close="closeTimePicker"
     @open="openTimePicker"
   >
@@ -117,61 +139,81 @@ defineExpose<DateTimePickerApi>({
       ref="form-el"
       @submit.prevent="selectAndClose"
     >
-      <HtFormInputGroup
-        dir="ltr"
-        class="picker-date-inputs"
+      <div class="datetime-picker-controls">
+        <div class="picker-date-control">
+          <HtFormInputGroup
+            v-if="devMode"
+            dir="ltr"
+            class="picker-date-inputs"
+          >
+            <DatePickerInputs
+              v-model:date-input="dateInput"
+              v-model:month-input="monthInput"
+              v-model:year-input="yearInput"
+              v-model:year="year"
+              v-model:month="month"
+              v-model:date="date"
+              :halve-bases="true"
+            />
+          </HtFormInputGroup>
+          <DatePickerCalendar
+            ref="calendar"
+            :selected-year="year"
+            :selected-month="limitMonth(month)"
+            :selected-date="limitDate(date)"
+            @set-date="setDateAndUpdateFocus"
+          />
+        </div>
+        <div
+          v-if="settings?.customTimeInputEnabled"
+          class="picker-time-control"
+        >
+          <HtFormInputGroup
+            dir="ltr"
+            class="picker-date-inputs"
+          >
+            <TimePickerInputs
+              v-model:hours-input="hoursInput"
+              v-model:minutes-input="minutesInput"
+              v-model:seconds-input="secondsInput"
+              v-model:hours="hours"
+              v-model:minutes="minutes"
+              v-model:seconds="seconds"
+              v-model:is-am="isAm"
+              v-model:twelve-hour-mode="twelveHourMode"
+              v-model:dial="dial"
+            />
+          </HtFormInputGroup>
+          <TimePickerDial
+            v-if="renderDial"
+            ref="dial"
+            :hours="twelveHourMode ? limitToTwelveHours(hours) : limitHours(hours)"
+            :minutes="limitMinutesSeconds(minutes)"
+            :seconds="limitMinutesSeconds(seconds)"
+            :is-am="isAm"
+            :twelve-hour-mode="twelveHourMode"
+            @set-hours="setHours"
+            @set-minutes="setMinutes"
+            @set-seconds="setSeconds"
+            @change-focus="changeTimeFocus"
+            @select="selectAndClose"
+          />
+        </div>
+      </div>
+      <div
+        v-if="!settings?.customTimeInputEnabled"
+        class="mt-2 mb-2"
       >
-        <DatePickerInputs
-          v-model:date-input="dateInput"
-          v-model:month-input="monthInput"
-          v-model:year-input="yearInput"
-          v-model:year="year"
-          v-model:month="month"
-          v-model:date="date"
-          :halve-bases="true"
+        <HtInput
+          id="date-time-picker-time-input"
+          ref="time-input-el"
+          v-model="timeInputValue"
+          step="1"
+          type="time"
         />
-        <TimePickerInputs
-          v-model:hours-input="hoursInput"
-          v-model:minutes-input="minutesInput"
-          v-model:seconds-input="secondsInput"
-          v-model:hours="hours"
-          v-model:minutes="minutes"
-          v-model:seconds="seconds"
-          v-model:is-am="isAm"
-          v-model:twelve-hour-mode="twelveHourMode"
-          v-model:dial="dial"
-        />
-      </HtFormInputGroup>
+      </div>
       <PickerFormActions @close="close" />
     </form>
-    <hr>
-    <div class="datetime-picker-controls">
-      <div class="picker-date-control">
-        <DatePickerCalendar
-          ref="calendar"
-          :selected-year="year"
-          :selected-month="limitMonth(month)"
-          :selected-date="limitDate(date)"
-          @set-date="setDate"
-        />
-      </div>
-      <div class="picker-time-control">
-        <TimePickerDial
-          v-if="renderDial"
-          ref="dial"
-          :hours="twelveHourMode ? limitToTwelveHours(hours) : limitHours(hours)"
-          :minutes="limitMinutesSeconds(minutes)"
-          :seconds="limitMinutesSeconds(seconds)"
-          :is-am="isAm"
-          :twelve-hour-mode="twelveHourMode"
-          @set-hours="setHours"
-          @set-minutes="setMinutes"
-          @set-seconds="setSeconds"
-          @change-focus="changeTimeFocus"
-          @select="selectAndClose"
-        />
-      </div>
-    </div>
   </Popup>
 </template>
 
@@ -193,6 +235,7 @@ defineExpose<DateTimePickerApi>({
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  gap: .5em;
 
   @include design.screen-above('md') {
     flex-wrap: nowrap;
@@ -202,7 +245,7 @@ defineExpose<DateTimePickerApi>({
 
   .picker-date-control {
     flex: 1 1 100%;
-    max-width: 20em;
+    max-width: 22em;
 
     @include design.screen-above('md') {
       flex-basis: auto;

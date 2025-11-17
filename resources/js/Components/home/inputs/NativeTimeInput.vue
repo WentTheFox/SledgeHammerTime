@@ -17,13 +17,13 @@ const changeTime = () => {
   ts?.changeTimeString(selectedTime.value);
 };
 
-watch(() => ts?.currentTime, (currentTime) => {
+watch(ts!.currentTime, (currentTime) => {
   if (!currentTime) {
     selectedTime.value = '';
     return;
   }
 
-  selectedTime.value = currentTime.value;
+  selectedTime.value = currentTime;
 }, { immediate: true });
 </script>
 
@@ -33,6 +33,7 @@ watch(() => ts?.currentTime, (currentTime) => {
       :id="id"
       v-model="selectedTime"
       type="time"
+      step="1"
       :disabled="disabled"
       @change="changeTime"
     />

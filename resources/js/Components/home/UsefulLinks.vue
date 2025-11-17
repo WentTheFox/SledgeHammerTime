@@ -24,8 +24,7 @@ const currentLanguage = inject(currentLanguageInject);
       <UsefulLinkItem
         :name="$t('timestampPicker.usefulLinks.server.header')"
         :desc="$t('timestampPicker.usefulLinks.server.p')"
-        href="discord"
-        :is-local="true"
+        href="/discord"
         :image="usefulLinksServer"
       />
       <UsefulLinkItem
