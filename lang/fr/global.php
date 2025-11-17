@@ -35,6 +35,10 @@ return [
         'label' => 'Saisies séparées',
         'description' => "Afficher deux entrées différentes pour la date et l'heure au lieu d'une entrée combinée (ce qui n'est pas pris en charge par certains navigateurs)",
       ],
+      'flatUi' => [
+        'label' => 'Flatten interface',
+        'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
     ],
     'timeSync' => [
       'title' => 'Time Synchronization',
