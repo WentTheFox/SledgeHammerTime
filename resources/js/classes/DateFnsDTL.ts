@@ -425,7 +425,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
     // Format strings to match expected outputs for each locale
     switch (locale.name) {
-      case 'en':
+      case 'en-US':
         return format(dateTime, 'MMMM d, yyyy h:mm a', { locale: localeObj });
       case 'en-GB':
         return format(dateTime, 'd MMMM yyyy HH:mm', { locale: localeObj });
@@ -442,7 +442,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
     // Format strings to match expected outputs for each locale
     switch (locale.name) {
-      case 'en':
+      case 'en-US':
         return format(dateObj, 'MMMM d, yyyy', { locale: localeObj });
       case 'en-GB':
         return format(dateObj, 'd MMMM yyyy', { locale: localeObj });
