@@ -25,11 +25,11 @@ return [
       'title' => 'Postavke unosa',
       'customDateInput' => [
         'label' => 'Custom date input',
-        'description' => "Use the date input of the project instead of the browser default",
+        'description' => "Replace the browser default date input with a custom one.",
       ],
       'customTimeInput' => [
         'label' => 'Custom time input',
-        'description' => "Use the time input of the project instead of the browser default",
+        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
         'label' => 'Odvojeni ulazi',
