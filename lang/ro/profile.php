@@ -7,6 +7,7 @@ return [
     'heading' => 'Informații profil',
     'description' => "Actualizați informațiile de profil ale contului dvs.",
     'displayName' => 'Nume afișat',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Profilul dvs. a fost actualizat cu succes.',
   ],
   'accounts' => [
