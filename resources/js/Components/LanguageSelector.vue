@@ -149,11 +149,11 @@ onMounted(router.on('success', navigateListener));
         </Tippy>
       </div>
       <HtLinkButton
-        v-if="displayContributionHints"
+        v-if="displayContributionHints && currentLanguage?.crowdinProjectId"
         color="success"
         class="contribute-button"
         :icon-start="faLifeRing"
-        :href="`https://crowdin.com/project/${currentLanguage?.crowdinProjectId}/${currentLanguage?.languageConfig?.crowdinLocale || currentLanguage?.locale}`"
+        :href="`https://crowdin.com/project/${currentLanguage.crowdinProjectId}/${currentLanguage?.languageConfig?.crowdinLocale || currentLanguage?.locale}`"
         :external="true"
         :target-blank="true"
       >

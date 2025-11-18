@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Inertia\Inertia;
 use Throwable;
@@ -33,6 +34,10 @@ class Handler extends ExceptionHandler {
 
     return match ($status) {
       404 => Inertia::render('Errors/NotFound')->toResponse($request)->setStatusCode($status),
+      503 => Inertia::render('Errors/MaintenanceMode', [
+        ...HandleInertiaRequests::getGlobalSharedArray(),
+        'discordUrl' => config('services.discord.invite_url'),
+      ])->toResponse($request)->setStatusCode($status),
       default => $response
     };
   }

@@ -24,11 +24,11 @@ export const inputRangeLimitBlurHandlerFactory = (numberRef: Ref<number> | Model
 };
 
 export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => {
-  const languages = page.app.languages as Record<string, AvailableLanguage>;
-  const locale = languages[page.app.locale];
+  const languages = (page.app?.languages ?? { en: 'en' }) as Record<string, AvailableLanguage>;
+  const locale = languages[page.app?.locale ?? 'en'];
   const languageConfig: LatestLanguageConfigType | undefined = LANGUAGES[locale];
-  const supportedLanguages = new Set(page.app.supportedLanguages);
-  const crowdinProjectId = page.app.crowdinProjectId;
+  const supportedLanguages = new Set(page.app?.supportedLanguages ?? ['en']);
+  const crowdinProjectId = page.app?.crowdinProjectId;
 
   return {
     locale,

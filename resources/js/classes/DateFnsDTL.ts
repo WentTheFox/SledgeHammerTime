@@ -1,7 +1,6 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
-import { dateFnsLocaleMap } from '@/date-fns';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import {
@@ -26,6 +25,7 @@ import {
   setMinutes,
   setSeconds,
 } from 'date-fns';
+import * as locales from 'date-fns/locale';
 
 // Format constants
 const isoTimeFormat = 'HH:mm:ss';
@@ -34,6 +34,7 @@ const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
 const oneSecondInMs = 1e3 * 60;
 const oneMinuteInSecondsMs = 1e3 * 60;
+const alreadyLoggedMissingLocaleNames = new Set<string>();
 
 // Default values
 const defaultDate = '2023-01-01';
@@ -80,6 +81,10 @@ const getDiscordToUnicodeFormat = (format: MessageTimestampFormat, language: str
         default:
           return `PPPP ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
       }
+    case MessageTimestampFormat.SHORT_COMPACT:
+      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
+    case MessageTimestampFormat.LONG_COMPACT:
+      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.LONG_TIME, language)}`;
     default:
       throw new Error(`Unsupported format: ${format}`);
   }
@@ -286,17 +291,18 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   async loadLocaleLowLevel(localeName: string): Promise<Locale | undefined> {
-    if (!(localeName in dateFnsLocaleMap)) {
-      console.warn(`No date-fns locale loader found by key ${localeName}`);
-      return;
+    const normalizedLocaleName = localeName.replace(/[^a-z\d]/gi, '');
+    let locale: Locale = locales[normalizedLocaleName as keyof typeof locales];
+    if (typeof locale === 'undefined') {
+      if (!alreadyLoggedMissingLocaleNames.has(localeName)) {
+        console.warn(`No date-fns locale found by key ${normalizedLocaleName}`);
+        alreadyLoggedMissingLocaleNames.add(localeName);
+      }
+      // Load English as a fallback when locale is unavailable for date-fns
+      locale = locales.enUS;
     }
 
-    try {
-      return await dateFnsLocaleMap[localeName as keyof typeof dateFnsLocaleMap]().then((module) => module.default);
-    } catch (e) {
-      console.warn(`Failed to load date-fns locale ${localeName}`, e);
-      return undefined;
-    }
+    return locale;
   }
 
   async localeLoader(localeName: string): Promise<DateTimeLibraryLocale<Locale>> {
@@ -427,7 +433,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
     // Format strings to match expected outputs for each locale
     switch (locale.name) {
-      case 'en':
+      case 'en-US':
         return format(dateTime, 'MMMM d, yyyy h:mm a', { locale: localeObj });
       case 'en-GB':
         return format(dateTime, 'd MMMM yyyy HH:mm', { locale: localeObj });
@@ -444,7 +450,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
     // Format strings to match expected outputs for each locale
     switch (locale.name) {
-      case 'en':
+      case 'en-US':
         return format(dateObj, 'MMMM d, yyyy', { locale: localeObj });
       case 'en-GB':
         return format(dateObj, 'd MMMM yyyy', { locale: localeObj });

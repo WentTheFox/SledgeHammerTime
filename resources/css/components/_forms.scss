@@ -48,13 +48,17 @@
     border-radius: design.app-value('form-checkbox-border-radius');
     vertical-align: text-top;
 
-    &:focus {
-      z-index: design.app-z-index('focus');
-      border-color: design.app-color('input-field-focus-border-color');
-    }
+    input {
+      border-radius: inherit;
 
-    &:focus-visible {
-      outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
+      &:focus {
+        z-index: design.app-z-index('focus');
+        border-color: design.app-color('input-field-focus-border-color');
+      }
+
+      &:focus-visible {
+        outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
+      }
     }
 
     @include design.if-ltr {

@@ -105,7 +105,8 @@
       "name": "English, United States",
       "nativeName": "English, US",
       "countryCode": "US",
-      "emoji": "🇺🇸"
+      "emoji": "🇺🇸",
+      "dateFnsLocale": "en-US"
     },
     "fr": {
       "name": "French",
@@ -429,6 +430,12 @@
       "creditOverrides": {
         "16601907": null
       }
+    },
+    "fi": {
+      "name": "Finnish",
+      "nativeName": "Suomi",
+      "countryCode": "FI",
+      "emoji": "🇫🇮"
     }
   }
 }
