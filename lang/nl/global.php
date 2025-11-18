@@ -62,7 +62,7 @@ return [
         'description' => 'Als uw systeemklok meer dan :offset verschilt met de servertijd (exclusief tijdsverschil door tijdzones), zullen sommige tijdsberekeningen aangepast worden om hier rekening mee te houden. Hierdoor is er een kleinere kans dat de tijdstempels incorrect zijn. <1>Dit is een experimentele feature, dus wees voorzichtig!</1> Het synchroniseren gebeurt wanneer de pagina geladen wordt, en meteen nadat de instelling aangezet wordt.',
       ],
       'details' => 'Details',
-      'autoApplyCheckbox' => 'Pas berekend tijdsverschil toe aan de DateTime library wanneer handmatig op :syncButtonLabel wordt gedrukt (past alleen toen wanneer het verschil hoger is dan :offset)',
+      'autoApplyCheckbox' => 'Pas berekend tijdsverschil toe aan de DateTime library wanneer handmatig op :syncButtonLabel wordt gedrukt (past alleen toe wanneer het verschil hoger is dan :offset)',
       'syncButtonLabel' => 'Synchroniseer',
       'resetOffsetButtonLabel' => 'Reset tijdsverschil',
       'roundTripDuration' => 'Heen-en-terugtijd',
