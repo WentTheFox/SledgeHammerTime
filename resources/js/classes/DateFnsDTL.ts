@@ -81,6 +81,10 @@ const getDiscordToUnicodeFormat = (format: MessageTimestampFormat, language: str
         default:
           return `PPPP ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
       }
+    case MessageTimestampFormat.SHORT_COMPACT:
+      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
+    case MessageTimestampFormat.LONG_COMPACT:
+      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.LONG_TIME, language)}`;
     default:
       throw new Error(`Unsupported format: ${format}`);
   }

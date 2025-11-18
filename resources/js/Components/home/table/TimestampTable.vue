@@ -73,7 +73,7 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
         :format="MessageTimestampFormat.LONG_TIME"
       />
       <TimestampTableRow
-        :icon="{ cellHeight: 2}"
+        :icon="{ cellHeight: 4}"
         :ts="currentTimestamp"
         :unix-ts="unixTs"
         :format="MessageTimestampFormat.SHORT_FULL"
@@ -96,6 +96,16 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
         :ts="currentTimestamp"
         :unix-ts="unixTs"
         :format="MessageTimestampFormat.LONG_FULL"
+      />
+      <TimestampTableRow
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.SHORT_COMPACT"
+      />
+      <TimestampTableRow
+        :ts="currentTimestamp"
+        :unix-ts="unixTs"
+        :format="MessageTimestampFormat.LONG_COMPACT"
       />
       <TimestampTableRow
         :icon="true"
