@@ -19,7 +19,9 @@ export enum MessageTimestampFormat {
   LONG_TIME = 'T',
 }
 
-export const validMessageTimestampFormats = new Set<string>(Object.values(MessageTimestampFormat));
+export const validMessageTimestampFormats = new Set<MessageTimestampFormat>(
+  Object.values(MessageTimestampFormat).sort((a, b) => a.localeCompare(b)),
+);
 
 export const isValidMessageTimestampFormat = (value: unknown): value is MessageTimestampFormat =>
-  typeof value === 'string' && validMessageTimestampFormats.has(value);
+  typeof value === 'string' && validMessageTimestampFormats.has(value as MessageTimestampFormat);

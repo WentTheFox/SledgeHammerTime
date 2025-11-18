@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import HtFormCheckbox from '@/Reusable/HtFormCheckbox.vue';
+import { useSlots } from 'vue';
 
 defineProps<{
   id: string,
-  label: string,
+  label?: string,
   name?: string,
   value?: string,
   checked: boolean;
@@ -13,6 +14,8 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'change', event: Event): void;
 }>();
+
+const slots = useSlots();
 </script>
 
 <template>
@@ -21,6 +24,12 @@ const emit = defineEmits<{
     :label="label"
     :disabled="disabled"
   >
+    <template
+      v-if="slots.label"
+      #label
+    >
+      <slot name="label" />
+    </template>
     <template #input>
       <input
         :id="id"
