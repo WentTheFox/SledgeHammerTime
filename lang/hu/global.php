@@ -8,13 +8,13 @@ return [
     "content" => "Nincs itt semmi látnivaló.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Karbantartás Mód",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Az alkalmazás épp frissül, kérlek próbálkozz újra pár másodperc múlva.",
+      'joinSupportServer' => "Ha a probléma pár perc után is fennáll, kérlek csatlakozz a Discord támogatási szerverhez és jelezd felénk.",
+      'contactDeveloper' => "Ha a probléma pár perc után is fennáll, kérlek vedd fel a kapcsolatot a fejlesztővel és jelezd felé.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Támogatási Szerver",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
