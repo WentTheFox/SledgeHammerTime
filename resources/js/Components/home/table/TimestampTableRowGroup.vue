@@ -20,7 +20,7 @@ const formatCount = computed(() => displayFormats.value.length);
   <TimestampTableRow
     v-for="(displayFormat, i) of displayFormats"
     :key="displayFormat"
-    :icon="i === 0 && formatCount > 1 ? { cellHeight: formatCount} : i === 0"
+    :icon="i === 0 ? (formatCount > 1 ? { cellHeight: formatCount} : true) : undefined"
     :ts="currentTimestamp"
     :unix-ts="unixTs"
     :format="displayFormat"

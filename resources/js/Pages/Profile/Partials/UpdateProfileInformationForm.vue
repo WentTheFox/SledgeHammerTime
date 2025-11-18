@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import FormMessage from '@/Components/FormMessage.vue';
+import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
 import { useRoute } from '@/composables/useRoute';
-import { devModeInject, userInfoInject } from '@/injection-keys';
+import { dateTimeLibraryInject, devModeInject, userInfoInject } from '@/injection-keys';
 import { validMessageTimestampFormats } from '@/model/message-timestamp-format';
+import HtBadge from '@/Reusable/HtBadge.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
@@ -10,10 +12,11 @@ import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import { useForm } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
 const user = inject(userInfoInject);
 const devMode = inject(devModeInject);
+const dtl = inject(dateTimeLibraryInject);
 
 const form = useForm({
   name: user?.value?.name ?? '',
@@ -21,6 +24,7 @@ const form = useForm({
 });
 
 const route = useRoute();
+const now = computed(() => dtl?.value.now());
 
 const handleHiddenChange = (e: Event) => {
   const target = e.target;
@@ -87,9 +91,18 @@ const handleHiddenChange = (e: Event) => {
           :checked="form.hidden_formats.includes(format)"
           name="hidden_formats[]"
           :value="format"
-          :label="format"
           @change.passive="handleHiddenChange"
-        />
+        >
+          <template #label>
+            {{ format }}
+            <HtBadge class="ms-1">
+              <TimestampPreview
+                :ts="now"
+                :format="format"
+              />
+            </HtBadge>
+          </template>
+        </HtFormCheckboxControlled>
       </HtFormControlGroup>
 
       <pre v-if="devMode"><code>{{ JSON.stringify(form.data(), null, 2) }}</code></pre>
