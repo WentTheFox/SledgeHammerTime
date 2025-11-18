@@ -8,7 +8,7 @@ export interface User {
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
-  app: {
+  app?: {
     name: string;
     locale: string;
     fallbackLocale: string;
@@ -21,7 +21,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
   auth: {
     user: User;
   };
-  ziggy: {
+  ziggy?: {
     url: string;
     port: number;
     defaults: unknown[];

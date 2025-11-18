@@ -29,8 +29,23 @@ class HandleInertiaRequests extends Middleware {
    * @return array<string, mixed>
    */
   public function share(Request $request):array {
-    return [
+    $shared = [
       ...parent::share($request),
+      ...self::getGlobalSharedArray(),
+      'auth' => [
+        'user' => $request->user(),
+      ],
+    ];
+    $shared['ziggy'] = fn() => [
+      ...(new Ziggy)->toArray(),
+      'location' => $request->url(),
+    ];
+
+    return $shared;
+  }
+
+  public static function getGlobalSharedArray():array {
+    return [
       'app' => [
         'name' => config('app.name'),
         'locale' => App::getLocale(),
@@ -39,13 +54,7 @@ class HandleInertiaRequests extends Middleware {
         'supportedLanguages' => Config::get('languages.supported_locales'),
         'crowdinProjectId' => Config::get('crowdin.project_id'),
       ],
-      'auth' => [
-        'user' => $request->user(),
-      ],
-      'ziggy' => fn() => [
-        ...(new Ziggy)->toArray(),
-        'location' => $request->url(),
-      ],
+      'ziggy' => fn() => (new Ziggy)->toArray(),
     ];
   }
 }

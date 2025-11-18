@@ -3,6 +3,7 @@ import MinimalLayout from '@/Layouts/MinimalLayout.vue';
 import AddAppLinks from '@/Pages/AddApp/AddAppLinks.vue';
 import { getAppName } from '@/utils/app';
 import { Head } from '@inertiajs/vue3';
+import logo from '@public/logos/logo.png';
 
 const appName = getAppName();
 </script>
@@ -12,7 +13,7 @@ const appName = getAppName();
   <MinimalLayout>
     <div class="page">
       <img
-        src="/logos/logo.png"
+        :src="logo"
         alt=""
         class="logo"
       >

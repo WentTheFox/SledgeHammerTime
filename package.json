@@ -8,8 +8,10 @@
     "predev": "concurrently -p name npm:predev:*",
     "dev": "vite",
     "lint": "eslint resources/**/*.{ts,vue}",
-    "build": "vue-tsc && vite build",
+    "build:type-check": "vue-tsc",
+    "build:static": "vite build",
     "build:ssr": "vite build --ssr",
+    "build": "concurrently -p name npm:build:*",
     "test": "vitest --coverage"
   },
   "devDependencies": {

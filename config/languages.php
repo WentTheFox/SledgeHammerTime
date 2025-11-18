@@ -57,6 +57,7 @@ return [
     'pt_BR' => 'pt-BR',
     'zh_CN' => 'zh',
     'zh-CN' => 'zh',
+    'no' => 'nb',
   ],
   /**
    * Maps languages on the UI/router level to the corresponding application locale
@@ -87,7 +88,7 @@ return [
     'lv' => 'lv',
     'ms' => 'ms',
     'nl' => 'nl',
-    'no' => 'no',
+    'nb' => 'nb',
     'pl' => 'pl',
     'pt' => 'pt',
     'pt-BR' => 'pt_BR',

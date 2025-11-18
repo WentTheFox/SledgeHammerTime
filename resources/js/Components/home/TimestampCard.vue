@@ -12,7 +12,7 @@ import { computed, inject, onMounted, ref } from 'vue';
 
 const dtl = inject(dateTimeLibraryInject);
 const page = usePage();
-const locale = computed(() => page.props.app.locale as AvailableLanguage);
+const locale = computed(() => (page.props.app?.locale ?? 'en') as AvailableLanguage);
 const showHowTo = ref(false);
 const howToCookieName = 'how-to-dismiss';
 const howToCookieValue = 'how-to-dismiss';

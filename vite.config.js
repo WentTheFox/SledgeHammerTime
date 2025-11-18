@@ -54,19 +54,13 @@ export default defineConfig(({ mode }) => {
         '~@fortawesome': resolve(__dirname, 'node_modules/@fortawesome'),
         '~tippy.js': resolve(__dirname, 'node_modules/tippy.js'),
         '@img': resolve(__dirname, 'resources/img'),
+        '@public': resolve(__dirname, 'public'),
         '@': resolve(__dirname, 'resources/js'),
       },
     },
     plugins: [
       ...conditionalPlugins,
-      vue({
-        template: {
-          transformAssetUrls: {
-            base: null,
-            includeAbsolute: false,
-          },
-        },
-      }),
+      vue(),
       i18n(),
       viteImagemin({
         skipIfLarger: false,

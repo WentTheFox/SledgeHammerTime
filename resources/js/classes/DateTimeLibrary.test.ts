@@ -29,17 +29,19 @@ describe('DateTimeLibrary', () => {
       it('should return the correct locale name for a language', () => {
         const language: AvailableLanguage = 'en';
         const result = dtl.getLocaleNameFromLanguage(language);
-        expect(result).toBe('en');
+        expect(result).toBe('en-US');
       });
 
       it('should return the correct locale name for different languages', () => {
         const expectedMap = {
           'date-fns': {
+            en: 'en-US',
             enGB: 'en-GB',
             hu: 'hu',
             ptBR: 'pt-BR',
           },
         };
+        expect(dtl.getLocaleNameFromLanguage('en')).toBe(expectedMap[dtlName].en);
         expect(dtl.getLocaleNameFromLanguage('en-GB')).toBe(expectedMap[dtlName].enGB);
         expect(dtl.getLocaleNameFromLanguage('hu')).toBe(expectedMap[dtlName].hu);
         expect(dtl.getLocaleNameFromLanguage('pt-BR')).toBe(expectedMap[dtlName].ptBR);
@@ -76,13 +78,14 @@ describe('DateTimeLibrary', () => {
         expect(result).toBeDefined();
       });
 
-      it('should return undefined for an invalid locale', async () => {
+      it('should return US English for an invalid locale', async () => {
         const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {
         });
         try {
           const localeName = 'invalid-locale';
           const result = await dtl.loadLocaleLowLevel(localeName);
-          expect(result).toBeUndefined();
+          expect(result).not.toBeUndefined();
+          expect(result?.code).toEqual('en-US');
           expect(consoleSpy).toHaveBeenCalled();
         } finally {
           consoleSpy.mockRestore();

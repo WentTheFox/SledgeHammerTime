@@ -86,8 +86,8 @@ const setCurrentTime = () => {
   changeDateString(newDateString);
   changeTimeString(newTimeString);
 };
-const locale = computed(() => page.props.app.locale);
-const uiLocale = computed(() => page.props.app.languages[locale.value] ?? locale.value);
+const locale = computed(() => page.props.app?.locale ?? 'en');
+const uiLocale = computed(() => page.props.app?.languages[locale.value] ?? locale.value);
 const lock = () => {
   router.get(lockedTimestampUrl.value, undefined, { replace: true });
 };
