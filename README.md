@@ -76,6 +76,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇳🇱 Dutch
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
+  - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
   - [Riinku](https://crowdin.com/profile/Riinku)
@@ -86,6 +87,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
   - [HumainAbsurde](https://crowdin.com/profile/humain)
+  - [ImTheSpyke](https://crowdin.com/profile/ImTheSpyke)
   - [Kyaz](https://crowdin.com/profile/09kyaz)
   - [M4gicalCat](https://crowdin.com/profile/M4gicalCat)
   - [Malalia Mimi](https://crowdin.com/profile/MialyMusic)
@@ -165,6 +167,7 @@ English and Hungarian translations have been included, so no translators will be
   - [MinerPL](https://github.com/minerpl)
   - [Piotr G.](https://crowdin.com/profile/ekidoxx)
   - [stha](https://crowdin.com/profile/sthakrk)
+  - [Taki sobie Krzak Internetowy](https://crowdin.com/profile/krzak.bushowski)
   - [Wojciech Marzec](https://crowdin.com/profile/C.Ezra.M)
 - 🇵🇹 Portuguese
   - [ً](https://crowdin.com/profile/buckshot-)
