@@ -50,12 +50,12 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Synchronisation de l\'Heure',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => 'Votre horloge système est exacte.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => 'La différence entre l\'heure locale et l\'heure du serveur est de :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
@@ -76,7 +76,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Paramètres Locaux',
     ],
     'credits' => [
       'title' => 'Crédits',
@@ -93,9 +93,9 @@ return [
       'notAffiliated' => 'Ce projet n\'est pas affilié avec Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Thème Sombre',
+      'light' => 'Thème Clair',
+      'system' => 'Utiliser le thème du système',
     ],
   ],
   'designEditor' => [
