@@ -13,6 +13,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_NPM="npm ci"
     CMD_BUILD="npm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
+    CMD_LARAVEL_DOWN="php artisan down"
+    CMD_LARAVEL_UP="php artisan up"
     CMD_PM2="pm2 restart pm2.json"
 
     echo "$ $CMD_CD"
@@ -36,10 +38,22 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     fi
 
     if $GIT diff --name-only $oldrev $newrev | grep "^\(resources\|lang\)/"; then
+        BUILD_EXIT_CODE=0
+        # Put the app in maintenance mode during frontend build
+        echo "$ $CMD_LARAVEL_DOWN"
+        eval $CMD_LARAVEL_DOWN
         echo "$ $CMD_BUILD"
-        eval $CMD_BUILD
-        echo "$ $CMD_PM2"
-        eval $CMD_PM2
+        eval $CMD_BUILD || BUILD_EXIT_CODE=$?
+        # Clear maintenance mode after frontend build (regardless of errors)
+        echo "$ $CMD_LARAVEL_UP"
+        eval $CMD_LARAVEL_UP
+        if [[ "$BUILD_EXIT_CODE" == "0" ]]; then
+            echo "$ $CMD_PM2"
+            eval $CMD_PM2
+        else
+          echo "/!\ Skipping PM2 restart, Build failed with exit code $BUILD_EXIT_CODE"
+          exit $BUILD_EXIT_CODE
+        fi
     else
         echo "# Skipping asset rebuild, no changes in resources/lang folders"
     fi
