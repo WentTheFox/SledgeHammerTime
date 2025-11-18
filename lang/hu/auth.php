@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 return [
     'failed'   => 'Rossz email-jelszó páros.',
-    'password' => 'A(z) :attribute jelszónak kell, hogy legyen!',
+    'password' => 'The provided password is incorrect.',
     'throttle' => 'Túl sok próbálkozás. Kérjük próbálja újra :seconds másodperc múlva.',
 ];
