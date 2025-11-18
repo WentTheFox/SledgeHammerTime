@@ -9,6 +9,8 @@ enum DiscordTimestampFormat: string {
   case SHORT_TIME = 't';
   case LONG_DATE = 'D';
   case LONG_FULL = 'F';
+  case SHORT_COMPACT = 's';
+  case LONG_COMPACT = 'S';
   case RELATIVE = 'R';
   case LONG_TIME = 'T';
 }
