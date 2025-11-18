@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "d5e08bc37eea755650bd3e8150569068",
+  "content-hash": "b9e7ddb47e27263a6ce03a2c2bd7886c",
   "packages": [
     {
       "name": "archtechx/enums",
@@ -2179,27 +2179,31 @@
     },
     {
       "name": "laravel-lang/lang",
-      "version": "13.12.0",
+      "version": "15.26.2",
       "source": {
         "type": "git",
         "url": "https://github.com/Laravel-Lang/lang.git",
-        "reference": "25a5a07b635f0694cb34a37b58cfb78d0f4ee19e"
+        "reference": "4f49e4a77ced9ace7955db2159234e4a9c0b22a3"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/25a5a07b635f0694cb34a37b58cfb78d0f4ee19e",
-        "reference": "25a5a07b635f0694cb34a37b58cfb78d0f4ee19e",
+        "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/4f49e4a77ced9ace7955db2159234e4a9c0b22a3",
+        "reference": "4f49e4a77ced9ace7955db2159234e4a9c0b22a3",
         "shasum": ""
       },
       "require": {
         "ext-json": "*",
-        "laravel-lang/publisher": "^14.0 || ^15.0 || ^16.0",
-        "php": "^8.1"
+        "laravel-lang/publisher": "^16.0",
+        "php": "^8.2"
+      },
+      "conflict": {
+        "laravel/framework": "<11.0.7"
       },
       "require-dev": {
-        "laravel-lang/status-generator": "^1.19 || ^2.0",
-        "phpunit/phpunit": "^10.0",
-        "symfony/var-dumper": "^6.0 || ^7.0"
+        "dragon-code/codestyler": "^6.0",
+        "laravel-lang/status-generator": "^2.11",
+        "phpunit/phpunit": "^11.0 || ^12.0",
+        "symfony/var-dumper": "^7.0"
       },
       "type": "library",
       "extra": {
@@ -2224,7 +2228,7 @@
           "homepage": "https://github.com/Laravel-Lang"
         }
       ],
-      "description": "List of 78 languages for Laravel Framework, Laravel Jetstream, Laravel Fortify, Laravel Breeze, Laravel Cashier, Laravel Nova, Laravel Spark and Laravel UI",
+      "description": "List of 126 languages for Laravel Framework, Laravel Jetstream, Laravel Fortify, Laravel Breeze, Laravel Cashier, Laravel Nova, Laravel Spark and Laravel UI",
       "keywords": [
         "lang",
         "languages",
@@ -2235,7 +2239,7 @@
         "issues": "https://github.com/Laravel-Lang/lang/issues",
         "source": "https://github.com/Laravel-Lang/lang"
       },
-      "time": "2023-12-16T17:26:12+00:00"
+      "time": "2025-10-29T12:19:07+00:00"
     },
     {
       "name": "laravel-lang/locale-list",
@@ -10192,12 +10196,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "78c716e0d0b6c32de522e299c42b977977d21cb3"
+        "reference": "7198b46ca38444224efa2445a2d3a13840440c34"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/78c716e0d0b6c32de522e299c42b977977d21cb3",
-        "reference": "78c716e0d0b6c32de522e299c42b977977d21cb3",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/7198b46ca38444224efa2445a2d3a13840440c34",
+        "reference": "7198b46ca38444224efa2445a2d3a13840440c34",
         "shasum": ""
       },
       "conflict": {
@@ -10487,7 +10491,7 @@
         "geshi/geshi": "<=1.0.9.1",
         "getformwork/formwork": "<1.13.1|>=2.0.0.0-beta1,<2.0.0.0-beta4",
         "getgrav/grav": "<1.7.46",
-        "getkirby/cms": "<3.9.8.3-dev|>=3.10,<3.10.1.2-dev|>=4,<4.7.1",
+        "getkirby/cms": "<3.9.8.3-dev|>=3.10,<3.10.1.2-dev|>=4,<4.7.1|>=5,<5.1.4",
         "getkirby/kirby": "<3.9.8.3-dev|>=3.10,<3.10.1.2-dev|>=4,<4.7.1",
         "getkirby/panel": "<2.5.14",
         "getkirby/starterkit": "<=3.7.0.2",
@@ -11176,7 +11180,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-11-17T18:06:55+00:00"
+      "time": "2025-11-18T18:07:44+00:00"
     },
     {
       "name": "sebastian/cli-parser",

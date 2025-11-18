@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'These credentials do not match our records.',
-    'password' => 'The password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed'   => 'Deze combinatie van e-mailadres en wachtwoord is niet geldig.',
+    'password' => 'Wachtwoord is onjuist.',
+    'throttle' => 'Te veel mislukte aanmeldpogingen. Probeer het nog eens over :seconds seconden.',
 ];

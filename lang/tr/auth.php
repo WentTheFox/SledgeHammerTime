@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'These credentials do not match our records.',
-    'password' => 'The password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed'   => 'Bu kimlik bilgileri kayıtlarımızla eşleşmiyor.',
+    'password' => 'Parola geçersiz.',
+    'throttle' => 'Çok fazla giriş denemesi. :seconds saniye sonra lütfen tekrar deneyin.',
 ];
