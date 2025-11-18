@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'These credentials do not match our records.',
-    'password' => 'The password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed'   => 'Disse opplysningene samsvarer ikke med hva vi har lagret.',
+    'password' => 'Passordet er feil.',
+    'throttle' => 'For mange innloggingsforsøk. Vennligst prøv igjen om :seconds sekunder.',
 ];

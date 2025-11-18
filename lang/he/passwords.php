@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'Your password has been reset.',
-    'sent'      => 'We have emailed your password reset link.',
-    'throttled' => 'Please wait before retrying.',
-    'token'     => 'This password reset token is invalid.',
-    'user'      => 'We can\'t find a user with that email address.',
+    'reset'     => 'הסיסמה אופסה!',
+    'sent'      => 'קישור לאיפוס הסיסמה נשלח אליך באימייל',
+    'throttled' => 'אנא חכו לפני שתנסו שוב.',
+    'token'     => 'אסימון איפוס הסיסמה הזה לא תקני.',
+    'user'      => 'לא הצלחנו למצוא משתמש עם כתובת האימייל הזאת.',
 ];
