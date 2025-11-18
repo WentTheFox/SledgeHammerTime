@@ -8,7 +8,7 @@ import { computed, getCurrentInstance, inject, ref, watch } from 'vue';
 export interface TimestampPreviewProps {
   ts: DateTimeLibraryValue | undefined,
   unixTs?: number;
-  format: MessageTimestampFormat | undefined;
+  format?: MessageTimestampFormat;
 }
 
 const props = defineProps<TimestampPreviewProps>();
