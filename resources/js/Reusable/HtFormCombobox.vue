@@ -323,8 +323,9 @@ const handleSuggestionClick = (option: ComboboxOption, index: number) => {
 // Handle focus & blur correctly
 const handleFocus = (event: FocusEvent) => {
   emit('focus', event);
-  if (props.allowTyping && isInteractingWithSuggestions.value) {
-    showSuggestions.value = false; // Prevent showing suggestions immediately
+  if (props.allowTyping && !isInteractingWithSuggestions.value) {
+    // Hide suggestions on focus (except during restore after option click)
+    showSuggestions.value = false;
   }
   detectSelectMode();
 };
