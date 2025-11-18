@@ -7,6 +7,15 @@ return [
     "heading" => "Page Not Found",
     "content" => "Nema ništa da se vidi ovde.",
   ],
+  "maintenanceMode" => [
+    "heading" => "Maintenance Mode",
+    "content" => [
+      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
+      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+    ],
+    "supportServerButton" => "Support Server",
+  ],
   'incompleteTranslations' => 'Prevodi su nepotpuni',
   'contributeTranslations' => 'Pomogni u prevodu',
   'copyToClipboard' => 'Kopiraj u klipboard',

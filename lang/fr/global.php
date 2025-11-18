@@ -7,6 +7,15 @@ return [
     "heading" => "Page Not Found",
     "content" => "Il n'y a rien a voir ici.",
   ],
+  "maintenanceMode" => [
+    "heading" => "Maintenance Mode",
+    "content" => [
+      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
+      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+    ],
+    "supportServerButton" => "Support Server",
+  ],
   'incompleteTranslations' => 'La traduction est incomplète',
   'contributeTranslations' => 'Contribuer',
   'copyToClipboard' => 'Copier dans le presse papier',
@@ -18,7 +27,7 @@ return [
   'nav' => [
     'botSettings' => 'Paramètre de l\'application',
     'profile' => 'Profil',
-    'legal' => 'Information légale',
+    'legal' => 'Mentions légales',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -41,12 +50,12 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Synchronisation de l\'Heure',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => 'Votre horloge système est exacte.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => 'La différence entre l\'heure locale et l\'heure du serveur est de :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
@@ -67,12 +76,12 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Paramètres Locaux',
     ],
     'credits' => [
       'title' => 'Crédits',
       'developedBy' => 'Développeur <1></1>',
-      'using' => 'Utilisant <1></1>',
+      'using' => 'Avec <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
@@ -84,9 +93,9 @@ return [
       'notAffiliated' => 'Ce projet n\'est pas affilié avec Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Thème Sombre',
+      'light' => 'Thème Clair',
+      'system' => 'Utiliser le thème du système',
     ],
   ],
   'designEditor' => [

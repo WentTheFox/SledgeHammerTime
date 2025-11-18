@@ -7,6 +7,15 @@ return [
     "heading" => "Page Not Found",
     "content" => "Энд юу ч харагдахгүй.",
   ],
+  "maintenanceMode" => [
+    "heading" => "Maintenance Mode",
+    "content" => [
+      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
+      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+    ],
+    "supportServerButton" => "Support Server",
+  ],
   'incompleteTranslations' => 'Очуулгууд бүрэн биш',
   'contributeTranslations' => 'Хувь нэмэр оруулсан',
   'copyToClipboard' => 'Түр санах ой рүү татах',
