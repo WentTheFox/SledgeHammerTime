@@ -7,6 +7,15 @@ return [
     "heading" => "Oldal Nem Található",
     "content" => "Nincs itt semmi látnivaló.",
   ],
+  "maintenanceMode" => [
+    "heading" => "Karbantartás Mód",
+    "content" => [
+      'pleaseWait' => "Az alkalmazás épp frissül, kérlek próbálkozz újra pár másodperc múlva.",
+      'joinSupportServer' => "Ha a probléma pár perc után is fennáll, kérlek csatlakozz a Discord támogatási szerverhez és jelezd felénk.",
+      'contactDeveloper' => "Ha a probléma pár perc után is fennáll, kérlek vedd fel a kapcsolatot a fejlesztővel és jelezd felé.",
+    ],
+    "supportServerButton" => "Támogatási Szerver",
+  ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
   'copyToClipboard' => 'Vágólapra másolás',

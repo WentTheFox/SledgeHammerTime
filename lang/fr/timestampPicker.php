@@ -12,16 +12,16 @@ return [
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Aller au mois en cours',
     ],
     'tooltip' => [
       'setToCurrent' => 'Régler a l\'heure actuelle',
       'lock' => 'Bloquer l\'horodatage via l\'URL',
       'unlock' => 'Débloquer l\'horodatage',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Année précédente',
+      'previousMonth' => 'Mois précédent',
+      'nextMonth' => 'Mois suivant',
+      'nextYear' => 'Année suivante',
     ],
   ],
   'table' => [
@@ -39,8 +39,8 @@ return [
       'p' => 'Générer des horodatages à partir de Discord à l\'aide de commandes slash',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'Ancien site web de HammerTime',
+      'p' => 'L\'ancien site web du projet, toujours disponible jusqu\'à la mise en ligne de cette version Beta',
     ],
     'textColor' => [
       'header' => 'Le générateur de texte <1>coloré</1> de Rebane',

@@ -7,6 +7,15 @@ return [
     "heading" => "페이지를 찾을 수 없습니다",
     "content" => "표시할 콘텐츠가 없습니다",
   ],
+  "maintenanceMode" => [
+    "heading" => "Maintenance Mode",
+    "content" => [
+      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
+      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+    ],
+    "supportServerButton" => "Support Server",
+  ],
   'incompleteTranslations' => '번역 미완료',
   'contributeTranslations' => '기여하기',
   'copyToClipboard' => '클립보드에 복사',
