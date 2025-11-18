@@ -2,7 +2,7 @@
 
 return [
   'title' => 'Profiel',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => 'De profielpagina laat u toe om uw accountinformatie te beheren die specifiek betrekking heeft op de website. Als u op zoek bent naar waar u de standaardinstellingen en andere instellingen voor de Discordapp kunt wijzigen, ga naar de pagina voor <1> App instellingen <1>.',
   'information' => [
     'heading' => 'Profiel Informatie',
     'description' => "Werk uw accounts profielinformatie bij.",
@@ -19,8 +19,8 @@ return [
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Koppel of Bewerk Account',
+      'description' => 'Door meerdere accounts met één HammerTime-account te koppelen kan u de instellingen van alle verbonden accounts op één plaats beheren.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
         'authorize' => 'Authorize Discord account',
@@ -34,7 +34,7 @@ return [
   'deletion' => [
     'heading' => 'Account Deletion',
     'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'deleteButton' => 'Account verwijderen',
     'confirmDialog' => [
       'header' => 'Are you sure you want to delete your account?',
       'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
