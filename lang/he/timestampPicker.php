@@ -9,7 +9,7 @@ return [
       'dateAndTime' => 'תאריך ושעה',
       'timezone' => 'אזור זמן',
       'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeZoneName' => 'אזור',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
@@ -40,7 +40,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'p' => 'האתר הישן של הפרויקט, עדיין נגיש עד שבטה תושק רשמית',
     ],
     'textColor' => [
       'header' => 'מייצר טקסט <1>צבעוני</1> של Rebane',
