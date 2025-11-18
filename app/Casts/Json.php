@@ -12,6 +12,10 @@ class Json implements CastsAttributes {
    * @param array<string, mixed> $attributes
    */
   public function get(Model $model, string $key, mixed $value, array $attributes):mixed {
+    if ($value === null){
+      return null;
+    }
+
     return json_decode($value, true, flags: JSON_THROW_ON_ERROR);
   }
 

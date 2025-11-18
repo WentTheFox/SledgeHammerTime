@@ -15,12 +15,13 @@ import {
   sidebarState,
   themeInject,
   timeSyncInject,
+  userInfoInject,
 } from '@/injection-keys';
 import { PageProps } from '@/types';
 import { computeCurrentLanguage } from '@/utils/app';
 import { router, usePage } from '@inertiajs/vue3';
 import { loadLanguageAsync } from 'laravel-vue-i18n';
-import { onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
+import { computed, onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
 
 const noAnimClass = 'no-anim';
 const flatUiClass = 'flat-ui';
@@ -28,6 +29,8 @@ export const useLayout = () => {
   const inertiaPage = usePage();
   const pagePropsRef = ref<PageProps>(inertiaPage.props);
   provide(pagePropsInject, pagePropsRef);
+  const userInfo = computed(() => pagePropsRef.value?.auth?.user);
+  provide(userInfoInject, userInfo);
   const devModeRef = useCheatCode(IDDQD);
   provide(devModeInject, devModeRef);
   let routerHandlerCleanup: VoidFunction | undefined;

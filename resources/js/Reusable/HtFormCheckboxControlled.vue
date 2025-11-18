@@ -5,6 +5,7 @@ defineProps<{
   id: string,
   label: string,
   name?: string,
+  value?: string,
   checked: boolean;
   disabled?: boolean;
 }>();
@@ -26,6 +27,7 @@ const emit = defineEmits<{
         type="checkbox"
         :checked="checked"
         :name="name"
+        :value="value"
         :disabled="disabled"
         class="form-checkbox-input"
         @change="emit('change', $event)"
