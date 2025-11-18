@@ -4,11 +4,59 @@ import Layout from '@/Layouts/DefaultLayout.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { Head } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
+import { onMounted, onUnmounted, ref } from 'vue';
+import { useRoute } from 'ziggy-js';
 
 defineProps<{
   discordUrl?: string;
 }>();
+
+const refreshTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
+const refreshCount = ref<number>(0);
+const route = useRoute();
+
+const handleRefreshTimeout = () => {
+  const nextRefreshIn = Math.pow(2, refreshCount.value++) * 500;
+  console.info('Checking if the current page can be safely reloaded in %d ms', nextRefreshIn);
+  refreshTimeout.value = setTimeout(() => {
+    let routeUrl: string | undefined = undefined;
+    let routeUrlError: unknown;
+    try {
+      routeUrl = String(route(route().current() as string, route().params));
+    } catch (e) {
+      routeUrlError = e;
+    }
+    if (!routeUrl) {
+      console.warn('Failed to get current route URL for automatic refresh', routeUrlError);
+      clearRefreshTimeout();
+      return;
+    }
+
+    fetch(routeUrl, { method: 'HEAD' }).then((response) => {
+      if (!response.ok) {
+        handleRefreshTimeout();
+        return;
+      }
+
+      router.get(routeUrl, undefined, { replace: true });
+    });
+  }, nextRefreshIn);
+};
+const clearRefreshTimeout = () => {
+  if (refreshTimeout.value !== null) {
+    clearTimeout(refreshTimeout.value);
+    refreshTimeout.value = null;
+  }
+};
+
+onMounted(() => {
+  handleRefreshTimeout();
+});
+
+onUnmounted(() => {
+  clearRefreshTimeout();
+});
 </script>
 
 <template>
