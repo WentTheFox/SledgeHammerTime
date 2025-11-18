@@ -7,7 +7,7 @@ RUN_FOR_REF="refs/heads/main"
 if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     GIT="env -i git"
     CMD_CD="cd $(readlink -nf "$PWD/..")"
-    CMD_FETCH="$GIT fetch"
+    CMD_FETCH="timeout 15 $GIT fetch"
     CMD_COMPOSER="if [ -d vendor/ ]; then sudo chmod -R ug+rw vendor/; fi; composer install --optimize-autoloader --no-dev 2>&1"
     CMD_MIGRATE="php artisan migrate --force"
     CMD_NPM="npm ci"
