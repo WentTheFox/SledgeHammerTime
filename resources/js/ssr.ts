@@ -17,11 +17,20 @@ createServer((page) =>
     },
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
     setup({ App, props, plugin }) {
+      const ziggyLocation = page.props.ziggy?.location;
+      let location: URL | undefined = undefined;
+      if (ziggyLocation) {
+        try {
+          location = new URL(ziggyLocation);
+        } catch (e) {
+          console.error('Failed to parse Ziggy location as URL', e);
+        }
+      }
       return createSSRApp({ render: () => h(App, props) })
         .use(plugin)
         .use(ZiggyVue, {
           ...page.props.ziggy,
-          location: page.props.ziggy ? new URL(page.props.ziggy.location) : undefined,
+          location,
         })
         .use(i18nVue, {
           lang: props.initialPage.props.app?.locale ?? 'en',
