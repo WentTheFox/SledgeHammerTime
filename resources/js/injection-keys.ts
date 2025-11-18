@@ -1,7 +1,7 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
-import { PageProps } from '@/types';
+import { PageProps, User } from '@/types';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
@@ -63,6 +63,8 @@ export const formControlId = Symbol('formControlId') as InjectionKey<string>;
 export const positionAnchor = Symbol('positionAnchor') as InjectionKey<`--${string}`>;
 
 export const pagePropsInject = Symbol('pagePropsInject') as InjectionKey<Ref<PageProps>>;
+
+export const userInfoInject = Symbol('pagePropsInject') as InjectionKey<Ref<User | undefined>>;
 
 export interface CurrentLanguageData {
   locale: AvailableLanguage;

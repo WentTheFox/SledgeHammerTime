@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TimestampTableRow from '@/Components/home/table/TimestampTableRow.vue';
-import { dateTimeLibraryInject, timestampInject } from '@/injection-keys';
+import TimestampTableRowGroup from '@/Components/home/table/TimestampTableRowGroup.vue';
+import { dateTimeLibraryInject, timestampInject, userInfoInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtTable from '@/Reusable/HtTable.vue';
 import { faCalendar as faRegularCalendar } from '@fortawesome/free-regular-svg-icons';
@@ -10,10 +11,13 @@ import { computed, inject } from 'vue';
 
 const ts = inject(timestampInject);
 const dtl = inject(dateTimeLibraryInject);
+const userInfo = inject(userInfoInject);
 
 const currentTimestamp = computed(() => ts?.currentTimezone.value && dtl?.value && dtl.value.getValueForIsoZonedDateTime(ts?.currentDate.value, ts?.currentTime.value, ts.currentTimezone.value));
 
 const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
+
+const hiddenFormats = computed(() => new Set(userInfo?.value?.hiddenFormats ?? []));
 </script>
 
 <template>
@@ -36,11 +40,11 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
       </tr>
     </thead>
     <tbody>
-      <TimestampTableRow
-        :icon="{ cellHeight: 2}"
-        :ts="currentTimestamp"
+      <TimestampTableRowGroup
+        :current-timestamp="currentTimestamp"
         :unix-ts="unixTs"
-        :format="MessageTimestampFormat.SHORT_DATE"
+        :formats="[MessageTimestampFormat.SHORT_DATE,MessageTimestampFormat.LONG_DATE]"
+        :hidden-formats="hiddenFormats"
       >
         <template #icon>
           <FontAwesomeIcon
@@ -48,17 +52,12 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
             size="2x"
           />
         </template>
-      </TimestampTableRow>
-      <TimestampTableRow
-        :ts="currentTimestamp"
+      </TimestampTableRowGroup>
+      <TimestampTableRowGroup
+        :current-timestamp="currentTimestamp"
         :unix-ts="unixTs"
-        :format="MessageTimestampFormat.LONG_DATE"
-      />
-      <TimestampTableRow
-        :icon="{ cellHeight: 2}"
-        :ts="currentTimestamp"
-        :unix-ts="unixTs"
-        :format="MessageTimestampFormat.SHORT_TIME"
+        :formats="[MessageTimestampFormat.SHORT_TIME,MessageTimestampFormat.LONG_TIME]"
+        :hidden-formats="hiddenFormats"
       >
         <template #icon>
           <FontAwesomeIcon
@@ -66,17 +65,12 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
             size="2x"
           />
         </template>
-      </TimestampTableRow>
-      <TimestampTableRow
-        :ts="currentTimestamp"
+      </TimestampTableRowGroup>
+      <TimestampTableRowGroup
+        :current-timestamp="currentTimestamp"
         :unix-ts="unixTs"
-        :format="MessageTimestampFormat.LONG_TIME"
-      />
-      <TimestampTableRow
-        :icon="{ cellHeight: 4}"
-        :ts="currentTimestamp"
-        :unix-ts="unixTs"
-        :format="MessageTimestampFormat.SHORT_FULL"
+        :formats="[MessageTimestampFormat.SHORT_FULL,MessageTimestampFormat.LONG_FULL,MessageTimestampFormat.SHORT_COMPACT,MessageTimestampFormat.LONG_COMPACT]"
+        :hidden-formats="hiddenFormats"
       >
         <template #icon>
           <span class="fa-stack fa-1x">
@@ -91,27 +85,12 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
             />
           </span>
         </template>
-      </TimestampTableRow>
-      <TimestampTableRow
-        :ts="currentTimestamp"
+      </TimestampTableRowGroup>
+      <TimestampTableRowGroup
+        :current-timestamp="currentTimestamp"
         :unix-ts="unixTs"
-        :format="MessageTimestampFormat.LONG_FULL"
-      />
-      <TimestampTableRow
-        :ts="currentTimestamp"
-        :unix-ts="unixTs"
-        :format="MessageTimestampFormat.SHORT_COMPACT"
-      />
-      <TimestampTableRow
-        :ts="currentTimestamp"
-        :unix-ts="unixTs"
-        :format="MessageTimestampFormat.LONG_COMPACT"
-      />
-      <TimestampTableRow
-        :icon="true"
-        :ts="currentTimestamp"
-        :unix-ts="unixTs"
-        :format="MessageTimestampFormat.RELATIVE"
+        :formats="[MessageTimestampFormat.RELATIVE]"
+        :hidden-formats="hiddenFormats"
       >
         <template #icon>
           <FontAwesomeIcon
@@ -119,7 +98,7 @@ const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
             size="2x"
           />
         </template>
-      </TimestampTableRow>
+      </TimestampTableRowGroup>
       <TimestampTableRow
         :icon="true"
         :ts="currentTimestamp"

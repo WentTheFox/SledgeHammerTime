@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Casts\Json;
 use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,6 +23,16 @@ class User extends Authenticatable {
   protected $fillable = [
     'id',
     'name',
+    'hidden_formats',
+  ];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'hidden_formats' => Json::class,
   ];
 
   function discordUsers():HasMany {
@@ -36,6 +47,7 @@ class User extends Authenticatable {
     return [
       'id' => $this->id,
       'name' => $this->name,
+      'hiddenFormats' => $this->hidden_formats,
     ];
   }
 }

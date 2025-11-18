@@ -33,7 +33,7 @@ class HandleInertiaRequests extends Middleware {
       ...parent::share($request),
       ...self::getGlobalSharedArray(),
       'auth' => [
-        'user' => $request->user(),
+        'user' => $request->user()?->mapToUiInfo(),
       ],
     ];
     $shared['ziggy'] = fn() => [
