@@ -7,6 +7,7 @@ return [
     'heading' => 'Profiel Informatie',
     'description' => "Werk uw accounts profielinformatie bij.",
     'displayName' => 'Weergavenaam',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Uw profiel is succesvol bijgewerkt.',
   ],
   'accounts' => [
