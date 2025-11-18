@@ -25,7 +25,7 @@ everyone at once.
 
 [crowdin]: https://crowdin.com/project/sledgehammertime
 
-[join our discord server]: https://sledgehammerti.me/discord
+[join our discord server]: https://hammertime.cyou/discord
 
 [#translator-signup]: https://discord.com/channels/952258283882819595/952292965211074650
 
