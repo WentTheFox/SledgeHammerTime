@@ -27,7 +27,7 @@ return [
   'nav' => [
     'botSettings' => 'Paramètre de l\'application',
     'profile' => 'Profil',
-    'legal' => 'Information légale',
+    'legal' => 'Mentions légales',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -81,7 +81,7 @@ return [
     'credits' => [
       'title' => 'Crédits',
       'developedBy' => 'Développeur <1></1>',
-      'using' => 'Utilisant <1></1>',
+      'using' => 'Avec <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
