@@ -7,6 +7,7 @@ return [
     'heading' => 'Profilinformációk',
     'description' => "Frissítsd a fiókod profilinformációit.",
     'displayName' => 'Megjelenített Név',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'A profilod sikeresen frissítésre került.',
   ],
   'accounts' => [
