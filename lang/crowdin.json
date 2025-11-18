@@ -97,6 +97,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14031231/medium/be9cd1be371920bad4b5f793a6eb4c14.jpeg",
       "fullName": "stha"
     },
+    "14089137": {
+      "username": "Headspike",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14089137/medium/e45205548e7083ea502cb919f5bbb44a.png"
+    },
     "14153733": {
       "username": "Mirnyang",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14153733/medium/9a2fe282298d66026016c71086cc6d6e.png",
@@ -767,6 +771,15 @@
       "username": "ZeruGames",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/ede6ceee5e784258bcfe7d56f42e9ca3.png",
       "fullName": "Zeru"
+    },
+    "17431518": {
+      "username": "krzak.bushowski",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17431518/medium/82c4572529572d1f3e89bc170b208db4.png",
+      "fullName": "Taki sobie Krzak Internetowy"
+    },
+    "17433118": {
+      "username": "ImTheSpyke",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17433118/medium/bbff633de8e7f965b6f101198753a7c5.png"
     }
   },
   "languages": {
@@ -917,11 +930,12 @@
         "16629243",
         "16723857",
         "15453302",
+        "17433118",
         "17134580"
       ],
       "progress": {
         "approval": 14,
-        "translation": 14
+        "translation": 54
       }
     },
     "he": {
@@ -1087,11 +1101,12 @@
         "17179168",
         "17413820",
         "16122526",
-        "17430050"
+        "17430050",
+        "14089137"
       ],
       "progress": {
         "approval": 25,
-        "translation": 25
+        "translation": 27
       }
     },
     "pl": {
@@ -1101,11 +1116,12 @@
         "14031231",
         "14428048",
         "16172948",
-        "14673608"
+        "14673608",
+        "17431518"
       ],
       "progress": {
         "approval": 36,
-        "translation": 36
+        "translation": 65
       }
     },
     "pt-BR": {
@@ -1142,7 +1158,7 @@
       ],
       "progress": {
         "approval": 96,
-        "translation": 96
+        "translation": 100
       }
     },
     "ru": {
