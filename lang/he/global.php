@@ -25,9 +25,9 @@ return [
     'body' => "הדפדפן שלכם ככל הנראה לא תומך בג'אווהסקריפט או שהוא חוסם אותו. כמה מהדפדפנים באופן אוטומטי חוסמים ג'אווהסקריפט מטעמי אבטחה, אבל זה חשוב בשביל האתר הזה. בבקשה הפעילו את הג'אווהסקריפט ותרעננו את הדף הזה, או שתחליפו את הדפדפן שלכם באחד אחר שכן תומך.",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
+    'botSettings' => 'הגדרות אפליקציה',
     'profile' => 'Profile',
-    'legal' => 'Legal Information',
+    'legal' => 'מידע משפטי',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -52,10 +52,10 @@ return [
     'timeSync' => [
       'title' => 'Time Synchronization',
       'status' => [
-        'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'syncing' => 'השעון שלך מתחיל סנכרון עם השרת שלנו, נא לחכות.',
+        'accurate' => 'שעות המערכת שלך הוא נכון.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => 'ההבדל בין הזמן של השרת ושלך הוא :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
