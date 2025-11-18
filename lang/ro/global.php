@@ -8,13 +8,13 @@ return [
     "content" => "Nimic de văzut aici.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Mod de Mentenanță",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Aplicația este în curs de actualizare, vă rugăm să încercați din nou în câteva secunde.",
+      'joinSupportServer' => "Dacă problema persistă mai mult de câteva minute, te rugăm să intri pe serverul de suport Discord și să ne anunți.",
+      'contactDeveloper' => "Dacă problema persistă mai mult de câteva minute, vă rugăm să contactați dezvoltatorul și să îl informați.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Server de suport",
   ],
   'incompleteTranslations' => 'Traducerile sunt incomplete',
   'contributeTranslations' => 'Contribuie',
@@ -33,20 +33,20 @@ return [
     'inputSettings' => [
       'title' => 'Setări de intrare',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Introducere dată personalizată',
+        'description' => "Înlocuiți câmpul de introducere a datei implicită din browser cu unul personalizat.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Introducere personalizată a timpului',
+        'description' => "Înlocuiți introducerea orei implicită a browserului cu una personalizată. Acest lucru este util mai ales dacă aveți probleme cu selectarea orei pe browserele mobile.",
       ],
       'separateInputs' => [
         'label' => 'Intrări separate',
         'description' => "Afișarea a două intrări diferite pentru dată și oră în loc de una combinată (care nu este acceptată în unele browsere)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Interfață plată',
+        'description' => "Dezactivează efectele de umbră și înălțime pe intrări și butoane",
       ],
     ],
     'timeSync' => [
