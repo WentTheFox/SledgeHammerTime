@@ -7,6 +7,7 @@ return [
     'heading' => 'معلومات الملف الشخصي',
     'description' => "تحديث معلومات الملف الشخصي لحسابك.",
     'displayName' => 'اسم العرض',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'تم تحديث ملفك الشخصي بنجاح.',
   ],
   'accounts' => [
