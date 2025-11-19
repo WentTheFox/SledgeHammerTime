@@ -8,13 +8,13 @@ return [
     "content" => "Hier gibt es nichts zu sehen.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Wartungsmodus",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Die Anwendung wird derzeit aktualisiert, bitte versuche es in wenigen Sekunden erneut.",
+      'joinSupportServer' => "Wenn das Problem länger als ein paar Minuten besteht, tritt bitte dem Discord-Support-Server bei, um uns zu kontaktieren.",
+      'contactDeveloper' => "Wenn das Problem länger als ein paar Minuten besteht, kontaktiere bitte den Entwickler und informiere ihn.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Support-Server",
   ],
   'incompleteTranslations' => 'Übersetzungen sind unvollständig',
   'contributeTranslations' => 'Beitragen',
@@ -33,20 +33,20 @@ return [
     'inputSettings' => [
       'title' => 'Eingabeeinstellungen',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Benutzerdefinierte Datumseingabe',
+        'description' => "Ersetzt die standardmäßige Datumseingabe des Browsers durch eine eigene.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Benutzerdefinierte Zeiteingabe',
+        'description' => "Ersetzt die standardmäßige Zeiteingabe des Browsers durch eine eigene. Besonders hilfreich, wenn die Zeitauswahl in mobilen Browsern Probleme bereitet.",
       ],
       'separateInputs' => [
         'label' => 'Getrennte Eingaben',
         'description' => "Zeige zwei verschiedene Eingaben für Datum und Uhrzeit statt eines kombinierten (was in einigen Browsern nicht unterstützt wird)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Abgeflachte Oberfläche',
+        'description' => "Deaktiviert Schatten- und Höheneffekte bei Eingabefeldern und Buttons",
       ],
     ],
     'timeSync' => [
