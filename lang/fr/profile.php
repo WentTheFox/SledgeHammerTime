@@ -7,7 +7,7 @@ return [
     'heading' => 'Information du profil',
     'description' => "Mettre à jour les informations de profil de votre compte.",
     'displayName' => 'Nom d\'affichage',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Formats masqués dans la table de sélection',
     'saveSuccess' => 'Votre profil a été mis à jour avec succès.',
   ],
   'accounts' => [
@@ -23,7 +23,7 @@ return [
       'heading' => 'Lier ou mettre à jour un compte',
       'description' => 'En liant plusieurs comptes à un seul compte HammerTime, vous pouvez gérer les paramètres de tous les comptes liés au même endroit.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
+        'description' => 'Si votre image de profil ou votre nom d\'affichage ont changé, vous pouvez aussi utiliser ceci pour mettre à jour ces informations pour tout compte Discord déjà lié.',
         'authorize' => 'Autoriser le compte Discord',
       ],
       'crowdin' => [
