@@ -7,6 +7,7 @@ return [
     'heading' => 'Informazioni sul profilo',
     'description' => "Aggiorna le informazioni del profilo del tuo account.",
     'displayName' => 'Nome Visualizzato',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Il tuo profilo è stato aggiornato correttamente.',
   ],
   'accounts' => [
