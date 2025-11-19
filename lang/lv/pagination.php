@@ -3,6 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'next'     => 'Nākamais &raquo;',
-    'previous' => '&laquo; Iepriekšējais',
+    'next'     => 'Next &raquo;',
+    'previous' => '&laquo; Previous',
 ];
