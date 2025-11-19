@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'உங்கள் கடவுச்சொல் மீட்டமைக்கப்பட்டது.',
-    'sent'      => 'உங்கள் கடவுச்சொல் மீட்டமைப்பு இணைப்பை நாங்கள் மின்னஞ்சல் செய்துள்ளோம்.',
-    'throttled' => 'மீண்டும் முயற்சிக்க முன் காத்திருக்கவும்.',
-    'token'     => 'இந்த கடவுச்சொல் மீட்டமைப்பு குறியீடு தவறானது.',
-    'user'      => 'அந்த மின்னஞ்சல் முகவரியுடன் பயனரை நாங்கள் கண்டுபிடிக்க முடியவில்லை.',
+    'reset'     => 'Your password has been reset.',
+    'sent'      => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token'     => 'This password reset token is invalid.',
+    'user'      => 'We can\'t find a user with that email address.',
 ];
