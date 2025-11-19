@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'Lösenordet har blivit återställt!',
-    'sent'      => 'Lösenordspåminnelse skickad!',
-    'throttled' => 'Vänligen vänta innan du försöker igen.',
-    'token'     => 'Koden för lösenordsåterställning är ogiltig.',
-    'user'      => 'Det finns ingen användare med den e-postadressen.',
+    'reset'     => 'Your password has been reset.',
+    'sent'      => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token'     => 'This password reset token is invalid.',
+    'user'      => 'We can\'t find a user with that email address.',
 ];
