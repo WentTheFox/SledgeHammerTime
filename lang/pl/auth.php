@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'Błędny login lub hasło.',
-    'password' => 'Hasło jest nieprawidłowe.',
-    'throttle' => 'Za dużo nieudanych prób logowania. Proszę spróbować za :seconds sekund.',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
