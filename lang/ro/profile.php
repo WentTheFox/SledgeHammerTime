@@ -5,8 +5,8 @@ return [
   'intro' => 'Pagina de profil vă permite să gestionați informațiile contului dvs. legate în mod specific de site-ul web. Dacă doriți să aflați unde puteți modifica setările implicite și alte setări pentru aplicația Discord, accesați pagina <1>Setări aplicație</1>.',
   'information' => [
     'heading' => 'Informații profil',
-    'description' => "Actualizați informațiile de profil ale contului dvs.",
-    'displayName' => 'Nume afișat',
+    'description' => "Update your account's profile information.",
+    'displayName' => 'Display Name',
     'hiddenFormats' => 'Formate ascunse din tabelul de selectare',
     'saveSuccess' => 'Profilul dvs. a fost actualizat cu succes.',
   ],
@@ -20,8 +20,8 @@ return [
     'crowdin' => 'Conturi Crowdin',
     'noConnectedAccounts' => 'Nu aveți niciun cont conectat în acest moment',
     'linkAdditional' => [
-      'heading' => 'Conectarea sau actualizarea contului',
-      'description' => 'Prin conectarea mai multor conturi la un singur cont HammerTime, puteți gestiona toate setările conturilor conectate dintr-un singur loc.',
+      'heading' => 'Link or Update Account',
+      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
       'discord' => [
         'description' => 'Dacă fotografia de profil sau numele afișat s-au schimbat, poți utiliza această opțiune pentru a actualiza informațiile pentru orice cont Discord care este deja conectat.',
         'authorize' => 'Autorizați contul Discord',
@@ -34,11 +34,11 @@ return [
   ],
   'deletion' => [
     'heading' => 'Ștergerea contului',
-    'description' => 'Odată ce contul dvs. este șters, toate resursele și datele acestuia vor fi șterse definitiv. Înainte de a vă șterge contul, vă rugăm să descărcați orice date sau informații pe care doriți să le păstrați.',
-    'deleteButton' => 'Ștergeți contul',
+    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'deleteButton' => 'Delete Account',
     'confirmDialog' => [
-      'header' => 'Sunteți sigur că doriți să vă ștergeți contul?',
-      'body' => 'Odată ce contul dvs. este șters, toate resursele și datele acestuia vor fi șterse definitiv.',
+      'header' => 'Are you sure you want to delete your account?',
+      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
     ],
   ],
 ];
