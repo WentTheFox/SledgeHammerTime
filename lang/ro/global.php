@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'seoDescription' => 'Generarea indicatorilor timestamp pentru mesajele de chat Discord',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
   'changeLanguage' => 'Schimbă limba',
   "notFound" => [
     "heading" => "Pagina nu a fost găsită",
