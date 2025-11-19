@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'Хэрэглэгчийн нэр эсвэл нууц үг буруу.',
-    'password' => 'Нууц үг буруу.',
-    'throttle' => 'Олон удаагийн буруу оролдого. :seconds секундийн дараа дахин оролдоно уу.',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
