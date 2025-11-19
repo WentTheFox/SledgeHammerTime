@@ -28,7 +28,7 @@ return [
       'displayName' => 'En-tête',
     ],
     'boldPreview' => [
-      'displayName' => 'Formatage de l\'aperçu en gras',
+      'displayName' => 'Aperçu du format en gras',
     ],
     'defaultAtHour' => [
       'displayName' => 'Option par défaut ":hourOptionName" pour la commande /:atCommandName',
