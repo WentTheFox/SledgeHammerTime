@@ -7,6 +7,7 @@ return [
     'heading' => '个人资料信息',
     'description' => "更新您账户的个人资料信息。",
     'displayName' => '显示名称',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => '您个人资料的更改已保存。',
   ],
   'accounts' => [
