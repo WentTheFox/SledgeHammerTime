@@ -7,6 +7,7 @@ return [
     'heading' => 'プロフィール情報',
     'description' => "Update your account's profile information.",
     'displayName' => '表示名',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
