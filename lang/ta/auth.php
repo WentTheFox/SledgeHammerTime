@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'இந்த சான்றுகள் எங்கள் பதிவுகளுடன் பொருந்தவில்லை.',
-    'password' => 'வழங்கப்பட்ட கடவுச்சொல் தவறானது.',
-    'throttle' => 'அதிக அளவு உள்நுழைவு முயற்சிகள். :seconds வினாடிகளில் மீண்டும் முயற்சிக்கவும்.',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
