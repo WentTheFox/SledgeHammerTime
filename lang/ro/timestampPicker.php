@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Alegeți o dată, copiați timestamp-ul dorit din coloana :syntaxColName, apoi adăugați-l oriunde într-un mesaj de chat. Rezultatul va fi o marcă de timp dinamică care se afișează diferit pentru fiecare în funcție de propriul fus orar.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
       'date' => 'Data',
