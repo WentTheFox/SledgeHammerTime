@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'ตั้งรหัสผ่านใหม่แล้ว',
-    'sent'      => 'ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!',
-    'throttled' => 'โปรดรอสักครู่ก่อนที่จะลองใหม่อีกครั้ง',
-    'token'     => 'ชุดรหัสสำหรับเปลี่ยนรหัสผ่านไม่ถูกต้อง',
-    'user'      => 'ไม่พบผู้ใช้งานที่ตรงกับอีเมลนี้',
+    'reset'     => 'Your password has been reset.',
+    'sent'      => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token'     => 'This password reset token is invalid.',
+    'user'      => 'We can\'t find a user with that email address.',
 ];
