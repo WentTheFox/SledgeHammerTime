@@ -443,6 +443,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16240978/medium/0c4cea7930705aee45dfd286db7a10a8.png",
       "fullName": "Suthipong Masopmao"
     },
+    "16303638": {
+      "username": "Quent12b0",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16303638/medium/dc2e9da34701045c85e1495abb46cf9e.jpeg",
+      "fullName": "Quentin Deborde"
+    },
     "16335994": {
       "username": "remsoff",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16335994/medium/02222acf3f9711727e15396cd43cf8f1.png",
@@ -863,8 +868,8 @@
         "13365555"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 100,
+        "translation": 100
       }
     },
     "en-GB": {
@@ -940,12 +945,13 @@
         "16629243",
         "16723857",
         "15453302",
+        "16303638",
         "17433118",
         "17134580"
       ],
       "progress": {
-        "approval": 76,
-        "translation": 76
+        "approval": 100,
+        "translation": 100
       }
     },
     "he": {
@@ -1010,7 +1016,7 @@
       ],
       "progress": {
         "approval": 99,
-        "translation": 99
+        "translation": 100
       }
     },
     "ja": {
@@ -1026,8 +1032,8 @@
         "17429540"
       ],
       "progress": {
-        "approval": 13,
-        "translation": 21
+        "approval": 65,
+        "translation": 65
       }
     },
     "ko": {
@@ -1167,7 +1173,7 @@
         "16601907"
       ],
       "progress": {
-        "approval": 67,
+        "approval": 100,
         "translation": 100
       }
     },
