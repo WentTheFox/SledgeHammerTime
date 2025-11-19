@@ -760,7 +760,7 @@
     },
     "17429540": {
       "username": "yuuuyu",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17429540/medium/d874270e7cceeb9519ecdbbc5abc6975.png",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17429540/medium/7b7795e161913d3a385d07d9c9bff04c.png",
       "fullName": "ゆううゆ"
     },
     "17430050": {
@@ -1027,7 +1027,7 @@
       ],
       "progress": {
         "approval": 13,
-        "translation": 13
+        "translation": 21
       }
     },
     "ko": {
@@ -1167,7 +1167,7 @@
         "16601907"
       ],
       "progress": {
-        "approval": 96,
+        "approval": 67,
         "translation": 100
       }
     },
