@@ -3,7 +3,7 @@
 return [
   "title" => "Sélectionnez l'endroit où vous souhaitez ajouter l'app",
   "user" => [
-    "title" => "Ajoute à Mes applications",
+    "title" => "Ajouter à Mes Applications",
     "description" => "Utilise cette appli partout !",
   ],
   "guild" => [
