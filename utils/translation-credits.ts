@@ -30,7 +30,6 @@ import { migrateLanguageConfig } from './helpers/migrate-language-config';
 dotenvConfig();
 
 const markerString = '### Credits';
-// @ts-expect-error It is available, trust me.
 const readmeFolder = path.join(import.meta.dirname, '..');
 const readmePath = path.join(readmeFolder, 'README.md');
 const REMOVED_USER_USERNAME = 'REMOVED_USER';
@@ -150,7 +149,7 @@ void (async () => {
       return;
     }
     indexedReportData.languages[availableLanguageCode] = {
-      translatorIds: [...indexedReportData.languages[availableLanguageCode].translatorIds],
+      translatorIds: [...indexedReportData.languages[availableLanguageCode]?.translatorIds ?? []],
       progress: {
         approval: languageProgress.approvalProgress,
         translation: languageProgress.translationProgress,

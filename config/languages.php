@@ -48,6 +48,7 @@ return [
     'vi',
     'da',
     'nb',
+    'eo',
   ],
   'locale_route_alias' => [
     'en-US' => 'en',
@@ -73,6 +74,7 @@ return [
     'en-GB' => 'en_GB',
     'en' => 'en',
     'es' => 'es',
+    'eo' => 'eo',
     'fa' => 'fa',
     'fi' => 'fi',
     'fr' => 'fr',
