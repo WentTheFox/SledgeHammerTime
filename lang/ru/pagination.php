@@ -3,6 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'next'     => 'Вперёд &raquo;',
-    'previous' => '&laquo; Назад',
+    'next'     => 'Next &raquo;',
+    'previous' => '&laquo; Previous',
 ];
