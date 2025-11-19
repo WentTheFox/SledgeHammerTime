@@ -3,7 +3,7 @@
 return [
   'heading' => 'Aplicația Discord',
   'description' => 'Aplicația HammerTime vă permite să obțineți coduri de timestamp ușor de copiat din interfața de utilizator Discord, utilizând comenzi de tip slash și meniu contextual.',
-  'customizeSettingsGuest' => 'Unele dintre funcționalitățile sale pot fi, de asemenea, personalizate prin <1>logging in</1>, apoi accesând pagina <3>App Settings</3> (disponibilă și făcând click pe numele dvs. de utilizator din bara laterală).',
+  'customizeSettingsGuest' => 'Unele dintre funcționalitățile sale pot fi personalizate și prin <1>conectare</1>, apoi accesarea paginii <3>Setări aplicație</3> (disponibilă și prin click pe numele de utilizator din bara laterală).',
   'customizeSettingsAuthenticated' => 'Unele dintre funcționalitățile sale pot fi, de asemenea, personalizate prin vizitarea paginii <1>App Settings</1> (disponibilă și făcând click pe numele dvs. de utilizator din bara laterală).',
   'addAppLead' => 'Adăugați aplicația la serverul sau contul dvs. și utilizați-o ori de câte ori aveți nevoie de un timestamp, dar nu doriți să deschideți browserul.',
   'appDiscoveryLead' => 'Aplicația poate fi găsită pe pagina Discord\'s App Discovery, pe care o puteți verifica aici:',

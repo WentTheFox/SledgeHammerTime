@@ -8,13 +8,13 @@ return [
     "content" => "Δεν υπάρχει κάτι να δεις εδώ.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Λειτουργία Συντήρησης",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Η εφαρμογή αυτή τη στιγμή ενημερώνεται, παρακαλώ προσπαθήστε ξανά σε λίγα δευτερόλεπτα.",
+      'joinSupportServer' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, παρακαλούμε συνδεθείτε στο διακομιστή υποστήριξης Discord και ενημερώστε μας.",
+      'contactDeveloper' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, επικοινωνήστε με τον προγραμματιστή και ενημερώστε τον.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Διακομιστής Υποστήριξης",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',

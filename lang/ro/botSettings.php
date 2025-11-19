@@ -3,7 +3,7 @@
 return [
   'title' => 'Setări aplicație',
   'description' => 'Mai jos puteți vedea setările curente din aplicația HammerTime pentru fiecare cont conectat.',
-  'learnMore' => 'Nu sunteți sigur ce este aplicația sau sunteți curios ce poate face? Vizitați link-ul <1>Discord App</1> pentru a afla mai multe.',
+  'learnMore' => 'Nu știi ce este aplicația sau ești curios să afli ce poate face? Accesează linkul <1>Aplicația Discord</1> pentru a afla mai multe.',
   'advancedSettings' => [
     'toggleText' => 'Setări avansate',
   ],
