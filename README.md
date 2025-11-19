@@ -101,6 +101,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Malalia Mimi](https://crowdin.com/profile/MialyMusic)
   - [Nathan LAX](https://crowdin.com/profile/nathanfurry-neku)
   - [Ouiouibaguette](https://crowdin.com/profile/Ouiouibaguette)
+  - [Quentin Deborde](https://crowdin.com/profile/Quent12b0)
   - [Rosaa Litaa](https://crowdin.com/profile/Rosaalita)
   - [sivelswhy](https://crowdin.com/profile/sivelswhy)
   - [Théo Navas](https://crowdin.com/profile/GrifGrif)
