@@ -8,8 +8,8 @@ return [
       'time' => 'Temps',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Décalage absolu',
+      'modeZoneName' => 'Nom du fuseau horaire',
     ],
     'button' => [
       'jumpToToday' => 'Aller au mois en cours',

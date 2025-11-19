@@ -7,6 +7,7 @@ return [
     'heading' => 'Информация о профиле',
     'description' => "Измените информацию о вашей учетной записи.",
     'displayName' => 'Отображаемое имя',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Ваш профиль был успешно обновлен.',
   ],
   'accounts' => [
