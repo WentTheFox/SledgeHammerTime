@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'La contrasenya s\'ha restablert!',
-    'sent'      => 'Li hem enviat un correu electrònic amb un enllaç per a reiniciar la teva contrasenya!',
-    'throttled' => 'Si us plau, esperi abans de tornar-ho a intentar.',
-    'token'     => 'Aquest token de recuperació de contrasenya és invàlid.',
-    'user'      => 'No existeix cap usuari amb aquest correu.',
+    'reset'     => 'Your password has been reset.',
+    'sent'      => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token'     => 'This password reset token is invalid.',
+    'user'      => 'We can\'t find a user with that email address.',
 ];
