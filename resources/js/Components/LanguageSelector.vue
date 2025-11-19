@@ -7,7 +7,7 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
 import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
-import { faCaretDown, faCaretUp, faGlobe, faLifeRing } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
 import { Tippy } from 'vue-tippy';
@@ -119,7 +119,7 @@ onMounted(router.on('success', navigateListener));
             <HtButton
               :block="true"
               class="change-language-button"
-              :icon-start="faGlobe"
+              :icon-start="faLanguage"
               :icon-end="state.isVisible ? faCaretDown : faCaretUp"
               :justify-center="true"
               :pressed="state.isVisible"
