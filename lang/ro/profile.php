@@ -5,8 +5,8 @@ return [
   'intro' => 'Pagina de profil vă permite să gestionați informațiile contului dvs. legate în mod specific de site-ul web. Dacă doriți să aflați unde puteți modifica setările implicite și alte setări pentru aplicația Discord, accesați pagina <1>Setări aplicație</1>.',
   'information' => [
     'heading' => 'Informații profil',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
+    'description' => "Actualizați informațiile din profilul contului dvs.",
+    'displayName' => 'Numele afișat',
     'hiddenFormats' => 'Formate ascunse din tabelul de selectare',
     'saveSuccess' => 'Profilul dvs. a fost actualizat cu succes.',
   ],
@@ -20,8 +20,8 @@ return [
     'crowdin' => 'Conturi Crowdin',
     'noConnectedAccounts' => 'Nu aveți niciun cont conectat în acest moment',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Conectare sau actualizare cont',
+      'description' => 'Prin conectarea mai multor conturi la un singur cont HammerTime, puteți gestiona toate conturile conectate dintr-un singur loc.',
       'discord' => [
         'description' => 'Dacă fotografia de profil sau numele afișat s-au schimbat, poți utiliza această opțiune pentru a actualiza informațiile pentru orice cont Discord care este deja conectat.',
         'authorize' => 'Autorizați contul Discord',
@@ -34,11 +34,11 @@ return [
   ],
   'deletion' => [
     'heading' => 'Ștergerea contului',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'description' => 'Odată ce contul dvs. este șters, toate resursele și datele sale vor fi șterse definitiv. Înainte de a șterge contul, vă rugăm să descărcați toate datele sau informațiile pe care doriți să le păstrați.',
+    'deleteButton' => 'Șterge contul',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Ești sigur că vrei să-ți ștergi contul?',
+      'body' => 'Odată ce contul dvs. este șters, toate resursele și datele sale vor fi șterse definitiv.',
     ],
   ],
 ];
