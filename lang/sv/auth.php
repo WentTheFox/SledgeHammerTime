@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'Dessa uppgifter stämmer inte överens med vårt register.',
-    'password' => 'Lösenordet är fel.',
-    'throttle' => 'För många inloggningsförsök. Var vänlig försök igen om :seconds sekunder.',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
