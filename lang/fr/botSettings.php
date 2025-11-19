@@ -47,5 +47,5 @@ return [
       'displayName' => 'Option par défaut ":hourOptionName" pour la commande /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Vos paramètres ont été sauvegardés avec succès.',
 ];
