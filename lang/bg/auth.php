@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => 'Неуспешно удостоверяване на потребител.',
-    'password' => 'Паролата е грешна.',
-    'throttle' => 'Твърде много опити за вход. Моля, опитайте отново след :seconds секунди.',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
