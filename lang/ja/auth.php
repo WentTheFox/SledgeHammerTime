@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'failed'   => '認証に失敗しました。',
-    'password' => 'パスワードが正しくありません。',
-    'throttle' => 'ログインの試行回数が多すぎます。:seconds 秒後にお試しください。',
+    'failed'   => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
