@@ -8,13 +8,13 @@ return [
     "content" => "Burada görülecek bir şey yok.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Bakım Modu",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Uygulama şu anda güncelleniyor, lütfen birkaç saniye sonra tekrar deneyin.",
+      'joinSupportServer' => "Sorun birkaç dakikadan fazla devam ederse, lütfen Discord destek sunucumuza katılın ve bize bildirin.",
+      'contactDeveloper' => "Sorun birkaç dakikadan fazla devam ederse, lütfen geliştiriciyle iletişime geçin ve durumu bildirin.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Destek Sunucusu",
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
   'contributeTranslations' => 'Katkıda Bulun',
@@ -33,20 +33,20 @@ return [
     'inputSettings' => [
       'title' => 'Girdi ayarları',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Özel tarih girişi',
+        'description' => "Tarayıcının varsayılan tarih girişini özel bir girişle değiştirin.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Özel zaman girişi',
+        'description' => "Tarayıcının varsayılan zaman girişini özel bir girişle değiştirin. Bu, özellikle mobil tarayıcılarda zaman seçmekte zorlanıyorsanız faydalıdır.",
       ],
       'separateInputs' => [
         'label' => 'Girdileri ayır',
         'description' => "Tarih ve saat için birleşik girdi yerine iki farklı ayrı girdi görüntüleyin (bazı tarayıcılarda desteklenmez)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Düzleştirilmiş arayüz',
+        'description' => "Girişler ve butonlardaki gölge ve yükseklik efektlerini devre dışı bırakın",
       ],
     ],
     'timeSync' => [
@@ -69,11 +69,11 @@ return [
       't0' => 'İsteğin, istemci tarafından gönderildiği ana ait zaman damgası.',
       't1' => 'İsteğin sunucu tarafındaki alınma zaman damgası',
       't2' => 'Yanıtın, sunucu tarafından gönderildiği ana ait zaman damgası.',
-      't3' => 'The client\'s timestamp of the response reception',
-      'dtlOffsetCell' => 'Active Calculation Offset',
+      't3' => 'Yanıtın istemci tarafından alındığı zaman damgası',
+      'dtlOffsetCell' => 'Aktif Hesaplama Ofseti',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
-      'networkOffsetCell' => 'Detected Offset (via Network)',
+      'networkOffsetCell' => 'Algılanan Ofset (Ağ üzerinden)',
     ],
     'localSettings' => [
       'title' => 'Yerel Ayarlar',
@@ -93,9 +93,9 @@ return [
       'notAffiliated' => 'Bu proje Discord ile bağlantılı değildir.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Koyu Tema',
+      'light' => 'Açık Tema',
+      'system' => 'Sistem temasını kullan',
     ],
   ],
   'designEditor' => [
