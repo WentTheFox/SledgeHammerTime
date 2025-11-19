@@ -8,6 +8,7 @@ return [
     'heading' => 'ข้อมูลโปรไฟล์',
     'description' => "อัปเดตข้อมูลโปรไฟล์บัญชีของคุณ",
     'displayName' => 'ชื่อที่ใช้แสดง',
+    'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'โปรไฟล์ของคุณได้รับการอัปเดตเรียบร้อยแล้ว',
   ],
   'accounts' => [
