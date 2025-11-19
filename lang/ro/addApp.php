@@ -4,10 +4,10 @@ return [
   "title" => "Selectați unde doriți să adăugați aplicația",
   "user" => [
     "title" => "Adaugă în Aplicațiile mele",
-    "description" => "Folosește aplicația asta oriunde!",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
     "title" => "Adaugă pe server",
-    "description" => "Personalizează-ți serverul adăugând această aplicație",
+    "description" => "Customize your server by adding this app",
   ],
 ];
