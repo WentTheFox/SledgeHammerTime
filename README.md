@@ -113,6 +113,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Fabian9799](https://crowdin.com/profile/Fabian9799)
   - [gsgsgdggfd](https://crowdin.com/profile/gsgsgdggfd)
   - [Julius Geiger](https://crowdin.com/profile/julix00)
+  - [Leo](https://crowdin.com/profile/35klxo)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
 - 🇬🇷 Greek
