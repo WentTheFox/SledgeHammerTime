@@ -32,7 +32,7 @@ return [
       'heading' => 'Cookie-uri',
       'intro' => 'Modulele cookie sunt fișiere cu o cantitate mică de date. Modulele cookie sunt trimise browserului dvs. de la un site web și stocate pe hard diskul computerului dvs.',
       'disable' => 'Utilizăm „module cookie” pentru a reține informații. Puteți instrui browserul dvs. să refuze toate modulele cookie sau să indice când este trimis un modul cookie. Cu toate acestea, dacă nu acceptați cookie-urile, este posibil să nu puteți utiliza anumite părți ale site-ului nostru.',
-      'session' => 'Pentru utilizatorii conectați, un cookie persistent este utilizat pentru a reține starea de conectare în sesiunile browserului timp de 30 de zile. Dacă doriți să nu mai fiți ținut minte, puteți fie să vă deconectați, fie să ștergeți modulele cookie setate de site-ul nostru.',
+      'session' => 'Pentru utilizatorii conectați, se utilizează un cookie persistent pentru a memora starea de conectare pe durata sesiunilor de navigare timp de 30 de zile. Dacă doriți să nu mai fiți memorat, vă puteți deconecta sau șterge cookie-urile setate de site-ul nostru.',
     ],
     'security' => [
       'heading' => 'Securitate',
