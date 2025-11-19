@@ -8,20 +8,20 @@ return [
       'time' => 'Zaman',
       'dateAndTime' => 'Tarih ve zaman',
       'timezone' => 'Zaman dilimi',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Mutlak Ofset',
+      'modeZoneName' => 'Bölge Adı',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Geçerli aya git',
     ],
     'tooltip' => [
       'setToCurrent' => 'Geçerli zamana ayarla',
       'lock' => 'URL aracılığıyla zaman damgasını kilitle',
       'unlock' => 'Zaman damgasının kilidini aç',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Geçen yıl',
+      'previousMonth' => 'Geçen ay',
+      'nextMonth' => 'Sonraki ay',
+      'nextYear' => 'Gelecek yıl',
     ],
   ],
   'table' => [
@@ -39,7 +39,7 @@ return [
       'p' => 'Slash komutlarını kullanarak Discord üzerinden zaman damgaları oluşturun',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
+      'header' => 'Eski HammerTime Sitesi',
       'p' => 'The old website of the project, still available until this Beta goes live',
     ],
     'textColor' => [
