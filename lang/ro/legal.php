@@ -7,9 +7,9 @@ return [
   ],
   'lastUpdated' => 'Ultima actualizare: <1/>',
   'privacy' => [
-    'heading' => 'Politică de Confidenţialitate',
-    'operator' => '<0/> („noi”, „noi”, „al nostru” sau „Dezvoltatorul”) operează site-ul HammerTime (denumit în continuare „Site”) și HammerTimeBot (denumit în continuare „Bot” sau „Aplicație”), colectiv Proiectul HammerTime (denumit în continuare „Proiectul”). Această pagină vă informează cu privire la politicile noastre referitoare la colectarea, utilizarea și divulgarea informațiilor personale pe care le primim de la utilizatorii Proiectului („dumneavoastră”, „Utilizator” sau, colectiv, „Utilizatori”).',
-    'notAffiliated' => 'Deși numele „HammerTime” („Numele proiectului”) este derivat din fostul nume „Hammer & Chisel” al Discord, Inc. („Discord”)<1/>, proiectul nu este afiliat în niciun fel, sub nicio formă, cu Discord, nici cu M.C. Hammer, al cărui cântec<3/> prezintă această frază în mod proeminent. Dezvoltatorul nu deține nicio marcă comercială sau drept de autor asupra numelui Proiectului.',
+    'heading' => 'Politica de confidențialitate',
+    'operator' => '<0/> („noi”, „nostru” sau „Dezvoltator”) operează site-ul web HammerTime („Site-ul”) și HammerTimeBot („Botul” sau „Aplicația”), denumite colectiv Proiectul HammerTime („Proiectul”). Această pagină vă informează despre politicile noastre privind colectarea, utilizarea și divulgarea informațiilor personale pe care le primim de la utilizatorii Proiectului („dumneavoastră”, „Utilizator” sau, în mod colectiv „Utilizatori”).',
+    'notAffiliated' => 'Deși denumirea „HammerTime” („Denumirea proiectului”) provine de la fosta denumire „Hammer & Chisel” a Discord, Inc. („Discord”)<1/>, proiectul nu are nicio legătură, sub nicio formă, cu Discord sau cu M.C. Hammer, a cărui melodie<3/> conține această expresie în mod proeminent. Dezvoltatorul nu deține niciun drept de marcă sau drept de autor asupra denumirii proiectului.',
     'infoCollection' => [
       'heading' => 'Colectarea și utilizarea informațiilor',
       'pii' => 'În timpul utilizării Proiectului, nu vă solicităm și nici nu vă încurajăm să ne furnizați informații de identificare personală („PII”, „Informații personale”) care pot fi utilizate pentru a vă identifica ca persoană fizică. PII pot include, fără a se limita la: numele dumneavoastră, data nașterii, numerele naționale de identificare, locația, numărul de telefon.',
@@ -26,7 +26,7 @@ return [
     'telemetry' => [
       'heading' => 'Telemetrie & Statistici',
       'statsCollection' => 'Pentru a evalua utilizarea robotului și, prin urmare, pentru a conduce deciziile de dezvoltare (de exemplu, adăugarea/eliminarea de caracteristici), se poate colecta un set specific de date despre comenzi și utilizarea acestora („telemetrie”). Informațiile telemetrice se limitează la comanda și opțiunile care au fost utilizate și momentul în care au fost utilizate, fără nicio informație de identificare (prin urmare, nu includ niciodată ID-uri de server sau de utilizator, nici valori furnizate de utilizator și sunt complet anonime). Telemetria este stocată pe termen nelimitat, iar statisticile derivate din aceasta sunt destinate afișării și partajării publice în formă agregată.',
-      'telemetryOptOut' => 'Prin utilizarea Proiectului, Utilizatorii sunt de acord cu colectarea Telemetriei în mod implicit. Dacă un Utilizator dorește să renunțe la colectarea Telemetriei, acesta își poate indica preferința prin intermediul opțiunii corespunzătoare de pe pagina <1/>.',
+      'telemetryOptOut' => 'Prin utilizarea Proiectului, Utilizatorii sunt de acord cu colectarea datelor telemetrice în mod implicit. Dacă un Utilizator dorește să renunțe la colectarea datelor telemetrice, acesta poate indica preferința sa prin opțiunea corespunzătoare de pe pagina <1/>.',
     ],
     'cookies' => [
       'heading' => 'Cookie-uri',
