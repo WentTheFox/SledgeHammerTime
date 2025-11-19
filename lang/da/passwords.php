@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'reset'     => 'Adgangskoden er blevet nulstillet!',
-    'sent'      => 'Vi har sendt dig en e-mail til at nulstille din adgangskode!',
-    'throttled' => 'Vent venligst inden du prøver igen.',
-    'token'     => 'Koden til nulstilling af adgangskoden er ugyldig.',
-    'user'      => 'Vi kan ikke finde en bruger med den e-mailadresse.',
+    'reset'     => 'Your password has been reset.',
+    'sent'      => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token'     => 'This password reset token is invalid.',
+    'user'      => 'We can\'t find a user with that email address.',
 ];
