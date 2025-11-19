@@ -772,6 +772,11 @@
       "username": "Riinku",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430050/medium/ff6f865ca37824d8c9f7edfc4759a7a5.jpg"
     },
+    "17430214": {
+      "username": "35klxo",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430214/medium/fa9c186c96990859789f17dedd344f26.jpeg",
+      "fullName": "Leo"
+    },
     "17430436": {
       "username": "ZeruGames",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430436/medium/ede6ceee5e784258bcfe7d56f42e9ca3.png",
@@ -855,11 +860,12 @@
         "15169912",
         "15199922",
         "16622391",
-        "16603607"
+        "16603607",
+        "17430214"
       ],
       "progress": {
-        "approval": 96,
-        "translation": 96
+        "approval": 100,
+        "translation": 100
       }
     },
     "el": {
@@ -1015,7 +1021,7 @@
         "16603067"
       ],
       "progress": {
-        "approval": 99,
+        "approval": 100,
         "translation": 100
       }
     },
