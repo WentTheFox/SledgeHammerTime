@@ -5,7 +5,7 @@ return [
   'changeLanguage' => 'Changer la langue',
   "notFound" => [
     "heading" => "Page non trouvée",
-    "content" => "Il n'y a rien a voir ici.",
+    "content" => "Il n'y a rien à voir ici.",
   ],
   "maintenanceMode" => [
     "heading" => "Mode Maintenance",
@@ -50,7 +50,7 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Synchronisation de l\'Heure',
+      'title' => 'Synchronisation de l\'heure',
       'status' => [
         'syncing' => 'L\'horloge de votre système est en cours de synchronisation avec nos serveurs, veuillez patienter.',
         'accurate' => 'Votre horloge système est exacte.',
@@ -68,8 +68,8 @@ return [
       'roundTripDuration' => 'Durée de l\'aller-retour',
       't0' => 'Horodatage du client de la transmission de la requête',
       't1' => 'Horodatage du serveur de la réception de la requête',
-      't2' => 'Horodatage de la réception de la réponse (server)',
-      't3' => 'Horodatage de la réception de la réponse (client)',
+      't2' => 'Horodatage du serveur de la transmission de la réponse',
+      't3' => 'Horodatage du client de la réception de la réponse',
       'dtlOffsetCell' => 'Décalage du calcul actif',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
@@ -90,7 +90,7 @@ return [
       'translatedBy' => 'Traduit par <1></1>',
       'openSourceSoftware' => 'Logiciel open-source',
       'viewSourceCode' => 'Voir le code source',
-      'notAffiliated' => 'Ce projet n\'est pas affilié avec Discord.',
+      'notAffiliated' => 'Ce projet n\'est pas affilié à Discord.',
     ],
     'themeButton' => [
       'dark' => 'Thème Sombre',
