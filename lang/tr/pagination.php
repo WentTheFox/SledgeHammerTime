@@ -3,6 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'next'     => 'Sonrakiler &raquo;',
-    'previous' => '&laquo; Öncekiler',
+    'next'     => 'Next &raquo;',
+    'previous' => '&laquo; Previous',
 ];
