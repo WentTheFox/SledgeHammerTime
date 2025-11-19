@@ -123,7 +123,7 @@ defineExpose<TimeZonePickerApi>({
         />
       </HtFormControlGroup>
       <HtFormInputGroup dir="ltr">
-        <HtInputGropupText>GMT (UTC)</HtInputGropupText>
+        <HtInputGropupText>GMT</HtInputGropupText>
         <HtInput
           ref="offset-hours"
           v-model="offsetHours"
