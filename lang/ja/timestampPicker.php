@@ -8,20 +8,20 @@ return [
       'time' => '時刻',
       'dateAndTime' => '日付と時刻',
       'timezone' => 'タイムゾーン',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => '協定世界時',
+      'modeZoneName' => 'ゾーンネーム',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => '現在の月へ移動',
     ],
     'tooltip' => [
       'setToCurrent' => '現在時刻にする',
       'lock' => 'リンクでタイムスタンプをセーブ',
       'unlock' => 'タイムスタンプをアンロック',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => '前の年',
+      'previousMonth' => '前の月',
+      'nextMonth' => '次の月',
+      'nextYear' => '次の年',
     ],
   ],
   'table' => [
@@ -40,7 +40,7 @@ return [
     ],
     'oldSite' => [
       'header' => '旧Hammer Timeサイト',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'p' => 'ベータ版が公開されるまで引き続き利用可能な、プロジェクトの旧ウェブサイト',
     ],
     'textColor' => [
       'header' => 'Rebaneの<1>色付き</1>テキストジェネレーター',

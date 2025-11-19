@@ -5,7 +5,7 @@ return [
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
     'heading' => 'プロフィール情報',
-    'description' => "Update your account's profile information.",
+    'description' => "プロフィール情報を変更する。",
     'displayName' => '表示名',
     'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Your profile has been updated successfully.',

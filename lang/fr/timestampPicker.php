@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'howTo' => 'Choisissez une date, copiez l\'horodatage désiré qui se situe dans la colonne ":syntaxColName", ensuite collez le ou vous le souhaitez dans votre message. Le résultat sera un "timestamp" dynamique qui s\'affichera différemment pour les gens suivant leur fuseau horaire.',
+  'howTo' => 'Choisissez une date, copiez l\'horodatage désiré de la colonne :syntaxColName puis collez-le où vous le souhaitez dans votre message. Le résultat sera un horodatage dynamique qui s\'affichera différemment pour les gens suivant leur fuseau horaire.',
   'picker' => [
     'label' => [
       'date' => 'Date',
-      'time' => 'Temps',
+      'time' => 'Heure',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
       'modeOffset' => 'Décalage absolu',
@@ -36,11 +36,11 @@ return [
     ],
     'bot' => [
       'header' => 'App HammerTime',
-      'p' => 'Générer des horodatages à partir de Discord à l\'aide de commandes slash',
+      'p' => 'Générer des horodatages à l\'aide de commandes slash depuis Discord',
     ],
     'oldSite' => [
       'header' => 'Ancien site web de HammerTime',
-      'p' => 'L\'ancien site web du projet, toujours disponible jusqu\'à la mise en ligne de cette version Beta',
+      'p' => 'L\'ancien site web du projet, toujours disponible jusqu\'à la mise en ligne de cette version Bêta',
     ],
     'textColor' => [
       'header' => 'Le générateur de texte <1>coloré</1> de Rebane',
@@ -48,7 +48,7 @@ return [
     ],
     "subreddit" => [
       "header" => "r/SplitSecond",
-      "p" => "La communauté organise des défis hebdomadaires pour un jeu de course méconnu qui a inspiré la création de ce projet",
+      "p" => "La communauté organisant des défis hebdomadaires pour un jeu de course méconnu qui a inspiré la création de ce projet",
     ],
   ],
 ];
