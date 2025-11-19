@@ -8,13 +8,13 @@ return [
     "content" => "Niente da vedere qui.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "In manutenzione",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "L'applicazione è in corso di aggiornamento, riprova tra pochi secondi.",
+      'joinSupportServer' => "Se il problema persiste per più di qualche minuto, unisciti al server di supporto Discord e faccelo sapere.",
+      'contactDeveloper' => "Se il problema persiste per più di pochi minuti, contatta lo sviluppatore e fallo sapere.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Server di Supporto",
   ],
   'incompleteTranslations' => 'Le traduzioni sono incomplete',
   'contributeTranslations' => 'Contribuisci',
