@@ -7,7 +7,7 @@ return [
     'heading' => 'Πληροφορίες Προφίλ',
     'description' => "Ενημερώστε τις πληροφορίες προφίλ του λογαριασμού σας.",
     'displayName' => 'Εμφανιζόμενο Όνομα',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Επιλογή κρυμμένων μορφών χρονοσημάνσεων από τον πίνακα',
     'saveSuccess' => 'Το προφίλ σας έχει ενημερωθεί με επιτυχία.',
   ],
   'accounts' => [
