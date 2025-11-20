@@ -1,6 +1,10 @@
 name: Translation credits updater
 
-on: [ push ]
+on:
+  push:
+    branches:
+      - main
+      - i18n_main
 
 concurrency:
   group: ci-i18n-${{ github.ref }}
