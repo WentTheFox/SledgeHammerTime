@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => '詳細設定',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => '初期説明',
   'fields' => [
     'timezone' => [
       'displayName' => 'タイムゾーン',
@@ -16,36 +16,36 @@ return [
       'displayName' => '形式',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'フォーマットオプション使用時はプレビューのみでの返信',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'コラム',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => '一時的',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => '見出し',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'プレビューを太字で表示',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => '/:atCommandName コマンドの初期説明の:hourOptionName オプション',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => '/:atCommandName コマンドの初期説明の ":minuteOptionName" オプション',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => '/:atCommandName コマンドの初期説明の ":secondOptionName" オプション',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'テレメトリの収集を許可する',
+      'explanation' => 'これは完全に任意であり、ボットの性能には影響しません。詳細は<1/>ページを参照してください。',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => '/:at12CommandName コマンドの初期説明の ":hourOptionName" オプション',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => '設定が正常に保存されました。',
 ];
