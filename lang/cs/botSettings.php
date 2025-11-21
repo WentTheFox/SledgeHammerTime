@@ -1,50 +1,50 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Nastavení aplikace',
+  'description' => 'Níže můžete vidět vaše aktuální nastavení aplikace HammerTime pro každý propojený účet.',
+  'learnMore' => 'Nejste si jisti, co je toto za aplikaci, nebo vás zajímá, co umí? Navštivte odkaz <1>Aplikace na Discordu</1> a zjistěte více.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Pokročilá nastavení',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Výchozí',
   'fields' => [
     'timezone' => [
       'displayName' => 'Časové pásmo',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Formát',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Při použití volby formátování zobrazit pouze náhled odpovědi',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Sloupce',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Efemérní',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Záhlaví',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Formátovat náhled tučně',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Výchozí volba ":hourOptionName" pro příkaz /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Výchozí volba ":minuteOptionName" pro příkaz /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Výchozí volba ":secondOptionName" pro příkaz /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Povolit sběr telemetrie',
+      'explanation' => 'Tato možnost je zcela volitelná a nijak neovlivňuje vaši schopnost používat bota. Podrobnosti najdete na stránce <1/>.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Výchozí volba ":hourOptionName" pro příkaz /:at12CommandName',
     ],
   ],
   'saveSuccess' => 'Your settings have been saved successfully.',
