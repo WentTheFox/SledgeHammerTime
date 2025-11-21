@@ -1,14 +1,14 @@
 <?php
 
 return [
-  'heading' => 'Discord App',
-  'description' => 'The HammerTime App lets you obtain easy-to-copy timestamp codes from within the Discord user interface using slash and context menu commands.',
+  'heading' => 'Aplikace na Discordu',
+  'description' => 'Aplikace HammerTime vám umožní získat snadno kopírovatelné kódy časových razítek přímo z uživatelského rozhraní na Discordu, pomocí lomítkových a kontextových příkazů.',
   'customizeSettingsGuest' => 'Some of its functionality can also be customized by <1>logging in</1>, then visiting the <3>App Settings</3> page (also available by clicking your username in the sidebar).',
-  'customizeSettingsAuthenticated' => 'Some of its functionality can also be customized by visiting the <1>App Settings</1> page (also available by clicking your username in the sidebar).',
-  'addAppLead' => 'Add the app to your server or your account and use it whenever you need a timestamp but don\'t feel like opening the browser.',
-  'appDiscoveryLead' => 'The app can be found on Discord\'s App Discovery page, which you can check out here:',
-  'appDiscoveryCta' => 'View on App Discovery',
-  'shareableLink' => 'You can also share the link below with others which will let them add the app without any additional distractions:',
+  'customizeSettingsAuthenticated' => 'Část funkcí aplikace lze také přizpůsobit na stránce <1>Nastavení aplikace</1> (dostupné také kliknutím na vaše uživatelské jméno v postranním panelu).',
+  'addAppLead' => 'Přidejte aplikaci na váš server nebo k vašemu účtu a používejte ji kdykoli, když potřebujete časové razítko, ale necítíte se na to otevírat prohlížeč.',
+  'appDiscoveryLead' => 'Tuto aplikaci najdete na Discordu v adresáři aplikací, kterou si můžete prohlédnout zde:',
+  'appDiscoveryCta' => 'Zobrazit v adresáři aplikací',
+  'shareableLink' => 'Sdílejte s ostatními odkaz níže, díky němuž budou moci aplikaci přidat bez zbytečných rozptýlení:',
   'shardStats' => [
     'title' => 'Shard Statistics',
     'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
