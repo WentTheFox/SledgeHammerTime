@@ -206,6 +206,7 @@ English and Hungarian translations have been included, so no translators will be
   - [JudeDM](https://crowdin.com/profile/JudeDM)
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
+  - [Skumen](https://crowdin.com/profile/Skumen)
   - [stolarchukboris](https://crowdin.com/profile/PleasedontslammykeyboarddfsdoijfwR)
   - [Timofey K.](https://crowdin.com/profile/timakimit)
   - [Vitaliy Kanev](https://crowdin.com/profile/vitalkanev)
