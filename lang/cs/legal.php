@@ -2,12 +2,12 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'title' => 'Přeložený obsah',
+    'text' => 'Tento projekt obsahuje překlady od dobrovolných překladatelů a dalších členů komunity. Tyto překlady jsou poskytovány uživatelům pro jejich pohodlí a nemusí být vždy zcela aktuální. Ve všech ohledech je považována za platnou <1>verze v původním jazyce</1> této stránky.',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => 'Poslední aktualizace: <1/>',
   'privacy' => [
-    'heading' => 'Privacy Policy',
+    'heading' => 'Zásady ochrany osobních údajů',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
     'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
     'infoCollection' => [
