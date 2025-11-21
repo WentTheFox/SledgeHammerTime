@@ -128,7 +128,9 @@ English and Hungarian translations have been included, so no translators will be
   - [Balajiasli](https://crowdin.com/profile/Balajiasli)
   - [Natzu](https://crowdin.com/profile/natieon)
   - [Premium Global](https://crowdin.com/profile/premium.global.co)
-- 🇮🇩 Indonesian: [Jackie](https://github.com/Jckcr)
+- 🇮🇩 Indonesian
+  - [Jackie](https://github.com/Jckcr)
+  - [Nina](https://crowdin.com/profile/krasnova.nina27)
 - 🇮🇹 Italian
   - [Lory Pelli](https://github.com/lorypelli)
   - [Spisp](https://crowdin.com/profile/Spisp)

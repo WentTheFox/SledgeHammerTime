@@ -790,6 +790,11 @@
     "17433118": {
       "username": "ImTheSpyke",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17433118/medium/bbff633de8e7f965b6f101198753a7c5.png"
+    },
+    "17438540": {
+      "username": "krasnova.nina27",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17438540/medium/85f78073210f3b133acbe51abef74138.jpeg",
+      "fullName": "Nina"
     }
   },
   "languages": {
@@ -837,7 +842,7 @@
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 35
       }
     },
     "da": {
@@ -1007,11 +1012,12 @@
     "id": {
       "translatorIds": [
         "15258052",
-        "13533384"
+        "13533384",
+        "17438540"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 10
       }
     },
     "it": {
