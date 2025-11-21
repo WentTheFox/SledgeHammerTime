@@ -4,7 +4,7 @@ import { renderToString } from '@vue/server-renderer';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { i18nVue } from 'laravel-vue-i18n';
 import { createSSRApp, DefineComponent, h } from 'vue';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import { ZiggyVue } from 'ziggy-js';
 
 const fallbackAppNmae = 'HammerTime';
 createServer((page) =>
@@ -17,21 +17,9 @@ createServer((page) =>
     },
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
     setup({ App, props, plugin }) {
-      const ziggyLocation = page.props.ziggy?.location;
-      let location: URL | undefined = undefined;
-      if (ziggyLocation) {
-        try {
-          location = new URL(ziggyLocation);
-        } catch (e) {
-          console.error('Failed to parse Ziggy location as URL', e);
-        }
-      }
       return createSSRApp({ render: () => h(App, props) })
         .use(plugin)
-        .use(ZiggyVue, {
-          ...page.props.ziggy,
-          location,
-        })
+        .use(ZiggyVue, page.props.ziggy)
         .use(i18nVue, {
           lang: props.initialPage.props.app?.locale ?? 'en',
           fallbackLang: 'en',

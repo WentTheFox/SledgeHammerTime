@@ -21,7 +21,7 @@
     "socialiteproviders/crowdin": "^5.0",
     "socialiteproviders/discord": "^4.2",
     "spatie/laravel-google-fonts": "^1.4.4",
-    "tightenco/ziggy": "^1.0",
+    "tightenco/ziggy": "^v2.6.0",
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {
