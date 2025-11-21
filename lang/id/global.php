@@ -50,12 +50,12 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Sinkronisasi Waktu',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
         'accurate' => 'Your system clock is accurate.',
-        'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'potentiallyWrong' => 'Jam sistem Anda mungkin salah.',
+        'value' => 'Perbedaan antara waktu lokal dan waktu server adalah :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
@@ -93,9 +93,9 @@ return [
       'notAffiliated' => 'Proyek ini tidak berafiliasi dengan Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Tema Gelap',
+      'light' => 'Tema Terang',
+      'system' => 'Gunakan Tema Sistem',
     ],
   ],
   'designEditor' => [
