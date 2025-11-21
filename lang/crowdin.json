@@ -795,6 +795,10 @@
       "username": "krasnova.nina27",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17438540/medium/85f78073210f3b133acbe51abef74138.jpeg",
       "fullName": "Nina"
+    },
+    "17439418": {
+      "username": "Skumen",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17439418/medium/56d6c395902a9b8d617dfd3e1c54c1a0.png"
     }
   },
   "languages": {
@@ -1210,11 +1214,12 @@
         "16608543",
         "12773366",
         "17302298",
+        "17439418",
         "17430436"
       ],
       "progress": {
         "approval": 35,
-        "translation": 35
+        "translation": 60
       }
     },
     "sr": {
