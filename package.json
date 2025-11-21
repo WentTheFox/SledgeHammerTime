@@ -50,7 +50,7 @@
     "vue-country-flag-next": "^2.3.2",
     "vue-tippy": "^6.7.1",
     "vue-tsc": "^2.2.0",
-    "ziggy-js": "^2.5.2"
+    "ziggy-js": "^2.6.0"
   },
   "dependencies": {
     "@date-fns/tz": "^1.2.0",

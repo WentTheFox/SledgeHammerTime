@@ -1,4 +1,5 @@
 import { AvailableLanguage } from '@/utils/language-settings';
+import { Config } from 'ziggy-js';
 
 export interface User {
   id: number;
@@ -20,11 +21,5 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
   auth: {
     user: User;
   };
-  ziggy?: {
-    url: string;
-    port: number;
-    defaults: unknown[];
-    routes: unknown;
-    location: string;
-  };
+  ziggy?: Config;
 };
