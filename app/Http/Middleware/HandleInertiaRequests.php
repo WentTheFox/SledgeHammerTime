@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware {
       ],
     ];
     $shared['ziggy'] = fn() => [
-      ...new Ziggy(url: $request->url())->toArray(),
+      ...new Ziggy(url: config('app.url'))->toArray(),
       'location' => $request->url(),
     ];
 
