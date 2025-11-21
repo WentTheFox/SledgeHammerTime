@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.2",
+    "php": "^8.5",
     "ext-pdo": "*",
     "guzzlehttp/guzzle": "^7.2",
     "inertiajs/inertia-laravel": "^2.0",
@@ -21,7 +21,7 @@
     "socialiteproviders/crowdin": "^5.0",
     "socialiteproviders/discord": "^4.2",
     "spatie/laravel-google-fonts": "^1.4.4",
-    "tightenco/ziggy": "^1.0",
+    "tightenco/ziggy": "^v2.6.0",
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {

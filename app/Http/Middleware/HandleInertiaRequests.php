@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Inertia\Middleware;
-use Tightenco\Ziggy\Ziggy;
+use Tighten\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware {
   /**
@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware {
       ],
     ];
     $shared['ziggy'] = fn() => [
-      ...(new Ziggy)->toArray(),
+      ...new Ziggy(url: $request->url())->toArray(),
       'location' => $request->url(),
     ];
 
