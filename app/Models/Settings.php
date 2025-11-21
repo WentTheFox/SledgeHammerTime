@@ -6,6 +6,7 @@ use App\Casts\Json;
 use App\Enums\DiscordTimestampFormat;
 use App\Enums\SettingNames;
 use App\Enums\TimestampMessageColumns;
+use App\Rules\ValidTimezone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -52,12 +53,12 @@ class Settings extends Model {
     }
     switch ($case){
       case SettingNames::TIMEZONE:
-        if (preg_match('/^"?(?:(Etc\\?\/)?(?:GMT|UTC))?\+?(-?\d{1,2})(?::?(\d{2}))?"?$/i', $value, $matches)){
+        if (preg_match(ValidTimezone::OFFSET_ZONE_REGEX, $value, $matches)){
           $hoursMultiplier = $matches[1] ? -1 : 1;
           $hours = max(min((int)$matches[2], 14), -14) * $hoursMultiplier;
           $minutes = max(min((int)($matches[3] ?? 0), 59), 0);
 
-          return sprintf("%s%s:%s", $hours < 0 ? '-' : '+', str_pad($hours, 2, '0', STR_PAD_LEFT), str_pad($minutes, 2, 0, STR_PAD_LEFT));
+          return sprintf("GMT%s%s:%s", $hours < 0 ? '-' : '+', str_pad(abs($hours), 2, '0', STR_PAD_LEFT), str_pad($minutes, 2, 0, STR_PAD_LEFT));
         }
 
         return $value;
