@@ -11,7 +11,7 @@ const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 const appName = getAppName();
-const nonStick = computed(() => pageProps?.value.ziggy?.location === route('legal', routeParams.value));
+const nonStick = computed(() => pageProps?.value.ziggy?.location?.pathname === route('legal', routeParams.value));
 </script>
 
 <template>
