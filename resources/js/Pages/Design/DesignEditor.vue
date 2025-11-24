@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCode from '@/Reusable/HtCode.vue';
@@ -13,7 +15,7 @@ import HtTable from '@/Reusable/HtTable.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { getAppName } from '@/utils/app';
 import { faFileExport, faLink } from '@fortawesome/free-solid-svg-icons';
-import { onMounted, ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 
 interface NumberCssVar {
   value: number;
@@ -38,6 +40,8 @@ type CssVar = StringCssVar | NumberCssVar | ColorCssVar;
 type NamedCssVar = CssVar & { name: string, displayName: string };
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 
 const cssVars = ref<NamedCssVar[]>([]);
 
@@ -54,13 +58,43 @@ const getCssVarDisplayName = (cssVar: string) =>
     .replace(/((?:^| )[a-z])/g, (m) => m.toUpperCase());
 
 const parseCssValue = (value: string, name: string): CssVar => {
-  if (value.endsWith('rem')) return { type: 'number', step: 0.0625, unit: 'rem', value: parseFloat(value) };
-  if (value.endsWith('em')) return { type: 'number', step: 0.0625, unit: 'em', value: parseFloat(value) };
-  if (value.endsWith('ms')) return { type: 'number', step: 50, unit: 'ms', value: parseFloat(value) };
-  if (value.endsWith('s')) return { type: 'number', step: 0.1, unit: 's', value: parseFloat(value) };
+  if (value.endsWith('rem')) return {
+    type: 'number',
+    step: 0.0625,
+    unit: 'rem',
+    value: parseFloat(value),
+  };
+  if (value.endsWith('em')) return {
+    type: 'number',
+    step: 0.0625,
+    unit: 'em',
+    value: parseFloat(value),
+  };
+  if (value.endsWith('ms')) return {
+    type: 'number',
+    step: 50,
+    unit: 'ms',
+    value: parseFloat(value),
+  };
+  if (value.endsWith('s')) return {
+    type: 'number',
+    step: 0.1,
+    unit: 's',
+    value: parseFloat(value),
+  };
   if (value.endsWith('%')) return { type: 'number', step: 1, unit: '%', value: parseFloat(value) };
-  if (value.endsWith('deg')) return { type: 'number', step: 1, unit: 'deg', value: parseFloat(value) };
-  if (value.endsWith('px')) return { type: 'number', step: 1, unit: 'px', value: parseFloat(value) };
+  if (value.endsWith('deg')) return {
+    type: 'number',
+    step: 1,
+    unit: 'deg',
+    value: parseFloat(value),
+  };
+  if (value.endsWith('px')) return {
+    type: 'number',
+    step: 1,
+    unit: 'px',
+    value: parseFloat(value),
+  };
   if (!isNaN(parseFloat(value))) return {
     type: 'number',
     step: name.includes('z-index') ? 1 : 0.05,
@@ -129,7 +163,11 @@ onMounted(() => {
       if (parsed.type === 'number') {
         parsed.negative = parsed.value < 0;
       }
-      const cssVar: NamedCssVar = { ...parsed, name: varName, displayName: getCssVarDisplayName(varName) };
+      const cssVar: NamedCssVar = {
+        ...parsed,
+        name: varName,
+        displayName: getCssVarDisplayName(varName),
+      };
       cssVars.value.push(cssVar);
     }
   }
@@ -150,7 +188,7 @@ onMounted(() => {
     <HtLinkButton
       color="primary"
       :icon-start="faLink"
-      :href="route('design', route().params)"
+      :href="route('design', routeParams)"
       :external="false"
     >
       {{ $t('global.designEditor.designPageLink') }}

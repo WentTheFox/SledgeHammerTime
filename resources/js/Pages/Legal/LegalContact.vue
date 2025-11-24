@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_CONTACT_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
+import { inject } from 'vue';
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -25,7 +30,7 @@ const route = useRoute();
       <p>
         <HtTranslate i18n-key="legal.contact.whereToContact">
           <template #1="slotProps">
-            <HtExternalLink :href="route('discord', route().params)">
+            <HtExternalLink :href="route('discord', routeParams)">
               {{ slotProps.text }}
             </HtExternalLink>
           </template>

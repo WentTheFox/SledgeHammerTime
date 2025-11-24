@@ -2,6 +2,8 @@
 import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import ConnectedAccounts from '@/Pages/Profile/Partials/ConnectedAccounts.vue';
 import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccounts.vue';
@@ -10,6 +12,7 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
+import { inject } from 'vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 
@@ -19,6 +22,8 @@ defineProps<{
 }>();
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -38,7 +43,7 @@ const route = useRoute();
       <p>
         <HtTranslate i18n-key="profile.intro">
           <template #1="slotProps">
-            <Link :href="route('settings', route().params)">
+            <Link :href="route('settings', routeParams)">
               {{ slotProps.text }}
             </Link>
           </template>

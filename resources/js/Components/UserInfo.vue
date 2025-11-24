@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
-import { currentLanguageInject, userInfoInject } from '@/injection-keys';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject, userInfoInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
-import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import {
   faArrowRightFromBracket,
   faCaretDown,
@@ -14,15 +14,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
-import { computed, inject } from 'vue';
+import { inject } from 'vue';
 import { Tippy } from 'vue-tippy';
 
 const route = useRoute();
 const userInfo = inject(userInfoInject);
-const currentLanguage = inject(currentLanguageInject);
 
-// noinspection JSUnusedGlobalSymbols
-const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE);
+
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -50,7 +50,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
           class="nav"
         >
           <Link
-            :href="route('settings', { locale: routeLocale })"
+            :href="route('settings', routeParams)"
             :class="['nav-link', { current: route().current() === 'settings'}]"
           >
             <FontAwesomeIcon
@@ -60,7 +60,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
             {{ $t('global.nav.botSettings') }}
           </Link>
           <Link
-            :href="route('profile.edit', { locale: routeLocale })"
+            :href="route('profile.edit', routeParams)"
             :class="['nav-link', { current: route().current() === 'profile.edit'}]"
           >
             <FontAwesomeIcon
@@ -88,7 +88,7 @@ const routeLocale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LAN
     <HtLinkButton
       v-else
       color="primary"
-      :href="route('login', { locale: routeLocale })"
+      :href="route('login', routeParams)"
       :external="true"
       :target-blank="false"
     >

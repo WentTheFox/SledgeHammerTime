@@ -1,11 +1,13 @@
 <script setup lang="ts">
 
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { Head, router } from '@inertiajs/vue3';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref } from 'vue';
 import { useRoute } from 'ziggy-js';
 
 defineProps<{
@@ -15,6 +17,8 @@ defineProps<{
 const refreshTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
 const refreshCount = ref<number>(0);
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 
 const handleRefreshTimeout = () => {
   const nextRefreshIn = Math.pow(2, refreshCount.value++) * 500;
@@ -23,7 +27,7 @@ const handleRefreshTimeout = () => {
     let routeUrl: string | undefined = undefined;
     let routeUrlError: unknown;
     try {
-      routeUrl = String(route(route().current() as string, route().params));
+      routeUrl = String(route(route().current() as string, routeParams.value));
     } catch (e) {
       routeUrlError = e;
     }

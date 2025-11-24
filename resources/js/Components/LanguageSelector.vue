@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
 import { useRoute } from '@/composables/useRoute';
-import { currentLanguageInject } from '@/injection-keys';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
@@ -56,10 +57,13 @@ const searchParamsString = computed(() => {
   return searchParams.value && searchParams.value.size > 0 ? `?${searchParams.value}` : '';
 });
 
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
+
 const parameterRequiredRegex = /Ziggy error: '([^']+)' parameter is required/i;
 const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record<string, string>) => {
   const currentRouteName = route().current() ?? 'home';
-  const currentRouteParams = route().params;
+  const currentRouteParams = routeParams.value;
   try {
     return route(currentRouteName, { ...currentRouteParams, ...additionalParameters, locale });
   } catch (e) {
