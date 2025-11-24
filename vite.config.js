@@ -81,6 +81,19 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('.json')) {
+              return id.split(/[\\\/]/g).find(el => el.includes('.json')).replace('.json', '-json');
+            }
+
+            return null;
+          },
+        },
+      },
+    },
     test: {
       sequence: {
         shuffle: true,
