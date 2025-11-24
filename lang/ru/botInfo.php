@@ -21,7 +21,7 @@ return [
   'commandsReference' => [
     'title' => 'Commands Reference',
     'description' => 'Below you will find a list of all commands and their options for your reference. This page currently shows the same descriptions that you would see in Discord as you are running the command, but it might be extended with additional information and examples later on.',
-    'commandType' => 'Type',
+    'commandType' => 'Вид',
     'commandTypeNames' => [
       1 => 'slash command',
       2 => 'user context menu command',
