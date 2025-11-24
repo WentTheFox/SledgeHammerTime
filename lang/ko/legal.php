@@ -5,7 +5,7 @@ return [
     'title' => 'Translated Content',
     'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => '마지막 업데이트: <1/>',
   'privacy' => [
     'heading' => 'Privacy Policy',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
@@ -32,13 +32,13 @@ return [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
       'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
-      'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
+      'session' => '로그인한 사용자에게는 지속적인 쿠키가 사용되어 브라우저 세션 간에 30일 동안 로그인 상태를 기억합니다. 더 이상 기억되기를 원하지 않는 경우 로그아웃하거나 당사 사이트에서 설정한 쿠키를 삭제하면 됩니다.',
     ],
     'security' => [
-      'heading' => 'Security',
+      'heading' => '보안',
       'noGuarantee' => 'The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.',
-      'httpsCloudFlare' => 'The Site makes use of HTTPS using modern TLS encryption suites to protect the integrity and secure transport of data between the browser and our Site. However, we make use of CloudFlare\'s Reverse Proxy service, meaning some portion of the data sent to our Site passes through their servers. CloudFlare operates under their own <1>privacy policy</1>.',
-      'breachNotify' => 'In the event of a security breach all users will be notified within 24 hours of discovery through a notice posted on this website, in replies posted by the Bot and via an announcement in the Bot\'s Discord support server.',
+      'httpsCloudFlare' => '본 사이트는 최신 TLS 암호화 제품을 사용한 HTTPS를 통해 브라우저와 사이트 간 데이터의 무결성과 안전한 전송을 보호합니다. 그러나 우리는 CloudFlare의 리버스 프록시 서비스를 사용하므로, 사이트로 전송되는 일부 데이터가 그들의 서버를 거치게 됩니다. CloudFlare는 자체 <1>개인정보 처리방침</1>에 따라 운영됩니다.',
+      'breachNotify' => '보안 침해가 발생할 경우, 모든 사용자는 발견 후 24시간 이내에 본 웹사이트에 게시된 공지, 봇이 게시한 답글, 그리고 봇의 Discord 지원 서버에 올라온 공지를 통해 통보받게 됩니다.',
     ],
   ],
   'terms' => [
