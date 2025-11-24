@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
-import { currentLanguageInject, devModeInject } from '@/injection-keys';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { devModeInject, pagePropsInject } from '@/injection-keys';
 import ConnectedAccountsHeading from '@/Pages/Profile/Partials/ConnectedAccountsHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
-import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
+import { safeRoute } from '@/utils/safe-route';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { computed, inject } from 'vue';
+import { inject } from 'vue';
 
 const route = useRoute();
 
 const devMode = inject(devModeInject);
-const currentLanguage = inject(currentLanguageInject);
-const locale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE);
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -38,7 +39,7 @@ const locale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE
       <HtLinkButton
         color="primary"
         :icon-start="faDiscord"
-        :href="route('login', { locale })"
+        :href="safeRoute('login', route, routeParams)"
         :external="true"
       >
         {{ $t('profile.accounts.linkAdditional.discord.authorize') }}
@@ -53,7 +54,7 @@ const locale = computed(() => currentLanguage?.value.locale ?? FALLBACK_LANGUAGE
 
       <HtLinkButton
         color="success"
-        :href="route('oauthRedirect', { locale, provider: 'crowdin' })"
+        :href="safeRoute('oauthRedirect', route, routeParams, { provider: 'crowdin' })"
         :external="true"
       >
         {{ $t('profile.accounts.linkAdditional.crowdin.authorize') }}

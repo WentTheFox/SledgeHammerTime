@@ -8,6 +8,7 @@ import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_CONTACT_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
+import { safeRoute } from '@/utils/safe-route';
 import { inject } from 'vue';
 
 const route = useRoute();
@@ -30,7 +31,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="legal.contact.whereToContact">
           <template #1="slotProps">
-            <HtExternalLink :href="route('discord', routeParams)">
+            <HtExternalLink :href="safeRoute('discord', route, routeParams)">
               {{ slotProps.text }}
             </HtExternalLink>
           </template>

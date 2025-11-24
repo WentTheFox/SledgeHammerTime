@@ -14,6 +14,7 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtTable from '@/Reusable/HtTable.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { getAppName } from '@/utils/app';
+import { safeRoute } from '@/utils/safe-route';
 import { faFileExport, faLink } from '@fortawesome/free-solid-svg-icons';
 import { inject, onMounted, ref } from 'vue';
 
@@ -188,7 +189,7 @@ onMounted(() => {
     <HtLinkButton
       color="primary"
       :icon-start="faLink"
-      :href="route('design', routeParams)"
+      :href="safeRoute('design', route, routeParams)"
       :external="false"
     >
       {{ $t('global.designEditor.designPageLink') }}

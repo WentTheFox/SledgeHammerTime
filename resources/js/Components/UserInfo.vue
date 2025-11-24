@@ -4,6 +4,7 @@ import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject, userInfoInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
+import { safeRoute } from '@/utils/safe-route';
 import {
   faArrowRightFromBracket,
   faCaretDown,
@@ -50,7 +51,7 @@ const routeParams = useRouteParams(route, pageProps);
           class="nav"
         >
           <Link
-            :href="route('settings', routeParams)"
+            :href="safeRoute('settings', route, routeParams)"
             :class="['nav-link', { current: route().current() === 'settings'}]"
           >
             <FontAwesomeIcon
@@ -60,7 +61,7 @@ const routeParams = useRouteParams(route, pageProps);
             {{ $t('global.nav.botSettings') }}
           </Link>
           <Link
-            :href="route('profile.edit', routeParams)"
+            :href="safeRoute('profile.edit', route, routeParams)"
             :class="['nav-link', { current: route().current() === 'profile.edit'}]"
           >
             <FontAwesomeIcon
@@ -70,7 +71,7 @@ const routeParams = useRouteParams(route, pageProps);
             {{ $t('global.nav.profile') }}
           </Link>
           <Link
-            :href="route('logout')"
+            :href="safeRoute('logout', route, routeParams)"
             method="post"
             as="button"
             class="nav-link"
@@ -88,7 +89,7 @@ const routeParams = useRouteParams(route, pageProps);
     <HtLinkButton
       v-else
       color="primary"
-      :href="route('login', routeParams)"
+      :href="safeRoute('login', route, routeParams)"
       :external="true"
       :target-blank="false"
     >

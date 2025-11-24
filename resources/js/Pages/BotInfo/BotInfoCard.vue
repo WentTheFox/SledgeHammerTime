@@ -9,6 +9,7 @@ import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { safeRoute } from '@/utils/safe-route';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLink, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -52,7 +53,7 @@ defineProps<{ discordAppId: string }>();
       >
         <template #1="slotProps">
           <Link
-            :href="route('settings', routeParams)"
+            :href="safeRoute('settings', route, routeParams)"
             :async="false"
           >
             {{ slotProps.text }}
@@ -64,12 +65,12 @@ defineProps<{ discordAppId: string }>();
         i18n-key="botInfo.customizeSettingsGuest"
       >
         <template #1="slotProps">
-          <a :href="route('login', routeParams)">
+          <a :href="safeRoute('login', route, routeParams)">
             {{ slotProps.text }}
           </a>
         </template>
         <template #3="slotProps">
-          <a :href="route('settings', routeParams)">
+          <a :href="safeRoute('settings', route, routeParams)">
             {{ slotProps.text }}
           </a>
         </template>

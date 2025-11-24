@@ -4,6 +4,7 @@ import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject } from '@/injection-keys';
 import { getAppName } from '@/utils/app';
+import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
@@ -11,7 +12,7 @@ const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 const appName = getAppName();
-const nonStick = computed(() => pageProps?.value.ziggy?.location?.pathname === route('legal', routeParams.value));
+const nonStick = computed(() => pageProps?.value.ziggy?.location?.pathname === safeRoute('legal', route, routeParams.value));
 </script>
 
 <template>

@@ -7,9 +7,17 @@ import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { reportData } from '@/utils/crowdin';
+import { safeRoute } from '@/utils/safe-route';
 import { getTranslatorIds, normalizeCredit, NormalizedCredits } from '@/utils/translation';
 import { faGithub, faOsi } from '@fortawesome/free-brands-svg-icons';
-import { faBan, faCode, faFileContract, faInfo, faLanguage, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBan,
+  faCode,
+  faFileContract,
+  faInfo,
+  faLanguage,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
@@ -141,7 +149,7 @@ const translationCredits = computed(() => {
       {{ $t('global.sidebar.credits.notAffiliated') }}
     </p>
     <p>
-      <Link :href="route('legal', routeParams)">
+      <Link :href="safeRoute('legal', route, routeParams)">
         <FontAwesomeIcon
           :icon="faFileContract"
           class="me-1"
