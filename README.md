@@ -153,6 +153,7 @@ English and Hungarian translations have been included, so no translators will be
   - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)
   - [공백](https://crowdin.com/profile/whiteblankzero)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
+  - [서민석](https://crowdin.com/profile/seominseok001)
 - 🇱🇻 Latvian
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Haralds R](https://crowdin.com/profile/haralds.re)
@@ -179,6 +180,7 @@ English and Hungarian translations have been included, so no translators will be
   - [MinerPL](https://github.com/minerpl)
   - [Piotr G.](https://crowdin.com/profile/ekidoxx)
   - [stha](https://crowdin.com/profile/sthakrk)
+  - [tak tak](https://crowdin.com/profile/sz3fxx)
   - [Taki sobie Krzak Internetowy](https://crowdin.com/profile/krzak.bushowski)
   - [Wojciech Marzec](https://crowdin.com/profile/C.Ezra.M)
 - 🇵🇹 Portuguese
@@ -253,5 +255,6 @@ English and Hungarian translations have been included, so no translators will be
   - [muharslan](https://crowdin.com/profile/muharslan)
 - 🇻🇳 Vietnamese
   - [Đức N5_Trịnh Hoài](https://crowdin.com/profile/anhduc08768)
+  - [Minh Huy Hồ](https://crowdin.com/profile/minhhuyho15)
   - [Nguyễn Hoàng Long](https://crowdin.com/profile/fangcognosphere)
   - [Quan](https://crowdin.com/profile/quanonthecob)
