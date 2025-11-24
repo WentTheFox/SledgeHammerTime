@@ -1,5 +1,5 @@
 import { LanguageConfigV2 } from '@/model/language-config';
-import localeConfig from '../../../lang/config.json';
+import localeConfig from '../../../lang/config.json' with { type: 'json' };
 
 export type AvailableLanguage = keyof typeof localeConfig.languages;
 
