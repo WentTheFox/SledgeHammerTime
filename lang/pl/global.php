@@ -62,7 +62,7 @@ return [
         'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
       ],
       'details' => 'Szczegóły',
-      'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
+      'autoApplyCheckbox' => 'Zastosuj obliczony offset w bibliotece DateTime po ręcznym naciśnięciu :syncButtonLabel (dotyczy tylko wtedy, gdy różnica przekracza próg :offset)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
       'roundTripDuration' => 'Round-trip duration',
