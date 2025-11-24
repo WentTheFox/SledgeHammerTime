@@ -54,7 +54,7 @@ class HandleInertiaRequests extends Middleware {
         'supportedLanguages' => Config::get('languages.supported_locales'),
         'crowdinProjectId' => Config::get('crowdin.project_id'),
       ],
-      'ziggy' => fn() => (new Ziggy)->toArray(),
+      'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
     ];
   }
 }

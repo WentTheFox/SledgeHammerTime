@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import { UserSettings } from '@/model/user-settings';
 import UserSettingsForm, {
@@ -12,6 +14,7 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { faHammer } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
+import { inject } from 'vue';
 
 defineProps<{
   userSettings: Array<{
@@ -25,6 +28,8 @@ defineProps<{
 }>();
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -54,7 +59,7 @@ const route = useRoute();
           <p class="mb-3">
             <HtTranslate i18n-key="botSettings.learnMore">
               <template #1="slotProps">
-                <Link :href="route('botInfo', route().params)">
+                <Link :href="route('botInfo', routeParams)">
                   {{ slotProps.text }}
                 </Link>
               </template>

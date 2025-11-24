@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject } from '@/injection-keys';
 import AddAppLinks from '@/Pages/AddApp/AddAppLinks.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -18,6 +19,9 @@ import { computed, inject } from 'vue';
 const route = useRoute();
 const page = inject(pagePropsInject);
 const userInfo = computed(() => page?.value?.auth?.user);
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
+
 
 defineProps<{ discordAppId: string }>();
 </script>
@@ -48,7 +52,7 @@ defineProps<{ discordAppId: string }>();
       >
         <template #1="slotProps">
           <Link
-            :href="route('settings', route().params)"
+            :href="route('settings', routeParams)"
             :async="false"
           >
             {{ slotProps.text }}
@@ -60,12 +64,12 @@ defineProps<{ discordAppId: string }>();
         i18n-key="botInfo.customizeSettingsGuest"
       >
         <template #1="slotProps">
-          <a :href="route('login', route().params)">
+          <a :href="route('login', routeParams)">
             {{ slotProps.text }}
           </a>
         </template>
         <template #3="slotProps">
-          <a :href="route('settings', route().params)">
+          <a :href="route('settings', routeParams)">
             {{ slotProps.text }}
           </a>
         </template>

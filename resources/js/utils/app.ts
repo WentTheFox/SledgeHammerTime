@@ -1,6 +1,11 @@
 import { BotInfoUsageData, BotInfoUsageFetchOptions, CurrentLanguageData } from '@/injection-keys';
 import { PageProps } from '@/types';
-import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
+import {
+  AvailableLanguage,
+  FALLBACK_LANGUAGE,
+  LANGUAGES,
+  LatestLanguageConfigType,
+} from '@/utils/language-settings';
 import { rangeLimitInput } from '@/utils/time';
 import axios from 'axios';
 import { format, subDays } from 'date-fns';
@@ -24,10 +29,10 @@ export const inputRangeLimitBlurHandlerFactory = (numberRef: Ref<number> | Model
 };
 
 export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => {
-  const languages = (page.app?.languages ?? { en: 'en' }) as Record<string, AvailableLanguage>;
-  const locale = languages[page.app?.locale ?? 'en'];
+  const languages = (page.app?.languages ?? { [FALLBACK_LANGUAGE]: FALLBACK_LANGUAGE }) as Record<string, AvailableLanguage>;
+  const locale = languages[page.app?.locale ?? FALLBACK_LANGUAGE];
   const languageConfig: LatestLanguageConfigType | undefined = LANGUAGES[locale];
-  const supportedLanguages = new Set(page.app?.supportedLanguages ?? ['en']);
+  const supportedLanguages = new Set(page.app?.supportedLanguages ?? [FALLBACK_LANGUAGE]);
   const crowdinProjectId = page.app?.crowdinProjectId;
 
   return {

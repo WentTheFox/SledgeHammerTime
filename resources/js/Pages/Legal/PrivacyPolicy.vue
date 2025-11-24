@@ -2,6 +2,8 @@
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { pagePropsInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
@@ -10,12 +12,15 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_NAME, DEVELOPER_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
 import { Link } from '@inertiajs/vue3';
+import { inject } from 'vue';
 
 defineProps<{
   lastUpdated: DateTimeLibraryValue | undefined;
 }>();
 
 const route = useRoute();
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
@@ -117,7 +122,7 @@ const route = useRoute();
       <p>
         <HtTranslate i18n-key="legal.privacy.telemetry.telemetryOptOut">
           <template #1>
-            <Link :href="route('settings', route().params)">
+            <Link :href="route('settings', routeParams)">
               {{ $t('global.nav.botSettings') }}
             </Link>
           </template>
