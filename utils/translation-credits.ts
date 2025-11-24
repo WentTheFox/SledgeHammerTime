@@ -1,8 +1,8 @@
 import { config as dotenvConfig } from 'dotenv';
 import { promises as fs } from 'fs';
 import path from 'path';
-import localeConfig from '../lang/config.json';
-import crowdinHammertime from '../lang/crowdin_hammertime.json';
+import localeConfig from '../lang/config.json' with { type: 'json' };
+import crowdinHammertime from '../lang/crowdin_hammertime.json' with { type: 'json' };
 import { IndexedReportData, ReportUserData } from '../resources/js/utils/crowdin';
 import {
   AvailableLanguage,

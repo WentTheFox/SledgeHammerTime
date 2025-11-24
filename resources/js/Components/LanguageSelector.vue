@@ -12,7 +12,8 @@ import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/fre
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
 import { Tippy } from 'vue-tippy';
-import nativeLocaleNames from '../../../vendor/laravel-lang/native-locale-names/data/_native.json';
+import nativeLocaleNames
+  from '../../../vendor/laravel-lang/native-locale-names/data/_native.json' with { type: 'json' };
 
 const searchParams = ref<URLSearchParams | null>(null);
 

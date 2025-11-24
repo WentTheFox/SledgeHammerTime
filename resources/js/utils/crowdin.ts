@@ -1,4 +1,4 @@
-import reportDataJson from '../../../lang/crowdin.json';
+import reportDataJson from '../../../lang/crowdin.json' with { type: 'json' };
 
 export interface ReportUserData {
   username: string;
