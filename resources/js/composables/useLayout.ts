@@ -39,7 +39,7 @@ export const useLayout = () => {
       pagePropsRef.value = event.detail.page.props;
     });
 
-    if (document) {
+    if (typeof document !== 'undefined') {
       document.body.classList.remove(noAnimClass);
     }
   });
