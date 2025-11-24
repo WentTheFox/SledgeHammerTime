@@ -22,6 +22,7 @@ import HtInput from '@/Reusable/HtInput.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { ComboboxOption } from '@/utils/combobox';
 import { LegalSectionIds } from '@/utils/legal';
+import { safeRoute } from '@/utils/safe-route';
 import {
   faChevronDown,
   faChevronUp,
@@ -226,7 +227,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
             <p class="mb-2">
               <HtTranslate i18n-key="botSettings.fields.telemetry.explanation">
                 <template #1>
-                  <Link :href="`${route('legal', routeParams)}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
+                  <Link :href="`${safeRoute('legal', route, routeParams)}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
                     {{ $t('global.nav.legal') }}
                   </Link>
                 </template>

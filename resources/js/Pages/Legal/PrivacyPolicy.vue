@@ -11,6 +11,7 @@ import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_NAME, DEVELOPER_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
+import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
 
@@ -122,7 +123,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="legal.privacy.telemetry.telemetryOptOut">
           <template #1>
-            <Link :href="route('settings', routeParams)">
+            <Link :href="safeRoute('settings', route, routeParams)">
               {{ $t('global.nav.botSettings') }}
             </Link>
           </template>

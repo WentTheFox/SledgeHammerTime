@@ -9,6 +9,7 @@ import ConnectedAccounts from '@/Pages/Profile/Partials/ConnectedAccounts.vue';
 import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccounts.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { safeRoute } from '@/utils/safe-route';
 import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
@@ -43,7 +44,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="profile.intro">
           <template #1="slotProps">
-            <Link :href="route('settings', routeParams)">
+            <Link :href="safeRoute('settings', route, routeParams)">
               {{ slotProps.text }}
             </Link>
           </template>

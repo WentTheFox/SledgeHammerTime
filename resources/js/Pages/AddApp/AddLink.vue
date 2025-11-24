@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
-import { currentLanguageInject } from '@/injection-keys';
-// noinspection ES6UnusedImports
-import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
+import { safeRoute } from '@/utils/safe-route';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -20,11 +20,13 @@ withDefaults(defineProps<{
 
 const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
+const pageProps = inject(pagePropsInject);
+const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
   <a
-    :href="route('addBotRedirect', { locale: currentLanguage?.locale ?? FALLBACK_LANGUAGE, installType })"
+    :href="safeRoute('addBotRedirect', route, routeParams, { installType })"
     :target="openInNewTab ? '_blank' : undefined"
     :rel="openInNewTab ? 'noopener noreferrer' : undefined"
     class="add-link"

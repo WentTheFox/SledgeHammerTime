@@ -11,6 +11,7 @@ import UserSettingsForm, {
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { safeRoute } from '@/utils/safe-route';
 import { faHammer } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Head, Link } from '@inertiajs/vue3';
@@ -59,7 +60,7 @@ const routeParams = useRouteParams(route, pageProps);
           <p class="mb-3">
             <HtTranslate i18n-key="botSettings.learnMore">
               <template #1="slotProps">
-                <Link :href="route('botInfo', routeParams)">
+                <Link :href="safeRoute('botInfo', route, routeParams)">
                   {{ slotProps.text }}
                 </Link>
               </template>
