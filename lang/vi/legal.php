@@ -5,7 +5,7 @@ return [
     'title' => 'Translated Content',
     'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => 'Cập nhật lần cuối: <1/>',
   'privacy' => [
     'heading' => 'Chính sách Quyền Riêng tư',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
@@ -31,12 +31,12 @@ return [
     'cookies' => [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
-      'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
-      'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
+      'disable' => 'Chúng tôi sử dụng "cookie" để lưu trữ thông tin. Bạn có thể thiết lập trình duyệt của mình để từ chối tất cả các cookie hoặc thông báo khi một cookie được gửi. Tuy nhiên, nếu bạn không chấp nhận cookie, một số nội dung trên trang web của chúng tôi sẽ không sử dụng được.',
+      'session' => 'Đối với người dùng đã đăng nhập, một cookie cố định sẽ được sử dụng để ghi nhớ trạng thái đăng nhập giữa các phiên trình duyệt trong vòng 30 ngày. Nếu bạn muốn dừng sử dụng tính năng ghi nhớ, bạn có thể đăng xuất hoặc xóa các cookie được tạo bởi trang web của chúng tôi.',
     ],
     'security' => [
-      'heading' => 'Security',
-      'noGuarantee' => 'The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.',
+      'heading' => 'Bảo mật',
+      'noGuarantee' => 'Sự bảo mật thông tin cá nhân của bạn là điều quan trọng đối với chúng tôi, nhưng hãy lưu ý rằng không có phương thức truyền tải thông tin qua Internet hay phương thức lưu trữ số nào là an toàn 100%. Chúng tôi sẽ luôn nỗ lực sử dụng những biện pháp bảo vệ thông tin cá nhân theo tiêu chuẩn thương mại, nhưng chúng tôi không thể đảm bảo an toàn tuyệt đối cho những dữ liệu này.',
       'httpsCloudFlare' => 'The Site makes use of HTTPS using modern TLS encryption suites to protect the integrity and secure transport of data between the browser and our Site. However, we make use of CloudFlare\'s Reverse Proxy service, meaning some portion of the data sent to our Site passes through their servers. CloudFlare operates under their own <1>privacy policy</1>.',
       'breachNotify' => 'In the event of a security breach all users will be notified within 24 hours of discovery through a notice posted on this website, in replies posted by the Bot and via an announcement in the Bot\'s Discord support server.',
     ],

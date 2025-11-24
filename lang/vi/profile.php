@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => 'Hồ sơ cá nhân',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
+    'heading' => 'Thông tin tài khoản',
+    'description' => "Cập nhật thông tin tài khoản của bạn.",
     'displayName' => 'Display Name',
     'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Your profile has been updated successfully.',

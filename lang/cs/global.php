@@ -4,22 +4,22 @@ return [
   'seoDescription' => 'Generování ukazatelů časových razítek pro zprávy chatu Discord',
   'changeLanguage' => 'Změnit jazyk',
   "notFound" => [
-    "heading" => "Page Not Found",
+    "heading" => "Stránka nenalezena",
     "content" => "Není zde nic k zobrazení.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Režim údržby",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "Aplikace se momentálně aktualizuje, zkuste to prosím znovu za několik sekund.",
+      'joinSupportServer' => "Pokud problém přetrvává déle než pár minut, připojte se prosím na Discord server podpory a dejte nám vědět.",
+      'contactDeveloper' => "Pokud problém přetrvává déle než pár minut, kontaktujte prosím vývojáře a dejte jim vědět.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Server podpory",
   ],
   'incompleteTranslations' => 'Překlad není úplný',
   'contributeTranslations' => 'Přispět',
   'copyToClipboard' => 'Zkopírovat do schránky',
-  'copiedToClipboard' => 'Copied to clipboard!',
+  'copiedToClipboard' => 'Zkopírováno do schránky!',
   'jsDisabled' => [
     'title' => 'JavaScript je nezbytný',
     'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript ve výchozím nastavení z bezpečnostních důvodů zakazují, ale pro tuto aplikaci je nezbytný. Povolte jej a obnovte stránku nebo použijte jiný prohlížeč.",
@@ -33,20 +33,20 @@ return [
     'inputSettings' => [
       'title' => 'Nastavení vstupu',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Formátované vstupní pole data',
+        'description' => "Nahradí výchozí vstupní pole prohlížeče formátovaným.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Formátované vstupní pole času',
+        'description' => "Nahradí výchozí vstupní pole prohlížeče formátovaným. To je obzvlášť užitečné, pokud máte problém s výběrem času na mobilních prohlížečích.",
       ],
       'separateInputs' => [
         'label' => 'Samostatná vstupní pole',
         'description' => "Zobrazí dvě samostatná vstupní pole pro datum a čas namísto jednoho kombinovaného (které nemusí být podporováno v některých prohlížečích)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Zjednodušené rozhraní',
+        'description' => "Odstraní stíny a výškové efekty u vstupních polí a tlačítek",
       ],
     ],
     'timeSync' => [
@@ -99,12 +99,12 @@ return [
     ],
   ],
   'designEditor' => [
-    'title' => 'Design Editor',
-    'description' => 'You can adjust many aspects of the website\'s appearance using the inputs in the table below. Variable names are based on identifiers in the code and therefore cannot be translated. Values will be reset when refreshing the page.',
-    'designPageLink' => 'Design Page',
-    'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
-    'export' => 'Export as UserStyle',
-    'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'title' => 'Editor vzhledu',
+    'description' => 'Pomocí políček v tabulce níže můžete upravit mnoho aspektů vzhledu webu. Názvy proměnných vycházejí z identifikátorů v kódu, a proto nejsou přeloženy. Hodnoty budou resetovány po obnovení stránky.',
+    'designPageLink' => 'Stránka se vzhledem',
+    'exportInfo' => 'Své změny můžete exportovat do souboru UserStyle, který lze použít s rozšířením, jako je <1>Stylus</1>, k trvalému přizpůsobení vzhledu aplikace. Upozorňujeme však, že tyto proměnné se mohou kdykoli změnit, což bude vyžadovat manuální aktualizaci vašich vlastních stylů.',
+    'export' => 'Exportovat jako UserStyle',
+    'variableColumnHeader' => 'Proměnná v CSS',
+    'valueColumnHeader' => 'Hodnota',
   ],
 ];
