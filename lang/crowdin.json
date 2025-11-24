@@ -799,6 +799,21 @@
     "17439418": {
       "username": "Skumen",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17439418/medium/56d6c395902a9b8d617dfd3e1c54c1a0.png"
+    },
+    "17440890": {
+      "username": "minhhuyho15",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17440890/medium/81c0a8982d2606517a8039320517ec46.jpeg",
+      "fullName": "Minh Huy Hồ"
+    },
+    "17443466": {
+      "username": "seominseok001",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17443466/medium/c01fde2507029b625d82c49aba208c4e.png",
+      "fullName": "서민석"
+    },
+    "17444122": {
+      "username": "sz3fxx",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17444122/medium/6c5eac3ba3ad2f21efbb06969b95253e.png",
+      "fullName": "tak tak"
     }
   },
   "languages": {
@@ -845,8 +860,8 @@
         "15044779"
       ],
       "progress": {
-        "approval": 35,
-        "translation": 35
+        "approval": 100,
+        "translation": 100
       }
     },
     "da": {
@@ -1061,11 +1076,12 @@
         "14153733",
         "17204632",
         "17227106",
-        "17217834"
+        "17217834",
+        "17443466"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 10
+        "approval": 15,
+        "translation": 15
       }
     },
     "lt": {
@@ -1149,11 +1165,12 @@
         "14428048",
         "16172948",
         "14673608",
-        "17431518"
+        "17431518",
+        "17444122"
       ],
       "progress": {
-        "approval": 71,
-        "translation": 71
+        "approval": 74,
+        "translation": 74
       }
     },
     "pt-BR": {
@@ -1218,7 +1235,7 @@
         "17430436"
       ],
       "progress": {
-        "approval": 35,
+        "approval": 58,
         "translation": 60
       }
     },
@@ -1302,11 +1319,12 @@
         "16061216",
         "16601907",
         "17285274",
-        "17346592"
+        "17346592",
+        "17440890"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 27
       }
     },
     "zh": {
