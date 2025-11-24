@@ -7,8 +7,8 @@ return [
     'heading' => 'Informace účtu',
     'description' => "Aktualizujte informace vašeho účtu.",
     'displayName' => 'Zobrazované jméno',
-    'hiddenFormats' => 'Formats hidden from picker table',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'hiddenFormats' => 'Formáty skryté z tabulky pro výběr',
+    'saveSuccess' => 'Váš profil byl úspěšně aktualizován.',
   ],
   'accounts' => [
     'heading' => 'Propojené účty',
@@ -18,7 +18,7 @@ return [
     ],
     'discord' => 'Discord účty',
     'crowdin' => 'Crowdin účty',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'noConnectedAccounts' => 'V současné době nemáte propojené žádné účty',
     'linkAdditional' => [
       'heading' => 'Propojení a aktualizace účtu',
       'description' => 'Propojení více účtů s jedním HammerTime účtem vám umožní spravovat nastavení všech propojených účtů na jednom místě.',

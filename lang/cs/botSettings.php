@@ -47,5 +47,5 @@ return [
       'displayName' => 'Výchozí volba ":hourOptionName" pro příkaz /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Vaše nastavení bylo úspěšně uloženo.',
 ];
