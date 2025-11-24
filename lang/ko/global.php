@@ -50,12 +50,12 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => '시간 동기화',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => '당신의 시스템 시각은 정확합니다.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => '현재 지역 시간과 서버 시간 사이의 차이는 :offset입니다.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
