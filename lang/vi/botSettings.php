@@ -1,19 +1,19 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Cài đặt ứng dụng',
+  'description' => 'Dưới đây, bạn có thể xem các cài đặt hiện tại của ứng dụng HammerTime đối với từng tài khoản đã được kết nối.',
+  'learnMore' => 'Không rõ ứng dụng là gì hoặc tò mò về những tính năng của ứng dụng? Vui lòng truy cập đường dẫn đến <1>ứng dụng Discord</1> để tìm hiểu thêm.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Cài đặt nâng cao',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Mặc định',
   'fields' => [
     'timezone' => [
       'displayName' => 'Múi giờ',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Định dạng',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
@@ -41,11 +41,11 @@ return [
     ],
     'telemetry' => [
       'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'explanation' => 'Lựa chọn này hoàn toàn không bắt buộc và không ảnh hưởng đến việc sử dụng ứng dụng của bạn. Xem trang <1/> để biết thêm chi tiết.',
     ],
     'defaultAt12Hour' => [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Các cài đặt của bạn đã được lưu thành công.',
 ];
