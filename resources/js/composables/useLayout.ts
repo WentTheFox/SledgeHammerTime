@@ -51,7 +51,7 @@ export const useLayout = () => {
     pagePropsRef.value = newProps;
   }, { immediate: true });
 
-  const currentLanguage = ref<CurrentLanguageData>(computeCurrentLanguage(pagePropsRef.value));
+  const currentLanguage = computed<CurrentLanguageData>(() => computeCurrentLanguage(pagePropsRef.value));
   provide(currentLanguageInject, currentLanguage);
 
   const localSettings = useLocalSettings(currentLanguage);
