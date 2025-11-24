@@ -75,9 +75,8 @@ export const useLayout = () => {
     }
   });
 
-  watch(pagePropsRef, (currentPage) => {
-    currentLanguage.value = computeCurrentLanguage(currentPage);
-    const { locale, languageConfig } = currentLanguage.value;
+  watch(currentLanguage, (currentLanguage) => {
+    const { locale, languageConfig } = currentLanguage;
     if (typeof document !== 'undefined' && document.documentElement) {
       document.documentElement.dir = languageConfig?.rtl ? 'rtl' : 'ltr';
     }
