@@ -138,3 +138,7 @@ export const calculateNtpOffset = (t0: number | undefined, t1: number | undefine
   }
   return ((t1 - t0) + (t2 - t3)) / 2;
 };
+
+export const normalizeTimeString = (value: string) => (
+  value.length === 5 ? `${value}:00` : value
+);

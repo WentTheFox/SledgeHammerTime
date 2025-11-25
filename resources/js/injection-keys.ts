@@ -64,7 +64,7 @@ export const positionAnchor = Symbol('positionAnchor') as InjectionKey<`--${stri
 
 export const pagePropsInject = Symbol('pagePropsInject') as InjectionKey<Ref<PageProps>>;
 
-export const userInfoInject = Symbol('pagePropsInject') as InjectionKey<Ref<User | undefined>>;
+export const userInfoInject = Symbol('userInfoInject') as InjectionKey<Ref<User | undefined>>;
 
 export interface CurrentLanguageData {
   locale: AvailableLanguage;

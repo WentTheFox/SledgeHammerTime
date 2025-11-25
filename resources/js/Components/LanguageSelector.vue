@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
+import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
+import { useUiLocale } from '@/composables/useUiLocale';
 import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
@@ -10,7 +12,7 @@ import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
-import { computed, inject, onMounted, ref } from 'vue';
+import { computed, inject, onMounted, ref, watch } from 'vue';
 import { Tippy } from 'vue-tippy';
 import nativeLocaleNames
   from '../../../vendor/laravel-lang/native-locale-names/data/_native.json' with { type: 'json' };
@@ -19,6 +21,12 @@ const searchParams = ref<URLSearchParams | null>(null);
 
 const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
+const pageProps = inject(pagePropsInject);
+const locale = useLocale(pageProps);
+const uiLocale = useUiLocale(pageProps, locale);
+const routeParams = useRouteParams(route, pageProps);
+
+const displayLanguages = ref<[string, LatestLanguageConfigType][]>([]);
 
 const extendedNativeLocaleNames: Record<AvailableLanguage, string> = {
   ...nativeLocaleNames,
@@ -41,7 +49,7 @@ const sortedLanguages = computed(() =>
       }
       return key in currentLanguage.value.languages;
     })
-    .sort(([a], [b]) => extendedNativeLocaleNames[a].localeCompare(extendedNativeLocaleNames[b])),
+    .sort(([a], [b]) => extendedNativeLocaleNames[a].localeCompare(extendedNativeLocaleNames[b], uiLocale.value)),
 );
 
 const displayContributionHints = computed(() =>
@@ -57,9 +65,6 @@ const currentLanguageApprovalPercent = computed(() =>
 const searchParamsString = computed(() => {
   return searchParams.value && searchParams.value.size > 0 ? `?${searchParams.value}` : '';
 });
-
-const pageProps = inject(pagePropsInject);
-const routeParams = useRouteParams(route, pageProps);
 
 const parameterRequiredRegex = /Ziggy error: '([^']+)' parameter is required/i;
 const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record<string, string>) => {
@@ -83,7 +88,14 @@ const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record
 const navigateListener = () => {
   searchParams.value = new URLSearchParams(window.location.search);
 };
-onMounted(router.on('success', navigateListener));
+onMounted(() => {
+  displayLanguages.value = sortedLanguages.value;
+  return router.on('success', navigateListener);
+});
+// Workaround for stuck languages list during SSR
+watch(sortedLanguages.value, newSortedLanguages => {
+  displayLanguages.value = newSortedLanguages;
+});
 </script>
 
 <template>
@@ -133,7 +145,10 @@ onMounted(router.on('success', navigateListener));
             </HtButton>
           </template>
           <template #content>
-            <nav class="nav">
+            <nav
+              v-if="displayLanguages.length > 0"
+              class="nav"
+            >
               <a
                 v-for="[sortedLocale, config] in sortedLanguages"
                 :key="sortedLocale"
