@@ -1,21 +1,12 @@
 <script setup lang="ts">
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
-import { useRoute } from '@/composables/useRoute';
-import { useRouteParams } from '@/composables/useRouteParams';
-import { pagePropsInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
 import { UserSettings } from '@/model/user-settings';
+import AppSettingsCard from '@/Pages/Settings/AppSettingsCard.vue';
 import UserSettingsForm, {
   UserSettingsFormBotTranslations,
 } from '@/Pages/Settings/UserSettingsForm.vue';
-import HtAlert from '@/Reusable/HtAlert.vue';
-import HtCard from '@/Reusable/HtCard.vue';
-import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { safeRoute } from '@/utils/safe-route';
-import { faHammer } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { Head, Link } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { Head } from '@inertiajs/vue3';
 
 defineProps<{
   userSettings: Array<{
@@ -27,48 +18,13 @@ defineProps<{
   columnsOptions?: string[];
   botTranslations: UserSettingsFormBotTranslations;
 }>();
-
-const route = useRoute();
-const pageProps = inject(pagePropsInject);
-const routeParams = useRouteParams(route, pageProps);
 </script>
 
 <template>
   <Head :title="$t('botSettings.title')" />
 
   <Layout>
-    <HtCard class="app-settings-card">
-      <template #header>
-        <h2>
-          <FontAwesomeIcon
-            :icon="faHammer"
-            class="me-1"
-          />
-          {{ $t('botSettings.title') }}
-        </h2>
-      </template>
-
-      <p class="mt-1 mb-3">
-        {{ $t('botSettings.description') }}
-      </p>
-
-      <HtAlert
-        :closable="false"
-        type="info"
-      >
-        <template #text>
-          <p class="mb-3">
-            <HtTranslate i18n-key="botSettings.learnMore">
-              <template #1="slotProps">
-                <Link :href="safeRoute('botInfo', route, routeParams)">
-                  {{ slotProps.text }}
-                </Link>
-              </template>
-            </HtTranslate>
-          </p>
-        </template>
-      </HtAlert>
-    </HtCard>
+    <AppSettingsCard />
 
     <UserSettingsForm
       v-for="entry in userSettings"
@@ -81,11 +37,3 @@ const routeParams = useRouteParams(route, pageProps);
     />
   </Layout>
 </template>
-
-<style lang="scss">
-@use "../../../css/design";
-
-.app-settings-card {
-  @include design.content-link-style;
-}
-</style>
