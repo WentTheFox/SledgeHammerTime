@@ -355,9 +355,6 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection | undefined {
-    if (typeof window === 'undefined') {
-      return undefined;
-    }
     if (hint) {
       if (hint === 'Etc/GMT') {
         return {

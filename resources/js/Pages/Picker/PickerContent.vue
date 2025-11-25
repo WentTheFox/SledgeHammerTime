@@ -44,7 +44,7 @@ const defaultTimezone = computed(() => {
   return typeof tzParam !== 'undefined' ? tzParam : (defaultUnixTimestamp.value !== null ? 'Etc/UTC' : undefined);
 });
 
-const currentTimezone: Ref<TimezoneSelection> = ref(dtl?.value.getDefaultInitialTimezoneSelection(defaultTimezone.value) ?? {
+const currentTimezone: Ref<TimezoneSelection> = ref((typeof window === 'undefined' ? null : dtl?.value.getDefaultInitialTimezoneSelection(defaultTimezone.value)) ?? {
   type: TimeZoneSelectionType.OFFSET,
   hours: 0,
   minutes: 0,
