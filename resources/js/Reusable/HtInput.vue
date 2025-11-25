@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { formControlId } from '@/injection-keys';
+import { formControlId, isJsUnavailableInject } from '@/injection-keys';
 import { computed, inject, useTemplateRef } from 'vue';
 
 const emit = defineEmits<{
@@ -32,6 +32,8 @@ const providedId = inject(formControlId);
 
 const effectiveId = computed(() => props.id ?? providedId);
 
+const isJsUnavailable = inject(isJsUnavailableInject);
+
 export interface InputApi {
   focus: () => void;
   select: () => void;
@@ -53,7 +55,7 @@ defineExpose({
     :type="type"
     :class="['input-field', props.class, { 'hide-selection': hideSelection }]"
     :readonly="readonly"
-    :disabled="disabled"
+    :disabled="isJsUnavailable || disabled"
     :min="min"
     :max="max"
     :tabindex="tabindex"

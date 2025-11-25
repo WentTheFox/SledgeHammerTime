@@ -9,6 +9,7 @@ import {
   currentLanguageInject,
   dateTimeLibraryInject,
   devModeInject,
+  isJsUnavailableInject,
   localSettingsInject,
   pagePropsInject,
   scrollToAnchorInject,
@@ -60,6 +61,9 @@ export const useLayout = () => {
   provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
 
+  const isJsUnavailable = ref(true);
+  provide(isJsUnavailableInject, readonly(isJsUnavailable));
+
   const route = useRoute();
   const { dateTimeLibrary, timeSync } = useDateTimeLibrary(route, localSettingsValue);
   provide(dateTimeLibraryInject, dateTimeLibrary);
@@ -92,6 +96,10 @@ export const useLayout = () => {
     }
   }, {
     immediate: true,
+  });
+
+  onMounted(() => {
+    isJsUnavailable.value = typeof window === 'undefined';
   });
 
   let scrollFunction: ((progress?: number) => void) | null = null;

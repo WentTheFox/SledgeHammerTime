@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
+import { isJsUnavailableInject } from '@/injection-keys';
 import HtButtonContent, { HtButtonContentProps } from '@/Reusable/HtButtonContent.vue';
 import { ButtonColors, getButtonClasses } from '@/utils/buttons';
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 
 const props = withDefaults(defineProps<{
   type?: 'button' | 'submit',
@@ -34,6 +35,7 @@ const props = withDefaults(defineProps<{
 });
 
 const buttonClasses = computed(() => getButtonClasses(props));
+const isJsUnavailable = inject(isJsUnavailableInject);
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void;
@@ -44,7 +46,7 @@ const emit = defineEmits<{
   <button
     :type="type"
     :class="buttonClasses"
-    :disabled="props.disabled || props.loading"
+    :disabled="isJsUnavailable || props.disabled || props.loading"
     :tabindex="tabindex"
     :title="title"
     @click="emit('click', $event)"

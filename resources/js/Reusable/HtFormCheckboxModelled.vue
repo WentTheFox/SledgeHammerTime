@@ -1,19 +1,27 @@
 <script setup lang="ts">
+import { isJsUnavailableInject } from '@/injection-keys';
 import HtFormCheckbox from '@/Reusable/HtFormCheckbox.vue';
+import { computed, inject } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   id: string,
   label: string,
   name?: string,
+  disabled?: boolean;
 }>();
 
 const model = defineModel<boolean>({ required: true });
+
+const isJsUnavailable = inject(isJsUnavailableInject);
+
+const inputDisabled = computed(() => isJsUnavailable?.value || props.disabled);
 </script>
 
 <template>
   <HtFormCheckbox
     :id="id"
     :label="label"
+    :disabled="disabled"
   >
     <template #input>
       <input
@@ -21,6 +29,7 @@ const model = defineModel<boolean>({ required: true });
         v-model="model"
         type="checkbox"
         :name="name"
+        :disabled="inputDisabled"
         class="form-checkbox-input"
       >
     </template>
