@@ -8,13 +8,13 @@ return [
     "content" => "Здесь пусто.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Ведутся технические работы",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "В настоящее время приложение обновляется, пожалуйста повторите попытку через несколько секунд.",
+      'joinSupportServer' => "Если проблема сохраняется более нескольких минут, присоединитесь к серверу поддержки Discord и сообщите нам об этом.",
+      'contactDeveloper' => "Если проблема сохраняется более нескольких минут, пожалуйста свяжитесь с разработчиком и сообщите ему об этом.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Сервер поддержки",
   ],
   'incompleteTranslations' => 'Перевод не завершен',
   'contributeTranslations' => 'Внести свой вклад',
@@ -33,11 +33,11 @@ return [
     'inputSettings' => [
       'title' => 'Настройки ввода',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Пользовательский ввод даты',
+        'description' => "Замените стандартный ввод даты в браузере на пользовательский.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
+        'label' => 'Пользовательский ввод времени',
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
@@ -45,8 +45,8 @@ return [
         'description' => "Отображать два разных ввода для даты и времени вместо комбинированного (что не поддерживается в некоторых браузерах)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Плоский интерфейс',
+        'description' => "Отключает эффекты тени на элементах интерфейса ввода и кнопках",
       ],
     ],
     'timeSync' => [
