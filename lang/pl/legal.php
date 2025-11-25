@@ -25,7 +25,7 @@ return [
     ],
     'telemetry' => [
       'heading' => 'Telemetria i statystyki',
-      'statsCollection' => 'In order to assess the Bot\'s usage and thereby drive development decisions (e.g. the addition/removal of features) a specific set of data about Commands and their usage may be collected ("Telemetry"). Telemetry information is limited to which command and options were used, and when they were used, without any identifying information (therefore it never includes server or user IDs, nor any user-supplied values, and is fully anonymous). Telemetry is stored indefinitely and statistics derived from it are intended to be displayed and shared publicly in aggregate form.',
+      'statsCollection' => 'W celu oceny użytkowania bota i tym samym stymulowania decyzji rozwojowych (np. dodanie/usuwanie funkcji) można zebrać określony zbiór danych dotyczących poleceń i ich wykorzystania („Telemetry”). Informacje telemetryczne są ograniczone do jakich poleceń i opcji zostały użyte, a kiedy zostały wykorzystane, bez żadnych informacji identyfikacyjnych (dlatego nigdy nie zawiera ona identyfikatorów serwera ani identyfikatorów użytkownika, ani żadnych wartości dostarczonych przez użytkownika i jest w pełni anonimowa). Telemetria jest przechowywana na czas nieokreślony, a pochodzące z niej dane statystyczne mają być wyświetlane i udostępniane publicznie w formie zbiorczej.',
       'telemetryOptOut' => 'Korzystając z projektu, użytkownicy zgadzają się domyślnie na kolekcję Telemetry. Jeśli użytkownik chce zrezygnować z kolekcji telemetrów, może podać swoje preferencje za pomocą odpowiedniej opcji na stronie <1/>.',
     ],
     'cookies' => [
