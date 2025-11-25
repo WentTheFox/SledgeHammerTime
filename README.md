@@ -180,7 +180,7 @@ English and Hungarian translations have been included, so no translators will be
   - [MinerPL](https://github.com/minerpl)
   - [Piotr G.](https://crowdin.com/profile/ekidoxx)
   - [stha](https://crowdin.com/profile/sthakrk)
-  - [tak tak](https://crowdin.com/profile/sz3fxx)
+  - [sz3fxx](https://crowdin.com/profile/sz3fxx)
   - [Taki sobie Krzak Internetowy](https://crowdin.com/profile/krzak.bushowski)
   - [Wojciech Marzec](https://crowdin.com/profile/C.Ezra.M)
 - 🇵🇹 Portuguese
@@ -221,6 +221,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇪🇸 Spanish
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
+  - [iago salgado roda](https://crowdin.com/profile/iagolete)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [Yareaj](https://github.com/Yareaj/)
