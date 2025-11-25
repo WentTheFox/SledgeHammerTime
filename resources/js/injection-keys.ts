@@ -107,3 +107,5 @@ export interface BotInfoUsageData {
 export type UsageDataFetchFunction = (options: BotInfoUsageFetchOptions) => Promise<BotInfoUsageData[]>;
 
 export const usageDataFetcherInject = Symbol('usageDataFetcherInject') as InjectionKey<UsageDataFetchFunction>;
+
+export const isJsUnavailableInject = Symbol('isJsUnavailableInject') as InjectionKey<DeepReadonly<Ref<boolean>>>;
