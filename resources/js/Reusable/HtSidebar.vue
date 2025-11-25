@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import LanguageSelector from '@/Components/LanguageSelector.vue';
-import InputSettings from '@/Components/sidebar/InputSettings.vue';
 import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
@@ -33,7 +32,6 @@ const close = () => {
       </HtButton>
     </div>
     <div class="sidebar-content">
-      <InputSettings />
       <slot name="widgets" />
       <LocalSettings />
       <SidebarCredits />
