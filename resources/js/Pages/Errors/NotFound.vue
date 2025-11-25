@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import Layout from '@/Layouts/DefaultLayout.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import { Head } from '@inertiajs/vue3';
@@ -22,6 +21,3 @@ import { Head } from '@inertiajs/vue3';
     </HtAlert>
   </Layout>
 </template>
-
-<style scoped>
-</style>
