@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject } from '@/injection-keys';
 import Layout from '@/Layouts/DefaultLayout.vue';
@@ -8,7 +9,6 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { Head, router } from '@inertiajs/vue3';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
-import { useRoute } from 'ziggy-js';
 
 defineProps<{
   discordUrl?: string;
