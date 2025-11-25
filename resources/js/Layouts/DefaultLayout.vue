@@ -6,19 +6,32 @@ import HtContent from '@/Reusable/HtContent.vue';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- ESLint is drunk
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { useSlots } from 'vue';
 
 useLayout();
+const slots = useSlots();
 </script>
 
 <template>
   <Navbar />
 
   <HtContent>
+    <template
+      v-if="slots.sidebarWidgets"
+      #sidebarWidgets
+    >
+      <slot name="sidebarWidgets" />
+    </template>
     <noscript>
       <div class="alert warning mb-3">
       <div class="alert-content">
       <div class="alert-title">
-      <FontAwesomeIcon :icon="faExclamationTriangle" :fixed-width="true" size="1x" class="me-2" />
+      <FontAwesomeIcon
+      :icon="faExclamationTriangle"
+      :fixed-width="true"
+      size="1x"
+      class="me-2"
+      />
       {{ $t('global.jsDisabled.title') }}
       </div>
       <div class="alert-text">
