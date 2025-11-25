@@ -8,11 +8,11 @@ return [
     "content" => "Niets te zien hier.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Onderhoudsmodus",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "De applicatie wordt momenteel bijgewerkt, probeer het over een paar seconden opnieuw.",
+      'joinSupportServer' => "Als het probleem langer dan een paar minuten aanhoudt, laat het ons dan weten in de supportserver op Discord.",
+      'contactDeveloper' => "Als het probleem langer dan een paar minuten aanhoudt, neem dan contact op met de ontwikkelaar.",
     ],
     "supportServerButton" => "Support Server",
   ],
@@ -33,20 +33,20 @@ return [
     'inputSettings' => [
       'title' => 'Input instellingen',
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Aangepaste datum input',
+        'description' => "Vervang de standaard datum input door een aangepaste variant.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Aangepaste tijd input',
+        'description' => "Vervang de standaard tijd input door een aangepaste variant. Dit is vooral handig als je problemen hebt met het selecteren van de tijd op mobiele apparaten.",
       ],
       'separateInputs' => [
         'label' => 'Gescheiden inputs',
         'description' => "Toon twee gescheiden inputs voor datum en tijd in plaats van één gecombineerde (sommige browsers ondersteunen de gecombineerde input niet)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Platte interface gebruiken',
+        'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
       ],
     ],
     'timeSync' => [

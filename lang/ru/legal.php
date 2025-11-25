@@ -8,7 +8,7 @@ return [
   'lastUpdated' => 'Последнее изменение: <1/>',
   'privacy' => [
     'heading' => 'Политика конфиденциальности',
-    'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
+    'operator' => '<0/> ("мы", "наш" или "Разработчик") управляет веб-сайтом HammerTime ("Сайт") и ботом HammerTimeBot ("Бот" или "Приложение"), в совокупности являющимися проектом HammerTime ("Проект"). Эта страница информирует Вас о нашей политике в отношении сбора, использования и раскрытия Личной информации, которую мы получаем от пользователей Проекта ("Вы", "Пользователь" или все вместе "Пользователи").',
     'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
     'infoCollection' => [
       'heading' => 'Сбор и использование информации',

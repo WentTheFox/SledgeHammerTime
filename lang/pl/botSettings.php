@@ -19,7 +19,7 @@ return [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Kolumny',
     ],
     'ephemeral' => [
       'displayName' => 'Efemeryczna',

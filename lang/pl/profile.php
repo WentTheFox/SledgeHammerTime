@@ -16,7 +16,7 @@ return [
       'Konto HammerTime pozwoli Ci połączyć wiele kont Discord, aby w przyszłości móc zarządzać ich zasobami w jednym miejscu.',
       'Poniżej znajduje się lista wszystkich kont Discorda powiązanych z tym kontem HammerTime.',
     ],
-    'discord' => 'Discord Accounts',
+    'discord' => 'Konta Discord',
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => 'W tej chwili nie masz żadnych połączonych kont',
     'linkAdditional' => [
