@@ -24,7 +24,7 @@ const showSyncDetails = ref(false);
 const autoApply = ref(true);
 
 const inaccurateSystemClockThresholdMs = computed(() => dtl?.value.getMinimumOffsetMs());
-const isSystemClockAccurate = computed(() => typeof timeSync?.ntpOffsetMs === 'number' && typeof inaccurateSystemClockThresholdMs.value === 'number' && timeSync.ntpOffsetMs < inaccurateSystemClockThresholdMs.value);
+const isSystemClockAccurate = computed(() => typeof timeSync?.ntpOffsetMs === 'number' && typeof inaccurateSystemClockThresholdMs.value === 'number' && (isNaN(timeSync.ntpOffsetMs) || timeSync.ntpOffsetMs < inaccurateSystemClockThresholdMs.value));
 const roundTripDurationMs = computed(() => (timeSync?.t3?.value ?? 0) - (timeSync?.t0?.value ?? 0));
 
 const syncTime = () => {

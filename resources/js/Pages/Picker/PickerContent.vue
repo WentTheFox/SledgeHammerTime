@@ -17,6 +17,12 @@ import { convertTimeZoneSelectionToString, normalizeTimeString } from '@/utils/t
 import { router } from '@inertiajs/vue3';
 import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref, watch } from 'vue';
 
+const props = defineProps<{
+  initialDate?: string;
+  initialTime?: string;
+  initialTimestamp?: number;
+}>();
+
 const dtl = inject(dateTimeLibraryInject);
 const settings = inject(localSettingsInject);
 const timeSync = inject(timeSyncInject);
@@ -39,11 +45,12 @@ const defaultTimezone = computed(() => {
 });
 
 const currentTimezone: Ref<TimezoneSelection> = ref(dtl?.value.getDefaultInitialTimezoneSelection(defaultTimezone.value) ?? {
-  type: TimeZoneSelectionType.ZONE_NAME,
-  name: 'Etc/UTC',
+  type: TimeZoneSelectionType.OFFSET,
+  hours: 0,
+  minutes: 0,
 });
-const dateString = ref('');
-const timeString = ref('');
+const dateString = ref(props.initialDate ?? '');
+const timeString = ref(props.initialTime ?? '');
 const dateTimeSelectionChanged = ref(false);
 
 const currentTimestamp = computed(() => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);

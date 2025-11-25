@@ -1,7 +1,9 @@
 <script setup lang="ts">
 
 import SyntaxDisplay, { SyntaxDisplayProps } from '@/Components/home/table/SyntaxDisplay.vue';
-import TimestampPreview, { TimestampPreviewProps } from '@/Components/home/table/TimestampPreview.vue';
+import TimestampPreview, {
+  TimestampPreviewProps,
+} from '@/Components/home/table/TimestampPreview.vue';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -24,6 +26,7 @@ withDefaults(defineProps<SyntaxDisplayProps & TimestampPreviewProps & {
     </td>
     <td class="syntax-column">
       <SyntaxDisplay
+        v-if="typeof unixTs !== 'undefined' && !isNaN(unixTs)"
         :unix-ts="unixTs"
         :format="format"
       />

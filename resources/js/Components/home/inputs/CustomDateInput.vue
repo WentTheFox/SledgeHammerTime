@@ -10,7 +10,7 @@ import {
 } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
-import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
+import { computed, inject, provide, useTemplateRef } from 'vue';
 
 withDefaults(defineProps<InputSelectorImplProps>(), {
   disabled: false,
@@ -20,7 +20,7 @@ const ts = inject(timestampInject);
 const id = inject(formControlId);
 const dtl = inject(dateTimeLibraryInject);
 
-const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
+const dateLibLocale = useDateLibraryLocale(dtl);
 const selectedDate = computed(() => {
   if (dtl?.value && dateLibLocale.value) {
     const currentDateValue = ts?.currentDate.value;

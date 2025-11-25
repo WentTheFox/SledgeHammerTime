@@ -5,7 +5,7 @@ import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { DialMode } from '@/utils/dial';
 import { pad } from '@/utils/pad';
 import { toTwelveHours, toTwentyFourHours } from '@/utils/time';
-import { computed, ComputedRef, DeepReadonly, getCurrentInstance, ref } from 'vue';
+import { computed, ComputedRef, DeepReadonly, ref } from 'vue';
 
 export const useTimePicker = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>> | undefined) => {
   const hours = ref(0);
@@ -18,8 +18,7 @@ export const useTimePicker = (dtl: DeepReadonly<ComputedRef<DateTimeLibrary>> | 
   const dial = ref<TimePickerDialAPI>();
   const renderDial = ref(false);
 
-  const instance = getCurrentInstance();
-  const dateLibLocale = useDateLibraryLocale(dtl, instance);
+  const dateLibLocale = useDateLibraryLocale(dtl);
   const twelveHourMode = computed(() => dateLibLocale.value?.getHourCycleInfo().hourCycle === 'h12');
 
   const setHours = (value: number, isAmValue?: boolean) => {

@@ -2,7 +2,7 @@ import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { calculateNtpOffset } from '@/utils/time';
 import axios from 'axios';
-import { ComputedRef, DeepReadonly, ref } from 'vue';
+import { computed, ComputedRef, DeepReadonly, ref } from 'vue';
 
 export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<DateTimeLibrary>>) => {
   const t0 = ref<DateTimeLibraryValue | null>(null);
@@ -10,12 +10,12 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
   const t2 = ref<DateTimeLibraryValue | null>(null);
   const t3 = ref<DateTimeLibraryValue | null>(null);
 
-  const ntpOffsetMs = ref(0);
+  const ntpOffsetMs = ref<number>(NaN);
 
-  const syncing = ref(false);
+  const syncing = computed(() => isNaN(ntpOffsetMs.value));
 
   const syncTime = async (apply: boolean = true) => {
-    syncing.value = true;
+    ntpOffsetMs.value = NaN;
     let newT1: number, newT2: number;
     const newT0 = Date.now();
     const result = await axios.get(apiEndpoint);
@@ -39,15 +39,11 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
       return;
     }
 
-    const newNtpOffsetMs = calculateNtpOffset(newT0, newT1, newT2, newT3);
-    if (typeof newNtpOffsetMs === 'number') {
-      ntpOffsetMs.value = newNtpOffsetMs;
-    }
+    ntpOffsetMs.value = calculateNtpOffset(newT0, newT1, newT2, newT3);
     t0.value = dtl.value.fromTimestampMsUtc(newT0);
     t1.value = dtl.value.fromTimestampMsUtc(newT1);
     t2.value = dtl.value.fromTimestampMsUtc(newT2);
     t3.value = dtl.value.fromTimestampMsUtc(newT3);
-    syncing.value = false;
 
     if (apply) {
       dtl.value.updateOffset(Math.round(ntpOffsetMs.value));

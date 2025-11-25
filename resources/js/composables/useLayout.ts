@@ -66,7 +66,7 @@ export const useLayout = () => {
   provide(timeSyncInject, readonly(timeSync));
 
   watch(localSettings.flatUiEnabled, (isFlatUiEnabled) => {
-    if (!document) return;
+    if (typeof document === 'undefined') return;
 
     if (isFlatUiEnabled) {
       document.body.classList.add(flatUiClass);

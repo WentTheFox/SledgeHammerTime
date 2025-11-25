@@ -26,7 +26,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import classNames from 'classnames';
-import { computed, getCurrentInstance, inject, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 
 const props = defineProps<{
   selectedYear: number,
@@ -47,7 +47,7 @@ const date = ref(props.selectedDate);
 const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const dtl = inject(dateTimeLibraryInject);
-const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
+const dateLibLocale = useDateLibraryLocale(dtl);
 
 const firstDayOfWeek = computed(() => {
   switch (locale.value) {

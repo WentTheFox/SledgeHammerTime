@@ -3,7 +3,7 @@ import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { ComboboxOption } from '@/utils/combobox';
-import { getCurrentInstance, inject, onMounted, onUnmounted, ref, watch } from 'vue';
+import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
 
 const props = defineProps<{
   option: ComboboxOption;
@@ -12,8 +12,7 @@ const props = defineProps<{
 const localTime = ref<string>('');
 const localTimeCalculatorInterval = ref<null | ReturnType<typeof setInterval>>(null);
 const dtl = inject(dateTimeLibraryInject);
-const instance = getCurrentInstance();
-const dateLibLocale = useDateLibraryLocale(dtl, instance);
+const dateLibLocale = useDateLibraryLocale(dtl);
 
 const updateLocalTime = () => {
   if (!dtl || !dateLibLocale.value) {

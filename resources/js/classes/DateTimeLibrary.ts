@@ -17,13 +17,13 @@ export interface DateTimeLibrary<T = any, L = any> {
 
   getLocaleNameFromLanguageConfig(language: AvailableLanguage | undefined, languageConfig: LatestLanguageConfigType | undefined): string;
 
-  loadLocaleLowLevel(localeName: string): Promise<L | undefined>;
+  loadLocaleLowLevel(localeName: string): L | undefined;
 
-  localeLoader(localeName: string): Promise<DateTimeLibraryLocale<L>>;
+  localeLoader(localeName: string): DateTimeLibraryLocale<L>;
 
   guessInitialTimezoneName(): string;
 
-  getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection;
+  getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection | undefined;
 
   getMeridiemLabel(isAm: boolean, minutes?: number, locale?: DateTimeLibraryLocale<L>): string;
 

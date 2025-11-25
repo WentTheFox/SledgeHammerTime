@@ -120,9 +120,9 @@ describe('DateTimeLibrary', () => {
       it('should return a timezone selection', () => {
         const result = dtl.getDefaultInitialTimezoneSelection();
         expect(result).toBeDefined();
-        expect(result.type).toBe(TimeZoneSelectionType.ZONE_NAME);
-        if (result.type === TimeZoneSelectionType.ZONE_NAME) {
-          expect(result.name).toBeDefined();
+        expect(result?.type).toBe(TimeZoneSelectionType.ZONE_NAME);
+        if (result?.type === TimeZoneSelectionType.ZONE_NAME) {
+          expect(result?.name).toBeDefined();
         }
       });
 
@@ -130,9 +130,9 @@ describe('DateTimeLibrary', () => {
         const hint = 'Europe/London';
         const result = dtl.getDefaultInitialTimezoneSelection(hint);
         expect(result).toBeDefined();
-        expect(result.type).toBe(TimeZoneSelectionType.ZONE_NAME);
-        if (result.type === TimeZoneSelectionType.ZONE_NAME) {
-          expect(result.name).toBe(hint);
+        expect(result?.type).toBe(TimeZoneSelectionType.ZONE_NAME);
+        if (result?.type === TimeZoneSelectionType.ZONE_NAME) {
+          expect(result?.name).toBe(hint);
         }
       });
 
@@ -140,10 +140,10 @@ describe('DateTimeLibrary', () => {
         const hint = 'GMT+1';
         const result = dtl.getDefaultInitialTimezoneSelection(hint);
         expect(result).toBeDefined();
-        expect(result.type).toBe(TimeZoneSelectionType.OFFSET);
-        if (result.type === TimeZoneSelectionType.OFFSET) {
-          expect(result.hours).toBe(1);
-          expect(result.minutes).toBe(0);
+        expect(result?.type).toBe(TimeZoneSelectionType.OFFSET);
+        if (result?.type === TimeZoneSelectionType.OFFSET) {
+          expect(result?.hours).toBe(1);
+          expect(result?.minutes).toBe(0);
         }
       });
     });

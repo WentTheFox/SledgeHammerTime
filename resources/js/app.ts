@@ -1,5 +1,4 @@
 import { getAppName } from '@/utils/app';
-import { DefaultDTL } from '@/utils/dtl';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { i18nVue } from 'laravel-vue-i18n';
@@ -18,10 +17,7 @@ createInertiaApp({
   title: (title) => title ? `${title} - ${appName}` : appName,
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    const language = props.initialPage.props.app?.languages[props.initialPage.props.app.locale] ?? 'en';
-    const initialDateTimeLocale = DefaultDTL.getLocaleNameFromLanguage(language);
     const createAppFn = el.innerHTML.length > 0 ? createSSRApp : createApp;
-    const dateTimeLocalePromise = DefaultDTL.localeLoader(initialDateTimeLocale);
 
     const mountAC = new AbortController();
     const app = createAppFn({ render: () => h(App, props) })
@@ -45,10 +41,7 @@ createInertiaApp({
           if (mountAC.signal.aborted)
             return;
           mountAC.abort();
-
-          dateTimeLocalePromise.then(() => {
-            app.mount(el);
-          });
+          app.mount(el);
         },
       });
   },
