@@ -12,7 +12,7 @@ import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
-import { computed, inject, onMounted, ref, watch } from 'vue';
+import { computed, inject, onMounted, ref } from 'vue';
 import { Tippy } from 'vue-tippy';
 import nativeLocaleNames
   from '../../../vendor/laravel-lang/native-locale-names/data/_native.json' with { type: 'json' };
@@ -25,8 +25,6 @@ const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 const routeParams = useRouteParams(route, pageProps);
-
-const displayLanguages = ref<[string, LatestLanguageConfigType][]>([]);
 
 const extendedNativeLocaleNames: Record<AvailableLanguage, string> = {
   ...nativeLocaleNames,
@@ -88,14 +86,7 @@ const getCurrentRouteFromLocale = (locale: string, additionalParameters?: Record
 const navigateListener = () => {
   searchParams.value = new URLSearchParams(window.location.search);
 };
-onMounted(() => {
-  displayLanguages.value = sortedLanguages.value;
-  return router.on('success', navigateListener);
-});
-// Workaround for stuck languages list during SSR
-watch(sortedLanguages.value, newSortedLanguages => {
-  displayLanguages.value = newSortedLanguages;
-});
+onMounted(router.on('success', navigateListener));
 </script>
 
 <template>
@@ -145,10 +136,7 @@ watch(sortedLanguages.value, newSortedLanguages => {
             </HtButton>
           </template>
           <template #content>
-            <nav
-              v-if="displayLanguages.length > 0"
-              class="nav"
-            >
+            <nav class="nav">
               <a
                 v-for="[sortedLocale, config] in sortedLanguages"
                 :key="sortedLocale"

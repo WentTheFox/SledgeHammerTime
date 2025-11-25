@@ -1,30 +1,16 @@
 <script setup lang="ts">
 import HtAvatar from '@/Reusable/HtAvatar.vue';
 import { NormalizedCredits } from '@/utils/translation';
-import { onMounted, ref, watch } from 'vue';
 
-const props = defineProps<{
+defineProps<{
   credits: NormalizedCredits[];
 }>();
-
-const displayCredits = ref<NormalizedCredits[]>([]);
-
-onMounted(() => {
-  displayCredits.value = props.credits;
-});
-
-watch(() => props.credits, (newCredits) => {
-  displayCredits.value = newCredits;
-});
 </script>
 
 <template>
-  <div
-    v-if="displayCredits.length > 0"
-    class="translation-credits"
-  >
+  <div class="translation-credits">
     <a
-      v-for="(credit, i) in displayCredits"
+      v-for="(credit, i) in credits"
       :key="i"
       class="translator-item"
       :href="credit.url"
