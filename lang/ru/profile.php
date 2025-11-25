@@ -2,12 +2,12 @@
 
 return [
   'title' => 'Профиль',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => 'На странице профиля Вы можете управлять информацией о своем аккаунте, связанной с сайтом. Если Вы ищете, где изменить настройки по умолчанию и другие параметры для приложения Discord, посетите страницу <1>Настройки приложения</1>.',
   'information' => [
     'heading' => 'Информация о профиле',
     'description' => "Измените информацию о вашей учетной записи.",
     'displayName' => 'Отображаемое имя',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Скрытые форматы в таблице выбора',
     'saveSuccess' => 'Ваш профиль был успешно обновлен.',
   ],
   'accounts' => [
