@@ -1,25 +1,32 @@
 <script setup lang="ts">
 import TimestampCard from '@/Components/home/TimestampCard.vue';
 import UsefulLinks from '@/Components/home/UsefulLinks.vue';
+import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
+import { useRouteParams } from '@/composables/useRouteParams';
+import { useUiLocale } from '@/composables/useUiLocale';
 import {
   dateTimeLibraryInject,
   localSettingsInject,
+  pagePropsInject,
   timestampInject,
   timeSyncInject,
 } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
-import { convertTimeZoneSelectionToString } from '@/utils/time';
-import { router, usePage } from '@inertiajs/vue3';
+import { convertTimeZoneSelectionToString, normalizeTimeString } from '@/utils/time';
+import { router } from '@inertiajs/vue3';
 import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref, watch } from 'vue';
 
-const page = usePage();
-const route = useRoute();
 const dtl = inject(dateTimeLibraryInject);
 const settings = inject(localSettingsInject);
 const timeSync = inject(timeSyncInject);
+const pageProps = inject(pagePropsInject);
 
-const routeParams = computed(() => route().params);
+const route = useRoute();
+const locale = useLocale(pageProps);
+const uiLocale = useUiLocale(pageProps, locale);
+// const routeParams = useRouteParams(route, pageProps);
+const routeParams = useRouteParams(route, pageProps);
 
 const defaultUnixTimestamp = computed(() => {
   const tParam = routeParams.value.t;
@@ -63,8 +70,7 @@ const changeTimeString = (value: string) => {
   if (!dateTimeSelectionChanged.value) {
     dateTimeSelectionChanged.value = true;
   }
-  const normalizedValue = value.length === 5 ? `${value}:00` : value;
-  timeString.value = normalizedValue;
+  timeString.value = normalizeTimeString(value);
 };
 const changeDateTimeString = (value: string) => {
   if (!dateTimeSelectionChanged.value) {
@@ -72,7 +78,7 @@ const changeDateTimeString = (value: string) => {
   }
   const [newDateString, newTimeString] = value.split(/[ T]/);
   dateString.value = newDateString;
-  timeString.value = newTimeString.length === 5 ? `${newTimeString}:00` : newTimeString;
+  timeString.value = normalizeTimeString(newTimeString);
 };
 const changeTimezone = (value: TimezoneSelection) => {
   currentTimezone.value = value;
@@ -86,8 +92,6 @@ const setCurrentTime = () => {
   changeDateString(newDateString);
   changeTimeString(newTimeString);
 };
-const locale = computed(() => page.props.app?.locale ?? 'en');
-const uiLocale = computed(() => page.props.app?.languages[locale.value] ?? locale.value);
 const lock = () => {
   router.get(lockedTimestampUrl.value, undefined, { replace: true });
 };

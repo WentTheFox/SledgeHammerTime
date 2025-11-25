@@ -6,6 +6,7 @@ import {
 } from '@/classes/DateTimeLibraryValue';
 import { useCurrentDate } from '@/composables/useCurrentDate';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
+import { useLocale } from '@/composables/useLocale';
 import { dateTimeLibraryInject, devModeInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtButtonGroup from '@/Reusable/HtButtonGroup.vue';
@@ -44,7 +45,7 @@ const month = ref(props.selectedMonth);
 const date = ref(props.selectedDate);
 
 const pageProps = inject(pagePropsInject);
-const locale = computed(() => pageProps!.value.app?.locale ?? 'en');
+const locale = useLocale(pageProps);
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
 

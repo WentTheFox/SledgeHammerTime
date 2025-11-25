@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import TimestampTable from '@/Components/home/table/TimestampTable.vue';
 import TimestampPicker from '@/Components/home/TimestampPicker.vue';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import { useLocale } from '@/composables/useLocale';
+import { useUiLocale } from '@/composables/useUiLocale';
+import { dateTimeLibraryInject, pagePropsInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
-import { AvailableLanguage } from '@/utils/language-settings';
-import { usePage } from '@inertiajs/vue3';
 import Cookies from 'js-cookie';
 import { wTrans } from 'laravel-vue-i18n';
 import { computed, inject, onMounted, ref } from 'vue';
 
 const dtl = inject(dateTimeLibraryInject);
-const page = usePage();
-const locale = computed(() => (page.props.app?.locale ?? 'en') as AvailableLanguage);
+const pageProps = inject(pagePropsInject);
+const locale = useLocale(pageProps);
+const uiLocale = useUiLocale(pageProps, locale);
 const showHowTo = ref(false);
 const howToCookieName = 'how-to-dismiss';
 const howToCookieValue = 'how-to-dismiss';
@@ -27,7 +28,7 @@ const handleHowToClose = () => {
 const syntaxColName = computed(() => {
   const originalText = wTrans('timestampPicker.table.syntaxColumn');
   // Lowercase column name in text only for this language
-  if (locale.value === 'pt-BR') {
+  if (uiLocale.value === 'pt-BR') {
     return originalText.value.toLowerCase();
   }
   return originalText.value;

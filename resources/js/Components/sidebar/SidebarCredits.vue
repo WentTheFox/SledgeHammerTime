@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import DeveloperCredit from '@/Components/sidebar/DeveloperCredit.vue';
 import TranslationCredits from '@/Components/sidebar/TranslationCredits.vue';
+import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
+import { useUiLocale } from '@/composables/useUiLocale';
 import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
@@ -26,6 +28,8 @@ const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 const currentLanguage = inject(currentLanguageInject);
+const locale = useLocale(pageProps);
+const uiLocale = useUiLocale(pageProps, locale);
 
 const translationCredits = computed(() => {
   if (!currentLanguage?.value) return null;
@@ -38,7 +42,7 @@ const translationCredits = computed(() => {
   return translatorIds
     .map((crowdinId) => normalizeCredit(crowdinId, currentLanguage.value.languageConfig?.creditOverrides, reportData))
     .filter((credit): credit is NormalizedCredits => credit !== null)
-    .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName));
+    .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName, uiLocale.value));
 });
 </script>
 
