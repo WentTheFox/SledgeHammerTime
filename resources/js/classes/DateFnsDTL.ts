@@ -271,6 +271,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   updateOffset(offsetMs: number) {
+    if (isNaN(offsetMs)) {
+      return;
+    }
     const offsetMinimum = this.getMinimumOffsetMs();
     if (Math.abs(offsetMs) < offsetMinimum) {
       this._offset = 0;
@@ -290,7 +293,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return languageConfig?.dateFnsLocale ?? language ?? FALLBACK_LANGUAGE;
   }
 
-  async loadLocaleLowLevel(localeName: string): Promise<Locale | undefined> {
+  loadLocaleLowLevel(localeName: string): Locale | undefined {
     const normalizedLocaleName = localeName.replace(/[^a-z\d]/gi, '');
     let locale: Locale = locales[normalizedLocaleName as keyof typeof locales];
     if (typeof locale === 'undefined') {
@@ -305,8 +308,8 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return locale;
   }
 
-  async localeLoader(localeName: string): Promise<DateTimeLibraryLocale<Locale>> {
-    const locale = await this.loadLocaleLowLevel(localeName);
+  localeLoader(localeName: string): DateTimeLibraryLocale<Locale> {
+    const locale = this.loadLocaleLowLevel(localeName);
 
     return {
       name: localeName,
@@ -351,7 +354,10 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     }
   }
 
-  getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection {
+  getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection | undefined {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
     if (hint) {
       if (hint === 'Etc/GMT') {
         return {

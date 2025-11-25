@@ -11,7 +11,7 @@ import {
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
-import { computed, getCurrentInstance, inject, provide, useTemplateRef } from 'vue';
+import { computed, inject, provide, useTemplateRef } from 'vue';
 
 withDefaults(defineProps<InputSelectorImplProps>(), {
   disabled: false,
@@ -21,7 +21,7 @@ const ts = inject(timestampInject);
 const id = inject(formControlId);
 const dtl = inject(dateTimeLibraryInject);
 
-const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
+const dateLibLocale = useDateLibraryLocale(dtl);
 const selectedTime = computed(() => {
   if (dtl?.value && dateLibLocale.value) {
     const currentTimeValue = ts?.currentTime.value;

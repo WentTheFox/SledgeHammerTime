@@ -11,15 +11,7 @@ import {
   drawIndividualDial,
 } from '@/utils/dial';
 import { getPositionAngleInElement, integerInRangeByAngle, Point2D } from '@/utils/math';
-import {
-  computed,
-  getCurrentInstance,
-  inject,
-  onMounted,
-  onUnmounted,
-  ref,
-  watchEffect,
-} from 'vue';
+import { computed, inject, onMounted, onUnmounted, ref, watchEffect } from 'vue';
 
 const hoursCanvas = ref<HTMLCanvasElement>();
 const minutesCanvas = ref<HTMLCanvasElement>();
@@ -47,7 +39,7 @@ const emit = defineEmits<{
 
 const themeData = inject(themeInject);
 const dtl = inject(dateTimeLibraryInject);
-const dateLibLocale = useDateLibraryLocale(dtl, getCurrentInstance());
+const dateLibLocale = useDateLibraryLocale(dtl);
 const isCanvasTransitioning = ref(false);
 
 const colors = computed((): DialColors => ({

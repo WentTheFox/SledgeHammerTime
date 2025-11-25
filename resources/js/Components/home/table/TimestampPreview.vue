@@ -17,7 +17,7 @@ const updateInterval = ref<ReturnType<typeof setInterval> | null>(null);
 const instance = getCurrentInstance();
 
 const dtl = inject(dateTimeLibraryInject);
-const dateLibLocale = useDateLibraryLocale(dtl, instance);
+const dateLibLocale = useDateLibraryLocale(dtl);
 
 const fromNow = computed(() => props.format === MessageTimestampFormat.RELATIVE);
 
