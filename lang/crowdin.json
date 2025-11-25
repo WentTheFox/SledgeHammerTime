@@ -798,7 +798,7 @@
     },
     "17439418": {
       "username": "Skumen",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17439418/medium/56d6c395902a9b8d617dfd3e1c54c1a0.png"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17439418/medium/626a72196f8853907c71fde3009e673f.jpg"
     },
     "17440890": {
       "username": "minhhuyho15",
@@ -812,8 +812,12 @@
     },
     "17444122": {
       "username": "sz3fxx",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17444122/medium/6c5eac3ba3ad2f21efbb06969b95253e.png",
-      "fullName": "tak tak"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17444122/medium/833960f3bfef8c9f374d65d9f104deb2.png"
+    },
+    "17448206": {
+      "username": "iagolete",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17448206/medium/9e8b8bd908383d606b54b058b0613814.png",
+      "fullName": "iago salgado roda"
     }
   },
   "languages": {
@@ -929,11 +933,12 @@
         "14699026",
         "13524864",
         "16655625",
+        "17448206",
         "17428170"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 11
       }
     },
     "fa": {
@@ -1153,7 +1158,7 @@
         "14089137"
       ],
       "progress": {
-        "approval": 27,
+        "approval": 49,
         "translation": 49
       }
     },
@@ -1169,8 +1174,8 @@
         "17444122"
       ],
       "progress": {
-        "approval": 74,
-        "translation": 74
+        "approval": 77,
+        "translation": 77
       }
     },
     "pt-BR": {
@@ -1230,13 +1235,13 @@
         "16587533",
         "16608543",
         "12773366",
-        "17302298",
         "17439418",
+        "17302298",
         "17430436"
       ],
       "progress": {
-        "approval": 60,
-        "translation": 64
+        "approval": 68,
+        "translation": 68
       }
     },
     "sr": {
