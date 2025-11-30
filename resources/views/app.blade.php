@@ -10,9 +10,30 @@
   <meta name="keywords" content="discord,chat,formatting,timestamps,date,markdown" />
 
   <link rel="icon" href="/logos/logo.png" />
+
   @php
+    $routeName = Illuminate\Support\Facades\Route::currentRouteName();
+    $fallbackLocale = App::getFallbackLocale();
     $appName = config('app.name', 'Laravel');
   @endphp
+
+  @if(!empty($routeName))
+    @foreach(Config::get('languages.supported_locales') as $supportedLocale)
+      @php
+        try {
+          $href = Route($routeName, ['locale' => $supportedLocale]);
+        } catch (\Throwable $e) {
+          // Skip loop entirely if URL creation fails
+          break;
+        }
+      @endphp
+      @if ($supportedLocale === $fallbackLocale)
+        <link rel="canonical" href="{{ $href }}">
+      @else
+        <link rel="alternate" hreflang="{{ $supportedLocale }}" href="{{ $href }}" />
+      @endif
+    @endforeach
+  @endif
 
   <title inertia>{{ $appName }}</title>
 
@@ -20,7 +41,7 @@
   <meta property="og:description" content="{{ __('global.seoDescription') }}">
   <meta property="og:image" content="{{ config('app.url') }}/logos/social.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ config('app.url') }}">
+  <meta property="og:url" content="{{ url()->current() }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="{{ App::getLocale() }}">
