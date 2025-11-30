@@ -818,6 +818,35 @@
       "username": "iagolete",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17448206/medium/9e8b8bd908383d606b54b058b0613814.png",
       "fullName": "iago salgado roda"
+    },
+    "17450376": {
+      "username": "w17_",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17450376/medium/fe5d341c13f2635986eeb27e852ccd06.png",
+      "fullName": "work 17"
+    },
+    "17450480": {
+      "username": "allef.moraes",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17450480/medium/dd1e83bfce6758c4e4e67f7739fdfa6e.png",
+      "fullName": "Allef Moraes"
+    },
+    "17452122": {
+      "username": "irisfernwyn",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17452122/medium/e90d5c037fb9e6c6f21f35486bffafb5.png",
+      "fullName": "Nomu Ako"
+    },
+    "17453292": {
+      "username": "ldrfhjygghjj5556677",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17453292/medium/4275c3745f2bd28303a74bad7230c683.png",
+      "fullName": "Luis Diaz"
+    },
+    "17454240": {
+      "username": "Eppes4",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17454240/medium/29fb61f81ca90957e435ed433bd4a2ff.jpeg"
+    },
+    "17454624": {
+      "username": "AndruhaLoshorXyesosik",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17454624/medium/1475d2cd2f0a480a1e66c85e84e29135.png",
+      "fullName": "9900gvf4"
     }
   },
   "languages": {
@@ -934,7 +963,8 @@
         "13524864",
         "16655625",
         "17448206",
-        "17428170"
+        "17428170",
+        "17453292"
       ],
       "progress": {
         "approval": 9,
@@ -1082,7 +1112,8 @@
         "17204632",
         "17227106",
         "17217834",
-        "17443466"
+        "17443466",
+        "17452122"
       ],
       "progress": {
         "approval": 15,
@@ -1142,7 +1173,7 @@
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 13
       }
     },
     "nl": {
@@ -1155,11 +1186,12 @@
         "17413820",
         "16122526",
         "17430050",
-        "14089137"
+        "14089137",
+        "17454240"
       ],
       "progress": {
         "approval": 49,
-        "translation": 49
+        "translation": 52
       }
     },
     "pl": {
@@ -1175,7 +1207,7 @@
       ],
       "progress": {
         "approval": 77,
-        "translation": 77
+        "translation": 82
       }
     },
     "pt-BR": {
@@ -1186,11 +1218,12 @@
         "13379819",
         "17159146",
         "12931321",
-        "17151532"
+        "17151532",
+        "17450480"
       ],
       "progress": {
         "approval": 11,
-        "translation": 11
+        "translation": 12
       }
     },
     "pt": {
@@ -1237,11 +1270,13 @@
         "12773366",
         "17439418",
         "17302298",
-        "17430436"
+        "17450376",
+        "17430436",
+        "17454624"
       ],
       "progress": {
         "approval": 68,
-        "translation": 70
+        "translation": 88
       }
     },
     "sr": {
