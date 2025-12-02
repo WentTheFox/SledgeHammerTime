@@ -2,25 +2,25 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
+    'title' => 'Переведенный контент',
     'text' => 'Этот проект содержит переводы, выполненные переводчиками-добровольцами и другими членами сообщества. Эти переводы предоставляются для удобства пользователей и не всегда могут быть полностью актуальными. Во всех случаях эффективной считается <1>версия</1> этой страницы на <1>оригинальном языке</1>.',
   ],
   'lastUpdated' => 'Последнее изменение: <1/>',
   'privacy' => [
     'heading' => 'Политика конфиденциальности',
     'operator' => '<0/> ("мы", "наш" или "Разработчик") управляет веб-сайтом HammerTime ("Сайт") и ботом HammerTimeBot ("Бот" или "Приложение"), в совокупности являющимися проектом HammerTime ("Проект"). Эта страница информирует Вас о нашей политике в отношении сбора, использования и раскрытия Личной информации, которую мы получаем от пользователей Проекта ("Вы", "Пользователь" или все вместе "Пользователи").',
-    'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
+    'notAffiliated' => 'Хотя название "HammerTime" ("Название проекта") происходит от прежнего названия "Hammer & Chisel" принадлежащей компании Discord, Inc. ("Discord")<1/>, проект не связан каким-либо образом, формой или формой ни с Discord, ни с M.C. Hammer, в чьей песне<3/> эта фраза занимает видное место. Разработчик не владеет торговыми марками или авторскими правами на Название проекта.',
     'infoCollection' => [
       'heading' => 'Сбор и использование информации',
-      'pii' => 'While using the Project we do not ask nor encourage you to provide us with any Personally Identifiable Information ("PII", "Personal Information") that can be used to identify you as an individual. PII may include, but is not limited to: your name, birth date, national identification numbers, location, phone number.',
-      'auth' => 'Sign in is provided using Discord\'s OAuth 2 API ("API") which is also secured using HTTPS. During the OAuth authentication process our Site does not receive the username or password, only a token that can be used to verify the user\'s identity using this API. For performance reasons we store the basic information provided by the API (user ID, current username, display name, avatar link) locally.',
-      'removal' => 'This information is not removed from our database automatically if you deactivate your Discord account, so be sure to reach out to us if you would like your data removed.',
+      'pii' => 'При использовании проекта вами, мы не запрашиваем передачу любых личных данных пользователя ("ЛДП"), которые могут быть использованы для установления его личности. Такие ЛДП включают в себя: ваше имя, дату рождения, номер документов, удостоверяющих личность, местоположения, номер телефона.',
+      'auth' => 'Вход осуществляется через API Discord OAuth 2 («API»), который также защищён протоколом HTTPS. В процессе аутентификации OAuth наш сайт не получает имя пользователя и пароль, а только токен, который можно использовать для подтверждения личности пользователя с помощью этого API. Для повышения производительности мы храним основную информацию, предоставляемую API (идентификатор пользователя, текущее имя пользователя, отображаемое имя, ссылку на аватар), локально.',
+      'removal' => 'Эта информация не удаляется с наших серверов автоматически, когда вы отключаете вашу учетную запись Discord. Если вы желаете удалить их, обратитесь к нам.',
     ],
     'logData' => [
       'heading' => 'Log Data',
       'browserInfo' => 'We collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer\'s IP address, operating system, browser type, browser version, the pages of our Site that you visit, the time and date of your visit.',
       'thirdParty' => 'This Log Data is stored only within our server and is not shared with any third party. Log Data is used for diagnostic purposes, and shared with law enforcement agencies if explicitly requested. It is kept for up to 14 days and discarded afterwards.',
-      'debugging' => 'The Bot can receive interactions from Users via the Discord client, which includes slash commands and context menu commands ("Action", "Command", or collectively "Commands"). Slash commands can additionally be executed with User-supplied structured key-value pairs ("Options"). The Bot records Command executions for debugging purposes, namely: the Discord username and Snowflake identifier ("ID") of the User that executed the Command, the name of the Command (including all Options) and the ID of the Server the Command was executed in. This data is stored on the Project server for up to 30 days, and is only accessible by the Developer.',
+      'debugging' => 'Бот может принимать взаимодействия от пользователей через клиент Discord, которые включают в себя слэш-команды и команды контекстного меню ("Действие", "Команда", или в совокупности "Команды"). Слэш-команды могут быть дополнительно выполнены с помощью предоставленных пользователем структурированных пар ключ-значений ("Опции"). Бот записывает выполнение команд в целях отладки, а именно: имя пользователя Discord и идентификатор Snowflake ("ID") пользователя, выполнившего команду, название команды (включая все опции) и ID сервера, на котором была выполнена команда. Эти данные хранятся на сервере проекта до 30 дней и доступны только Разработчику.',
       'noPii' => 'When executing Commands you should avoid including any Personal Information. Some information may still be retained in our Application Log, so please contact us using the methods described at the end of this document to notify us if our intervention is needed.',
     ],
     'telemetry' => [
