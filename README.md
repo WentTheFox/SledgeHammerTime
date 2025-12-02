@@ -76,9 +76,11 @@ English and Hungarian translations have been included, so no translators will be
 - 🇳🇱 Dutch
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
+  - [Eppes4](https://crowdin.com/profile/Eppes4)
   - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
+  - [Naamloos_NL](https://crowdin.com/profile/Naamloos_NL)
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
@@ -147,6 +149,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇰🇷 Korean
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
+  - [Nomu Ako](https://crowdin.com/profile/irisfernwyn)
   - [Phrygia](https://github.com/sjkim04)
   - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
   - [Sehoon Park](https://crowdin.com/profile/sehoon.sese)
@@ -189,6 +192,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Tiago](https://crowdin.com/profile/DemiCool)
 - 🇧🇷 Portuguese, Brazilian
+  - [Allef Moraes](https://crowdin.com/profile/allef.moraes)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
   - [leo0six](https://crowdin.com/profile/leo0six)
@@ -197,6 +201,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Vinny7x](https://crowdin.com/profile/vinny7x)
 - 🇷🇴 Romanian: [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
+  - [9900gvf4](https://crowdin.com/profile/AndruhaLoshorXyesosik)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Aligatoor](https://crowdin.com/profile/Aligatoor)
   - [Arantir Reinhold](https://crowdin.com/profile/arantirrein)
@@ -213,7 +218,9 @@ English and Hungarian translations have been included, so no translators will be
   - [Timofey K.](https://crowdin.com/profile/timakimit)
   - [Vitaliy Kanev](https://crowdin.com/profile/vitalkanev)
   - [Vladimir](https://crowdin.com/profile/bill876)
+  - [work 17](https://crowdin.com/profile/w17_)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
+  - [Амир Юсупов (KNGames)](https://crowdin.com/profile/KNGames)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
@@ -222,8 +229,10 @@ English and Hungarian translations have been included, so no translators will be
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
   - [iago salgado roda](https://crowdin.com/profile/iagolete)
+  - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
