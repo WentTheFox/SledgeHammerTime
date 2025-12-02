@@ -9,7 +9,7 @@ return [
   'privacy' => [
     'heading' => 'Polityka prywatności',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
-    'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
+    'notAffiliated' => 'Chociaż nazwa "HammerTime" („nazwa projektu”) pochodzi z poprzedniej nazwy "Hammer & Chisel" Discorda, Inc. ("Discord")<1/> Projekt nie jest powiązany w żaden sposób, kształt ani formę, z Discord, ani M. C. Hammer, którego piosenka <3/> zawiera tę frazę. Deweloper nie posiada znaku towarowego ani praw autorskich nad nazwą projektu.',
     'infoCollection' => [
       'heading' => 'Gromadzenie i wykorzystywanie informacji',
       'pii' => 'While using the Project we do not ask nor encourage you to provide us with any Personally Identifiable Information ("PII", "Personal Information") that can be used to identify you as an individual. PII may include, but is not limited to: your name, birth date, national identification numbers, location, phone number.',

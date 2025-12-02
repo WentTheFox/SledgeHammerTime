@@ -65,7 +65,7 @@ return [
       'autoApplyCheckbox' => 'Zastosuj obliczony offset w bibliotece DateTime po ręcznym naciśnięciu :syncButtonLabel (dotyczy tylko wtedy, gdy różnica przekracza próg :offset)',
       'syncButtonLabel' => 'Synchronize',
       'resetOffsetButtonLabel' => 'Reset applied offset',
-      'roundTripDuration' => 'Round-trip duration',
+      'roundTripDuration' => 'Czas trwania obiegu',
       't0' => 'Znacznik czasu klienta przekazania żądania',
       't1' => 'Znacznik czasu serwera odbioru żądania',
       't2' => 'Znacznik czasu serwera przesyłania odpowiedzi',
@@ -73,7 +73,7 @@ return [
       'dtlOffsetCell' => 'Active Calculation Offset',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
-      'networkOffsetCell' => 'Detected Offset (via Network)',
+      'networkOffsetCell' => 'Wykryte opóźnienie (przez sieć)',
     ],
     'localSettings' => [
       'title' => 'Ustawienia lokalne',

@@ -80,6 +80,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
+  - [Naamloos_NL](https://crowdin.com/profile/Naamloos_NL)
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
@@ -219,6 +220,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Vladimir](https://crowdin.com/profile/bill876)
   - [work 17](https://crowdin.com/profile/w17_)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
+  - [Амир Юсупов (KNGames)](https://crowdin.com/profile/KNGames)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
@@ -230,6 +232,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)

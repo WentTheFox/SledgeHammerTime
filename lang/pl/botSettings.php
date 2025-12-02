@@ -2,8 +2,8 @@
 
 return [
   'title' => 'Ustawienia aplikacji',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'description' => 'Poniżej można zobaczyć bieżące ustawienia w aplikacji HammerTime dla każdego połączonego konta.',
+  'learnMore' => 'Jeśli nie jesteś pewien, czym jest aplikacja lub ciekawy co potrafi?? Odwiedź <1>Discord</1> aby dowiedzieć się więcej.',
   'advancedSettings' => [
     'toggleText' => 'Ustawienia zaawansowane',
   ],
