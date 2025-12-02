@@ -52,7 +52,7 @@ return [
     'timeSync' => [
       'title' => 'Time Synchronization',
       'status' => [
-        'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
+        'syncing' => 'O seu relógio do sistema atualmente está sincronizando com nossos servidores, por favor aguarde.',
         'accurate' => 'Your system clock is accurate.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
@@ -105,6 +105,6 @@ return [
     'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
     'export' => 'Export as UserStyle',
     'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'valueColumnHeader' => 'Valor',
   ],
 ];

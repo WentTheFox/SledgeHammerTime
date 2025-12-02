@@ -178,7 +178,7 @@
     },
     "14744332": {
       "username": "okunamayanad",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14744332/medium/0cbbb2ef7f1e01e5433f7019b457f2a9.png",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14744332/medium/6e527a469ab3a9e1dc5b877fb4152f2f.png",
       "fullName": "Baran Moroğan"
     },
     "14785728": {
@@ -410,6 +410,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16036800/medium/08e6ddb805926b841ee9abf17dcac253.jpg",
       "fullName": "Bohdan Buchko"
     },
+    "16053916": {
+      "username": "Naamloos_NL",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16053916/medium/6a2d899ebb8dd6a2e7908f86a2c0a3cd_default.png"
+    },
     "16061216": {
       "username": "quanonthecob",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16061216/medium/661f9256140289c8709b4bfa647efcdc.png",
@@ -593,6 +597,11 @@
       "username": "BateleJack",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16852357/medium/1da503eac19abda5d23019628c4f27f0.jpeg",
       "fullName": "Jack Batele"
+    },
+    "16873803": {
+      "username": "KNGames",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16873803/medium/b1255fbb0cca69ab6a6958b71f9be446.jpeg",
+      "fullName": "Амир Юсупов (KNGames)"
     },
     "16878119": {
       "username": "tovhov",
@@ -847,6 +856,11 @@
       "username": "AndruhaLoshorXyesosik",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17454624/medium/1475d2cd2f0a480a1e66c85e84e29135.png",
       "fullName": "9900gvf4"
+    },
+    "17461970": {
+      "username": "SpyroTodile_",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17461970/medium/f6a394fcb721d99b1d940518e7ecc5c9.jpg",
+      "fullName": "xledesma"
     }
   },
   "languages": {
@@ -962,13 +976,14 @@
         "14699026",
         "13524864",
         "16655625",
+        "17461970",
         "17448206",
         "17428170",
         "17453292"
       ],
       "progress": {
         "approval": 9,
-        "translation": 11
+        "translation": 12
       }
     },
     "fa": {
@@ -1172,7 +1187,7 @@
         "16840813"
       ],
       "progress": {
-        "approval": 9,
+        "approval": 13,
         "translation": 13
       }
     },
@@ -1187,10 +1202,11 @@
         "16122526",
         "17430050",
         "14089137",
-        "17454240"
+        "17454240",
+        "16053916"
       ],
       "progress": {
-        "approval": 49,
+        "approval": 52,
         "translation": 52
       }
     },
@@ -1206,7 +1222,7 @@
         "17444122"
       ],
       "progress": {
-        "approval": 77,
+        "approval": 82,
         "translation": 82
       }
     },
@@ -1222,7 +1238,7 @@
         "17450480"
       ],
       "progress": {
-        "approval": 11,
+        "approval": 12,
         "translation": 12
       }
     },
@@ -1272,11 +1288,12 @@
         "17302298",
         "17450376",
         "17430436",
-        "17454624"
+        "17454624",
+        "16873803"
       ],
       "progress": {
-        "approval": 68,
-        "translation": 88
+        "approval": 91,
+        "translation": 91
       }
     },
     "sr": {

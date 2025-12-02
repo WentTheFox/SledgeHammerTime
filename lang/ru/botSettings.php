@@ -16,7 +16,7 @@ return [
       'displayName' => 'Формат',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Ответ только для предварительного просмотра при использовании форматирования',
     ],
     'columns' => [
       'displayName' => 'Столбики',
@@ -31,20 +31,20 @@ return [
       'displayName' => 'Просмотр форматирования в виде жирного текста',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Опция ":hourOptionName" по умолчанию для команды /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Опция ":minuteOptionName" по умолчанию для команды /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Опция ":secondOptionName" по умолчанию для команды /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Разрешить сбор телеметрических данных',
+      'explanation' => 'Это совершенно необязательное условие и не влияет на вашу способность использовать бота. Смотрите страницу <1/> для подробностей.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Опция ":hourOptionName" по умолчанию для команды /:at12CommandName',
     ],
   ],
   'saveSuccess' => 'Ваши настройки успешно сохранены.',

@@ -31,7 +31,7 @@ return [
     'cookies' => [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
-      'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
+      'disable' => 'We gebruiken "cookies" om informatie op te slaan. Je kan je zoekmachine aanpassen om geen cookies op te slaan of om een melding te ontvangen wanneer ze worden gebruikt. Maar als je de cookies niet accepteert, is er een mogelijkheid dat je sommige delen van de website niet kan gebruiken.',
       'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
     ],
     'security' => [
