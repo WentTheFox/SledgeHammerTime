@@ -2,12 +2,12 @@
 
 return [
   'title' => 'Profil',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => 'Strona profilowa pozwala na zarządzanie informacjami o koncie powiązanymi ze stroną internetową. Jeśli szukasz gdzie zmienić ustawienia domyślne i inne ustawienia aplikacji Discord, odwiedź stronę <1>Ustawienia aplikacji</1> . ',
   'information' => [
     'heading' => 'Informacje profilowe',
     'description' => "Zaktualizuj informacje profilowe swojego konta.",
     'displayName' => 'Wyświetlana nazwa',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Formaty ukryte z tabeli wyboru',
     'saveSuccess' => 'Twój profil został pomyślnie zaktualizowany.',
   ],
   'accounts' => [
@@ -17,7 +17,7 @@ return [
       'Poniżej znajduje się lista wszystkich kont Discorda powiązanych z tym kontem HammerTime.',
     ],
     'discord' => 'Konta Discord',
-    'crowdin' => 'Crowdin Accounts',
+    'crowdin' => 'Konta Crowdin',
     'noConnectedAccounts' => 'W tej chwili nie masz żadnych połączonych kont',
     'linkAdditional' => [
       'heading' => 'Połącz lub zaktualizuj konto',
