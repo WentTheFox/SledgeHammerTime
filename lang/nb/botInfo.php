@@ -43,7 +43,7 @@ return [
       7 => 'Channel',
       8 => 'Role',
       9 => 'Mentionable',
-      10 => 'Number',
+      10 => 'Nummer',
       11 => 'Attachment',
     ],
     'totalUses' => 'Total number of times used (since we started counting)',
