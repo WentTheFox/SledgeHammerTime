@@ -7,8 +7,8 @@ import { createSSRApp, DefineComponent, h } from 'vue';
 import { ZiggyVue } from 'ziggy-js';
 
 const fallbackAppNmae = 'HammerTime';
-createServer((page) =>
-  createInertiaApp({
+createServer(
+  (page) => createInertiaApp({
     page,
     render: renderToString,
     title: (title) => {
@@ -35,4 +35,5 @@ createServer((page) =>
         });
     },
   }),
+  { cluster: true },
 );
