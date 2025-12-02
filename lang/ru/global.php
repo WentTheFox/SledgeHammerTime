@@ -38,7 +38,7 @@ return [
       ],
       'customTimeInput' => [
         'label' => 'Пользовательский ввод времени',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'description' => "Заменяет стандартный ввод времени в браузере на пользовательский. Это особенно полезно если у Вас возникают проблемы с выбором времени на мобильных устройствах.",
       ],
       'separateInputs' => [
         'label' => 'Раздельные вводы',
