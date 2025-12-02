@@ -59,12 +59,12 @@ return [
     'usageGraphNoData' => 'Geen recente gebruiksgegevens gevonden',
     'additionalDescription' => [
       'commands' => [
-        'in' => 'You must specify at least one time component to change',
-        'ago' => 'You must specify at least one time component to change',
+        'in' => 'Je moet minstens één tijdonderdeel specificeren om het te veranderen',
+        'ago' => 'U moet minstens één tijdscomponent opgeven die u wilt wijzigen',
         'add' => 'You must specify at least one time component to change',
         'subtract' => 'You must specify at least one time component to change',
         'Message Sent' => 'Provides the timestamp syntax for the time when a message was sent',
-        'Message Last Edited' => 'Provides the timestamp syntax for the time when a message was last edited',
+        'Message Last Edited' => 'Specificeer de tijd syntaxis voor de tijd wanneer een bericht laatst was aangepast',
         'Extract Timestamps' => 'Provides a list of all dynamic timestamps found in a specific message',
       ],
     ],
