@@ -8,7 +8,7 @@ return [
     "content" => "Ingenting å se her.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Vedlikehold Modus",
     "content" => [
       'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
       'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
@@ -26,7 +26,7 @@ return [
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'profile' => 'Profil',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
@@ -76,7 +76,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Lokale innstillinger',
     ],
     'credits' => [
       'title' => 'Takk til',
@@ -93,8 +93,8 @@ return [
       'notAffiliated' => 'Dette prosjektet er ikke tilknyttet Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
+      'dark' => 'Mørkt',
+      'light' => 'Lyst',
       'system' => 'Use System Theme',
     ],
   ],
