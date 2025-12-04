@@ -82,7 +82,7 @@ return [
       'title' => 'Katkıda Bulunanlar',
       'developedBy' => '<1></1> Tarafından geliştirdi',
       'using' => 'Kullanılanlar <1></1>',
-      'fontAwesomeFree' => 'Yazı Tipi Harika Ücretsiz',
+      'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
