@@ -228,7 +228,6 @@ English and Hungarian translations have been included, so no translators will be
 - 🇪🇸 Spanish
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
-  - [iago salgado roda](https://crowdin.com/profile/iagolete)
   - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
