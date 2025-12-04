@@ -25,8 +25,8 @@ return [
     'body' => "Su navegador no soporta JavaScript o está actualmente deshabilitado. Algunos navegadores deshabilitan JavaScript por defecto por razones de seguridad, pero es necesario para esta aplicación. Por favor, actívelo y actualice la página o utilice un navegador diferente.",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'botSettings' => 'Ajustes de aplicación',
+    'profile' => 'Perfil',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
@@ -50,10 +50,10 @@ return [
       ],
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Sincronización de hora',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => 'El reloj del sistema es preciso.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
@@ -93,9 +93,9 @@ return [
       'notAffiliated' => 'Este proyecto no está afiliado con Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Tema oscuro',
+      'light' => 'Tema claro',
+      'system' => 'Usar tema del sistema',
     ],
   ],
   'designEditor' => [
