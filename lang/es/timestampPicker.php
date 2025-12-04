@@ -8,8 +8,8 @@ return [
       'time' => 'Hora',
       'dateAndTime' => 'Fecha y Hora',
       'timezone' => 'Zona Horaria',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Diferencia horaria con GMT',
+      'modeZoneName' => 'Nombre de la zona',
     ],
     'button' => [
       'jumpToToday' => 'Saltar al mes actual',
