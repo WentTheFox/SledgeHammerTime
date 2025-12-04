@@ -725,7 +725,7 @@
     },
     "17274016": {
       "username": "lihaisapossu",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17274016/medium/b9fb74d054eb090d136618d46da605a9.jpeg"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17274016/medium/eefaaa81aa2c3b25889aab4b3208bceb.jpg"
     },
     "17282346": {
       "username": "swerocker1993",
@@ -1005,7 +1005,7 @@
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 13
       }
     },
     "fr": {
@@ -1342,8 +1342,8 @@
         "13477087"
       ],
       "progress": {
-        "approval": 48,
-        "translation": 54
+        "approval": 100,
+        "translation": 100
       }
     },
     "uk": {
