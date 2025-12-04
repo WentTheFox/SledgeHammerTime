@@ -29,8 +29,8 @@ return [
       'telemetryOptOut' => 'Kullanıcılar, Projeyi kullanarak Telemetri toplanmasını varsayılan olarak kabul eder. Bir Kullanıcı Telemetri toplanmasını devre dışı bırakmak isterse, <1/> sayfasındaki uygun seçenek aracılığıyla tercihini belirtebilir.',
     ],
     'cookies' => [
-      'heading' => 'Cookies',
-      'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
+      'heading' => 'Çerezler',
+      'intro' => 'Çerezler, az miktarda veri içeren dosyalardır. Çerezler, bir web sitesinden tarayıcınıza gönderilir ve bilgisayarınızın sabit diskinizde saklanır.',
       'disable' => 'Bilgileri saklamak için "çerezler" kullanıyoruz. Tarayıcınıza tüm çerezleri reddetmesi veya bir çerez gönderildiğinde bunu belirtmesi talimatını verebilirsiniz. Ancak, çerezleri kabul etmezseniz, sitemizin bazı bölümlerini kullanamayabilirsiniz.',
       'session' => 'Oturum açan kullanıcılar için, oturum durumunu tarayıcı oturumları arasında 30 gün boyunca hatırlamak için kalıcı bir çerez kullanılır. Hatırlanmayı durdurmak istiyorsanız, çıkış yapabilir veya sitemiz tarafından ayarlanan çerezleri temizleyebilirsiniz.',
     ],
@@ -44,18 +44,18 @@ return [
   'terms' => [
     'heading' => 'Şartlar & Koşullar',
     'license' => 'Projenin tüm kaynak kodu GitHub\'da herhangi bir garanti veya yükümlülük olmaksızın olduğu gibi sağlanmaktadır. Lisans koşullarının tamamı için lütfen bir kopyasını her repository\'de bulabileceğiniz <1>MIT lisans</1>ına bakın. Aşağıda özetlenen koşullar, Geliştirici tarafından barındırılan Proje sürümü ("Örnek") için geçerlidir ve burada getirilen sınırlamalar, Proje kaynak kodunun kullanımına ilişkin kısıtlamalar olarak değerlendirilmemelidir.',
-    'noAbuse' => 'You must not set up automations to run Commands via the Instance repeatedly. This Bot is not meant to be used by automated tools, such as other bots, or any other software designed to mimic legitimate user activity. Instead of relying on our Bot\'s output for automation purposes, please refer to the documentation of the programming language used by your bot on how to generate and manipulate UNIX timestamps.',
-    'fuckWeb3' => 'This Instance shall not be used to aid in the process of training generative AI models, nor to help facilitate any events and/or transactions related to non-fungible tokens ("NFTs") or any form of cryptocurrency (e.g. Ethereum, Bitcoin).',
-    'accessRevocation' => 'Your access to the Instance may be revoked for any reason (including no reason) at the Developer\'s discretion. Reasons can include, but are not limited to: violation of these terms, intentional abuse of the Instance\'s features, threats of violence towards the Developer or any of the Project\'s contributors, use of the Instance for malicious purposes.',
+    'noAbuse' => 'Komutları Örnek (Instance) üzerinden tekrar tekrar çalıştırmak için otomasyonlar kurmamalısınız. Bu Bot; diğer botlar gibi otomatik araçlar veya meşru kullanıcı etkinliğini taklit etmek üzere tasarlanmış herhangi bir başka yazılım tarafından kullanılmak üzere tasarlanmamıştır. Otomasyon amaçları doğrultusunda Botumuzun çıktısına bel bağlamak yerine; lütfen UNIX zaman damgalarının nasıl oluşturulacağı ve işleneceği konusunda, botunuzun kullandığı programlama dilinin dokümantasyonuna başvurun.',
+    'fuckWeb3' => 'Bu Örnek; üretken yapay zeka modellerinin eğitilmesi sürecine katkıda bulunmak veya değiştirilemez tokenlar ("NFT\'ler") ya da herhangi bir kripto para birimi (ör. Ethereum, Bitcoin) ile ilgili herhangi bir etkinliğe ve/veya işleme aracılık etmek amacıyla kullanılmamalıdır.',
+    'accessRevocation' => 'Örneğe erişiminiz, Geliştirici\'nin takdirine bağlı olarak herhangi bir nedenle (herhangi bir neden olmaksızın da dahil) geri alınabilir. Nedenler; bu şartların ihlali, Örnek özelliklerinin kasıtlı olarak kötüye kullanılması, Geliştiriciye veya Projeye katkıda bulunan herhangi birine yönelik şiddet tehditleri ve Örneğin kötü niyetli amaçlarla kullanılmasını içerebilir ancak bunlarla sınırlı değildir.',
   ],
   'changes' => [
-    'heading' => 'Changes & Revisions',
-    'effectiveFrom' => 'The Terms & Conditions and Privacy Policy, collectively "Documents", are effective as of their last update date and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.',
-    'rightToChange' => 'We reserve the right to update or change these Documents at any time and you should check this page periodically. Your continued use of the Project after we post any modifications to the Documents on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Documents.',
-    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
+    'heading' => 'Değişiklikler ve Revizyonlar',
+    'effectiveFrom' => 'Topluca "Belgeler" olarak anılan Şartlar ve Koşullar ile Gizlilik Politikası, son güncelleme tarihi itibarıyla yürürlüktedir ve gelecekte hükümlerinde yapılacak herhangi bir değişiklik haricinde yürürlükte kalmaya devam edecektir; söz konusu değişiklikler bu sayfada yayınlandıktan hemen sonra yürürlüğe girecektir.',
+    'rightToChange' => 'Bu Belgeleri herhangi bir zamanda güncelleme veya değiştirme hakkını saklı tutuyoruz; bu nedenle bu sayfayı periyodik olarak kontrol etmelisiniz. Belgeler üzerinde yaptığımız değişiklikleri bu sayfada yayınlamamızın ardından Projeyi kullanmaya devam etmeniz; değişiklikleri kabul ettiğiniz ve değiştirilmiş Belgelere uymayı ve bunlarla bağlı kalmayı onayladığınız anlamına gelecektir.',
+    'willNotify' => 'Bu Belgelerde herhangi bir önemli değişiklik yapmamız durumunda; web sitemizde belirgin bir bildirim yayınlayarak ve Botun Discord destek sunucusunda bir duyuru paylaşarak sizi bilgilendireceğiz.',
   ],
   'contact' => [
-    'heading' => 'Contact Us',
-    'whereToContact' => 'If you have any questions about these Documents or want to ask for the removal of any PII we store please contact us via <1>the Bot\'s Discord server</1> or using any of the methods listed on the <3>Developer\'s website</3>.',
+    'heading' => 'Bize Ulaşın',
+    'whereToContact' => 'Bu Belgeler hakkında herhangi bir sorunuz varsa veya sakladığımız herhangi bir Kişisel Bilginin (PII) silinmesini talep etmek istiyorsanız; lütfen <1>Botun Discord sunucusu</1> aracılığıyla veya <3>Geliştiricinin web sitesinde</3> listelenen yöntemlerden herhangi birini kullanarak bizimle iletişime geçin.',
   ],
 ];
