@@ -26,7 +26,7 @@ return [
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'profile' => 'Profiili',
     'legal' => 'Legal Information',
   ],
   'sidebar' => [
