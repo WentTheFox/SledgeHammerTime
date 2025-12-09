@@ -8879,12 +8879,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/WentTheFox/laravel-ide-helper.git",
-        "reference": "740f555cde51502ddf0bf05a62c68eb3b7c01c36"
+        "reference": "3819a33c4676c3e004add5f517c434bcf3d77efe"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/WentTheFox/laravel-ide-helper/zipball/740f555cde51502ddf0bf05a62c68eb3b7c01c36",
-        "reference": "740f555cde51502ddf0bf05a62c68eb3b7c01c36",
+        "url": "https://api.github.com/repos/WentTheFox/laravel-ide-helper/zipball/3819a33c4676c3e004add5f517c434bcf3d77efe",
+        "reference": "3819a33c4676c3e004add5f517c434bcf3d77efe",
         "shasum": ""
       },
       "require": {
@@ -8993,7 +8993,7 @@
           "url": "https://fruitcake.nl"
         }
       ],
-      "time": "2025-12-09T22:27:57+00:00"
+      "time": "2025-12-09T22:49:49+00:00"
     },
     {
       "name": "barryvdh/reflection-docblock",
