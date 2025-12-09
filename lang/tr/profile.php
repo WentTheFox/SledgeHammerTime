@@ -7,7 +7,7 @@ return [
     'heading' => 'Profil Bilgileri',
     'description' => "Hesabınızın profil bilgilerini güncelleyin.",
     'displayName' => 'Görünen Ad',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Seçici tablosundan gizlenen biçimler',
     'saveSuccess' => 'Profiliniz başarıyla güncellendi.',
   ],
   'accounts' => [
