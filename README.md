@@ -53,6 +53,7 @@ English and Hungarian translations have been included, so no translators will be
   - [姓甚名谁](https://crowdin.com/profile/febilly)
   - [正阳](https://crowdin.com/profile/zhengyang3552)
 - 🇹🇼 Chinese Traditional
+  - [I-Hsun Hsieh (Ian)](https://crowdin.com/profile/ianhsieh2008)
   - [Jackie](https://crowdin.com/profile/jckcr)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [notlin4](https://crowdin.com/profile/notlin4)

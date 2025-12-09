@@ -866,6 +866,11 @@
       "username": "sayrex9625",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17472794/medium/4e8b79b5199a7dd9d54637abdce19889.png",
       "fullName": "SAYREX"
+    },
+    "17475702": {
+      "username": "ianhsieh2008",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17475702/medium/41fdc0e16561d5075b853d96cf0813ef.png",
+      "fullName": "I-Hsun Hsieh (Ian)"
     }
   },
   "languages": {
@@ -1412,7 +1417,8 @@
         "15258052",
         "15434450",
         "15980591",
-        "17175290"
+        "17175290",
+        "17475702"
       ],
       "progress": {
         "approval": 14,
