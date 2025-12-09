@@ -213,6 +213,7 @@ English and Hungarian translations have been included, so no translators will be
   - [JudeDM](https://crowdin.com/profile/JudeDM)
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
+  - [SAYREX](https://crowdin.com/profile/sayrex9625)
   - [Skumen](https://crowdin.com/profile/Skumen)
   - [stolarchukboris](https://crowdin.com/profile/PleasedontslammykeyboarddfsdoijfwR)
   - [Timofey K.](https://crowdin.com/profile/timakimit)
@@ -248,7 +249,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
   - [timelessnesses](https://github.com/timelessnesses)
 - 🇹🇷 Turkish
-  - [Baran Moroğan](https://crowdin.com/profile/okunamayanad)
+  - [Baran Mordoğan](https://crowdin.com/profile/okunamayanad)
   - [korayharman](https://crowdin.com/profile/korayharman)
   - [tututuana](https://crowdin.com/profile/tututuana)
   - [x0jony](https://crowdin.com/profile/x0jony)
