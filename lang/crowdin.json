@@ -179,7 +179,7 @@
     "14744332": {
       "username": "okunamayanad",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14744332/medium/6e527a469ab3a9e1dc5b877fb4152f2f.png",
-      "fullName": "Baran Moroğan"
+      "fullName": "Baran Mordoğan"
     },
     "14785728": {
       "username": "Seenoc",
@@ -725,7 +725,7 @@
     },
     "17274016": {
       "username": "lihaisapossu",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17274016/medium/b9fb74d054eb090d136618d46da605a9.jpeg"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17274016/medium/eefaaa81aa2c3b25889aab4b3208bceb.jpg"
     },
     "17282346": {
       "username": "swerocker1993",
@@ -861,6 +861,11 @@
       "username": "SpyroTodile_",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17461970/medium/f6a394fcb721d99b1d940518e7ecc5c9.jpg",
       "fullName": "xledesma"
+    },
+    "17472794": {
+      "username": "sayrex9625",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17472794/medium/4e8b79b5199a7dd9d54637abdce19889.png",
+      "fullName": "SAYREX"
     }
   },
   "languages": {
@@ -982,8 +987,8 @@
         "17453292"
       ],
       "progress": {
-        "approval": 9,
-        "translation": 12
+        "approval": 10,
+        "translation": 10
       }
     },
     "fa": {
@@ -1004,8 +1009,8 @@
         "16812111"
       ],
       "progress": {
-        "approval": 9,
-        "translation": 9
+        "approval": 13,
+        "translation": 13
       }
     },
     "fr": {
@@ -1172,7 +1177,7 @@
       ],
       "progress": {
         "approval": 12,
-        "translation": 12
+        "translation": 24
       }
     },
     "nb": {
@@ -1289,11 +1294,12 @@
         "17450376",
         "17430436",
         "17454624",
-        "16873803"
+        "16873803",
+        "17472794"
       ],
       "progress": {
         "approval": 91,
-        "translation": 91
+        "translation": 93
       }
     },
     "sr": {
@@ -1342,8 +1348,8 @@
         "13477087"
       ],
       "progress": {
-        "approval": 48,
-        "translation": 48
+        "approval": 100,
+        "translation": 100
       }
     },
     "uk": {
