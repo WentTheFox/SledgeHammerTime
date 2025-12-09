@@ -59,12 +59,12 @@ return [
     'usageGraphNoData' => 'No recent usage data found',
     'additionalDescription' => [
       'commands' => [
-        'in' => 'You must specify at least one time component to change',
-        'ago' => 'You must specify at least one time component to change',
-        'add' => 'You must specify at least one time component to change',
-        'subtract' => 'You must specify at least one time component to change',
+        'in' => 'Sinun on määriteltävä vähintään yksi muutettava aika komponentti',
+        'ago' => 'Sinun on määriteltävä vähintään yksi muutettava aika komponentti',
+        'add' => 'Sinun on määriteltävä vähintään yksi muutettava aika komponentti',
+        'subtract' => 'Sinun on määriteltävä vähintään yksi muutettava aika komponentti',
         'Message Sent' => 'Provides the timestamp syntax for the time when a message was sent',
-        'Message Last Edited' => 'Provides the timestamp syntax for the time when a message was last edited',
+        'Message Last Edited' => 'Antaa ajankohtaleima syntaksin ajalle milloin viestiä oli viimeksi muokattua',
         'Extract Timestamps' => 'Provides a list of all dynamic timestamps found in a specific message',
       ],
     ],

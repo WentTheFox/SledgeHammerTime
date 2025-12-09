@@ -345,6 +345,7 @@
       "crowdinLocale": "es-ES",
       "creditOverrides": {
         "13533384": null,
+        "17448206": null,
         "14524626": {
           "displayName": "Yareaj",
           "url": "https://github.com/Yareaj/"
