@@ -25,7 +25,7 @@
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "^3.0",
+    "barryvdh/laravel-ide-helper": "dev-fix-alias-fake-error",
     "fakerphp/faker": "^1.9.1",
     "laravel-lang/lang": "^15.26.2",
     "laravel/breeze": "^2.0",
@@ -37,6 +37,13 @@
     "roave/security-advisories": "dev-latest",
     "spatie/laravel-ignition": "^2.0"
   },
+  "repositories": [
+    {
+      "url": "https://github.com/WentTheFox/laravel-ide-helper.git",
+      "type": "vcs",
+      "package": "barryvdh/laravel-ide-helper"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "App\\": "app/",
