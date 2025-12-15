@@ -10,9 +10,9 @@ return [
   'appDiscoveryCta' => 'Voir sur Découverte d\'Applications',
   'shareableLink' => 'Vous pouvez aussi partager le lien ci-dessous avec d\'autres personnes pour qu\'ils puissent ajouter l\'appli sans aucune autre distraction :',
   'shardStats' => [
-    'title' => 'Statistiques sur les partitions',
-    'description' => 'Après qu\'une application soit installée sur un certain nombre de serveurs, Discord exige l\'utilisation du partitionnement, qui consiste essentiellement à répartir le traitement des interactions entre plusieurs processus.',
-    'boxesDescription' => 'Vous pouvez voir ci-dessous plusieurs rectangles représentant toutes les partitions actuellement utilisées par l\'application. Leurs largeurs sont proportionnelles au nombre de serveurs auxquels une partition est assignée sur un total de (:totalServerCount). Pointez n\'importe lequel pour voir plus d\'informations sur la partition.',
+    'title' => 'Statistiques sur les Shards',
+    'description' => 'Après qu\'une application soit installée sur un certain nombre de serveurs, Discord exige l\'utilisation du Sharding, qui consiste essentiellement à répartir le traitement des interactions entre plusieurs processus.',
+    'boxesDescription' => 'Vous pouvez voir ci-dessous plusieurs rectangles représentant toutes les Shards actuellement utilisées par l\'application. Leurs largeurs sont proportionnelles au nombre de serveurs auxquels une Shard est assignée sur un total de (:totalServerCount). Survolez n\'importe lequel pour voir plus d\'informations sur la Shard.',
     'shardId' => 'ID de la partition',
     'assignedServers' => 'Serveurs assignés',
     'startupTime' => 'Heure de démarrage',
