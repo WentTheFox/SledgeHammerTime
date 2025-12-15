@@ -223,6 +223,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14999657/medium/64e7f99cd656e04aad4d9394e86bae71_default.png",
       "fullName": "mihai"
     },
+    "15031111": {
+      "username": "MrCRACK",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15031111/medium/c0808b92fc3b91061de3aa0a6568b4b8.gif"
+    },
     "15044779": {
       "username": "holyradek",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15044779/medium/879052692b4f61e08731b8059001eee3.jpg",
@@ -871,6 +875,16 @@
       "username": "ianhsieh2008",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17475702/medium/41fdc0e16561d5075b853d96cf0813ef.png",
       "fullName": "I-Hsun Hsieh (Ian)"
+    },
+    "17479286": {
+      "username": "bydraxx4k129",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17479286/medium/24ef8bcffd4e8a2e5967f0e187b0f945.jpeg",
+      "fullName": "ByDraXx 4K"
+    },
+    "17481246": {
+      "username": "rggff246",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17481246/medium/3a542311a0cfaf4694b13ae2683fdcdc.png",
+      "fullName": "ff rgg"
     }
   },
   "languages": {
@@ -986,14 +1000,16 @@
         "14699026",
         "13524864",
         "16655625",
+        "15031111",
+        "17479286",
         "17461970",
         "17448206",
         "17428170",
         "17453292"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 10
+        "approval": 74,
+        "translation": 99
       }
     },
     "fa": {
@@ -1181,7 +1197,7 @@
         "12680006"
       ],
       "progress": {
-        "approval": 12,
+        "approval": 24,
         "translation": 24
       }
     },
@@ -1300,11 +1316,12 @@
         "17430436",
         "17454624",
         "16873803",
-        "17472794"
+        "17472794",
+        "17481246"
       ],
       "progress": {
         "approval": 91,
-        "translation": 93
+        "translation": 94
       }
     },
     "sr": {
