@@ -885,6 +885,11 @@
       "username": "rggff246",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17481246/medium/3a542311a0cfaf4694b13ae2683fdcdc.png",
       "fullName": "ff rgg"
+    },
+    "17483564": {
+      "username": "hibutima3",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17483564/medium/c8699686cfbe899a5470cb3333b4a66e.png",
+      "fullName": "dame da ne dame you dame dame yo"
     }
   },
   "languages": {
@@ -1027,7 +1032,8 @@
         "16779295",
         "17274016",
         "17270872",
-        "16812111"
+        "16812111",
+        "17483564"
       ],
       "progress": {
         "approval": 13,

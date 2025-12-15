@@ -90,6 +90,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Stela Verd](https://crowdin.com/profile/Verdstela)
 - 🇫🇮 Finnish
   - [Cookie](https://crowdin.com/profile/cookiethegamer33)
+  - [dame da ne dame you dame dame yo](https://crowdin.com/profile/hibutima3)
   - [Deadly dead](https://crowdin.com/profile/cricribebe)
   - [John Wick](https://crowdin.com/profile/jw6942460)
   - [lihaisapossu](https://crowdin.com/profile/lihaisapossu)
