@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Ajustes de la aplicación',
+  'description' => 'A continuación puedes ver tu configuración actual en la aplicación HammerTime para cada cuenta conectada.',
+  'learnMore' => '¿No sabes qué es la aplicación o tienes curiosidad sobre lo que puede hacer? Visita el enlace de <1>Discord App</1> para obtener más información.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Ajustes avanzados',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Predeterminado',
   'fields' => [
     'timezone' => [
       'displayName' => 'Zona Horaria',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Formato',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Respuesta de solo vista previa al usar la opción de formato',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Columnas',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Efímero',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Encabezado',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Formatear vista previa en negrita',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Opción ":hourOptionName" predeterminada para el comando /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Opción ":minuteOptionName" predeterminada para el comando /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Opción ":secondOptionName" predeterminada para el comando /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Permitir recopilación de telemetría',
+      'explanation' => 'Esto es completamente opcional y no afecta tu capacidad de usar el bot. Consulta la página <1/> para más detalles.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Opción ":hourOptionName" predeterminada para el comando /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Tu configuración se ha guardado correctamente.',
 ];
