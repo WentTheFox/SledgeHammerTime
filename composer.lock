@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "7ad14f7810fb966cb3d69b89e185f06f",
+  "content-hash": "e6c2a7bcb0963855286596f8daf257f3",
   "packages": [
     {
       "name": "archtechx/enums",
@@ -1693,16 +1693,16 @@
     },
     {
       "name": "inertiajs/inertia-laravel",
-      "version": "v2.0.12",
+      "version": "v2.0.14",
       "source": {
         "type": "git",
         "url": "https://github.com/inertiajs/inertia-laravel.git",
-        "reference": "9170201299d741bb7f5f3baf37d8f1299a321753"
+        "reference": "c4a7bbefbfb9995ce2189f1665ba73276cb3cb6f"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/9170201299d741bb7f5f3baf37d8f1299a321753",
-        "reference": "9170201299d741bb7f5f3baf37d8f1299a321753",
+        "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/c4a7bbefbfb9995ce2189f1665ba73276cb3cb6f",
+        "reference": "c4a7bbefbfb9995ce2189f1665ba73276cb3cb6f",
         "shasum": ""
       },
       "require": {
@@ -1757,9 +1757,9 @@
       ],
       "support": {
         "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-        "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.12"
+        "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.14"
       },
-      "time": "2025-12-09T08:56:23+00:00"
+      "time": "2025-12-10T13:29:20+00:00"
     },
     {
       "name": "laravel-lang/actions",
@@ -5575,20 +5575,20 @@
     },
     {
       "name": "ramsey/uuid",
-      "version": "4.9.1",
+      "version": "4.9.2",
       "source": {
         "type": "git",
         "url": "https://github.com/ramsey/uuid.git",
-        "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440"
+        "reference": "8429c78ca35a09f27565311b98101e2826affde0"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/ramsey/uuid/zipball/81f941f6f729b1e3ceea61d9d014f8b6c6800440",
-        "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440",
+        "url": "https://api.github.com/repos/ramsey/uuid/zipball/8429c78ca35a09f27565311b98101e2826affde0",
+        "reference": "8429c78ca35a09f27565311b98101e2826affde0",
         "shasum": ""
       },
       "require": {
-        "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14",
+        "brick/math": "^0.8.16 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14",
         "php": "^8.0",
         "ramsey/collection": "^1.2 || ^2.0"
       },
@@ -5647,9 +5647,9 @@
       ],
       "support": {
         "issues": "https://github.com/ramsey/uuid/issues",
-        "source": "https://github.com/ramsey/uuid/tree/4.9.1"
+        "source": "https://github.com/ramsey/uuid/tree/4.9.2"
       },
-      "time": "2025-09-04T20:59:21+00:00"
+      "time": "2025-12-14T04:43:48+00:00"
     },
     {
       "name": "socialiteproviders/crowdin",
@@ -6147,20 +6147,20 @@
     },
     {
       "name": "symfony/css-selector",
-      "version": "v7.4.0",
+      "version": "v8.0.0",
       "source": {
         "type": "git",
         "url": "https://github.com/symfony/css-selector.git",
-        "reference": "ab862f478513e7ca2fe9ec117a6f01a8da6e1135"
+        "reference": "6225bd458c53ecdee056214cb4a2ffaf58bd592b"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/symfony/css-selector/zipball/ab862f478513e7ca2fe9ec117a6f01a8da6e1135",
-        "reference": "ab862f478513e7ca2fe9ec117a6f01a8da6e1135",
+        "url": "https://api.github.com/repos/symfony/css-selector/zipball/6225bd458c53ecdee056214cb4a2ffaf58bd592b",
+        "reference": "6225bd458c53ecdee056214cb4a2ffaf58bd592b",
         "shasum": ""
       },
       "require": {
-        "php": ">=8.2"
+        "php": ">=8.4"
       },
       "type": "library",
       "autoload": {
@@ -6192,7 +6192,7 @@
       "description": "Converts CSS selectors to XPath expressions",
       "homepage": "https://symfony.com",
       "support": {
-        "source": "https://github.com/symfony/css-selector/tree/v7.4.0"
+        "source": "https://github.com/symfony/css-selector/tree/v8.0.0"
       },
       "funding": [
         {
@@ -6212,7 +6212,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-10-30T13:39:42+00:00"
+      "time": "2025-10-30T14:17:19+00:00"
     },
     {
       "name": "symfony/deprecation-contracts",
@@ -8614,23 +8614,23 @@
     },
     {
       "name": "tijsverkoyen/css-to-inline-styles",
-      "version": "v2.3.0",
+      "version": "v2.4.0",
       "source": {
         "type": "git",
         "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-        "reference": "0d72ac1c00084279c1816675284073c5a337c20d"
+        "reference": "f0292ccf0ec75843d65027214426b6b163b48b41"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/0d72ac1c00084279c1816675284073c5a337c20d",
-        "reference": "0d72ac1c00084279c1816675284073c5a337c20d",
+        "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/f0292ccf0ec75843d65027214426b6b163b48b41",
+        "reference": "f0292ccf0ec75843d65027214426b6b163b48b41",
         "shasum": ""
       },
       "require": {
         "ext-dom": "*",
         "ext-libxml": "*",
         "php": "^7.4 || ^8.0",
-        "symfony/css-selector": "^5.4 || ^6.0 || ^7.0"
+        "symfony/css-selector": "^5.4 || ^6.0 || ^7.0 || ^8.0"
       },
       "require-dev": {
         "phpstan/phpstan": "^2.0",
@@ -8663,9 +8663,9 @@
       "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
       "support": {
         "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
-        "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
+        "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.4.0"
       },
-      "time": "2024-12-21T16:25:41+00:00"
+      "time": "2025-12-02T11:56:42+00:00"
     },
     {
       "name": "vlucas/phpdotenv",
@@ -8875,16 +8875,16 @@
   "packages-dev": [
     {
       "name": "barryvdh/laravel-ide-helper",
-      "version": "dev-fix-alias-fake-error",
+      "version": "v3.6.1",
       "source": {
         "type": "git",
-        "url": "https://github.com/WentTheFox/laravel-ide-helper.git",
-        "reference": "3819a33c4676c3e004add5f517c434bcf3d77efe"
+        "url": "https://github.com/barryvdh/laravel-ide-helper.git",
+        "reference": "b106f7ee85f263c4f103eca49e7bf3862c2e5e75"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/WentTheFox/laravel-ide-helper/zipball/3819a33c4676c3e004add5f517c434bcf3d77efe",
-        "reference": "3819a33c4676c3e004add5f517c434bcf3d77efe",
+        "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/b106f7ee85f263c4f103eca49e7bf3862c2e5e75",
+        "reference": "b106f7ee85f263c4f103eca49e7bf3862c2e5e75",
         "shasum": ""
       },
       "require": {
@@ -8914,13 +8914,13 @@
       },
       "type": "library",
       "extra": {
-        "branch-alias": {
-          "dev-master": "3.5-dev"
-        },
         "laravel": {
           "providers": [
             "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
           ]
+        },
+        "branch-alias": {
+          "dev-master": "3.5-dev"
         }
       },
       "autoload": {
@@ -8928,36 +8928,7 @@
           "Barryvdh\\LaravelIdeHelper\\": "src"
         }
       },
-      "autoload-dev": {
-        "psr-4": {
-          "Barryvdh\\LaravelIdeHelper\\Tests\\": "tests"
-        }
-      },
-      "scripts": {
-        "analyze": [
-          "psalm"
-        ],
-        "check-style": [
-          "php-cs-fixer fix --diff --diff-format=udiff --dry-run",
-          "php-cs-fixer fix --diff --diff-format=udiff --dry-run --config=.php_cs.tests.php"
-        ],
-        "fix-style": [
-          "php-cs-fixer fix",
-          "php-cs-fixer fix --config=.php-cs-fixer.tests.php"
-        ],
-        "psalm-set-baseline": [
-          "psalm --set-baseline=psalm-baseline.xml"
-        ],
-        "test": [
-          "phpunit"
-        ],
-        "test-ci": [
-          "phpunit -d --without-creating-snapshots"
-        ],
-        "test-regenerate": [
-          "phpunit -d --update-snapshots"
-        ]
-      },
+      "notification-url": "https://packagist.org/downloads/",
       "license": [
         "MIT"
       ],
@@ -8981,19 +8952,20 @@
         "sublime"
       ],
       "support": {
-        "source": "https://github.com/WentTheFox/laravel-ide-helper/tree/fix-alias-fake-error"
+        "issues": "https://github.com/barryvdh/laravel-ide-helper/issues",
+        "source": "https://github.com/barryvdh/laravel-ide-helper/tree/v3.6.1"
       },
       "funding": [
         {
-          "type": "github",
-          "url": "https://github.com/barryvdh"
+          "url": "https://fruitcake.nl",
+          "type": "custom"
         },
         {
-          "type": "custom",
-          "url": "https://fruitcake.nl"
+          "url": "https://github.com/barryvdh",
+          "type": "github"
         }
       ],
-      "time": "2025-12-09T22:49:49+00:00"
+      "time": "2025-12-10T09:11:07+00:00"
     },
     {
       "name": "barryvdh/reflection-docblock",
@@ -10119,16 +10091,16 @@
     },
     {
       "name": "phpunit/phpunit",
-      "version": "12.5.2",
+      "version": "12.5.3",
       "source": {
         "type": "git",
         "url": "https://github.com/sebastianbergmann/phpunit.git",
-        "reference": "06713c2633d6d832f2fe98a70511ecaa7cb92c1a"
+        "reference": "6dc2e076d09960efbb0c1272aa9bc156fc80955e"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/06713c2633d6d832f2fe98a70511ecaa7cb92c1a",
-        "reference": "06713c2633d6d832f2fe98a70511ecaa7cb92c1a",
+        "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6dc2e076d09960efbb0c1272aa9bc156fc80955e",
+        "reference": "6dc2e076d09960efbb0c1272aa9bc156fc80955e",
         "shasum": ""
       },
       "require": {
@@ -10196,7 +10168,7 @@
       "support": {
         "issues": "https://github.com/sebastianbergmann/phpunit/issues",
         "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-        "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.2"
+        "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.3"
       },
       "funding": [
         {
@@ -10220,7 +10192,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-12-08T07:22:32+00:00"
+      "time": "2025-12-11T08:52:59+00:00"
     },
     {
       "name": "roave/security-advisories",
@@ -10228,12 +10200,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "75d4ccd9c135c4ac904cd4211a43e51d12feb1ef"
+        "reference": "1553067758ae7f3df13df7c7e232c62d928e1d23"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/75d4ccd9c135c4ac904cd4211a43e51d12feb1ef",
-        "reference": "75d4ccd9c135c4ac904cd4211a43e51d12feb1ef",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1553067758ae7f3df13df7c7e232c62d928e1d23",
+        "reference": "1553067758ae7f3df13df7c7e232c62d928e1d23",
         "shasum": ""
       },
       "conflict": {
@@ -10286,7 +10258,7 @@
         "automattic/jetpack": "<9.8",
         "awesome-support/awesome-support": "<=6.0.7",
         "aws/aws-sdk-php": "<3.288.1",
-        "azuracast/azuracast": "<0.18.3",
+        "azuracast/azuracast": "<=0.23.1",
         "b13/seo_basics": "<0.8.2",
         "backdrop/backdrop": "<=1.32",
         "backpack/crud": "<3.4.9",
@@ -10504,6 +10476,7 @@
         "floriangaerber/magnesium": "<0.3.1",
         "fluidtypo3/vhs": "<5.1.1",
         "fof/byobu": ">=0.3.0.0-beta2,<1.1.7",
+        "fof/pretty-mail": "<=1.1.2",
         "fof/upload": "<1.2.3",
         "foodcoopshop/foodcoopshop": ">=3.2,<3.6.1",
         "fooman/tcpdf": "<6.2.22",
@@ -10567,7 +10540,7 @@
         "ibexa/http-cache": ">=4.6,<4.6.14",
         "ibexa/post-install": "<1.0.16|>=4.6,<4.6.14",
         "ibexa/solr": ">=4.5,<4.5.4",
-        "ibexa/user": ">=4,<4.4.3|>=5,<5.0.3",
+        "ibexa/user": ">=4,<4.4.3|>=5,<5.0.4",
         "icecoder/icecoder": "<=8.1",
         "idno/known": "<=1.3.1",
         "ilicmiljan/secure-props": ">=1.2,<1.2.2",
@@ -10704,6 +10677,7 @@
         "microsoft/microsoft-graph-core": "<2.0.2",
         "microweber/microweber": "<=2.0.19",
         "mikehaertl/php-shellcommand": "<1.6.1",
+        "mineadmin/mineadmin": "<=3.0.9",
         "miniorange/miniorange-saml": "<1.4.3",
         "mittwald/typo3_forum": "<1.2.1",
         "mobiledetect/mobiledetectlib": "<2.8.32",
@@ -11222,7 +11196,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-12-09T18:07:05+00:00"
+      "time": "2025-12-12T23:06:01+00:00"
     },
     {
       "name": "sebastian/cli-parser",
@@ -12684,7 +12658,6 @@
   "aliases": [],
   "minimum-stability": "stable",
   "stability-flags": {
-    "barryvdh/laravel-ide-helper": 20,
     "roave/security-advisories": 20
   },
   "prefer-stable": true,
