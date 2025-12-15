@@ -1,39 +1,39 @@
 <?php
 
 return [
-  'title' => 'Profile',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'title' => 'Perfil',
+  'intro' => 'La página de perfil te permite administrar la información de tu cuenta específicamente relacionada con el sitio web. Si buscas dónde cambiar los valores predeterminados y otras configuraciones para la aplicación de Discord, visita la página <1>Ajustes de la aplicación</1>.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'hiddenFormats' => 'Formats hidden from picker table',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'heading' => 'Información del perfil',
+    'description' => "Actualiza la información de perfil de tu cuenta.",
+    'displayName' => 'Nombre para mostrar',
+    'hiddenFormats' => 'Formatos ocultos de la tabla de selección',
+    'saveSuccess' => 'Tu perfil se ha actualizado correctamente.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Cuentas conectadas',
     'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
+      'Una cuenta de HammerTime te permitirá vincular múltiples cuentas de Discord para poder administrar sus recursos en un solo lugar en el futuro.',
+      'A continuación puedes encontrar una lista de todas las cuentas de Discord asociadas con esta cuenta de HammerTime.',
     ],
-    'discord' => 'Discord Accounts',
-    'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'discord' => 'Cuentas de Discord',
+    'crowdin' => 'Cuentas de Crowdin',
+    'noConnectedAccounts' => 'No tienes ninguna cuenta conectada en este momento',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Vincular o actualizar cuenta',
+      'description' => 'Al vincular múltiples cuentas a una sola cuenta de HammerTime, puedes administrar la configuración de todas las cuentas conectadas en un solo lugar.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'description' => 'Si tu foto de perfil o nombre para mostrar cambió, también puedes usar esto para actualizar esa información para cualquier cuenta de Discord que ya esté vinculada.',
+        'authorize' => 'Autorizar cuenta de Discord',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Authorize Crowdin account',
+        'description' => 'Si eres traductor del proyecto, vincular tu cuenta de Crowdin eventualmente te permitirá personalizar cómo aparece tu nombre en los créditos de traducción, y también sirve como un nivel extra de verificación de que estas cuentas te pertenecen en caso de que te unas al servidor de Discord del proyecto.',
+        'authorize' => 'Autorizar cuenta de Crowdin',
       ],
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
+    'heading' => 'Eliminación de cuenta',
     'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
     'deleteButton' => 'Delete Account',
     'confirmDialog' => [
