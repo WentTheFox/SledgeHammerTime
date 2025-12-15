@@ -16,11 +16,12 @@ const yakutskTimeAliases = ['Yakutsk Time', 'YAKT'];
 const amazonTimeAliases = ['Amazon Time', 'AMT'];
 const brasiliaTimeAliases = ['Brasília Time', 'BRT'];
 const australianEasternTime = ['Australian Eastern Time', 'AEST', 'AEDT'];
+const westAfricaTime = ['West Africa Time', 'WAT'];
 
 export const timeZoneAliases = {
   'Africa/Cairo': ['Eastern European Time', 'EET', 'EEST'],
-  'Africa/Lagos': ['West Africa Time', 'WAT'],
-  'Africa/Tunis': ['West Africa Time', 'WAT'],
+  'Africa/Lagos': westAfricaTime,
+  'Africa/Tunis': westAfricaTime,
   'America/Anchorage': ['Alaska'],
   'America/Cancun': easternStandardTimeAliases,
   'America/Chicago': centralTimeAliases,
