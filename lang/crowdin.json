@@ -787,7 +787,7 @@
     },
     "17430214": {
       "username": "35klxo",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430214/medium/fa9c186c96990859789f17dedd344f26.jpeg",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17430214/medium/bed7577b9df38d929480831b392ad124.jpeg",
       "fullName": "Leo"
     },
     "17430436": {
@@ -890,6 +890,26 @@
       "username": "hibutima3",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17483564/medium/c8699686cfbe899a5470cb3333b4a66e.png",
       "fullName": "dame da ne dame you dame dame yo"
+    },
+    "17486798": {
+      "username": "aenriot",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17486798/medium/ad315a8ff19cb2cf3c966bb6541ecc2c.png",
+      "fullName": "Aenrot Guile"
+    },
+    "17488256": {
+      "username": "Rexitacio",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17488256/medium/7042cbfa7940333e677e7fd23a8c72b7.png",
+      "fullName": "RGD"
+    },
+    "17488616": {
+      "username": "allanpoubel",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17488616/medium/2fa84646e9d302a0933bff0cfd0620c6.png",
+      "fullName": "Allan Poubel (The Poubel)"
+    },
+    "17490278": {
+      "username": "ToMacMa",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17490278/medium/342625819777c55127c2f6140d046100.jpeg",
+      "fullName": "kaczuszki są najlepsze!"
     }
   },
   "languages": {
@@ -919,11 +939,12 @@
         "15659129",
         "13533384",
         "16655625",
-        "17241656"
+        "17241656",
+        "17488256"
       ],
       "progress": {
-        "approval": 9,
-        "translation": 9
+        "approval": 10,
+        "translation": 10
       }
     },
     "cs": {
@@ -1008,13 +1029,14 @@
         "15031111",
         "17479286",
         "17461970",
+        "17488256",
         "17448206",
         "17428170",
         "17453292"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1251,11 +1273,13 @@
         "16172948",
         "14673608",
         "17431518",
-        "17444122"
+        "17444122",
+        "17486798",
+        "17490278"
       ],
       "progress": {
-        "approval": 82,
-        "translation": 82
+        "approval": 86,
+        "translation": 86
       }
     },
     "pt-BR": {
@@ -1267,11 +1291,12 @@
         "17159146",
         "12931321",
         "17151532",
+        "17488616",
         "17450480"
       ],
       "progress": {
-        "approval": 12,
-        "translation": 12
+        "approval": 19,
+        "translation": 19
       }
     },
     "pt": {
@@ -1326,7 +1351,7 @@
         "17481246"
       ],
       "progress": {
-        "approval": 91,
+        "approval": 94,
         "translation": 94
       }
     },
