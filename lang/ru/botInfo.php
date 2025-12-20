@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Вы также можете поделиться ссылкой ниже с другими пользователями, что позволит им добавить приложение без каких-либо дополнительных проблем:',
   'shardStats' => [
     'title' => 'Shard Statistics',
-    'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
+    'description' => 'После того как приложение достигнет определённого количества серверов, на которых оно установлено, Дискорд требует от приложений использования шардинга, что по сути означает разделение обработки взаимодействий между несколькими процессами.',
     'boxesDescription' => 'Ниже Вы можете увидеть несколько прямоугольников, представляющих все ноды, используемые приложением в данный момент. Их ширина пропорциональна количеству серверов, к которым приписан данный шард из общего числа (:totalServerCount). Наведите курсор на любой из них, чтобы увидеть дополнительную информацию об этой ноде.',
     'shardId' => 'Shard ID',
     'assignedServers' => 'Заданные сервера',
