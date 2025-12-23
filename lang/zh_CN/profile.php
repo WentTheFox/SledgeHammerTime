@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => '已关联账户',
-    'description' => [
-      'HammerTime 账户未来将支持关联多个 Discord 账户，以便在一个地方集中管理相关资源。',
-      '下方是与此 HammerTime 账户关联的所有 Discord 账户列表。',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => '您目前没有关联任何账户',
     'linkAdditional' => [
-      'heading' => '关联或更新账户',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
         'authorize' => '授权 Discord 账户',
