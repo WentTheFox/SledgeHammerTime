@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotInfoController;
 use App\Http\Controllers\BotSettingsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
 Route::prefix('/frontend')->group(function () {
   Route::get('/app-usage', [BotInfoController::class, 'usage'])->name('app.usage');
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
+  Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
 });
 
 Route::get('/discord', [RedirectController::class, 'discord']);

@@ -3,7 +3,7 @@ import LanguageSelector from '@/Components/LanguageSelector.vue';
 import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
-import UserInfo from '@/Components/UserInfo.vue';
+import UserMenu from '@/Components/UserMenu.vue';
 import { localSettingsInject, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import { faAlignLeft, faAlignRight, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -42,7 +42,7 @@ const close = () => {
           <LanguageSelector />
         </li>
         <li class="parallel-actions">
-          <UserInfo />
+          <UserMenu />
           <ThemeButtonGroup />
         </li>
       </ul>

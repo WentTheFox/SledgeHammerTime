@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Jobs\RefreshDiscordUserInfo;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use SocialiteProviders\Crowdin\Provider as CrowdinProvider;
 
@@ -18,6 +21,10 @@ class AppServiceProvider extends ServiceProvider {
    */
   public function boot():void {
     $this->bootCrowdinSocialite();
+
+    RateLimiter::for(RefreshDiscordUserInfo::RATE_LIMIT_KEY, function (RefreshDiscordUserInfo $job) {
+      return Limit::perHour(1)->by($job->discordUserId);
+    });
   }
 
   private function bootCrowdinSocialite() {

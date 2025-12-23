@@ -18,6 +18,8 @@ class LanguageDetector {
     'oauth',
     // Frontend API
     'frontend',
+    // Queue Monitoring
+    'horizon'
   ];
 
   protected const LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';

@@ -1,0 +1,9 @@
+@use "../design";
+
+.user-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: design.app-value('user-info-spacing');
+}

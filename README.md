@@ -189,6 +189,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luna A](https://crowdin.com/profile/LumiKitten)
   - [meeekos](https://crowdin.com/profile/meeekos)
   - [MinerPL](https://github.com/minerpl)
+  - [Pawe_\_](https://crowdin.com/profile/Pawe__)
   - [Piotr G.](https://crowdin.com/profile/ekidoxx)
   - [stha](https://crowdin.com/profile/sthakrk)
   - [sz3fxx](https://crowdin.com/profile/sz3fxx)
