@@ -127,6 +127,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇬🇷 Greek
   - [Belle Bernice](https://crowdin.com/profile/BelleBernice)
   - [dx4](https://crowdin.com/profile/dx4)
+  - [Mrgrass](https://crowdin.com/profile/Mrgrass)
 - 🇮🇱 Hebrew
   - [Amit Cohen](https://crowdin.com/profile/ZeRealOne)
   - [Arthur](https://crowdin.com/profile/DuperKnight)
