@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
-import { devModeInject, pagePropsInject } from '@/injection-keys';
+import { pagePropsInject } from '@/injection-keys';
 import ConnectedAccountsHeading from '@/Pages/Profile/Partials/ConnectedAccountsHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
@@ -11,7 +11,6 @@ import { inject } from 'vue';
 
 const route = useRoute();
 
-const devMode = inject(devModeInject);
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 </script>
@@ -27,10 +26,7 @@ const routeParams = useRouteParams(route, pageProps);
       {{ $t('profile.accounts.linkAdditional.description') }}
     </p>
 
-    <section
-      v-if="devMode"
-      class="mb-3"
-    >
+    <section class="mb-3">
       <ConnectedAccountsHeading service="discord" />
       <p class="mb-3">
         {{ $t('profile.accounts.linkAdditional.discord.description') }}
