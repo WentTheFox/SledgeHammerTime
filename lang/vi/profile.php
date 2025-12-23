@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Connected Accounts',
-    'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
-      'heading' => 'Link or Update Account',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
         'authorize' => 'Authorize Discord account',
