@@ -33,13 +33,16 @@ English and Hungarian translations have been included, so no translators will be
 
 ### Credits
 
-- 🇸🇦 Arabic: [yn](https://crowdin.com/profile/user99)
+- 🇸🇦 Arabic
+  - [hello578205cd-ar](https://crowdin.com/profile/hello578205cd-ar)
+  - [yn](https://crowdin.com/profile/user99)
 - 🇧🇬 Bulgarian
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Rxshi](https://crowdin.com/profile/Rxshi)
 - Catalan
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [LAU Regi](https://crowdin.com/profile/Bala_de_plata)
+  - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [sware](https://crowdin.com/profile/sware)
 - 🇨🇳 Chinese Simplified
@@ -81,6 +84,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
+  - [Michael Scott](https://crowdin.com/profile/michaelscottplayvalley)
   - [Naamloos_NL](https://crowdin.com/profile/Naamloos_NL)
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
@@ -90,6 +94,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Stela Verd](https://crowdin.com/profile/Verdstela)
 - 🇫🇮 Finnish
   - [Cookie](https://crowdin.com/profile/cookiethegamer33)
+  - [dame da ne dame you dame dame yo](https://crowdin.com/profile/hibutima3)
   - [Deadly dead](https://crowdin.com/profile/cricribebe)
   - [John Wick](https://crowdin.com/profile/jw6942460)
   - [lihaisapossu](https://crowdin.com/profile/lihaisapossu)
@@ -179,6 +184,8 @@ English and Hungarian translations have been included, so no translators will be
   - [Mohammad Safa Gray](https://crowdin.com/profile/DeadMarco)
   - [Not so nice potato](https://crowdin.com/profile/regimanhj)
 - 🇵🇱 Polish
+  - [Aenrot Guile](https://crowdin.com/profile/aenriot)
+  - [kaczuszki są najlepsze!](https://crowdin.com/profile/ToMacMa)
   - [Luna A](https://crowdin.com/profile/LumiKitten)
   - [meeekos](https://crowdin.com/profile/meeekos)
   - [MinerPL](https://github.com/minerpl)
@@ -193,6 +200,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Tiago](https://crowdin.com/profile/DemiCool)
 - 🇧🇷 Portuguese, Brazilian
+  - [Allan Poubel (The Poubel)](https://crowdin.com/profile/allanpoubel)
   - [Allef Moraes](https://crowdin.com/profile/allef.moraes)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
@@ -234,6 +242,7 @@ English and Hungarian translations have been included, so no translators will be
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
   - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
   - [MrCRACK](https://crowdin.com/profile/MrCRACK)
+  - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
