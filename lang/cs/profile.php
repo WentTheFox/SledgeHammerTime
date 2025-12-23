@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Propojené účty',
-    'description' => [
-      'Účet HammerTime vám v budoucnu umožní propojit více Discord účtů, abyste mohli spravovat jejich informace na jednom místě.',
-      'Níže najdete seznam všech Discord účtů přidružených k tomuto HammerTime účtu.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord účty',
     'crowdin' => 'Crowdin účty',
     'noConnectedAccounts' => 'V současné době nemáte propojené žádné účty',
     'linkAdditional' => [
-      'heading' => 'Propojení a aktualizace účtu',
-      'description' => 'Propojení více účtů s jedním HammerTime účtem vám umožní spravovat nastavení všech propojených účtů na jednom místě.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Pokud se změnil váš avatar nebo zobrazované jméno, tuto funkci můžete rovněž použít k aktualizaci těchto informací pro jakýkoli z již propojených Discord účtů.',
         'authorize' => 'Autorizovat Discord účet',

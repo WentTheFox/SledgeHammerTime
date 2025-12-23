@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'title' => 'App Settings',
+  'title' => 'إعدادات التطبيق',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
@@ -16,7 +16,7 @@ return [
       'displayName' => 'تنسيق',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'المعاينة-فقط الرد عند استخدام خيار التنسيق',
     ],
     'columns' => [
       'displayName' => 'أعمدة',
@@ -28,16 +28,16 @@ return [
       'displayName' => 'رأس',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'تنسيق المعاينة بخط عريض',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'الخيار الافتراضي ":hourOptionName" للأمر /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'خيار ":minuteOptionName" الافتراضي للأمر /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'الخيار الافتراضي ":secondOptionName" لـ /:atcommandName الأمر',
     ],
     'telemetry' => [
       'displayName' => 'Allow Telemetry collection',

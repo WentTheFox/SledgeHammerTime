@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Conturi conectate',
-    'description' => [
-      'Un cont HammerTime vă va permite să legați mai multe conturi Discord pentru a putea gestiona resursele într-un singur loc în viitor.',
-      'Mai jos puteți găsi o listă a tuturor conturilor Discord asociate cu acest cont HammerTime.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Conturi Discord',
     'crowdin' => 'Conturi Crowdin',
     'noConnectedAccounts' => 'Nu aveți niciun cont conectat în acest moment',
     'linkAdditional' => [
-      'heading' => 'Conectare sau actualizare cont',
-      'description' => 'Prin conectarea mai multor conturi la un singur cont HammerTime, puteți gestiona toate conturile conectate dintr-un singur loc.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Dacă fotografia de profil sau numele afișat s-au schimbat, poți utiliza această opțiune pentru a actualiza informațiile pentru orice cont Discord care este deja conectat.',
         'authorize' => 'Autorizați contul Discord',
