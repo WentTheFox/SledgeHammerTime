@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Gekoppelde accounts',
-    'description' => [
-      'Met een HammerTime account kun je meerdere Discord-accounts koppelen om instellingen op één plek te beheren.',
-      'Hieronder vind je een lijst van alle Discord accounts die gekoppeld zijn aan dit HammerTime account.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => 'Er zijn op het moment geen accounts verbonden',
     'linkAdditional' => [
-      'heading' => 'Koppel of Bewerk Account',
-      'description' => 'Door meerdere accounts met één HammerTime-account te koppelen kan u de instellingen van alle verbonden accounts op één plaats beheren.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Als je profielfoto of naam veranderd is, kun je deze ook gebruiken om die informatie bij te werken voor een al gelinkte Discord-account.',
         'authorize' => 'Discord account autoriseren',
