@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Connected Accounts',
-    'description' => [
-      'A HammerTime account is going to let you link multiple Discord accounts to be able to manage their resources in one place in the future.',
-      'Below you can find a list of all Discord accounts associated with this HammerTime account.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Fiókok',
     'crowdin' => 'Crowdin Fiókok',
     'noConnectedAccounts' => 'Jelenleg nincs összekapcsolt fiókod',
     'linkAdditional' => [
-      'heading' => 'Fiók Összekapcsolása vagy Frissítése',
-      'description' => 'Több fiók egyetlen HammerTime fiókhoz való összekapcsolásával egy helyen kezelheted az összes összekapcsolt fiók beállításait.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Ha a profilképed vagy a megjelenített neved megváltozott, akkor bármelyik korábban összekapcsolt Discord fiókodnál frissítheted is ezt az információt.',
         'authorize' => 'Discord fiók összekapcsolása',
