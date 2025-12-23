@@ -3,7 +3,47 @@
 .user-info {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-  gap: design.app-value('user-info-spacing');
+  gap: design.app-value('profile-user-info-spacing');
+
+
+  .user-image-wrap {
+    width: design.app-value('profile-user-info-image-size');
+    height: design.app-value('profile-user-info-image-size');
+    border-radius: design.app-value('profile-user-info-image-border-radius');
+    overflow: hidden;
+    position: relative;
+
+    .loading-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: design.app-color('profile-user-info-image-loading-bg');
+    }
+
+    .user-image {
+      width: 100%;
+      height: 100%;
+      // Make alt text visually hidden
+      overflow: hidden;
+      color: transparent;
+    }
+  }
+}
+
+.discord-user-info {
+  .user-name {
+    font-size: design.app-value('profile-user-info-name-font-size');
+  }
+}
+
+.crowdin-user-info {
+  .full-name, .username {
+    font-size: design.app-value('profile-user-info-name-font-size');
+  }
+
+  .username {
+    opacity: .65;
+  }
 }

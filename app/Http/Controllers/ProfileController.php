@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Jobs\RefreshDiscordUserInfo;
 use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use Illuminate\Http\RedirectResponse;
@@ -19,10 +20,26 @@ class ProfileController extends Controller {
    */
   public function edit(Request $request):Response {
     $discordUsers = [];
+    $staleAtByDiscordUserIds = [];
     $crowdinUsers = [];
     $authUser = Auth::user();
     if ($authUser){
-      $discordUsers = $authUser->discordUsers()->get(['id', 'name', 'display_name', 'discriminator', 'avatar'])->map(fn(DiscordUser $du) => $du->mapToUiInfo());
+      $discordUsers = $authUser->discordUsers()->get(['id', 'updated_at']);
+      foreach ($discordUsers as $du){
+        if ($du->updated_at->addHours(1)->isPast()){
+          RefreshDiscordUserInfo::dispatch($du->id);
+          $staleAtByDiscordUserIds[$du->id] = now();
+        }
+      }
+
+      $discordUsers = $authUser->discordUsers()->get(['id', 'name', 'display_name', 'discriminator', 'avatar'])->map(function (DiscordUser $du) use ($staleAtByDiscordUserIds) {
+        $result = $du->mapToUiInfo();
+        if (array_key_exists($du->id, $staleAtByDiscordUserIds)) {
+          $result['staleAt'] = $staleAtByDiscordUserIds[$du->id];
+        }
+
+        return $result;
+      });
       $crowdinUsers = $authUser->crowdinUsers()->get(['id', 'username', 'full_name', 'avatar_url'])->map(fn(CrowdinUser $cu) => $cu->mapToUiInfo());
     }
 

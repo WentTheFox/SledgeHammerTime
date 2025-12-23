@@ -11,16 +11,19 @@ use App\Models\BotCommandOptionChoice;
 use App\Models\BotCommandTranslation;
 use App\Models\DiscordUser;
 use App\Models\Settings;
+use App\Services\Discord\DiscordUserService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class BotSettingsController extends Controller {
+  public function __construct(protected DiscordUserService $discordUserService) { }
+
   function edit() {
     $userSettings = Auth::user()?->discordUsers()->get()->map(fn(DiscordUser $du) => [
       'user' => $du->mapToUiInfo(),
-      'settings' => $du->getSettingsRecordUncached(),
+      'settings' => $this->discordUserService->getSettingsRecord($du, cache: false),
     ]);
 
     return Inertia::render('Settings/IndexComponent', [
@@ -67,7 +70,7 @@ class BotSettingsController extends Controller {
       $discordUser->settings()->createMany($newSettingData);
     });
 
-    $discordUser->clearSettingsCache();
+    $this->discordUserService->clearSettingsCache($discordUser);
 
     return response()->noContent(200);
   }

@@ -6,7 +6,9 @@
   "scripts": {
     "predev:translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts",
     "predev": "concurrently -p name npm:predev:*",
-    "dev": "vite",
+    "dev:server": "vite",
+    "dev:queue": "php artisan horizon",
+    "dev": "concurrently -p name npm:dev:*",
     "lint": "eslint resources/**/*.{ts,vue}",
     "build:type-check": "vue-tsc",
     "build:static": "vite build",

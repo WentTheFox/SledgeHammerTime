@@ -1,11 +1,22 @@
 {
   "apps": [
     {
-      "name": "SledgeHammerTime",
+      "name": "SledgeHammerTime:SSR",
       "script": "artisan",
       "args": ["inertia:start-ssr"],
       "instances": 1,
       "cron_restart": "0 0 * * *",
+      "wait_ready": true,
+      "autorestart": true,
+      "interpreter": "php",
+      "watch": false,
+      "time": true
+    },
+    {
+      "name": "SledgeHammerTime:Horizon",
+      "script": "artisan",
+      "args": ["horizon"],
+      "instances": 1,
       "wait_ready": true,
       "autorestart": true,
       "interpreter": "php",

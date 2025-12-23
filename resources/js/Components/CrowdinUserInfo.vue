@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import UserInfo from '@/Components/UserInfo.vue';
+import { computed } from 'vue';
+
 export interface CrowdinUserInfoProps {
   id: number;
   fullName?: string;
@@ -6,19 +9,22 @@ export interface CrowdinUserInfoProps {
   avatarUrl: string;
 }
 
-defineProps<CrowdinUserInfoProps>();
+const props = defineProps<CrowdinUserInfoProps>();
+
+const displayName = computed(() => props.fullName || props.username);
 </script>
 
 <template>
-  <figure class="crowdin-user-info">
-    <img
-      :alt="`Avatar of ${username}`"
-      :src="avatarUrl"
-      class="user-image"
-    >
-    <span class="full-name">{{ fullName || username }}</span>
+  <UserInfo
+    class="crowdin-user-info"
+    :name="displayName"
+    service="Crowdin"
+    :avatar-url="avatarUrl"
+    :stale="false"
+  >
+    <span class="full-name">{{ displayName }}</span>
     <template v-if="fullName">
       <span class="username">({{ username }})</span>
     </template>
-  </figure>
+  </UserInfo>
 </template>

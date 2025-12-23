@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use App\Traits\HasUiInfo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Redis;
 
 class DiscordUser extends Model {
-  use HasFactory, HasUiInfo;
+  use HasUiInfo;
 
   /**
    * The attributes that are mass assignable.
@@ -31,7 +29,7 @@ class DiscordUser extends Model {
   ];
 
   protected $casts = [
-    // Since this is a bigint JS might lose precision if it's left as number
+    // Since this is a bigint JS might lose precision if it's left as a number
     'id' => 'string',
   ];
 
@@ -47,6 +45,10 @@ class DiscordUser extends Model {
     return $this->display_name ?? (trim($this->discriminator) !== '0' ? "{$this->name}#{$this->discriminator}" : $this->name);
   }
 
+  public function getSettingsCacheKeyAttribute():string {
+    return "user-settings-{$this->id}";
+  }
+
   function mapToUiInfo():array {
     return [
       'id' => $this->id,
@@ -54,38 +56,5 @@ class DiscordUser extends Model {
       'avatar' => $this->avatar,
       'discriminator' => $this->discriminator,
     ];
-  }
-
-  public function getSettingsCacheKey():string {
-    return "user-settings-{$this->id}";
-  }
-
-  public function getSettingsCacheDurationSeconds():int {
-    return 5 * 60;
-  }
-
-  public function clearSettingsCache():void {
-    Redis::del($this->getSettingsCacheKey());
-  }
-
-  public function getSettingsRecord():array {
-    $cacheKey = $this->getSettingsCacheKey();
-
-    $cachedData = Redis::get($cacheKey);
-    if ($cachedData){
-      return json_decode($cachedData, true);
-    }
-
-    $settings = $this->getSettingsRecordUncached();
-    Redis::set($cacheKey, json_encode($settings, JSON_THROW_ON_ERROR), 'EX', $this->getSettingsCacheDurationSeconds());
-
-    return $settings;
-  }
-
-  public function getSettingsRecordUncached():array {
-    return $this->settings()->get(['setting', 'value'])->reduce(fn(array $acc, Settings $s) => [
-      ...$acc,
-      $s->setting => $s->value,
-    ], []);
   }
 }

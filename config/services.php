@@ -34,6 +34,8 @@ return [
   'discord' => [
     'client_id' => env('DISCORD_CLIENT_ID'),
     'client_secret' => env('DISCORD_CLIENT_SECRET'),
+    'bot_token' => env('DISCORD_BOT_TOKEN'),
+    'base_url' => 'https://discord.com/api/v10/',
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
     'invite_url' => env('DISCORD_INVITE_URL'),
