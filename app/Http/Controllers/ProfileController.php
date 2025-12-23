@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Jobs\RefreshCrowdinUserInfo;
+use App\Jobs\RefreshDiscordUserInfo;
 use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use Illuminate\Http\RedirectResponse;
@@ -22,8 +24,24 @@ class ProfileController extends Controller {
     $crowdinUsers = [];
     $authUser = Auth::user();
     if ($authUser){
-      $discordUsers = $authUser->discordUsers()->get(['id', 'name', 'display_name', 'discriminator', 'avatar'])->map(fn(DiscordUser $du) => $du->mapToUiInfo());
-      $crowdinUsers = $authUser->crowdinUsers()->get(['id', 'username', 'full_name', 'avatar_url'])->map(fn(CrowdinUser $cu) => $cu->mapToUiInfo());
+      $discordUsers = $authUser->discordUsers()->get()->map(function (DiscordUser $du) {
+        $result = $du->mapToUiInfo();
+        if ($du->updated_at->addHours(1)->isPast()) {
+          $result['staleAt'] = now();
+          RefreshDiscordUserInfo::dispatch($du->id);
+        }
+
+        return $result;
+      });
+      $crowdinUsers = $authUser->crowdinUsers()->get()->map(function (CrowdinUser $cu) {
+        $result = $cu->mapToUiInfo();
+        if ($cu->updated_at->addHours(1)->isPast()) {
+          $result['staleAt'] = now();
+          RefreshCrowdinUserInfo::dispatch((string)$cu->id);
+        }
+
+        return $result;
+      });
     }
 
     return Inertia::render('Profile/IndexComponent', [

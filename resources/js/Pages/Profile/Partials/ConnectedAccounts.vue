@@ -20,12 +20,8 @@ const connectedAccountCount = computed(() => props.crowdinUsers.length + props.d
       <h2>{{ $t('profile.accounts.heading') }}</h2>
     </template>
 
-    <p class="mt-1">
-      {{ $t('profile.accounts.description.0') }}
-    </p>
-
     <p class="mt-1 mb-3">
-      {{ $t('profile.accounts.description.1') }}
+      {{ $t('profile.accounts.description') }}
     </p>
 
     <section

@@ -16,11 +16,14 @@ use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\Settings;
 use App\Models\User;
+use App\Services\Discord\DiscordUserService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
 class BotApiController extends Controller {
+  public function __construct(protected DiscordUserService $discordUserService) { }
+
   function user(Request $request) {
     /** @var User|null $user */
     $user = $request->user();
@@ -50,7 +53,10 @@ class BotApiController extends Controller {
      * @var DiscordUser $discordUser
      */
     $discordUser = DiscordUser::find($discordUserId);
-    $settings = $discordUser?->getSettingsRecord() ?? [];
+    $settings = [];
+    if ($discordUser){
+      $settings = $this->discordUserService->getSettingsRecord($discordUser);
+    }
     $mergedSettings = Settings::mergeWithDefaults($settings);
 
     return response()->json($mergedSettings);
@@ -199,7 +205,7 @@ class BotApiController extends Controller {
     return response()->json($commands);
   }
 
-  protected function saveLocalizations(BotCommand $command, string $locale, string $field, string $value, string $optionId = null, string $choiceId = null):void {
+  protected function saveLocalizations(BotCommand $command, string $locale, string $field, string $value, ?string $optionId = null, ?string $choiceId = null):void {
     $queryBy = [
       'command_id' => $command->id,
       'option_id' => $optionId,
