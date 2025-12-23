@@ -12,13 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Connected Accounts',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'description' => 'Több fiókot is összekapcsolhatsz a HammerTime fiókoddal, hogy egy helyen tudd kezelni őket. Az itt megejelenített alapvető felhasználói adatok automatikusan frissülnek legfeljebb óránként amikor betöltöd ezt az oldalt.',
     'discord' => 'Discord Fiókok',
     'crowdin' => 'Crowdin Fiókok',
     'noConnectedAccounts' => 'Jelenleg nincs összekapcsolt fiókod',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => 'További Fiókok Összekapcsolása',
+      'description' => 'Az alábbi gombok segítségével további fiókokat kapcsolhatsz össze a jelenlegi HammerTime fiókoddal.',
       'discord' => [
         'description' => 'Ha a profilképed vagy a megjelenített neved megváltozott, akkor bármelyik korábban összekapcsolt Discord fiókodnál frissítheted is ezt az információt.',
         'authorize' => 'Discord fiók összekapcsolása',
