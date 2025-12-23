@@ -35,8 +35,6 @@ class RefreshDiscordUserInfo implements ShouldQueue, ShouldBeUnique {
    * Execute the job.
    */
   public function handle():DiscordUser {
-    sleep(10);
-
     return $this->discordUserService->refreshUserInfo($this->discordUserId);
   }
 

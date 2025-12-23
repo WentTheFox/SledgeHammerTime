@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Discord;
 
 use App\Models\DiscordUser;
 use App\Models\Settings;
-use App\Services\SocialiteUser;
 use Illuminate\Container\Attributes\Singleton;
 use Illuminate\Support\Facades\Redis;
 
@@ -58,6 +59,7 @@ class DiscordUserService {
       'display_name' => $data->global_name,
       'discriminator' => $data->discriminator,
       'avatar' => $data->avatar,
+      'updated_at' => now(),
     ]);
   }
 }

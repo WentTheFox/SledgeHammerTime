@@ -100,31 +100,35 @@ void (async () => {
       })
     : false;
 
-  console.info('Getting project information from Crowdin…');
-  const projectList = await fetch('https://api.crowdin.com/api/v2/projects?hasManagerAccess=1', {
-    headers: {
-      Authorization: `Bearer ${crowdinApiKey}`,
-    },
-  }).then((r) => r.json() as Promise<ProjectListResponse>);
+  let crowdinProjectId = Number(process.env.CROWDIN_PROJECT_ID);
+  if (isNaN(crowdinProjectId)) {
+    console.info('Getting project information from Crowdin…');
+    const projectList = await fetch('https://api.crowdin.com/api/v2/projects?hasManagerAccess=1', {
+      headers: {
+        Authorization: `Bearer ${crowdinApiKey}`,
+      },
+    }).then((r) => r.json() as Promise<ProjectListResponse>);
 
-  const projectIdentifierToIdMap = (projectList.data as ProjectData[]).reduce(
-    (acc: Record<string, { id: number }>, p) => ({
-      ...acc,
-      [p.data.identifier]: { id: p.data.id },
-    }),
-    {},
-  );
+    const projectIdentifierToIdMap = (projectList.data as ProjectData[]).reduce(
+      (acc: Record<string, { id: number }>, p) => ({
+        ...acc,
+        [p.data.identifier]: { id: p.data.id },
+      }),
+      {},
+    );
 
-  console.info(`Found projects:`);
-  console.table(projectIdentifierToIdMap);
+    console.info(`Found projects:`);
+    console.table(projectIdentifierToIdMap);
 
-  console.info(`Checking for project with identifier ${crowdinProjectIdentifier}…`);
-  const crowdinProjectInfo = projectIdentifierToIdMap[crowdinProjectIdentifier];
-  if (!crowdinProjectInfo) {
-    throw new Error(`Could not find Crowdin project with identifier "${crowdinProjectIdentifier}"`);
+    console.info(`Checking for project with identifier ${crowdinProjectIdentifier}…`);
+    const crowdinProjectInfo = projectIdentifierToIdMap[crowdinProjectIdentifier];
+    if (!crowdinProjectInfo) {
+      throw new Error(`Could not find Crowdin project with identifier "${crowdinProjectIdentifier}"`);
+    }
+
+    crowdinProjectId = crowdinProjectInfo.id;
   }
 
-  const crowdinProjectId = crowdinProjectInfo.id;
   const rawReportData: ProjectReportDataResponse = await getCrowdinReportData({
     crowdinApiKey,
     cachedDataExists,

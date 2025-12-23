@@ -44,6 +44,10 @@ return [
   'crowdin' => [
     'client_id' => env('CROWDIN_CLIENT_ID'),
     'client_secret' => env('CROWDIN_CLIENT_SECRET'),
+    'base_url' => 'https://api.crowdin.com/api/v2',
+    'api_key' => env('CROWDIN_API_KEY'),
+    'project_id' => env('CROWDIN_PROJECT_ID'),
+    'project_identifier' => env('CROWDIN_PROJECT_IDENTIFIER'),
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
   ],

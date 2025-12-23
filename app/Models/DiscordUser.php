@@ -26,6 +26,7 @@ class DiscordUser extends Model {
     'scopes',
     'token_expires',
     'user_id',
+    'updated_at',
   ];
 
   protected $casts = [
