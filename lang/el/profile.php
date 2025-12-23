@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Συνδεδεμένοι Λογαριασμοί',
-    'description' => [
-      'Ένας λογαριασμός HammerTime θα σας επιτρέψει να συνδέσετε πολλαπλούς λογαριασμούς του Discord για να είστε σε θέση να διαχειριστείτε τις ρυθμίσεις τους από ένα μέρος στο μέλλον.',
-      'Παρακάτω μπορείτε να βρείτε μια λίστα με όλους τους λογαριασμούς του Discord που σχετίζονται με αυτόν τον λογαριασμό HammerTime.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Λογαριασμοί Discord',
     'crowdin' => 'Λογαριασμοί Crowdin',
     'noConnectedAccounts' => 'Δεν έχετε κανέναν λογαριασμό συνδεδεμένο αυτή τη στιγμή',
     'linkAdditional' => [
-      'heading' => 'Σύνδεση ή Ενημέρωση Λογαριασμού',
-      'description' => 'Συνδέοντας πολλούς λογαριασμούς με έναν ενιαίο λογαριασμό HammerTime, μπορείτε να διαχειρίζεστε τις ρυθμίσεις όλων των συνδεδεμένων λογαριασμών σε ένα μόνο σημείο.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Αν η εικόνα προφίλ ή το όνομα προφίλ σας έχει αλλάξει, μπορείτε επίσης να χρησιμοποιήσετε αυτό το στοιχείο για να ενημερώσετε τις πληροφορίες αυτές για οποιονδήποτε λογαριασμό Discord που είναι ήδη συνδεδεμένος.',
         'authorize' => 'Εξουσιοδότηση λογαριασμού Discord',

@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Comptes connectés',
-    'description' => [
-      'Un compte HammerTime vous permettra de relier plusieurs comptes Discord afin de pouvoir gérer leurs ressources en un seul endroit à l\'avenir.',
-      'Vous trouverez ci-dessous une liste de tous les comptes Discord associés à ce compte HammerTime.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Comptes Discord',
     'crowdin' => 'Comptes Crowdin',
     'noConnectedAccounts' => 'Vous n\'avez pas de comptes connectés pour le moment',
     'linkAdditional' => [
-      'heading' => 'Lier ou mettre à jour un compte',
-      'description' => 'En liant plusieurs comptes à un seul compte HammerTime, vous pouvez gérer les paramètres de tous les comptes liés au même endroit.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'Si votre image de profil ou votre nom d\'affichage ont changé, vous pouvez aussi utiliser ceci pour mettre à jour ces informations pour tout compte Discord déjà lié.',
         'authorize' => 'Autoriser le compte Discord',

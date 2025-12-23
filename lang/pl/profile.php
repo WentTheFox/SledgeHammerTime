@@ -12,23 +12,20 @@ return [
   ],
   'accounts' => [
     'heading' => 'Połączone konta',
-    'description' => [
-      'Konto HammerTime pozwoli Ci połączyć wiele kont Discord, aby w przyszłości móc zarządzać ich zasobami w jednym miejscu.',
-      'Poniżej znajduje się lista wszystkich kont Discorda powiązanych z tym kontem HammerTime.',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Konta Discord',
     'crowdin' => 'Konta Crowdin',
     'noConnectedAccounts' => 'W tej chwili nie masz żadnych połączonych kont',
     'linkAdditional' => [
-      'heading' => 'Połącz lub zaktualizuj konto',
-      'description' => 'Łącząc wiele kont do pojedynczego konta HammerTime, możesz zarządzać wszystkimi ustawieniami kont połączonych w jednym miejscu.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
+        'description' => 'Jeśli zmieniono zdjęcie profilowe lub wyświetlaną nazwę, możesz również użyć tego przycisku do aktualizacji tych informacji dla każdego konta Discord, które jest już połączone.',
         'authorize' => 'Autoryzuj konto Discord',
       ],
       'crowdin' => [
         'description' => 'Jeśli jesteś tłumaczem dla projektu, połączenie konta Crowdin pozwoli Ci ostatecznie dostosować Twoją nazwę w punktach tłumaczenia, a także służy jako dodatkowy poziom weryfikacji, że te konta należą do Ciebie, jeśli dołączysz do serwera Discord projektu.',
-        'authorize' => 'Authorize Crowdin account',
+        'authorize' => 'Autoryzuj konto Crowdin',
       ],
     ],
   ],
