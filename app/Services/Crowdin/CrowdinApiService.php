@@ -50,7 +50,12 @@ class CrowdinApiService {
   }
 
   public function getProjectMember(int $id):GetProjectMemberResponse {
-    $response = $this->createPendingRequest()->get(sprintf('/projects/%s/members/%s', $this->getProjectId(), $id));
+    $url = sprintf('/projects/%s/members/%s', $this->getProjectId(), $id);
+    $response = $this->createPendingRequest()->get($url);
+    $responseJson = $response->json();
+    if (!array_key_exists('data', $responseJson)){
+      throw new RuntimeException(sprintf("Failed to fetch project member data from %s\nResponse body:%s", $url, $response->body()));
+    }
     return GetProjectMemberResponse::fromResponse($response);
   }
 }
