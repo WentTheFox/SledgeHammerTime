@@ -807,6 +807,10 @@
       "username": "ImTheSpyke",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17433118/medium/bbff633de8e7f965b6f101198753a7c5.png"
     },
+    "17435812": {
+      "username": "Mrgrass",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/37ad9711e5251a1cc32bb4f6d6b9055c_default.png"
+    },
     "17438540": {
       "username": "krasnova.nina27",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17438540/medium/85f78073210f3b133acbe51abef74138.jpeg",
@@ -1005,11 +1009,12 @@
     "el": {
       "translatorIds": [
         "14459560",
-        "13365555"
+        "13365555",
+        "17435812"
       ],
       "progress": {
         "approval": 98,
-        "translation": 98
+        "translation": 100
       }
     },
     "en-GB": {
