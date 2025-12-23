@@ -52,7 +52,7 @@ class HandleInertiaRequests extends Middleware {
         'fallbackLocale' => config('app.fallback_locale'),
         'languages' => array_flip(Config::get('languages.ui_locale_map')),
         'supportedLanguages' => Config::get('languages.supported_locales'),
-        'crowdinProjectId' => Config::get('crowdin.project_id'),
+        'crowdinProjectId' => Config::get('services.crowdin.project_identifier'),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
     ];

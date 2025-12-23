@@ -334,6 +334,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15453302/medium/d759f9ec680f825d76efb956f3c5c0bb.png",
       "fullName": "XXL Steve"
     },
+    "15502506": {
+      "username": "Pawe__",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15502506/medium/7307ba0d6940d477a642b3d72083f79d_default.png"
+    },
     "15514192": {
       "username": "unpredictable",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15514192/medium/375165879a1d44129a06d1c635976680.png",
@@ -1285,12 +1289,13 @@
         "14673608",
         "17431518",
         "17444122",
+        "15502506",
         "17486798",
         "17490278"
       ],
       "progress": {
         "approval": 86,
-        "translation": 86
+        "translation": 99
       }
     },
     "pt-BR": {

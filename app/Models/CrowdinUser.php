@@ -24,6 +24,7 @@ class CrowdinUser extends Model {
     'scopes',
     'token_expires',
     'user_id',
+    'updated_at',
   ];
 
   function mapToUiInfo():array {
