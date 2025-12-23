@@ -31,7 +31,7 @@ return [
     'cookies' => [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
-      'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
+      'disable' => 'Usem "cookies" per retenir informacio. Podeu indicar al vostre navegador que rebutgi totes les cookies o que indiqui quan s\'envia una cookie. Tanmateix, si no accepteu les cookies, és possible que no pugueu utilitzar algunes parts del nostre lloc web.',
       'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
     ],
     'security' => [

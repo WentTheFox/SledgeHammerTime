@@ -7,7 +7,7 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Ustawienia zaawansowane',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Domyślny',
   'fields' => [
     'timezone' => [
       'displayName' => 'Strefa czasowa',

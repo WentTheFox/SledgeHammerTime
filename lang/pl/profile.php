@@ -21,7 +21,7 @@ return [
     'noConnectedAccounts' => 'W tej chwili nie masz żadnych połączonych kont',
     'linkAdditional' => [
       'heading' => 'Połącz lub zaktualizuj konto',
-      'description' => 'By linking multiple accounts to a single HammerTime account, you can manage all connected accounts\' settings in a single place.',
+      'description' => 'Łącząc wiele kont do pojedynczego konta HammerTime, możesz zarządzać wszystkimi ustawieniami kont połączonych w jednym miejscu.',
       'discord' => [
         'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
         'authorize' => 'Autoryzuj konto Discord',

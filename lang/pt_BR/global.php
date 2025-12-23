@@ -93,8 +93,8 @@ return [
       'notAffiliated' => 'Esse projeto não é filiado ao Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
+      'dark' => 'Tema Escuro',
+      'light' => 'Tema Claro',
       'system' => 'Use System Theme',
     ],
   ],
