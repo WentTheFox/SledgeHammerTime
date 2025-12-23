@@ -1,10 +1,40 @@
 <script setup lang="ts">
+import UserInfo from '@/Components/UserInfo.vue';
+import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
+import { useRoute } from '@/composables/useRoute';
+import { computed, ref, watch } from 'vue';
+
 export interface DiscordUserInfoProps {
   id: string;
   name: string;
   avatar: string;
   discriminator: string;
+  staleAt?: string;
 }
+
+const props = defineProps<DiscordUserInfoProps>();
+
+const route = useRoute();
+const updatedInfo = ref<null | DiscordUserInfoProps>(null);
+
+const currentInfo = computed((): DiscordUserInfoProps => updatedInfo.value ?? props);
+const avatarUrl = computed(() => getAvatarLink(currentInfo.value));
+
+const refreshUserInfo = useExponentialBackoff('refresh-user-info', async () => {
+  if (!props.staleAt) return true;
+
+  const localUserInfoRoute = route('app.localUserInfo', {
+    provider: 'discord',
+    id: props.id,
+  });
+  const response = await fetch(`${localUserInfoRoute}?stale_at=${encodeURIComponent(props.staleAt)}`);
+  if (!response.ok) {
+    return false;
+  }
+
+  updatedInfo.value = (await response.json()) as DiscordUserInfoProps;
+  return true;
+});
 
 const getAvatarLink = (du: DiscordUserInfoProps) => {
   if (du.avatar) {
@@ -15,23 +45,28 @@ const getAvatarLink = (du: DiscordUserInfoProps) => {
   // Default avatar logic
   const defaultAvatarFileName =
     (du.discriminator === '0'
-      ? // User is migrated to new username system
+      ? // User is migrated to the new username system
       parseInt(du.id, 10) >> 22
-      : // User is on previous username system
+      : // User is on the previous username system
       parseInt(du.discriminator, 10)) % 5;
-  return `/embed/avatars/${defaultAvatarFileName}.png`;
+  return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarFileName}.png`;
 };
 
-defineProps<DiscordUserInfoProps>();
+watch(() => props.staleAt, (staleAt) => {
+  if (!staleAt) return;
+
+  refreshUserInfo.start();
+}, { immediate: true });
 </script>
 
 <template>
-  <figure class="discord-user-info">
-    <img
-      :alt="`Avatar of ${name}`"
-      :src="getAvatarLink($props)"
-      class="user-image"
-    >
-    <span class="user-name">{{ name }}</span>
-  </figure>
+  <UserInfo
+    class="discord-user-info"
+    :name="currentInfo.name"
+    :avatar-url="avatarUrl"
+    service="Discord"
+    :stale="!!currentInfo.staleAt"
+  >
+    <span class="user-name">{{ currentInfo.name }}</span>
+  </UserInfo>
 </template>

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Contracts\Provider as ProviderContract;
+use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -112,7 +113,7 @@ class AuthController extends Controller {
     return redirect()->route('profile.edit', ['locale' => $login_locale]);
   }
 
-  protected function updateOrCreateDiscordUser($data) {
+  protected function updateOrCreateDiscordUser(SocialiteUser $data) {
     /**
      * @var DiscordUser $result
      */

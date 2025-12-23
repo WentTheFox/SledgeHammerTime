@@ -16,8 +16,11 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_version: "8.5"
-          php_extensions: bcmath intl
+          php_extensions: bcmath intl pcntl
           version: 2.x
+        env:
+          CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
+          CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
 
       - name: Cache Composer dependencies
         uses: actions/cache@v3

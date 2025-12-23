@@ -24,6 +24,7 @@ class User extends Authenticatable {
     'id',
     'name',
     'hidden_formats',
+    'horizon_access',
   ];
 
   /**

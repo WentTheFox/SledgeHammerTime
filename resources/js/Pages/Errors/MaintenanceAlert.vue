@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject } from '@/injection-keys';
@@ -6,7 +7,7 @@ import HtAlert from '@/Reusable/HtAlert.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { router } from '@inertiajs/vue3';
-import { inject, onMounted, onUnmounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted } from 'vue';
 
 export interface MaintenanceAlertProps {
   discordUrl?: string;
@@ -14,52 +15,38 @@ export interface MaintenanceAlertProps {
 
 defineProps<MaintenanceAlertProps>();
 
-const refreshTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
-const refreshCount = ref<number>(0);
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 
-const handleRefreshTimeout = () => {
-  const nextRefreshIn = Math.pow(2, refreshCount.value++) * 500;
-  console.info('Checking if the current page can be safely reloaded in %d ms', nextRefreshIn);
-  refreshTimeout.value = setTimeout(() => {
-    let routeUrl: string | undefined = undefined;
-    let routeUrlError: unknown;
-    try {
-      routeUrl = String(route(route().current() as string, routeParams.value));
-    } catch (e) {
-      routeUrlError = e;
-    }
-    if (!routeUrl) {
-      console.warn('Failed to get current route URL for automatic refresh', routeUrlError);
-      clearRefreshTimeout();
-      return;
-    }
-
-    fetch(routeUrl, { method: 'HEAD' }).then((response) => {
-      if (!response.ok) {
-        handleRefreshTimeout();
-        return;
-      }
-
-      router.get(routeUrl, undefined, { replace: true });
-    });
-  }, nextRefreshIn);
-};
-const clearRefreshTimeout = () => {
-  if (refreshTimeout.value !== null) {
-    clearTimeout(refreshTimeout.value);
-    refreshTimeout.value = null;
+const safeReload = useExponentialBackoff('safe-reload', async () => {
+  let routeUrl: string | undefined = undefined;
+  let routeUrlError: unknown;
+  try {
+    routeUrl = String(route(route().current() as string, routeParams.value));
+  } catch (e) {
+    routeUrlError = e;
   }
-};
+  if (!routeUrl) {
+    console.warn('Failed to get current route URL for automatic refresh', routeUrlError);
+    return true;
+  }
+
+  const response = await fetch(routeUrl, { method: 'HEAD' });
+  if (!response.ok) {
+    return false;
+  }
+
+  router.get(routeUrl, undefined, { replace: true });
+  return true;
+});
 
 onMounted(() => {
-  handleRefreshTimeout();
+  safeReload.start();
 });
 
 onUnmounted(() => {
-  clearRefreshTimeout();
+  safeReload.stop();
 });
 </script>
 
