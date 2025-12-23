@@ -16,7 +16,7 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_version: "8.5"
-          php_extensions: bcmath intl
+          php_extensions: bcmath intl pcntl
           version: 2.x
 
       - name: Cache Composer dependencies
