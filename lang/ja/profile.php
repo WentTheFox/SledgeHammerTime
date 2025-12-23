@@ -12,16 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'アカウント連携',
-    'description' => [
-      'HammerTimeアカウントでは、複数のDiscordアカウントを連携できるようになり、将来的にはそれらのリソースを一元管理できるようになります。',
-      '以下に、このHammerTimeアカウントに関連付けられているすべてのDiscordアカウントの一覧を記載します。',
-    ],
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discordアカウント',
     'crowdin' => 'Crowdinアカウント',
     'noConnectedAccounts' => '現在、接続されているアカウントはありません',
     'linkAdditional' => [
-      'heading' => 'アカウントの紐付けまたは更新',
-      'description' => '複数のアカウントを単一のHammerTimeアカウントに連携させることで、接続された全アカウントの設定を一元管理できます。',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
         'description' => 'プロフィール画像や表示名が変更された場合、既に連携済みのDiscordアカウントについても、この方法で情報を更新できます。',
         'authorize' => 'Discordアカウントを認証する',
