@@ -33,7 +33,9 @@ English and Hungarian translations have been included, so no translators will be
 
 ### Credits
 
-- 🇸🇦 Arabic: [yn](https://crowdin.com/profile/user99)
+- 🇸🇦 Arabic
+  - [hello578205cd-ar](https://crowdin.com/profile/hello578205cd-ar)
+  - [yn](https://crowdin.com/profile/user99)
 - 🇧🇬 Bulgarian
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Rxshi](https://crowdin.com/profile/Rxshi)
@@ -82,6 +84,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
+  - [Michael Scott](https://crowdin.com/profile/michaelscottplayvalley)
   - [Naamloos_NL](https://crowdin.com/profile/Naamloos_NL)
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)

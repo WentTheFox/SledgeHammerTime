@@ -910,17 +910,27 @@
       "username": "ToMacMa",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17490278/medium/342625819777c55127c2f6140d046100.jpeg",
       "fullName": "kaczuszki są najlepsze!"
+    },
+    "17492170": {
+      "username": "hello578205cd-ar",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17492170/medium/7606ad3f9862e610b1e4815e30c967f1_default.png"
+    },
+    "17492914": {
+      "username": "michaelscottplayvalley",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17492914/medium/378fe4aadc2c7eaa8946650ead91894d.jpeg",
+      "fullName": "Michael Scott"
     }
   },
   "languages": {
     "ar": {
       "translatorIds": [
         "13533384",
-        "14914643"
+        "14914643",
+        "17492170"
       ],
       "progress": {
         "approval": 13,
-        "translation": 13
+        "translation": 14
       }
     },
     "bg": {
@@ -1257,11 +1267,12 @@
         "17430050",
         "14089137",
         "17454240",
-        "16053916"
+        "16053916",
+        "17492914"
       ],
       "progress": {
         "approval": 52,
-        "translation": 52
+        "translation": 55
       }
     },
     "pl": {
