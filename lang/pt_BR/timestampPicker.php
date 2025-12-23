@@ -12,16 +12,16 @@ return [
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Ir para o mês atual',
     ],
     'tooltip' => [
       'setToCurrent' => 'Definir para hora atual',
       'lock' => 'Trancar timestamp via URL',
       'unlock' => 'Destrancar timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Ano anterior',
+      'previousMonth' => 'Mês anterior',
+      'nextMonth' => 'Próximo mês',
+      'nextYear' => 'Próximo ano',
     ],
   ],
   'table' => [
@@ -40,7 +40,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'p' => 'O site antigo do projeto, ainda disponível até que este Beta seja lançado',
     ],
     'textColor' => [
       'header' => 'Gerador de Texto <1>Colorido</1> do Rebane',
