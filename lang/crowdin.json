@@ -547,7 +547,7 @@
     },
     "16655625": {
       "username": "Sr_Crix",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16655625/medium/a4fe32830ff1e5896bc17084e5877831.png"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16655625/medium/3dabc4be683eb43abeea6d7df83ab028.jpg"
     },
     "16669493": {
       "username": "x0jony",
@@ -809,7 +809,7 @@
     },
     "17435812": {
       "username": "Mrgrass",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/37ad9711e5251a1cc32bb4f6d6b9055c_default.png"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/020b9fd504ca5a90da78ddc27c20226b.jpeg"
     },
     "17438540": {
       "username": "krasnova.nina27",
@@ -1013,7 +1013,7 @@
         "17435812"
       ],
       "progress": {
-        "approval": 98,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -1053,8 +1053,8 @@
         "17453292"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1185,8 +1185,8 @@
         "17429540"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "ko": {
@@ -1364,15 +1364,15 @@
         "17439418",
         "17302298",
         "17450376",
-        "17430436",
         "17454624",
+        "17430436",
         "16873803",
         "17472794",
         "17481246"
       ],
       "progress": {
-        "approval": 92,
-        "translation": 92
+        "approval": 99,
+        "translation": 99
       }
     },
     "sr": {
