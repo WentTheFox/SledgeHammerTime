@@ -12,13 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'アカウント連携',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'description' => '複数のアカウントをHammerTimeアカウントに連携させ、一箇所で管理できます。ここに表示される基本ユーザー情報は、このページを読み込む際に最大1時間に1回自動更新されます。',
     'discord' => 'Discordアカウント',
     'crowdin' => 'Crowdinアカウント',
     'noConnectedAccounts' => '現在、接続されているアカウントはありません',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => '追加アカウントをリンクする',
+      'description' => '以下のボタンを使用して、現在のHammerTimeアカウントに追加のアカウントを接続してください。',
       'discord' => [
         'description' => 'プロフィール画像や表示名が変更された場合、既に連携済みのDiscordアカウントについても、この方法で情報を更新できます。',
         'authorize' => 'Discordアカウントを認証する',
