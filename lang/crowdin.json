@@ -811,6 +811,11 @@
       "username": "Mrgrass",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/020b9fd504ca5a90da78ddc27c20226b.jpeg"
     },
+    "17436820": {
+      "username": "Versus41",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17436820/medium/15b2f0b513447d87f2c6b83656cb9e4d.jpeg",
+      "fullName": "Versus"
+    },
     "17438540": {
       "username": "krasnova.nina27",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17438540/medium/85f78073210f3b133acbe51abef74138.jpeg",
@@ -1295,7 +1300,8 @@
         "17444122",
         "15502506",
         "17486798",
-        "17490278"
+        "17490278",
+        "17436820"
       ],
       "progress": {
         "approval": 97,
