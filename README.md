@@ -205,6 +205,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇧🇷 Portuguese, Brazilian
   - [Allan Poubel (The Poubel)](https://crowdin.com/profile/allanpoubel)
   - [Allef Moraes](https://crowdin.com/profile/allef.moraes)
+  - [Astro Ph_77](https://crowdin.com/profile/astroph.707)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
   - [leo0six](https://crowdin.com/profile/leo0six)
