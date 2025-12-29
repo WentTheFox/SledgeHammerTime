@@ -195,6 +195,7 @@ English and Hungarian translations have been included, so no translators will be
   - [stha](https://crowdin.com/profile/sthakrk)
   - [sz3fxx](https://crowdin.com/profile/sz3fxx)
   - [Taki sobie Krzak Internetowy](https://crowdin.com/profile/krzak.bushowski)
+  - [Versus](https://crowdin.com/profile/Versus41)
   - [Wojciech Marzec](https://crowdin.com/profile/C.Ezra.M)
 - 🇵🇹 Portuguese
   - [ً](https://crowdin.com/profile/buckshot-)
