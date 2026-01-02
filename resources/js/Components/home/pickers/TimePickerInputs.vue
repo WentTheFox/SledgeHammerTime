@@ -73,10 +73,33 @@ const handleAmPmSelectKeydown = (e: KeyboardEvent) => {
   }
 };
 
+const maxHoursValue = computed(() => twelveHourMode.value ? 12 : 23);
+const minHoursValue = computed(() => twelveHourMode.value ? 1 : 0);
 const handleHoursKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
+    switch (e.key) {
+      case 'ArrowUp':
+      case 'ArrowDown': {
+        const currentValue = parseInt(hoursInputValuePadded.value, 10);
+        if (e.key === 'ArrowUp') {
+          let increasedValue = currentValue + 1;
+          if (increasedValue > maxHoursValue.value) {
+            increasedValue = minHoursValue.value;
+          }
+          hoursInputValue.value = String(increasedValue);
+        }
+        else {
+          let decreasedValue = currentValue - 1;
+          if (decreasedValue < minHoursValue.value) {
+            decreasedValue = maxHoursValue.value;
+          }
+          hoursInputValue.value = String(decreasedValue);
+        }
+      }
+        break;
+    }
     return;
   }
 
@@ -101,11 +124,34 @@ const handleHoursKeydown = (e: Event) => {
       break;
   }
 };
+const maxMinutesValue = 59;
+const minMinutesValue = 0;
 const handleMinutesKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
-    e.preventDefault();
+    console.debug(e.key);
+    switch (e.key) {
+      case 'ArrowUp':
+      case 'ArrowDown': {
+        const currentValue = parseInt(minutesInputValuePadded.value, 10);
+        if (e.key === 'ArrowUp') {
+          let increasedValue = currentValue + 1;
+          if (increasedValue > maxMinutesValue) {
+            increasedValue = minMinutesValue;
+          }
+          minutesInputValue.value = String(increasedValue);
+        }
+        else {
+          let decreasedValue = currentValue - 1;
+          if (decreasedValue < minMinutesValue) {
+            decreasedValue = maxMinutesValue;
+          }
+          minutesInputValue.value = String(decreasedValue);
+        }
+      }
+        break;
+    }
     return;
   }
 
@@ -125,11 +171,33 @@ const handleMinutesKeydown = (e: Event) => {
       break;
   }
 };
+const maxSecondsValue = 59;
+const minSecondsValue = 0;
 const handleSecondsKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
-    e.preventDefault();
+    switch (e.key) {
+      case 'ArrowUp':
+      case 'ArrowDown': {
+        const currentValue = parseInt(secondsInputValuePadded.value, 10);
+        if (e.key === 'ArrowUp') {
+          let increasedValue = currentValue + 1;
+          if (increasedValue > maxSecondsValue) {
+            increasedValue = minSecondsValue;
+          }
+          secondsInputValue.value = String(increasedValue);
+        }
+        else {
+          let decreasedValue = currentValue - 1;
+          if (decreasedValue < minSecondsValue) {
+            decreasedValue = maxSecondsValue;
+          }
+          secondsInputValue.value = String(decreasedValue);
+        }
+      }
+        break;
+    }
     return;
   }
 
@@ -184,8 +252,8 @@ watch(seconds, newSeconds => {
     type="text"
     inputmode="numeric"
     maxlength="2"
-    min="0"
-    max="59"
+    :min="minMinutesValue"
+    :max="maxMinutesValue"
     class="time-picker-input"
     @focus.passive="handleMinutesFocused"
     @keydown="handleMinutesKeydown"
@@ -198,8 +266,8 @@ watch(seconds, newSeconds => {
     type="text"
     inputmode="numeric"
     maxlength="2"
-    min="0"
-    max="59"
+    :min="minSecondsValue"
+    :max="maxSecondsValue"
     class="time-picker-input"
     @focus.passive="handleSecondsFocused"
     @keydown="handleSecondsKeydown"
