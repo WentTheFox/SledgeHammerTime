@@ -84,8 +84,8 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   };
   const setInitialCustomTimeInput = () => {
     const storedPref = localStorage.getItem(customTimePrefKey);
-    // Disable custom time input by default
-    customTimeInputEnabled.value = falseByDefault(storedPref);
+    // Enable custom time input by default
+    customTimeInputEnabled.value = trueByDefault(storedPref);
   };
   const setInitialSidebarOnRight = () => {
     const storedPref = localStorage.getItem(sidebarPrefKey);
