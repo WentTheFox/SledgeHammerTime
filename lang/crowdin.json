@@ -811,6 +811,11 @@
       "username": "Mrgrass",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/020b9fd504ca5a90da78ddc27c20226b.jpeg"
     },
+    "17436820": {
+      "username": "Versus41",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17436820/medium/15b2f0b513447d87f2c6b83656cb9e4d.jpeg",
+      "fullName": "Versus"
+    },
     "17438540": {
       "username": "krasnova.nina27",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17438540/medium/85f78073210f3b133acbe51abef74138.jpeg",
@@ -926,6 +931,11 @@
       "username": "michaelscottplayvalley",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17492914/medium/378fe4aadc2c7eaa8946650ead91894d.jpeg",
       "fullName": "Michael Scott"
+    },
+    "17503118": {
+      "username": "astroph.707",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17503118/medium/95a38997f242eea442c74827e8dc523d.png",
+      "fullName": "Astro Ph_77"
     }
   },
   "languages": {
@@ -1295,11 +1305,12 @@
         "17444122",
         "15502506",
         "17486798",
+        "17436820",
         "17490278"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 100,
+        "translation": 100
       }
     },
     "pt-BR": {
@@ -1312,7 +1323,8 @@
         "12931321",
         "17151532",
         "17488616",
-        "17450480"
+        "17450480",
+        "17503118"
       ],
       "progress": {
         "approval": 19,
@@ -1337,8 +1349,8 @@
         "16601907"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "ru": {
