@@ -8,6 +8,7 @@ import TimePickerInputs from '@/Components/home/pickers/TimePickerInputs.vue';
 import { useDatePicker } from '@/composables/useDatePicker';
 import { useTimePicker } from '@/composables/useTimePicker';
 import { dateTimeLibraryInject, devModeInject, localSettingsInject } from '@/injection-keys';
+import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import HtPopup, { CustomPopupApi, Focusable } from '@/Reusable/HtPopup.vue';
@@ -57,6 +58,7 @@ const {
   openTimePicker,
   closeTimePicker,
 } = useTimePicker(dtl);
+const dateInputValue = ref<string>('');
 const timeInputValue = ref<string>('');
 
 const emit = defineEmits<{
@@ -68,8 +70,9 @@ const formRef = useTemplateRef<HTMLFormElement>('form-el');
 const timeInputRef = useTemplateRef<InputApi>('time-input-el');
 
 const select = () => {
-  const selectedTimeValue = devMode?.value ? getSelectedTime() : timeInputValue.value;
-  emit('selected', `${getSelectedDate()}T${selectedTimeValue}`);
+  const selectedDateValue = settings?.customDateInputEnabled ? getSelectedDate() : dateInputValue.value;
+  const selectedTimeValue = settings?.customTimeInputEnabled ? getSelectedTime() : timeInputValue.value;
+  emit('selected', `${selectedDateValue}T${selectedTimeValue}`);
 };
 const selectAndClose = () => {
   const focusedEl = formRef.value?.querySelector<HTMLElement>(':focus');
@@ -80,10 +83,13 @@ const selectAndClose = () => {
   close();
 };
 const open = (initialValue: DateTimeLibraryValue, focusOnClose?: Focusable | null) => {
-  datePickerOpen(initialValue);
+  if (settings?.customDateInputEnabled) {
+    datePickerOpen(initialValue);
+  }
   if (settings?.customTimeInputEnabled) {
     timePickerOpen(initialValue);
   }
+  dateInputValue.value = initialValue.toISODateString();
   timeInputValue.value = initialValue.toISOTimeString();
   popupRef.value?.open(focusOnClose);
 };
@@ -131,7 +137,7 @@ defineExpose<DateTimePickerApi>({
 <template>
   <HtPopup
     ref="popup-el"
-    :wide="Boolean(settings?.customTimeInputEnabled)"
+    :wide="Boolean(settings?.customDateInputEnabled && settings?.customTimeInputEnabled)"
     @close="closeTimePicker"
     @open="openTimePicker"
   >
@@ -139,8 +145,31 @@ defineExpose<DateTimePickerApi>({
       ref="form-el"
       @submit.prevent="selectAndClose"
     >
-      <div class="datetime-picker-controls">
-        <div class="picker-date-control">
+      <div
+        v-if="!settings?.customDateInputEnabled"
+        class="mb-2"
+      >
+        <HtFormControl
+          id="date-time-picker-date-input"
+          :label="$t('timestampPicker.picker.label.date')"
+        >
+          <HtInput
+            ref="date-input-el"
+            v-model="dateInputValue"
+            step="1"
+            type="date"
+          />
+        </HtFormControl>
+      </div>
+      <div
+        class="datetime-picker-controls"
+        :data-custom-date="Boolean(settings?.customDateInputEnabled) || undefined"
+        :data-custom-time="Boolean(settings?.customTimeInputEnabled) || undefined"
+      >
+        <div
+          v-if="settings?.customDateInputEnabled"
+          class="picker-date-control"
+        >
           <HtFormInputGroup
             v-if="devMode"
             dir="ltr"
@@ -204,57 +233,19 @@ defineExpose<DateTimePickerApi>({
         v-if="!settings?.customTimeInputEnabled"
         class="mt-2 mb-2"
       >
-        <HtInput
+        <HtFormControl
           id="date-time-picker-time-input"
-          ref="time-input-el"
-          v-model="timeInputValue"
-          step="1"
-          type="time"
-        />
+          :label="$t('timestampPicker.picker.label.time')"
+        >
+          <HtInput
+            ref="time-input-el"
+            v-model="timeInputValue"
+            step="1"
+            type="time"
+          />
+        </HtFormControl>
       </div>
       <PickerFormActions @close="close" />
     </form>
   </HtPopup>
 </template>
-
-<style lang="scss">
-@use "../../../../css/design";
-
-.picker-date-inputs {
-  @include design.screen-below('md') {
-    input {
-      text-align: center;
-      @include design.hide-spin-buttons;
-    }
-  }
-}
-
-.datetime-picker-controls {
-  display: flex;
-  flex-flow: row wrap;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  gap: .5em;
-
-  @include design.screen-above('md') {
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .picker-date-control {
-    flex: 1 1 100%;
-    max-width: 22em;
-
-    @include design.screen-above('md') {
-      flex-basis: auto;
-    }
-  }
-
-  .picker-time-control {
-    flex: 0 1 260px;
-    min-width: 0;
-  }
-}
-</style>

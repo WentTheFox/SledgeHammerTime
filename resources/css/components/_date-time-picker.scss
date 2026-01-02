@@ -1,0 +1,43 @@
+@use "../design";
+
+.picker-date-inputs {
+  @include design.screen-below('md') {
+    input {
+      text-align: center;
+      @include design.hide-spin-buttons;
+    }
+  }
+}
+
+.datetime-picker-controls {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+
+  &:not([data-custom-date]) {
+    max-width: design.app-value('time-picker-max-width');
+  }
+
+  @include design.screen-above('md') {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .picker-date-control {
+    flex: 1 1 100%;
+    max-width: 22em;
+
+    @include design.screen-above('md') {
+      flex-basis: auto;
+    }
+  }
+
+  .picker-time-control {
+    flex: 0 1 #{design.app-value('time-picker-max-width')};
+    min-width: 0;
+  }
+}

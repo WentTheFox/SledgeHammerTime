@@ -66,46 +66,55 @@ defineExpose<TimePickerPopupApi>({
 });
 </script>
 
-
 <template>
   <HtPopup
     ref="popup-el"
     @close="closeTimePicker"
     @open="openTimePicker"
   >
-    <form
-      ref="form-el"
-      @submit.prevent="selectAndClose"
-    >
-      <HtFormInputGroup dir="ltr">
-        <TimePickerInputs
-          v-model:hours-input="hoursInput"
-          v-model:minutes-input="minutesInput"
-          v-model:seconds-input="secondsInput"
-          v-model:hours="hours"
-          v-model:minutes="minutes"
-          v-model:seconds="seconds"
-          v-model:is-am="isAm"
-          v-model:twelve-hour-mode="twelveHourMode"
-          v-model:dial="dial"
-        />
-      </HtFormInputGroup>
-      <PickerFormActions @close="close" />
-    </form>
-    <hr>
-    <TimePickerDial
-      v-if="renderDial"
-      ref="dial"
-      :hours="twelveHourMode ? limitToTwelveHours(hours) : limitHours(hours)"
-      :minutes="limitMinutesSeconds(minutes)"
-      :seconds="limitMinutesSeconds(seconds)"
-      :is-am="isAm"
-      :twelve-hour-mode="twelveHourMode"
-      @set-hours="setHours"
-      @set-minutes="setMinutes"
-      @set-seconds="setSeconds"
-      @change-focus="changeTimeFocus"
-      @select="selectAndClose"
-    />
+    <div class="picker-time-control">
+      <form
+        ref="form-el"
+        @submit.prevent="selectAndClose"
+      >
+        <HtFormInputGroup dir="ltr">
+          <TimePickerInputs
+            v-model:hours-input="hoursInput"
+            v-model:minutes-input="minutesInput"
+            v-model:seconds-input="secondsInput"
+            v-model:hours="hours"
+            v-model:minutes="minutes"
+            v-model:seconds="seconds"
+            v-model:is-am="isAm"
+            v-model:twelve-hour-mode="twelveHourMode"
+            v-model:dial="dial"
+          />
+        </HtFormInputGroup>
+        <PickerFormActions @close="close" />
+      </form>
+      <hr>
+      <TimePickerDial
+        v-if="renderDial"
+        ref="dial"
+        :hours="twelveHourMode ? limitToTwelveHours(hours) : limitHours(hours)"
+        :minutes="limitMinutesSeconds(minutes)"
+        :seconds="limitMinutesSeconds(seconds)"
+        :is-am="isAm"
+        :twelve-hour-mode="twelveHourMode"
+        @set-hours="setHours"
+        @set-minutes="setMinutes"
+        @set-seconds="setSeconds"
+        @change-focus="changeTimeFocus"
+        @select="selectAndClose"
+      />
+    </div>
   </HtPopup>
 </template>
+
+<style lang="scss" scoped>
+@use "../../../../css/design";
+
+.picker-time-control {
+  max-width: design.app-value('time-picker-max-width');
+}
+</style>
