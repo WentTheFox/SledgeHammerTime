@@ -16,7 +16,7 @@ return [
       'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Odpowiedź w trybie podglądu dla opcji format',
     ],
     'columns' => [
       'displayName' => 'Kolumny',
@@ -44,7 +44,7 @@ return [
       'explanation' => 'Jest to całkowicie opcjonalne i nie ma wpływu na możliwość korzystania z bota. Zobacz stronę <1/> aby uzyskać więcej informacji.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Domyślna opcja ":hourOptionName" dla komendy /:at12CommandName',
     ],
   ],
   'saveSuccess' => 'Twoje ustawienia zostały pomyślnie zapisane.',
