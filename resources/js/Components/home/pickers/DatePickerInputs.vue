@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HtFormInputGroupSymbol from '@/Reusable/HtFormInputGroupSymbol.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import { inputRangeLimitBlurHandlerFactory } from '@/utils/app';
 import { computed } from 'vue';
@@ -28,25 +29,33 @@ const flexBasisMultiplier = computed(() => props.halveBases ? 0.5 : 1);
     ref="yearInput"
     v-model="year"
     type="number"
-    :class="'grid-flex-item flex-basis-' + (40 * flexBasisMultiplier)"
+    :class="'date-picker-input grid-flex-item flex-basis-' + (40 * flexBasisMultiplier)"
     @blur="handleYearBlur"
   />
+  <HtFormInputGroupSymbol>-</HtFormInputGroupSymbol>
   <HtInput
     ref="monthInput"
     v-model="month"
     type="number"
-    :class="'grid-flex-item flex-basis-' + (30 * flexBasisMultiplier)"
+    :class="'date-picker-input grid-flex-item flex-basis-' + (30 * flexBasisMultiplier)"
     min="1"
     max="12"
     @blur="handleMonthBlur"
   />
+  <HtFormInputGroupSymbol>-</HtFormInputGroupSymbol>
   <HtInput
     ref="dateInput"
     v-model="date"
     type="number"
-    :class="'grid-flex-item flex-basis-' + (30 * flexBasisMultiplier)"
+    :class="'date-picker-input grid-flex-item flex-basis-' + (30 * flexBasisMultiplier)"
     min="1"
     max="31"
     @blur="handleDateBlur"
   />
 </template>
+
+<style lang="scss" scoped>
+.date-picker-input {
+  text-align: center;
+}
+</style>

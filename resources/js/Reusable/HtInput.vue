@@ -21,6 +21,7 @@ const props = defineProps<{
   max?: string | number;
   step?: string | number;
   tabindex?: string | number;
+  inputmode?: 'decimal' | 'email' | 'none' | 'numeric' | 'search' | 'tel' | 'text' | 'url';
   'class'?: string;
 }>();
 
@@ -59,6 +60,7 @@ defineExpose({
     :min="min"
     :max="max"
     :tabindex="tabindex"
+    :inputmode="inputmode"
     :style="positionAnchorName ? `anchor-name: ${positionAnchorName}` : undefined"
     :step="step"
     @click="emit('click', $event)"

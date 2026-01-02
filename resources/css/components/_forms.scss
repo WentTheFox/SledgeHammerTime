@@ -185,6 +185,11 @@
 
   > .form-select-input {
     --padding-value: calc(#{design.app-value('input-field-padding')} * 2 + #{design.app-value('form-select-icon-padding')} * 2 + #{design.app-value('form-select-icon-size')});
+
+    &:focus-visible {
+      outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
+    }
+
     @include design.if-ltr {
       padding-right: var(--padding-value);
     }
@@ -338,14 +343,56 @@
   > .input-field {
     min-width: 0;
     flex-grow: 1;
+
+    &[inputmode="numeric"] {
+      line-height: 1em;
+    }
+  }
+
+  > .form-input-group-symbol-wrap {
+    position: relative;
+    transform: translateX(-50%);
+    width: 0;
+    overflow: visible;
+    align-self: stretch;
+    display: block;
+    z-index: design.app-z-index('form-input-group-symbol');
+    pointer-events: none;
+
+    .form-input-group-symbol {
+      --size: 1em;
+      position: absolute;
+      left: calc(-0.5 * var(--size));
+      height: 100%;
+      width: var(--size);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+
+      .form-input-group-symbol-inner {
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1em;
+        color: design.app-color('input-field-color');
+        background-color: design.app-color('input-field-bg');
+        border-radius: design.app-value('input-field-border-radius');
+      }
+    }
   }
 
   &:not([dir="rtl"]) > .input-field {
     @include design.combined-border-radius;
   }
+  &:not([dir="rtl"]) > .form-control-select {
+    @include design.combined-border-radius('> .form-select-input');
+  }
 
   &[dir="rtl"] > .input-field {
     @include design.combined-border-radius-inverted;
+  }
+  &[dir="rtl"] > .form-control-select {
+    @include design.combined-border-radius-inverted('> .form-select-input');
   }
 }
 
