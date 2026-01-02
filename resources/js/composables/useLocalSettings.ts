@@ -10,6 +10,11 @@ const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
 
+const trueByDefault = (storedPref: string|null):boolean => storedPref !== 'false';
+const falseByDefault = (storedPref: string|null):boolean => storedPref === 'true';
+const nullByDefault = (storedPref: string|null):boolean|null =>
+  storedPref === null ? null : storedPref === 'true';
+
 export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => {
   const customDateInputEnabled = ref<boolean | null>(null);
   const customTimeInputEnabled = ref<boolean | null>(null);
@@ -70,37 +75,37 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const setInitialFlatUi = () => {
     const storedPref = localStorage.getItem(flatUiPrefKey);
     // Disable flat UI by default
-    flatUiEnabled.value = storedPref === 'true';
+    flatUiEnabled.value = falseByDefault(storedPref);
   };
   const setInitialCustomDateInput = () => {
     const storedPref = localStorage.getItem(customDatePrefKey);
     // Enable custom date input by default
-    customDateInputEnabled.value = storedPref !== 'false';
+    customDateInputEnabled.value = trueByDefault(storedPref);
   };
   const setInitialCustomTimeInput = () => {
     const storedPref = localStorage.getItem(customTimePrefKey);
     // Disable custom time input by default
-    customTimeInputEnabled.value = storedPref === 'true';
+    customTimeInputEnabled.value = falseByDefault(storedPref);
   };
   const setInitialSidebarOnRight = () => {
     const storedPref = localStorage.getItem(sidebarPrefKey);
     // The sidebar is on the left by default
-    sidebarOnRight.value = storedPref === 'true';
+    sidebarOnRight.value = falseByDefault(storedPref);
   };
   const setInitialSidebarOffDesktop = () => {
     const storedPref = localStorage.getItem(sidebarOffDesktopPrefKey);
     // The sidebar is shown on desktop by default
-    sidebarOffDesktop.value = storedPref === 'true';
+    sidebarOffDesktop.value = falseByDefault(storedPref);
   };
   const setInitialLightTheme = () => {
     const storedPref = localStorage.getItem(lightThemePrefKey);
-    // The feature is enabled by default
-    isLightTheme.value = storedPref !== null ? storedPref === 'true' : null;
+    // The feature is unset by default
+    isLightTheme.value = nullByDefault(storedPref);
   };
   const setInitialAutoTimeSync = () => {
     const storedPref = localStorage.getItem(autoTimeSyncPrefKey);
     // The feature is disabled by default
-    autoTimeSync.value = storedPref === 'true';
+    autoTimeSync.value = falseByDefault(storedPref);
   };
 
   onMounted(() => {
