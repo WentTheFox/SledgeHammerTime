@@ -20,12 +20,12 @@ export const DEVELOPER_AVATAR_URL = 'https://gravatar.com/avatar/f341ebe7cfc73b3
 export const TERMS_UPDATE_DATE_ISO = "2025-05-11T04:15:14.251Z";
 export const PRIVACY_UPDATE_DATE_ISO = "2025-05-11T04:15:14.251Z";
 
-export const inputRangeLimitBlurHandlerFactory = (numberRef: Ref<number> | ModelRef<number>) => (e: FocusEvent): void => {
+export const inputRangeLimitBlurHandlerFactory = (targetRef: Ref<number> | ModelRef<number>) => (e: FocusEvent): void => {
   const limitedValue = rangeLimitInput(e.target);
-  if (limitedValue === numberRef.value)
+  if (limitedValue === targetRef.value)
     return;
 
-  numberRef.value = limitedValue;
+  targetRef.value = limitedValue;
 };
 
 export const computeCurrentLanguage = (page: PageProps): CurrentLanguageData => {
