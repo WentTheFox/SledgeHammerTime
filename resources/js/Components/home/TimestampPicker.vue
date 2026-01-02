@@ -13,22 +13,25 @@ import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { faClockRotateLeft, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 import { Tippy } from 'vue-tippy';
 
 const ts = inject(timestampInject);
 const settings = inject(localSettingsInject);
+
+const displayCombinedInput = computed(() => Boolean(settings?.combinedInputsEnabled || !settings?.customDateInputEnabled));
+const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateInputEnabled || settings?.customTimeInputEnabled));
 </script>
 
 <template>
   <HtFormControlGroup>
-    <template v-if="settings?.combinedInputsEnabled">
+    <template v-if="displayCombinedInput">
       <HtFormControl
         id="datetimepicker"
         :label="$t('timestampPicker.picker.label.dateAndTime')"
       >
         <InputSelector
-          :custom-input-enabled="settings?.customDateInputEnabled"
+          :custom-input-enabled="displayCustomCombinedInput"
           :custom-impl="CustomDateTimeInput"
           :native-impl="NativeDateTimeInput"
           :disabled="ts?.isLocked.value"

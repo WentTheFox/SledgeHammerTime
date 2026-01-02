@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { formControlId, isJsUnavailableInject } from '@/injection-keys';
 import { computed, inject, useTemplateRef } from 'vue';
 
