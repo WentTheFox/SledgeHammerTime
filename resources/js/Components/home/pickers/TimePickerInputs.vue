@@ -28,18 +28,9 @@ const amPmInput = defineModel<FormSelectApi | null>('amPmInput');
 
 const dtl = inject(dateTimeLibraryInject);
 
-const handleHoursFocused = () => {
-  dial.value?.setMode(DialMode.Hours);
-  hoursInput.value?.select();
-};
-const handleMinutesFocused = () => {
-  dial.value?.setMode(DialMode.Minutes);
-  minutesInput.value?.select();
-};
-const handleSecondsFocused = () => {
-  dial.value?.setMode(DialMode.Seconds);
-  secondsInput.value?.select();
-};
+const handleHoursFocused = () => dial.value?.setMode(DialMode.Hours);
+const handleMinutesFocused = () => dial.value?.setMode(DialMode.Minutes);
+const handleSecondsFocused = () => dial.value?.setMode(DialMode.Seconds);
 
 /** Not for use in the template */
 const _handleTwentyFourHoursBlur = inputRangeLimitBlurHandlerFactory(hours);
