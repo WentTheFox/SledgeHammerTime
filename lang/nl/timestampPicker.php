@@ -8,11 +8,13 @@ return [
       'time' => 'Tijd',
       'dateAndTime' => 'Datum en tijd',
       'timezone' => 'Tijdzone',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absoluut tijdsverschil',
       'modeZoneName' => 'Tijdzone Naam',
     ],
     'button' => [
       'jumpToToday' => 'Ga naar huidige maand',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Zet naar huidige tijd',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Tijdsaanduiding ontgrendelen',
       'previousYear' => 'Vorig jaar',
       'previousMonth' => 'Vorige maand',
+      'previousDecade' => 'Vorige decennium',
       'nextMonth' => 'Volgende maand',
       'nextYear' => 'Volgend jaar',
+      'nextDecade' => 'Volgende decennium',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat syntaxis',

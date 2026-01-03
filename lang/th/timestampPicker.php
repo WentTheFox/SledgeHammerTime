@@ -8,11 +8,13 @@ return [
       'time' => 'เวลา',
       'dateAndTime' => 'วันและเวลา',
       'timezone' => 'เขตเวลา',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'ค่าความคลาดเคลื่อนสัมบูรณ์',
       'modeZoneName' => 'ชื่อเขต',
     ],
     'button' => [
       'jumpToToday' => 'ไปที่เดือนปัจจุบัน',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'ตั้งค่าเป็นเวลาปัจจุบัน',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'ปลดล็อควันเวลา',
       'previousYear' => 'ปีที่แล้ว',
       'previousMonth' => 'เดือนที่แล้ว',
+      'previousDecade' => 'ทศวรรษก่อนหน้า',
       'nextMonth' => 'เดือนถัดไป',
       'nextYear' => 'ปีหน้า',
+      'nextDecade' => 'ทศวรรษต่อไป',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'ไวยากรณ์ของแชท',

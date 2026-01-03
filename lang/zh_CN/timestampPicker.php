@@ -8,21 +8,28 @@ return [
       'time' => '时间',
       'dateAndTime' => '日期与时间',
       'timezone' => '时区',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '设为当前时间',
       'lock' => '通过 URL 锁定时间戳',
       'unlock' => '解锁时间戳',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => '上一年',
+      'previousMonth' => '上个月',
+      'previousDecade' => '上一个十年',
+      'nextMonth' => '下个月',
+      'nextYear' => '下一年',
+      'nextDecade' => '下一个十年',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => '代码语法',

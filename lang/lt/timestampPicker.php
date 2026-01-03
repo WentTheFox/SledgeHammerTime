@@ -8,21 +8,28 @@ return [
       'time' => 'Laikas',
       'dateAndTime' => 'Data ir laikas',
       'timezone' => 'Laiko juosta',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Nustatyti į dabartinį laiką',
       'lock' => 'Užrakinti laiko žymą per URL',
       'unlock' => 'Atrakinti laiko žymą',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Praėjusiais metais',
+      'previousMonth' => 'Praėjusį mėnesį',
+      'previousDecade' => 'Praėjusį dešimtmetį',
+      'nextMonth' => 'Kitą mėnesį',
+      'nextYear' => 'Kitais metais',
+      'nextDecade' => 'Kitą dešimtmetį',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Pokalbio sintaksė',

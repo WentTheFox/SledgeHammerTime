@@ -8,21 +8,28 @@ return [
       'time' => 'Tempo',
       'dateAndTime' => 'Data e horário',
       'timezone' => 'Fuso Horário',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Definir para a hora atual',
       'lock' => 'Travar timestamp por URL',
       'unlock' => 'Desbloquear timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Ano anterior',
+      'previousMonth' => 'Mês anterior',
+      'previousDecade' => 'Década anterior',
+      'nextMonth' => 'Próximo mês',
+      'nextYear' => 'Próximo ano',
+      'nextDecade' => 'Próxima década',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxe de bate-papo',

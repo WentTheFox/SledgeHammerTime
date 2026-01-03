@@ -8,11 +8,13 @@ return [
       'time' => 'Idő',
       'dateAndTime' => 'Dátum és idő',
       'timezone' => 'Időzóna',
+      'naturalLanguageInput' => '@time bevitel',
       'modeOffset' => 'Abszolút Eltolás',
       'modeZoneName' => 'Zóna Név',
     ],
     'button' => [
       'jumpToToday' => 'Ugrás az aktuális hónapra',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Aktuális idő beállítása',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Időbélyeg feloldása',
       'previousYear' => 'Előző év',
       'previousMonth' => 'Előző hónap',
+      'previousDecade' => 'Előző évtized',
       'nextMonth' => 'Következő hónap',
       'nextYear' => 'Következő év',
+      'nextDecade' => 'Következő évtized',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Nem értelmezhető a természetes nyelvi bevitel'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Üzenet formája',

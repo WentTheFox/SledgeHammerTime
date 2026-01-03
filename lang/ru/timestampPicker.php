@@ -8,11 +8,13 @@ return [
       'time' => 'Время',
       'dateAndTime' => 'Дата и время',
       'timezone' => 'Часовой пояс',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Смещение времени',
       'modeZoneName' => 'Название зоны',
     ],
     'button' => [
       'jumpToToday' => 'Перейти к текущему месяцу',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Задать текущее время',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Разблокировать отметку времени',
       'previousYear' => 'Предыдущий год',
       'previousMonth' => 'Предыдущий месяц',
+      'previousDecade' => 'Предыдущее десятилетие',
       'nextMonth' => 'Следующий месяц',
       'nextYear' => 'Следующий год',
+      'nextDecade' => 'Следующее десятилетие',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Синтаксис в чате',

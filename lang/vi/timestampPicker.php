@@ -8,21 +8,28 @@ return [
       'time' => 'Giờ phút giây',
       'dateAndTime' => 'Ngày giờ',
       'timezone' => 'Múi giờ',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Đặt về thời điểm hiện tại',
       'lock' => 'Cố định thời gian sử dụng đường dẫn URL',
       'unlock' => 'Bỏ cố định thời gian',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Năm trước',
+      'previousMonth' => 'Tháng trước',
+      'previousDecade' => 'Thập kỷ trước',
+      'nextMonth' => 'Tháng sau',
+      'nextYear' => 'Năm sau',
+      'nextDecade' => 'Thập kỷ sau',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Định dạng tin nhắn',

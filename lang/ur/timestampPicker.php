@@ -8,21 +8,28 @@ return [
       'time' => ' وقت',
       'dateAndTime' => 'تاریخ اور وقت',
       'timezone' => 'ٹائم زون',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'موجودہ وقت پر سیٹ کریں۔',
       'lock' => 'لنک کے ذریعے ٹائم اسٹیمپ کو لاک کریں۔',
       'unlock' => 'ٹائم اسٹیمپ کو غیر مقفل ',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'پچھلے سال',
+      'previousMonth' => 'پچھلے مہینے',
+      'previousDecade' => 'گزشتہ دہائی',
+      'nextMonth' => 'اگلے ماہ',
+      'nextYear' => 'اگلے سال',
+      'nextDecade' => 'اگلی دہائی',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'چیٹ نحو',

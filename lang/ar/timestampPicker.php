@@ -8,11 +8,13 @@ return [
       'time' => 'الوقت',
       'dateAndTime' => 'التاريخ و الوقت',
       'timezone' => 'المنطقة الزمنية',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'اسم المنطقة',
     ],
     'button' => [
       'jumpToToday' => 'الانتقال إلى الشهر الحالي',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'تعيين إلى الوقت الحالي',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'تفعيل تعديل الختم الزمني',
       'previousYear' => 'السنة الماضية',
       'previousMonth' => 'الشهر الماضي',
+      'previousDecade' => 'العقد الماضي',
       'nextMonth' => 'الشهر القادم',
       'nextYear' => 'السنة القادمة',
+      'nextDecade' => 'العقد القادم',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'صيغة الدردشة',

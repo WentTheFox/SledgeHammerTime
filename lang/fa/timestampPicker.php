@@ -8,21 +8,28 @@ return [
       'time' => 'زمان',
       'dateAndTime' => 'تاریخ و زمان',
       'timezone' => 'منطقه زمانی',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'تنظیم به زمان حال',
       'lock' => 'مهر زمانی را از طریق لینک قفل کنید',
       'unlock' => 'باز کردن مهر زمانی',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'سال قبل',
+      'previousMonth' => 'ماه قبل',
+      'previousDecade' => 'قرن قبل',
+      'nextMonth' => 'ماه بعد',
+      'nextYear' => 'سال بعد',
+      'nextDecade' => 'قرن بعد',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'نحو پیام ها',

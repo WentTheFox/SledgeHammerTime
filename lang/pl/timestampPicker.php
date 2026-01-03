@@ -8,11 +8,13 @@ return [
       'time' => 'Czas',
       'dateAndTime' => 'Data i czas',
       'timezone' => 'Strefa czasowa',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Przesunięcie bezwzględne',
       'modeZoneName' => 'Nazwa strefy',
     ],
     'button' => [
       'jumpToToday' => 'Przejdź do bieżącego miesiąca',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ustaw bieżący czas',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Odblokuj znacznik czasu',
       'previousYear' => 'Poprzedni rok',
       'previousMonth' => 'Poprzedni miesiąc',
+      'previousDecade' => 'Poprzednia dekada',
       'nextMonth' => 'Następny miesiąc',
       'nextYear' => 'Następny rok',
+      'nextDecade' => 'Następna dekada',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Składnia',

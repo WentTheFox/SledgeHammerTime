@@ -8,21 +8,28 @@ return [
       'time' => 'Час',
       'dateAndTime' => 'Дата и час',
       'timezone' => 'Часова зона',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Задади за дадено час',
       'lock' => 'Заключи времева мярка чрез URL адрес',
       'unlock' => 'Отключи времева мярка',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
+      'previousYear' => 'Предишна година',
+      'previousMonth' => 'Предишен месец',
+      'previousDecade' => 'Предишно десетилетие',
+      'nextMonth' => 'Следващ месец',
       'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Синтаксис на чата',

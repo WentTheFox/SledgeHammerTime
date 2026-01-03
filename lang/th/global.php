@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'การตั้งค่าการป้อนข้อมูล',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'การป้อนวันที่แบบกำหนดเอง',
         'description' => "เปลี่ยนวันที่เริ่มต้นจากเบราว์เซอร์ให้เป็นสิ่งที่คุณกำหนดเอง",
@@ -89,6 +93,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'แปลโดย <1></1>',
       'openSourceSoftware' => 'ซอฟต์แวร์แบบโอเพ่นซอร์ส',
       'viewSourceCode' => 'ดูรหัสต้นฉบับ',

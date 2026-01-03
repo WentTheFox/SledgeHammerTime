@@ -975,8 +975,8 @@
         "17488256"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 10
+        "approval": 11,
+        "translation": 11
       }
     },
     "cs": {
@@ -1078,8 +1078,8 @@
         "16684353"
       ],
       "progress": {
-        "approval": 6,
-        "translation": 6
+        "approval": 7,
+        "translation": 7
       }
     },
     "fi": {
@@ -1091,7 +1091,7 @@
         "17483564"
       ],
       "progress": {
-        "approval": 12,
+        "approval": 13,
         "translation": 13
       }
     },
@@ -1117,7 +1117,7 @@
         "17134580"
       ],
       "progress": {
-        "approval": 98,
+        "approval": 99,
         "translation": 99
       }
     },
@@ -1141,8 +1141,8 @@
         "17378908"
       ],
       "progress": {
-        "approval": 9,
-        "translation": 9
+        "approval": 10,
+        "translation": 10
       }
     },
     "hr": {
@@ -1161,7 +1161,7 @@
         "13533384"
       ],
       "progress": {
-        "approval": 99,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -1184,7 +1184,7 @@
       ],
       "progress": {
         "approval": 98,
-        "translation": 99
+        "translation": 100
       }
     },
     "ja": {
@@ -1201,7 +1201,7 @@
       ],
       "progress": {
         "approval": 98,
-        "translation": 99
+        "translation": 100
       }
     },
     "ko": {
@@ -1219,7 +1219,7 @@
         "17452122"
       ],
       "progress": {
-        "approval": 15,
+        "approval": 36,
         "translation": 36
       }
     },
@@ -1426,8 +1426,8 @@
         "16240978"
       ],
       "progress": {
-        "approval": 93,
-        "translation": 93
+        "approval": 94,
+        "translation": 94
       }
     },
     "tr": {
@@ -1494,8 +1494,8 @@
         "17273286"
       ],
       "progress": {
-        "approval": 17,
-        "translation": 17
+        "approval": 18,
+        "translation": 18
       }
     },
     "zh-TW": {
@@ -1507,7 +1507,7 @@
         "17475702"
       ],
       "progress": {
-        "approval": 13,
+        "approval": 14,
         "translation": 14
       }
     }

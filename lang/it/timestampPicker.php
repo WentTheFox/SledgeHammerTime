@@ -8,11 +8,13 @@ return [
       'time' => 'Ora',
       'dateAndTime' => 'Data e ora',
       'timezone' => 'Fuso orario',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Offset Assoluto',
       'modeZoneName' => 'Nome Zona',
     ],
     'button' => [
       'jumpToToday' => 'Salta al mese corrente',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Imposta all\'orario attuale',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Sblocca timestamp',
       'previousYear' => 'Anno precedente',
       'previousMonth' => 'Mese precedente',
+      'previousDecade' => 'Decennio precedente',
       'nextMonth' => 'Mese successivo',
       'nextYear' => 'Anno successivo',
+      'nextDecade' => 'Decennio successivo',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Impossibile analizzare l\'input in linguaggio naturale'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintassi della chat',

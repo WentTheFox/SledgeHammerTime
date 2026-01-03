@@ -8,21 +8,28 @@ return [
       'time' => 'Vreme',
       'dateAndTime' => 'Datum i vreme',
       'timezone' => 'Vremenska zona',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Podesi na trenutno vreme',
       'lock' => 'Zaključaj vremensku oznaku preko URL-a',
       'unlock' => 'Otključaj vremensku oznaku',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Prošla godina',
+      'previousMonth' => 'Prethodni mesec',
+      'previousDecade' => 'Prošla decenija',
+      'nextMonth' => 'Sledeći mesec',
+      'nextYear' => 'Sledeća godina',
+      'nextDecade' => 'Sledeća decenija',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaksa u poruci',

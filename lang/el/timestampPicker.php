@@ -8,11 +8,13 @@ return [
       'time' => 'Ώρα',
       'dateAndTime' => 'Ημερομηνία και ώρα',
       'timezone' => 'Ζώνη ώρας',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Απόλυτη Μετατόπιση',
       'modeZoneName' => 'Όνομα Ζώνης ώρας',
     ],
     'button' => [
       'jumpToToday' => 'Μετάβαση στον τρέχοντα μήνα',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ορισμός τρέχουσας ώρας',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Ξεκλείδωμα χρονοσήμανσης',
       'previousYear' => 'Προηγούμενο έτος',
       'previousMonth' => 'Προηγούμενος μήνας',
+      'previousDecade' => 'Προηγούμενη δεκαετία',
       'nextMonth' => 'Επόμενος μήνας',
       'nextYear' => 'Επόμενο έτος',
+      'nextDecade' => 'Επόμενη δεκαετία',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Σύνταξη συνομιλίας',
