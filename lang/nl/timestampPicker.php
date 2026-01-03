@@ -8,6 +8,7 @@ return [
       'time' => 'Tijd',
       'dateAndTime' => 'Datum en tijd',
       'timezone' => 'Tijdzone',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absoluut tijdsverschil',
       'modeZoneName' => 'Tijdzone Naam',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Volgende maand',
       'nextYear' => 'Volgend jaar',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat syntaxis',
