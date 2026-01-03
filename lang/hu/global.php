@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Beviteli beállítások',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Egyéni dátum beviteli mező',
         'description' => "Lecseréli a böngésző alapértelmezett dátum beviteli mezőjét egy egyénire.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'Fordítók: <1></1>',
       'openSourceSoftware' => 'Nyílt forráskódú szoftver',
       'viewSourceCode' => 'Forráskód megtekintése',
