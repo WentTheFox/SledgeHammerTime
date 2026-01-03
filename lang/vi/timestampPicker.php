@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Đặt về thời điểm hiện tại',
       'lock' => 'Cố định thời gian sử dụng đường dẫn URL',
       'unlock' => 'Bỏ cố định thời gian',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Năm trước',
+      'previousMonth' => 'Tháng trước',
+      'previousDecade' => 'Thập kỷ trước',
+      'nextMonth' => 'Tháng sau',
+      'nextYear' => 'Năm sau',
+      'nextDecade' => 'Thập kỷ sau',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
