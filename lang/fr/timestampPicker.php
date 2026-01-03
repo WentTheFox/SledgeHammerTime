@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Aller au mois en cours',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Régler a l\'heure actuelle',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Débloquer l\'horodatage',
       'previousYear' => 'Année précédente',
       'previousMonth' => 'Mois précédent',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Mois suivant',
       'nextYear' => 'Année suivante',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
