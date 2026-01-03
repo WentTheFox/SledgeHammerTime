@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Återställ till aktuell tid',
       'lock' => 'Lås tidsstämpel via URL',
       'unlock' => 'Lås upp tidsstämpel',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Föregående år',
+      'previousMonth' => 'Föregående månad',
+      'previousDecade' => 'Föregående årtionde',
+      'nextMonth' => 'Nästa månad',
+      'nextYear' => 'Nästa år',
+      'nextDecade' => 'Nästa årtionde',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
