@@ -8,6 +8,7 @@ return [
       'time' => 'Čas',
       'dateAndTime' => 'Datum a čas',
       'timezone' => 'Časové pásmo',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolutní posun',
       'modeZoneName' => 'Časové pásmo',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Následující měsíc',
       'nextYear' => 'Následující rok',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Zápis v chatu',
