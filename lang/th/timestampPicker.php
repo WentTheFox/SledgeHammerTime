@@ -22,10 +22,10 @@ return [
       'unlock' => 'ปลดล็อควันเวลา',
       'previousYear' => 'ปีที่แล้ว',
       'previousMonth' => 'เดือนที่แล้ว',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'ทศวรรษก่อนหน้า',
       'nextMonth' => 'เดือนถัดไป',
       'nextYear' => 'ปีหน้า',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'ทศวรรษต่อไป',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
