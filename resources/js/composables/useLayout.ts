@@ -1,6 +1,7 @@
 import { IDDQD, useCheatCode } from '@/composables/useCheatCode';
 import { useChrono } from '@/composables/useChrono';
 import { useDateTimeLibrary } from '@/composables/useDateTimeLibrary';
+import { useInputMethod } from '@/composables/useInputMethod';
 import { useLocalSettings } from '@/composables/useLocalSettings';
 import { useRoute } from '@/composables/useRoute';
 import { useSidebarState } from '@/composables/useSidebarState';
@@ -10,7 +11,7 @@ import {
   CurrentLanguageData,
   currentLanguageInject,
   dateTimeLibraryInject,
-  devModeInject,
+  devModeInject, inputMethodInject,
   isJsUnavailableInject,
   localSettingsInject,
   pagePropsInject,
@@ -63,6 +64,7 @@ export const useLayout = () => {
   provide(sidebarState, readonly(useSidebarState(localSettingsValue)));
   provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
+  provide(inputMethodInject, readonly(useInputMethod()));
   provide(chronoInject, chrono);
 
   const isJsUnavailable = ref(true);

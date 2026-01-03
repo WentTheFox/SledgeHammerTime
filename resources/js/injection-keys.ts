@@ -117,3 +117,12 @@ export const usageDataFetcherInject = Symbol('usageDataFetcherInject') as Inject
 export const isJsUnavailableInject = Symbol('isJsUnavailableInject') as InjectionKey<DeepReadonly<Ref<boolean>>>;
 
 export const chronoInject = Symbol('chronoInject') as InjectionKey<ComputedRef<Chrono | null>>;
+
+export enum InputMethod {
+  KEYBOARD = 'keyboard',
+  MOUSE = 'mouse',
+  TOUCH = 'touch',
+  UNKNOWN = 'unknown',
+}
+
+export const inputMethodInject = Symbol('inputMethodInject') as InjectionKey<DeepReadonly<Ref<InputMethod>>>;

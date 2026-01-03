@@ -1,6 +1,7 @@
 import { DateFnsDTL } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import {
+  CalendarContext,
   DateTimeLibraryMonth,
   DateTimeLibraryValue,
   DateTimeLibraryWeekday,
@@ -227,15 +228,35 @@ describe('DateTimeLibraryValue', () => {
     });
 
     describe('formatCalendarContext', () => {
-      it('should format long calendar context correctly', () => {
+      it(`should format long calendar ${CalendarContext.DATE} context correctly`, () => {
         const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
-        const result = value.formatCalendarContext(false);
-        expect(result).toEqual('January 2025');
+        const result = value.formatCalendarContext(CalendarContext.DATE, false);
+        expect(result).toEqual(['January 2025']);
       });
-      it('should format short calendar context correctly', () => {
+      it(`should format short calendar ${CalendarContext.DATE} context correctly`, () => {
         const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
-        const result = value.formatCalendarContext(true);
-        expect(result).toEqual('Jan 2025');
+        const result = value.formatCalendarContext(CalendarContext.DATE, true);
+        expect(result).toEqual(['Jan 2025']);
+      });
+      it(`should format long calendar ${CalendarContext.MONTH} context correctly`, () => {
+        const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
+        const result = value.formatCalendarContext(CalendarContext.MONTH, false);
+        expect(result).toEqual(['2025']);
+      });
+      it(`should return empty array for short calendar ${CalendarContext.MONTH} context`, () => {
+        const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
+        const result = value.formatCalendarContext(CalendarContext.MONTH, true);
+        expect(result).toEqual([]);
+      });
+      it(`should format long calendar ${CalendarContext.DECADE} context correctly`, () => {
+        const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
+        const result = value.formatCalendarContext(CalendarContext.DECADE, false);
+        expect(result).toEqual(['2020', '2029']);
+      });
+      it(`should return empty array for short calendar ${CalendarContext.DECADE} context`, () => {
+        const value = dtl.fromTimestampMsUtc(testTimestamp).setLocale(enLocale);
+        const result = value.formatCalendarContext(CalendarContext.DECADE, true);
+        expect(result).toEqual([]);
       });
     });
 

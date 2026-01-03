@@ -126,7 +126,6 @@ const handleMinutesKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
-    console.debug(e.key);
     switch (e.key) {
       case 'ArrowUp':
       case 'ArrowDown': {

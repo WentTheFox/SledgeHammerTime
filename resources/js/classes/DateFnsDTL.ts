@@ -1,6 +1,10 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
-import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
+import {
+  CalendarContext,
+  DateTimeLibraryValue,
+  DateTimeLibraryWeekday,
+} from '@/classes/DateTimeLibraryValue';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import {
@@ -13,6 +17,7 @@ import { getUtcOffsetString, offsetZoneRegex, rangeLimit } from '@/utils/time';
 import { TZDate } from '@date-fns/tz';
 import {
   addDays,
+  addMonths,
   addYears,
   format,
   formatDistanceToNowStrict,
@@ -23,7 +28,7 @@ import {
   parse,
   setHours,
   setMinutes,
-  setSeconds,
+  setSeconds, subYears,
 } from 'date-fns';
 import * as locales from 'date-fns/locale';
 
@@ -140,6 +145,10 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     return new DateFnsDTLValue(addDays(this.value, days), this.context);
   }
 
+  addMonths(months: number) {
+    return new DateFnsDTLValue(addMonths(this.value, months), this.context);
+  }
+
   addYears(years: number) {
     return new DateFnsDTLValue(addYears(this.value, years), this.context);
   }
@@ -229,6 +238,14 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     return format(this.value, 'd', { locale: this.getLocale().lowLevelValue });
   }
 
+  formatCalendarMonthDisplay(): string {
+    return format(this.value, 'LLL', { locale: this.getLocale().lowLevelValue });
+  }
+
+  formatCalendarYearDisplay(): string {
+    return format(this.value, 'yyyy', { locale: this.getLocale().lowLevelValue });
+  }
+
   formatHoursDisplay(): string {
     return format(this.value, 'H', { locale: this.getLocale().lowLevelValue });
   }
@@ -249,8 +266,27 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     return this.value.getTime();
   }
 
-  formatCalendarContext(short: boolean): string {
-    return format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue });
+  formatCalendarContext(currentContext: CalendarContext, short: boolean): string[] {
+    switch (currentContext) {
+      case CalendarContext.DATE:
+        return [
+          format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue })
+        ];
+      case CalendarContext.MONTH:
+        if (short) return [];
+        return [
+          format(this.value, `yyyy`, { locale: this.getLocale().lowLevelValue })
+        ];
+      case CalendarContext.DECADE: {
+        if (short) return [];
+        const nearestDecadeStart = subYears(this.value, this.value.getFullYear() % 10);
+        const nearestDecadeEnd = addYears(nearestDecadeStart, 9);
+        return [
+          format(nearestDecadeStart, `yyyy`, { locale: this.getLocale().lowLevelValue }),
+          format(nearestDecadeEnd, `yyyy`, { locale: this.getLocale().lowLevelValue }),
+        ];
+      }
+    }
   }
 }
 

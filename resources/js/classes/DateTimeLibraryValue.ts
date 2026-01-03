@@ -34,6 +34,12 @@ export interface DateTimeLibraryValueContext<T = any, L = any> {
   library: DateTimeLibrary<T, L>;
 }
 
+export enum CalendarContext {
+  DECADE,
+  MONTH,
+  DATE,
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required to allow extension
 export abstract class DateTimeLibraryValue<T = any, L = any> {
   constructor(protected rawValue: T, protected readonly context: DateTimeLibraryValueContext) {
@@ -63,6 +69,8 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract addDays(days: number): DateTimeLibraryValue<T, L>;
 
+  abstract addMonths(months: number): DateTimeLibraryValue<T, L>;
+
   abstract addYears(years: number): DateTimeLibraryValue<T, L>;
 
   abstract toDate(): Date;
@@ -71,7 +79,11 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract formatCalendarDateDisplay(): string;
 
-  abstract formatCalendarContext(short: boolean): string;
+  abstract formatCalendarMonthDisplay(): string;
+
+  abstract formatCalendarYearDisplay(): string;
+
+  abstract formatCalendarContext(currentContext: CalendarContext, short: boolean): string[];
 
   abstract formatHoursDisplay(): string;
 

@@ -1,4 +1,4 @@
-import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
+import { CalendarContext, DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { DatePickerCalendarApi } from '@/Components/home/pickers/controls/DatePickerCalendar.vue';
 import { pad } from '@/utils/pad';
 import { ref } from 'vue';
@@ -11,17 +11,23 @@ export const useDatePicker = () => {
   const yearInput = ref<HTMLInputElement>();
   const monthInput = ref<HTMLInputElement>();
   const dateInput = ref<HTMLInputElement>();
+  const currentContext = ref<CalendarContext>(CalendarContext.DATE);
 
   const datePickerOpen = (initialValue: DateTimeLibraryValue) => {
     year.value = initialValue.getFullYear();
     month.value = initialValue.getMonth() + 1;
     date.value = initialValue.getDayOfMonth();
+    currentContext.value = CalendarContext.DATE;
   };
 
   const setDate = (newYear: number, newMonth: number, newDate: number) => {
     year.value = newYear;
     month.value = newMonth;
     date.value = newDate;
+  };
+
+  const setContext = (newContext: CalendarContext) => {
+    currentContext.value = newContext;
   };
 
   const getSelectedDate = (): string => {
@@ -56,12 +62,14 @@ export const useDatePicker = () => {
     month,
     date,
     calendar,
+    currentContext,
     yearInput,
     monthInput,
     dateInput,
     changeDateFocus,
     datePickerOpen,
     setDate,
+    setContext,
     getSelectedDate,
   };
 };

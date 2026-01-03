@@ -7,17 +7,29 @@ import {
 } from '@/classes/DateTimeLibraryValue';
 import { DeepReadonly } from 'vue';
 
-export interface GenerateCalendarOptions {
+interface BaseGenerateCalendarOptions {
   dtl: DeepReadonly<DateTimeLibrary> | undefined;
   locale: DateTimeLibraryLocale | null;
+}
+
+export interface GenerateCalendarMonthOptions extends BaseGenerateCalendarOptions {
   year: number;
   month: DateTimeLibraryMonth | number;
   firstDayOfWeek?: DateTimeLibraryWeekday;
 }
 
-export interface CalendarDay {
+export interface GenerateCalendarYearOptions extends BaseGenerateCalendarOptions {
+  year: number;
+}
+
+export interface GenerateCalendarDecadeOptions extends BaseGenerateCalendarOptions {
+  year: number;
+}
+
+export interface CalendarMonthDay {
   date: number;
   month: number;
+  year: number;
   display: string;
   /**
    * Optional metadata used for display purposes only
@@ -25,10 +37,31 @@ export interface CalendarDay {
   weekday?: DateTimeLibraryWeekday;
 }
 
-export interface Calendar {
+export interface CalendarMonth {
   // 2D array of [week][weekday]
-  days: CalendarDay[][];
+  weeks: CalendarMonthDay[][];
   firstDayOfWeek: DateTimeLibraryWeekday | number;
+}
+
+export interface CalendarYearMonth {
+  month: number;
+  year: number;
+  display: string;
+}
+
+export interface CalendarYear {
+  // 2D array of [quarter][month]
+  months: CalendarYearMonth[][];
+}
+
+export interface CalendarDecadeYear {
+  year: number;
+  display: string;
+}
+
+export interface CalendarDecade {
+  // 2D array of [row][column]
+  rows: CalendarDecadeYear[][];
 }
 
 type WeekendDays = Partial<Record<DateTimeLibraryWeekday, string>>;
@@ -60,6 +93,7 @@ export const WEEKEND_DAYS: Partial<Record<string, WeekendDays>> = {
 };
 
 export const LENGTH_OF_WEEK = 7;
+const FIRST_MONTH_OF_YEAR = DateTimeLibraryMonth.January;
 const FIRST_DAY_OF_MONTH = 1;
 
 /**
@@ -109,16 +143,16 @@ export const getWeekdayItems = (weekdays: string[] | undefined, firstDayOfWeek: 
   return items.slice(firstDayOfWeek).concat(items.slice(0, firstDayOfWeek));
 };
 
-export const generateCalendar = ({
+export const generateCalendarMonth = ({
   dtl,
   locale,
   year,
   month,
   firstDayOfWeek = DateTimeLibraryWeekday.Monday,
-}: GenerateCalendarOptions): Calendar => {
+}: GenerateCalendarMonthOptions): CalendarMonth => {
   if (!dtl || !locale) {
     return {
-      days: [],
+      weeks: [],
       firstDayOfWeek,
     };
   }
@@ -128,13 +162,13 @@ export const generateCalendar = ({
   }
   const firstDayOfMonthDateTime = dtl.getValueForDate(year, month, FIRST_DAY_OF_MONTH);
 
-  const firstDayOfWeekOffset = getFirstDayOfWeekOffset(firstDayOfMonthDateTime, firstDayOfWeek);
+  const firstDayOfWeekOffset = getFirstDayOfWeekOffset(firstDayOfMonthDateTime, firstDayOfWeek) - 7;
   const gridSize = {
     columns: LENGTH_OF_WEEK,
-    rows: getCalendarRows(firstDayOfMonthDateTime, firstDayOfWeekOffset),
+    rows: getCalendarRows(firstDayOfMonthDateTime, firstDayOfWeekOffset) + 1,
   };
   // Pre-allocate the array, map is used instead of fill to avoid pass-by-reference errors
-  const days = Array.from<CalendarDay[]>({ length: gridSize.rows }).map(() => new Array(gridSize.columns) as CalendarDay[]);
+  const days = Array.from<CalendarMonthDay[]>({ length: gridSize.rows }).map(() => new Array(gridSize.columns) as CalendarMonthDay[]);
   let dayOffset = firstDayOfWeekOffset;
   for (let weekIndex = 0; weekIndex < gridSize.rows; weekIndex++) {
     for (let dayIndex = 0; dayIndex < gridSize.columns; dayIndex++) {
@@ -143,6 +177,7 @@ export const generateCalendar = ({
         date: weekDayDateTime.getDayOfMonth(),
         weekday: weekDayDateTime.getWeekday(),
         month: weekDayDateTime.getMonth(),
+        year: weekDayDateTime.getFullYear(),
         display: weekDayDateTime.setLocale(locale).formatCalendarDateDisplay(),
       };
       dayOffset++;
@@ -150,7 +185,67 @@ export const generateCalendar = ({
   }
 
   return {
-    days,
+    weeks: days,
     firstDayOfWeek,
   };
+};
+
+export const generateCalendarYear = ({
+  dtl,
+  locale,
+  year,
+}: GenerateCalendarYearOptions): CalendarYear => {
+  if (!dtl || !locale) {
+    return {
+      months: [],
+    };
+  }
+
+  const gridSize = {
+    columns: 3,
+    rows: 4,
+  };
+  // Pre-allocate the array, map is used instead of fill to avoid pass-by-reference errors
+  const months = Array.from<CalendarYearMonth[]>({ length: gridSize.rows }).map(() => new Array(gridSize.columns) as CalendarYearMonth[]);
+  const firstDayOfYearDateTime = dtl.getValueForDate(year, FIRST_MONTH_OF_YEAR, FIRST_DAY_OF_MONTH);
+  for (let quarterIndex = 0; quarterIndex < gridSize.rows; quarterIndex++) {
+    for (let monthIndex = 0; monthIndex < gridSize.columns; monthIndex++) {
+      const weekDayDateTime = firstDayOfYearDateTime.addMonths(quarterIndex * 3 + monthIndex);
+      months[quarterIndex][monthIndex] = {
+        year,
+        month: weekDayDateTime.getMonth(),
+        display: weekDayDateTime.setLocale(locale).formatCalendarMonthDisplay(),
+      };
+    }
+  }
+
+  return { months };
+};
+
+export const generateCalendarDecade = ({
+  dtl,
+  locale,
+  year,
+}: GenerateCalendarDecadeOptions): CalendarDecade => {
+  if (!dtl || !locale) {
+    return {
+      rows: [],
+    };
+  }
+
+  // Pre-allocate the array, map is used instead of fill to avoid pass-by-reference errors
+  const rows = Array.from<CalendarDecadeYear[]>({ length: 4 }).map(() => [] as CalendarDecadeYear[]);
+  const firstYearOfDecade = year - year % 10;
+
+  const firstYearOfDecadeDateTime = dtl.getValueForDate(firstYearOfDecade, FIRST_MONTH_OF_YEAR, FIRST_DAY_OF_MONTH);
+  for (let decadeYear = 0; decadeYear < 10; decadeYear++) {
+    const rowIndex = Math.floor(decadeYear / 3);
+    const yearDateTime = firstYearOfDecadeDateTime.addYears(decadeYear);
+    rows[rowIndex].push({
+      year: yearDateTime.getFullYear(),
+      display: yearDateTime.setLocale(locale).formatCalendarYearDisplay(),
+    });
+  }
+
+  return { rows };
 };
