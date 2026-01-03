@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Lompat ke bulan semasa',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Tetapkan ke masa semasa',
