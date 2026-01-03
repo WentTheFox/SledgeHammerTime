@@ -22,10 +22,10 @@ return [
       'unlock' => 'Ξεκλείδωμα χρονοσήμανσης',
       'previousYear' => 'Προηγούμενο έτος',
       'previousMonth' => 'Προηγούμενος μήνας',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Προηγούμενη δεκαετία',
       'nextMonth' => 'Επόμενος μήνας',
       'nextYear' => 'Επόμενο έτος',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Επόμενη δεκαετία',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
