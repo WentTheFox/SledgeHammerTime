@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Przejdź do bieżącego miesiąca',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ustaw bieżący czas',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Odblokuj znacznik czasu',
       'previousYear' => 'Poprzedni rok',
       'previousMonth' => 'Poprzedni miesiąc',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Następny miesiąc',
       'nextYear' => 'Następny rok',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
