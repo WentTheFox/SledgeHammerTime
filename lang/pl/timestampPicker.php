@@ -8,6 +8,7 @@ return [
       'time' => 'Czas',
       'dateAndTime' => 'Data i czas',
       'timezone' => 'Strefa czasowa',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Przesunięcie bezwzględne',
       'modeZoneName' => 'Nazwa strefy',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Następny miesiąc',
       'nextYear' => 'Następny rok',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Składnia',
