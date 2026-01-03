@@ -4,8 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev:translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts",
-    "predev": "concurrently -p name npm:predev:*",
+    "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts",
     "dev:server": "vite",
     "dev:queue": "php artisan horizon",
     "dev": "concurrently -p name npm:dev:*",
