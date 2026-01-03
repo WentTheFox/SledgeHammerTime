@@ -9,26 +9,26 @@ return [
       'dateAndTime' => '일시',
       'timezone' => '시간대',
       'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => '시간대 차감',
+      'modeZoneName' => '시간대 이름',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => '이번 달로',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '현재 시간으로 설정',
       'lock' => 'URL로 타임스탬프 잠그기',
       'unlock' => '타임스탬프 잠금 풀기',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => '전년',
+      'previousMonth' => '저번 달',
+      'previousDecade' => '이전 10년',
+      'nextMonth' => '다음 달',
+      'nextYear' => '내년',
+      'nextDecade' => '다음 10년',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => '입력된 시간 분석 실패'
     ]
   ],
   'table' => [
@@ -46,8 +46,8 @@ return [
       'p' => '슬래시 명령어를 사용하여 Discord 내에서 타임스탬프를 생성하세요.',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until this Beta goes live',
+      'header' => 'HammerTime 이전 사이트',
+      'p' => '프로젝트의 이전 사이트는, 이번 베타 버전의 공개 전까지 사용 가능합니다',
     ],
     'textColor' => [
       'header' => 'Rebane님의 <1>컬러</1> 텍스트 생성기',
