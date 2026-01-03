@@ -8,6 +8,7 @@ return [
       'time' => 'เวลา',
       'dateAndTime' => 'วันและเวลา',
       'timezone' => 'เขตเวลา',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'ค่าความคลาดเคลื่อนสัมบูรณ์',
       'modeZoneName' => 'ชื่อเขต',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'เดือนถัดไป',
       'nextYear' => 'ปีหน้า',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'ไวยากรณ์ของแชท',
