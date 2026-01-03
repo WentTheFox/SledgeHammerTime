@@ -8,6 +8,7 @@ return [
       'time' => 'Timpu',
       'dateAndTime' => 'Data și timpu',
       'timezone' => 'Fus orar',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Offset absolut',
       'modeZoneName' => 'Numele zonei',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Luna viitoare',
       'nextYear' => 'Anul următor',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxa chat-ului',
