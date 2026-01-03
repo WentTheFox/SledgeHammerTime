@@ -8,6 +8,7 @@ return [
       'time' => 'Heure',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Décalage absolu',
       'modeZoneName' => 'Nom du fuseau horaire',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Mois suivant',
       'nextYear' => 'Année suivante',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Syntaxe du chat',
