@@ -8,6 +8,7 @@ return [
       'time' => 'Aika',
       'dateAndTime' => 'Päivämäärä ja aika',
       'timezone' => 'Aikavyöhyke',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Seuraava kuukausi',
       'nextYear' => 'Ensi vuonna',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat-syntaksi',
