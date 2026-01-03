@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Přejít na aktuální měsíc',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Nastavit na aktuální čas',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Odemknout časové razítko',
       'previousYear' => 'Předchozí rok',
       'previousMonth' => 'Předchozí měsíc',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Následující měsíc',
       'nextYear' => 'Následující rok',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
