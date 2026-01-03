@@ -14,7 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Salta al mese corrente',
-      'contextRange' => '<0/>–<2/>',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Imposta all\'orario attuale',
@@ -22,13 +22,13 @@ return [
       'unlock' => 'Sblocca timestamp',
       'previousYear' => 'Anno precedente',
       'previousMonth' => 'Mese precedente',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Decennio precedente',
       'nextMonth' => 'Mese successivo',
       'nextYear' => 'Anno successivo',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Decennio successivo',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Impossibile analizzare l\'input in linguaggio naturale'
     ]
   ],
   'table' => [
