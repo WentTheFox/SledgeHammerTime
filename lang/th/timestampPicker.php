@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'ไปที่เดือนปัจจุบัน',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'ตั้งค่าเป็นเวลาปัจจุบัน',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'ปลดล็อควันเวลา',
       'previousYear' => 'ปีที่แล้ว',
       'previousMonth' => 'เดือนที่แล้ว',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'เดือนถัดไป',
       'nextYear' => 'ปีหน้า',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
