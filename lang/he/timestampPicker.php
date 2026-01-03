@@ -8,6 +8,7 @@ return [
       'time' => 'זמן',
       'dateAndTime' => 'תאריך ושעה',
       'timezone' => 'אזור זמן',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'אזור',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'כתיבה בצ\'אט',
