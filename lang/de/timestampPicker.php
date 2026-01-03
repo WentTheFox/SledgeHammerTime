@@ -8,6 +8,7 @@ return [
       'time' => 'Zeit',
       'dateAndTime' => 'Datum und Uhrzeit',
       'timezone' => 'Zeitzone',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absoluter Offset',
       'modeZoneName' => 'Zeitzonenname',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Nächster Monat',
       'nextYear' => 'Nächstes Jahr',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat-Syntax',
