@@ -8,6 +8,7 @@ return [
       'time' => 'الوقت',
       'dateAndTime' => 'التاريخ و الوقت',
       'timezone' => 'المنطقة الزمنية',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'اسم المنطقة',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'الشهر القادم',
       'nextYear' => 'السنة القادمة',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'صيغة الدردشة',
