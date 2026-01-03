@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Postavite na trenutno vrijeme',
       'lock' => 'Zaključaj vremensku oznaku putem URL-a',
       'unlock' => 'Otključaj vremensku oznaku',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Prošla godina',
+      'previousMonth' => 'Prethodni mjesec',
+      'previousDecade' => 'Prethodno desetljeće',
+      'nextMonth' => 'Sljedeći mjesec',
+      'nextYear' => 'Sljedeća godina',
+      'nextDecade' => 'Sljedeće desetljeće',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
