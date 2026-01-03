@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'howTo' => 'Vyberte datum, zkopírujte požadované časové razítko ze sloupce :syntaxColName a vložte jej kamkoli do zprávy chatu. Výsledkem bude dynamické časové razítko, které se každému zobrazí jinak na základě jeho časového pásma.',
+  'howTo' => 'Vyberte datum, zkopírujte požadované časové razítko ze sloupce :syntaxColName a vložte ho kamkoli do zprávy v chatu. Výsledkem bude dynamické časové razítko, které se každému zobrazí podle jeho časového pásma.',
   'picker' => [
     'label' => [
       'date' => 'Datum',
@@ -22,10 +22,10 @@ return [
       'unlock' => 'Odemknout časové razítko',
       'previousYear' => 'Předchozí rok',
       'previousMonth' => 'Předchozí měsíc',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Předchozí desetiletí',
       'nextMonth' => 'Následující měsíc',
       'nextYear' => 'Následující rok',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Příští desetiletí',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
