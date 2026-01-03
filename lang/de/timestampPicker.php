@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Zum aktuellen Monat springen',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Auf aktuelle Zeit setzen',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Zeitstempel entsperren',
       'previousYear' => 'Vorheriges Jahr',
       'previousMonth' => 'Vorheriger Monat',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Nächster Monat',
       'nextYear' => 'Nächstes Jahr',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
