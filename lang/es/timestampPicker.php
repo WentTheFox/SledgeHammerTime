@@ -8,6 +8,7 @@ return [
       'time' => 'Hora',
       'dateAndTime' => 'Fecha y Hora',
       'timezone' => 'Zona Horaria',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Diferencia horaria con GMT',
       'modeZoneName' => 'Nombre de la zona',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'El próximo mes',
       'nextYear' => 'El próximo año',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxis de chat',
