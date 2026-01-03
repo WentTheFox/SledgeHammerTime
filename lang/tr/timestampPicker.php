@@ -8,6 +8,7 @@ return [
       'time' => 'Zaman',
       'dateAndTime' => 'Tarih ve zaman',
       'timezone' => 'Zaman dilimi',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Mutlak Ofset',
       'modeZoneName' => 'Bölge Adı',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Sonraki ay',
       'nextYear' => 'Gelecek yıl',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sohbet Görünümü',
