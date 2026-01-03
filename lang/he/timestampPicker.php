@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'קבע לזמן הנוכחי',
       'lock' => 'נעל את הtimestamp בקישור',
       'unlock' => 'פתח את הtimestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'שנה שעברה',
+      'previousMonth' => 'חודש שעבר',
+      'previousDecade' => 'עשור קודם',
+      'nextMonth' => 'חודש הבא',
+      'nextYear' => 'שנה הבאה',
+      'nextDecade' => 'עשור הבא',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
