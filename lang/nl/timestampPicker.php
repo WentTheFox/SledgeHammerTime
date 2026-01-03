@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Ga naar huidige maand',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Zet naar huidige tijd',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Tijdsaanduiding ontgrendelen',
       'previousYear' => 'Vorig jaar',
       'previousMonth' => 'Vorige maand',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Volgende maand',
       'nextYear' => 'Volgend jaar',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
