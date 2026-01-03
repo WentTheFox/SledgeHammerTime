@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'الانتقال إلى الشهر الحالي',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'تعيين إلى الوقت الحالي',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'تفعيل تعديل الختم الزمني',
       'previousYear' => 'السنة الماضية',
       'previousMonth' => 'الشهر الماضي',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'الشهر القادم',
       'nextYear' => 'السنة القادمة',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
