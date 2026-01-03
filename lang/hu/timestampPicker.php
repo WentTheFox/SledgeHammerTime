@@ -8,7 +8,7 @@ return [
       'time' => 'Idő',
       'dateAndTime' => 'Dátum és idő',
       'timezone' => 'Időzóna',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time bevitel',
       'modeOffset' => 'Abszolút Eltolás',
       'modeZoneName' => 'Zóna Név',
     ],
@@ -25,7 +25,7 @@ return [
       'nextYear' => 'Következő év',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Nem értelmezhető a természetes nyelvi bevitel'
     ]
   ],
   'table' => [
