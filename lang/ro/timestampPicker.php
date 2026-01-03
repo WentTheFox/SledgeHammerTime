@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Salt la luna curentă',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Setat la ora curentă',
