@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'موجودہ وقت پر سیٹ کریں۔',
       'lock' => 'لنک کے ذریعے ٹائم اسٹیمپ کو لاک کریں۔',
       'unlock' => 'ٹائم اسٹیمپ کو غیر مقفل ',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'پچھلے سال',
+      'previousMonth' => 'پچھلے مہینے',
+      'previousDecade' => 'گزشتہ دہائی',
+      'nextMonth' => 'اگلے ماہ',
+      'nextYear' => 'اگلے سال',
+      'nextDecade' => 'اگلی دہائی',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
