@@ -156,6 +156,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇰🇷 Korean
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
+  - [Hweesang W.](https://crowdin.com/profile/hwswoo)
   - [Nomu Ako](https://crowdin.com/profile/irisfernwyn)
   - [Phrygia](https://github.com/sjkim04)
   - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
