@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Μετάβαση στον τρέχοντα μήνα',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ορισμός τρέχουσας ώρας',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Ξεκλείδωμα χρονοσήμανσης',
       'previousYear' => 'Προηγούμενο έτος',
       'previousMonth' => 'Προηγούμενος μήνας',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Επόμενος μήνας',
       'nextYear' => 'Επόμενο έτος',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
