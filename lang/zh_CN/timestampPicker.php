@@ -8,6 +8,7 @@ return [
       'time' => '时间',
       'dateAndTime' => '日期与时间',
       'timezone' => '时区',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => '代码语法',
