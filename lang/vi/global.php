@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Tùy chỉnh định dạng nhập vào',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Ô nhập ngày tuỳ chỉnh',
         'description' => "Thay thế ô nhập ngày mặc định của trình duyệt bằng một ô nhập ngày tùy chỉnh.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'Bản dịch bởi <1></1>',
       'openSourceSoftware' => 'Phần mềm mã nguồn mở',
       'viewSourceCode' => 'Xem mã nguồn',
