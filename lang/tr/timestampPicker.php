@@ -22,10 +22,10 @@ return [
       'unlock' => 'Zaman damgasının kilidini aç',
       'previousYear' => 'Geçen yıl',
       'previousMonth' => 'Geçen ay',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Geçmiş on yıl',
       'nextMonth' => 'Sonraki ay',
       'nextYear' => 'Gelecek yıl',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Gelecek on yıl',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
