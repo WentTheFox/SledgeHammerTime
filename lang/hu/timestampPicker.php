@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Ugrás az aktuális hónapra',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Aktuális idő beállítása',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Időbélyeg feloldása',
       'previousYear' => 'Előző év',
       'previousMonth' => 'Előző hónap',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Következő hónap',
       'nextYear' => 'Következő év',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Nem értelmezhető a természetes nyelvi bevitel'
