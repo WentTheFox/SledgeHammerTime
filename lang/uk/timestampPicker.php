@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Встановити поточний час',
       'lock' => 'Заблокувати мітку часу через URL',
       'unlock' => 'Розблокувати мітку часу',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Попередній рік',
+      'previousMonth' => 'Попередній місяць',
+      'previousDecade' => 'Попереднє десятиліття',
+      'nextMonth' => 'Наступний місяць',
+      'nextYear' => 'Наступний рік',
+      'nextDecade' => 'Наступне десятиріччя',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
