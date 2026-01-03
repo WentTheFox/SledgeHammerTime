@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => '現在の月へ移動',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '現在時刻にする',
