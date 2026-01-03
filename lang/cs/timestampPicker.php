@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Přejít na aktuální měsíc',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Nastavit na aktuální čas',
