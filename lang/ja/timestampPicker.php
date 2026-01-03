@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => '現在の月へ移動',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '現在時刻にする',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'タイムスタンプをアンロック',
       'previousYear' => '前の年',
       'previousMonth' => '前の月',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => '次の月',
       'nextYear' => '次の年',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
