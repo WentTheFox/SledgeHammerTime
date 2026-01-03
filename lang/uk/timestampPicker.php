@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Встановити поточний час',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Розблокувати мітку часу',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
