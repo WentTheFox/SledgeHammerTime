@@ -8,6 +8,7 @@ return [
       'time' => '時間',
       'dateAndTime' => '日期和時間',
       'timezone' => '時區',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => '絕對位移',
       'modeZoneName' => '區域名稱',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => '下個月',
       'nextYear' => '明年',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => '聊天語法',
