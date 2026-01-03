@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Ajusta a l\'hora actual',
       'lock' => 'Blocar marca de temps a l\'adreça',
       'unlock' => 'Desbloca la marca de temps',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Any anterior',
+      'previousMonth' => 'Mes anterior',
+      'previousDecade' => 'Dècada anterior',
+      'nextMonth' => 'Mes següent',
+      'nextYear' => 'Any següent',
+      'nextDecade' => 'Pròxima dècada',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
