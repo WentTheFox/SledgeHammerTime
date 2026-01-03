@@ -22,10 +22,10 @@ return [
       'unlock' => 'تفعيل تعديل الختم الزمني',
       'previousYear' => 'السنة الماضية',
       'previousMonth' => 'الشهر الماضي',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'العقد الماضي',
       'nextMonth' => 'الشهر القادم',
       'nextYear' => 'السنة القادمة',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'العقد القادم',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
