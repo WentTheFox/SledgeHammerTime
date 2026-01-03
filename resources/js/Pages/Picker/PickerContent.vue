@@ -55,7 +55,8 @@ const timeString = ref(props.initialTime ?? '');
 const nlpDate = ref<DateTimeLibraryValue | null>(null);
 const dateTimeSelectionChanged = ref(false);
 
-const currentTimestamp = computed((): DateTimeLibraryValue | null => (nlpDate.value as DateTimeLibraryValue | null) ?? dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
+const currentTimestampDirect = computed((): DateTimeLibraryValue | null => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
+const currentTimestamp = computed((): DateTimeLibraryValue | null => (nlpDate.value as DateTimeLibraryValue | null) ?? currentTimestampDirect.value);
 const isLocked = computed(() => defaultUnixTimestamp.value !== null);
 const lockedTimestampUrl = computed(() => {
   const params = new URLSearchParams();
@@ -128,6 +129,7 @@ const setNlpDate = (date: Date|null) => {
 
 provide(timestampInject, {
   currentTimestamp,
+  currentTimestampDirect,
   setNlpDate,
   isLocked,
   lockedTimestampUrl,
