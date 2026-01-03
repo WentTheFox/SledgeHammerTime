@@ -1,8 +1,8 @@
 <?php
 
 return [
-  'heading' => 'Discord App',
-  'description' => 'The HammerTime App lets you obtain easy-to-copy timestamp codes from within the Discord user interface using slash and context menu commands.',
+  'heading' => 'Discord 앱',
+  'description' => 'HammerTime앱은 Discord UI를 사용하여 이용하기 쉬운 타임스탬프를 제공합니다.',
   'customizeSettingsGuest' => 'Some of its functionality can also be customized by <1>logging in</1>, then visiting the <3>App Settings</3> page (also available by clicking your username in the sidebar).',
   'customizeSettingsAuthenticated' => 'Some of its functionality can also be customized by visiting the <1>App Settings</1> page (also available by clicking your username in the sidebar).',
   'addAppLead' => 'Add the app to your server or your account and use it whenever you need a timestamp but don\'t feel like opening the browser.',
@@ -10,13 +10,13 @@ return [
   'appDiscoveryCta' => 'View on App Discovery',
   'shareableLink' => 'You can also share the link below with others which will let them add the app without any additional distractions:',
   'shardStats' => [
-    'title' => 'Shard Statistics',
+    'title' => 'Shard 통계',
     'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
     'boxesDescription' => 'Below you can see some rectangles representing all shards currently used by the application. Their width is proportional to the number of servers a given shard is assigned to out of the total (:totalServerCount). Hover over any one of them to see more information about the shard.',
     'shardId' => 'Shard ID',
     'assignedServers' => 'Assigned Servers',
-    'startupTime' => 'Startup Time',
-    'lastUpdateTime' => 'Last Updated',
+    'startupTime' => '시작 시간',
+    'lastUpdateTime' => '마지막 업데이트',
   ],
   'commandsReference' => [
     'title' => 'Commands Reference',
@@ -27,7 +27,7 @@ return [
       2 => 'user context menu command',
       3 => 'message context menu command',
     ],
-    'totalExecutions' => 'Total number of times executed (since we started counting)',
+    'totalExecutions' => '지금까지 사용 된 횟수 (기록 시작 이후)',
     'shortDescription' => 'Short Description',
     'commandOptions' => 'Options',
     'requiredOption' => 'Required',
@@ -46,7 +46,7 @@ return [
       10 => 'Number',
       11 => 'Attachment',
     ],
-    'totalUses' => 'Total number of times used (since we started counting)',
+    'totalUses' => '지금까지 사용 된 횟수 (기록 시작 이후)',
     'values' => 'Values',
     'valuesBetween' => '<0/>–<2/>',
     'minValue' => 'Minimum value',
@@ -56,7 +56,7 @@ return [
     'minLength' => 'Minimum length',
     'maxLength' => 'Maximum length',
     'choices' => 'Possible values:',
-    'usageGraphNoData' => 'No recent usage data found',
+    'usageGraphNoData' => '최근 사용된 적이 없습니다',
     'additionalDescription' => [
       'commands' => [
         'in' => 'You must specify at least one time component to change',
