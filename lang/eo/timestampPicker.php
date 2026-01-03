@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Agordi al nuna tempo',
       'lock' => 'Ŝlosi tempindikon per URL',
       'unlock' => 'Malŝlosi tempindikon',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Antaŭa jaro',
+      'previousMonth' => 'Antaŭa monato',
+      'previousDecade' => 'Antaŭa jardeko',
+      'nextMonth' => 'Venonta monato',
+      'nextYear' => 'Venonta jaro',
+      'nextDecade' => 'Venonta jardeko',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
