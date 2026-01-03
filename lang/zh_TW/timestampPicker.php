@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => '跳至目前月份',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '設定為目前時間',
@@ -21,8 +23,10 @@ return [
       'unlock' => '解鎖時間戳',
       'previousYear' => '去年',
       'previousMonth' => '上個月',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => '下個月',
       'nextYear' => '明年',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
