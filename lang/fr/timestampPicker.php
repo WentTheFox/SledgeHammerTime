@@ -22,13 +22,13 @@ return [
       'unlock' => 'Débloquer l\'horodatage',
       'previousYear' => 'Année précédente',
       'previousMonth' => 'Mois précédent',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Décennie précédente',
       'nextMonth' => 'Mois suivant',
       'nextYear' => 'Année suivante',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Décennie suivante',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Impossible d\'analyser les données en langage naturel'
     ]
   ],
   'table' => [
