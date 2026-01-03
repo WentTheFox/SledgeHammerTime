@@ -8,7 +8,7 @@ return [
       'time' => 'Hora',
       'dateAndTime' => 'Fecha y Hora',
       'timezone' => 'Zona Horaria',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'Entrada @time',
       'modeOffset' => 'Diferencia horaria con GMT',
       'modeZoneName' => 'Nombre de la zona',
     ],
@@ -22,13 +22,13 @@ return [
       'unlock' => 'Desbloquear marca de tiempo',
       'previousYear' => 'El año anterior',
       'previousMonth' => 'El mes anterior',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'La década anterior',
       'nextMonth' => 'El próximo mes',
       'nextYear' => 'El próximo año',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'La próxima década',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'No se pudo interpretar la entrada de lenguaje natural'
     ]
   ],
   'table' => [
