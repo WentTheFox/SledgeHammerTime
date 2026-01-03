@@ -22,10 +22,10 @@ return [
       'unlock' => '解鎖時間戳',
       'previousYear' => '去年',
       'previousMonth' => '上個月',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => '前十年',
       'nextMonth' => '下個月',
       'nextYear' => '明年',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => '下一個十年',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
