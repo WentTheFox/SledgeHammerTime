@@ -2,40 +2,43 @@
 
 return [
   'title' => '프로필',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => '이 프로필 페이지를 사용하여, 이 사이트에 연결된 계정 정보를 변경 할 수 있습니다. 
+만약 Discord 앱의 기본 설정이나 다른 설정을 원하시면 <1>앱 설정</1> 페이지를 사용 해 주십시오.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'heading' => '프로필 정보',
+    'description' => "계정의 프로필을 업데이트 해 주십시오.",
+    'displayName' => '공개 이름',
+    'hiddenFormats' => '테이블에서 숨긴 포맷들',
     'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
-    'discord' => 'Discord Accounts',
-    'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'heading' => '연결된 계정',
+    'description' => '이 페이지를 사용하여 HammerTime 계정에 다른 계정들의 연결과 관리가 가능합니다. 
+변경 된 기본 정보들은 최대 한 시간에 한번씩 자동으로 업데이트 됩니다.',
+    'discord' => 'Discord 계정',
+    'crowdin' => 'Crowdin 계정',
+    'noConnectedAccounts' => '현재 연결 된 계정이 없습니다',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => '다른 계정 연결',
+      'description' => '아래의 버튼으로 현재 HammerTime 계정에 다른 계정 들을 연결합니다.',
       'discord' => [
-        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
-        'authorize' => 'Authorize Discord account',
+        'description' => '만약 Discord 계정의 프로필이나 이름이 바뀌었을 경우, 아래 버튼을 사용하여 이미 연결된 Discord 계정 정보를 업데이트 할 수 있습니다.',
+        'authorize' => 'Discord 계정 연결',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account will eventually let you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Authorize Crowdin account',
+        'description' => '이 프로젝트의 번역자라면, Crowdin 계정 연결 시 번역자 기여 창에 보이는 이름을 변경 가능합니다.
+그리고 프로젝트의 Discord 서버에 가입 시, 또 하나의 확인 정보로 사용 가능합니다.',
+        'authorize' => 'Crowdin 계정 연결',
       ],
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => '계정 삭제 안내',
+    'description' => '계정 삭제 후엔 모든 데이터와 리소스가 영구 삭제 됩니다. 계정 삭제 전에 필요하신 데이터와 정보들을 다운로드 해주십시오.',
+    'deleteButton' => '계정 삭제',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => '정말로 계정을 삭제하시겠습니까?',
+      'body' => '계정삭제 후엔 모든 데이터와 리소스가 영구 삭제 됩니다.',
     ],
   ],
 ];
