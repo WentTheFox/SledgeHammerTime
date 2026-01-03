@@ -30,9 +30,11 @@ const {
   month,
   date,
   calendar,
+  currentContext,
   changeDateFocus,
   datePickerOpen,
   setDate,
+  setContext,
   getSelectedDate,
   dateInput,
   monthInput,
@@ -190,7 +192,9 @@ defineExpose<DateTimePickerApi>({
             :selected-year="year"
             :selected-month="limitMonth(month)"
             :selected-date="limitDate(date)"
+            :current-context="currentContext"
             @set-date="setDateAndUpdateFocus"
+            @set-context="setContext"
           />
         </div>
         <div

@@ -15,10 +15,14 @@ const {
   month,
   date,
   calendar,
-  dateInput, monthInput, yearInput,
+  currentContext,
+  dateInput,
+  monthInput,
+  yearInput,
   changeDateFocus,
   datePickerOpen,
   setDate,
+  setContext,
   getSelectedDate,
 } = useDatePicker();
 
@@ -100,7 +104,9 @@ defineExpose<DatePickerApi>({
         :selected-year="year"
         :selected-month="limitMonth(month)"
         :selected-date="limitDate(date)"
+        :current-context="currentContext"
         @set-date="setDateAndSelect"
+        @set-context="setContext"
       />
       <PickerFormActions
         v-if="!selectOnClick"

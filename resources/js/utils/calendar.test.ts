@@ -1,5 +1,10 @@
 import { DateTimeLibraryMonth, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
-import { generateCalendar, getFirstDayOfWeekOffset } from '@/utils/calendar';
+import {
+  generateCalendarDecade,
+  generateCalendarMonth,
+  generateCalendarYear,
+  getFirstDayOfWeekOffset,
+} from '@/utils/calendar';
 import { DefaultDTL } from '@/utils/dtl';
 import { describe, expect, it } from 'vitest';
 
@@ -52,10 +57,10 @@ describe('Calendar Utils', () => {
     });
   });
 
-  describe('generateCalendar', () => {
+  describe('generateCalendarMonth', () => {
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Monday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year,
@@ -67,7 +72,7 @@ describe('Calendar Utils', () => {
 
     it('should generate the correct calendar for a month that starts on Friday and the first day of week is Monday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year: 2023,
@@ -80,7 +85,7 @@ describe('Calendar Utils', () => {
 
     it('should generate the correct calendar for a month that starts on Thursday and the first day of week is Monday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year: 2022,
@@ -92,7 +97,7 @@ describe('Calendar Utils', () => {
 
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Sunday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year, month, firstDayOfWeek: DateTimeLibraryWeekday.Sunday,
@@ -102,7 +107,7 @@ describe('Calendar Utils', () => {
 
     it('should generate the correct calendar for a month that starts on Monday and the first day of week is Saturday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year, month, firstDayOfWeek: DateTimeLibraryWeekday.Saturday,
@@ -112,12 +117,34 @@ describe('Calendar Utils', () => {
 
     it('should generate the correct calendar for a month that starts on Saturday and the first day of week is Sunday', async () => {
       const locale = await DefaultDTL.localeLoader('en');
-      const actual = generateCalendar({
+      const actual = generateCalendarMonth({
         dtl: DefaultDTL,
         locale,
         year: 2023,
         month: DateTimeLibraryMonth.April,
         firstDayOfWeek: DateTimeLibraryWeekday.Sunday,
+      });
+      expect(actual).to.matchSnapshot();
+    });
+  });
+  describe('generateCalendarYear', () => {
+    it('should generate the correct calendar', async () => {
+      const locale = await DefaultDTL.localeLoader('en');
+      const actual = generateCalendarYear({
+        dtl: DefaultDTL,
+        locale,
+        year,
+      });
+      expect(actual).to.matchSnapshot();
+    });
+  });
+  describe('generateCalendarDecade', () => {
+    it('should generate the correct calendar', async () => {
+      const locale = await DefaultDTL.localeLoader('en');
+      const actual = generateCalendarDecade({
+        dtl: DefaultDTL,
+        locale,
+        year,
       });
       expect(actual).to.matchSnapshot();
     });
