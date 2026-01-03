@@ -8,6 +8,7 @@ import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
 export const timestampInject = Symbol('timestamp') as InjectionKey<{
   currentTimestamp: ComputedRef<DateTimeLibraryValue | null>,
+  currentTimestampDirect: ComputedRef<DateTimeLibraryValue | null>,
   setNlpDate: (date: Date|null) => void,
   isLocked: ComputedRef<boolean>,
   lockedTimestampUrl: ComputedRef<string>,
