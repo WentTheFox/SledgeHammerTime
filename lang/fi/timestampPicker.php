@@ -22,10 +22,10 @@ return [
       'unlock' => 'Avaa aikaleima',
       'previousYear' => 'Edellinen vuosi',
       'previousMonth' => 'Edellinen kuukausi',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Edellinen vuosikymmen',
       'nextMonth' => 'Seuraava kuukausi',
       'nextYear' => 'Ensi vuonna',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Seuraava vuosikymmen',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
