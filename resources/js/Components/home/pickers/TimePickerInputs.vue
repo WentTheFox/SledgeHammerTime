@@ -71,29 +71,29 @@ const handleAmPmSelectKeydown = (e: KeyboardEvent) => {
 
 const maxHoursValue = computed(() => twelveHourMode.value ? 12 : 23);
 const minHoursValue = computed(() => twelveHourMode.value ? 1 : 0);
+
+const adjustHours = (delta: number) => {
+  const currentValue = parseInt(hoursInputValuePadded.value, 10);
+  let newValue = currentValue + delta;
+  if (newValue > maxHoursValue.value) {
+    newValue = minHoursValue.value;
+  }
+  else if (newValue < minHoursValue.value) {
+    newValue = maxHoursValue.value;
+  }
+  hoursInputValue.value = String(newValue);
+};
+
 const handleHoursKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
     switch (e.key) {
       case 'ArrowUp':
-      case 'ArrowDown': {
-        const currentValue = parseInt(hoursInputValuePadded.value, 10);
-        if (e.key === 'ArrowUp') {
-          let increasedValue = currentValue + 1;
-          if (increasedValue > maxHoursValue.value) {
-            increasedValue = minHoursValue.value;
-          }
-          hoursInputValue.value = String(increasedValue);
-        }
-        else {
-          let decreasedValue = currentValue - 1;
-          if (decreasedValue < minHoursValue.value) {
-            decreasedValue = maxHoursValue.value;
-          }
-          hoursInputValue.value = String(decreasedValue);
-        }
-      }
+        adjustHours(1);
+        break;
+      case 'ArrowDown':
+        adjustHours(-1);
         break;
     }
     return;
@@ -120,31 +120,36 @@ const handleHoursKeydown = (e: Event) => {
       break;
   }
 };
+const handleHoursWheel = (e: WheelEvent) => {
+  e.preventDefault();
+  adjustHours(e.deltaY < 0 ? 1 : -1);
+};
+
 const maxMinutesValue = 59;
 const minMinutesValue = 0;
+
+const adjustMinutes = (delta: number) => {
+  const currentValue = parseInt(minutesInputValuePadded.value, 10);
+  let newValue = currentValue + delta;
+  if (newValue > maxMinutesValue) {
+    newValue = minMinutesValue;
+  }
+  else if (newValue < minMinutesValue) {
+    newValue = maxMinutesValue;
+  }
+  minutesInputValue.value = String(newValue);
+};
+
 const handleMinutesKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
     switch (e.key) {
       case 'ArrowUp':
-      case 'ArrowDown': {
-        const currentValue = parseInt(minutesInputValuePadded.value, 10);
-        if (e.key === 'ArrowUp') {
-          let increasedValue = currentValue + 1;
-          if (increasedValue > maxMinutesValue) {
-            increasedValue = minMinutesValue;
-          }
-          minutesInputValue.value = String(increasedValue);
-        }
-        else {
-          let decreasedValue = currentValue - 1;
-          if (decreasedValue < minMinutesValue) {
-            decreasedValue = maxMinutesValue;
-          }
-          minutesInputValue.value = String(decreasedValue);
-        }
-      }
+        adjustMinutes(1);
+        break;
+      case 'ArrowDown':
+        adjustMinutes(-1);
         break;
     }
     return;
@@ -166,31 +171,36 @@ const handleMinutesKeydown = (e: Event) => {
       break;
   }
 };
+const handleMinutesWheel = (e: WheelEvent) => {
+  e.preventDefault();
+  adjustMinutes(e.deltaY < 0 ? 1 : -1);
+};
+
 const maxSecondsValue = 59;
 const minSecondsValue = 0;
+
+const adjustSeconds = (delta: number) => {
+  const currentValue = parseInt(secondsInputValuePadded.value, 10);
+  let newValue = currentValue + delta;
+  if (newValue > maxSecondsValue) {
+    newValue = minSecondsValue;
+  }
+  else if (newValue < minSecondsValue) {
+    newValue = maxSecondsValue;
+  }
+  secondsInputValue.value = String(newValue);
+};
+
 const handleSecondsKeydown = (e: Event) => {
   if (!(e instanceof KeyboardEvent) || e.key === 'Tab') return;
   e.preventDefault();
   if (!/^\d$/.test(e.key)) {
     switch (e.key) {
       case 'ArrowUp':
-      case 'ArrowDown': {
-        const currentValue = parseInt(secondsInputValuePadded.value, 10);
-        if (e.key === 'ArrowUp') {
-          let increasedValue = currentValue + 1;
-          if (increasedValue > maxSecondsValue) {
-            increasedValue = minSecondsValue;
-          }
-          secondsInputValue.value = String(increasedValue);
-        }
-        else {
-          let decreasedValue = currentValue - 1;
-          if (decreasedValue < minSecondsValue) {
-            decreasedValue = maxSecondsValue;
-          }
-          secondsInputValue.value = String(decreasedValue);
-        }
-      }
+        adjustSeconds(1);
+        break;
+      case 'ArrowDown':
+        adjustSeconds(-1);
         break;
     }
     return;
@@ -213,6 +223,15 @@ const handleSecondsKeydown = (e: Event) => {
     }
       break;
   }
+};
+const handleSecondsWheel = (e: WheelEvent) => {
+  e.preventDefault();
+  adjustSeconds(e.deltaY < 0 ? 1 : -1);
+};
+
+const handleAmPmWheel = (e: WheelEvent) => {
+  e.preventDefault();
+  isAm.value = !isAm.value;
 };
 
 watch(hours, newHours => {
@@ -238,6 +257,7 @@ watch(seconds, newSeconds => {
     class="time-picker-input"
     @focus.passive="handleHoursFocused"
     @keydown="handleHoursKeydown"
+    @wheel="handleHoursWheel"
     @blur.passive="handleHoursBlur"
   />
   <HtFormInputGroupSymbol>:</HtFormInputGroupSymbol>
@@ -252,6 +272,7 @@ watch(seconds, newSeconds => {
     class="time-picker-input"
     @focus.passive="handleMinutesFocused"
     @keydown="handleMinutesKeydown"
+    @wheel="handleMinutesWheel"
     @blur.passive="handleMinutesBlur"
   />
   <HtFormInputGroupSymbol>:</HtFormInputGroupSymbol>
@@ -266,6 +287,7 @@ watch(seconds, newSeconds => {
     class="time-picker-input"
     @focus.passive="handleSecondsFocused"
     @keydown="handleSecondsKeydown"
+    @wheel="handleSecondsWheel"
     @blur.passive="handleSecondsBlur"
   />
   <HtFormSelect
@@ -273,6 +295,7 @@ watch(seconds, newSeconds => {
     ref="amPmInput"
     v-model="isAm"
     @keydown="handleAmPmSelectKeydown"
+    @wheel="handleAmPmWheel"
   >
     <option :value="true">
       {{ dtl.getMeridiemLabel(true, minutes) }}
