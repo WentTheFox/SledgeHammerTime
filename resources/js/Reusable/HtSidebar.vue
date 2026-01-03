@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LanguageSelector from '@/Components/LanguageSelector.vue';
-import LocalSettings from '@/Components/sidebar/LocalSettings.vue';
+import DebugLocalSettings from '@/Components/sidebar/DebugLocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
 import UserMenu from '@/Components/UserMenu.vue';
@@ -33,7 +33,7 @@ const close = () => {
     </div>
     <div class="sidebar-content">
       <slot name="widgets" />
-      <LocalSettings />
+      <DebugLocalSettings />
       <SidebarCredits />
     </div>
     <div class="sidebar-bottom">
