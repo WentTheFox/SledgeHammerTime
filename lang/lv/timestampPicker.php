@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Iestatīt uz pašreizējo laiku',
       'lock' => 'Noslēgt laika zīmogu caur URL',
       'unlock' => 'Atslēgt laika zīmogu',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Iepriekšējais gads',
+      'previousMonth' => 'Iepriekšējais mēnesis',
+      'previousDecade' => 'Iepriekšējā dekāde',
+      'nextMonth' => 'Nākamais mēnesis',
+      'nextYear' => 'Nākamais gads',
+      'nextDecade' => 'Nākamā dekāde',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
