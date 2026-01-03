@@ -8,6 +8,7 @@ return [
       'time' => 'Ώρα',
       'dateAndTime' => 'Ημερομηνία και ώρα',
       'timezone' => 'Ζώνη ώρας',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Απόλυτη Μετατόπιση',
       'modeZoneName' => 'Όνομα Ζώνης ώρας',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Επόμενος μήνας',
       'nextYear' => 'Επόμενο έτος',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Σύνταξη συνομιλίας',
