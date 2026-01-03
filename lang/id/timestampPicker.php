@@ -8,6 +8,7 @@ return [
       'time' => 'Waktu',
       'dateAndTime' => 'Tanggal dan waktu',
       'timezone' => 'Zona waktu',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaks obrolan',
