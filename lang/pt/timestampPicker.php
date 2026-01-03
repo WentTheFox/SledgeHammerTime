@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Definir para a hora atual',
       'lock' => 'Travar timestamp por URL',
       'unlock' => 'Desbloquear timestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Ano anterior',
+      'previousMonth' => 'Mês anterior',
+      'previousDecade' => 'Década anterior',
+      'nextMonth' => 'Próximo mês',
+      'nextYear' => 'Próximo ano',
+      'nextDecade' => 'Próxima década',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
