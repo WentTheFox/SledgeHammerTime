@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Salta al mese corrente',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Imposta all\'orario attuale',
