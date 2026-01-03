@@ -22,10 +22,10 @@ return [
       'unlock' => 'Tijdsaanduiding ontgrendelen',
       'previousYear' => 'Vorig jaar',
       'previousMonth' => 'Vorige maand',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Vorige decennium',
       'nextMonth' => 'Volgende maand',
       'nextYear' => 'Volgend jaar',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Volgende decennium',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
