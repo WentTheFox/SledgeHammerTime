@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'تنظیم به زمان حال',
       'lock' => 'مهر زمانی را از طریق لینک قفل کنید',
       'unlock' => 'باز کردن مهر زمانی',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'سال قبل',
+      'previousMonth' => 'ماه قبل',
+      'previousDecade' => 'قرن قبل',
+      'nextMonth' => 'ماه بعد',
+      'nextYear' => 'سال بعد',
+      'nextDecade' => 'قرن بعد',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
