@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Nustatyti į dabartinį laiką',
       'lock' => 'Užrakinti laiko žymą per URL',
       'unlock' => 'Atrakinti laiko žymą',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Praėjusiais metais',
+      'previousMonth' => 'Praėjusį mėnesį',
+      'previousDecade' => 'Praėjusį dešimtmetį',
+      'nextMonth' => 'Kitą mėnesį',
+      'nextYear' => 'Kitais metais',
+      'nextDecade' => 'Kitą dešimtmetį',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
