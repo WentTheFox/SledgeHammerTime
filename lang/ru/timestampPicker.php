@@ -22,10 +22,10 @@ return [
       'unlock' => 'Разблокировать отметку времени',
       'previousYear' => 'Предыдущий год',
       'previousMonth' => 'Предыдущий месяц',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Предыдущее десятилетие',
       'nextMonth' => 'Следующий месяц',
       'nextYear' => 'Следующий год',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Следующее десятилетие',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
