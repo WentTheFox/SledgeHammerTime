@@ -8,21 +8,28 @@ return [
       'time' => 'Цаг',
       'dateAndTime' => 'Өдөр ба цаг',
       'timezone' => 'Цагийн бүс',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Одоогийн цаг руу шилжүүлэх',
       'lock' => 'URL-аар цагийн тэмдэлгээгээ түгжих',
       'unlock' => 'Цагийн тэмдэлгээг онгоолгох',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Өмнөх жил',
+      'previousMonth' => 'Өмнө сар',
+      'previousDecade' => 'Өмнөх арван жил',
+      'nextMonth' => 'Оролтуудыг тусдаа болго',
+      'nextYear' => 'Дараагийн жил',
+      'nextDecade' => 'Дараагийн арван жил',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Чат синтакс',

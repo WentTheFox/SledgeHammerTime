@@ -8,11 +8,13 @@ return [
       'time' => 'Heure',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Décalage absolu',
       'modeZoneName' => 'Nom du fuseau horaire',
     ],
     'button' => [
       'jumpToToday' => 'Aller au mois en cours',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Régler a l\'heure actuelle',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Débloquer l\'horodatage',
       'previousYear' => 'Année précédente',
       'previousMonth' => 'Mois précédent',
+      'previousDecade' => 'Décennie précédente',
       'nextMonth' => 'Mois suivant',
       'nextYear' => 'Année suivante',
+      'nextDecade' => 'Décennie suivante',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Impossible d\'analyser les données en langage naturel'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Syntaxe du chat',

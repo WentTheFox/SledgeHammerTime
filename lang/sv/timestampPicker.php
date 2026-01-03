@@ -8,21 +8,28 @@ return [
       'time' => 'Tid',
       'dateAndTime' => 'Datum och tid',
       'timezone' => 'Tidszon',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Återställ till aktuell tid',
       'lock' => 'Lås tidsstämpel via URL',
       'unlock' => 'Lås upp tidsstämpel',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Föregående år',
+      'previousMonth' => 'Föregående månad',
+      'previousDecade' => 'Föregående årtionde',
+      'nextMonth' => 'Nästa månad',
+      'nextYear' => 'Nästa år',
+      'nextDecade' => 'Nästa årtionde',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Syntax',

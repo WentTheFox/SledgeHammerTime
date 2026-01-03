@@ -8,11 +8,13 @@ return [
       'time' => '時間',
       'dateAndTime' => '日期和時間',
       'timezone' => '時區',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => '絕對位移',
       'modeZoneName' => '區域名稱',
     ],
     'button' => [
       'jumpToToday' => '跳至目前月份',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '設定為目前時間',
@@ -20,9 +22,14 @@ return [
       'unlock' => '解鎖時間戳',
       'previousYear' => '去年',
       'previousMonth' => '上個月',
+      'previousDecade' => '前十年',
       'nextMonth' => '下個月',
       'nextYear' => '明年',
+      'nextDecade' => '下一個十年',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => '聊天語法',

@@ -1,18 +1,20 @@
 <?php
 
 return [
-  'howTo' => 'Vyberte datum, zkopírujte požadované časové razítko ze sloupce :syntaxColName a vložte jej kamkoli do zprávy chatu. Výsledkem bude dynamické časové razítko, které se každému zobrazí jinak na základě jeho časového pásma.',
+  'howTo' => 'Vyberte datum, zkopírujte požadované časové razítko ze sloupce :syntaxColName a vložte ho kamkoli do zprávy v chatu. Výsledkem bude dynamické časové razítko, které se každému zobrazí podle jeho časového pásma.',
   'picker' => [
     'label' => [
       'date' => 'Datum',
       'time' => 'Čas',
       'dateAndTime' => 'Datum a čas',
       'timezone' => 'Časové pásmo',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolutní posun',
       'modeZoneName' => 'Časové pásmo',
     ],
     'button' => [
       'jumpToToday' => 'Přejít na aktuální měsíc',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Nastavit na aktuální čas',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Odemknout časové razítko',
       'previousYear' => 'Předchozí rok',
       'previousMonth' => 'Předchozí měsíc',
+      'previousDecade' => 'Předchozí desetiletí',
       'nextMonth' => 'Následující měsíc',
       'nextYear' => 'Následující rok',
+      'nextDecade' => 'Příští desetiletí',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Zápis v chatu',

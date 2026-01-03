@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => '입력 설정',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Custom date input',
         'description' => "Replace the browser default date input with a custom one.",
@@ -52,28 +56,29 @@ return [
     'timeSync' => [
       'title' => '시간 동기화',
       'status' => [
-        'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
+        'syncing' => '당신의 시스템 시간이 우리의 서버와 동기화 중 입니다. 
+잠시만 기다려 주십시오.',
         'accurate' => '당신의 시스템 시각은 정확합니다.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => '현재 지역 시간과 서버 시간 사이의 차이는 :offset입니다.',
       ],
       'autoTimeSync' => [
-        'label' => 'Apply server time offset to calculations (beta)',
-        'description' => 'If your system clock is over :offset off compared to the server time (excluding timezone differences), some time calculations will be adjusted to take this into account, so your timestamps will be less likely to be incorrect. <1>This is an experimental feature, use with caution!</1> Synchronization happens when the page is first loaded, and immediately after the setting is turned on.',
+        'label' => '서버 시간 차감 적용 (베타)',
+        'description' => '당신의 시스템 시간과 서버 시간의 차이가 :offset 보다 높다면 (시간대 제외), 자동으로 이 차이를 적용하여 시간의 오차를 줄입니다. <1>이 기능은 현재 실험 중 이므로, 주의가 필요합니다.</1> 동기화는 이 기능을 켜고 페이지를 처음 방문 시에 적용됩니다.',
       ],
       'details' => '세부',
-      'autoApplyCheckbox' => 'Apply calculated offset to DateTime library when pressing :syncButtonLabel manually (only applies if the difference is above the :offset threshold)',
-      'syncButtonLabel' => 'Synchronize',
-      'resetOffsetButtonLabel' => 'Reset applied offset',
-      'roundTripDuration' => 'Round-trip duration',
+      'autoApplyCheckbox' => '계산 된 차감을 :syncButtonLabel 를 누를 때 DateTime 라이브러리에 적용 (차이가 :offset 보다 높을 때만 적용)',
+      'syncButtonLabel' => '동기화',
+      'resetOffsetButtonLabel' => '설정된 차감 초기화',
+      'roundTripDuration' => '왕복 시간',
       't0' => 'The client\'s timestamp of the request transmission',
       't1' => 'The server\'s timestamp of the request reception',
       't2' => 'The server\'s timestamp of the response transmission',
       't3' => 'The client\'s timestamp of the response reception',
-      'dtlOffsetCell' => 'Active Calculation Offset',
+      'dtlOffsetCell' => '현재 적용 중인 차감',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
-      'networkOffsetCell' => 'Detected Offset (via Network)',
+      'networkOffsetCell' => '감지된 차감 (네트워크)',
     ],
     'localSettings' => [
       'title' => '로컬 설정',
@@ -87,6 +92,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => '번역: <1></1>',
       'openSourceSoftware' => '오픈 소스 소프트웨어',
       'viewSourceCode' => '소스 코드 보기',
@@ -99,12 +105,13 @@ return [
     ],
   ],
   'designEditor' => [
-    'title' => 'Design Editor',
-    'description' => 'You can adjust many aspects of the website\'s appearance using the inputs in the table below. Variable names are based on identifiers in the code and therefore cannot be translated. Values will be reset when refreshing the page.',
-    'designPageLink' => 'Design Page',
-    'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
-    'export' => 'Export as UserStyle',
-    'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'title' => '디자인 변경',
+    'description' => '이 웹사이트의 디자인을 아래의 테이블을 사용하여 변경 할 수 있습니다. 변수의 이름들은 코드의 식별자이기에 번역되지 않습니다. 변경된 값은 새로 고침 시에 초기화 됩니다.',
+    'designPageLink' => '디자인 페이지',
+    'exportInfo' => '변경 된 값을 UserStyle 파일로 저장 할 수 있으며 <1>Stylus</1> 같은 확장 프로그램을 사용하면 디자인을 영구 변경 할 수 있습니다.
+하지만 만약에 이 변수들이 언젠가 바뀐다면 사용자가 직접 변경해야 할 수 있습니다.',
+    'export' => 'UserStyle 파일 저장',
+    'variableColumnHeader' => 'CSS 변수',
+    'valueColumnHeader' => '값',
   ],
 ];

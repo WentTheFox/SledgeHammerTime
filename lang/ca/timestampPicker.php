@@ -8,21 +8,28 @@ return [
       'time' => 'Hora',
       'dateAndTime' => 'Data i hora',
       'timezone' => 'Fus horari',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ajusta a l\'hora actual',
       'lock' => 'Blocar marca de temps a l\'adreça',
       'unlock' => 'Desbloca la marca de temps',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Any anterior',
+      'previousMonth' => 'Mes anterior',
+      'previousDecade' => 'Dècada anterior',
+      'nextMonth' => 'Mes següent',
+      'nextYear' => 'Any següent',
+      'nextDecade' => 'Pròxima dècada',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxi al xat',

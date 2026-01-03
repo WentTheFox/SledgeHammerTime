@@ -8,11 +8,13 @@ return [
       'time' => 'Time',
       'dateAndTime' => 'Date and time',
       'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Set to current time',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Unlock timestamp',
       'previousYear' => 'Previous year',
       'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat syntax',

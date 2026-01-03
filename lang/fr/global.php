@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Paramètres d\'entrée',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Permettre de manipuler l\'horodatage sélectionné en langage naturel (par exemple, "dans 5 heures") via une entrée supplémentaire en texte libre. Similaire à la nouvelle balise @time de Discord. Seul un nombre limité de langues est pris en charge.',
+      ],
       'customDateInput' => [
         'label' => 'Saisie de la date personnalisée',
         'description' => "Remplacer l'entrée de la date par défaut du navigateur par une personnalisée.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'Traduit par <1></1>',
       'openSourceSoftware' => 'Logiciel open-source',
       'viewSourceCode' => 'Voir le code source',

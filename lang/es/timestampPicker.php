@@ -8,11 +8,13 @@ return [
       'time' => 'Hora',
       'dateAndTime' => 'Fecha y Hora',
       'timezone' => 'Zona Horaria',
+      'naturalLanguageInput' => 'Entrada @time',
       'modeOffset' => 'Diferencia horaria con GMT',
       'modeZoneName' => 'Nombre de la zona',
     ],
     'button' => [
       'jumpToToday' => 'Saltar al mes actual',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Establecer a hora actual',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Desbloquear marca de tiempo',
       'previousYear' => 'El año anterior',
       'previousMonth' => 'El mes anterior',
+      'previousDecade' => 'La década anterior',
       'nextMonth' => 'El próximo mes',
       'nextYear' => 'El próximo año',
+      'nextDecade' => 'La próxima década',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'No se pudo interpretar la entrada de lenguaje natural'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxis de chat',

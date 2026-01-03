@@ -8,21 +8,28 @@ return [
       'time' => 'Horo',
       'dateAndTime' => 'Dato kaj horo',
       'timezone' => 'Horzono',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Agordi al nuna tempo',
       'lock' => 'Ŝlosi tempindikon per URL',
       'unlock' => 'Malŝlosi tempindikon',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Antaŭa jaro',
+      'previousMonth' => 'Antaŭa monato',
+      'previousDecade' => 'Antaŭa jardeko',
+      'nextMonth' => 'Venonta monato',
+      'nextYear' => 'Venonta jaro',
+      'nextDecade' => 'Venonta jardeko',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Babilsintakso',

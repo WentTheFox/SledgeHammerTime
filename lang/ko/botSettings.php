@@ -5,7 +5,7 @@ return [
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => '고급 설정',
   ],
   'defaultOption' => 'Default',
   'fields' => [
@@ -28,7 +28,7 @@ return [
       'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => '미리 보기를 굵은 글씨로',
     ],
     'defaultAtHour' => [
       'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
@@ -40,12 +40,12 @@ return [
       'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Telemetry 허용',
+      'explanation' => '이 옵션은 선택적입니다. 세부 사항은 <1/> 페이지를 보십시오.',
     ],
     'defaultAt12Hour' => [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => '설정이 정상적으로 저장되었습니다.',
 ];

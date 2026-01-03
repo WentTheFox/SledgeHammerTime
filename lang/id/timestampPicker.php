@@ -8,21 +8,28 @@ return [
       'time' => 'Waktu',
       'dateAndTime' => 'Tanggal dan waktu',
       'timezone' => 'Zona waktu',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Setel waktu saat ini',
       'lock' => 'Mengunci stempel waktu melalui URL',
       'unlock' => 'Buka stempel waktu',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Tahun lalu',
+      'previousMonth' => 'Bulan lalu',
+      'previousDecade' => 'Dekade sebelumnya',
+      'nextMonth' => 'Bulan depan',
+      'nextYear' => 'Tahun depan',
+      'nextDecade' => 'Dekade berikutnya',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaks obrolan',

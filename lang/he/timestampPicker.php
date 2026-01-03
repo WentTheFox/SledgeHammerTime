@@ -8,21 +8,28 @@ return [
       'time' => 'זמן',
       'dateAndTime' => 'תאריך ושעה',
       'timezone' => 'אזור זמן',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'אזור',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'קבע לזמן הנוכחי',
       'lock' => 'נעל את הtimestamp בקישור',
       'unlock' => 'פתח את הtimestamp',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'שנה שעברה',
+      'previousMonth' => 'חודש שעבר',
+      'previousDecade' => 'עשור קודם',
+      'nextMonth' => 'חודש הבא',
+      'nextYear' => 'שנה הבאה',
+      'nextDecade' => 'עשור הבא',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'כתיבה בצ\'אט',

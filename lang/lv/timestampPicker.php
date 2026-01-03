@@ -8,21 +8,28 @@ return [
       'time' => 'Laiks',
       'dateAndTime' => 'Datums un laiks',
       'timezone' => 'Laika josla',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Iestatīt uz pašreizējo laiku',
       'lock' => 'Noslēgt laika zīmogu caur URL',
       'unlock' => 'Atslēgt laika zīmogu',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Iepriekšējais gads',
+      'previousMonth' => 'Iepriekšējais mēnesis',
+      'previousDecade' => 'Iepriekšējā dekāde',
+      'nextMonth' => 'Nākamais mēnesis',
+      'nextYear' => 'Nākamais gads',
+      'nextDecade' => 'Nākamā dekāde',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Čata sintakses',

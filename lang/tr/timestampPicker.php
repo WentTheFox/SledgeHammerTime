@@ -8,11 +8,13 @@ return [
       'time' => 'Zaman',
       'dateAndTime' => 'Tarih ve zaman',
       'timezone' => 'Zaman dilimi',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Mutlak Ofset',
       'modeZoneName' => 'Bölge Adı',
     ],
     'button' => [
       'jumpToToday' => 'Geçerli aya git',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Geçerli zamana ayarla',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Zaman damgasının kilidini aç',
       'previousYear' => 'Geçen yıl',
       'previousMonth' => 'Geçen ay',
+      'previousDecade' => 'Geçmiş on yıl',
       'nextMonth' => 'Sonraki ay',
       'nextYear' => 'Gelecek yıl',
+      'nextDecade' => 'Gelecek on yıl',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sohbet Görünümü',

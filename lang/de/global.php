@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Eingabeeinstellungen',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Benutzerdefinierte Datumseingabe',
         'description' => "Ersetzt die standardmäßige Datumseingabe des Browsers durch eine eigene.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'Übersetzungen von <1></1>',
       'openSourceSoftware' => 'Open-Source Software',
       'viewSourceCode' => 'Quellcode anzeigen',

@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'इनपुट सेटिंग',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Custom date input',
         'description' => "Replace the browser default date input with a custom one.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => '<1></1> द्वारा अनुवाद',
       'openSourceSoftware' => 'खुला स्त्रोत सॉफ़्टवेयर',
       'viewSourceCode' => 'स्रोत कोड देखें',

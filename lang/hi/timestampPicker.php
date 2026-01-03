@@ -8,21 +8,28 @@ return [
       'time' => 'समय',
       'dateAndTime' => 'तारीख और समय',
       'timezone' => 'टाइम जोन या समय मंडल',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'वर्तमान समय पर सेट करें',
       'lock' => 'यूआरएल के माध्यम से टाइमस्टैम्प लॉक करें',
       'unlock' => 'टाइमस्टैम्प अनलॉक करें',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'पिछले वर्ष',
+      'previousMonth' => 'पिछले महीने',
+      'previousDecade' => 'पिछले दशक',
+      'nextMonth' => 'अगले महीने',
+      'nextYear' => 'अगले वर्ष',
+      'nextDecade' => 'अगले दशक',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'चैट वाक्य - विन्यास (सिंटैक्स)',

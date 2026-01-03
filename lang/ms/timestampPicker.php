@@ -8,11 +8,13 @@ return [
       'time' => 'Masa',
       'dateAndTime' => 'Tarikh dan masa',
       'timezone' => 'Zon waktu',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Ofset Mutlak',
       'modeZoneName' => 'Nama Zon',
     ],
     'button' => [
       'jumpToToday' => 'Lompat ke bulan semasa',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Tetapkan ke masa semasa',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Buka kunci cap masa',
       'previousYear' => 'Tahun sebelumnya',
       'previousMonth' => 'Bulan sebelumnya',
+      'previousDecade' => 'Dekad lepas',
       'nextMonth' => 'Bulan seterusnya',
       'nextYear' => 'Tahun seterusnya',
+      'nextDecade' => 'Dekad hadapan',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaks sembang',

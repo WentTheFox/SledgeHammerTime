@@ -8,21 +8,28 @@ return [
       'time' => 'Час',
       'dateAndTime' => 'Дата і час',
       'timezone' => 'Часовий пояс',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Встановити поточний час',
       'lock' => 'Заблокувати мітку часу через URL',
       'unlock' => 'Розблокувати мітку часу',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
+      'previousYear' => 'Попередній рік',
+      'previousMonth' => 'Попередній місяць',
+      'previousDecade' => 'Попереднє десятиліття',
+      'nextMonth' => 'Наступний місяць',
+      'nextYear' => 'Наступний рік',
+      'nextDecade' => 'Наступне десятиріччя',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Синтаксис чату',

@@ -8,11 +8,13 @@ return [
       'time' => 'Aika',
       'dateAndTime' => 'Päivämäärä ja aika',
       'timezone' => 'Aikavyöhyke',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Aseta nykyiseen aikaan',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Avaa aikaleima',
       'previousYear' => 'Edellinen vuosi',
       'previousMonth' => 'Edellinen kuukausi',
+      'previousDecade' => 'Edellinen vuosikymmen',
       'nextMonth' => 'Seuraava kuukausi',
       'nextYear' => 'Ensi vuonna',
+      'nextDecade' => 'Seuraava vuosikymmen',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Chat-syntaksi',

@@ -8,11 +8,13 @@ return [
       'time' => 'Timpu',
       'dateAndTime' => 'Data și timpu',
       'timezone' => 'Fus orar',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Offset absolut',
       'modeZoneName' => 'Numele zonei',
     ],
     'button' => [
       'jumpToToday' => 'Salt la luna curentă',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Setat la ora curentă',
@@ -20,9 +22,14 @@ return [
       'unlock' => 'Deblocare timestamp',
       'previousYear' => 'Anul precedent',
       'previousMonth' => 'Luna precedentă',
+      'previousDecade' => 'Deceniul precedent',
       'nextMonth' => 'Luna viitoare',
       'nextYear' => 'Anul următor',
+      'nextDecade' => 'Următorul deceniu',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxa chat-ului',
