@@ -297,9 +297,9 @@ describe('DateTimeLibrary', () => {
     describe('convertIsoToLocalizedDateTimeInputValue', () => {
       const expectedFormats = {
         'date-fns': {
-          'en': 'January 1, 2025 12:00 PM',
-          'en-GB': '1 January 2025 12:00',
-          'hu': '2025. január 1. 12:00',
+          'en': 'January 1, 2025 12:00:00 PM',
+          'en-GB': '1 January 2025 12:00:00',
+          'hu': '2025. január 1. 12:00:00',
         },
       };
 

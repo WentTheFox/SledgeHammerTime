@@ -473,11 +473,11 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     // Format strings to match expected outputs for each locale
     switch (locale.name) {
       case 'en-US':
-        return format(dateTime, 'MMMM d, yyyy h:mm a', { locale: localeObj });
+        return format(dateTime, 'MMMM d, yyyy h:mm:ss a', { locale: localeObj });
       case 'en-GB':
-        return format(dateTime, 'd MMMM yyyy HH:mm', { locale: localeObj });
+        return format(dateTime, 'd MMMM yyyy HH:mm:ss', { locale: localeObj });
       case 'hu':
-        return format(dateTime, 'yyyy. MMMM d. HH:mm', { locale: localeObj });
+        return format(dateTime, 'yyyy. MMMM d. HH:mm:ss', { locale: localeObj });
       default:
         return format(dateTime, 'PPpp', { locale: localeObj });
     }
