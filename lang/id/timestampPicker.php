@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Setel waktu saat ini',
       'lock' => 'Mengunci stempel waktu melalui URL',
       'unlock' => 'Buka stempel waktu',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Tahun lalu',
+      'previousMonth' => 'Bulan lalu',
+      'previousDecade' => 'Dekade sebelumnya',
+      'nextMonth' => 'Bulan depan',
+      'nextYear' => 'Tahun depan',
+      'nextDecade' => 'Dekade berikutnya',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
