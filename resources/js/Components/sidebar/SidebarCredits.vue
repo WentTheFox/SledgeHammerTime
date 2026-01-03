@@ -106,6 +106,11 @@ const translationCredits = computed(() => {
                   {{ $t('global.sidebar.credits.vueTippy') }}
                 </HtExternalLink>
               </li>
+              <li>
+                <HtExternalLink href="https://github.com/wanasit/chrono">
+                  {{ $t('global.sidebar.credits.chrono') }}
+                </HtExternalLink>
+              </li>
             </ul>
           </template>
         </HtTranslate>

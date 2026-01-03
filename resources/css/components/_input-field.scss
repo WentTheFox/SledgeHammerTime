@@ -14,6 +14,11 @@
     color: design.app-color('input-field-color');
     background-color: design.app-color('input-field-bg');
     padding: design.app-value('input-field-padding');
+
+    &:invalid {
+      color: design.app-color('input-field-invalid-color');
+      background-color: design.app-color('input-field-invalid-bg');
+    }
   }
 
   &[type="color"] {
@@ -38,6 +43,10 @@
 
   &:focus-visible {
     outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
+
+    &:invalid {
+      outline: design.app-value('focus-outline') solid design.app-color('input-field-invalid-focus-border-color');
+    }
   }
 
   &.hide-selection {

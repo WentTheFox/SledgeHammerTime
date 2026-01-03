@@ -6,6 +6,7 @@ import InputSelector from '@/Components/home/inputs/InputSelector.vue';
 import NativeDateInput from '@/Components/home/inputs/NativeDateInput.vue';
 import NativeDateTimeInput from '@/Components/home/inputs/NativeDateTimeInput.vue';
 import NativeTimeInput from '@/Components/home/inputs/NativeTimeInput.vue';
+import NaturalLanguageInput from '@/Components/home/inputs/NaturalLanguageInput.vue';
 import TimeZonePicker from '@/Components/home/inputs/TimeZoneInput.vue';
 import { localSettingsInject, timestampInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -67,6 +68,13 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
       :label="$t('timestampPicker.picker.label.timezone')"
     >
       <TimeZonePicker :disabled="ts?.isLocked.value" />
+    </HtFormControl>
+    <HtFormControl
+      v-if="settings?.naturalLanguageInputEnabled"
+      id="nlppicker"
+      :label="$t('timestampPicker.picker.label.naturalLanguageInput')"
+    >
+      <NaturalLanguageInput />
     </HtFormControl>
     <div
       v-if="ts"

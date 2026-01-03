@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TimestampTableRow from '@/Components/home/table/TimestampTableRow.vue';
 import TimestampTableRowGroup from '@/Components/home/table/TimestampTableRowGroup.vue';
-import { dateTimeLibraryInject, timestampInject, userInfoInject } from '@/injection-keys';
+import { timestampInject, userInfoInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtTable from '@/Reusable/HtTable.vue';
 import { faCalendar as faRegularCalendar } from '@fortawesome/free-regular-svg-icons';
@@ -10,10 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, inject } from 'vue';
 
 const ts = inject(timestampInject);
-const dtl = inject(dateTimeLibraryInject);
 const userInfo = inject(userInfoInject);
 
-const currentTimestamp = computed(() => ts?.currentTimezone.value && dtl?.value && dtl.value.getValueForIsoZonedDateTime(ts?.currentDate.value, ts?.currentTime.value, ts.currentTimezone.value));
+const currentTimestamp = computed(() => ts!.currentTimestamp?.value ?? undefined);
 
 const unixTs = computed(() => currentTimestamp.value?.getUnixSeconds());
 

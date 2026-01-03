@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampCard from '@/Components/home/TimestampCard.vue';
 import UsefulLinks from '@/Components/home/UsefulLinks.vue';
 import { useLocale } from '@/composables/useLocale';
@@ -51,9 +52,10 @@ const currentTimezone: Ref<TimezoneSelection> = ref((typeof window === 'undefine
 });
 const dateString = ref(props.initialDate ?? '');
 const timeString = ref(props.initialTime ?? '');
+const nlpDate = ref<DateTimeLibraryValue | null>(null);
 const dateTimeSelectionChanged = ref(false);
 
-const currentTimestamp = computed(() => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
+const currentTimestamp = computed((): DateTimeLibraryValue | null => (nlpDate.value as DateTimeLibraryValue | null) ?? dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
 const isLocked = computed(() => defaultUnixTimestamp.value !== null);
 const lockedTimestampUrl = computed(() => {
   const params = new URLSearchParams();
@@ -120,9 +122,13 @@ const refresh = () => {
   if (dateTimeSelectionChanged.value) return;
   [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
 };
+const setNlpDate = (date: Date|null) => {
+  nlpDate.value = (date && dtl?.value.fromIsoString(date.toISOString())) || null;
+}
 
 provide(timestampInject, {
   currentTimestamp,
+  setNlpDate,
   isLocked,
   lockedTimestampUrl,
   unlockedTimestampUrl,

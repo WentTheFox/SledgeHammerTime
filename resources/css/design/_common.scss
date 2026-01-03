@@ -340,6 +340,14 @@ $color-map: (
     light: color.adjust($_base-blue, $lightness: 25%, $saturation: -10%),
     dark: #25262b,
   ),
+  input-field-invalid-color: (
+    light: #763211,
+    dark: #eeaa80,
+  ),
+  input-field-invalid-bg: (
+    light: #fff0ee,
+    dark: #44332b,
+  ),
   input-field-border-color: (
     light: color.adjust($_base-blue, $lightness: 20%, $saturation: -10%),
     dark: #373a40,
@@ -347,6 +355,10 @@ $color-map: (
   input-field-focus-border-color: (
     light: color.adjust($_base-blue, $lightness: 20%),
     dark: $_base-blue,
+  ),
+  input-field-invalid-focus-border-color: (
+    light: #763211,
+    dark: #eeaa80,
   ),
   input-field-box-shadow: (
     light: rgba(0, 0, 0, .25),
