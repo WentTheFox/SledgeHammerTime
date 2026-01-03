@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Μετάβαση στον τρέχοντα μήνα',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Ορισμός τρέχουσας ώρας',
