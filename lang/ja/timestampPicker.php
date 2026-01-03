@@ -8,6 +8,7 @@ return [
       'time' => '時刻',
       'dateAndTime' => '日付と時刻',
       'timezone' => 'タイムゾーン',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => '協定世界時',
       'modeZoneName' => 'ゾーンネーム',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => '次の月',
       'nextYear' => '次の年',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'メッセージの構文',
