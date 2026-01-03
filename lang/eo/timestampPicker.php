@@ -8,6 +8,7 @@ return [
       'time' => 'Horo',
       'dateAndTime' => 'Dato kaj horo',
       'timezone' => 'Horzono',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Babilsintakso',
