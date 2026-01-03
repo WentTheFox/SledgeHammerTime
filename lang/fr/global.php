@@ -34,7 +34,7 @@ return [
       'title' => 'Paramètres d\'entrée',
       'naturalLanguageInput' => [
         'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'description' => 'Permettre de manipuler l\'horodatage sélectionné en langage naturel (par exemple, "dans 5 heures") via une entrée supplémentaire en texte libre. Similaire à la nouvelle balise @time de Discord. Seul un nombre limité de langues est pris en charge.',
       ],
       'customDateInput' => [
         'label' => 'Saisie de la date personnalisée',
