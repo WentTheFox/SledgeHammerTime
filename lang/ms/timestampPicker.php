@@ -22,10 +22,10 @@ return [
       'unlock' => 'Buka kunci cap masa',
       'previousYear' => 'Tahun sebelumnya',
       'previousMonth' => 'Bulan sebelumnya',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Dekad lepas',
       'nextMonth' => 'Bulan seterusnya',
       'nextYear' => 'Tahun seterusnya',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Dekad hadapan',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
