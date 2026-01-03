@@ -14,7 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Salt la luna curentă',
-      'contextRange' => '<0/>–<2/>',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Setat la ora curentă',
@@ -22,10 +22,10 @@ return [
       'unlock' => 'Deblocare timestamp',
       'previousYear' => 'Anul precedent',
       'previousMonth' => 'Luna precedentă',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Deceniul precedent',
       'nextMonth' => 'Luna viitoare',
       'nextYear' => 'Anul următor',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Următorul deceniu',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
