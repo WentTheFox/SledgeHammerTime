@@ -8,13 +8,13 @@ return [
       'time' => '時刻',
       'dateAndTime' => '日付と時刻',
       'timezone' => 'タイムゾーン',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time 入力',
       'modeOffset' => '協定世界時',
       'modeZoneName' => 'ゾーンネーム',
     ],
     'button' => [
       'jumpToToday' => '現在の月へ移動',
-      'contextRange' => '<0/>–<2/>',
+      'contextRange' => '<0/>〜<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '現在時刻にする',
@@ -22,13 +22,13 @@ return [
       'unlock' => 'タイムスタンプをアンロック',
       'previousYear' => '前の年',
       'previousMonth' => '前の月',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => '10年前',
       'nextMonth' => '次の月',
       'nextYear' => '次の年',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => '次の10年',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => '自然言語入力の解析ができませんでした'
     ]
   ],
   'table' => [
