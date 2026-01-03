@@ -35,13 +35,18 @@ const handleSecondsFocused = () => dial.value?.setMode(DialMode.Seconds);
 /** Not for use in the template */
 const _handleTwentyFourHoursBlur = inputRangeLimitBlurHandlerFactory(hours);
 const handleHoursBlur = (e: FocusEvent) => {
+  if (!(e.target instanceof  HTMLInputElement)) return;
   if (!twelveHourMode.value) {
     _handleTwentyFourHoursBlur(e);
     return;
   }
 
-  const result = coerceToTwelveHours(hours.value);
-  if (!result) return;
+  const newHoursValue = parseInt(e.target.value, 10);
+  const result = coerceToTwelveHours(newHoursValue);
+  if (!result) {
+    hours.value = newHoursValue;
+    return;
+  }
 
   hours.value = result.hours;
   isAm.value = result.isAm;
