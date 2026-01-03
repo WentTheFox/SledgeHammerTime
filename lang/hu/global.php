@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Beviteli beállítások',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time beviteli mező',
+        'description' => 'Lehetővé teszi a kiválasztott időbélyeg változtatását természetes nyelven (pl. „5 óra múlva”) egy külön szabadszöveges beviteli mező segítségével. Hasonlóan működik az új Discord @time jelölőhöz. Csak korlátozott számú nyelvek támogatottak.',
       ],
       'customDateInput' => [
         'label' => 'Egyéni dátum beviteli mező',
