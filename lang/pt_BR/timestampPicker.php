@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Ir para o mês atual',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Definir para hora atual',
