@@ -3,10 +3,12 @@ import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps, User } from '@/types';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
+import { Chrono } from 'chrono-node';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
 export const timestampInject = Symbol('timestamp') as InjectionKey<{
   currentTimestamp: ComputedRef<DateTimeLibraryValue | null>,
+  setNlpDate: (date: Date|null) => void,
   isLocked: ComputedRef<boolean>,
   lockedTimestampUrl: ComputedRef<string>,
   unlockedTimestampUrl: ComputedRef<string>,
@@ -34,6 +36,8 @@ export const sidebarState = Symbol('sidebarState') as InjectionKey<{
 }>;
 
 export interface LocalSettingsValue {
+  readonly naturalLanguageInputEnabled: boolean | null;
+  readonly naturalLanguageInputAvailable: boolean;
   readonly customDateInputEnabled: boolean | null;
   readonly customTimeInputEnabled: boolean | null;
   readonly combinedInputsEnabled: boolean | null;
@@ -46,6 +50,7 @@ export interface LocalSettingsValue {
   readonly sidebarOffDesktop: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
+  readonly toggleNaturalLanguageInput: (e: Event) => void;
   readonly toggleCustomDateInput: (e: Event) => void;
   readonly toggleCustomTimeInput: (e: Event) => void;
   readonly toggleSeparateInputs: (e: Event) => void;
@@ -109,3 +114,5 @@ export type UsageDataFetchFunction = (options: BotInfoUsageFetchOptions) => Prom
 export const usageDataFetcherInject = Symbol('usageDataFetcherInject') as InjectionKey<UsageDataFetchFunction>;
 
 export const isJsUnavailableInject = Symbol('isJsUnavailableInject') as InjectionKey<DeepReadonly<Ref<boolean>>>;
+
+export const chronoInject = Symbol('chronoInject') as InjectionKey<ComputedRef<Chrono | null>>;

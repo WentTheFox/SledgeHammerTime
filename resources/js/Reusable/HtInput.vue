@@ -37,12 +37,16 @@ const isJsUnavailable = inject(isJsUnavailableInject);
 export interface InputApi {
   focus: () => void;
   select: () => void;
+  setCustomValidity: (validity: string) => void;
+  reportValidity: () => void;
   inputEl: HTMLInputElement | null;
 }
 
 defineExpose({
   focus: () => inputRef?.value?.focus(),
   select: () => inputRef?.value?.select(),
+  setCustomValidity: (validity: string) => inputRef?.value?.setCustomValidity(validity),
+  reportValidity: () => inputRef?.value?.reportValidity(),
   inputEl: inputRef,
 });
 </script>

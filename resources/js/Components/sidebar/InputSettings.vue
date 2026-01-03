@@ -60,6 +60,20 @@ const settings = inject(localSettingsInject);
         </template>
       </HtFormCheckboxControlled>
       <HtFormCheckboxControlled
+        id="nlp-input"
+        :label="$t('global.sidebar.inputSettings.naturalLanguageInput.label')"
+        :checked="Boolean(settings?.naturalLanguageInputEnabled)"
+        :disabled="!settings?.naturalLanguageInputAvailable"
+        @change="settings?.toggleNaturalLanguageInput"
+      >
+        <template #message>
+          <FormMessage
+            :message="$t('global.sidebar.inputSettings.naturalLanguageInput.description')"
+            class="mt-1"
+          />
+        </template>
+      </HtFormCheckboxControlled>
+      <HtFormCheckboxControlled
         id="flat-ui"
         :label="$t('global.sidebar.inputSettings.flatUi.label')"
         :checked="Boolean(settings?.flatUiEnabled)"

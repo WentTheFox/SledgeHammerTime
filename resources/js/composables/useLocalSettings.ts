@@ -1,8 +1,10 @@
 import { CurrentLanguageData } from '@/injection-keys';
-import { computed, onMounted, Ref, ref, watch } from 'vue';
+import { Chrono } from 'chrono-node';
+import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
 
 const splitPrefKey = 'split-input';
 const flatUiPrefKey = 'flat-ui';
+const nlpPrefKey = 'nlp-input';
 const customDatePrefKey = 'custom-date-input';
 const customTimePrefKey = 'custom-time-input';
 const sidebarPrefKey = 'sidebar-right';
@@ -15,7 +17,8 @@ const falseByDefault = (storedPref: string|null):boolean => storedPref === 'true
 const nullByDefault = (storedPref: string|null):boolean|null =>
   storedPref === null ? null : storedPref === 'true';
 
-export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => {
+export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono|null>>) => {
+  const naturalLanguageInputEnabled = ref<boolean | null>(null);
   const customDateInputEnabled = ref<boolean | null>(null);
   const customTimeInputEnabled = ref<boolean | null>(null);
   const combinedInputsEnabled = ref<boolean | null>(null);
@@ -28,7 +31,14 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
   ));
+  const naturalLanguageInputAvailable = computed(() => Boolean(chrono.value));
+  const effectiveNaturalLanguageInputEnabled = computed(() => (
+    Boolean(naturalLanguageInputEnabled.value) && naturalLanguageInputAvailable.value
+  ));
 
+  watch(naturalLanguageInputEnabled, (newValue) => {
+    localStorage.setItem(nlpPrefKey, newValue ? 'true' : 'false');
+  });
   watch(customDateInputEnabled, (newValue) => {
     localStorage.setItem(customDatePrefKey, newValue ? 'true' : 'false');
   });
@@ -77,6 +87,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     // Disable flat UI by default
     flatUiEnabled.value = falseByDefault(storedPref);
   };
+  const setInitialNaturalLanguageInput = () => {
+    const storedPref = localStorage.getItem(nlpPrefKey);
+    // Disable NLP input by default
+    naturalLanguageInputEnabled.value = falseByDefault(storedPref);
+  };
   const setInitialCustomDateInput = () => {
     const storedPref = localStorage.getItem(customDatePrefKey);
     // Enable custom date input by default
@@ -110,6 +125,7 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
 
   onMounted(() => {
     setInitialFlatUi();
+    setInitialNaturalLanguageInput();
     setInitialCombinedInput();
     setInitialCustomDateInput();
     setInitialCustomTimeInput();
@@ -120,6 +136,8 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
   });
 
   return {
+    naturalLanguageInputEnabled: effectiveNaturalLanguageInputEnabled,
+    naturalLanguageInputAvailable,
     customDateInputEnabled,
     customTimeInputEnabled,
     combinedInputsEnabled,
@@ -129,6 +147,11 @@ export const useLocalSettings = (currentLanguage?: Ref<CurrentLanguageData>) => 
     sidebarOffDesktop,
     isLightTheme,
     autoTimeSync,
+    toggleNaturalLanguageInput(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+
+      naturalLanguageInputEnabled.value = e.target.checked;
+    },
     toggleCustomDateInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
