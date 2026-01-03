@@ -32,6 +32,10 @@ return [
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Ρυθμίσεις εισαγωγής',
+      'naturalLanguageInput' => [
+        'label' => '@time input field',
+        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+      ],
       'customDateInput' => [
         'label' => 'Προσαρμοσμένη εισαγωγή ημερομηνίας',
         'description' => "Αντικαταστήστε την προεπιλεγμένη ημερομηνία του προγράμματος περιήγησης με μια προσαρμοσμένη.",
@@ -87,6 +91,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
+      'chrono' => 'chrono',
       'translatedBy' => 'Μετάφραση από <1></1>',
       'openSourceSoftware' => 'Λογισμικό ανοικτού κώδικα',
       'viewSourceCode' => 'Προβολή πηγαίου κώδικα',
