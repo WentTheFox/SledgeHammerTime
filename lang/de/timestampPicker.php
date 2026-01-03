@@ -22,13 +22,13 @@ return [
       'unlock' => 'Zeitstempel entsperren',
       'previousYear' => 'Vorheriges Jahr',
       'previousMonth' => 'Vorheriger Monat',
-      'previousDecade' => 'Previous decade',
+      'previousDecade' => 'Vorheriges Jahrzehnt',
       'nextMonth' => 'Nächster Monat',
       'nextYear' => 'Nächstes Jahr',
-      'nextDecade' => 'Next decade',
+      'nextDecade' => 'Nächstes Jahrzehnt',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Natürliche Spracheingabe konnte nicht verarbeitet werden'
     ]
   ],
   'table' => [
