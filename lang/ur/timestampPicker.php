@@ -8,6 +8,7 @@ return [
       'time' => ' وقت',
       'dateAndTime' => 'تاریخ اور وقت',
       'timezone' => 'ٹائم زون',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'چیٹ نحو',
