@@ -14,8 +14,7 @@ return [
     ],
     'button' => [
       'jumpToToday' => '跳至目前月份',
-      'contextRangeLong' => '<0/> – <2/>',
-      'contextRangeShort' => '<0/>–<2/>',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => '設定為目前時間',
