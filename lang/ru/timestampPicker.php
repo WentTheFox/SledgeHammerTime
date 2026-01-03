@@ -8,6 +8,7 @@ return [
       'time' => 'Время',
       'dateAndTime' => 'Дата и время',
       'timezone' => 'Часовой пояс',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Смещение времени',
       'modeZoneName' => 'Название зоны',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Следующий месяц',
       'nextYear' => 'Следующий год',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Синтаксис в чате',
