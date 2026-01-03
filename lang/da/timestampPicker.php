@@ -20,12 +20,12 @@ return [
       'setToCurrent' => 'Indstil til aktuel tid',
       'lock' => 'Lås tidsstempel via URL',
       'unlock' => 'Oplås tidsstempel',
-      'previousYear' => 'Previous year',
-      'previousMonth' => 'Previous month',
-      'previousDecade' => 'Previous decade',
-      'nextMonth' => 'Next month',
-      'nextYear' => 'Next year',
-      'nextDecade' => 'Next decade',
+      'previousYear' => 'Forrige år',
+      'previousMonth' => 'Forrige måned',
+      'previousDecade' => 'Forrige årti',
+      'nextMonth' => 'Næste måned',
+      'nextYear' => 'Næste år',
+      'nextDecade' => 'Næste årti',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
