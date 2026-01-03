@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Geçerli aya git',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Geçerli zamana ayarla',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Zaman damgasının kilidini aç',
       'previousYear' => 'Geçen yıl',
       'previousMonth' => 'Geçen ay',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Sonraki ay',
       'nextYear' => 'Gelecek yıl',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
