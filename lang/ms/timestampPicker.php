@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Lompat ke bulan semasa',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Tetapkan ke masa semasa',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Buka kunci cap masa',
       'previousYear' => 'Tahun sebelumnya',
       'previousMonth' => 'Bulan sebelumnya',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Bulan seterusnya',
       'nextYear' => 'Tahun seterusnya',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
