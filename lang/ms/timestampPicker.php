@@ -8,6 +8,7 @@ return [
       'time' => 'Masa',
       'dateAndTime' => 'Tarikh dan masa',
       'timezone' => 'Zon waktu',
+      'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Ofset Mutlak',
       'modeZoneName' => 'Nama Zon',
     ],
@@ -23,6 +24,9 @@ return [
       'nextMonth' => 'Bulan seterusnya',
       'nextYear' => 'Tahun seterusnya',
     ],
+    'validation' => [
+      'naturalLanguageParseError' => 'Could not parse natural language input'
+    ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaks sembang',
