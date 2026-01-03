@@ -14,6 +14,8 @@ return [
     ],
     'button' => [
       'jumpToToday' => 'Jump to current month',
+      'contextRangeLong' => '<0/> – <2/>',
+      'contextRangeShort' => '<0/>–<2/>',
     ],
     'tooltip' => [
       'setToCurrent' => 'Aseta nykyiseen aikaan',
@@ -21,8 +23,10 @@ return [
       'unlock' => 'Avaa aikaleima',
       'previousYear' => 'Edellinen vuosi',
       'previousMonth' => 'Edellinen kuukausi',
+      'previousDecade' => 'Previous decade',
       'nextMonth' => 'Seuraava kuukausi',
       'nextYear' => 'Ensi vuonna',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
