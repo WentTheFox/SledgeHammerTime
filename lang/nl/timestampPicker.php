@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Oude Website',
-      'p' => 'De oude website van het project, nog beschikbaar totdat deze bètaversie live gaat',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebane\'s <1>gekleurde</1> tekst generator',
