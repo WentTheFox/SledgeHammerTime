@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Beta Ιστοσελίδα',
-      'p' => 'Η παλιά ιστοσελίδα του προγράμματος, ακόμα διαθέσιμη μέχρι η έκδοση Beta να βγει ζωντανά',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Δημιουργία <1>Χρωματιστού</1> κειμένου Rebane',
