@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime 測試版網站',
-      'p' => '專案的舊網站，在此 Beta 版正式啟用前仍可使用',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebane 的<1>彩色</1>文字產生器',
