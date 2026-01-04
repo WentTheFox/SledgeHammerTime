@@ -5,6 +5,7 @@ export interface User {
   id: number;
   name: string;
   hiddenFormats: string[];
+  horizonAccess: boolean;
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {

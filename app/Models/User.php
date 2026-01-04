@@ -49,6 +49,7 @@ class User extends Authenticatable {
       'id' => $this->id,
       'name' => $this->name,
       'hiddenFormats' => $this->hidden_formats,
+      'horizonAccess' => $this->horizon_access,
     ];
   }
 }
