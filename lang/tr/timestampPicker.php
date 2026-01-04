@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Eski HammerTime Sitesi',
-      'p' => 'Projenin eski sitesi, bu Beta yayına girene kadar hâlâ erişilebilir',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebane\'in <1>Renkli</1> Metin Oluşturucusu',
