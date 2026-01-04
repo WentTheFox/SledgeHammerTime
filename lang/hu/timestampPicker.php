@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Régi Weboldal',
-      'p' => 'A projekt régi weboldala, amely még mindig elérhető, amíg a Béta nem élesedik',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebane <1>Színezett</1> Szöveg Generálója',
