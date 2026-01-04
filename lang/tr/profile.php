@@ -12,13 +12,13 @@ return [
   ],
   'accounts' => [
     'heading' => 'Bağlı Hesaplar',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'description' => 'Tek bir yerden yönetebilmek için HammerTime hesabınıza birden fazla hesap bağlayabilirsiniz. Burada görüntülenen temel kullanıcı bilgileri, bu sayfayı yüklediğinizde saatte en fazla bir kez otomatik olarak güncellenir.',
     'discord' => 'Discord Hesapları',
     'crowdin' => 'Crowdin Hesapları',
     'noConnectedAccounts' => 'Şu anda bağlı bir hesabınız yok',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => 'Ek Hesaplar Bağlayın',
+      'description' => 'Mevcut HammerTime hesabınıza ek hesaplar bağlamak için aşağıdaki düğmeleri kullanın.',
       'discord' => [
         'description' => 'Profil resminiz veya görünen adınız değiştiyse, halihazırda bağlı olan herhangi bir Discord hesabındaki bu bilgileri güncellemek için de bunu kullanabilirsiniz.',
         'authorize' => 'Discord hesabını yetkilendir',
