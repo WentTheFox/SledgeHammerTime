@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Ajustes de entrada',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'Campo de entrada @time',
+        'description' => 'Permite manipular la marca de tiempo seleccionada con lenguaje natural (ej. «en 5 horas») mediante un campo de entrada de texto libre adicional. Similar a la nueva etiqueta @time de Discord. Solo se admite un número limitado de idiomas.',
       ],
       'customDateInput' => [
         'label' => 'Entrada de fecha personalizada',
