@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Laman Sesawang Lama HammerTime',
-      'p' => 'Laman sesawang projek ini yang lama, masih tersedia sehingga Beta ini diterbitkan',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Penjana Tulisan <1>Berwarna</1> Rebane',
