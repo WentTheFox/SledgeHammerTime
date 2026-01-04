@@ -12,6 +12,8 @@
     border-radius: design.app-value('nav-link-border-radius');
     text-decoration: none;
     display: flex;
+    align-items: center;
+    gap: .3em;
     cursor: pointer;
     background-color: transparent;
     transition-property: color, background-color, opacity;

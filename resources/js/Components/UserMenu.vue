@@ -7,6 +7,7 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import { safeRoute } from '@/utils/safe-route';
 import {
   faArrowRightFromBracket,
+  faBusinessTime,
   faCaretDown,
   faCaretUp,
   faHammer,
@@ -56,9 +57,8 @@ const routeParams = useRouteParams(route, pageProps);
           >
             <FontAwesomeIcon
               :icon="faHammer"
-              class="me-1"
             />
-            {{ $t('global.nav.botSettings') }}
+            <span>{{ $t('global.nav.botSettings') }}</span>
           </Link>
           <Link
             :href="safeRoute('profile.edit', route, routeParams)"
@@ -66,9 +66,18 @@ const routeParams = useRouteParams(route, pageProps);
           >
             <FontAwesomeIcon
               :icon="faUserGear"
-              class="me-1"
             />
-            {{ $t('global.nav.profile') }}
+            <span>{{ $t('global.nav.profile') }}</span>
+          </Link>
+          <Link
+            v-if="userInfo.horizonAccess"
+            :href="safeRoute('horizon.index', route, { view: 'dashboard' })"
+            class="nav-link"
+          >
+            <FontAwesomeIcon
+              :icon="faBusinessTime"
+            />
+            <span>Horizon Dashboard</span>
           </Link>
           <Link
             :href="safeRoute('logout', route, routeParams)"
@@ -79,9 +88,8 @@ const routeParams = useRouteParams(route, pageProps);
           >
             <FontAwesomeIcon
               :icon="faArrowRightFromBracket"
-              class="me-1"
             />
-            {{ $t('actions.log_out') }}
+            <span>{{ $t('actions.log_out') }}</span>
           </Link>
         </nav>
       </template>
