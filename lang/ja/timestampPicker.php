@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => '旧Hammer Timeサイト',
-      'p' => 'ベータ版が公開されるまで引き続き利用可能な、プロジェクトの旧ウェブサイト',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebaneの<1>色付き</1>テキストジェネレーター',
