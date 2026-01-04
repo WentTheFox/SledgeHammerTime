@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Starý web HammerTime',
-      'p' => 'Původní web projektu, který zůstane dostupný až do spuštění této betaverze',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Generátor <1>barevného</1> textu od vývojáře Rebane',

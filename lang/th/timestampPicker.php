@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'เว็บไซต์ HammerTime เวอร์ชันเก่า',
-      'p' => 'เว็บไซต์เวอร์ชันเก่าของโปรเจ็กต์ ซึ่งจะยังคงเปิดให้ใช้งานได้จนกว่าเวอร์ชันเบต้า จะเปิดให้บริการ',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Rebane <1>สีสันต่างๆ</1> ตัวสร้างข้อความ',

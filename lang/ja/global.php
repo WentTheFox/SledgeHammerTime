@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => '入力設定',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time 入力フィールド',
+        'description' => '選択したタイムスタンプを自然言語（例：「５時間後」）で操作できるようにするため、追加の自由入力フィールドを提供します。Discordの新しい@timeタグと同様の機能です。対応言語は限定されています。',
       ],
       'customDateInput' => [
         'label' => 'カスタム日付入力',

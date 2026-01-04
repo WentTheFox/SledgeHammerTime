@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Sitio web antiguo de HammerTime',
-      'p' => 'El sitio web antiguo del proyecto, todavía disponible hasta que esta versión Beta se active',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
       'header' => 'Generador de texto de <1>color</1> de Rebane',
