@@ -764,6 +764,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17369904/medium/7b75e48b282d7ecbfeb5a75bfca57d18.jpeg",
       "fullName": "Marthine Maurlia"
     },
+    "17374962": {
+      "username": "DearReux",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17374962/medium/a4d0c1812a357273d6e0df972693de9d.png",
+      "fullName": "zakpaco gamer"
+    },
     "17378908": {
       "username": "premium.global.co",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17378908/medium/b6aaec34086216c309ae7885bb4d1b8c.jpeg",
@@ -1064,12 +1069,13 @@
         "17461970",
         "17488256",
         "17448206",
+        "17374962",
         "17428170",
         "17453292"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1183,8 +1189,8 @@
         "16603067"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "ja": {
