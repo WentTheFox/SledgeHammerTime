@@ -252,6 +252,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
+  - [zakpaco gamer](https://crowdin.com/profile/DearReux)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
   - [Liggliluff](https://github.com/Liggliluff)

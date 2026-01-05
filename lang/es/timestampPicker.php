@@ -43,11 +43,11 @@ return [
     ],
     'bot' => [
       'header' => 'Aplicación HammerTime',
-      'p' => 'Genera marcas de tiempo desde Discord usando commandos de barra diagonal',
+      'p' => 'Genera marcas de tiempo desde Discord usando comandos de barra diagonal',
     ],
     'oldSite' => [
       'header' => 'Sitio web antiguo de HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'El antiguo sitio web del proyecto, todavía disponible hasta próximo aviso',
     ],
     'textColor' => [
       'header' => 'Generador de texto de <1>color</1> de Rebane',
