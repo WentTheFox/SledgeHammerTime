@@ -295,7 +295,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
  */
 export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   readonly timezoneNames = timezoneNames;
-  protected is24HourLocaleSet = new Set(['hu', 'de', 'fr', 'es', 'it', 'pt-br', 'en-gb']);
+  protected is24HourLocaleSet = new Set(['hu', 'de', 'fr', 'es', 'it', 'pt-br', 'en-gb', 'nl']);
   private _offset: number = 0;
 
   get offset(): number {
