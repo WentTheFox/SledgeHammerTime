@@ -52,6 +52,15 @@ return [
         'label' => 'Wyrównaj interfejs',
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Synchronizacja czasu',
