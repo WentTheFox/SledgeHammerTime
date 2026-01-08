@@ -52,6 +52,15 @@ return [
         'label' => 'Interface aplanie',
         'description' => "Désactiver les effets d'ombre et de hauteur sur les entrées et les boutons",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Synchronisation de l\'heure',
