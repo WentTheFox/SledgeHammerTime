@@ -52,6 +52,15 @@ return [
         'label' => 'Interfață plată',
         'description' => "Dezactivează efectele de umbră și înălțime pe intrări și butoane",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Sincronizarea timpului',
