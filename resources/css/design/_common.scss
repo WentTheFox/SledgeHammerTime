@@ -209,7 +209,7 @@ $color-map: (
     dark: $_text-color-dark,
   ),
   alert-bg: (
-    light: rgba(230, 229, 227, .5),
+    light: rgba(255, 255, 255, .2),
     dark: rgba(20, 21, 23, 0.2),
   ),
   alert-color: (
@@ -369,7 +369,7 @@ $color-map: (
     dark: rgba($_base-blue, .5),
   ),
   collapsible-bg: (
-    light: rgba(#000, .25),
+    light: rgba(#fff, .5),
     dark: rgba(#000, .5),
   ),
   table-border: (
