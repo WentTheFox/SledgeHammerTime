@@ -122,6 +122,7 @@ English and Hungarian translations have been included, so no translators will be
   - [gsgsgdggfd](https://crowdin.com/profile/gsgsgdggfd)
   - [Julius Geiger](https://crowdin.com/profile/julix00)
   - [Leo](https://crowdin.com/profile/35klxo)
+  - [Martin Plewa](https://crowdin.com/profile/Nitram4392)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
 - 🇬🇷 Greek
@@ -216,6 +217,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇷🇴 Romanian: [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
   - [9900gvf4](https://crowdin.com/profile/AndruhaLoshorXyesosik)
+  - [aerial](https://crowdin.com/profile/aerial)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Aligatoor](https://crowdin.com/profile/Aligatoor)
   - [Arantir Reinhold](https://crowdin.com/profile/arantirrein)
