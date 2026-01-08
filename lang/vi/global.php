@@ -52,6 +52,15 @@ return [
         'label' => 'Giao diện phẳng',
         'description' => "Tắt hiệu ứng bóng và hiệu ứng nổi ở các ô nhập và nút bấm",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Đồng bộ hoá đồng hồ',
