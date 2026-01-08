@@ -53,8 +53,8 @@ return [
         'description' => "Disable shadow and height effects on inputs and buttons",
       ],
       'hourCycle' => [
-        'label' => 'Time input clock type',
-        'description' => 'Change how hours should be displayed in the time input',
+        'label' => 'Custom time input clock type',
+        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
         'options' => [
           'default' => 'Language default',
           'h12' => '12-hour',
