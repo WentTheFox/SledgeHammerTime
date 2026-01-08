@@ -52,6 +52,15 @@ return [
         'label' => 'Zjednodušené rozhraní',
         'description' => "Odstraní stíny a výškové efekty u vstupních polí a tlačítek",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Synchronizace času',
