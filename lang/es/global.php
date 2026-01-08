@@ -52,6 +52,15 @@ return [
         'label' => 'Aplanar interfaz',
         'description' => "Desactivar efectos de sombra y altura en campos de entrada y botones",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Sincronización de hora',
