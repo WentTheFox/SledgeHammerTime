@@ -25,7 +25,7 @@ export interface DateTimeLibrary<T = any, L = any> {
 
   getDefaultInitialTimezoneSelection(hint?: string): TimezoneSelection | undefined;
 
-  getMeridiemLabel(isAm: boolean, minutes?: number, locale?: DateTimeLibraryLocale<L>): string;
+  getMeridiemLabel(isAm: boolean, locale: DateTimeLibraryLocale<L> | undefined | null, minutes?: number): string;
 
   getDefaultInitialDateTime(
     timezone: TimezoneSelection,

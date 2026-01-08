@@ -28,7 +28,8 @@ import {
   parse,
   setHours,
   setMinutes,
-  setSeconds, subYears,
+  setSeconds,
+  subYears,
 } from 'date-fns';
 import * as locales from 'date-fns/locale';
 
@@ -270,12 +271,12 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     switch (currentContext) {
       case CalendarContext.DATE:
         return [
-          format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue })
+          format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue }),
         ];
       case CalendarContext.MONTH:
         if (short) return [];
         return [
-          format(this.value, `yyyy`, { locale: this.getLocale().lowLevelValue })
+          format(this.value, `yyyy`, { locale: this.getLocale().lowLevelValue }),
         ];
       case CalendarContext.DECADE: {
         if (short) return [];
@@ -452,15 +453,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return [dateString, timeString];
   }
 
-  getMeridiemLabel(isAm: boolean, minutes = 0, locale?: DateTimeLibraryLocale<Locale>): string {
+  getMeridiemLabel(isAm: boolean, locale: DateTimeLibraryLocale<L> | undefined | null, minutes?: number): string {
     const time = new Date(2000, 0, 1, isAm ? 10 : 22, minutes);
-    // Different locales handle AM/PM differently
-    switch (locale?.name) {
-      case 'hu':
-        return isAm ? 'DE' : 'DU';
-      default:
-        return format(time, 'a', { locale: locale?.lowLevelValue }).toUpperCase();
-    }
+    return format(time, 'a', { locale: locale?.lowLevelValue }).toUpperCase();
   }
 
   now(): DateTimeLibraryValue<TZDate> {

@@ -180,8 +180,8 @@ describe('DateTimeLibrary', () => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
         const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
-        const amLabel = dtl.getMeridiemLabel(true, 0, locale);
-        const pmLabel = dtl.getMeridiemLabel(false, 0, locale);
+        const amLabel = dtl.getMeridiemLabel(true, locale, 0);
+        const pmLabel = dtl.getMeridiemLabel(false, locale, 0);
         expect(amLabel).toEqual(expectedLabels.am[language]);
         expect(pmLabel).toEqual(expectedLabels.pm[language]);
         expect(amLabel).not.toBe(pmLabel);
@@ -191,8 +191,8 @@ describe('DateTimeLibrary', () => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
         const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
-        const amLabel = dtl.getMeridiemLabel(true, 30, locale);
-        const pmLabel = dtl.getMeridiemLabel(false, 30, locale);
+        const amLabel = dtl.getMeridiemLabel(true, locale, 30);
+        const pmLabel = dtl.getMeridiemLabel(false, locale, 30);
         expect(amLabel).toBeDefined();
         expect(pmLabel).toBeDefined();
       });
