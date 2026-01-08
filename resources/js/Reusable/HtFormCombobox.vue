@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { useFormControlId } from '@/composables/useFormControlId';
 import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
-import { formControlId } from '@/injection-keys';
 import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
 import { ComboboxAddonComponentProps, ComboboxOption, suggestionItemClass } from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   Component,
   computed,
-  inject,
   nextTick,
   onMounted,
   onUnmounted,
@@ -18,7 +17,7 @@ import {
   watch,
 } from 'vue';
 
-const id = inject(formControlId);
+const id = useFormControlId();
 const model = defineModel<string | null>({ default: null });
 
 const props = withDefaults(defineProps<{
@@ -28,12 +27,16 @@ const props = withDefaults(defineProps<{
   tabindex?: number | string;
   addonComponent?: Component<ComboboxAddonComponentProps>;
   allowTyping?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
 }>(), {
   name: undefined,
   class: undefined,
   tabindex: undefined,
   addonComponent: undefined,
   allowTyping: true,
+  disabled: false,
+  readonly: false,
 });
 
 const emit = defineEmits<{
@@ -425,7 +428,7 @@ watch(model, (newModelValue) => {
 </script>
 
 <template>
-  <div :class="['form-control-combobox form-control-select', {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping}]">
+  <div :class="['form-control-combobox form-control-select', {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping, disabled}]">
     <input
       :id="id"
       ref="input-el"
@@ -434,7 +437,8 @@ watch(model, (newModelValue) => {
       :class="['form-select-input input-field', props.class, { 'hide-selection': !allowTyping }]"
       :tabindex="props.tabindex"
       autocomplete="off"
-      :readonly="!allowTyping"
+      :readonly="!allowTyping || readonly"
+      :disabled="disabled"
       @keydown="handleKeyDown"
       @input="handleInput"
       @focus="handleFocus"
@@ -443,8 +447,9 @@ watch(model, (newModelValue) => {
     >
     <button
       type="button"
-      :class="[formSelectIconClass, { [clickableClass]: mode === 'select' }]"
+      :class="[formSelectIconClass, { [clickableClass]: mode === 'select' && !disabled && !readonly }]"
       tabindex="-1"
+      :disabled="disabled || readonly"
       @click="handleIconClick"
       @mousedown="isInteractingWithSuggestions = true"
     >

@@ -1,4 +1,5 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
+import { HourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps, User } from '@/types';
@@ -9,7 +10,7 @@ import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 export const timestampInject = Symbol('timestamp') as InjectionKey<{
   currentTimestamp: ComputedRef<DateTimeLibraryValue | null>,
   currentTimestampDirect: ComputedRef<DateTimeLibraryValue | null>,
-  setNlpDate: (date: Date|null) => void,
+  setNlpDate: (date: Date | null) => void,
   isLocked: ComputedRef<boolean>,
   lockedTimestampUrl: ComputedRef<string>,
   unlockedTimestampUrl: ComputedRef<string>,
@@ -51,6 +52,7 @@ export interface LocalSettingsValue {
   readonly sidebarOffDesktop: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
+  readonly hourCycle: HourCycle | null;
   readonly toggleNaturalLanguageInput: (e: Event) => void;
   readonly toggleCustomDateInput: (e: Event) => void;
   readonly toggleCustomTimeInput: (e: Event) => void;
@@ -60,11 +62,12 @@ export interface LocalSettingsValue {
   readonly setSidebarOffDesktop: (value: boolean) => void;
   readonly setLightTheme: (isLight: boolean | null) => void;
   readonly toggleAutoTimeSync: (e: Event) => void;
+  readonly setHourCycle: (e: Event) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;
 
-export const formControlId = Symbol('formControlId') as InjectionKey<string>;
+export const formControlIdInject = Symbol('formControlId') as InjectionKey<ComputedRef<string | undefined>>;
 
 export const positionAnchor = Symbol('positionAnchor') as InjectionKey<`--${string}`>;
 
