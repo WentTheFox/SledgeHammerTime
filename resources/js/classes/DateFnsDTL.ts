@@ -453,7 +453,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return [dateString, timeString];
   }
 
-  getMeridiemLabel(isAm: boolean, locale: DateTimeLibraryLocale<L> | undefined | null, minutes?: number): string {
+  getMeridiemLabel(isAm: boolean, locale: DateTimeLibraryLocale<Locale> | undefined | null, minutes?: number): string {
     const time = new Date(2000, 0, 1, isAm ? 10 : 22, minutes);
     return format(time, 'a', { locale: locale?.lowLevelValue }).toUpperCase();
   }
