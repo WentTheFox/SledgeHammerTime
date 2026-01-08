@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { HourCycle } from '@/classes/DateTimeLibraryLocale';
 import FormMessage from '@/Components/FormMessage.vue';
-import { devModeInject, localSettingsInject } from '@/injection-keys';
+import { localSettingsInject } from '@/injection-keys';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { inject } from 'vue';
 
 const settings = inject(localSettingsInject);
-const devMode = inject(devModeInject);
 </script>
 
 <template>
@@ -96,7 +95,6 @@ const devMode = inject(devModeInject);
         </template>
       </HtFormCheckboxControlled>
       <HtFormControl
-        v-if="devMode"
         id="hour-cycle"
         :label="$t('global.sidebar.inputSettings.hourCycle.label')"
       >
