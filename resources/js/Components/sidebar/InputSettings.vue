@@ -2,15 +2,19 @@
 import { HourCycle } from '@/classes/DateTimeLibraryLocale';
 import FormMessage from '@/Components/FormMessage.vue';
 import { localSettingsInject } from '@/injection-keys';
+import HtButton from '@/Reusable/HtButton.vue';
+import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSelect from '@/Reusable/HtFormSelect.vue';
-import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp, faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 
 const settings = inject(localSettingsInject);
+
+const showAdvancedSettings = ref(false);
 </script>
 
 <template>
@@ -65,61 +69,73 @@ const settings = inject(localSettingsInject);
           />
         </template>
       </HtFormCheckboxControlled>
-      <HtFormCheckboxControlled
-        id="nlp-input"
-        :label="$t('global.sidebar.inputSettings.naturalLanguageInput.label')"
-        :checked="Boolean(settings?.naturalLanguageInputEnabled)"
-        :disabled="!settings?.naturalLanguageInputAvailable"
-        @change="settings?.toggleNaturalLanguageInput"
+      <HtButton
+        :pressed="showAdvancedSettings"
+        :icon-end="showAdvancedSettings ? faCaretUp : faCaretDown"
+        @click="showAdvancedSettings = !showAdvancedSettings"
       >
-        <template #message>
-          <FormMessage
-            :message="$t('global.sidebar.inputSettings.naturalLanguageInput.description')"
-            class="mt-1"
-            type="description"
-          />
-        </template>
-      </HtFormCheckboxControlled>
-      <HtFormCheckboxControlled
-        id="flat-ui"
-        :label="$t('global.sidebar.inputSettings.flatUi.label')"
-        :checked="Boolean(settings?.flatUiEnabled)"
-        @change="settings?.toggleFlatUi"
+        {{ $t('global.sidebar.inputSettings.advancedSettings') }}
+      </HtButton>
+      <HtCollapsible
+        :visible="showAdvancedSettings"
+        :animate="false"
       >
-        <template #message>
-          <FormMessage
-            :message="$t('global.sidebar.inputSettings.flatUi.description')"
-            class="mt-1"
-            type="description"
-          />
-        </template>
-      </HtFormCheckboxControlled>
-      <HtFormControl
-        id="hour-cycle"
-        :label="$t('global.sidebar.inputSettings.hourCycle.label')"
-      >
-        <HtFormSelect
-          v-model="settings!.hourCycle"
-          @change="settings?.setHourCycle"
+        <HtFormCheckboxControlled
+          id="nlp-input"
+          :label="$t('global.sidebar.inputSettings.naturalLanguageInput.label')"
+          :checked="Boolean(settings?.naturalLanguageInputEnabled)"
+          :disabled="!settings?.naturalLanguageInputAvailable"
+          @change="settings?.toggleNaturalLanguageInput"
         >
-          <option :value="null">
-            {{ $t('global.sidebar.inputSettings.hourCycle.options.default') }}
-          </option>
-          <option :value="HourCycle.H12">
-            {{ $t('global.sidebar.inputSettings.hourCycle.options.h12') }}
-          </option>
-          <option :value="HourCycle.H24">
-            {{ $t('global.sidebar.inputSettings.hourCycle.options.h24') }}
-          </option>
-        </HtFormSelect>
-        <template #message>
-          <FormMessage
-            :message="$t('global.sidebar.inputSettings.hourCycle.description')"
-            class="mt-1"
-            type="description"
-          />
-        </template>
-      </HtFormControl>
+          <template #message>
+            <FormMessage
+              :message="$t('global.sidebar.inputSettings.naturalLanguageInput.description')"
+              class="mt-1"
+              type="description"
+            />
+          </template>
+        </HtFormCheckboxControlled>
+        <HtFormCheckboxControlled
+          id="flat-ui"
+          :label="$t('global.sidebar.inputSettings.flatUi.label')"
+          :checked="Boolean(settings?.flatUiEnabled)"
+          @change="settings?.toggleFlatUi"
+        >
+          <template #message>
+            <FormMessage
+              :message="$t('global.sidebar.inputSettings.flatUi.description')"
+              class="mt-1"
+              type="description"
+            />
+          </template>
+        </HtFormCheckboxControlled>
+        <HtFormControl
+          id="hour-cycle"
+          :label="$t('global.sidebar.inputSettings.hourCycle.label')"
+        >
+          <HtFormSelect
+            v-model="settings!.hourCycle"
+            @change="settings?.setHourCycle"
+          >
+            <option :value="null">
+              {{ $t('global.sidebar.inputSettings.hourCycle.options.default') }}
+            </option>
+            <option :value="HourCycle.H12">
+              {{ $t('global.sidebar.inputSettings.hourCycle.options.h12') }}
+            </option>
+            <option :value="HourCycle.H24">
+              {{ $t('global.sidebar.inputSettings.hourCycle.options.h24') }}
+            </option>
+          </HtFormSelect>
+          <template #message>
+            <FormMessage
+              :message="$t('global.sidebar.inputSettings.hourCycle.description')"
+              class="mt-1"
+              type="description"
+            />
+          </template>
+        </HtFormControl>
+      </HtCollapsible>
     </HtFormControlGroup>
   </section>
 </template>
