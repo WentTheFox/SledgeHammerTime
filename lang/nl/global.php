@@ -52,6 +52,15 @@ return [
         'label' => 'Platte interface gebruiken',
         'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Tijdsynchronisatie',
