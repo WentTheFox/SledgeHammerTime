@@ -590,6 +590,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16779295/medium/42d9b5fcfaab1125d30f21aed278ed2d.png",
       "fullName": "Cookie"
     },
+    "16809395": {
+      "username": "aerial",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16809395/medium/497836f37e51835efc117cf0724308e2.png"
+    },
     "16812111": {
       "username": "cricribebe",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16812111/medium/7dbffdf5ffca85a1ca3283a4ba06075e.png",
@@ -946,6 +950,11 @@
       "username": "hwswoo",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17510552/medium/13b83cd6103238159d21b9ddf2925507.png",
       "fullName": "Hweesang W."
+    },
+    "17519786": {
+      "username": "Nitram4392",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17519786/medium/a9f8e0d43dd61304cdd3f2179bd0c662.PNG",
+      "fullName": "Martin Plewa"
     }
   },
   "languages": {
@@ -1019,7 +1028,8 @@
         "15199922",
         "16622391",
         "16603607",
-        "17430214"
+        "17430214",
+        "17519786"
       ],
       "progress": {
         "approval": 98,
@@ -1390,13 +1400,14 @@
         "17450376",
         "17454624",
         "17430436",
+        "16809395",
         "16873803",
         "17472794",
         "17481246"
       ],
       "progress": {
         "approval": 97,
-        "translation": 97
+        "translation": 100
       }
     },
     "sr": {
@@ -1446,7 +1457,7 @@
       ],
       "progress": {
         "approval": 98,
-        "translation": 98
+        "translation": 100
       }
     },
     "uk": {
