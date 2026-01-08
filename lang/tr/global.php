@@ -52,6 +52,15 @@ return [
         'label' => 'Düzleştirilmiş arayüz',
         'description' => "Girişler ve butonlardaki gölge ve yükseklik efektlerini devre dışı bırakın",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Zaman Senkronizasyonu',
