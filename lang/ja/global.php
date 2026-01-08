@@ -52,6 +52,15 @@ return [
         'label' => 'インターフェースをフラット化する',
         'description' => "入力項目とボタンで影と高さの立体エフェクトを無効にする",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => '時刻更新',
