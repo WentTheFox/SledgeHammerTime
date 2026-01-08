@@ -167,12 +167,14 @@ describe('DateTimeLibrary', () => {
         am: {
           en: 'AM',
           'en-GB': 'AM',
-          hu: 'DE',
+          hu: 'DE.',
+          de: 'VORM.'
         },
         pm: {
           en: 'PM',
           'en-GB': 'PM',
-          hu: 'DU',
+          hu: 'DU.',
+          de: 'NACH.'
         },
       };
 
