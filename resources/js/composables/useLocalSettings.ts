@@ -207,9 +207,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setHourCycle(e: Event) {
       if (!(e.target instanceof HTMLSelectElement)) return;
 
-      if (isValidHourCycle(e.target.value)) {
-        hourCycle.value = e.target.value;
-      }
+      hourCycle.value = isValidHourCycle(e.target.value) ? e.target.value : null;
     },
   };
 };
