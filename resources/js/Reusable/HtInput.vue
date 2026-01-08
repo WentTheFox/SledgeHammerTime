@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { formControlId, isJsUnavailableInject } from '@/injection-keys';
-import { computed, inject, useTemplateRef } from 'vue';
+import { useFormControlId } from '@/composables/useFormControlId';
+import { isJsUnavailableInject } from '@/injection-keys';
+import { inject, useTemplateRef } from 'vue';
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void;
   (e: 'focus', ev: FocusEvent): void;
   (e: 'blur', ev: FocusEvent): void;
   (e: 'keydown', ev: KeyboardEvent): void;
+  (e: 'change', ev: Event): void;
 }>();
 
 const props = defineProps<{
@@ -15,7 +17,7 @@ const props = defineProps<{
   disabled?: boolean;
   hideSelection?: boolean;
   positionAnchorName?: string;
-  type?: 'text' | 'number' | 'date' | 'time' | 'datetime-local' | 'color';
+  type?: 'text' | 'number' | 'date' | 'time' | 'datetime-local' | 'color' | 'checkbox';
   min?: string | number;
   max?: string | number;
   step?: string | number;
@@ -28,9 +30,7 @@ const model = defineModel<string | number | null>();
 
 const inputRef = useTemplateRef<HTMLInputElement>('input-el');
 
-const providedId = inject(formControlId);
-
-const effectiveId = computed(() => props.id ?? providedId);
+const formControlId = useFormControlId(props);
 
 const isJsUnavailable = inject(isJsUnavailableInject);
 
@@ -53,7 +53,7 @@ defineExpose({
 
 <template>
   <input
-    :id="effectiveId"
+    :id="formControlId"
     ref="input-el"
     v-model="model"
     :type="type"
@@ -66,9 +66,11 @@ defineExpose({
     :inputmode="inputmode"
     :style="positionAnchorName ? `anchor-name: ${positionAnchorName}` : undefined"
     :step="step"
+    :aria-describedby="`${formControlId}-description`"
     @click="emit('click', $event)"
     @focus="emit('focus', $event)"
     @blur="emit('blur', $event)"
     @keydown="emit('keydown', $event)"
+    @change="emit('change', $event)"
   >
 </template>

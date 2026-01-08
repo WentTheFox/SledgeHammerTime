@@ -400,12 +400,16 @@
   display: block;
   font-size: 0.9em;
 
-  &.error {
-    color: #faa;
+  &.form-message-error {
+    color: design.app-color('form-message-error');
   }
 
-  &.success {
-    color: #afa;
+  &.form-message-success {
+    color: design.app-color('form-message-success');
+  }
+
+  &.form-message-description {
+    color: design.app-color('form-message-description');
   }
 }
 

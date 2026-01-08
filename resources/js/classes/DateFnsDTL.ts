@@ -1,5 +1,5 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
-import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryLocale, HourCycle } from '@/classes/DateTimeLibraryLocale';
 import {
   CalendarContext,
   DateTimeLibraryValue,
@@ -371,7 +371,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
         // Determine hour cycle based on locale
         // This is a simplified approach
         return {
-          hourCycle: this.uses24HourClock(locale) ? 'h24' : 'h12',
+          hourCycle: this.uses24HourClock(locale) ? HourCycle.H24 : HourCycle.H12,
         };
       },
       getWeekInfo(): { firstDay: DateTimeLibraryWeekday; weekend: DateTimeLibraryWeekday[] } {

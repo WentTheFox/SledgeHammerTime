@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { formControlId } from '@/injection-keys';
-import { provide } from 'vue';
+import { formControlIdInject } from '@/injection-keys';
+import { computed, provide } from 'vue';
 
 const props = defineProps<{
   dir?: 'ltr' | 'rtl';
@@ -8,9 +8,9 @@ const props = defineProps<{
   id?: string;
 }>();
 
-if (props.id) {
-  provide(formControlId, props.id);
-}
+const formControlId = computed(() => props.id);
+
+provide(formControlIdInject, formControlId);
 </script>
 
 <template>

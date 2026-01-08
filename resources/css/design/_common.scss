@@ -389,7 +389,7 @@ $color-map: (
     dark: #373846,
   ),
   content-link: (
-    light: $_base-blue,
+    light: color.adjust($_base-blue, $lightness: -10%),
     dark: color.adjust($_base-blue, $lightness: 10%),
   ),
   open-source: (
@@ -531,7 +531,19 @@ $color-map: (
   drop-shadow: (
     light: rgba(255, 255, 255, .5),
     dark: rgba(0, 0, 0, .5),
-  )
+  ),
+  form-message-error: (
+    light: #800,
+    dark: #faa
+  ),
+  form-message-success: (
+    light: #282,
+    dark: #afa
+  ),
+  form-message-description: (
+    light: #555,
+    dark: #999,
+  ),
 );
 
 $breakpoints: (

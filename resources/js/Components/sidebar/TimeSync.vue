@@ -126,7 +126,10 @@ watch(() => timeSync?.syncing, (newValue) => {
           @change="settings?.toggleAutoTimeSync"
         >
           <template #message>
-            <FormMessage class="mt-1">
+            <FormMessage
+              class="mt-1"
+              :description="true"
+            >
               <template #message>
                 <HtTranslate
                   i18n-key="global.sidebar.timeSync.autoTimeSync.description"
