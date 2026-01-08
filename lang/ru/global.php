@@ -52,6 +52,15 @@ return [
         'label' => 'Плоский интерфейс',
         'description' => "Отключает эффекты тени на элементах интерфейса ввода и кнопках",
       ],
+      'hourCycle' => [
+        'label' => 'Time input clock type',
+        'description' => 'Change how hours should be displayed in the time input',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
     ],
     'timeSync' => [
       'title' => 'Синхронизация времени',
