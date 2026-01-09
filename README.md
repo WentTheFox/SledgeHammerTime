@@ -247,6 +247,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
+  - [Jatniel Torres Rivera](https://crowdin.com/profile/Jatnielo)
   - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
   - [MrCRACK](https://crowdin.com/profile/MrCRACK)
   - [RGD](https://crowdin.com/profile/Rexitacio)

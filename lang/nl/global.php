@@ -52,6 +52,16 @@ return [
         'label' => 'Platte interface gebruiken',
         'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
       ],
+      'hourCycle' => [
+        'label' => 'Custom time input clock type',
+        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
+      'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
       'title' => 'Tijdsynchronisatie',

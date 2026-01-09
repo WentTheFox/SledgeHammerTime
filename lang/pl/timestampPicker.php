@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Następna dekada',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Nie można przetworzyć danych języka naturalnego'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Stara strona HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Stara strona internetowa projektu, nadal dostępna do odwołania',
     ],
     'textColor' => [
       'header' => 'Generator <1>Kolorowego</1> Tekstu Rebane\'a',

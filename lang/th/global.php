@@ -8,13 +8,13 @@ return [
     "content" => "ไม่มีอะไรให้ดูที่นี่",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "โหมดการบำรุงรักษา",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "แอปพลิเคชันกำลังอยู่ในระหว่างการอัปเดต กรุณาลองใหม่อีกครั้งในไม่กี่วินาที",
+      'joinSupportServer' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรเข้าร่วมเซิร์ฟเวอร์ Discord และแจ้งให้พวกเราทราบ",
+      'contactDeveloper' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรแจ้งผู้พัฒนาเว็บไซต์และแจ้งให้พวกเขารู้",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "เซิร์ฟเวอร์สนับสนุน",
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
   'contributeTranslations' => 'สนับสนุน',
@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'การตั้งค่าการป้อนข้อมูล',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'อนุญาตให้ป้อนข้อมูลใน @time',
+        'description' => 'อนุญาตให้จัดการกับเวลาที่เลือกไว้ด้วยภาษาธรรมชาติ (เช่น "ใน 5 ชั่วโมง") ผ่านช่องป้อนข้อความเพิ่มเติม คล้ายกับแท็ก @time ใหม่ใน Discord รองรับเพียงจำนวนภาษาที่จำกัดเท่านั้น',
       ],
       'customDateInput' => [
         'label' => 'การป้อนวันที่แบบกำหนดเอง',
@@ -49,9 +49,19 @@ return [
         'description' => "แสดงอินพุตแยกเป็นวันและเวลาแทนที่จะรวมเป็นหนึ่ง (บางเบราเซอร์อาจไม่รองรับฟีเจอร์นี้)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'อินเทอร์เฟซแบบเรียบง่าย',
+        'description' => "ปิดการใช้งานเอฟเฟกต์เงาและความสูงบนช่องข้อความและปุ่ม",
       ],
+      'hourCycle' => [
+        'label' => 'กำหนดประเภทของนาฬิกาสำหรับการป้อนเวลา',
+        'description' => 'เปลี่ยนวิธีการแสดงชั่วโมงในช่องป้อนเวลาแบบกำหนด ไม่มีผลต่อการแสดงตัวอย่างในผลลัพธ์ตัวอย่าง',
+        'options' => [
+          'default' => 'ตามภาษาที่กำหนดไว้',
+          'h12' => '12 ชั่วโมง',
+          'h24' => '24 ชั่วโมง',
+        ],
+      ],
+      'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
       'title' => 'การทำให้ข้อมูลตรงกัน',

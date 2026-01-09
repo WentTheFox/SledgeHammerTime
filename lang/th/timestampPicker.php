@@ -8,7 +8,7 @@ return [
       'time' => 'เวลา',
       'dateAndTime' => 'วันและเวลา',
       'timezone' => 'เขตเวลา',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'ช่องป้อน @time',
       'modeOffset' => 'ค่าความคลาดเคลื่อนสัมบูรณ์',
       'modeZoneName' => 'ชื่อเขต',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'ทศวรรษต่อไป',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'ไม่สามารถวิเคราะห์ภาษาธรรมชาตินี้ได้'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'เว็บไซต์ HammerTime เวอร์ชันเก่า',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'เว็บไซต์เวอร์ชันเก่าของโปรเจ็กต์ ซึ่งจะยังคงเปิดให้ใช้งานจนกว่าจะมีการแจ้งให้ทราบ',
     ],
     'textColor' => [
       'header' => 'Rebane <1>สีสันต่างๆ</1> ตัวสร้างข้อความ',

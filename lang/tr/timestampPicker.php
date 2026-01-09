@@ -8,7 +8,7 @@ return [
       'time' => 'Zaman',
       'dateAndTime' => 'Tarih ve zaman',
       'timezone' => 'Zaman dilimi',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time girişi',
       'modeOffset' => 'Mutlak Ofset',
       'modeZoneName' => 'Bölge Adı',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Gelecek on yıl',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Doğal dil girişi çözümlenemedi'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Eski HammerTime Sitesi',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Projenin, bir sonraki duyuruya kadar hâlâ yayında olan eski sitesi',
     ],
     'textColor' => [
       'header' => 'Rebane\'in <1>Renkli</1> Metin Oluşturucusu',
