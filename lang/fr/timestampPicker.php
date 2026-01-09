@@ -8,7 +8,7 @@ return [
       'time' => 'Heure',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'Champ @time',
       'modeOffset' => 'Décalage absolu',
       'modeZoneName' => 'Nom du fuseau horaire',
     ],
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Ancien site web de HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'L\'ancien site du projet, toujours accessible sauf changement',
     ],
     'textColor' => [
       'header' => 'Le générateur de texte <1>coloré</1> de Rebane',
