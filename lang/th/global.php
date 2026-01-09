@@ -61,6 +61,7 @@ return [
           'h24' => '24-hour',
         ],
       ],
+      'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
       'title' => 'การทำให้ข้อมูลตรงกัน',
