@@ -61,6 +61,7 @@ return [
           'h24' => '24 órás',
         ],
       ],
+      'advancedSettings' => 'Haladó beviteli beállítások',
     ],
     'timeSync' => [
       'title' => 'Idő Szinkronizáció',
