@@ -53,15 +53,15 @@ return [
         'description' => "Desactivar efectos de sombra y altura en campos de entrada y botones",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Tipo de reloj de entrada de tiempo personalizado',
+        'description' => 'Cambia cómo se muestran las horas en la entrada de tiempo personalizada. No afecta las vistas previas en la columna de resultados de ejemplo.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Lenguaje por defecto',
+          'h12' => '12-hora',
+          'h24' => '24-hora',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Configuración de entrada avanzada',
     ],
     'timeSync' => [
       'title' => 'Sincronización de hora',
