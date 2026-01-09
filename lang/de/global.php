@@ -56,12 +56,12 @@ return [
         'label' => 'Benutzerdefinierter Zeiteingabe-Typ',
         'description' => 'Ändere, wie Stunden in der Zeiteingabe gezeigt werden. Dies ändert nichts an den Beispielen.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Sprachstandard',
+          'h12' => '12 Stunden',
+          'h24' => '24 Stunden',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Erweiterte Eingabeeinstellungen',
     ],
     'timeSync' => [
       'title' => 'Zeitsynchronisation',
