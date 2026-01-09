@@ -5,6 +5,7 @@ import DesignBadges from '@/Pages/Design/Elements/DesignBadges.vue';
 import DesignBotInfo from '@/Pages/Design/Elements/DesignBotInfo.vue';
 import DesignButtons from '@/Pages/Design/Elements/DesignButtons.vue';
 import DesignCollapsible from '@/Pages/Design/Elements/DesignCollapsible.vue';
+import DesignForms from '@/Pages/Design/Elements/DesignForms.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTable from '@/Reusable/HtTable.vue';
 import { loremIpsum } from 'lorem-ipsum';
@@ -17,20 +18,25 @@ const placeholderText = loremIpsum();
 
   <HtCard>
     <template #header>
-      <h2>2nd Level Card header</h2>
+      <h2>Logo</h2>
     </template>
 
-    <p class="mb-3">
-      Logo
-    </p>
-
     <ApplicationLogo :size="100" />
+  </HtCard>
 
+  <HtCard>
+    <template #header>
+      <h2>Buttons</h2>
+    </template>
     <DesignButtons />
+  </HtCard>
 
-    <p class="mt-3 mb-3">
-      Badges
-    </p>
+  <DesignForms />
+
+  <HtCard>
+    <template #header>
+      <h2>Badges</h2>
+    </template>
     <div>
       <DesignBadges />
       <div>&nbsp;</div>
@@ -43,10 +49,13 @@ const placeholderText = loremIpsum();
         suffix="Suffixed"
       />
     </div>
+  </HtCard>
 
-    <p class="mt-3 mb-3">
-      Table
-    </p>
+  <HtCard>
+    <template #header>
+      <h2>Table</h2>
+    </template>
+
     <HtTable>
       <thead>
         <tr>
@@ -75,6 +84,12 @@ const placeholderText = loremIpsum();
         </tr>
       </tfoot>
     </HtTable>
+  </HtCard>
+
+  <HtCard>
+    <template #header>
+      <h2>Collapsible</h2>
+    </template>
 
     <DesignCollapsible />
   </HtCard>

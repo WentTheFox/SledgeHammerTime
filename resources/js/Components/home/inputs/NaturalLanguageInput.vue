@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
-import { chronoInject, formControlId, timestampInject } from '@/injection-keys';
+import { useFormControlId } from '@/composables/useFormControlId';
+import { chronoInject, timestampInject } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
+import { refThrottled } from '@vueuse/core';
 import { wTrans } from 'laravel-vue-i18n';
 import { inject, ref, useTemplateRef, watch } from 'vue';
-import { refThrottled } from '@vueuse/core';
 
 const ts = inject(timestampInject);
-const id = inject(formControlId);
+const id = useFormControlId();
 const chrono = inject(chronoInject);
 const nlpInput = useTemplateRef<InputApi | null>('nlpInput');
 

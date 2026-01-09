@@ -1,3 +1,4 @@
+import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
 import { CurrentLanguageData } from '@/injection-keys';
 import { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
@@ -11,13 +12,14 @@ const sidebarPrefKey = 'sidebar-right';
 const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
+const hourCyclePrefKey = 'hour-cycle';
 
-const trueByDefault = (storedPref: string|null):boolean => storedPref !== 'false';
-const falseByDefault = (storedPref: string|null):boolean => storedPref === 'true';
-const nullByDefault = (storedPref: string|null):boolean|null =>
+const trueByDefault = (storedPref: string | null): boolean => storedPref !== 'false';
+const falseByDefault = (storedPref: string | null): boolean => storedPref === 'true';
+const nullByDefault = (storedPref: string | null): boolean | null =>
   storedPref === null ? null : storedPref === 'true';
 
-export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono|null>>) => {
+export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono | null>>) => {
   const naturalLanguageInputEnabled = ref<boolean | null>(null);
   const customDateInputEnabled = ref<boolean | null>(null);
   const customTimeInputEnabled = ref<boolean | null>(null);
@@ -27,6 +29,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const sidebarOffDesktop = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
   const autoTimeSync = ref<boolean | null>(null);
+  const hourCycle = ref<HourCycle | null>(null);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -66,6 +69,13 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   });
   watch(autoTimeSync, (newValue) => {
     localStorage.setItem(autoTimeSyncPrefKey, newValue ? 'true' : 'false');
+  });
+  watch(hourCycle, (newValue) => {
+    if (newValue === null) {
+      localStorage.removeItem(hourCyclePrefKey);
+      return;
+    }
+    localStorage.setItem(hourCyclePrefKey, newValue);
   });
 
   const setInitialCombinedInput = () => {
@@ -122,6 +132,12 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     // The feature is disabled by default
     autoTimeSync.value = falseByDefault(storedPref);
   };
+  const setInitialHourCycle = () => {
+    const storedPref = localStorage.getItem(hourCyclePrefKey);
+    if (isValidHourCycle(storedPref)) {
+      hourCycle.value = storedPref as HourCycle;
+    }
+  };
 
   onMounted(() => {
     setInitialFlatUi();
@@ -133,6 +149,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialSidebarOffDesktop();
     setInitialLightTheme();
     setInitialAutoTimeSync();
+    setInitialHourCycle();
   });
 
   return {
@@ -147,6 +164,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     sidebarOffDesktop,
     isLightTheme,
     autoTimeSync,
+    hourCycle,
     toggleNaturalLanguageInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
@@ -185,6 +203,11 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       if (!(e.target instanceof HTMLInputElement)) return;
 
       autoTimeSync.value = e.target.checked;
+    },
+    setHourCycle(e: Event) {
+      if (!(e.target instanceof HTMLSelectElement)) return;
+
+      hourCycle.value = isValidHourCycle(e.target.value) ? e.target.value : null;
     },
   };
 };

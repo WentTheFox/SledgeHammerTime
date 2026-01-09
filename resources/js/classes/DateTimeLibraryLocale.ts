@@ -9,11 +9,18 @@ export interface WeekInfo extends WithFallbackIndicator {
   weekend: DateTimeLibraryWeekday[];
 }
 
+export enum HourCycle {
+  H12 = 'h12',
+  H24 = 'h24',
+}
+
+export const isValidHourCycle = (value: unknown): value is HourCycle => typeof value === 'string' && Object.values(HourCycle).includes(value as HourCycle);
+
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle
  */
 export interface HourCycleInfo extends WithFallbackIndicator {
-  hourCycle: Intl.LocaleOptions['hourCycle'];
+  hourCycle: HourCycle;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required for type compatibility

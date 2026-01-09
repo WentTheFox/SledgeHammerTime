@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import { formControlId } from '@/injection-keys';
-import { inject, useTemplateRef } from 'vue';
+import { useFormControlId } from '@/composables/useFormControlId';
+import { useTemplateRef } from 'vue';
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void;
@@ -24,7 +24,7 @@ const props = defineProps<{
 
 const inputRef = useTemplateRef<HTMLInputElement>('input-el');
 
-const id = inject(formControlId);
+const id = useFormControlId();
 
 export interface InputApi {
   focus: () => void;

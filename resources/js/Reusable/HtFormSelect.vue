@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { formControlId } from '@/injection-keys';
+import { useFormControlId } from '@/composables/useFormControlId';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { inject, useTemplateRef } from 'vue';
+import { useTemplateRef } from 'vue';
 
-const id = inject(formControlId);
+const formControlId = useFormControlId();
 const model = defineModel<unknown>();
 
 const props = defineProps<{
   name?: string,
-  'class'?: string,
+  class?: string,
+  disabled?: boolean,
+  readonly?: boolean,
 }>();
 
 const emit = defineEmits<{
@@ -34,13 +36,14 @@ defineExpose<FormSelectApi>({
 </script>
 
 <template>
-  <div class="form-control-select">
+  <div :class="['form-control-select', { disabled }]">
     <select
-      :id="id"
+      :id="formControlId"
       ref="select-el"
       v-model="model"
       :name="name"
       :class="['form-select-input input-field hide-selection', props.class]"
+      :disabled="disabled || readonly"
       @keydown="emit('keydown', $event)"
       @change="emit('change', $event)"
       @focus.passive="emit('focus', $event)"

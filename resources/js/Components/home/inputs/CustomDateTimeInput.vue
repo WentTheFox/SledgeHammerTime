@@ -2,9 +2,9 @@
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import DateTimePicker, { DateTimePickerApi } from '@/Components/home/pickers/DateTimePicker.vue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
+import { useFormControlId } from '@/composables/useFormControlId';
 import {
   dateTimeLibraryInject,
-  formControlId,
   positionAnchor,
   timestampInject,
 } from '@/injection-keys';
@@ -17,7 +17,7 @@ withDefaults(defineProps<InputSelectorImplProps>(), {
 });
 
 const ts = inject(timestampInject);
-const id = inject(formControlId);
+const id = useFormControlId();
 const dtl = inject(dateTimeLibraryInject);
 
 const dateLibLocale = useDateLibraryLocale(dtl);

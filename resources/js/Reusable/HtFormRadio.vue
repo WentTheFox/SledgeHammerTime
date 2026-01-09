@@ -8,6 +8,8 @@ defineProps<{
   value?: string,
   checked?: boolean,
   tabindex?: string | number,
+  disabled?: boolean,
+  readonly?: boolean,
   /**
    * For non-sequential radio buttons the tab order gets messed up if actual `<input type="radio">` elements are used
    *
@@ -23,7 +25,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <HtFormControlWrap>
+  <HtFormControlWrap :disabled="disabled || readonly">
     <div class="form-control-radio">
       <span class="form-radio-input-wrap">
         <input
@@ -33,6 +35,7 @@ const emit = defineEmits<{
           :value="value"
           :checked="checked"
           :tabindex="tabindex"
+          :disabled="disabled || readonly"
           class="form-radio-input"
           @change.passive="emit('change', $event as InputEvent)"
         >
