@@ -941,6 +941,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17492914/medium/378fe4aadc2c7eaa8946650ead91894d.jpeg",
       "fullName": "Michael Scott"
     },
+    "17502272": {
+      "username": "Jatnielo",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17502272/medium/45f496e43c813e747fd387cb61fda074.png",
+      "fullName": "Jatniel Torres Rivera"
+    },
     "17503118": {
       "username": "astroph.707",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17503118/medium/95a38997f242eea442c74827e8dc523d.png",
@@ -1003,8 +1008,8 @@
         "15044779"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 96,
+        "translation": 96
       }
     },
     "da": {
@@ -1033,7 +1038,7 @@
       ],
       "progress": {
         "approval": 97,
-        "translation": 97
+        "translation": 100
       }
     },
     "el": {
@@ -1044,7 +1049,7 @@
       ],
       "progress": {
         "approval": 96,
-        "translation": 97
+        "translation": 96
       }
     },
     "en-GB": {
@@ -1078,6 +1083,7 @@
         "17479286",
         "17461970",
         "17488256",
+        "17502272",
         "17448206",
         "17374962",
         "17428170",
@@ -1085,7 +1091,7 @@
       ],
       "progress": {
         "approval": 98,
-        "translation": 98
+        "translation": 100
       }
     },
     "fa": {
@@ -1128,13 +1134,13 @@
         "16629243",
         "16723857",
         "15453302",
-        "16303638",
         "17433118",
+        "16303638",
         "17134580"
       ],
       "progress": {
         "approval": 98,
-        "translation": 98
+        "translation": 100
       }
     },
     "he": {
@@ -1331,7 +1337,7 @@
         "17490278"
       ],
       "progress": {
-        "approval": 97,
+        "approval": 96,
         "translation": 98
       }
     },
@@ -1371,8 +1377,8 @@
         "16601907"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 96,
+        "translation": 96
       }
     },
     "ru": {
@@ -1444,7 +1450,7 @@
       ],
       "progress": {
         "approval": 92,
-        "translation": 92
+        "translation": 94
       }
     },
     "tr": {
@@ -1456,7 +1462,7 @@
         "13477087"
       ],
       "progress": {
-        "approval": 97,
+        "approval": 96,
         "translation": 98
       }
     },
