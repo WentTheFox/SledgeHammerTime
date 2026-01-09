@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Girdi ayarları',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time giriş alanı',
+        'description' => 'Seçili zaman damgasının, ek bir serbest metin alanı üzerinden doğal dil kullanılarak (örn. “5 saat içinde”) değiştirilmesine izin verir. Yeni Discord @time etiketine benzer bir yapıdadır. Yalnızca sınırlı sayıda dil desteklenmektedir.',
       ],
       'customDateInput' => [
         'label' => 'Özel tarih girişi',
@@ -52,6 +52,16 @@ return [
         'label' => 'Düzleştirilmiş arayüz',
         'description' => "Girişler ve butonlardaki gölge ve yükseklik efektlerini devre dışı bırakın",
       ],
+      'hourCycle' => [
+        'label' => 'Custom time input clock type',
+        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
+      'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
       'title' => 'Zaman Senkronizasyonu',

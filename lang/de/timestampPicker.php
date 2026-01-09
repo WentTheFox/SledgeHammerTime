@@ -8,7 +8,7 @@ return [
       'time' => 'Zeit',
       'dateAndTime' => 'Datum und Uhrzeit',
       'timezone' => 'Zeitzone',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@Zeiteingabe',
       'modeOffset' => 'Absoluter Offset',
       'modeZoneName' => 'Zeitzonenname',
     ],
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Alte HammerTime Webseite',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Die alte Webseite des Projekts, die bis auf weiteres noch verfügbar ist',
     ],
     'textColor' => [
       'header' => 'Rebane\'s <1>Farbiger</1> Text Generator',

@@ -52,6 +52,16 @@ return [
         'label' => 'Felület kilapítása',
         'description' => "Kikapcsolja az árnyék és magasság hatásokat a beviteli mezőkön és gombokon",
       ],
+      'hourCycle' => [
+        'label' => 'Egyéni idő beviteli mező óra típusa',
+        'description' => 'Megváltoztatja hogyan jelenik meg az óra az egyéni idő beviteli mezőben. Nincs hatással az előnézetekre a példa megjelenés oszlopban.',
+        'options' => [
+          'default' => 'Nyelvi alapértelmezés',
+          'h12' => '12 órás',
+          'h24' => '24 órás',
+        ],
+      ],
+      'advancedSettings' => 'Haladó beviteli beállítások',
     ],
     'timeSync' => [
       'title' => 'Idő Szinkronizáció',

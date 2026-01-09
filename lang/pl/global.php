@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Ustawienia wprowadzania',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'Pole wprowadzania @time',
+        'description' => 'Umożliwienie manipulowania wybranym znacznikiem czasu za pomocą języka naturalnego (np. "za 5 godzin") za pomocą dodatkowego pola tekstowego. Podobnie jak w przypadku nowego tagu Discord @time. Obsługiwana jest tylko ograniczona liczba języków.',
       ],
       'customDateInput' => [
         'label' => 'Niestandardowe wprowadzanie daty',
@@ -52,6 +52,16 @@ return [
         'label' => 'Wyrównaj interfejs',
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
       ],
+      'hourCycle' => [
+        'label' => 'Custom time input clock type',
+        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'options' => [
+          'default' => 'Language default',
+          'h12' => '12-hour',
+          'h24' => '24-hour',
+        ],
+      ],
+      'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
       'title' => 'Synchronizacja czasu',

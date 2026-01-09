@@ -52,6 +52,16 @@ return [
         'label' => 'Aplanar interfaz',
         'description' => "Desactivar efectos de sombra y altura en campos de entrada y botones",
       ],
+      'hourCycle' => [
+        'label' => 'Tipo de reloj de entrada de tiempo personalizado',
+        'description' => 'Cambia cómo se muestran las horas en la entrada de tiempo personalizada. No afecta las vistas previas en la columna de resultados de ejemplo.',
+        'options' => [
+          'default' => 'Lenguaje por defecto',
+          'h12' => '12-hora',
+          'h24' => '24-hora',
+        ],
+      ],
+      'advancedSettings' => 'Configuración de entrada avanzada',
     ],
     'timeSync' => [
       'title' => 'Sincronización de hora',

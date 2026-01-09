@@ -941,6 +941,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17492914/medium/378fe4aadc2c7eaa8946650ead91894d.jpeg",
       "fullName": "Michael Scott"
     },
+    "17502272": {
+      "username": "Jatnielo",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17502272/medium/45f496e43c813e747fd387cb61fda074.png",
+      "fullName": "Jatniel Torres Rivera"
+    },
     "17503118": {
       "username": "astroph.707",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17503118/medium/95a38997f242eea442c74827e8dc523d.png",
@@ -1032,8 +1037,8 @@
         "17519786"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 99,
+        "translation": 100
       }
     },
     "el": {
@@ -1078,14 +1083,15 @@
         "17479286",
         "17461970",
         "17488256",
+        "17502272",
         "17448206",
         "17374962",
         "17428170",
         "17453292"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1107,7 +1113,7 @@
         "17483564"
       ],
       "progress": {
-        "approval": 12,
+        "approval": 13,
         "translation": 13
       }
     },
@@ -1128,13 +1134,13 @@
         "16629243",
         "16723857",
         "15453302",
-        "16303638",
         "17433118",
+        "16303638",
         "17134580"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "he": {
@@ -1331,7 +1337,7 @@
         "17490278"
       ],
       "progress": {
-        "approval": 96,
+        "approval": 98,
         "translation": 98
       }
     },
@@ -1406,7 +1412,7 @@
         "17481246"
       ],
       "progress": {
-        "approval": 96,
+        "approval": 98,
         "translation": 98
       }
     },
@@ -1443,8 +1449,8 @@
         "16240978"
       ],
       "progress": {
-        "approval": 92,
-        "translation": 92
+        "approval": 99,
+        "translation": 100
       }
     },
     "tr": {
@@ -1456,7 +1462,7 @@
         "13477087"
       ],
       "progress": {
-        "approval": 96,
+        "approval": 98,
         "translation": 98
       }
     },
