@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Настройки ввода',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'Поле ввода @time',
+        'description' => 'Позволяет манипулирование выбранной временной метки с помощью естественного языка (Например: "Через 5 часов") через дополнительный ввод свободного текста. Аналогично новому тегу Discord @time. Поддерживается только ограниченное количество языков.',
       ],
       'customDateInput' => [
         'label' => 'Пользовательский ввод даты',
