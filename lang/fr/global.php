@@ -33,7 +33,7 @@ return [
     'inputSettings' => [
       'title' => 'Paramètres d\'entrée',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
+        'label' => 'Champ de saisie @time',
         'description' => 'Permettre de manipuler l\'horodatage sélectionné en langage naturel (par exemple, "dans 5 heures") via une entrée supplémentaire en texte libre. Similaire à la nouvelle balise @time de Discord. Seul un nombre limité de langues est pris en charge.',
       ],
       'customDateInput' => [
@@ -53,15 +53,15 @@ return [
         'description' => "Désactiver les effets d'ombre et de hauteur sur les entrées et les boutons",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Type d\'horloge de saisie de temps personnalisé',
+        'description' => 'Change comment sont affichées les heures dans le champ de temps personnalisé. N\'a aucun effet sur les aperçus de la colonne des résultats d\'exemple.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Langage par défaut',
+          'h12' => '12 heures',
+          'h24' => '24 heures',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Paramètres de saisie avancés',
     ],
     'timeSync' => [
       'title' => 'Synchronisation de l\'heure',
