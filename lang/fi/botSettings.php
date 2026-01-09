@@ -13,7 +13,7 @@ return [
       'displayName' => 'Aikavyöhyke',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Muoto',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
