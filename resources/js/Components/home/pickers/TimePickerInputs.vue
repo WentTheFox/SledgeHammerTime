@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TimePickerDialAPI } from '@/Components/home/pickers/controls/TimePickerDial.vue';
+import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { dateTimeLibraryInject } from '@/injection-keys';
 import HtFormInputGroupSymbol from '@/Reusable/HtFormInputGroupSymbol.vue';
 import HtFormSelect, { FormSelectApi } from '@/Reusable/HtFormSelect.vue';
@@ -27,6 +28,7 @@ const secondsInput = defineModel<HTMLInputElement | null>('secondsInput');
 const amPmInput = defineModel<FormSelectApi | null>('amPmInput');
 
 const dtl = inject(dateTimeLibraryInject);
+const dateLibLocale = useDateLibraryLocale(dtl);
 
 const handleHoursFocused = () => dial.value?.setMode(DialMode.Hours);
 const handleMinutesFocused = () => dial.value?.setMode(DialMode.Minutes);
@@ -298,10 +300,10 @@ watch(seconds, newSeconds => {
     @wheel="handleAmPmWheel"
   >
     <option :value="true">
-      {{ dtl.getMeridiemLabel(true, minutes) }}
+      {{ dtl.getMeridiemLabel(true, dateLibLocale, minutes) }}
     </option>
     <option :value="false">
-      {{ dtl.getMeridiemLabel(false, minutes) }}
+      {{ dtl.getMeridiemLabel(false, dateLibLocale, minutes) }}
     </option>
   </HtFormSelect>
 </template>

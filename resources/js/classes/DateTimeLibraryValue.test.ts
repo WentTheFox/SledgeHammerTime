@@ -24,7 +24,7 @@ describe('DateTimeLibraryValue', () => {
       type: TimeZoneSelectionType.ZONE_NAME,
       name: 'Etc/UTC',
     };
-    const enLocale = await dtl.localeLoader('en');
+    const enLocale = dtl.localeLoader('en');
 
     describe('Initialization and Basic Methods', () => {
       it('should create a value instance correctly', () => {
@@ -424,7 +424,7 @@ describe('DateTimeLibraryValue Direct Tests', async () => {
   // Create a fixed date for testing
   const testDate = DefaultDTL.fromIsoString('2025-01-15T12:30:45Z');
   let instance: DateTimeLibraryValue;
-  const enLocale = await DefaultDTL.localeLoader('en');
+  const enLocale = DefaultDTL.localeLoader('en');
 
   beforeEach(() => {
     instance = DefaultDTL.fromIsoString(testDate.toISOString());
@@ -442,7 +442,7 @@ describe('DateTimeLibraryValue Direct Tests', async () => {
     });
 
     it('should allow setting and getting locale', async () => {
-      const locale = await DefaultDTL.localeLoader('en');
+      const locale = DefaultDTL.localeLoader('en');
       expect(locale).toBeDefined();
       const newInstance = instance.setLocale(locale);
       expect(newInstance.getLocale()).toBe(locale);

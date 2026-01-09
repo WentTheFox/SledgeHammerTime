@@ -1,5 +1,5 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
-import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryLocale, HourCycle } from '@/classes/DateTimeLibraryLocale';
 import {
   CalendarContext,
   DateTimeLibraryValue,
@@ -28,7 +28,8 @@ import {
   parse,
   setHours,
   setMinutes,
-  setSeconds, subYears,
+  setSeconds,
+  subYears,
 } from 'date-fns';
 import * as locales from 'date-fns/locale';
 
@@ -270,12 +271,12 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     switch (currentContext) {
       case CalendarContext.DATE:
         return [
-          format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue })
+          format(this.value, `${short ? 'LLL' : 'LLLL'} yyyy`, { locale: this.getLocale().lowLevelValue }),
         ];
       case CalendarContext.MONTH:
         if (short) return [];
         return [
-          format(this.value, `yyyy`, { locale: this.getLocale().lowLevelValue })
+          format(this.value, `yyyy`, { locale: this.getLocale().lowLevelValue }),
         ];
       case CalendarContext.DECADE: {
         if (short) return [];
@@ -295,7 +296,6 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
  */
 export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   readonly timezoneNames = timezoneNames;
-  protected is24HourLocaleSet = new Set(['hu', 'de', 'fr', 'es', 'it', 'pt-br', 'en-gb']);
   private _offset: number = 0;
 
   get offset(): number {
@@ -344,6 +344,13 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return locale;
   }
 
+  private uses24HourClock(locale: Locale | undefined) {
+    if (!locale) return true;
+
+    const timeFormat = locale.formatLong.time({});
+    return /H/.test(timeFormat);
+  }
+
   localeLoader(localeName: string): DateTimeLibraryLocale<Locale> {
     const locale = this.loadLocaleLowLevel(localeName);
 
@@ -365,7 +372,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
         // Determine hour cycle based on locale
         // This is a simplified approach
         return {
-          hourCycle: this.is24HourLocaleSet.has(localeName.toLowerCase()) ? 'h24' : 'h12',
+          hourCycle: this.uses24HourClock(locale) ? HourCycle.H24 : HourCycle.H12,
         };
       },
       getWeekInfo(): { firstDay: DateTimeLibraryWeekday; weekend: DateTimeLibraryWeekday[] } {
@@ -446,15 +453,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return [dateString, timeString];
   }
 
-  getMeridiemLabel(isAm: boolean, minutes = 0, locale?: DateTimeLibraryLocale<Locale>): string {
+  getMeridiemLabel(isAm: boolean, locale: DateTimeLibraryLocale<Locale> | undefined | null, minutes?: number): string {
     const time = new Date(2000, 0, 1, isAm ? 10 : 22, minutes);
-    // Different locales handle AM/PM differently
-    switch (locale?.name) {
-      case 'hu':
-        return isAm ? 'DE' : 'DU';
-      default:
-        return format(time, 'a', { locale: locale?.lowLevelValue }).toUpperCase();
-    }
+    return format(time, 'a', { locale: locale?.lowLevelValue }).toUpperCase();
   }
 
   now(): DateTimeLibraryValue<TZDate> {

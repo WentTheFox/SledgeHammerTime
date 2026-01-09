@@ -96,7 +96,7 @@ describe('DateTimeLibrary', () => {
     describe('localeLoader', () => {
       it('should load a locale and return a DateTimeLibraryLocale', async () => {
         const localeName = 'en';
-        const result = await dtl.localeLoader(localeName);
+        const result = dtl.localeLoader(localeName);
         expect(result).toBeDefined();
         expect(result.name).toBe(localeName);
         expect(result.getShortWeekdays()).toBeDefined();
@@ -105,6 +105,20 @@ describe('DateTimeLibrary', () => {
         expect(result.getHourCycleInfo().hourCycle).toEqual('h12');
         expect(result.getWeekInfo()).toBeDefined();
         expect(typeof result.getWeekInfo().firstDay).toBe('number');
+      });
+
+      it.each([
+        ['en', 'h12'],
+        ['en-GB', 'h24'],
+        ['hu', 'h24'],
+        ['pt-BR', 'h24'],
+        ['nl', 'h24'],
+        // Falls back to "en"
+        ['unknown-locale' ,'h12'],
+      ] as const)('should return the right hour cycle for the %s locale', async (language, expectedHourCycle) => {
+        const localeName = dtl.getLocaleNameFromLanguage(language as AvailableLanguage);
+        const result = dtl.localeLoader(localeName);
+        expect(result.getHourCycleInfo().hourCycle).toBe(expectedHourCycle);
       });
     });
 
@@ -153,21 +167,23 @@ describe('DateTimeLibrary', () => {
         am: {
           en: 'AM',
           'en-GB': 'AM',
-          hu: 'DE',
+          hu: 'DE.',
+          de: 'VORM.'
         },
         pm: {
           en: 'PM',
           'en-GB': 'PM',
-          hu: 'DU',
+          hu: 'DU.',
+          de: 'NACH.'
         },
       };
 
       it.each(testLanguages)('should return AM/PM labels for locale %s', async (language) => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
-        const locale = await dtl.localeLoader(localeName);
+        const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
-        const amLabel = dtl.getMeridiemLabel(true, 0, locale);
-        const pmLabel = dtl.getMeridiemLabel(false, 0, locale);
+        const amLabel = dtl.getMeridiemLabel(true, locale, 0);
+        const pmLabel = dtl.getMeridiemLabel(false, locale, 0);
         expect(amLabel).toEqual(expectedLabels.am[language]);
         expect(pmLabel).toEqual(expectedLabels.pm[language]);
         expect(amLabel).not.toBe(pmLabel);
@@ -175,10 +191,10 @@ describe('DateTimeLibrary', () => {
 
       it.each(testLanguages)('should handle minutes parameter', async (language) => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
-        const locale = await dtl.localeLoader(localeName);
+        const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
-        const amLabel = dtl.getMeridiemLabel(true, 30, locale);
-        const pmLabel = dtl.getMeridiemLabel(false, 30, locale);
+        const amLabel = dtl.getMeridiemLabel(true, locale, 30);
+        const pmLabel = dtl.getMeridiemLabel(false, locale, 30);
         expect(amLabel).toBeDefined();
         expect(pmLabel).toBeDefined();
       });
@@ -305,7 +321,7 @@ describe('DateTimeLibrary', () => {
 
       it.each(testLanguages)('should convert ISO date and time to localized format for %s locale', async (language) => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
-        const locale = await dtl.localeLoader(localeName);
+        const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
         const date = '2025-01-01';
         const time = '12:00:00';
@@ -325,7 +341,7 @@ describe('DateTimeLibrary', () => {
 
       it.each(testLanguages)('should convert ISO time to localized format for %s locale', async (language) => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
-        const locale = await dtl.localeLoader(localeName);
+        const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
         const time = '12:00:00';
         const result = dtl.convertIsoToLocalizedTimeInputValue(time, locale);
@@ -346,7 +362,7 @@ describe('DateTimeLibrary', () => {
 
       it.each(testLanguages)('should convert ISO date to localized format for %s locale', async (language) => {
         const localeName = dtl.getLocaleNameFromLanguage(language);
-        const locale = await dtl.localeLoader(localeName);
+        const locale = dtl.localeLoader(localeName);
         expect(locale).toBeDefined();
         const date = '1970-01-02';
         const result = dtl.convertIsoToLocalizedDateInputValue(date, locale);

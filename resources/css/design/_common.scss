@@ -209,7 +209,7 @@ $color-map: (
     dark: $_text-color-dark,
   ),
   alert-bg: (
-    light: rgba(230, 229, 227, .5),
+    light: rgba(255, 255, 255, .2),
     dark: rgba(20, 21, 23, 0.2),
   ),
   alert-color: (
@@ -369,7 +369,7 @@ $color-map: (
     dark: rgba($_base-blue, .5),
   ),
   collapsible-bg: (
-    light: rgba(#000, .25),
+    light: rgba(#fff, .5),
     dark: rgba(#000, .5),
   ),
   table-border: (
@@ -389,7 +389,7 @@ $color-map: (
     dark: #373846,
   ),
   content-link: (
-    light: $_base-blue,
+    light: color.adjust($_base-blue, $lightness: -10%),
     dark: color.adjust($_base-blue, $lightness: 10%),
   ),
   open-source: (
@@ -531,7 +531,19 @@ $color-map: (
   drop-shadow: (
     light: rgba(255, 255, 255, .5),
     dark: rgba(0, 0, 0, .5),
-  )
+  ),
+  form-message-error: (
+    light: #800,
+    dark: #faa
+  ),
+  form-message-success: (
+    light: #282,
+    dark: #afa
+  ),
+  form-message-description: (
+    light: #555,
+    dark: #999,
+  ),
 );
 
 $breakpoints: (

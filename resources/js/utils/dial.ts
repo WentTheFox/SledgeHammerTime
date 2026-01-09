@@ -10,16 +10,17 @@ export enum DialMode {
   Seconds = 'seconds'
 }
 
-export const drawTextAt = (ctx: CanvasRenderingContext2D, point: Point2D, text: string, fontSize: number) => {
-  const textMetrics = ctx.measureText(text);
+export const drawTextAt = (ctx: CanvasRenderingContext2D, point: Point2D, text: string, fontSize: number, textMetricsInput?: TextMetrics) => {
+  const textMetrics = textMetricsInput ?? ctx.measureText(text);
   const textPosition = new DOMMatrix()
     .translate(-textMetrics.width * .5, (fontSize / 2) * .8)
     .transformPoint(point);
   ctx.fillText(text, textPosition.x, textPosition.y);
+  return textMetrics.width;
 };
 
-export const drawHollowCircleAt = (ctx: CanvasRenderingContext2D, point: Point2D, diameter: number) => {
-  ctx.arc(point.x, point.y, diameter, 0, Math.PI * 2, true);
+export const drawHollowCircleAt = (ctx: CanvasRenderingContext2D, point: Point2D, radius: number) => {
+  ctx.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
   ctx.stroke();
 };
 
@@ -148,7 +149,7 @@ export const drawIndividualDial = (env: DialEnvironment, settings: DialSettings,
     // Draw hand when current mode
     if (isCurrentMode && currentValue >= minValue && currentValue < maxValue) {
       const currentMeridianRing = ring.isAm === env.isAm;
-      const meridiemCirceDiameter = 35;
+      let meridiemCirceRadius = 35;
       if (isTwelveHourMode) {
         if (!currentMeridianRing) {
           // Avoid drawing double hands in 12-hour mode
@@ -163,11 +164,14 @@ export const drawIndividualDial = (env: DialEnvironment, settings: DialSettings,
 
       if (isTwelveHourMode) {
         // Draw AM/PM indicator
-        drawHollowCircleAt(ctx, origin, meridiemCirceDiameter);
+        const meridiemLabel = dtl.getMeridiemLabel(env.isAm, locale, env.minutes);
+        const textMetrics = ctx.measureText(meridiemLabel);
+        meridiemCirceRadius = Math.max(meridiemCirceRadius, (textMetrics.width/2) * 1.35);
+        drawHollowCircleAt(ctx, origin, meridiemCirceRadius);
         ctx.closePath();
         ctx.font = `bold ${fontSize}px ${fontFamily}`;
         ctx.fillStyle = env.colors.value.numbers;
-        drawTextAt(ctx, origin, dtl.getMeridiemLabel(env.isAm, env.minutes), fontSize);
+        drawTextAt(ctx, origin, meridiemLabel, fontSize, textMetrics);
         ctx.beginPath();
       }
 
@@ -187,7 +191,7 @@ export const drawIndividualDial = (env: DialEnvironment, settings: DialSettings,
       if (isTwelveHourMode) {
         handStartMatrix = handStartMatrix
           .rotate(handCirceRotation)
-          .translate(0, -meridiemCirceDiameter);
+          .translate(0, -meridiemCirceRadius);
       }
       const handStartPosition = handStartMatrix.transformPoint(transformOrigin);
       ctx.moveTo(handStartPosition.x, handStartPosition.y);

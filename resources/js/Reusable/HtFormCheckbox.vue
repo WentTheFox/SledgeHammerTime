@@ -1,16 +1,19 @@
 <script setup lang="ts">
+import { useFormControlId } from '@/composables/useFormControlId';
 import HtFormControlWrap from '@/Reusable/HtFormControlWrap.vue';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { useSlots } from 'vue';
 
-defineProps<{
-  id: string,
+const props = defineProps<{
+  id?: string,
   label?: string,
   disabled?: boolean,
 }>();
 
 const slots = useSlots();
+
+const formControlId = useFormControlId(props);
 </script>
 
 <template>
@@ -26,7 +29,7 @@ const slots = useSlots();
       </span>
       <label
         class="form-checkbox-label"
-        :for="id"
+        :for="formControlId"
       >
         <slot name="label" />
         <template v-if="!slots.label">{{ label }}</template>
