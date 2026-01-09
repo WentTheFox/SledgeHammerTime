@@ -8,7 +8,7 @@ return [
       'time' => 'Время',
       'dateAndTime' => 'Дата и время',
       'timezone' => 'Часовой пояс',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'Ввод @time',
       'modeOffset' => 'Смещение времени',
       'modeZoneName' => 'Название зоны',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Следующее десятилетие',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Не удалось распознать ввод естественного языка'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Старая версия HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Старая версия сайта, всё ещё доступна до последующего уведомления',
     ],
     'textColor' => [
       'header' => 'Генератор <1>цветного</1> текста Rebane',
