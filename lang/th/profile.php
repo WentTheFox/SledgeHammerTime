@@ -8,18 +8,18 @@ return [
     'heading' => 'ข้อมูลโปรไฟล์',
     'description' => "อัปเดตข้อมูลโปรไฟล์บัญชีของคุณ",
     'displayName' => 'ชื่อที่ใช้แสดง',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'รูปแบบเวลาต่างๆ ที่ถูกซ่อนจากตารางตัวอย่าง',
     'saveSuccess' => 'โปรไฟล์ของคุณได้รับการอัปเดตเรียบร้อยแล้ว',
   ],
   'accounts' => [
     'heading' => 'บัญชีที่เชื่อมต่อ',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'description' => 'คุณสามารถเชื่อมโยงบัญชีหลายบัญชีเข้ากับบัญชี HammerTime ของคุณได้เพื่อให้สามารถจัดการได้ในที่เดียว ข้อมูลผู้ใช้พื้นฐานที่แสดงไว้ที่นี่จะได้รับการอัปเดตโดยอัตโนมัติอย่างน้อยที่สุดหนึ่งครั้งต่อชั่วโมงเมื่อคุณโหลดหน้านี้',
     'discord' => 'บัญชี Discord',
     'crowdin' => 'บัญชี Crowdin',
     'noConnectedAccounts' => 'ขณะนี้คุณยังไม่มีบัญชีที่เชื่อมต่ออยู่',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => 'เชื่อมโยงบัญชีเพิ่มเติม',
+      'description' => 'ใช้ปุ่มด้านล่างเพื่อเชื่อมต่อบัญชีเพิ่มเติมกับบัญชี HammerTime ของคุณ',
       'discord' => [
         'description' => 'หากรูปโปรไฟล์หรือชื่อที่แสดงของคุณมีการเปลี่ยนแปลง คุณสามารถใช้ฟังก์ชันนี้เพื่ออัปเดตข้อมูลนั้นให้กับบัญชี Discord ใด ๆ ที่เชื่อมโยงไว้แล้วได้เช่นกัน',
         'authorize' => 'อนุญาตบัญชี Discord',
