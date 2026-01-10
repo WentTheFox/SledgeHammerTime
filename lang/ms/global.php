@@ -33,8 +33,8 @@ return [
     'inputSettings' => [
       'title' => 'Tetapan input',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'Medan input @time',
+        'description' => 'Membolehkan manipulasi cap masa dipilih menggunakan bahasa tabii (cth. “dalam 5 jam”) melalui input teks bebas tambahan. Serupa dengan tag @time Discord yang baharu. Jumlah bahasa yang terhad sahaja yang disokong.',
       ],
       'customDateInput' => [
         'label' => 'Input tarikh tersuai',
@@ -53,15 +53,15 @@ return [
         'description' => "Nyahdayakan kesan ketinggian dan bayang pada input dan butang",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Jenis jam input masa tersuai',
+        'description' => 'Mengubah cara jam patut dipaparkan pada input masa tersuai. Tidak memberi kesan pada pratonton pada lajur contoh hasilnya.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Lalai bahasa',
+          'h12' => '12 jam',
+          'h24' => '24 jam',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Tetapan input lanjutan',
     ],
     'timeSync' => [
       'title' => 'Penyegerakan Masa',
