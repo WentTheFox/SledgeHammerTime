@@ -8,7 +8,7 @@ return [
       'time' => 'Masa',
       'dateAndTime' => 'Tarikh dan masa',
       'timezone' => 'Zon waktu',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'Input @time',
       'modeOffset' => 'Ofset Mutlak',
       'modeZoneName' => 'Nama Zon',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Dekad hadapan',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Tidak mampu menghuraikan input bahasa tabii'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Laman Sesawang Lama HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Laman sesawang projek yang lama, masih tersedia sehingga notis selanjutnya',
     ],
     'textColor' => [
       'header' => 'Penjana Tulisan <1>Berwarna</1> Rebane',

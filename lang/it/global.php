@@ -53,15 +53,15 @@ return [
         'description' => "Disabilita gli effetti di ombra e altezza sugli input e sui pulsanti",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Tipo di orologio input orario personalizzato',
+        'description' => 'Cambia la modalità di visualizzazione delle ore nell\'inserimento dell\'ora personalizzata. Non ha alcun effetto sulle anteprime nella colonna dei risultati di esempio.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Lingua predefinita',
+          'h12' => '12 ore',
+          'h24' => '24 ore',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Impostazioni di input avanzate',
     ],
     'timeSync' => [
       'title' => 'Sincronizzazione oraria',
