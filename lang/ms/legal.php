@@ -2,25 +2,25 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'title' => 'Kandungan Terjemahan',
+    'text' => 'Projek ini mengandungi terjemahan oleh penterjemah sukarela dan ahli komuniti yang lainnya. Terjemahan ini disediakan untuk kemudahan pengguna, dan tidak semestinya dikemaskini sepenuhnya. Dalam segala urusan, <1>versi bahasa asal</1> halaman ini yang dikira dikuatkuasakan.',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => 'Kemas kini terakhir: <1/>',
   'privacy' => [
-    'heading' => 'Privacy Policy',
-    'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
-    'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
+    'heading' => 'Polisi Privasi',
+    'operator' => '<0/> ("kami", atau "Pembangun") mengendalikan laman sesawang HammerTime ("Laman"), dan HammerTimeBot ("Bot", atau "Apl"), bersama-sama dipanggil Projek HammerTime ("Projek"). Halaman ini memberitahu anda polisi kami mengenai pengumpulan, penggunaan dan pendedahan Maklumat Peribadi yang kami terima daripada para pengguna Projek ini ("anda", "Pengguna", atau bersama-sama dipanggil "Para Pengguna").',
+    'notAffiliated' => 'Walaupun nama "HammerTime" ("Nama Projek") diterbitkan daripada nama lama Discord, Inc. ("Discord") iaitu "Hammer & Chisel",<1/> Projek ini tidak mempunyai kaitan dalam sebarang cara, rupa, atau bentuk, dengan Discord, mahupun M.C. Hammer, yang mana lagunya<3/> menampilkan frasa ini dengan ulungnya. Pembangun tidak memegang tanda dagang atau hak cipta ke atas Nama Projek.',
     'infoCollection' => [
-      'heading' => 'Information Collection And Use',
-      'pii' => 'While using the Project we do not ask nor encourage you to provide us with any Personally Identifiable Information ("PII", "Personal Information") that can be used to identify you as an individual. PII may include, but is not limited to: your name, birth date, national identification numbers, location, phone number.',
-      'auth' => 'Sign in is provided using Discord\'s OAuth 2 API ("API") which is also secured using HTTPS. During the OAuth authentication process our Site does not receive the username or password, only a token that can be used to verify the user\'s identity using this API. For performance reasons we store the basic information provided by the API (user ID, current username, display name, avatar link) locally.',
-      'removal' => 'This information is not removed from our database automatically if you deactivate your Discord account, so be sure to reach out to us if you would like your data removed.',
+      'heading' => 'Pengumpulan dan Penggunaan Maklumat',
+      'pii' => 'Ketika anda menggunakan Projek ini, kami tidak meminta mahupun menggalakkan anda untuk memberikan kami sebarang Maklumat Pengenalan Peribadi ("PII", "Maklumat Peribadi") yang boleh digunakan untuk mengenal pasti diri anda sebagai seorang individu. PII boleh termasuk, tetapi tidak terhad kepada: nama anda, tarikh lahir, nombor pengenalan kebangsaan, lokasi, nombor telefon.',
+      'auth' => 'Log masuk disediakan menggunakan API OAuth 2 Discord ("API") yang disulitkan menggunakan HTTPS juga. Ketika proses pengesahan OAuth, Laman kami tidak menerima nama pengguna mahupun kata laluan, sebaliknya hanya suatu token yang boleh digunakan untuk mengesah betul identiti pengguna menggunakan API ini. Untuk tujuan prestasi kami menyimpan maklumat asas yang disediakan oleh API tersebut (ID pengguna, nama pengguna semasa, nama paparan, pautan avatar) secara tempatan.',
+      'removal' => 'Maklumat ini tidak dikeluarkan daripada pangkalan data kami secara automatiknya sekiranya anda menyahaktifkan akaun Discord anda, jadi sila pastikan anda menghubungi kami sekiranya anda ingin data anda dikeluarkan.',
     ],
     'logData' => [
-      'heading' => 'Log Data',
-      'browserInfo' => 'We collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer\'s IP address, operating system, browser type, browser version, the pages of our Site that you visit, the time and date of your visit.',
-      'thirdParty' => 'This Log Data is stored only within our server and is not shared with any third party. Log Data is used for diagnostic purposes, and shared with law enforcement agencies if explicitly requested. It is kept for up to 14 days and discarded afterwards.',
-      'debugging' => 'The Bot can receive interactions from Users via the Discord client, which includes slash commands and context menu commands ("Action", "Command", or collectively "Commands"). Slash commands can additionally be executed with User-supplied structured key-value pairs ("Options"). The Bot records Command executions for debugging purposes, namely: the Discord username and Snowflake identifier ("ID") of the User that executed the Command, the name of the Command (including all Options) and the ID of the Server the Command was executed in. This data is stored on the Project server for up to 30 days, and is only accessible by the Developer.',
+      'heading' => 'Data Log',
+      'browserInfo' => 'Kami mengumpulkan maklumat yang pelayar anda hantar setiap kali anda melawati Laman kami ("Data Log"). Data Log ini boleh termasuk maklumat seperti alamat IP komputer anda, sistem pengoperasian, jenis pelayar, versi pelayar, halaman di Laman kami yang anda lawati, masa dan tarikh lawatan anda.',
+      'thirdParty' => 'Data Log ini hanya disimpan di pelayan kami dan tidak dikongsikan dengan mana-mana pihak ketiga. Data Log digunakan untuk tujuan diagnostik, dan dikongsikan dengan agensi penguatkuasaan undang-undang sekiranya diminta secara eksplisit. Maklumat ini disimpan sehingga 14 hari dan dibuang selepas itu.',
+      'debugging' => 'Bot boleh menerima interaksi daripada Para Pengguna melalui klien Discord, yang merangkumi perintah tanda miring dan perintah menu konteks ("Tindakan", "Perintah", atau bersama-sama dipanggil "Para Perintah"). Perintah tanda miring juga boleh dijalankan dengan pasangan kekunci-nilai berstruktur yang disediakan oleh Pengguna ("Pilihan"). Bot merekodkan penjalanan Perintah untuk tujuan nyahpepijat, yakni: nama pengguna Discord dan pengenal pasti Snowflake ("ID") bagi Pengguna yang menjalankan Perintah tersebut, nama Perintah berkenaan (termasuk kesemua Pilihan) dan juga ID bagi Pelayan di mana Perintah tersebut dijalankan. Data ini disimpan di pelayan Projek sehingga 30 hari, dan hanya boleh dicapai oleh Pembangun.',
       'noPii' => 'When executing Commands you should avoid including any Personal Information. Some information may still be retained in our Application Log, so please contact us using the methods described at the end of this document to notify us if our intervention is needed.',
     ],
     'telemetry' => [
