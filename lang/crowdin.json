@@ -778,6 +778,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17378908/medium/b6aaec34086216c309ae7885bb4d1b8c.jpeg",
       "fullName": "Premium Global"
     },
+    "17405040": {
+      "username": "fnaffffera",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17405040/medium/817ccdd1f6dac690a150fc8b7cda552b.png",
+      "fullName": "Никита"
+    },
     "17413820": {
       "username": "nico_everywhere",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17413820/medium/6db5a24bf5b3b5b623a45f2206c008fa.jpg",
@@ -1413,13 +1418,14 @@
         "17454624",
         "17430436",
         "16809395",
+        "17405040",
         "16873803",
         "17472794",
         "17481246"
       ],
       "progress": {
         "approval": 98,
-        "translation": 98
+        "translation": 100
       }
     },
     "sr": {
