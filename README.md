@@ -210,6 +210,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Astro Ph_77](https://crowdin.com/profile/astroph.707)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
+  - [Henrique Wallace Novais Silva](https://crowdin.com/profile/henriquewgamer)
   - [leo0six](https://crowdin.com/profile/leo0six)
   - [ShadowG](https://crowdin.com/profile/ShadowG)
   - [StudentApcaustsy](https://crowdin.com/profile/StudentApcaustsy)

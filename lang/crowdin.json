@@ -960,6 +960,11 @@
       "username": "Nitram4392",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17519786/medium/a9f8e0d43dd61304cdd3f2179bd0c662.PNG",
       "fullName": "Martin Plewa"
+    },
+    "17520776": {
+      "username": "henriquewgamer",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17520776/medium/510d0f0ed7f165f31cc17de06246a29c.jpeg",
+      "fullName": "Henrique Wallace Novais Silva"
     }
   },
   "languages": {
@@ -1037,7 +1042,7 @@
         "17519786"
       ],
       "progress": {
-        "approval": 99,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -1205,8 +1210,8 @@
         "16603067"
       ],
       "progress": {
-        "approval": 98,
-        "translation": 98
+        "approval": 100,
+        "translation": 100
       }
     },
     "ja": {
@@ -1281,8 +1286,8 @@
         "12680006"
       ],
       "progress": {
-        "approval": 23,
-        "translation": 23
+        "approval": 77,
+        "translation": 100
       }
     },
     "nb": {
@@ -1351,6 +1356,7 @@
         "12931321",
         "17151532",
         "17488616",
+        "17520776",
         "17450480",
         "17503118"
       ],
