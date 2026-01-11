@@ -241,6 +241,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Zeru](https://crowdin.com/profile/ZeruGames)
   - [Амир Юсупов (KNGames)](https://crowdin.com/profile/KNGames)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
+  - [Никита](https://crowdin.com/profile/fnaffffera)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
