@@ -53,15 +53,15 @@ return [
         'description' => "Отключает эффекты тени на элементах интерфейса ввода и кнопках",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Настраиваемый тип часов для ввода времени',
+        'description' => 'Изменить способ отображения часов при вводе пользовательского времени. Не влияет на предварительный просмотр в столбце примеров результатов.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Язык по умолчанию',
+          'h12' => '12-часовой',
+          'h24' => '24-часовой',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Расширенные настройки ввода',
     ],
     'timeSync' => [
       'title' => 'Синхронизация времени',
