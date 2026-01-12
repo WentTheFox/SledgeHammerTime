@@ -25,7 +25,7 @@
     "@vheemstra/vite-plugin-imagemin": "^2.2.1",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vitest/coverage-v8": "^4.0.14",
-    "@vue/language-server": "^2.2.0",
+    "@vue/language-server": "^3.2.2",
     "@vue/server-renderer": "^3.5.13",
     "autoprefixer": "^10.4.12",
     "axios": "^1.1.2",
