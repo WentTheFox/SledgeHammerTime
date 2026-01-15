@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
 import { Tippy } from 'vue-tippy';
+import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 
 const route = useRoute();
 const userInfo = inject(userInfoInject);
@@ -69,7 +70,7 @@ const routeParams = useRouteParams(route, pageProps);
             />
             <span>{{ $t('global.nav.profile') }}</span>
           </Link>
-          <Link
+          <HtExternalLink
             v-if="userInfo.horizonAccess"
             :href="safeRoute('horizon.index', route, { view: 'dashboard' })"
             class="nav-link"
@@ -78,7 +79,7 @@ const routeParams = useRouteParams(route, pageProps);
               :icon="faBusinessTime"
             />
             <span>Horizon Dashboard</span>
-          </Link>
+          </HtExternalLink>
           <Link
             :href="safeRoute('logout', route, routeParams)"
             method="post"
