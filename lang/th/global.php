@@ -68,7 +68,7 @@ return [
           'default' => 'Language default',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'การตั้งค่าการป้อนข้อมูลเวลาขั้นสูง',
     ],
     'timeSync' => [
       'title' => 'การทำให้ข้อมูลตรงกัน',
