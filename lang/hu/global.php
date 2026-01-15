@@ -61,6 +61,13 @@ return [
           'h24' => '24 órás',
         ],
       ],
+      'firstDayOfWeek' => [
+        'label' => 'First day of the week',
+        'description' => 'Change which day should be considered the first day of the week in the custom date input.',
+        'options' => [
+          'default' => 'Language default',
+        ],
+      ],
       'advancedSettings' => 'Haladó beviteli beállítások',
     ],
     'timeSync' => [
