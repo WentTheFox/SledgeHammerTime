@@ -61,6 +61,13 @@ return [
           'h24' => '24 órás',
         ],
       ],
+      'firstDayOfWeek' => [
+        'label' => 'Hét első napja',
+        'description' => 'Megváltoztatja, hogy a hét melyik napja lesz elsőként kezelve az egyéni dátum beviteli mező naptárjában.',
+        'options' => [
+          'default' => 'Nyelvi alapértelmezés',
+        ],
+      ],
       'advancedSettings' => 'Haladó beviteli beállítások',
     ],
     'timeSync' => [
