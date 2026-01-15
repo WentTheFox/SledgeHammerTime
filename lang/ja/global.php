@@ -53,22 +53,22 @@ return [
         'description' => "入力項目とボタンで影と高さの立体エフェクトを無効にする",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'カスタム時刻の時計タイプ',
+        'description' => 'カスタム時間入力欄における時間の表示方法を変更します。サンプル結果列のプレビューには影響しません。',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'デフォルトの言語',
+          'h12' => '12時間',
+          'h24' => '24時間',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => '週の初めの日',
+        'description' => 'カスタム日付入力のカレンダーにおいて、週の最初の日をどの曜日に設定するか変更する。',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'デフォルトの言語',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => '高度な入力設定',
     ],
     'timeSync' => [
       'title' => '時刻更新',
