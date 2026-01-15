@@ -53,22 +53,22 @@ return [
         'description' => "Girişler ve butonlardaki gölge ve yükseklik efektlerini devre dışı bırakın",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Özel saat girişi formatı',
+        'description' => 'Özel saat girişinde saatlerin nasıl görüntüleneceğini değiştirin. Bunun, örnek sonuçlar sütunundaki önizlemeler üzerinde herhangi bir etkisi yoktur.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Dil varsayılanı',
+          'h12' => '12 saat',
+          'h24' => '24 saat',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Haftanın ilk günü',
+        'description' => 'Özel tarih girişi takviminde hangi günün haftanın ilk günü olarak kabul edileceğini değiştirin.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Dil varsayılanı',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Gelişmiş giriş ayarları',
     ],
     'timeSync' => [
       'title' => 'Zaman Senkronizasyonu',

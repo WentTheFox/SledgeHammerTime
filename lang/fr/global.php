@@ -54,18 +54,18 @@ return [
       ],
       'hourCycle' => [
         'label' => 'Type d\'horloge de saisie de temps personnalisé',
-        'description' => 'Change comment sont affichées les heures dans le champ de temps personnalisé. N\'a aucun effet sur les aperçus de la colonne des résultats d\'exemple.',
+        'description' => 'Changer comment sont affichées les heures dans le champ de temps personnalisé. N\'a aucun effet sur les aperçus de la colonne des résultats d\'exemple.',
         'options' => [
-          'default' => 'Langage par défaut',
+          'default' => 'Par défaut selon la langue',
           'h12' => '12 heures',
           'h24' => '24 heures',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Premier jour de la semaine',
+        'description' => 'Changer quel jour doit être considéré le premier de la semaine dans le calendrier de la saisie de la date personnalisée.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Par défaut selon la langue',
         ],
       ],
       'advancedSettings' => 'Paramètres de saisie avancés',

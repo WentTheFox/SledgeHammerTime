@@ -246,6 +246,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
 - 🇪🇸 Spanish
+  - [?????](https://crowdin.com/profile/elpapuvanegas)
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
