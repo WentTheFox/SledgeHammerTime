@@ -62,10 +62,10 @@ return [
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Primer día de la semana',
+        'description' => 'Cambie qué día debe considerarse el primer día de la semana en el calendario de la entrada de fecha personalizada.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Lenguaje por defecto',
         ],
       ],
       'advancedSettings' => 'Configuración de entrada avanzada',
