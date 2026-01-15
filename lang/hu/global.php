@@ -63,7 +63,7 @@ return [
       ],
       'firstDayOfWeek' => [
         'label' => 'Hét első napja',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'description' => 'Megváltoztatja, hogy a hét melyik napja lesz elsőként kezelve az egyéni dátum beviteli mező naptárjában.',
         'options' => [
           'default' => 'Nyelvi alapértelmezés',
         ],
