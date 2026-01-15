@@ -1,6 +1,6 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { HourCycle } from '@/classes/DateTimeLibraryLocale';
-import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
+import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps, User } from '@/types';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
@@ -53,6 +53,7 @@ export interface LocalSettingsValue {
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
   readonly hourCycle: HourCycle | null;
+  readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
   readonly toggleNaturalLanguageInput: (e: Event) => void;
   readonly toggleCustomDateInput: (e: Event) => void;
   readonly toggleCustomTimeInput: (e: Event) => void;
@@ -63,6 +64,7 @@ export interface LocalSettingsValue {
   readonly setLightTheme: (isLight: boolean | null) => void;
   readonly toggleAutoTimeSync: (e: Event) => void;
   readonly setHourCycle: (e: Event) => void;
+  readonly setFirstDayOfWeek: (e: Event) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

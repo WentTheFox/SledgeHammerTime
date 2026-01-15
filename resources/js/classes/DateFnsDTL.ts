@@ -7,6 +7,7 @@ import {
 } from '@/classes/DateTimeLibraryValue';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
+import { WeekdayItem } from '@/utils/calendar';
 import {
   AvailableLanguage,
   FALLBACK_LANGUAGE,
@@ -354,19 +355,32 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   localeLoader(localeName: string): DateTimeLibraryLocale<Locale> {
     const locale = this.loadLocaleLowLevel(localeName);
 
+    const getFirstDay = (): DateTimeLibraryWeekday => {
+      switch (localeName) {
+        case 'ms':
+          return DateTimeLibraryWeekday.Sunday;
+
+        default:
+          // Get first day of week based on locale
+          // Default to Sunday (0) if not available
+          return (locale?.options?.weekStartsOn ?? 0) as DateTimeLibraryWeekday;
+      }
+    };
+
     return {
       name: localeName,
       lowLevelValue: locale,
-      getShortWeekdays() {
-        // Get day names for the locale - this is a simplified version
-        // In a real implementation, you would use the proper locale data
-        const dayNames = [];
+      getWeekdays(short = false) {
+        const weekdays: WeekdayItem[] = [];
         const baseDate = new Date(2021, 0, 3); // Sunday
         for (let i = 0; i < 7; i++) {
           const date = addDays(baseDate, i);
-          dayNames.push(format(date, 'EEEEEE', { locale }));
+          weekdays.push({
+            index: i as DateTimeLibraryWeekday,
+            name: format(date, short ? 'EEEEEE' : 'EEEE', { locale }),
+          });
         }
-        return dayNames;
+        return weekdays;
       },
       getHourCycleInfo: () => {
         // Determine hour cycle based on locale
@@ -375,13 +389,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
           hourCycle: this.uses24HourClock(locale) ? HourCycle.H24 : HourCycle.H12,
         };
       },
-      getWeekInfo(): { firstDay: DateTimeLibraryWeekday; weekend: DateTimeLibraryWeekday[] } {
-        // Get first day of week based on locale
-        // Default to Sunday (0) if not available
-        const firstDay = locale?.options?.weekStartsOn ?? 0;
+      getWeekInfo() {
         return {
-          firstDay: firstDay as DateTimeLibraryWeekday,
-          weekend: [DateTimeLibraryWeekday.Saturday, DateTimeLibraryWeekday.Sunday],
+          firstDay: getFirstDay(),
         };
       },
     };

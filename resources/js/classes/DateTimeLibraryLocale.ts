@@ -1,4 +1,5 @@
 import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
+import { WeekdayItem } from '@/utils/calendar';
 
 interface WithFallbackIndicator {
   fallback?: true;
@@ -6,7 +7,6 @@ interface WithFallbackIndicator {
 
 export interface WeekInfo extends WithFallbackIndicator {
   firstDay: DateTimeLibraryWeekday;
-  weekend: DateTimeLibraryWeekday[];
 }
 
 export enum HourCycle {
@@ -24,13 +24,13 @@ export interface HourCycleInfo extends WithFallbackIndicator {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required for type compatibility
-export abstract class DateTimeLibraryLocale<L = any> {
-  abstract readonly name: string;
-  abstract readonly lowLevelValue: L | undefined;
+export interface DateTimeLibraryLocale<L = any> {
+  readonly name: string;
+  readonly lowLevelValue: L | undefined;
 
-  abstract getWeekInfo(): WeekInfo;
+  getWeekInfo(): WeekInfo;
 
-  abstract getHourCycleInfo(): HourCycleInfo;
+  getHourCycleInfo(): HourCycleInfo;
 
-  abstract getShortWeekdays(): string[];
+  getWeekdays(short?: boolean): WeekdayItem[];
 }

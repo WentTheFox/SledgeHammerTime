@@ -126,21 +126,16 @@ export interface WeekdayItem {
   name: string;
 }
 
-export const getWeekdayItems = (weekdays: string[] | undefined, firstDayOfWeek: DateTimeLibraryWeekday): WeekdayItem[] => {
+export const getWeekdayItems = (weekdays: WeekdayItem[] | undefined, firstDayOfWeek: DateTimeLibraryWeekday): WeekdayItem[] => {
   if (!weekdays) {
     return [];
   }
 
-  const items = weekdays.map((weekday, index) => ({
-    index,
-    name: weekday,
-  }));
-
   if (firstDayOfWeek === DateTimeLibraryWeekday.Sunday) {
-    return items;
+    return weekdays;
   }
 
-  return items.slice(firstDayOfWeek).concat(items.slice(0, firstDayOfWeek));
+  return weekdays.slice(firstDayOfWeek).concat(weekdays.slice(0, firstDayOfWeek));
 };
 
 export const generateCalendarMonth = ({

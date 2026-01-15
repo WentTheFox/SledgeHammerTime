@@ -1,4 +1,5 @@
 import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { CurrentLanguageData } from '@/injection-keys';
 import { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
@@ -13,6 +14,7 @@ const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
 const hourCyclePrefKey = 'hour-cycle';
+const firstDayOfWeekPrefKey = 'first-day-of-week';
 
 const trueByDefault = (storedPref: string | null): boolean => storedPref !== 'false';
 const falseByDefault = (storedPref: string | null): boolean => storedPref === 'true';
@@ -30,6 +32,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const isLightTheme = ref<boolean | null>(null);
   const autoTimeSync = ref<boolean | null>(null);
   const hourCycle = ref<HourCycle | null>(null);
+  const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -76,6 +79,13 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       return;
     }
     localStorage.setItem(hourCyclePrefKey, newValue);
+  });
+  watch(firstDayOfWeek, (newValue) => {
+    if (newValue === null) {
+      localStorage.removeItem(firstDayOfWeekPrefKey);
+      return;
+    }
+    localStorage.setItem(firstDayOfWeekPrefKey, newValue.toString());
   });
 
   const setInitialCombinedInput = () => {
@@ -138,6 +148,15 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       hourCycle.value = storedPref as HourCycle;
     }
   };
+  const setInitialFirstDayOfWeek = () => {
+    const storedPref = localStorage.getItem(firstDayOfWeekPrefKey);
+    if (storedPref !== null) {
+      const parsed = parseInt(storedPref, 10);
+      if (parsed >= 0 && parsed <= 6) {
+        firstDayOfWeek.value = parsed as DateTimeLibraryWeekday;
+      }
+    }
+  };
 
   onMounted(() => {
     setInitialFlatUi();
@@ -150,6 +169,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialLightTheme();
     setInitialAutoTimeSync();
     setInitialHourCycle();
+    setInitialFirstDayOfWeek();
   });
 
   return {
@@ -165,6 +185,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     isLightTheme,
     autoTimeSync,
     hourCycle,
+    firstDayOfWeek,
     toggleNaturalLanguageInput(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
 
@@ -208,6 +229,15 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       if (!(e.target instanceof HTMLSelectElement)) return;
 
       hourCycle.value = isValidHourCycle(e.target.value) ? e.target.value : null;
+    },
+    setFirstDayOfWeek(e: Event) {
+      if (!(e.target instanceof HTMLSelectElement)) return;
+
+      const value = e.target.value;
+      const parsed = parseInt(value, 10);
+      firstDayOfWeek.value = !isNaN(parsed) && parsed >= 0 && parsed <= 6
+        ? parsed as DateTimeLibraryWeekday
+        : null;
     },
   };
 };
