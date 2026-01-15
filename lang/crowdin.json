@@ -970,6 +970,11 @@
       "username": "henriquewgamer",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17520776/medium/510d0f0ed7f165f31cc17de06246a29c.jpeg",
       "fullName": "Henrique Wallace Novais Silva"
+    },
+    "17533436": {
+      "username": "elpapuvanegas",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17533436/medium/ea23d110936411bdfbbef638576b7b35.jpeg",
+      "fullName": "?????"
     }
   },
   "languages": {
@@ -1058,7 +1063,7 @@
         "17435812"
       ],
       "progress": {
-        "approval": 95,
+        "approval": 96,
         "translation": 96
       }
     },
@@ -1095,13 +1100,14 @@
         "17488256",
         "17502272",
         "17448206",
+        "17533436",
         "17374962",
         "17428170",
         "17453292"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1149,8 +1155,8 @@
         "17134580"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "he": {
@@ -1232,8 +1238,8 @@
         "17429540"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "ko": {
@@ -1461,7 +1467,7 @@
         "16240978"
       ],
       "progress": {
-        "approval": 98,
+        "approval": 99,
         "translation": 99
       }
     },
@@ -1474,8 +1480,8 @@
         "13477087"
       ],
       "progress": {
-        "approval": 97,
-        "translation": 97
+        "approval": 100,
+        "translation": 100
       }
     },
     "uk": {
