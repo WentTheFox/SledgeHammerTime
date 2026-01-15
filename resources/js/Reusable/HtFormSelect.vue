@@ -44,6 +44,7 @@ defineExpose<FormSelectApi>({
       :name="name"
       :class="['form-select-input input-field hide-selection', props.class]"
       :disabled="disabled || readonly"
+      :aria-describedby="`${formControlId}-description`"
       @keydown="emit('keydown', $event)"
       @change="emit('change', $event)"
       @focus.passive="emit('focus', $event)"
