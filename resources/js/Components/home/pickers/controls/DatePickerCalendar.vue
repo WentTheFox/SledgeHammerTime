@@ -3,7 +3,6 @@ import {
   CalendarContext,
   DateTimeLibraryMonth,
   DateTimeLibraryValue,
-  DateTimeLibraryWeekday,
 } from '@/classes/DateTimeLibraryValue';
 import CalendarButton from '@/Components/home/pickers/controls/CalendarButton.vue';
 import CalendarContextText from '@/Components/home/pickers/controls/CalendarContextText.vue';
@@ -11,11 +10,13 @@ import CalendarGridHeader from '@/Components/home/pickers/controls/CalendarGridH
 import { useCurrentDate } from '@/composables/useCurrentDate';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { useLocale } from '@/composables/useLocale';
+import { useWeekInfo } from '@/composables/useWeekInfo';
 import {
   dateTimeLibraryInject,
   devModeInject,
   InputMethod,
   inputMethodInject,
+  localSettingsInject,
   pagePropsInject,
 } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -61,24 +62,18 @@ const locale = useLocale(pageProps);
 const dtl = inject(dateTimeLibraryInject);
 const inputMethod = inject(inputMethodInject);
 const dateLibLocale = useDateLibraryLocale(dtl);
+const settings = inject(localSettingsInject);
 
-const firstDayOfWeek = computed(() => {
-  switch (locale.value) {
-    case 'ms':
-      return DateTimeLibraryWeekday.Sunday;
-    default:
-      return dateLibLocale.value?.getWeekInfo().firstDay ?? DateTimeLibraryWeekday.Monday;
-  }
-});
+const weekInfo = useWeekInfo(settings, dateLibLocale);
 
-const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getShortWeekdays() ?? [], firstDayOfWeek.value));
+const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getWeekdays(true) ?? [], weekInfo.value?.firstDay));
 
 const calendarMonth = computed(() => generateCalendarMonth({
   dtl: dtl?.value,
   locale: dateLibLocale.value,
   year: year.value,
   month: month.value - 1,
-  firstDayOfWeek: firstDayOfWeek.value,
+  firstDayOfWeek: weekInfo.value?.firstDay,
 }));
 const calendarYear = computed(() => generateCalendarYear({
   dtl: dtl?.value,
@@ -253,10 +248,10 @@ defineExpose<DatePickerCalendarApi>({
 
 const focusAnimationFrame = ref<ReturnType<typeof window.requestAnimationFrame> | null>(null);
 const clearFocusAnimationFrame = () => {
-    if (focusAnimationFrame.value !== null) {
-      cancelAnimationFrame(focusAnimationFrame.value);
-      focusAnimationFrame.value = null;
-    }
+  if (focusAnimationFrame.value !== null) {
+    cancelAnimationFrame(focusAnimationFrame.value);
+    focusAnimationFrame.value = null;
+  }
 };
 
 const restoreCalendarButtonFocus = (attempt: number = 1) => {

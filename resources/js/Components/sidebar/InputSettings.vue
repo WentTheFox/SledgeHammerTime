@@ -1,20 +1,28 @@
 <script setup lang="ts">
 import { HourCycle } from '@/classes/DateTimeLibraryLocale';
 import FormMessage from '@/Components/FormMessage.vue';
-import { localSettingsInject } from '@/injection-keys';
+import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
+import { useWeekInfo } from '@/composables/useWeekInfo';
+import { dateTimeLibraryInject, localSettingsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSelect from '@/Reusable/HtFormSelect.vue';
+import { getWeekdayItems } from '@/utils/calendar';
 import { faCaretDown, faCaretUp, faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { inject, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 
 const settings = inject(localSettingsInject);
+const dtl = inject(dateTimeLibraryInject);
+const dateLibLocale = useDateLibraryLocale(dtl);
 
 const showAdvancedSettings = ref(false);
+
+const weekInfo = useWeekInfo(settings, dateLibLocale);
+const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getWeekdays() ?? [], weekInfo?.value.firstDay));
 </script>
 
 <template>
@@ -130,6 +138,34 @@ const showAdvancedSettings = ref(false);
           <template #message>
             <FormMessage
               :message="$t('global.sidebar.inputSettings.hourCycle.description')"
+              class="mt-1"
+              type="description"
+            />
+          </template>
+        </HtFormControl>
+        <HtFormControl
+          v-if="dateLibLocale"
+          id="first-day-of-week"
+          :label="$t('global.sidebar.inputSettings.firstDayOfWeek.label')"
+        >
+          <HtFormSelect
+            v-model="settings!.firstDayOfWeek"
+            @change="settings?.setFirstDayOfWeek"
+          >
+            <option :value="null">
+              {{ $t('global.sidebar.inputSettings.firstDayOfWeek.options.default') }}
+            </option>
+            <option
+              v-for="weekday in weekdaysItems"
+              :key="weekday.index"
+              :value="weekday.index"
+            >
+              {{ weekday.name }}
+            </option>
+          </HtFormSelect>
+          <template #message>
+            <FormMessage
+              :message="$t('global.sidebar.inputSettings.firstDayOfWeek.description')"
               class="mt-1"
               type="description"
             />

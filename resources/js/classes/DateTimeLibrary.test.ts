@@ -99,12 +99,15 @@ describe('DateTimeLibrary', () => {
         const result = dtl.localeLoader(localeName);
         expect(result).toBeDefined();
         expect(result.name).toBe(localeName);
-        expect(result.getShortWeekdays()).toBeDefined();
-        expect(result.getShortWeekdays().length).toBe(7);
         expect(result.getHourCycleInfo()).toBeDefined();
         expect(result.getHourCycleInfo().hourCycle).toEqual('h12');
         expect(result.getWeekInfo()).toBeDefined();
         expect(typeof result.getWeekInfo().firstDay).toBe('number');
+        expect(result.getWeekInfo().firstDay).toBeGreaterThanOrEqual(0);
+        expect(result.getWeekInfo().firstDay).toBeLessThanOrEqual(6);
+        expect(result.getWeekdays()).toMatchSnapshot();
+        expect(result.getWeekdays(false)).toMatchSnapshot();
+        expect(result.getWeekdays(true)).toMatchSnapshot();
       });
 
       it.each([

@@ -1,0 +1,100 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DateTimeLibrary > Implementation: date-fns > localeLoader > should load a locale and return a DateTimeLibraryLocale 1`] = `
+[
+  {
+    "index": 0,
+    "name": "Sunday",
+  },
+  {
+    "index": 1,
+    "name": "Monday",
+  },
+  {
+    "index": 2,
+    "name": "Tuesday",
+  },
+  {
+    "index": 3,
+    "name": "Wednesday",
+  },
+  {
+    "index": 4,
+    "name": "Thursday",
+  },
+  {
+    "index": 5,
+    "name": "Friday",
+  },
+  {
+    "index": 6,
+    "name": "Saturday",
+  },
+]
+`;
+
+exports[`DateTimeLibrary > Implementation: date-fns > localeLoader > should load a locale and return a DateTimeLibraryLocale 2`] = `
+[
+  {
+    "index": 0,
+    "name": "Sunday",
+  },
+  {
+    "index": 1,
+    "name": "Monday",
+  },
+  {
+    "index": 2,
+    "name": "Tuesday",
+  },
+  {
+    "index": 3,
+    "name": "Wednesday",
+  },
+  {
+    "index": 4,
+    "name": "Thursday",
+  },
+  {
+    "index": 5,
+    "name": "Friday",
+  },
+  {
+    "index": 6,
+    "name": "Saturday",
+  },
+]
+`;
+
+exports[`DateTimeLibrary > Implementation: date-fns > localeLoader > should load a locale and return a DateTimeLibraryLocale 3`] = `
+[
+  {
+    "index": 0,
+    "name": "Su",
+  },
+  {
+    "index": 1,
+    "name": "Mo",
+  },
+  {
+    "index": 2,
+    "name": "Tu",
+  },
+  {
+    "index": 3,
+    "name": "We",
+  },
+  {
+    "index": 4,
+    "name": "Th",
+  },
+  {
+    "index": 5,
+    "name": "Fr",
+  },
+  {
+    "index": 6,
+    "name": "Sa",
+  },
+]
+`;
