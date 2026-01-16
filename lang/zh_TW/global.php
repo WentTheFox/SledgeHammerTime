@@ -97,7 +97,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => '本機設定',
     ],
     'credits' => [
       'title' => '製作群',
@@ -115,8 +115,8 @@ return [
       'notAffiliated' => '該專案不隸屬於 Discord',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
+      'dark' => '深色主題',
+      'light' => '淺色主題',
       'system' => 'Use System Theme',
     ],
   ],
