@@ -41,6 +41,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Rxshi](https://crowdin.com/profile/Rxshi)
 - Catalan
   - [Casper](https://crowdin.com/profile/JajarGG)
+  - [Jordi Santiago García](https://crowdin.com/profile/jordi.jeje)
   - [LAU Regi](https://crowdin.com/profile/Bala_de_plata)
   - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
@@ -60,6 +61,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Jackie](https://crowdin.com/profile/jckcr)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [notlin4](https://crowdin.com/profile/notlin4)
+  - [sfgbfdce](https://crowdin.com/profile/3582452209)
   - [呂宥廷](https://crowdin.com/profile/avery11111102)
 - 🇭🇷 Croatian
   - [net-tech-](https://crowdin.com/profile/net-tech-)
@@ -144,6 +146,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇮🇹 Italian
   - [Lory Pelli](https://github.com/lorypelli)
   - [Spisp](https://crowdin.com/profile/Spisp)
+  - [Tomi Adekoya](https://crowdin.com/profile/tomiadekoya23)
 - 🇯🇵 Japanese
   - [eai04191](https://crowdin.com/profile/eai04191)
   - [ms.investigator](https://crowdin.com/profile/ms.)

@@ -971,10 +971,25 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17520776/medium/510d0f0ed7f165f31cc17de06246a29c.jpeg",
       "fullName": "Henrique Wallace Novais Silva"
     },
+    "17528082": {
+      "username": "jordi.jeje",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17528082/medium/89e2411cf0dac6f2a684863776991e54.jpeg",
+      "fullName": "Jordi Santiago García"
+    },
     "17533436": {
       "username": "elpapuvanegas",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17533436/medium/ea23d110936411bdfbbef638576b7b35.jpeg",
       "fullName": "?????"
+    },
+    "17534892": {
+      "username": "3582452209",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17534892/medium/2bdb7de1eeba21f71763f864ecc5e76c.png",
+      "fullName": "sfgbfdce"
+    },
+    "17538742": {
+      "username": "tomiadekoya23",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17538742/medium/194bccda71a85d99d38e04853e239190.jpeg",
+      "fullName": "Tomi Adekoya"
     }
   },
   "languages": {
@@ -1006,11 +1021,12 @@
         "13533384",
         "16655625",
         "17241656",
+        "17528082",
         "17488256"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 10
+        "approval": 13,
+        "translation": 13
       }
     },
     "cs": {
@@ -1218,7 +1234,8 @@
       "translatorIds": [
         "15096881",
         "16601907",
-        "16603067"
+        "16603067",
+        "17538742"
       ],
       "progress": {
         "approval": 99,
@@ -1545,7 +1562,8 @@
         "15434450",
         "15980591",
         "17175290",
-        "17475702"
+        "17475702",
+        "17534892"
       ],
       "progress": {
         "approval": 13,
