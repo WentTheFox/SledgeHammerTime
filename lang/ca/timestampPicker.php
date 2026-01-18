@@ -46,8 +46,8 @@ return [
       'p' => 'Generar marques temporals des de dins Discord utilitzant comandes de barra',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'header' => 'HammerTime Web Antiga',
+      'p' => 'La versió antiga del projecte, esta disponible, fins futures noticies',
     ],
     'textColor' => [
       'header' => 'Generador de text de <1>colors</1> de Rebane',
