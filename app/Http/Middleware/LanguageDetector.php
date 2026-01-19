@@ -52,6 +52,7 @@ class LanguageDetector {
 
     if ($first_route_segment === $route_locale || $request_method !== 'GET'){
       // No redirection
+      App::setlocale($route_locale);
       return $next($request);
     }
 
