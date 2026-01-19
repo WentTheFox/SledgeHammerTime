@@ -56,7 +56,7 @@ Route::get('/{locale}', [HomeController::class, 'index'])->whereIn('locale', $ui
 Route::get('/{locale}/discord', [RedirectController::class, 'discord'])->whereIn('locale', $uiLocaleValues)->name('discord');
 Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect'])->whereIn('locale', $uiLocaleValues)->name('oauthRedirect');
 
-$defineRoutes = function (bool $inLocaleNgroup) {
+$defineRoutes = function (bool $inLocaleGroup) {
   $settingsRoute = Route::middleware('auth')->get('/settings', [BotSettingsController::class, 'edit']);
   $profileEditRoute = Route::middleware('auth')->get('/profile', [ProfileController::class, 'edit']);
   $addBotRedirectRoute = Route::get('/add-bot/{installType}', [RedirectController::class, 'addBotLink']);
@@ -64,12 +64,12 @@ $defineRoutes = function (bool $inLocaleNgroup) {
   $legalRoute = Route::get('/legal', [StaticController::class, 'legal']);
   $loginRoute = Route::get('/login', [AuthController::class, 'login']);
   $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index']);
-  Route::get('/add-bot', [StaticController::class, 'addBot'])->name($inLocaleNgroup ? 'addBot' : 'addBotNoLocale');
+  Route::get('/add-bot', [StaticController::class, 'addBot'])->name($inLocaleGroup ? 'addBot' : 'addBotNoLocale');
 
   Route::middleware('guest')->get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
   Route::middleware('auth')->get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
 
-  if ($inLocaleNgroup){
+  if ($inLocaleGroup){
     $loginRoute->name('login');
     $settingsRoute->name('settings');
     $profileEditRoute->name('profile.edit');
