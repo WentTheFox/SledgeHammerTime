@@ -125,6 +125,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Julius Geiger](https://crowdin.com/profile/julix00)
   - [Leo](https://crowdin.com/profile/35klxo)
   - [Martin Plewa](https://crowdin.com/profile/Nitram4392)
+  - [TakeOffToLand](https://crowdin.com/profile/TakeOffToLand)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
 - 🇬🇷 Greek

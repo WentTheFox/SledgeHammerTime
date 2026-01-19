@@ -315,6 +315,10 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15281318/medium/363768b7f5d6aeefadc4ef37b563ac64.jpeg",
       "fullName": "ً"
     },
+    "15403952": {
+      "username": "TakeOffToLand",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15403952/medium/b73208e74a27571fb6d6f85a2d4e30a0_default.png"
+    },
     "15404404": {
       "username": "cheesepickle12345678",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15404404/medium/f5661cd0e6ea9c6e6904a9efcc79c3ba.png",
@@ -1065,11 +1069,12 @@
         "16622391",
         "16603607",
         "17430214",
+        "15403952",
         "17519786"
       ],
       "progress": {
         "approval": 99,
-        "translation": 99
+        "translation": 100
       }
     },
     "el": {
