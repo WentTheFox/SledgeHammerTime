@@ -56,6 +56,6 @@ return [
   ],
   'contact' => [
     'heading' => 'Contact Us',
-    'whereToContact' => 'If you have any questions about these Documents or want to ask for the removal of any PII we store please contact us via <1>the Bot\'s Discord server</1> or using any of the methods listed on the <3>Developer\'s website</3>.',
+    'whereToContact' => 'Si tens alguna pregunta sobre aquest document o vols preguntar per la per l\'eliminació d\'algun PII que tenim contacta amb nosaltres via <1> del bot de Dicord</1> o fent servi algun mètode llistat a la <3>web del desenvolupador</3>.',
   ],
 ];

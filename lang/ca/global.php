@@ -26,7 +26,7 @@ return [
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profile',
+    'profile' => 'Perfil',
     'legal' => 'Informacio legal',
   ],
   'sidebar' => [
@@ -71,12 +71,12 @@ return [
       'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Sincronització Del Temps',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => 'El teu rellotge es exacte.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => 'La diferència entra al temps local i el temps del servidor es :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
