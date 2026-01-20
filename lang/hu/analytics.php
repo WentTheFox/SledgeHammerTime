@@ -1,18 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'heading' => 'Oldalmegtekintési Statisztikák',
+  'description' => 'Ez az oldal alapvető statisztikákat tartalmaz (személyazonosító részletek nélkül tárolva és megejelenítve) az alkalmazás összesített oldalmegtekintéseiről az elmúlt 30 napban.',
+  'collectionMethod' => 'Az adatokat a szerver gyűjti, egy korlátozott listán szereplő oldalakra küldött válaszok alapján. Az oldalmegtekintések egyenként tárolódnak, de egy háttérfolyamat napi szinten összegzi őket.',
   'charts' => [
-    'pageViews' => 'Page Views',
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
-    'hideUnknown' => 'Hide unknown values',
+    'dailyTotal' => 'Napi összes oldalmegtekintés',
+    'breakdown' => 'Oldalmegtekintések lebontása',
+    'byPage' => 'Oldalak szerint',
+    'byLanguage' => 'Nyelvek szerint',
+    'hideUnknown' => 'Ismeretlen értékek elrejtése',
   ],
   'values' => [
-    'unknown' => 'Unknown',
-  ]
+    'unknown' => 'Ismeretlen',
+  ],
 ];
