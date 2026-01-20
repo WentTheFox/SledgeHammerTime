@@ -28,6 +28,7 @@ return [
     'botSettings' => 'Cài đặt ứng dụng',
     'profile' => 'Hồ sơ cá nhân',
     'legal' => 'Thông tin pháp lý',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
