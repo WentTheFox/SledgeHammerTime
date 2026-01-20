@@ -83,6 +83,7 @@ English and Hungarian translations have been included, so no translators will be
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
   - [Eppes4](https://crowdin.com/profile/Eppes4)
+  - [ft Wenn](https://crowdin.com/profile/ftwenn93)
   - [Headspike](https://crowdin.com/profile/Headspike)
   - [Jesse](https://github.com/Jessuhh)
   - [MadLad255](https://crowdin.com/profile/MadLad255)
@@ -125,6 +126,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Julius Geiger](https://crowdin.com/profile/julix00)
   - [Leo](https://crowdin.com/profile/35klxo)
   - [Martin Plewa](https://crowdin.com/profile/Nitram4392)
+  - [TakeOffToLand](https://crowdin.com/profile/TakeOffToLand)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
 - 🇬🇷 Greek
