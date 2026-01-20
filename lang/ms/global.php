@@ -28,6 +28,7 @@ return [
     'botSettings' => 'Tetapan Apl',
     'profile' => 'Profil',
     'legal' => 'Maklumat Undang-Undang',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
