@@ -28,6 +28,7 @@ return [
     'botSettings' => '程式設定',
     'profile' => 'Profile',
     'legal' => 'Legal Information',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
