@@ -58,7 +58,7 @@ return [
         'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
         'options' => [
           'default' => 'Language default',
-          'h12' => '12-hour',
+          'h12' => '12-uurs',
           'h24' => '24-hour',
         ],
       ],

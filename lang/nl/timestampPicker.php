@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Volgende decennium',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Natuurlijke taalinvoer kon niet worden verwerkt'
     ]
   ],
   'table' => [
