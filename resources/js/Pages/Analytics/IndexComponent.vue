@@ -8,7 +8,7 @@ defineProps<AnalyticsCardsProps>();
 </script>
 
 <template>
-  <Head :title="$t('analytics.title')" />
+  <Head :title="$t('analytics.heading')" />
 
   <Layout>
     <HtCard>
