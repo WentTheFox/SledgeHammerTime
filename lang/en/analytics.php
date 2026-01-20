@@ -9,7 +9,7 @@ return [
     'pageViews' => 'Page Views',
     'dailyTotal' => 'Daily Total Page Views',
     'breakdown' => 'Page Views Breakdown',
-    'byRoute' => 'By Routes',
+    'byPage' => 'By Pages',
     'byLanguage' => 'By Language',
     'hideUnknown' => 'Hide unknown values',
   ],

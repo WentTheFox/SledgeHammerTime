@@ -13,14 +13,16 @@ class AnalyticsController extends Controller
   {
     $startDate = Carbon::now('UTC')->subDays(29)->startOfDay();
 
-    // 1. Daily totals for Bar Chart
+    // 1. Daily totals for Stacked Bar Chart (grouped by date and route)
     $dailyTotals = PageView::where('date', '>=', $startDate->toDateString())
-      ->select('date', DB::raw('SUM(amount) as total'))
-      ->groupBy('date')
+      ->select('date', 'route_name', DB::raw('SUM(amount) as total'))
+      ->groupBy('date', 'route_name')
       ->orderBy('date')
+      ->orderByDesc('total')
       ->get()
       ->map(fn($item) => [
         'date' => $item->date,
+        'route' => $item->route_name,
         'total' => (int)$item->total,
       ]);
 
