@@ -28,7 +28,7 @@ return [
     'botSettings' => 'App Beálítások',
     'profile' => 'Profil',
     'legal' => 'Jogi Információk',
-    'analytics' => 'Analytics',
+    'analytics' => 'Statisztikák',
   ],
   'sidebar' => [
     'inputSettings' => [
