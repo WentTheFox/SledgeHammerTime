@@ -3,7 +3,7 @@
 return [
   'translations' => [
     'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'text' => 'Dit project bevat vertalingen van vrijwillige vertalers en andere leden van de community. Deze vertalingen zijn gemaakt voor gebruiksgemak en zijn mogelijk niet altijd up-to-date. De <1>originele taal</1> van deze pagina wordt altijd als geldig beschouwd.',
   ],
   'lastUpdated' => 'Last updated: <1/>',
   'privacy' => [
