@@ -28,6 +28,7 @@ return [
     'botSettings' => 'Nastavení aplikace',
     'profile' => 'Můj účet',
     'legal' => 'Právní informace',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
