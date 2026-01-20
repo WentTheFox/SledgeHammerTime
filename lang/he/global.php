@@ -28,6 +28,7 @@ return [
     'botSettings' => 'הגדרות אפליקציה',
     'profile' => 'Profile',
     'legal' => 'מידע משפטי',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
