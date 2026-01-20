@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime 이전 사이트',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => '프로젝트의 이전 사이트 버전은 공지 전까지 이용 가능합니다',
     ],
     'textColor' => [
       'header' => 'Rebane님의 <1>컬러</1> 텍스트 생성기',
