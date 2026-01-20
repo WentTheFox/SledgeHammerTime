@@ -28,6 +28,7 @@ return [
     'botSettings' => '앱 설정',
     'profile' => '프로필',
     'legal' => '법률 정보',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
