@@ -28,6 +28,7 @@ return [
     'botSettings' => 'App Settings',
     'profile' => 'Profil',
     'legal' => 'Legal Information',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
