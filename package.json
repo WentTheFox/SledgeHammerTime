@@ -62,11 +62,13 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/vue-fontawesome": "^3.1.2",
     "@vueuse/core": "^14.1.0",
+    "chart.js": "^4.5.1",
     "chrono-node": "^2.9.0",
     "date-fns": "^4.1.0",
     "js-levenshtein": "^1.1.6",
     "lorem-ipsum": "^2.0.8",
-    "the-new-css-reset": "^1.11.3"
+    "the-new-css-reset": "^1.11.3",
+    "vue-chartjs": "^5.3.3"
   },
   "engines": {
     "node": ">=24"

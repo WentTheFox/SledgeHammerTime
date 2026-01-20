@@ -1,0 +1,192 @@
+<script setup lang="ts">
+import HtCard from '@/Reusable/HtCard.vue';
+import { Bar, Doughnut } from 'vue-chartjs';
+import {
+  ArcElement,
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  type ChartOptions,
+  Legend,
+  LinearScale,
+  Title,
+  Tooltip,
+} from 'chart.js';
+import { devModeInject, themeInject } from '@/injection-keys';
+import { computed, inject, ref, } from 'vue';
+import { wTrans } from 'laravel-vue-i18n';
+import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  ArcElement
+);
+
+export interface AnalyticsCardsProps {
+  dailyTotals: Array<{ date: string; total: number }>;
+  routeBreakdown: Array<{ route: string; total: number }>;
+  localeBreakdown: Array<{ locale: string; total: number }>;
+}
+
+const props = defineProps<AnalyticsCardsProps>();
+const pageViewLabel = wTrans('analytics.charts.pageViews');
+const unknownLabel = wTrans('analytics.values.unknown');
+
+const skipNull = ref(true);
+
+const theme = inject(themeInject);
+const devMode = inject(devModeInject);
+
+const barChartData = computed(() => {
+  const saturation = theme?.isLightTheme ? '90%' : '50%';
+  const lightness = theme?.isLightTheme ? '60%' : '40%';
+  return ({
+    labels: props.dailyTotals.map((d) => d.date),
+    datasets: [
+      {
+        label: pageViewLabel.value,
+        backgroundColor: `hsl(215,${saturation},${lightness})`,
+        data: props.dailyTotals.map((d) => d.total),
+      },
+    ],
+  });
+});
+
+const generatePalette = (count: number, isLight: boolean) => {
+  const colors = [];
+  const saturation = isLight ? '60%' : '50%';
+  const lightness = isLight ? '50%' : '30%';
+
+  for (let i = 0; i < count; i++) {
+    const hue = (i * (360 / Math.min(count, 10))) % 360;
+    // Using a golden angle approach for better distribution if count is high
+    const hueGolden = (i * 137.508) % 360;
+    const finalHue = count <= 10 ? hue : hueGolden;
+    colors.push(`hsl(${finalHue}, ${saturation}, ${lightness})`);
+  }
+  return colors;
+};
+
+const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => r.route !== null || !skipNull.value));
+
+const routeChartData = computed(() => ({
+  labels: filteredRouteBreakdown.value.map((r) => r.route ?? unknownLabel.value),
+  datasets: [
+    {
+      backgroundColor: generatePalette(props.routeBreakdown.length, theme?.isLightTheme ?? true),
+      data: filteredRouteBreakdown.value.map((r) => r.total),
+    },
+  ],
+}));
+
+const filteredLocaleBreakdown = computed(() => props.localeBreakdown.filter(l => l.locale !== null || !skipNull.value));
+
+const localeChartData = computed(() => ({
+  labels: filteredLocaleBreakdown.value.map((l) => l.locale ?? unknownLabel.value),
+  datasets: [
+    {
+      backgroundColor: generatePalette(props.localeBreakdown.length, theme?.isLightTheme ?? true),
+      data: filteredLocaleBreakdown.value.map((l) => l.total),
+    },
+  ],
+}));
+
+const labelsColor = computed(() => theme?.isLightTheme ? '#333' : '#eee');
+const ticksColor = computed(() => theme?.isLightTheme ? '#666' : '#ccc');
+const gridColor = computed(() => theme?.isLightTheme ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)');
+
+const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  resizeDelay: 50,
+  skipNull: skipNull.value,
+  scales: {
+    y: {
+      ticks: {
+        color: ticksColor.value,
+      },
+      grid: {
+        color: gridColor.value,
+      },
+    },
+    x: {
+      ticks: {
+        color: ticksColor.value,
+      },
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+}));
+
+const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  resizeDelay: 50,
+  plugins: {
+    legend: {
+      labels: {
+        color: labelsColor.value,
+      },
+    },
+  },
+}));
+</script>
+
+<template>
+  <HtCard class="analytics-card">
+    <template #header>
+      <h2>{{ $t('analytics.charts.dailyTotal') }}</h2>
+    </template>
+    <div class="analytics-chart-container analytics-chart-container-bar">
+      <Bar
+        :data="barChartData"
+        :options="barChartOptions"
+      />
+    </div>
+  </HtCard>
+
+  <HtCard class="analytics-card">
+    <template #header>
+      <h2>{{ $t('analytics.charts.breakdown') }}</h2>
+    </template>
+    <HtFormCheckboxModelled
+      v-if="devMode"
+      id="skip-null"
+      v-model="skipNull"
+      :label="$t('analytics.charts.hideUnknown')"
+      class="mb-2"
+    />
+    <div class="analytics-card-split">
+      <div class="analytics-card-split-item">
+        <h3>{{ $t('analytics.charts.byRoute') }}</h3>
+        <div class="analytics-chart-container analytics-chart-container-donut">
+          <Doughnut
+            :data="routeChartData"
+            :options="doughnutChartOptions"
+          />
+        </div>
+      </div>
+      <div class="analytics-card-split-item">
+        <h3>{{ $t('analytics.charts.byLanguage') }}</h3>
+        <div class="analytics-chart-container analytics-chart-container-donut">
+          <Doughnut
+            :data="localeChartData"
+            :options="doughnutChartOptions"
+          />
+        </div>
+      </div>
+    </div>
+  </HtCard>
+</template>
