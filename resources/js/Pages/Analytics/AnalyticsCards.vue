@@ -28,13 +28,12 @@ ChartJS.register(
 );
 
 export interface AnalyticsCardsProps {
-  dailyTotals: Array<{ date: string; total: number }>;
+  dailyTotals: Array<{ date: string; route: string; total: number }>;
   routeBreakdown: Array<{ route: string; total: number }>;
   localeBreakdown: Array<{ locale: string; total: number }>;
 }
 
 const props = defineProps<AnalyticsCardsProps>();
-const pageViewLabel = wTrans('analytics.charts.pageViews');
 const unknownLabel = wTrans('analytics.values.unknown');
 
 const skipNull = ref(true);
@@ -43,18 +42,25 @@ const theme = inject(themeInject);
 const devMode = inject(devModeInject);
 
 const barChartData = computed(() => {
-  const saturation = theme?.isLightTheme ? '90%' : '50%';
-  const lightness = theme?.isLightTheme ? '60%' : '40%';
-  return ({
-    labels: props.dailyTotals.map((d) => d.date),
-    datasets: [
-      {
-        label: pageViewLabel.value,
-        backgroundColor: `hsl(215,${saturation},${lightness})`,
-        data: props.dailyTotals.map((d) => d.total),
-      },
-    ],
+  const routes = [...new Set(props.dailyTotals.map(d => d.route))];
+  const dates = [...new Set(props.dailyTotals.map(d => d.date))].sort();
+  const palette = generatePalette(routes.length, theme?.isLightTheme ?? true);
+
+  const datasets = routes.map((route, index) => {
+    return {
+      label: route === 'Unknown' ? unknownLabel.value : route,
+      backgroundColor: palette[index],
+      data: dates.map(date => {
+        const record = props.dailyTotals.find(d => d.date === date && d.route === route);
+        return record ? record.total : 0;
+      }),
+    };
   });
+
+  return {
+    labels: dates,
+    datasets,
+  };
 });
 
 const generatePalette = (count: number, isLight: boolean) => {
@@ -64,7 +70,7 @@ const generatePalette = (count: number, isLight: boolean) => {
 
   for (let i = 0; i < count; i++) {
     const hue = (i * (360 / Math.min(count, 10))) % 360;
-    // Using a golden angle approach for better distribution if count is high
+    // Using a golden angle approach for better distribution if the count is high
     const hueGolden = (i * 137.508) % 360;
     const finalHue = count <= 10 ? hue : hueGolden;
     colors.push(`hsl(${finalHue}, ${saturation}, ${lightness})`);
@@ -107,6 +113,7 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
   skipNull: skipNull.value,
   scales: {
     y: {
+      stacked: true,
       ticks: {
         color: ticksColor.value,
       },
@@ -115,6 +122,7 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
       },
     },
     x: {
+      stacked: true,
       ticks: {
         color: ticksColor.value,
       },
@@ -125,7 +133,10 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
   },
   plugins: {
     legend: {
-      display: false,
+      display: true,
+      labels: {
+        color: labelsColor.value,
+      },
     },
   },
 }));
@@ -170,7 +181,7 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
     />
     <div class="analytics-card-split">
       <div class="analytics-card-split-item">
-        <h3>{{ $t('analytics.charts.byRoute') }}</h3>
+        <h3>{{ $t('analytics.charts.byPage') }}</h3>
         <div class="analytics-chart-container analytics-chart-container-donut">
           <Doughnut
             :data="routeChartData"
