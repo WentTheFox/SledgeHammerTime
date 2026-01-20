@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import Layout from '@/Layouts/DefaultLayout.vue';
-import HtCard from '@/Reusable/HtCard.vue';
-import { Head } from '@inertiajs/vue3';
 import AnalyticsCards, { AnalyticsCardsProps } from '@/Pages/Analytics/AnalyticsCards.vue';
+import { Head } from '@inertiajs/vue3';
 
 defineProps<AnalyticsCardsProps>();
 </script>
@@ -11,17 +10,8 @@ defineProps<AnalyticsCardsProps>();
   <Head :title="$t('analytics.heading')" />
 
   <Layout>
-    <HtCard>
-      <template #header>
-        <h1>{{ $t('analytics.heading') }}</h1>
-      </template>
-      <p class="mb-2">
-        {{ $t('analytics.description') }}
-      </p>
-      <p> {{ $t('analytics.collectionMethod') }} </p>
-    </HtCard>
-
     <AnalyticsCards
+      :last-updated="lastUpdated"
       :daily-totals="dailyTotals"
       :locale-breakdown="localeBreakdown"
       :route-breakdown="routeBreakdown"

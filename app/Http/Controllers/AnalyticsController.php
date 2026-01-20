@@ -3,14 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\PageView;
+use DateInterval;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
-class AnalyticsController extends Controller
-{
-  public function index()
-  {
+class AnalyticsController extends Controller {
+  private const CACHE_KEY = 'analytics-page-data-v1';
+
+  public function index() {
+    return Inertia::render('Analytics/IndexComponent', $this->getCachedPageData());
+  }
+
+  protected function getCachedPageData() {
+    if (Cache::has(self::CACHE_KEY)){
+      return json_decode(Cache::get(self::CACHE_KEY), associative: true, flags: JSON_THROW_ON_ERROR);
+    }
+
+    $data = $this->collectPageData();
+    Cache::set(self::CACHE_KEY, json_encode($data, JSON_THROW_ON_ERROR), new DateInterval('PT10M'));
+
+    return $data;
+  }
+
+  private function collectPageData() {
     $startDate = Carbon::now('UTC')->subDays(29)->startOfDay();
 
     // 1. Daily totals for Stacked Bar Chart (grouped by date and route)
@@ -48,10 +65,11 @@ class AnalyticsController extends Controller
         'total' => (int)$item->total,
       ]);
 
-    return Inertia::render('Analytics/IndexComponent', [
+    return [
+      'lastUpdated' => date('c'),
       'dailyTotals' => $dailyTotals,
       'routeBreakdown' => $routeBreakdown,
       'localeBreakdown' => $localeBreakdown,
-    ]);
+    ];
   }
 }

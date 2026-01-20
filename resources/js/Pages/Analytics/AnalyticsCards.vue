@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import { dateTimeLibraryInject, devModeInject, themeInject } from '@/injection-keys';
+import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtCard from '@/Reusable/HtCard.vue';
-import { Bar, Doughnut } from 'vue-chartjs';
+import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
+import HtTranslate from '@/Reusable/HtTranslate.vue';
 import {
   ArcElement,
   BarElement,
@@ -12,10 +16,9 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
-import { devModeInject, themeInject } from '@/injection-keys';
-import { computed, inject, ref, } from 'vue';
 import { wTrans } from 'laravel-vue-i18n';
-import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
+import { computed, inject, ref } from 'vue';
+import { Bar, Doughnut } from 'vue-chartjs';
 
 ChartJS.register(
   Title,
@@ -24,10 +27,11 @@ ChartJS.register(
   BarElement,
   CategoryScale,
   LinearScale,
-  ArcElement
+  ArcElement,
 );
 
 export interface AnalyticsCardsProps {
+  lastUpdated: string;
   dailyTotals: Array<{ date: string; route: string; total: number }>;
   routeBreakdown: Array<{ route: string; total: number }>;
   localeBreakdown: Array<{ locale: string; total: number }>;
@@ -40,6 +44,8 @@ const skipNull = ref(true);
 
 const theme = inject(themeInject);
 const devMode = inject(devModeInject);
+const dtl = inject(dateTimeLibraryInject);
+const lastUpdateTime = computed(() => props.lastUpdated ? dtl?.value.fromIsoString(props.lastUpdated) : undefined);
 
 const barChartData = computed(() => {
   const routes = [...new Set(props.dailyTotals.map(d => d.route))];
@@ -159,6 +165,28 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
 </script>
 
 <template>
+  <HtCard>
+    <template #header>
+      <h1>{{ $t('analytics.heading') }}</h1>
+    </template>
+    <p class="mb-2">
+      {{ $t('analytics.description') }}
+    </p>
+    <p class="mb-2">
+      {{ $t('analytics.collectionMethod') }}
+    </p>
+    <p v-if="lastUpdateTime">
+      <HtTranslate i18n-key="analytics.lastUpdated">
+        <template #1>
+          <TimestampPreview
+            :ts="lastUpdateTime"
+            :format="MessageTimestampFormat.RELATIVE"
+          />
+        </template>
+      </HtTranslate>
+    </p>
+  </HtCard>
+
   <HtCard class="analytics-card">
     <template #header>
       <h2>{{ $t('analytics.charts.dailyTotal') }}</h2>
