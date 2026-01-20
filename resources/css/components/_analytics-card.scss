@@ -1,0 +1,42 @@
+@use "../design";
+
+.analytics-card {
+  text-align: center;
+
+  .analytics-chart-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+
+    &.analytics-chart-container-bar {
+      height: 30vh;
+    }
+
+    &.analytics-chart-container-donut {
+      height: 40vh;
+    }
+  }
+
+  .analytics-card-split {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    --gap: 1rem;
+    gap: var(--gap);
+
+    @include design.screen-above('xl') {
+      justify-content: space-between;
+    }
+
+    .analytics-card-split-item {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: 100%;
+      min-width: 0;
+
+      @include design.screen-above('xl') {
+        flex-basis: calc(50% - var(--gap));
+      }
+    }
+  }
+}

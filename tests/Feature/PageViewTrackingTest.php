@@ -17,6 +17,7 @@ class PageViewTrackingTest extends TestCase
       'route_name' => 'home',
       'locale' => 'en',
       'amount' => 1,
+      'date' => now('UTC')->toDateString(),
     ]);
   }
 
@@ -28,6 +29,7 @@ class PageViewTrackingTest extends TestCase
       'route_name' => 'legal',
       'locale' => 'en',
       'amount' => 1,
+      'date' => now('UTC')->toDateString(),
     ]);
   }
 }

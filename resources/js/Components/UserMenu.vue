@@ -10,6 +10,7 @@ import {
   faBusinessTime,
   faCaretDown,
   faCaretUp,
+  faChartColumn,
   faHammer,
   faUser,
   faUserGear,
@@ -80,6 +81,16 @@ const routeParams = useRouteParams(route, pageProps);
             />
             <span>Horizon Dashboard</span>
           </HtExternalLink>
+          <Link
+            :href="safeRoute('analytics', route, routeParams)"
+            :class="['nav-link', { current: route().current() === 'analytics'}]"
+            @click.passive="hide"
+          >
+            <FontAwesomeIcon
+              :icon="faChartColumn"
+            />
+            <span>{{ $t('global.nav.analytics') }}</span>
+          </Link>
           <Link
             :href="safeRoute('logout', route, routeParams)"
             method="post"

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TrackPageViews
 {
-  const TRACKED_ROUTE_IS_LOCALIZED_MAP = [
+  protected const TRACKED_ROUTES = [
     'root' => true,
     'home' => true,
     'login' => true,
@@ -21,24 +21,20 @@ class TrackPageViews
     'botInfo' => true,
     'addBot' => true,
     'addBotNoLocale' => true,
-    'app.usage' => false,
-    'app.ntp' => false,
-    'app.localUserInfo' => false,
   ];
 
   /**
    * Handle an incoming request.
    *
-   * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
+   * @param Closure(Request): (Response) $next
    */
   public function handle(Request $request, Closure $next): Response
   {
     $response = $next($request);
     if ($request->method() === 'GET') {
       $routeName = $request->route()?->getName();
-      if (array_key_exists($routeName, self::TRACKED_ROUTE_IS_LOCALIZED_MAP)) {
-        $isLocalized = self::TRACKED_ROUTE_IS_LOCALIZED_MAP[$routeName];
-        RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null);
+      if (array_key_exists($routeName, self::TRACKED_ROUTES)) {
+        RecordPageView::dispatch($routeName, App::getLocale());
       }
     }
     return $response;
