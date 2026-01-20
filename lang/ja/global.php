@@ -28,6 +28,7 @@ return [
     'botSettings' => 'アカウント設定',
     'profile' => 'プロフィール',
     'legal' => '法的情報',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
