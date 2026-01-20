@@ -205,6 +205,9 @@
 }
 
 @mixin heading-font-sizes {
+  h1 {
+    font-size: functions.app-value('content-heading-1');
+  }
   h2 {
     font-size: functions.app-value('content-heading-2');
   }

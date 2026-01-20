@@ -65,12 +65,11 @@ class CompressPageViews extends Command
    */
   protected function compressDay(Carbon $targetDate)
   {
-    $startOfTargetDate = $targetDate->copy()->startOfDay();
-    $endOfTargetDate = $targetDate->copy()->endOfDay();
+    $targetDateString = $targetDate->toDateString();
 
-    $query = PageView::whereBetween('created_at', [$startOfTargetDate, $endOfTargetDate]);
+    $query = PageView::where('date', $targetDateString);
 
-    $stats = PageView::whereBetween('created_at', [$startOfTargetDate, $endOfTargetDate])
+    $stats = PageView::where('date', $targetDateString)
       ->select('locale', 'route_name', DB::raw('SUM(amount) as total_amount'))
       ->groupBy('locale', 'route_name')
       ->orderBy('route_name')
@@ -78,7 +77,7 @@ class CompressPageViews extends Command
       ->get();
 
     if ($stats->isNotEmpty()) {
-      DB::transaction(function () use ($query, $stats, $startOfTargetDate) {
+      DB::transaction(function () use ($query, $stats, $targetDateString) {
         $query->delete();
 
         foreach ($stats as $stat) {
@@ -86,13 +85,14 @@ class CompressPageViews extends Command
             'route_name' => $stat->route_name,
             'locale' => $stat->locale,
             'amount' => $stat->total_amount,
-            'created_at' => $startOfTargetDate,
+            'date' => $targetDateString,
+            'created_at' => Carbon::parse($targetDateString, 'UTC'),
           ]);
         }
       });
 
       $overallTotal = $stats->sum('total_amount');
-      $this->info("Compressed page views for {$startOfTargetDate->toDateString()}. Total amount: {$overallTotal}");
+      $this->info("Compressed page views for {$targetDateString}. Total amount: {$overallTotal}");
 
       foreach ($stats as $stat) {
         $locale = $stat->locale ?? 'N/A';
@@ -100,7 +100,7 @@ class CompressPageViews extends Command
         $this->line("- {$route} ({$locale}): {$stat->total_amount}");
       }
     } else {
-      $this->info("No page views found for {$startOfTargetDate->toDateString()} to compress.");
+      $this->info("No page views found for {$targetDateString} to compress.");
     }
   }
 }

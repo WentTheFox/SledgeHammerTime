@@ -19,7 +19,7 @@ class LanguageDetector {
     // Frontend API
     'frontend',
     // Queue Monitoring
-    'horizon'
+    'horizon',
   ];
 
   protected const LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';
@@ -50,9 +50,11 @@ class LanguageDetector {
       }
     }
 
-    if ($first_route_segment === $route_locale || $request_method !== 'GET'){
-      // No redirection
-      App::setlocale($route_locale);
+    $route_segments_match = $first_route_segment === $route_locale;
+    if ($route_segments_match){
+      $this->validateLocale($route_locale);
+    }
+    if ($route_segments_match || $request_method !== 'GET'){
       return $next($request);
     }
 
@@ -121,7 +123,10 @@ class LanguageDetector {
    * Set the application locale and save it in the current session
    */
   protected function setLocale(string $app_locale):void {
-    session()?->put(self::SESSION_APP_LOCALE_KEY, $app_locale);
+    $session = session();
+    if ($session->get(self::SESSION_APP_LOCALE_KEY, default: null) !== $app_locale){
+      $session->put(self::SESSION_APP_LOCALE_KEY, $app_locale);
+    }
     App::setlocale($app_locale);
   }
 }
