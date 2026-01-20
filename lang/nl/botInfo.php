@@ -65,7 +65,7 @@ return [
         'subtract' => 'You must specify at least one time component to change',
         'Message Sent' => 'Provides the timestamp syntax for the time when a message was sent',
         'Message Last Edited' => 'Specificeer de tijd syntaxis voor de tijd wanneer een bericht laatst was aangepast',
-        'Extract Timestamps' => 'Provides a list of all dynamic timestamps found in a specific message',
+        'Extract Timestamps' => 'Geeft een lijst weer van alle dynamische tijdstempels die in een specifiek bericht zijn gevonden',
       ],
     ],
   ],
