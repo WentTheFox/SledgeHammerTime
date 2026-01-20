@@ -28,6 +28,7 @@ return [
     'botSettings' => 'Configurações do Bot',
     'profile' => 'Perfil',
     'legal' => 'Informações legais',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
