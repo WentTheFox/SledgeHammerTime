@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotInfoController;
 use App\Http\Controllers\BotSettingsController;
@@ -64,12 +65,14 @@ $defineRoutes = function (bool $inLocaleGroup) {
   $legalRoute = Route::get('/legal', [StaticController::class, 'legal']);
   $loginRoute = Route::get('/login', [AuthController::class, 'login']);
   $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index']);
+  $analyticsRoute = Route::get('/analytics', [AnalyticsController::class, 'index']);
   Route::get('/add-bot', [StaticController::class, 'addBot'])->name($inLocaleGroup ? 'addBot' : 'addBotNoLocale');
 
   Route::middleware('guest')->get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
   Route::middleware('auth')->get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
 
-  if ($inLocaleGroup){
+  if ($inLocaleGroup) {
+    $analyticsRoute->name('analytics');
     $loginRoute->name('login');
     $settingsRoute->name('settings');
     $profileEditRoute->name('profile.edit');
