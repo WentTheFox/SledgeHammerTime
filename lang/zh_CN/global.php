@@ -28,6 +28,7 @@ return [
     'botSettings' => 'App 设置',
     'profile' => '个人资料',
     'legal' => '法律信息',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [

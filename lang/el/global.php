@@ -28,6 +28,7 @@ return [
     'botSettings' => 'Ρυθμίσεις Εφαρμογής',
     'profile' => 'Προφίλ',
     'legal' => 'Νομικές Πληροφορίες',
+    'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
