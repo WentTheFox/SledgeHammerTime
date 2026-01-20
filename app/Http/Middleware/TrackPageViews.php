@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\Response;
 
-class TrackPageViews
-{
+class TrackPageViews {
   protected const TRACKED_ROUTES = [
     'root' => true,
     'home' => true,
@@ -21,6 +20,7 @@ class TrackPageViews
     'botInfo' => true,
     'addBot' => true,
     'addBotNoLocale' => true,
+    'analytics' => true,
   ];
 
   /**
@@ -28,15 +28,15 @@ class TrackPageViews
    *
    * @param Closure(Request): (Response) $next
    */
-  public function handle(Request $request, Closure $next): Response
-  {
+  public function handle(Request $request, Closure $next):Response {
     $response = $next($request);
-    if ($request->method() === 'GET') {
+    if ($request->method() === 'GET'){
       $routeName = $request->route()?->getName();
-      if (array_key_exists($routeName, self::TRACKED_ROUTES)) {
+      if (array_key_exists($routeName, self::TRACKED_ROUTES)){
         RecordPageView::dispatch($routeName, App::getLocale());
       }
     }
+
     return $response;
   }
 }
