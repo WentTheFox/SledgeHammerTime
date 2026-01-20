@@ -54,6 +54,7 @@ const barChartData = computed(() => {
         const record = props.dailyTotals.find(d => d.date === date && d.route === route);
         return record ? record.total : 0;
       }),
+      borderWidth: 0,
     };
   });
 
@@ -86,6 +87,7 @@ const routeChartData = computed(() => ({
     {
       backgroundColor: generatePalette(props.routeBreakdown.length, theme?.isLightTheme ?? true),
       data: filteredRouteBreakdown.value.map((r) => r.total),
+      borderWidth: 0,
     },
   ],
 }));
@@ -98,6 +100,7 @@ const localeChartData = computed(() => ({
     {
       backgroundColor: generatePalette(props.localeBreakdown.length, theme?.isLightTheme ?? true),
       data: filteredLocaleBreakdown.value.map((l) => l.total),
+      borderWidth: 0,
     },
   ],
 }));
