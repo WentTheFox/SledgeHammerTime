@@ -219,6 +219,7 @@ English and Hungarian translations have been included, so no translators will be
   - [leo0six](https://crowdin.com/profile/leo0six)
   - [ShadowG](https://crowdin.com/profile/ShadowG)
   - [StudentApcaustsy](https://crowdin.com/profile/StudentApcaustsy)
+  - [Tiago dos Santos Belluci](https://crowdin.com/profile/Belluci)
   - [Vinny7x](https://crowdin.com/profile/vinny7x)
 - 🇷🇴 Romanian: [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
