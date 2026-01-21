@@ -41,7 +41,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Rxshi](https://crowdin.com/profile/Rxshi)
 - Catalan
   - [Casper](https://crowdin.com/profile/JajarGG)
-  - [Jordi Santiago García](https://crowdin.com/profile/jordi.jeje)
+  - [Jordi.jeje](https://crowdin.com/profile/jordi.jeje)
   - [LAU Regi](https://crowdin.com/profile/Bala_de_plata)
   - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
