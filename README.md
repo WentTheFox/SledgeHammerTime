@@ -262,6 +262,7 @@ English and Hungarian translations have been included, so no translators will be
   - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
   - [zakpaco gamer](https://crowdin.com/profile/DearReux)
