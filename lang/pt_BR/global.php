@@ -72,12 +72,12 @@ return [
       'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
-      'title' => 'Time Synchronization',
+      'title' => 'Sincronizar Hora',
       'status' => [
         'syncing' => 'O seu relógio do sistema atualmente está sincronizando com nossos servidores, por favor aguarde.',
-        'accurate' => 'Your system clock is accurate.',
+        'accurate' => 'O relógio do sistema está atualizado.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'value' => 'A diferença entre o horário local e do servidor é:',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
@@ -105,7 +105,7 @@ return [
       'developedBy' => 'Desenvolvido por <1></1>',
       'using' => 'Usando <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
-      'laravel' => 'Laravel',
+      'laravel' => '"Laravel"',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
