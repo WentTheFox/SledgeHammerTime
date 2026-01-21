@@ -2,16 +2,16 @@
 
 return [
   'title' => 'Perfil',
-  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
+  'intro' => 'A página de perfil permite que você gerencie as informações da conta relacionadas especificamente ao site. Se estiver procurando onde alterar os padrões e outras configurações para o aplicativo do Discord, acesse a página <1>Configurações do Aplicativo</1>.',
   'information' => [
-    'heading' => 'Profile Information',
-    'description' => "Update your account's profile information.",
-    'displayName' => 'Display Name',
+    'heading' => 'Informações do perfil',
+    'description' => "Atualizar as informações do perfil.",
+    'displayName' => 'Exibir Nome',
     'hiddenFormats' => 'Formats hidden from picker table',
     'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'Connected Accounts',
+    'heading' => 'Contas Conectadas',
     'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Contas do Discord',
     'crowdin' => 'Contas do CrowdIn',
@@ -30,9 +30,9 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'Account Deletion',
-    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
-    'deleteButton' => 'Delete Account',
+    'heading' => 'Exclusão de Conta',
+    'description' => 'Uma vez excluída sua conta, todos os recursos e dados nela serão deletados de forma permanente. Antes disso, baixe qualquer dado ou informação que deseja manter.',
+    'deleteButton' => 'Excluir Conta',
     'confirmDialog' => [
       'header' => 'Are you sure you want to delete your account?',
       'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',

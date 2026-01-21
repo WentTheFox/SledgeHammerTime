@@ -2,33 +2,33 @@
 
 return [
   'title' => 'Configurações do Bot',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'description' => 'Abaixo você consegue ver suas as configurações atuais do HammerTime App para cada conta conectada.',
+  'learnMore' => 'Não sabe para que serve o aplicativo ou está curioso para saber o que ele faz? Acesse o link disponível no nosso  <1>Discord</1>  para saber mais.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Configurações avançadas',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Padrão',
   'fields' => [
     'timezone' => [
       'displayName' => 'Fuso horário',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Formatar',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Ao utilizar opções de formatação resposta será exibida somente como pré-visualização.',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Colunas',
     ],
     'ephemeral' => [
       'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Cabeçalho',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Formatar pré-visualização em negrito',
     ],
     'defaultAtHour' => [
       'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
@@ -40,8 +40,8 @@ return [
       'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Permitir coleta de dados de Telemetria.',
+      'explanation' => 'Isso é totalmente opcional e não tem nenhum efeito na capacidade de usar o "bot". Veja a página <1/> para informações.',
     ],
     'defaultAt12Hour' => [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
