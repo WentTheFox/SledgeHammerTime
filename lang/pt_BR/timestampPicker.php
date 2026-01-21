@@ -46,7 +46,7 @@ return [
       'p' => 'Gere timestamps dentro do Discord usando slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
+      'header' => 'Site antigo do "Hammer" "Time"',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
