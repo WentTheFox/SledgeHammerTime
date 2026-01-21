@@ -978,7 +978,7 @@
     "17528082": {
       "username": "jordi.jeje",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17528082/medium/89e2411cf0dac6f2a684863776991e54.jpeg",
-      "fullName": "Jordi Santiago García"
+      "fullName": "Jordi.jeje"
     },
     "17533436": {
       "username": "elpapuvanegas",
@@ -1083,7 +1083,7 @@
         "17519786"
       ],
       "progress": {
-        "approval": 96,
+        "approval": 99,
         "translation": 99
       }
     },
@@ -1253,7 +1253,7 @@
         "17538742"
       ],
       "progress": {
-        "approval": 95,
+        "approval": 96,
         "translation": 96
       }
     },
@@ -1329,8 +1329,8 @@
         "12680006"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 100,
+        "translation": 100
       }
     },
     "nb": {
@@ -1399,15 +1399,15 @@
         "17159146",
         "12931321",
         "17151532",
-        "17488616",
         "17540650",
+        "17488616",
         "17520776",
         "17450480",
         "17503118"
       ],
       "progress": {
-        "approval": 17,
-        "translation": 20
+        "approval": 33,
+        "translation": 33
       }
     },
     "pt": {
@@ -1501,7 +1501,7 @@
         "16240978"
       ],
       "progress": {
-        "approval": 95,
+        "approval": 99,
         "translation": 99
       }
     },
@@ -1514,8 +1514,8 @@
         "13477087"
       ],
       "progress": {
-        "approval": 96,
-        "translation": 96
+        "approval": 100,
+        "translation": 100
       }
     },
     "uk": {
