@@ -63,10 +63,10 @@ return [
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'วันแรกของสัปดาห์',
+        'description' => 'เปลี่ยนวันที่ควรถือเป็นวันแรกของสัปดาห์ในปฏิทินของการป้อนวันที่กำหนดเอง',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'ตามภาษาที่กำหนดไว้',
         ],
       ],
       'advancedSettings' => 'การตั้งค่าการป้อนข้อมูลเวลาขั้นสูง',
