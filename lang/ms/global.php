@@ -28,7 +28,7 @@ return [
     'botSettings' => 'Tetapan Apl',
     'profile' => 'Profil',
     'legal' => 'Maklumat Undang-Undang',
-    'analytics' => 'Analytics',
+    'analytics' => 'Analitik',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -63,10 +63,10 @@ return [
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Hari pertama dalam minggu',
+        'description' => 'Ubah hari apa yang patut dikira sebagai hari pertama dalam minggu pada kalendar di input tarikh tersuai.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Lalai bahasa',
         ],
       ],
       'advancedSettings' => 'Tetapan input lanjutan',
