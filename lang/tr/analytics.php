@@ -1,18 +1,18 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'Sayfa Görüntüleme Analitiği',
+  'description' => 'Bu sayfada, son 30 güne ait uygulama içi toplam sayfa görüntüleme sayılarını içeren temel analitik verileri yer almaktadır. Bu bilgiler, kimlik tanımlayıcı hiçbir detay içermeyecek şekilde (anonim olarak) hem saklanır hem de gösterilir.',
+  'collectionMethod' => 'Veriler, sınırlı sayıdaki sayfaya gönderilen yanıtlara dayanarak sunucu tarafında toplanır. Sayfa görüntülemeleri bireysel olarak kaydedilir, ancak bir arka plan işlemi tarafından günlük olarak birleştirilir.',
+  'lastUpdated' => 'Sunucu yükünü azaltmak amacıyla, bu sayfadaki bilgiler kısa süreliğine önbelleğe alınmaktadır. Gördüğünüz veriler en son <1/> güncellendi.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
-    'hideUnknown' => 'Hide unknown values',
+    'dailyTotal' => 'Günlük Toplam Sayfa Görüntüleme',
+    'breakdown' => 'Sayfa Görüntüleme Dağılımı',
+    'byPage' => 'Sayfalara Göre',
+    'byLanguage' => 'Dile Göre',
+    'hideUnknown' => 'Bilinmeyen değerleri gizle',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Bilinmeyen',
   ],
 ];

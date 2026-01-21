@@ -28,7 +28,7 @@ return [
     'botSettings' => 'Uygulama Ayarları',
     'profile' => 'Profil',
     'legal' => 'Yasal Bilgiler',
-    'analytics' => 'Analytics',
+    'analytics' => 'Analitikler',
   ],
   'sidebar' => [
     'inputSettings' => [

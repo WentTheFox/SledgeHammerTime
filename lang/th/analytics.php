@@ -1,18 +1,18 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'สถิติการดูหน้าเว็บไซต์',
+  'description' => 'หน้านี้ประกอบด้วยข้อมูลการวิเคราะห์พื้นฐาน (ทั้งที่เก็บไว้และแสดงโดยไม่มีการระบุข้อมูลส่วนบุคคล) สำหรับจำนวนการเข้าชมหน้าทั้งหมดในแอปในช่วง 30 วันที่ผ่านมา',
+  'collectionMethod' => 'ข้อมูลถูกเก็บรวบรวมไว้ที่เซิร์ฟเวอร์ โดยอาศัยการตอบกลับจากชุดหน้าเว็บที่ถูกจำกัดไว้ จำนวนครั้งที่หน้าเว็บถูกดูจะถูกบันทึกไว้เป็นรายบุคคล แต่จะถูกรวบรวมเป็นรายวันทั้งหมดโดยระบบเบื้องหลังในเซิร์ฟเวอร์',
+  'lastUpdated' => 'ข้อมูลบนหน้านี้ถูกเก็บไว้ชั่วคราวเพื่อลดภาระของเซิร์ฟเวอร์ ข้อมูลที่คุณเห็นได้รับการอัปเดตครั้งล่าสุดเมื่อ<1/>',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
-    'hideUnknown' => 'Hide unknown values',
+    'dailyTotal' => 'จำนวนการเข้าชมหน้าทั้งหมดต่อวัน',
+    'breakdown' => 'แยกรายการยอดการดูหน้าเว็บ',
+    'byPage' => 'แยกตามหน้า',
+    'byLanguage' => 'แยกด้วยภาษา',
+    'hideUnknown' => 'ซ่อนค่าที่ไม่ทราบ',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'ไม่ทราบ',
   ],
 ];
