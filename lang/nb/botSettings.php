@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'title' => 'App Settings',
+  'title' => 'App innstillinger',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Usikker på hva appen er eller nysgjerrig på hva den kan gjøre? Besøk <1>Discord-appen</1> for å lære mer.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Avanserte innstillinger',
   ],
   'defaultOption' => 'Default',
   'fields' => [
