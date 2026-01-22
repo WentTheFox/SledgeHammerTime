@@ -30,7 +30,7 @@ class TrackPageViews {
    */
   public function handle(Request $request, Closure $next):Response {
     $response = $next($request);
-    if ($request->method() === 'GET'){
+    if (config('analytics.enabled') === true && $request->method() === 'GET'){
       $routeName = $request->route()?->getName();
       if (array_key_exists($routeName, self::TRACKED_ROUTES)){
         RecordPageView::dispatch($routeName, App::getLocale());

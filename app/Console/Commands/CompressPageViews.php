@@ -7,14 +7,13 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class CompressPageViews extends Command
-{
+class CompressPageViews extends Command {
   /**
    * The name and signature of the console command.
    *
    * @var string
    */
-  protected $signature = 'app:compress-page-views {startDate? : The start date (YYYY-MM-DD). Defaults to two days ago.} {endDate? : The end date (YYYY-MM-DD). Defaults to yesterday.}';
+  protected $signature = 'app:compress-page-views {startDate? : The start date (YYYY-MM-DD). Defaults to two days ago.} {endDate? : The end date (YYYY-MM-DD). Defaults to the current time.}';
 
   /**
    * The console command description.
@@ -26,31 +25,33 @@ class CompressPageViews extends Command
   /**
    * Execute the console command.
    */
-  public function handle()
-  {
+  public function handle() {
     $startDateArgument = $this->argument('startDate');
     $endDateArgument = $this->argument('endDate');
 
-    if ($startDateArgument) {
+    if ($startDateArgument){
       $startDate = Carbon::parse($startDateArgument, 'UTC')->startOfDay();
-      if ($endDateArgument) {
+      if ($endDateArgument){
         $endDate = Carbon::parse($endDateArgument, 'UTC')->startOfDay();
-      } else {
+      }
+      else {
         $endDate = $startDate->copy();
       }
-    } else {
+    }
+    else {
       $startDate = now('UTC')->subDays(2)->startOfDay();
-      $endDate = now('UTC')->subDay()->startOfDay();
+      $endDate = now('UTC');
     }
 
-    if ($startDate->gt($endDate)) {
+    if ($startDate->gt($endDate)){
       $this->error('Start date must be before or equal to end date.');
+
       return 1;
     }
 
     $currentDate = $startDate->copy();
 
-    while ($currentDate->lte($endDate)) {
+    while ($currentDate->lte($endDate)){
       $this->compressDay($currentDate);
       $currentDate->addDay();
     }
@@ -63,8 +64,7 @@ class CompressPageViews extends Command
    *
    * @param Carbon $targetDate
    */
-  protected function compressDay(Carbon $targetDate)
-  {
+  protected function compressDay(Carbon $targetDate) {
     $targetDateString = $targetDate->toDateString();
 
     $query = PageView::where('date', $targetDateString);
@@ -76,11 +76,11 @@ class CompressPageViews extends Command
       ->orderBy('locale')
       ->get();
 
-    if ($stats->isNotEmpty()) {
+    if ($stats->isNotEmpty()){
       DB::transaction(function () use ($query, $stats, $targetDateString) {
         $query->delete();
 
-        foreach ($stats as $stat) {
+        foreach ($stats as $stat){
           PageView::forceCreate([
             'route_name' => $stat->route_name,
             'locale' => $stat->locale,
@@ -94,12 +94,13 @@ class CompressPageViews extends Command
       $overallTotal = $stats->sum('total_amount');
       $this->info("Compressed page views for {$targetDateString}. Total amount: {$overallTotal}");
 
-      foreach ($stats as $stat) {
+      foreach ($stats as $stat){
         $locale = $stat->locale ?? 'N/A';
         $route = $stat->route_name ?? 'N/A';
         $this->line("- {$route} ({$locale}): {$stat->total_amount}");
       }
-    } else {
+    }
+    else {
       $this->info("No page views found for {$targetDateString} to compress.");
     }
   }

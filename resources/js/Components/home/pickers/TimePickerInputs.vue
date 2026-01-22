@@ -8,7 +8,7 @@ import HtInput from '@/Reusable/HtInput.vue';
 import { inputRangeLimitBlurHandlerFactory } from '@/utils/app';
 import { DialMode } from '@/utils/dial';
 import { coerceToTwelveHours } from '@/utils/time';
-import { computed, inject, nextTick, ref, watch } from 'vue';
+import { computed, inject, nextTick, ref, useTemplateRef, watch } from 'vue';
 
 const hours = defineModel<number>('hours', { required: true });
 const minutes = defineModel<number>('minutes', { required: true });
@@ -22,9 +22,8 @@ const secondsInputValuePadded = computed(() => secondsInputValue.value.padStart(
 const isAm = defineModel<boolean>('isAm', { required: true });
 const twelveHourMode = defineModel<boolean>('twelveHourMode', { required: true });
 const dial = defineModel<TimePickerDialAPI | undefined>('dial', { required: true });
-const hoursInput = defineModel<HTMLInputElement | null>('hoursInput');
-const minutesInput = defineModel<HTMLInputElement | null>('minutesInput');
-const secondsInput = defineModel<HTMLInputElement | null>('secondsInput');
+const minutesInput = useTemplateRef<HTMLInputElement | null>('minutesInput');
+const secondsInput = useTemplateRef<HTMLInputElement | null>('secondsInput');
 const amPmInput = defineModel<FormSelectApi | null>('amPmInput');
 
 const dtl = inject(dateTimeLibraryInject);
@@ -37,7 +36,7 @@ const handleSecondsFocused = () => dial.value?.setMode(DialMode.Seconds);
 /** Not for use in the template */
 const _handleTwentyFourHoursBlur = inputRangeLimitBlurHandlerFactory(hours);
 const handleHoursBlur = (e: FocusEvent) => {
-  if (!(e.target instanceof  HTMLInputElement)) return;
+  if (!(e.target instanceof HTMLInputElement)) return;
   if (!twelveHourMode.value) {
     _handleTwentyFourHoursBlur(e);
     return;
@@ -79,8 +78,7 @@ const adjustHours = (delta: number) => {
   let newValue = currentValue + delta;
   if (newValue > maxHoursValue.value) {
     newValue = minHoursValue.value;
-  }
-  else if (newValue < minHoursValue.value) {
+  } else if (newValue < minHoursValue.value) {
     newValue = maxHoursValue.value;
   }
   hoursInputValue.value = String(newValue);
@@ -135,8 +133,7 @@ const adjustMinutes = (delta: number) => {
   let newValue = currentValue + delta;
   if (newValue > maxMinutesValue) {
     newValue = minMinutesValue;
-  }
-  else if (newValue < minMinutesValue) {
+  } else if (newValue < minMinutesValue) {
     newValue = maxMinutesValue;
   }
   minutesInputValue.value = String(newValue);
@@ -186,8 +183,7 @@ const adjustSeconds = (delta: number) => {
   let newValue = currentValue + delta;
   if (newValue > maxSecondsValue) {
     newValue = minSecondsValue;
-  }
-  else if (newValue < minSecondsValue) {
+  } else if (newValue < minSecondsValue) {
     newValue = maxSecondsValue;
   }
   secondsInputValue.value = String(newValue);
@@ -249,7 +245,6 @@ watch(seconds, newSeconds => {
 
 <template>
   <HtInput
-    ref="hoursInput"
     v-model="hoursInputValuePadded"
     type="text"
     inputmode="numeric"

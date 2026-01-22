@@ -2,7 +2,10 @@ import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { UnwrapRef } from 'vue';
 
+export const MISSING_ROUTE_HREF = '#missing';
+
 const parameterRequiredRegex = /Ziggy error: '([^']+)' parameter is required/i;
+const missingRouteRegex = /Ziggy error: route '([^']+)' is not in the route list/i;
 export const safeRoute = (routeName: string, route: ReturnType<typeof useRoute>, routeParams: UnwrapRef<ReturnType<typeof useRouteParams>>, additionalParameters?: Record<string, string>): string => {
   const currentParams = { ...routeParams, ...additionalParameters };
   try {
@@ -18,6 +21,9 @@ export const safeRoute = (routeName: string, route: ReturnType<typeof useRoute>,
           ...additionalParameters,
           [requiredParameterName]: '',
         });
+      }
+      if (missingRouteRegex.test(e.message)) {
+        return MISSING_ROUTE_HREF;
       }
     }
   }
