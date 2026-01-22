@@ -13,7 +13,7 @@ withDefaults(defineProps<{
   startIcon: IconDefinition;
   title: string;
   description: string;
-  openInNewTab: boolean;
+  openInNewTab?: boolean;
 }>(), {
   openInNewTab: false,
 });
