@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Próxima década',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Não foi possível analisar a entrada em linguagem natural'
     ]
   ],
   'table' => [

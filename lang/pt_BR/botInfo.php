@@ -1,14 +1,14 @@
 <?php
 
 return [
-  'heading' => 'Discord App',
-  'description' => 'The HammerTime App lets you obtain easy-to-copy timestamp codes from within the Discord user interface using slash and context menu commands.',
-  'customizeSettingsGuest' => 'Some of its functionality can also be customized by <1>logging in</1>, then visiting the <3>App Settings</3> page (also available by clicking your username in the sidebar).',
+  'heading' => 'Aplicativo Discord',
+  'description' => 'O aplicativo "HammerTime" permite gerar códigos de registro de data e hora fáceis de copiar diretamente da interface do Discord, utilizando "/" e os comandos do menu de contexto.',
+  'customizeSettingsGuest' => 'Algumas funcionalidades também podem ser customizadas ao <1>conectar-se</1> e visitar a página <3>Configurações de Aplicativo</3> (também disponível ao clicar em seu nome de usuário na barra lateral).',
   'customizeSettingsAuthenticated' => 'Some of its functionality can also be customized by visiting the <1>App Settings</1> page (also available by clicking your username in the sidebar).',
-  'addAppLead' => 'Add the app to your server or your account and use it whenever you need a timestamp but don\'t feel like opening the browser.',
-  'appDiscoveryLead' => 'The app can be found on Discord\'s App Discovery page, which you can check out here:',
-  'appDiscoveryCta' => 'View on App Discovery',
-  'shareableLink' => 'You can also share the link below with others which will let them add the app without any additional distractions:',
+  'addAppLead' => 'Adicione o aplicativo ao seu servidor ou conta e use sempre que necessário utilizar um registro de data/hora e não quiser abrir o navegador.',
+  'appDiscoveryLead' => 'O aplicativo pode ser encontrado na página Descoberta de Aplicativos do Discord, disponível aqui:',
+  'appDiscoveryCta' => 'Visualizar na Descoberta de Aplicativos',
+  'shareableLink' => 'Você também pode compartilhar o link abaixo com outros usuários, possibilitando adicionar o aplicativo sem restrições adicionais:',
   'shardStats' => [
     'title' => 'Shard Statistics',
     'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
@@ -23,7 +23,7 @@ return [
     'description' => 'Abaixo, você encontrará uma lista com todos os comandos e suas opções para sua referência. Esta página atualmente mostra as mesmas descrições que você veria no Discord enquanto executa o comando, mas pode haver uma extensão com informações adicionais ou exemplos posteriormente.',
     'commandType' => 'Tipo',
     'commandTypeNames' => [
-      1 => 'slash command',
+      1 => 'Comando de Barra',
       2 => 'user context menu command',
       3 => 'message context menu command',
     ],
@@ -51,7 +51,7 @@ return [
     'valuesBetween' => '<0/>-<2/>',
     'minValue' => 'Valor mínimo',
     'maxValue' => 'Valor máximo',
-    'length' => 'Length',
+    'length' => 'Comprimento',
     'lengthBetween' => '<0/>-<2/>',
     'minLength' => 'Tamanho mínimo',
     'maxLength' => 'Maximum length',
