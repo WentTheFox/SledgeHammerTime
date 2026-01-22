@@ -76,8 +76,8 @@ return [
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
         'accurate' => 'Your system clock is accurate.',
-        'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'The difference between the local and server time is :offset.',
+        'potentiallyWrong' => 'Systemklokken din kan være feil.',
+        'value' => 'Forskjellen mellom din lokale tid og servertid er :offset.',
       ],
       'autoTimeSync' => [
         'label' => 'Apply server time offset to calculations (beta)',
