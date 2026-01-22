@@ -75,6 +75,7 @@ English and Hungarian translations have been included, so no translators will be
   - [O5](https://crowdin.com/profile/O5)
   - [イーテルニティ ☄️](https://crowdin.com/profile/Ethxrnity)
 - 🇩🇰 Danish
+  - [James M. “Slippin jimmy” Mcgill](https://crowdin.com/profile/LargoEmbargo)
   - [jovictasor](https://crowdin.com/profile/jovictasor)
   - [Lennart Christiansen](https://crowdin.com/profile/LennartDenmark)
   - [Lucas](https://crowdin.com/profile/LucasFromDK)
@@ -262,6 +263,7 @@ English and Hungarian translations have been included, so no translators will be
   - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
+  - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
   - [zakpaco gamer](https://crowdin.com/profile/DearReux)
