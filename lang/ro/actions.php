@@ -58,7 +58,7 @@ return [
     'named'           => [
         'add'       => 'Adăugă :name',
         'choose'    => 'Alege :name',
-        'create'    => 'Crează :name',
+        'create'    => 'Creează :name',
         'delete'    => 'Șterge :name',
         'duplicate' => 'Duplicat: nume',
         'edit'      => 'Editare :name',
