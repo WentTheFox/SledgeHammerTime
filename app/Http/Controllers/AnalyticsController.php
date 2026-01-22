@@ -8,21 +8,30 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AnalyticsController extends Controller {
   private const CACHE_KEY = 'analytics-page-data-v1';
 
   public function index() {
+    if (config('analytics.enabled') !== true){
+      throw new NotFoundHttpException();
+    }
+
     return Inertia::render('Analytics/IndexComponent', $this->getCachedPageData());
   }
 
   protected function getCachedPageData() {
-    if (Cache::has(self::CACHE_KEY)){
+    $cacheEnabled = config('analytics.cache_enabled');
+    if ($cacheEnabled && Cache::has(self::CACHE_KEY)){
       return json_decode(Cache::get(self::CACHE_KEY), associative: true, flags: JSON_THROW_ON_ERROR);
     }
 
     $data = $this->collectPageData();
-    Cache::set(self::CACHE_KEY, json_encode($data, JSON_THROW_ON_ERROR), new DateInterval('PT10M'));
+    if ($cacheEnabled){
+      $cacheTtlMinutes = config('analytics.cache_ttl_minutes');
+      Cache::set(self::CACHE_KEY, json_encode($data, JSON_THROW_ON_ERROR), new DateInterval("PT{$cacheTtlMinutes}M"));
+    }
 
     return $data;
   }
