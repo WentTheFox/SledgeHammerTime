@@ -2,16 +2,16 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'title' => 'Conteúdo Traduzido',
+    'text' => 'Esse projeto contém traduções feitas por tradutores voluntários e outros membros da comunidade. Essas traduções são oferecidas para conveniência dos usuários e podem estar desatualizadas. Porém, o <1>idioma original</1> dessa página é considerado efetivo.',
   ],
   'lastUpdated' => 'Ultima atualização: <1/>',
   'privacy' => [
-    'heading' => 'Privacy Policy',
-    'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
-    'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
+    'heading' => 'Política de Privacidade',
+    'operator' => '<0/> (nós, nós, nosso ou Desenvolvedor) operamos o "website" "HammerTime" (o "Site) e o "HammerTimeBot (o "Bot", ou Aplicativo), juntamente ao "HammerTime Project" (o projeto). Essa página informa nossas políticas sobre o conjunto, uso e divulgação de informações pessoais recebidos de usuário do projeto (você, usuário ou usuários).',
+    'notAffiliated' => 'Ainda que o nome "HammerTime" (nome do projeto) seja derivado do nome "Hammer & Chisel" da Discord, inc. (aplicativo "Discord")<1/>, o projeto não possui qualquer afiliação com o Discord ou com "M.C. Hammer", cuja música<3/> popularizou a expressão. O desenvolvedor não detém direitos de marca ou autorais sobre o nome do projeto.',
     'infoCollection' => [
-      'heading' => 'Information Collection And Use',
+      'heading' => 'Coleta e uso de informações',
       'pii' => 'While using the Project we do not ask nor encourage you to provide us with any Personally Identifiable Information ("PII", "Personal Information") that can be used to identify you as an individual. PII may include, but is not limited to: your name, birth date, national identification numbers, location, phone number.',
       'auth' => 'Sign in is provided using Discord\'s OAuth 2 API ("API") which is also secured using HTTPS. During the OAuth authentication process our Site does not receive the username or password, only a token that can be used to verify the user\'s identity using this API. For performance reasons we store the basic information provided by the API (user ID, current username, display name, avatar link) locally.',
       'removal' => 'This information is not removed from our database automatically if you deactivate your Discord account, so be sure to reach out to us if you would like your data removed.',
