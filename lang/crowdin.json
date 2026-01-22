@@ -1008,6 +1008,11 @@
       "username": "ftwenn93",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17540660/medium/1e58d4df0b3abc88707bb2bf826fb522.png",
       "fullName": "ft Wenn"
+    },
+    "17543936": {
+      "username": "LargoEmbargo",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17543936/medium/58064d2c766d9d2dfd6fa03ca0786e5e.jpeg",
+      "fullName": "James M. “Slippin jimmy” Mcgill"
     }
   },
   "languages": {
@@ -1066,11 +1071,12 @@
         "16066210",
         "13546673",
         "12852355",
-        "12426169"
+        "12426169",
+        "17543936"
       ],
       "progress": {
         "approval": 8,
-        "translation": 8
+        "translation": 9
       }
     },
     "de": {
@@ -1411,8 +1417,8 @@
         "17503118"
       ],
       "progress": {
-        "approval": 33,
-        "translation": 33
+        "approval": 38,
+        "translation": 46
       }
     },
     "pt": {
