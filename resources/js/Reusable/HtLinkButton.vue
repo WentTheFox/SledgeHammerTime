@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import HtButtonContent, { HtButtonContentProps } from '@/Reusable/HtButtonContent.vue';
 import { ButtonColors, getButtonClasses } from '@/utils/buttons';
+import type { Method } from '@inertiajs/core';
 import { Link } from '@inertiajs/vue3';
-import { Method } from 'axios';
 import { computed } from 'vue';
 
 interface CommonLinkButtonProps {
@@ -18,10 +18,11 @@ interface CommonLinkButtonProps {
 
 type ConditionalLinkButtonProps = {
   external?: false,
-  method: Method | undefined,
+  method?: Method,
   as?: 'button',
   targetBlank?: undefined,
 } | {
+  // eslint-disable-next-line -- Conditional type confuses the rule
   external: true,
   as?: undefined,
   method?: undefined,
