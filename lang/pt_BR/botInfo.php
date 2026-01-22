@@ -8,7 +8,7 @@ return [
   'addAppLead' => 'Adicione o aplicativo ao seu servidor ou conta e use sempre que necessário utilizar um registro de data/hora e não quiser abrir o navegador.',
   'appDiscoveryLead' => 'O aplicativo pode ser encontrado na página Descoberta de Aplicativos do Discord, disponível aqui:',
   'appDiscoveryCta' => 'Visualizar na Descoberta de Aplicativos',
-  'shareableLink' => 'You can also share the link below with others which will let them add the app without any additional distractions:',
+  'shareableLink' => 'Você também pode compartilhar o link abaixo com outros usuários, possibilitando adicionar o aplicativo sem restrições adicionais:',
   'shardStats' => [
     'title' => 'Shard Statistics',
     'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
@@ -23,7 +23,7 @@ return [
     'description' => 'Abaixo, você encontrará uma lista com todos os comandos e suas opções para sua referência. Esta página atualmente mostra as mesmas descrições que você veria no Discord enquanto executa o comando, mas pode haver uma extensão com informações adicionais ou exemplos posteriormente.',
     'commandType' => 'Tipo',
     'commandTypeNames' => [
-      1 => 'slash command',
+      1 => 'Comando de Barra',
       2 => 'user context menu command',
       3 => 'message context menu command',
     ],
@@ -51,7 +51,7 @@ return [
     'valuesBetween' => '<0/>-<2/>',
     'minValue' => 'Valor mínimo',
     'maxValue' => 'Valor máximo',
-    'length' => 'Length',
+    'length' => 'Comprimento',
     'lengthBetween' => '<0/>-<2/>',
     'minLength' => 'Tamanho mínimo',
     'maxLength' => 'Maximum length',
