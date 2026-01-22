@@ -75,6 +75,7 @@ English and Hungarian translations have been included, so no translators will be
   - [O5](https://crowdin.com/profile/O5)
   - [イーテルニティ ☄️](https://crowdin.com/profile/Ethxrnity)
 - 🇩🇰 Danish
+  - [James M. “Slippin jimmy” Mcgill](https://crowdin.com/profile/LargoEmbargo)
   - [jovictasor](https://crowdin.com/profile/jovictasor)
   - [Lennart Christiansen](https://crowdin.com/profile/LennartDenmark)
   - [Lucas](https://crowdin.com/profile/LucasFromDK)
