@@ -3,8 +3,9 @@ import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject, userInfoInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
+import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
-import { safeRoute } from '@/utils/safe-route';
+import { MISSING_ROUTE_HREF, safeRoute } from '@/utils/safe-route';
 import {
   faArrowRightFromBracket,
   faBusinessTime,
@@ -17,9 +18,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 import { Tippy } from 'vue-tippy';
-import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 
 const route = useRoute();
 const userInfo = inject(userInfoInject);
@@ -27,6 +27,8 @@ const userInfo = inject(userInfoInject);
 
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
+
+const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.value));
 </script>
 
 <template>
@@ -82,7 +84,8 @@ const routeParams = useRouteParams(route, pageProps);
             <span>Horizon Dashboard</span>
           </HtExternalLink>
           <Link
-            :href="safeRoute('analytics', route, routeParams)"
+            v-if="analyticsRoute !== MISSING_ROUTE_HREF"
+            :href="analyticsRoute"
             :class="['nav-link', { current: route().current() === 'analytics'}]"
             @click.passive="hide"
           >
