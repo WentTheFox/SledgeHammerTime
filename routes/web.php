@@ -48,6 +48,7 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
 });
 
+Route::get('/status', [StaticController::class, 'status'])->name('status');
 Route::get('/discord', [RedirectController::class, 'discord']);
 Route::get('/bot-login', [NotFoundController::class, 'notFound']);
 Route::get('/bot-login/{discordUserId}', [NotFoundController::class, 'notFound']);

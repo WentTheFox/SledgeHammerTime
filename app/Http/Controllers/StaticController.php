@@ -16,4 +16,8 @@ class StaticController extends Controller {
   public function legal() {
     return Inertia::render('Legal/IndexComponent');
   }
+
+  public function status() {
+    return response()->json(['status' => 'OK']);
+  }
 }
