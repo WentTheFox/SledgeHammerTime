@@ -13,7 +13,7 @@ return [
   'accounts' => [
     'heading' => 'Connected Accounts',
     'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
-    'discord' => 'Discord Accounts',
+    'discord' => 'Discord Konti',
     'crowdin' => 'Crowdin Accounts',
     'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
