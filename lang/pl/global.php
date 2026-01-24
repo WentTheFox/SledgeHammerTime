@@ -28,7 +28,7 @@ return [
     'botSettings' => 'Ustawienia aplikacji',
     'profile' => 'Profil',
     'legal' => 'Informacje prawne',
-    'analytics' => 'Analytics',
+    'analytics' => 'Analityka',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -54,22 +54,22 @@ return [
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Niestandardowy typ zegara czasu',
+        'description' => 'Zmienia sposób wyświetlania godzin w niestandardowym polu czasu. Nie ma wpływu na podglądy w przykładowej kolumnie wyników.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Domyślny język',
+          'h12' => '12-godzinny',
+          'h24' => '24-godzinny',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Pierwszy dzień tygodnia',
+        'description' => 'Zmiana dnia, który powinien być uważany za pierwszy dzień tygodnia w niestandardowym kalendarzu.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Domyślny język',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Zaawansowane ustawienia wejścia',
     ],
     'timeSync' => [
       'title' => 'Synchronizacja czasu',
