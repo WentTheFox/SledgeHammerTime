@@ -21,6 +21,7 @@ class TrackPageViews {
     'addBot' => true,
     'addBotNoLocale' => true,
     'analytics' => true,
+    'status' => false,
   ];
 
   /**
@@ -33,7 +34,8 @@ class TrackPageViews {
     if (config('analytics.enabled') === true && $request->method() === 'GET'){
       $routeName = $request->route()?->getName();
       if (array_key_exists($routeName, self::TRACKED_ROUTES)){
-        RecordPageView::dispatch($routeName, App::getLocale());
+        $isLocalized = self::TRACKED_ROUTES[$routeName];
+        RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null);
       }
     }
 
