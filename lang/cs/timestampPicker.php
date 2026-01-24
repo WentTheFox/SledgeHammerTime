@@ -8,7 +8,7 @@ return [
       'time' => 'Čas',
       'dateAndTime' => 'Datum a čas',
       'timezone' => 'Časové pásmo',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => 'Vstup pro @time',
       'modeOffset' => 'Absolutní posun',
       'modeZoneName' => 'Časové pásmo',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Příští desetiletí',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Nepodařilo se zpracovat vstup v přirozené řeči'
     ]
   ],
   'table' => [
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Starý web HammerTime',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Původní web projektu, který je stále dostupný až do odvolání',
     ],
     'textColor' => [
       'header' => 'Generátor <1>barevného</1> textu od vývojáře Rebane',

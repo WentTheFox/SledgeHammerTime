@@ -28,14 +28,14 @@ return [
     'botSettings' => 'Ρυθμίσεις Εφαρμογής',
     'profile' => 'Προφίλ',
     'legal' => 'Νομικές Πληροφορίες',
-    'analytics' => 'Analytics',
+    'analytics' => 'Στατιστικά',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Ρυθμίσεις εισαγωγής',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time πεδίο εισαγωγής',
+        'description' => 'Επιτρέπει τον χειρισμό της επιλεγμένης χρονοσφραγίδας με φυσική γλώσσα (π.χ. "σε 5 ώρες") μέσω μιας πρόσθετης εισαγωγής ελεύθερου κειμένου. Παρόμοια με τη νέα ετικέτα @time του Discord. Υποστηρίζεται μόνο ένας περιορισμένος αριθμός γλωσσών.',
       ],
       'customDateInput' => [
         'label' => 'Προσαρμοσμένη εισαγωγή ημερομηνίας',
@@ -54,22 +54,22 @@ return [
         'description' => "Απενεργοποίηση εφέ σκίασης και ύψους στις εισόδους και τα κουμπιά",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Προσαρμοσμένη εισαγωγή ώρας',
+        'description' => 'Αλλάξτε τον τρόπο εμφάνισης των ωρών στην προσαρμοσμένη εισαγωγή ώρας. Δεν έχει καμία επίδραση στις προεπισκοπήσεις στη στήλη αποτελεσμάτων παραδείγματος.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Προεπιλεγμένη γλώσσα',
+          'h12' => '12-ωρών',
+          'h24' => '24-ωρών',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Πρώτη ημέρα της εβδομάδας',
+        'description' => 'Αλλαγή της ημέρας που θα πρέπει να θεωρείται η πρώτη ημέρα της εβδομάδας στο ημερολόγιο της προσαρμοσμένης ημερομηνίας εισαγωγής.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Προεπιλεγμένη γλώσσα',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Προχωρημένες ρυθμίσεις',
     ],
     'timeSync' => [
       'title' => 'Συγχρονισμός Ώρας',
