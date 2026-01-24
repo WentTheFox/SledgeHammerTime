@@ -631,6 +631,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/16939833/medium/7d09f6c5d42586a5343236a7f9c915b6.jpeg",
       "fullName": "Faer Yili"
     },
+    "17053714": {
+      "username": "Lukas_k",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17053714/medium/bda4f24156e15853e4d0f7f3608fc178.png",
+      "fullName": "lukas koeppe"
+    },
     "17087468": {
       "username": "Shiny4649",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17087468/medium/6f7177038d1268500e2099a337d8d745.jpeg"
@@ -1013,6 +1018,11 @@
       "username": "LargoEmbargo",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17543936/medium/58064d2c766d9d2dfd6fa03ca0786e5e.jpeg",
       "fullName": "James M. “Slippin jimmy” Mcgill"
+    },
+    "17547688": {
+      "username": "longsword",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17547688/medium/942d4516d9754b3ccec8986c28f46288_default.png",
+      "fullName": "Longsword"
     }
   },
   "languages": {
@@ -1062,8 +1072,8 @@
         "15044779"
       ],
       "progress": {
-        "approval": 92,
-        "translation": 92
+        "approval": 100,
+        "translation": 100
       }
     },
     "da": {
@@ -1075,7 +1085,7 @@
         "17543936"
       ],
       "progress": {
-        "approval": 8,
+        "approval": 9,
         "translation": 9
       }
     },
@@ -1090,11 +1100,12 @@
         "16603607",
         "17430214",
         "15403952",
+        "17053714",
         "17519786"
       ],
       "progress": {
-        "approval": 99,
-        "translation": 99
+        "approval": 100,
+        "translation": 100
       }
     },
     "el": {
@@ -1104,8 +1115,8 @@
         "17435812"
       ],
       "progress": {
-        "approval": 92,
-        "translation": 99
+        "approval": 99,
+        "translation": 100
       }
     },
     "en-GB": {
@@ -1138,6 +1149,7 @@
         "15031111",
         "17479286",
         "17461970",
+        "17547688",
         "17488256",
         "17502272",
         "17448206",
@@ -1148,8 +1160,8 @@
         "17453292"
       ],
       "progress": {
-        "approval": 96,
-        "translation": 96
+        "approval": 100,
+        "translation": 100
       }
     },
     "fa": {
@@ -1397,8 +1409,8 @@
         "17490278"
       ],
       "progress": {
-        "approval": 94,
-        "translation": 94
+        "approval": 98,
+        "translation": 98
       }
     },
     "pt-BR": {
