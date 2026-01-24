@@ -8,7 +8,7 @@ return [
       'time' => 'Ώρα',
       'dateAndTime' => 'Ημερομηνία και ώρα',
       'timezone' => 'Ζώνη ώρας',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time πεδίο',
       'modeOffset' => 'Απόλυτη Μετατόπιση',
       'modeZoneName' => 'Όνομα Ζώνης ώρας',
     ],
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Επόμενη δεκαετία',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Αδυναμία ανάλυσης εισαγωγής φυσικής γλώσσας'
     ]
   ],
   'table' => [
