@@ -86,7 +86,6 @@ class CompressPageViews extends Command {
             'locale' => $stat->locale,
             'amount' => $stat->total_amount,
             'date' => $targetDateString,
-            'created_at' => Carbon::parse($targetDateString, 'UTC'),
           ]);
         }
       });
