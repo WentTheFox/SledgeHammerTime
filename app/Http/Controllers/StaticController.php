@@ -18,6 +18,6 @@ class StaticController extends Controller {
   }
 
   public function status() {
-    return response()->json(['status' => 'OK']);
+    return response()->json(['status' => 'OK'])->setCache(['private' => true, 'no_cache' => true]);
   }
 }
