@@ -28,14 +28,14 @@ return [
     'botSettings' => 'Nastavení aplikace',
     'profile' => 'Můj účet',
     'legal' => 'Právní informace',
-    'analytics' => 'Analytics',
+    'analytics' => 'Analytika',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Nastavení vstupu',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => 'Vstupní pole pro @time',
+        'description' => 'Umožněte manipulaci s vybraným časovým razítkem pomocí přirozené řeči (např. „za 5 hodin“) prostřednictvím dodatečného zadání v podobě vlastního textu. Podobně jako u nové Discord funkce @time tag. K dispozici je pouze omezený počet jazyků.',
       ],
       'customDateInput' => [
         'label' => 'Formátované vstupní pole data',
@@ -54,22 +54,22 @@ return [
         'description' => "Odstraní stíny a výškové efekty u vstupních polí a tlačítek",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Vlastní formát pro zadávání času',
+        'description' => 'Změňte, jaký formát hodin, by měl být zobrazován ve vstupním poli času. Tato možnost nemá žádný vliv na náhledy ve sloupci s ukázkovými výstupy.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Standard vašeho jazyka',
+          'h12' => '12-hodinový',
+          'h24' => '24-hodinový',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'První den v týdnu',
+        'description' => 'Změňte, který den by měl být považován za první den v týdnu v kalendáři vstupního pole data.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Standard vašeho jazyka',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Rozšířená nastavení vstupu',
     ],
     'timeSync' => [
       'title' => 'Synchronizace času',
