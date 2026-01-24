@@ -1,18 +1,18 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'Analytika zobrazení stránek',
+  'description' => 'Tato stránka obsahuje základní analytika (uložené i zobrazené bez jakýchkoli údajů umožňující zjištění totožnosti) o celkovém počtu zobrazení stránek v aplikaci za posledních 30 dní.',
+  'collectionMethod' => 'Tyto údaje jsou shromažďovány na straně serveru na základě odpovědí odeslaných na omezenou sadu stránek. Zobrazení stránek jsou zaznamenávána jednotlivě, ale zpracovávány jsou denně pomocí procesu na pozadí.',
+  'lastUpdated' => 'Informace na této stránce jsou ukládány pouze krátkodobě, aby se snížilo zatížení serveru. Údaje, které vidíte, byly naposledy aktualizovány <1/>.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
-    'hideUnknown' => 'Hide unknown values',
+    'dailyTotal' => 'Celkový denní počet zobrazení stránek',
+    'breakdown' => 'Rozbor zobrazení stránek',
+    'byPage' => 'Podle stránek',
+    'byLanguage' => 'Podle jazyka',
+    'hideUnknown' => 'Skrýt neznámé hodnoty',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Neznámý',
   ],
 ];
