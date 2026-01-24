@@ -8,7 +8,7 @@ return [
       'time' => 'Heure',
       'dateAndTime' => 'Date et heure',
       'timezone' => 'Fuseau horaire',
-      'naturalLanguageInput' => 'Champ @time',
+      'naturalLanguageInput' => 'Saisie @time',
       'modeOffset' => 'Décalage absolu',
       'modeZoneName' => 'Nom du fuseau horaire',
     ],

@@ -10,9 +10,9 @@ return [
     'breakdown' => 'Aufteilung der Seitenaufrufe',
     'byPage' => 'Nach Seiten',
     'byLanguage' => 'Nach Sprache',
-    'hideUnknown' => 'Hide unknown values',
+    'hideUnknown' => 'Verstecke unbekannte Werte',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Unbekannt',
   ],
 ];
