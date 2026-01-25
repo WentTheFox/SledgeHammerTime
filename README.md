@@ -228,6 +228,7 @@ English and Hungarian translations have been included, so no translators will be
   - [9900gvf4](https://crowdin.com/profile/AndruhaLoshorXyesosik)
   - [aerial](https://crowdin.com/profile/aerial)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
+  - [Alexandr Bugaev](https://crowdin.com/profile/sasha_rpvv62pf)
   - [Aligatoor](https://crowdin.com/profile/Aligatoor)
   - [Arantir Reinhold](https://crowdin.com/profile/arantirrein)
   - [cfif126](https://crowdin.com/profile/cfif126)
