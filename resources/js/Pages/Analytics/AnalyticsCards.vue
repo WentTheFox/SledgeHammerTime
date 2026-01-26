@@ -75,7 +75,7 @@ const lastUpdateTime = computed(() => props.lastUpdated ? dtl?.value.fromIsoStri
 const route = useRoute();
 
 const getRouteLabel = (r: string) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
-const getLocaleLabel = (l: string) => l ? extendedNativeLocaleNames[l as keyof typeof extendedNativeLocaleNames] ?? l : unknownLabel.value;
+const getLocaleLabel = (l: string) => l ? (l in extendedNativeLocaleNames ? `${extendedNativeLocaleNames[l]} (${l})` : l) : unknownLabel.value;
 
 const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
   const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route);
@@ -143,7 +143,7 @@ const routeChartData = computed(() => {
 const filteredLocaleBreakdown = computed(() => props.localeBreakdown.filter(l => l.locale !== null || !skipNull.value));
 
 const localeChartData = computed(() => ({
-  labels: filteredLocaleBreakdown.value.map((l) => getLocaleLabel(l.locale)),
+  labels: filteredLocaleBreakdown.value.map((l) => l.locale),
   datasets: [
     {
       backgroundColor: generatePalette(props.localeBreakdown.length, theme?.isLightTheme ?? true),
@@ -192,7 +192,7 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
     tooltip: {
       mode: 'index',
       callbacks: {
-        title: (tooltipItems) => {
+        title: (tooltipItems: { label: string }[]) => {
           const title = tooltipItems[0].label;
           const dateTotals = Object.values(dataIndex.value.dailyTotals[title] ?? {});
           if (!dateTotals || dateTotals.length === 0) {
@@ -207,7 +207,7 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
   },
 }));
 
-const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
+const byRouteChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   responsive: true,
   maintainAspectRatio: false,
   resizeDelay: 50,
@@ -215,6 +215,17 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
     legend: {
       labels: {
         color: labelsColor.value,
+      },
+    },
+  },
+}));
+const byLocaleChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
+  ...byRouteChartOptions.value,
+  plugins: {
+    ...byRouteChartOptions.value.plugins,
+    tooltip: {
+      callbacks: {
+        title: (tooltipItems: { label: string }[]) => getLocaleLabel(tooltipItems[0].label),
       },
     },
   },
@@ -283,7 +294,7 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
         <div class="analytics-chart-container analytics-chart-container-donut">
           <Doughnut
             :data="routeChartData"
-            :options="doughnutChartOptions"
+            :options="byRouteChartOptions"
           />
         </div>
       </div>
@@ -292,7 +303,7 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
         <div class="analytics-chart-container analytics-chart-container-donut">
           <Doughnut
             :data="localeChartData"
-            :options="doughnutChartOptions"
+            :options="byLocaleChartOptions"
           />
         </div>
       </div>
