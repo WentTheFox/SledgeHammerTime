@@ -10,12 +10,11 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
 import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
+import { extendedNativeLocaleNames } from '@/utils/translation';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
 import { Tippy } from 'vue-tippy';
-import nativeLocaleNames
-  from '../../../vendor/laravel-lang/native-locale-names/data/_native.json' with { type: 'json' };
 
 const searchParams = ref<URLSearchParams | null>(null);
 
@@ -25,16 +24,6 @@ const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 const routeParams = useRouteParams(route, pageProps);
-
-const extendedNativeLocaleNames: Record<AvailableLanguage, string> = {
-  ...nativeLocaleNames,
-  'en': 'English, US',
-  'en-GB': 'English, UK',
-  'zh': nativeLocaleNames['zh_CN'],
-  'zh-TW': nativeLocaleNames['zh_TW'],
-  'pt-BR': nativeLocaleNames['pt_BR'],
-  'sr': nativeLocaleNames['sr_Latn'],
-};
 
 const noTranslationsNeededLocales = new Set(['en', 'en-GB', 'hu']);
 

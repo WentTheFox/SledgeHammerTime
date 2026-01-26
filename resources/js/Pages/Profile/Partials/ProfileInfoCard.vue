@@ -29,7 +29,7 @@ const routeParams = useRouteParams(route, pageProps);
     <p class="content-link-style">
       <HtTranslate i18n-key="profile.intro">
         <template #1="slotProps">
-          <Link :href="safeRoute('settings', route, routeParams)">
+          <Link :href="safeRoute('settings', route, {routeParams})">
             {{ slotProps.text }}
           </Link>
         </template>

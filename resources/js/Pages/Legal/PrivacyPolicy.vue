@@ -123,7 +123,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="legal.privacy.telemetry.telemetryOptOut">
           <template #1>
-            <Link :href="safeRoute('settings', route, routeParams)">
+            <Link :href="safeRoute('settings', route, {routeParams})">
               {{ $t('global.nav.botSettings') }}
             </Link>
           </template>
