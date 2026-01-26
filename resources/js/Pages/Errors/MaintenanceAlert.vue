@@ -23,7 +23,9 @@ const safeReload = useExponentialBackoff('safe-reload', async () => {
   let routeUrl: string | undefined = undefined;
   let routeUrlError: unknown;
   try {
-    routeUrl = String(route(route().current() as string, routeParams.value));
+    const currentRouteName = route().current() as string;
+    const currentRouteParams = currentRouteName === 'root' ? undefined : routeParams.value;
+    routeUrl = String(route(currentRouteName, currentRouteParams));
   } catch (e) {
     routeUrlError = e;
   }
