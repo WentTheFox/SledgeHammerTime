@@ -23,7 +23,7 @@
     "@types/node": "^24.10.1",
     "@vheemstra/vite-plugin-imagemin": "^2.2.1",
     "@vitejs/plugin-vue": "^6.0.2",
-    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.18",
     "@vue/language-server": "^3.2.2",
     "@vue/server-renderer": "^3.5.27",
     "autoprefixer": "^10.4.12",
