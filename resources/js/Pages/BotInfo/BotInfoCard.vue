@@ -53,7 +53,7 @@ defineProps<{ discordAppId: string }>();
       >
         <template #1="slotProps">
           <Link
-            :href="safeRoute('settings', route, routeParams)"
+            :href="safeRoute('settings', route, {routeParams})"
             :async="false"
           >
             {{ slotProps.text }}
@@ -65,12 +65,12 @@ defineProps<{ discordAppId: string }>();
         i18n-key="botInfo.customizeSettingsGuest"
       >
         <template #1="slotProps">
-          <a :href="safeRoute('login', route, routeParams)">
+          <a :href="safeRoute('login', route, {routeParams})">
             {{ slotProps.text }}
           </a>
         </template>
         <template #3="slotProps">
-          <a :href="safeRoute('settings', route, routeParams)">
+          <a :href="safeRoute('settings', route, {routeParams})">
             {{ slotProps.text }}
           </a>
         </template>

@@ -227,7 +227,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
             <p class="mb-2">
               <HtTranslate i18n-key="botSettings.fields.telemetry.explanation">
                 <template #1>
-                  <Link :href="`${safeRoute('legal', route, routeParams)}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
+                  <Link :href="`${safeRoute('legal', route, {routeParams})}#${LegalSectionIds.TELEMETRY_STATISTICS}`">
                     {{ $t('global.nav.legal') }}
                   </Link>
                 </template>

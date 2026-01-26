@@ -26,7 +26,7 @@ const routeParams = useRouteParams(route, pageProps);
 
 <template>
   <a
-    :href="safeRoute('addBotRedirect', route, routeParams, { installType })"
+    :href="safeRoute('addBotRedirect', route, {routeParams, additionalParameters: { installType }})"
     :target="openInNewTab ? '_blank' : undefined"
     :rel="openInNewTab ? 'noopener noreferrer' : undefined"
     class="add-link"

@@ -189,7 +189,7 @@ onMounted(() => {
     <HtLinkButton
       color="primary"
       :icon-start="faLink"
-      :href="safeRoute('design', route, routeParams)"
+      :href="safeRoute('design', route, {routeParams})"
       :external="false"
     >
       {{ $t('global.designEditor.designPageLink') }}

@@ -35,7 +35,7 @@ const routeParams = useRouteParams(route, pageProps);
       <HtLinkButton
         color="primary"
         :icon-start="faDiscord"
-        :href="safeRoute('login', route, routeParams)"
+        :href="safeRoute('login', route, {routeParams})"
         :external="true"
       >
         {{ $t('profile.accounts.linkAdditional.discord.authorize') }}
@@ -50,7 +50,7 @@ const routeParams = useRouteParams(route, pageProps);
 
       <HtLinkButton
         color="success"
-        :href="safeRoute('oauthRedirect', route, routeParams, { provider: 'crowdin' })"
+        :href="safeRoute('oauthRedirect', route, {routeParams, additionalParameters: { provider: 'crowdin' }})"
         :external="true"
       >
         {{ $t('profile.accounts.linkAdditional.crowdin.authorize') }}

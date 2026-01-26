@@ -40,7 +40,7 @@ const routeParams = useRouteParams(route, pageProps);
         <p class="mb-3 content-link-style">
           <HtTranslate i18n-key="botSettings.learnMore">
             <template #1="slotProps">
-              <Link :href="safeRoute('botInfo', route, routeParams)">
+              <Link :href="safeRoute('botInfo', route, {routeParams})">
                 {{ slotProps.text }}
               </Link>
             </template>

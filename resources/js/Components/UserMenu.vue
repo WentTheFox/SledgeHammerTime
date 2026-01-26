@@ -28,7 +28,9 @@ const userInfo = inject(userInfoInject);
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 
-const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.value));
+const analyticsRoute = computed(() => safeRoute('analytics', route, {
+  routeParams: routeParams.value,
+}));
 </script>
 
 <template>
@@ -56,7 +58,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.
           class="nav"
         >
           <Link
-            :href="safeRoute('settings', route, routeParams)"
+            :href="safeRoute('settings', route, {routeParams})"
             :class="['nav-link', { current: route().current() === 'settings'}]"
           >
             <FontAwesomeIcon
@@ -65,7 +67,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.
             <span>{{ $t('global.nav.botSettings') }}</span>
           </Link>
           <Link
-            :href="safeRoute('profile.edit', route, routeParams)"
+            :href="safeRoute('profile.edit', route, {routeParams})"
             :class="['nav-link', { current: route().current() === 'profile.edit'}]"
           >
             <FontAwesomeIcon
@@ -75,7 +77,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.
           </Link>
           <HtExternalLink
             v-if="userInfo.horizonAccess"
-            :href="safeRoute('horizon.index', route, { view: 'dashboard' })"
+            :href="safeRoute('horizon.index', route, {routeParams : { view: 'dashboard' }})"
             class="nav-link"
           >
             <FontAwesomeIcon
@@ -95,7 +97,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.
             <span>{{ $t('global.nav.analytics') }}</span>
           </Link>
           <Link
-            :href="safeRoute('logout', route, routeParams)"
+            :href="safeRoute('logout', route, {routeParams})"
             method="post"
             as="button"
             class="nav-link"
@@ -112,7 +114,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, routeParams.
     <HtLinkButton
       v-else
       color="primary"
-      :href="safeRoute('login', route, routeParams)"
+      :href="safeRoute('login', route, {routeParams})"
       :external="true"
       :target-blank="false"
     >

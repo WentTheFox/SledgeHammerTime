@@ -158,7 +158,7 @@ const translationCredits = computed(() => {
       {{ $t('global.sidebar.credits.notAffiliated') }}
     </p>
     <p>
-      <Link :href="safeRoute('legal', route, routeParams)">
+      <Link :href="safeRoute('legal', route, {routeParams})">
         <FontAwesomeIcon
           :icon="faFileContract"
           class="me-1"

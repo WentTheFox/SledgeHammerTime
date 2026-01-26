@@ -31,7 +31,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="legal.contact.whereToContact">
           <template #1="slotProps">
-            <HtExternalLink :href="safeRoute('discord', route, routeParams)">
+            <HtExternalLink :href="safeRoute('discord', route, {routeParams})">
               {{ slotProps.text }}
             </HtExternalLink>
           </template>

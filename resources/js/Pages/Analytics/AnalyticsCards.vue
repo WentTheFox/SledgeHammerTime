@@ -5,6 +5,7 @@ import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { extendedNativeLocaleNames } from '@/utils/translation';
 import {
   ArcElement,
   BarElement,
@@ -19,6 +20,7 @@ import {
 import { wTrans } from 'laravel-vue-i18n';
 import { computed, inject, ref } from 'vue';
 import { Bar, Doughnut } from 'vue-chartjs';
+import { useRoute } from 'ziggy-js';
 
 ChartJS.register(
   Title,
@@ -30,36 +32,74 @@ ChartJS.register(
   ArcElement,
 );
 
+export interface DailyTotalItem {
+  date: string;
+  route: string;
+  total: number;
+}
+
+export interface RouteBreakdownItem {
+  route: string;
+  total: number;
+}
+
+export interface LocaleBreakdownItem {
+  locale: string;
+  total: number;
+}
+
 export interface AnalyticsCardsProps {
   lastUpdated: string;
-  dailyTotals: Array<{ date: string; route: string; total: number }>;
-  routeBreakdown: Array<{ route: string; total: number }>;
-  localeBreakdown: Array<{ locale: string; total: number }>;
+  dailyTotals: Array<DailyTotalItem>;
+  routeBreakdown: Array<RouteBreakdownItem>;
+  localeBreakdown: Array<LocaleBreakdownItem>;
+}
+
+interface DataIndex {
+  dailyTotals: Record<string, Record<string, DailyTotalItem>>;
+  routes: Set<string>;
+  dates: Set<string>;
 }
 
 const props = defineProps<AnalyticsCardsProps>();
 const unknownLabel = wTrans('analytics.values.unknown');
+const TECHNICAL_ROUTES = new Set(['status']);
 
 const skipNull = ref(true);
+const skipTechnicalRoutes = ref(true);
 
 const theme = inject(themeInject);
 const devMode = inject(devModeInject);
 const dtl = inject(dateTimeLibraryInject);
 const lastUpdateTime = computed(() => props.lastUpdated ? dtl?.value.fromIsoString(props.lastUpdated) : undefined);
+const route = useRoute();
+
+const getRouteLabel = (r: string) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
+const getLocaleLabel = (l: string) => l ? extendedNativeLocaleNames[l as keyof typeof extendedNativeLocaleNames] ?? l : unknownLabel.value;
+
+const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
+  const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route);
+  if (!skip) {
+    if (!(d.date in acc.dailyTotals)) {
+      acc.dailyTotals[d.date] = {};
+    }
+    acc.dailyTotals[d.date][d.route] = d;
+    acc.routes.add(d.route);
+    acc.dates.add(d.date);
+  }
+  return acc;
+}, { dailyTotals: {}, dates: new Set(), routes: new Set() } as DataIndex));
 
 const barChartData = computed(() => {
-  const routes = [...new Set(props.dailyTotals.map(d => d.route))];
-  const dates = [...new Set(props.dailyTotals.map(d => d.date))].sort();
+  const routes = [...dataIndex.value.routes];
+  const dates = [...dataIndex.value.dates].sort();
   const palette = generatePalette(routes.length, theme?.isLightTheme ?? true);
 
   const datasets = routes.map((route, index) => {
     return {
-      label: route === 'Unknown' ? unknownLabel.value : route,
+      label: getRouteLabel(route),
       backgroundColor: palette[index],
-      data: dates.map(date => {
-        const record = props.dailyTotals.find(d => d.date === date && d.route === route);
-        return record ? record.total : 0;
-      }),
+      data: dates.map(date => dataIndex.value.dailyTotals[date]?.[route]?.total ?? 0),
       borderWidth: 0,
     };
   });
@@ -85,23 +125,25 @@ const generatePalette = (count: number, isLight: boolean) => {
   return colors;
 };
 
-const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => r.route !== null || !skipNull.value));
+const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => (skipTechnicalRoutes.value ? !TECHNICAL_ROUTES.has(r.route) : true) && r.route !== null || !skipNull.value));
 
-const routeChartData = computed(() => ({
-  labels: filteredRouteBreakdown.value.map((r) => r.route ?? unknownLabel.value),
-  datasets: [
-    {
-      backgroundColor: generatePalette(props.routeBreakdown.length, theme?.isLightTheme ?? true),
-      data: filteredRouteBreakdown.value.map((r) => r.total),
-      borderWidth: 0,
-    },
-  ],
-}));
+const routeChartData = computed(() => {
+  return ({
+    labels: filteredRouteBreakdown.value.map(r => getRouteLabel(r.route)),
+    datasets: [
+      {
+        backgroundColor: generatePalette(props.routeBreakdown.length, theme?.isLightTheme ?? true),
+        data: filteredRouteBreakdown.value.map((r) => r.total),
+        borderWidth: 0,
+      },
+    ],
+  });
+});
 
 const filteredLocaleBreakdown = computed(() => props.localeBreakdown.filter(l => l.locale !== null || !skipNull.value));
 
 const localeChartData = computed(() => ({
-  labels: filteredLocaleBreakdown.value.map((l) => l.locale ?? unknownLabel.value),
+  labels: filteredLocaleBreakdown.value.map((l) => getLocaleLabel(l.locale)),
   datasets: [
     {
       backgroundColor: generatePalette(props.localeBreakdown.length, theme?.isLightTheme ?? true),
@@ -147,6 +189,21 @@ const barChartOptions = computed<ChartOptions<'bar'>>(() => ({
         color: labelsColor.value,
       },
     },
+    tooltip: {
+      mode: 'index',
+      callbacks: {
+        title: (tooltipItems) => {
+          const title = tooltipItems[0].label;
+          const dateTotals = Object.values(dataIndex.value.dailyTotals[title] ?? {});
+          if (!dateTotals || dateTotals.length === 0) {
+            return title;
+          }
+
+          let total = dateTotals.reduce((sum, d) => sum + d.total, 0);
+          return `${title} (${total})`;
+        },
+      },
+    },
   },
 }));
 
@@ -175,7 +232,10 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
     <p class="mb-2">
       {{ $t('analytics.collectionMethod') }}
     </p>
-    <p v-if="lastUpdateTime">
+    <p
+      v-if="lastUpdateTime"
+      class="mb-2"
+    >
       <HtTranslate i18n-key="analytics.lastUpdated">
         <template #1>
           <TimestampPreview
@@ -185,6 +245,20 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
         </template>
       </HtTranslate>
     </p>
+    <HtFormCheckboxModelled
+      v-if="devMode"
+      id="skip-null"
+      v-model="skipNull"
+      label="Hide unknown values"
+      class="mb-2"
+    />
+    <HtFormCheckboxModelled
+      v-if="devMode"
+      id="skip-technical-routes"
+      v-model="skipTechnicalRoutes"
+      label="Skip technical routes"
+      class="mb-2"
+    />
   </HtCard>
 
   <HtCard class="analytics-card">
@@ -203,13 +277,6 @@ const doughnutChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
     <template #header>
       <h2>{{ $t('analytics.charts.breakdown') }}</h2>
     </template>
-    <HtFormCheckboxModelled
-      v-if="devMode"
-      id="skip-null"
-      v-model="skipNull"
-      :label="$t('analytics.charts.hideUnknown')"
-      class="mb-2"
-    />
     <div class="analytics-card-split">
       <div class="analytics-card-split-item">
         <h3>{{ $t('analytics.charts.byPage') }}</h3>
