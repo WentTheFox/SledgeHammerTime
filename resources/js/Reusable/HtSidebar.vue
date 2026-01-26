@@ -4,7 +4,7 @@ import DebugLocalSettings from '@/Components/sidebar/DebugLocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
 import UserMenu from '@/Components/UserMenu.vue';
-import { localSettingsInject, sidebarState } from '@/injection-keys';
+import { layoutOptionsInject, localSettingsInject, sidebarState } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import { faAlignLeft, faAlignRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -12,6 +12,7 @@ import { computed, inject } from 'vue';
 
 const state = inject(sidebarState);
 const localSettingsValue = inject(localSettingsInject);
+const layoutOptions = inject(layoutOptionsInject);
 const isOnRight = computed(() => Boolean(localSettingsValue?.sidebarOnRight));
 const isOpen = computed(() => Boolean(state?.isOpen));
 
@@ -38,7 +39,7 @@ const close = () => {
     </div>
     <div class="sidebar-bottom">
       <ul class="actions-wrapper">
-        <li>
+        <li v-if="layoutOptions?.languageSelector">
           <LanguageSelector />
         </li>
         <li class="parallel-actions">
