@@ -2,9 +2,9 @@
 
 return [
   'heading' => 'Аналитика просмотров страниц',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
+  'description' => 'Эта страница содержит базовую аналитику (как сохраняемую, так и отображаемую без каких-либо личных данных) по общему количеству просмотров страниц в приложении за последние 30 дней.',
   'collectionMethod' => 'Данные собираются на стороне сервера, основанного на ответах отправленных определённому набору страниц. Просмотры страниц записаны индивидуально, но собраны ежедневно фоновым процессом.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'lastUpdated' => 'Информация на этой странице кэшируется на короткий период времени, чтобы снизить нагрузку на сервер. Данные, которые Вы видите, последний раз обновлялись <1/>.',
   'charts' => [
     'dailyTotal' => 'Общие ежедневные просмотры страниц',
     'breakdown' => 'Разбивка отображения страниц',
