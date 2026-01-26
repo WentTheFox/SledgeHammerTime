@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Rozbor zobrazení stránek',
     'byPage' => 'Podle stránek',
     'byLanguage' => 'Podle jazyka',
-    'hideUnknown' => 'Skrýt neznámé hodnoty',
   ],
   'values' => [
     'unknown' => 'Neznámý',
