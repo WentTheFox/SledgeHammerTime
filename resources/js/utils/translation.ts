@@ -1,6 +1,5 @@
 import { TranslationCreditOverride } from '@/model/translation-credit-override';
-import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
-import nativeLocaleNames from '../../../vendor/laravel-lang/native-locale-names/data/_native.json';
+import { LatestLanguageConfigType } from '@/utils/language-settings';
 import { IndexedReportData, ReportUserData } from './crowdin';
 
 export const getTranslatorIds = (
@@ -78,17 +77,3 @@ export const getBotCommandTranslationKey = ({
 }: GetBotCommandTranslationKeyOptions) =>
   `${commandId}.${optionId}.${choiceId}.${field}`;
 
-const availableNativeLocaleNames: Record<AvailableLanguage, string> = {
-  ...nativeLocaleNames,
-  'en': 'English, US',
-  'en-GB': 'English, UK',
-  'zh': nativeLocaleNames['zh_CN'],
-  'zh-TW': nativeLocaleNames['zh_TW'],
-  'pt-BR': nativeLocaleNames['pt_BR'],
-  'sr': nativeLocaleNames['sr_Latn'],
-};
-
-export const extendedNativeLocaleNames: Record<string, string> = {
-  ...availableNativeLocaleNames,
-  'en_GB': availableNativeLocaleNames['en-GB'],
-};
