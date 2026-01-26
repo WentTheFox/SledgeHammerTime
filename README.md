@@ -233,6 +233,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Aligatoor](https://crowdin.com/profile/Aligatoor)
   - [Arantir Reinhold](https://crowdin.com/profile/arantirrein)
   - [cfif126](https://crowdin.com/profile/cfif126)
+  - [Dayz Channel](https://crowdin.com/profile/panicattack)
   - [Dead3XD](https://crowdin.com/profile/Dead3XD)
   - [Feor](https://crowdin.com/profile/EL0nMusk)
   - [ff rgg](https://crowdin.com/profile/rggff246)
