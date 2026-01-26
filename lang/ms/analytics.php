@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Pecahan Halaman Dilihat',
     'byPage' => 'Mengikut Halaman',
     'byLanguage' => 'Mengikut Bahasa',
-    'hideUnknown' => 'Sembunyikan nilai tidak diketahui',
   ],
   'values' => [
     'unknown' => 'Tidak diketahui',
