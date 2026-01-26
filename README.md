@@ -105,6 +105,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
+  - [Biscotte](https://crowdin.com/profile/Ilovelinux68)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
   - [HumainAbsurde](https://crowdin.com/profile/humain)
   - [ImTheSpyke](https://crowdin.com/profile/ImTheSpyke)
@@ -238,6 +239,7 @@ English and Hungarian translations have been included, so no translators will be
   - [GameHacker](https://crowdin.com/profile/GameHacker)
   - [JudDayLum Official](https://crowdin.com/profile/JudDayLum)
   - [JudeDM](https://crowdin.com/profile/JudeDM)
+  - [Livonski Homak](https://crowdin.com/profile/homaklivonski)
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
   - [SAYREX](https://crowdin.com/profile/sayrex9625)
