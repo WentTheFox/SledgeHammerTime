@@ -8,7 +8,7 @@ import HtInput from '@/Reusable/HtInput.vue';
 import { inputRangeLimitBlurHandlerFactory } from '@/utils/app';
 import { DialMode } from '@/utils/dial';
 import { coerceToTwelveHours } from '@/utils/time';
-import { computed, inject, nextTick, ref, useTemplateRef, watch } from 'vue';
+import { computed, inject, nextTick, ref, watch } from 'vue';
 
 const hours = defineModel<number>('hours', { required: true });
 const minutes = defineModel<number>('minutes', { required: true });
@@ -22,8 +22,8 @@ const secondsInputValuePadded = computed(() => secondsInputValue.value.padStart(
 const isAm = defineModel<boolean>('isAm', { required: true });
 const twelveHourMode = defineModel<boolean>('twelveHourMode', { required: true });
 const dial = defineModel<TimePickerDialAPI | undefined>('dial', { required: true });
-const minutesInput = useTemplateRef<HTMLInputElement | null>('minutesInput');
-const secondsInput = useTemplateRef<HTMLInputElement | null>('secondsInput');
+const minutesInput = defineModel<HTMLInputElement | null>('minutesInput');
+const secondsInput = defineModel<HTMLInputElement | null>('secondsInput');
 const amPmInput = defineModel<FormSelectApi | null>('amPmInput');
 
 const dtl = inject(dateTimeLibraryInject);
