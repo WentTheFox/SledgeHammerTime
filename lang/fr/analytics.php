@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Page Views Breakdown',
     'byPage' => 'By Pages',
     'byLanguage' => 'By Language',
-    'hideUnknown' => 'Hide unknown values',
   ],
   'values' => [
     'unknown' => 'Unknown',
