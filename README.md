@@ -260,6 +260,7 @@ English and Hungarian translations have been included, so no translators will be
   - [?????](https://crowdin.com/profile/elpapuvanegas)
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
+  - [DearReux](https://crowdin.com/profile/DearReux)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
   - [Jatniel Torres Rivera](https://crowdin.com/profile/Jatnielo)
   - [Longsword](https://crowdin.com/profile/longsword)
@@ -271,7 +272,6 @@ English and Hungarian translations have been included, so no translators will be
   - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
-  - [zakpaco gamer](https://crowdin.com/profile/DearReux)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
   - [Liggliluff](https://github.com/Liggliluff)
