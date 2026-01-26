@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Oldalmegtekintések lebontása',
     'byPage' => 'Oldalak szerint',
     'byLanguage' => 'Nyelvek szerint',
-    'hideUnknown' => 'Ismeretlen értékek elrejtése',
   ],
   'values' => [
     'unknown' => 'Ismeretlen',

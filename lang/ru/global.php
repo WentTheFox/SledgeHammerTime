@@ -28,7 +28,7 @@ return [
     'botSettings' => 'Настройки приложения',
     'profile' => 'Профиль',
     'legal' => 'Юридическая информация',
-    'analytics' => 'Analytics',
+    'analytics' => 'Аналитика',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -63,10 +63,10 @@ return [
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Первый день недели',
+        'description' => 'Изменить, какой день считать первым днём недели в календаре настраиваемого ввода даты.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'По умолчанию для языка',
         ],
       ],
       'advancedSettings' => 'Расширенные настройки ввода',
