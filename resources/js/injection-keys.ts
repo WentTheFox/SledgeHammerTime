@@ -37,6 +37,17 @@ export const sidebarState = Symbol('sidebarState') as InjectionKey<{
   readonly setIsOpen: (value: boolean) => void;
 }>;
 
+
+export interface LayoutProps {
+  languageSelector: boolean;
+}
+
+export const defaultLayoutProps: LayoutProps = {
+  languageSelector: true,
+};
+
+export const layoutOptionsInject = Symbol('layoutOptions') as InjectionKey<LayoutProps>;
+
 export interface LocalSettingsValue {
   readonly naturalLanguageInputEnabled: boolean | null;
   readonly naturalLanguageInputAvailable: boolean;

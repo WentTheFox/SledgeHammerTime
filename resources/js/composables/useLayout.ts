@@ -11,8 +11,11 @@ import {
   CurrentLanguageData,
   currentLanguageInject,
   dateTimeLibraryInject,
-  devModeInject, inputMethodInject,
+  devModeInject,
+  inputMethodInject,
   isJsUnavailableInject,
+  layoutOptionsInject,
+  LayoutProps,
   localSettingsInject,
   pagePropsInject,
   scrollToAnchorInject,
@@ -29,7 +32,8 @@ import { computed, onMounted, onUnmounted, provide, readonly, ref, watch } from 
 
 const noAnimClass = 'no-anim';
 const flatUiClass = 'flat-ui';
-export const useLayout = () => {
+export const useLayout = (layoutProps: LayoutProps) => {
+  provide(layoutOptionsInject, layoutProps);
   const inertiaPage = usePage();
   const pagePropsRef = ref<PageProps>(inertiaPage.props);
   provide(pagePropsInject, pagePropsRef);
@@ -58,7 +62,7 @@ export const useLayout = () => {
   const currentLanguage = computed<CurrentLanguageData>(() => computeCurrentLanguage(pagePropsRef.value));
   provide(currentLanguageInject, currentLanguage);
 
-  const chrono = useChrono(currentLanguage)
+  const chrono = useChrono(currentLanguage);
   const localSettings = useLocalSettings(currentLanguage, chrono);
   const localSettingsValue = readonly(localSettings);
   provide(sidebarState, readonly(useSidebarState(localSettingsValue)));

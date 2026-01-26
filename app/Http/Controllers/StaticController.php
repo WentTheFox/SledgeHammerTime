@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 
 class StaticController extends Controller {
@@ -18,6 +19,8 @@ class StaticController extends Controller {
   }
 
   public function status() {
-    return response()->json(['status' => 'OK'])->setCache(['private' => true, 'no_cache' => true]);
+    App::setLocale(config('app.fallback_locale'));
+
+    return Inertia::render('Status/IndexComponent');
   }
 }

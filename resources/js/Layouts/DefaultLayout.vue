@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Navbar from '@/Components/CustomNavbar.vue';
 import { useLayout } from '@/composables/useLayout';
+import { defaultLayoutProps, LayoutProps } from '@/injection-keys';
 import HtContent from '@/Reusable/HtContent.vue';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- ESLint is drunk
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +9,9 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { useSlots } from 'vue';
 
-useLayout();
+const props = withDefaults(defineProps<Partial<LayoutProps>>(), defaultLayoutProps);
+
+useLayout(props);
 const slots = useSlots();
 </script>
 
