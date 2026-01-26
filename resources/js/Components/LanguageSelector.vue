@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
 import { useLocale } from '@/composables/useLocale';
+import { useNativeLocaleNames } from '@/composables/useNativeLocaleNames';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { useUiLocale } from '@/composables/useUiLocale';
@@ -10,7 +11,6 @@ import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
 import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
-import { extendedNativeLocaleNames } from '@/utils/translation';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
@@ -24,6 +24,7 @@ const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 const routeParams = useRouteParams(route, pageProps);
+const nativeLocaleNames = useNativeLocaleNames();
 
 const noTranslationsNeededLocales = new Set(['en', 'en-GB', 'hu']);
 
@@ -36,7 +37,7 @@ const sortedLanguages = computed(() =>
       }
       return key in currentLanguage.value.languages;
     })
-    .sort(([a], [b]) => extendedNativeLocaleNames[a].localeCompare(extendedNativeLocaleNames[b], uiLocale.value)),
+    .sort(([a], [b]) => nativeLocaleNames[a].localeCompare(nativeLocaleNames[b], uiLocale.value)),
 );
 
 const displayContributionHints = computed(() =>
@@ -92,7 +93,7 @@ onMounted(router.on('success', navigateListener));
         />
       </div>
       <div class="language-name">
-        {{ extendedNativeLocaleNames[currentLanguage.locale] }}
+        {{ nativeLocaleNames[currentLanguage.locale] }}
       </div>
     </div>
     <div
@@ -139,7 +140,7 @@ onMounted(router.on('success', navigateListener));
                     :custom-flag="config.customFlag"
                   />
                 </span>
-                <span class="language-name">{{ extendedNativeLocaleNames[sortedLocale] }}</span>
+                <span class="language-name">{{ nativeLocaleNames[sortedLocale] }}</span>
               </a>
             </nav>
           </template>

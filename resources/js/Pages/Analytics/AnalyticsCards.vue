@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import { useNativeLocaleNames } from '@/composables/useNativeLocaleNames';
 import { dateTimeLibraryInject, devModeInject, themeInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { extendedNativeLocaleNames } from '@/utils/translation';
 import {
   ArcElement,
   BarElement,
@@ -73,9 +73,10 @@ const devMode = inject(devModeInject);
 const dtl = inject(dateTimeLibraryInject);
 const lastUpdateTime = computed(() => props.lastUpdated ? dtl?.value.fromIsoString(props.lastUpdated) : undefined);
 const route = useRoute();
+const nativeLocaleNames = useNativeLocaleNames();
 
 const getRouteLabel = (r: string) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
-const getLocaleLabel = (l: string) => l ? (l in extendedNativeLocaleNames ? `${extendedNativeLocaleNames[l]} (${l})` : l) : unknownLabel.value;
+const getLocaleLabel = (l: string) => l ? (l in nativeLocaleNames ? `${nativeLocaleNames[l]} (${l})` : l) : unknownLabel.value;
 
 const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
   const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route);
