@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Detalhes de Visualizações da Página',
     'byPage' => 'Por páginas',
     'byLanguage' => 'Por idioma',
-    'hideUnknown' => 'Esconder valores desconhecidos',
   ],
   'values' => [
     'unknown' => 'Desconhecido',

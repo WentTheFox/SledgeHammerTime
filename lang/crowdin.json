@@ -659,6 +659,11 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17138010/medium/16b420bf3e34b1604ea049c3746a55e6.png",
       "fullName": "Rosaa Litaa"
     },
+    "17138264": {
+      "username": "homaklivonski",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17138264/medium/915b4d38925c3db9956db06d2e258253.png",
+      "fullName": "Livonski Homak"
+    },
     "17146676": {
       "username": "ekidoxx",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17146676/medium/b8b933d286c6d1639dc3e85762a7ed5e.png",
@@ -783,8 +788,7 @@
     },
     "17374962": {
       "username": "DearReux",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17374962/medium/a4d0c1812a357273d6e0df972693de9d.png",
-      "fullName": "zakpaco gamer"
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17374962/medium/a4d0c1812a357273d6e0df972693de9d.png"
     },
     "17378908": {
       "username": "premium.global.co",
@@ -1023,6 +1027,16 @@
       "username": "longsword",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17547688/medium/942d4516d9754b3ccec8986c28f46288_default.png",
       "fullName": "Longsword"
+    },
+    "17550316": {
+      "username": "sasha_rpvv62pf",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17550316/medium/0097cf2fdfba764774a9ea108efb9fd8.jpeg",
+      "fullName": "Alexandr Bugaev"
+    },
+    "17551174": {
+      "username": "Ilovelinux68",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17551174/medium/a204b4c7f4cb168ed46d97ccc943ee9e.jpeg",
+      "fullName": "Biscotte"
     }
   },
   "languages": {
@@ -1206,11 +1220,12 @@
         "15453302",
         "17433118",
         "16303638",
-        "17134580"
+        "17134580",
+        "17551174"
       ],
       "progress": {
         "approval": 96,
-        "translation": 96
+        "translation": 97
       }
     },
     "he": {
@@ -1481,14 +1496,16 @@
         "17454624",
         "17430436",
         "16809395",
+        "17138264",
         "17405040",
+        "17550316",
         "16873803",
         "17472794",
         "17481246"
       ],
       "progress": {
-        "approval": 95,
-        "translation": 95
+        "approval": 98,
+        "translation": 98
       }
     },
     "sr": {

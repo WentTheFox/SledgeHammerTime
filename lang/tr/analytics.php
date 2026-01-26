@@ -10,7 +10,6 @@ return [
     'breakdown' => 'Sayfa Görüntüleme Dağılımı',
     'byPage' => 'Sayfalara Göre',
     'byLanguage' => 'Dile Göre',
-    'hideUnknown' => 'Bilinmeyen değerleri gizle',
   ],
   'values' => [
     'unknown' => 'Bilinmeyen',
