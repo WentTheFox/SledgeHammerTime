@@ -66,7 +66,7 @@ jobs:
           sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=pgsql/' .env
           sed -i 's/DB_HOST=.*/DB_HOST=127.0.0.1/' .env
           sed -i 's/DB_PORT=.*/DB_PORT=5432/' .env
-          sed -i 's/DB_DATABASE=.*/DB_DATABASE=postgres/' .env
+          sed -i 's/DB_DATABASE=.*/DB_DATABASE=laravel_test/' .env
           sed -i 's/DB_USERNAME=.*/DB_USERNAME=postgres/' .env
           sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=/' .env
 
@@ -77,6 +77,7 @@ jobs:
         run: |
           sudo systemctl start postgresql.service
           sudo systemctl status postgresql.service
+          sudo -u postgres psql -c "CREATE DATABASE laravel_test;"
 
       - name: Run migrations
         run: php artisan migrate --force
