@@ -87,4 +87,12 @@ jobs:
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: playwright-
 
-      - run: php artisan test
+      - name: Run unit and feature tests
+        run: php artisan test --filter="Unit|Feature"
+
+      - name: Run browser tests (in Firefox)
+        run: php artisan test --filter="Browser" --browser firefox -vvv
+
+      - name: Run browser tests (in Chrome)
+        run: php artisan test --filter="Browser" --browser chrome -vvv
+
