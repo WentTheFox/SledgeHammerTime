@@ -547,6 +547,9 @@ $color-map: (
   ),
 );
 
+/**
+ * Keep in sync with `tests/Breakpoint.php`
+ */
 $breakpoints: (
   sm: 400px,
   md: 768px,

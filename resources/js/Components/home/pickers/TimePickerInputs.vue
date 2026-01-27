@@ -22,6 +22,8 @@ const secondsInputValuePadded = computed(() => secondsInputValue.value.padStart(
 const isAm = defineModel<boolean>('isAm', { required: true });
 const twelveHourMode = defineModel<boolean>('twelveHourMode', { required: true });
 const dial = defineModel<TimePickerDialAPI | undefined>('dial', { required: true });
+// @ts-expect-error Shush
+const hoursInput = defineModel<HTMLInputElement | null>('hoursInput');
 const minutesInput = defineModel<HTMLInputElement | null>('minutesInput');
 const secondsInput = defineModel<HTMLInputElement | null>('secondsInput');
 const amPmInput = defineModel<FormSelectApi | null>('amPmInput');
@@ -245,6 +247,7 @@ watch(seconds, newSeconds => {
 
 <template>
   <HtInput
+    ref="hoursInput"
     v-model="hoursInputValuePadded"
     type="text"
     inputmode="numeric"

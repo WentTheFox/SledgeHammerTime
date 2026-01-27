@@ -1,5 +1,13 @@
 <?php
 
+use Pest\Browser\Api\On;
+use Pest\Browser\Api\PendingAwaitablePage;
+use Pest\Browser\Playwright\Locator;
+use Pest\Browser\Playwright\Page;
+use Pest\Expectation;
+use PHPUnit\Framework\Assert;
+use Tests\Breakpoint;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -15,6 +23,8 @@ pest()->extend(Tests\TestCase::class)
   // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
   ->in('Feature', 'Unit', 'Browser');
 
+pest()->browser()->inDarkMode();
+
 /*
 |--------------------------------------------------------------------------
 | Expectations
@@ -26,9 +36,34 @@ pest()->extend(Tests\TestCase::class)
 |
 */
 
-/* expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-}); */
+expect()->extend('toBeInViewport', function (Page $page) {
+  /** @var Expectation $this */
+  $locators = is_array($this->value) ? $this->value : [$this->value];
+  foreach ($locators as $locator){
+    assert($locator instanceof Locator);
+
+    $box = $locator->boundingBox();
+    Assert::assertNotEmpty($box, "Element {$locator->selector()} has no bounding box (not visible at all)");
+
+    $viewport = $page->viewportSize();
+    Assert::assertNotEmpty($viewport, "Viewport size is unavailable");
+
+    $left = $box['x'];
+    $right = $box['x'] + $box['width'];
+    $top = $box['y'];
+    $bottom = $box['y'] + $box['height'];
+
+    $isInside =
+      $left >= 0 &&
+      $top >= 0 &&
+      $right <= $viewport['width'] &&
+      $bottom <= $viewport['height'];
+
+    Assert::assertTrue($isInside, "Element {$locator->selector()} is outside the viewport");
+  }
+
+  return $this;
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +80,7 @@ pest()->extend(Tests\TestCase::class)
 {
     // ..
 } */
+
+function resize(PendingAwaitablePage|On $page, Breakpoint $breakpoint, int $height = 768):void {
+  $page->resize($breakpoint->value, $height);
+}
