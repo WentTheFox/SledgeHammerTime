@@ -67,6 +67,7 @@ defineExpose({
     :style="positionAnchorName ? `anchor-name: ${positionAnchorName}` : undefined"
     :step="step"
     :aria-describedby="`${formControlId}-description`"
+    :data-testid="`${formControlId}-input`"
     @click="emit('click', $event)"
     @focus="emit('focus', $event)"
     @blur="emit('blur', $event)"

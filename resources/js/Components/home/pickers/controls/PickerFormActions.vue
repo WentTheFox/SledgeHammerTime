@@ -13,11 +13,13 @@ const emit = defineEmits<{
       color="primary"
       :justify-center="true"
       type="submit"
+      data-testid="picker-form-submit-button"
     >
       {{ $t('actions.save_and_close') }}
     </HtButton>
     <HtButton
       :justify-center="true"
+      data-testid="picker-form-close-button"
       @click="emit('close')"
     >
       {{ $t('actions.close') }}

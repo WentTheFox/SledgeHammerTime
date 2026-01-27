@@ -66,6 +66,7 @@
     "date-fns": "^4.1.0",
     "js-levenshtein": "^1.1.6",
     "lorem-ipsum": "^2.0.8",
+    "playwright": "^1.58.0",
     "the-new-css-reset": "^1.11.3",
     "vue-chartjs": "^5.3.3"
   },

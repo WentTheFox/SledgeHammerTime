@@ -10,10 +10,12 @@ const props = withDefaults(defineProps<{
   show?: boolean;
   wide?: boolean;
   allowOverflow?: boolean;
+  dataTestid?: string;
 }>(), {
   show: false,
   wide: false,
   allowOverflow: false,
+  dataTestid: undefined,
 });
 
 const emit = defineEmits<{
@@ -82,6 +84,7 @@ defineExpose<CustomPopupApi>({
     ref="dialogEl"
     :class="['popup', {visible: show, wide, 'has-anchor': Boolean(positionAnchorName), 'allow-overflow': allowOverflow}]"
     :style="positionAnchorName ? `--position-anchor-name: ${positionAnchorName}` : undefined"
+    :data-testid="dataTestid"
     @mousedown="handleMousedown"
     @mouseup="handleMouseup"
     @close="handleDialogClose"

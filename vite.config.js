@@ -98,6 +98,10 @@ export default defineConfig(({ mode }) => {
       sequence: {
         shuffle: true,
       },
+      exclude: [
+        '**/node_modules/**',
+        '**/vendor/**',
+      ],
       setupFiles: ['./setup/setup.ts'],
       coverage: {
         provider: 'v8',

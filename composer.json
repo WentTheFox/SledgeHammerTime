@@ -35,6 +35,7 @@
     "mockery/mockery": "^1.4.4",
     "nunomaduro/collision": "^8.1",
     "pestphp/pest": "^4.3",
+    "pestphp/pest-plugin-browser": "^4.2",
     "roave/security-advisories": "dev-latest",
     "spatie/laravel-ignition": "^2.0",
     "timwassenburg/laravel-service-generator": "^1.0"
