@@ -24,14 +24,14 @@ jobs:
           php-version: 8.5
           extensions: bcmath intl pcntl pdo_pgsql
 
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist
-
       - name: Cache Composer dependencies
         uses: actions/cache@v4
         with:
           path: vendor
           key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,15 +77,15 @@ jobs:
       - name: Run migrations
         run: php artisan migrate --force
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: playwright-
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: Run unit and feature tests
         run: php artisan test --filter="Unit|Feature"
