@@ -81,7 +81,7 @@ defineExpose<CustomPopupApi>({
   <dialog
     ref="dialogEl"
     :class="['popup', {visible: show, wide, 'has-anchor': Boolean(positionAnchorName), 'allow-overflow': allowOverflow}]"
-    :style="positionAnchorName ? `position-anchor: ${positionAnchorName}` : undefined"
+    :style="positionAnchorName ? `--position-anchor-name: ${positionAnchorName}` : undefined"
     @mousedown="handleMousedown"
     @mouseup="handleMouseup"
     @close="handleDialogClose"
