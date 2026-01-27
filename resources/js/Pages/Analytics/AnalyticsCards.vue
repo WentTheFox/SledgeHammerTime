@@ -144,7 +144,7 @@ const routeChartData = computed(() => {
 const filteredLocaleBreakdown = computed(() => props.localeBreakdown.filter(l => l.locale !== null || !skipNull.value));
 
 const localeChartData = computed(() => ({
-  labels: filteredLocaleBreakdown.value.map((l) => l.locale),
+  labels: filteredLocaleBreakdown.value.map((l) => l.locale ?? unknownLabel.value),
   datasets: [
     {
       backgroundColor: generatePalette(props.localeBreakdown.length, theme?.isLightTheme ?? true),
