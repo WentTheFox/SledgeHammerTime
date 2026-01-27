@@ -10,6 +10,9 @@ jobs:
   lint-and-test:
     name: 'Building, Linting and Tests'
     runs-on: ubuntu-latest
+    env:
+      CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
+      CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
     steps:
       - uses: actions/checkout@v2
 
@@ -23,20 +26,12 @@ jobs:
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
-        env:
-          CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
-          CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
 
       - name: Cache Composer dependencies
         uses: actions/cache@v4
         with:
           path: vendor
           key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-
-      - name: Start built-in PostgreSQL
-        run: |
-          sudo systemctl start postgresql.service
-          sudo systemctl status postgresql.service
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -77,6 +72,11 @@ jobs:
 
       - name: Generate app key
         run: php artisan key:generate
+
+      - name: Start built-in PostgreSQL
+        run: |
+          sudo systemctl start postgresql.service
+          sudo systemctl status postgresql.service
 
       - name: Run migrations
         run: php artisan migrate --force
