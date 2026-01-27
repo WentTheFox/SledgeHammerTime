@@ -149,6 +149,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Jackie](https://github.com/Jckcr)
   - [Nina](https://crowdin.com/profile/krasnova.nina27)
 - 🇮🇹 Italian
+  - [Jojo](https://crowdin.com/profile/Jojo936-creator)
   - [Lory Pelli](https://github.com/lorypelli)
   - [Spisp](https://crowdin.com/profile/Spisp)
   - [Tomi Adekoya](https://crowdin.com/profile/tomiadekoya23)
