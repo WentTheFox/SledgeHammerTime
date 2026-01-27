@@ -18,7 +18,10 @@ jobs:
           php_version: "8.5"
           php_extensions: bcmath intl pcntl pdo_pgsql
           version: 2.x
-          working_dir: "/tmp"
+        # https://github.com/TangibleInc/roller/issues/12#issuecomment-3393563862
+        run: |
+          git config --global --add safe.directory /app
+          composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
         env:
           CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
           CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
