@@ -34,17 +34,17 @@ ChartJS.register(
 
 export interface DailyTotalItem {
   date: string;
-  route: string;
+  route: string | null;
   total: number;
 }
 
 export interface RouteBreakdownItem {
-  route: string;
+  route: string | null;
   total: number;
 }
 
 export interface LocaleBreakdownItem {
-  locale: string;
+  locale: string | null;
   total: number;
 }
 
@@ -57,13 +57,13 @@ export interface AnalyticsCardsProps {
 
 interface DataIndex {
   dailyTotals: Record<string, Record<string, DailyTotalItem>>;
-  routes: Set<string>;
+  routes: Set<string | null>;
   dates: Set<string>;
 }
 
 const props = defineProps<AnalyticsCardsProps>();
 const unknownLabel = wTrans('analytics.values.unknown');
-const TECHNICAL_ROUTES = new Set(['status']);
+const TECHNICAL_ROUTES = new Set<string | null>(['status']);
 
 const skipNull = ref(true);
 const skipTechnicalRoutes = ref(true);
@@ -75,8 +75,8 @@ const lastUpdateTime = computed(() => props.lastUpdated ? dtl?.value.fromIsoStri
 const route = useRoute();
 const nativeLocaleNames = useNativeLocaleNames();
 
-const getRouteLabel = (r: string) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
-const getLocaleLabel = (l: string) => l ? (l in nativeLocaleNames ? `${nativeLocaleNames[l]} (${l})` : l) : unknownLabel.value;
+const getRouteLabel = (r: string | null) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
+const getLocaleLabel = (l: string | null) => (l && l in nativeLocaleNames ? `${nativeLocaleNames[l]} (${l})` : l) ?? unknownLabel.value;
 
 const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
   const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route);
@@ -84,7 +84,7 @@ const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
     if (!(d.date in acc.dailyTotals)) {
       acc.dailyTotals[d.date] = {};
     }
-    acc.dailyTotals[d.date][d.route] = d;
+    acc.dailyTotals[d.date][String(d.route)] = d;
     acc.routes.add(d.route);
     acc.dates.add(d.date);
   }
@@ -100,7 +100,7 @@ const barChartData = computed(() => {
     return {
       label: getRouteLabel(route),
       backgroundColor: palette[index],
-      data: dates.map(date => dataIndex.value.dailyTotals[date]?.[route]?.total ?? 0),
+      data: dates.map(date => dataIndex.value.dailyTotals[date]?.[String(route)]?.total ?? 0),
       borderWidth: 0,
     };
   });
@@ -126,7 +126,7 @@ const generatePalette = (count: number, isLight: boolean) => {
   return colors;
 };
 
-const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => (skipTechnicalRoutes.value ? !TECHNICAL_ROUTES.has(r.route) : true) && r.route !== null || !skipNull.value));
+const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => (skipTechnicalRoutes.value && r.route !== null ? !TECHNICAL_ROUTES.has(r.route) : true) && r.route !== null || !skipNull.value));
 
 const routeChartData = computed(() => {
   return ({
