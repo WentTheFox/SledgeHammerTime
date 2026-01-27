@@ -140,6 +140,7 @@ defineExpose<DateTimePickerApi>({
   <HtPopup
     ref="popup-el"
     :wide="Boolean(settings?.customDateInputEnabled && settings?.customTimeInputEnabled)"
+    data-testid="datetime-picker-popup"
     @close="closeTimePicker"
     @open="openTimePicker"
   >

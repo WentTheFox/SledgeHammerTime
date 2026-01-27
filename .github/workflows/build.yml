@@ -34,16 +34,10 @@ jobs:
           key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
-
-      - name: Cache node_modules folder
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: ./node_modules
-          key: node_modules-${{ hashFiles('./package-lock.json') }}
+          cache: 'npm'
 
       - name: Upgrade NPM
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -82,5 +76,15 @@ jobs:
 
       - name: Run migrations
         run: php artisan migrate --force
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: playwright-
 
       - run: php artisan test
