@@ -18,6 +18,7 @@ jobs:
           php_version: "8.5"
           php_extensions: bcmath intl pcntl
           version: 2.x
+          working_dir: "/tmp/composer-working-dir"
         env:
           CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
           CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
