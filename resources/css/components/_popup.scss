@@ -38,6 +38,7 @@
       transform: none;
 
       &.has-anchor {
+        position-anchor: var(--position-anchor-name);
         top: anchor(bottom) !important;
         left: anchor(left) !important;
       }
