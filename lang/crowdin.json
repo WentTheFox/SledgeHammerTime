@@ -1042,6 +1042,11 @@
       "username": "panicattack",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17552682/medium/067a152dbc8052ac2364edf9a6054868.png",
       "fullName": "Dayz Channel"
+    },
+    "17553976": {
+      "username": "Jojo936-creator",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17553976/medium/3dbca244b3f7f9296166d08b310002f7.png",
+      "fullName": "Jojo"
     }
   },
   "languages": {
@@ -1284,8 +1289,8 @@
         "17438540"
       ],
       "progress": {
-        "approval": 10,
-        "translation": 13
+        "approval": 33,
+        "translation": 33
       }
     },
     "it": {
@@ -1293,7 +1298,8 @@
         "15096881",
         "16601907",
         "16603067",
-        "17538742"
+        "17538742",
+        "17553976"
       ],
       "progress": {
         "approval": 96,
