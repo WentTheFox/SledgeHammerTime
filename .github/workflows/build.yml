@@ -67,8 +67,8 @@ jobs:
           sed -i 's/DB_HOST=.*/DB_HOST=127.0.0.1/' .env
           sed -i 's/DB_PORT=.*/DB_PORT=5432/' .env
           sed -i 's/DB_DATABASE=.*/DB_DATABASE=laravel_test/' .env
-          sed -i 's/DB_USERNAME=.*/DB_USERNAME=postgres/' .env
-          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=/' .env
+          sed -i 's/DB_USERNAME=.*/DB_USERNAME=laravel_test/' .env
+          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=hunter2/' .env
 
       - name: Generate app key
         run: php artisan key:generate
@@ -78,6 +78,7 @@ jobs:
           sudo systemctl start postgresql.service
           sudo systemctl status postgresql.service
           sudo -u postgres psql -c "CREATE DATABASE laravel_test;"
+          sudo -u postgres psql -c "CREATE USER laravel_test PASSWORD 'hunter2' SUPERUSER;"
 
       - name: Run migrations
         run: php artisan migrate --force
