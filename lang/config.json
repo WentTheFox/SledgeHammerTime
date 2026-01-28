@@ -38,10 +38,7 @@
       "laravelLocale": "zh_CN",
       "dateFnsLocale": "zh-CN",
       "calendarLabelFormat": "YYYY年MMM",
-      "calendarYearLabelFormat": "YYYY年",
-      "creditOverrides": {
-        "15258052": null
-      }
+      "calendarYearLabelFormat": "YYYY年"
     },
     "zh-TW": {
       "name": "Chinese Traditional",
@@ -52,7 +49,8 @@
       "calendarLabelFormat": "YYYY年MMM",
       "calendarYearLabelFormat": "YYYY年",
       "creditOverrides": {
-        "15497858": null
+        "15497858": null,
+        "15258052": null
       }
     },
     "hr": {
