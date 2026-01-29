@@ -58,7 +58,7 @@ English and Hungarian translations have been included, so no translators will be
   - [正阳](https://crowdin.com/profile/zhengyang3552)
 - 🇹🇼 Chinese Traditional
   - [I-Hsun Hsieh (Ian)](https://crowdin.com/profile/ianhsieh2008)
-  - [Jackie](https://crowdin.com/profile/jckcr)
+  - [Jckcr](https://crowdin.com/profile/jckcr)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [notlin4](https://crowdin.com/profile/notlin4)
   - [sfgbfdce](https://crowdin.com/profile/3582452209)
@@ -146,9 +146,10 @@ English and Hungarian translations have been included, so no translators will be
   - [Natzu](https://crowdin.com/profile/natieon)
   - [Premium Global](https://crowdin.com/profile/premium.global.co)
 - 🇮🇩 Indonesian
-  - [Jackie](https://github.com/Jckcr)
+  - [Jckcr](https://github.com/Jckcr)
   - [Nina](https://crowdin.com/profile/krasnova.nina27)
 - 🇮🇹 Italian
+  - [Alessandro Tenace](https://crowdin.com/profile/alessandrotenace123)
   - [Jojo](https://crowdin.com/profile/Jojo936-creator)
   - [Lory Pelli](https://github.com/lorypelli)
   - [Spisp](https://crowdin.com/profile/Spisp)
