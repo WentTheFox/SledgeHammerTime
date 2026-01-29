@@ -8,18 +8,18 @@ return [
       'time' => 'Waktu',
       'dateAndTime' => 'Tanggal dan waktu',
       'timezone' => 'Zona waktu',
-      'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'naturalLanguageInput' => 'input @time',
+      'modeOffset' => 'Offset Absolut',
+      'modeZoneName' => 'Nama Zona',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
-      'contextRange' => '<0/>–<2/>',
+      'jumpToToday' => 'Lompat ke bulan saat ini',
+      'contextRange' => '<0/>-<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Setel waktu saat ini',
+      'setToCurrent' => 'Setel ke waktu saat ini',
       'lock' => 'Mengunci stempel waktu melalui URL',
-      'unlock' => 'Buka stempel waktu',
+      'unlock' => 'Buka kunci stempel waktu',
       'previousYear' => 'Tahun lalu',
       'previousMonth' => 'Bulan lalu',
       'previousDecade' => 'Dekade sebelumnya',
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Dekade berikutnya',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Tidak dapat menguraikan input bahasa alami.'
     ]
   ],
   'table' => [
@@ -43,11 +43,11 @@ return [
     ],
     'bot' => [
       'header' => 'Aplikasi HammerTime',
-      'p' => 'Hasilkan cap waktu dari dalam Discord menggunakan perintah garis miring',
+      'p' => 'Hasilkan stempel waktu dari dalam Discord menggunakan perintah garis miring',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'header' => 'Situs Web Lama HammerTime',
+      'p' => 'Situs web lama proyek tersebut masih tersedia hingga pemberitahuan lebih lanjut.',
     ],
     'textColor' => [
       'header' => 'Generator Teks <1>Berwarna</1> Rebane',

@@ -16,13 +16,13 @@ return [
     ],
     "supportServerButton" => "Server Dukungan",
   ],
-  'incompleteTranslations' => 'Terjemahannya tidak lengkap',
+  'incompleteTranslations' => 'Terjemahannya belum lengkap',
   'contributeTranslations' => 'Kontribusi',
   'copyToClipboard' => 'Menyalin ke clipboard',
   'copiedToClipboard' => 'Disalin ke papan klip!',
   'jsDisabled' => [
     'title' => 'JavaScript diperlukan',
-    'body' => "Peramban Anda tidak mendukung JavaScript atau sedang dinonaktifkan. Beberapa browser menonaktifkan JavaScript secara bawaan untuk alasan keamanan, tetapi itu diperlukan untuk aplikasi ini. Harap aktifkan dan segarkan halaman, atau gunakan browser lain.",
+    'body' => "Browser Anda tidak mendukung JavaScript atau sedang dinonaktifkan. Beberapa browser menonaktifkan JavaScript secara bawaan untuk alasan keamanan, tetapi itu diperlukan untuk aplikasi ini. Harap aktifkan dan segarkan halaman, atau gunakan browser lain.",
   ],
   'nav' => [
     'botSettings' => 'Pengaturan Aplikasi',
@@ -32,7 +32,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Pengaturan Masukan',
+      'title' => 'Pengaturan Input',
       'naturalLanguageInput' => [
         'label' => 'kolom input @waktu',
         'description' => 'Memungkinkan manipulasi stempel waktu yang dipilih dengan bahasa alami (misalnya, "dalam 5 jam") melalui input teks bebas tambahan. Mirip dengan tag @time Discord yang baru. Hanya sejumlah bahasa terbatas yang didukung.',
@@ -46,7 +46,7 @@ return [
         'description' => "Mengganti input waktu default browser dengan input waktu kustom. Ini sangat berguna jika Anda kesulitan memilih waktu di browser seluler.",
       ],
       'separateInputs' => [
-        'label' => 'Masukan terpisah',
+        'label' => 'Input terpisah',
         'description' => "Tampilkan dua input berbeda untuk tanggal dan waktu alih-alih input gabungan (yang tidak didukung di beberapa browser)",
       ],
       'flatUi' => [
@@ -92,13 +92,13 @@ return [
       't1' => 'Stempel waktu penerimaan permintaan oleh server.',
       't2' => 'Stempel waktu server pada transmisi respons.',
       't3' => 'Stampel waktu penerimaan respons dari klien',
-      'dtlOffsetCell' => 'Active Calculation Offset',
+      'dtlOffsetCell' => 'Offset Perhitungan Aktif',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
-      'networkOffsetCell' => 'Detected Offset (via Network)',
+      'networkOffsetCell' => 'Offset Terdeteksi (melalui Jaringan)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Pengaturan Lokal',
     ],
     'credits' => [
       'title' => 'Kredit',
@@ -122,12 +122,12 @@ return [
     ],
   ],
   'designEditor' => [
-    'title' => 'Design Editor',
-    'description' => 'You can adjust many aspects of the website\'s appearance using the inputs in the table below. Variable names are based on identifiers in the code and therefore cannot be translated. Values will be reset when refreshing the page.',
-    'designPageLink' => 'Design Page',
-    'exportInfo' => 'You may export your changes to a UserStyle file, which can be used with an extension such as <1>Stylus</1> to customize the app\'s appearance permanently. Note, however, that these variables may change at any point, requiring you to manually update your custom styles.',
-    'export' => 'Export as UserStyle',
-    'variableColumnHeader' => 'CSS Variable',
-    'valueColumnHeader' => 'Value',
+    'title' => 'Editor Desain',
+    'description' => 'Anda dapat menyesuaikan banyak aspek tampilan situs web menggunakan input pada tabel di bawah ini. Nama variabel didasarkan pada pengidentifikasi dalam kode dan oleh karena itu tidak dapat diterjemahkan. Nilai akan diatur ulang saat menyegarkan halaman.',
+    'designPageLink' => 'Halaman Desain',
+    'exportInfo' => 'Anda dapat mengekspor perubahan Anda ke file UserStyle, yang dapat digunakan dengan ekstensi seperti <1>Stylus</1> untuk menyesuaikan tampilan aplikasi secara permanen. Namun, perlu diingat bahwa variabel-variabel ini dapat berubah sewaktu-waktu, sehingga Anda perlu memperbarui gaya kustom Anda secara manual.',
+    'export' => 'Ekspor sebagai UserStyle',
+    'variableColumnHeader' => 'Variabel CSS',
+    'valueColumnHeader' => 'Nilai',
   ],
 ];
