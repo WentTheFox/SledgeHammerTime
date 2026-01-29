@@ -1,15 +1,15 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'Analisis Tayangan Halaman',
+  'description' => 'Halaman ini berisi analitik dasar (baik yang disimpan maupun ditampilkan tanpa detail yang dapat mengidentifikasi individu) untuk total tampilan halaman agregat di aplikasi selama 30 hari terakhir.',
+  'collectionMethod' => 'Data dikumpulkan di sisi server, berdasarkan respons yang dikirim ke sejumlah halaman terbatas. Tampilan halaman dicatat secara individual tetapi diagregasikan setiap hari oleh proses latar belakang.',
+  'lastUpdated' => 'Informasi di halaman ini disimpan sementara untuk mengurangi beban server. Data yang Anda lihat terakhir diperbarui <1/>.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
+    'dailyTotal' => 'Jumlah Tayangan Halaman Harian',
+    'breakdown' => 'Rincian Tayangan Halaman',
+    'byPage' => 'Berdasarkan Halaman',
+    'byLanguage' => 'Berdasarkan Bahasa',
   ],
   'values' => [
     'unknown' => 'Unknown',
