@@ -283,7 +283,7 @@
     "15258052": {
       "username": "jckcr",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15258052/medium/e6643a650c986adbe9f90b2a91934a0a.png",
-      "fullName": "Jackie"
+      "fullName": "Jckcr"
     },
     "15263324": {
       "username": "Ouiouibaguette",
@@ -1047,6 +1047,11 @@
       "username": "Jojo936-creator",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17553976/medium/3dbca244b3f7f9296166d08b310002f7.png",
       "fullName": "Jojo"
+    },
+    "17555404": {
+      "username": "alessandrotenace123",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17555404/medium/b177e62d94bb675882e216289c4d086a.png",
+      "fullName": "Alessandro Tenace"
     }
   },
   "languages": {
@@ -1078,12 +1083,12 @@
         "13533384",
         "16655625",
         "17241656",
-        "17528082",
-        "17488256"
+        "17488256",
+        "17528082"
       ],
       "progress": {
         "approval": 13,
-        "translation": 13
+        "translation": 15
       }
     },
     "cs": {
@@ -1172,9 +1177,9 @@
         "16655625",
         "15031111",
         "17479286",
+        "17488256",
         "17461970",
         "17547688",
-        "17488256",
         "17502272",
         "17448206",
         "17533436",
@@ -1289,8 +1294,8 @@
         "17438540"
       ],
       "progress": {
-        "approval": 33,
-        "translation": 33
+        "approval": 100,
+        "translation": 100
       }
     },
     "it": {
@@ -1299,7 +1304,8 @@
         "16601907",
         "16603067",
         "17538742",
-        "17553976"
+        "17553976",
+        "17555404"
       ],
       "progress": {
         "approval": 96,
