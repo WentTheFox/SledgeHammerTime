@@ -12,6 +12,6 @@ return [
     'byLanguage' => 'Berdasarkan Bahasa',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Tidak Diketahui',
   ],
 ];
