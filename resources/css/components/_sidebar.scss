@@ -30,31 +30,51 @@ $_sidebar_space_reserved_from_breakpoint: 'lg';
     transition: none !important;
   }
 
-  &.position-left {
-    left: 0;
-    transform: translateX(calc(-1 * #{design.app-value('sidebar-max-width')}));
+  @mixin sidebar-is-open-all {
+    transform: translateX(0);
   }
+  @mixin sidebar-is-open-desktop {
+    &.position-left + .sidebar-spacing-wrapper {
+      padding-left: design.app-value('sidebar-max-width');
+    }
 
-  &.position-right {
-    right: 0;
-    transform: translateX(#{design.app-value('sidebar-max-width')});
+    &.position-right + .sidebar-spacing-wrapper {
+      padding-right: design.app-value('sidebar-max-width');
+    }
+  }
+  @mixin sidebar-is-closed {
+    &.position-left {
+      left: 0;
+      transform: translateX(calc(-1 * #{design.app-value('sidebar-max-width')}));
+    }
 
-    .sidebar-top {
-      flex-direction: row-reverse;
+    &.position-right {
+      right: 0;
+      transform: translateX(#{design.app-value('sidebar-max-width')});
+
+      .sidebar-top {
+        flex-direction: row-reverse;
+      }
     }
   }
 
   &.is-open {
-    transform: translateX(0);
-
+    @include sidebar-is-open-all;
     @include design.screen-above($_sidebar_space_reserved_from_breakpoint) {
-      &.position-left + .sidebar-spacing-wrapper {
-        padding-left: design.app-value('sidebar-max-width');
-      }
+      @include sidebar-is-open-desktop;
+    }
+  }
 
-      &.position-right + .sidebar-spacing-wrapper {
-        padding-right: design.app-value('sidebar-max-width');
-      }
+  &.is-closed {
+    @include sidebar-is-closed;
+  }
+
+  &:not(.is-open):not(&.is-closed) {
+    @include design.screen-below($_sidebar_space_reserved_from_breakpoint) {
+      @include sidebar-is-closed;
+    }
+    @include design.screen-above($_sidebar_space_reserved_from_breakpoint) {
+      @include sidebar-is-open-desktop;
     }
   }
 
@@ -146,10 +166,6 @@ $_sidebar_space_reserved_from_breakpoint: 'lg';
 .sidebar-spacing-wrapper {
   position: relative;
   transition: padding .1s ease-in-out;
-
-  @media (max-width: design.app-value('sidebar-default-open-min-width')) {
-    padding: 0 !important;
-  }
 
   @media print {
     padding: 0 !important;
