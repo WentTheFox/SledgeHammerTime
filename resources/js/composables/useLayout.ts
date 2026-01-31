@@ -4,7 +4,6 @@ import { useDateTimeLibrary } from '@/composables/useDateTimeLibrary';
 import { useInputMethod } from '@/composables/useInputMethod';
 import { useLocalSettings } from '@/composables/useLocalSettings';
 import { useRoute } from '@/composables/useRoute';
-import { useSidebarState } from '@/composables/useSidebarState';
 import { useTheme } from '@/composables/useTheme';
 import {
   chronoInject,
@@ -19,7 +18,6 @@ import {
   localSettingsInject,
   pagePropsInject,
   scrollToAnchorInject,
-  sidebarState,
   themeInject,
   timeSyncInject,
   userInfoInject,
@@ -48,7 +46,9 @@ export const useLayout = (layoutProps: LayoutProps) => {
     });
 
     if (typeof document !== 'undefined') {
-      document.body.classList.remove(noAnimClass);
+      setTimeout(() => {
+        document.body.classList.remove(noAnimClass);
+      }, 1e3);
     }
   });
   onUnmounted(() => {
@@ -65,7 +65,6 @@ export const useLayout = (layoutProps: LayoutProps) => {
   const chrono = useChrono(currentLanguage);
   const localSettings = useLocalSettings(currentLanguage, chrono);
   const localSettingsValue = readonly(localSettings);
-  provide(sidebarState, readonly(useSidebarState(localSettingsValue)));
   provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
   provide(inputMethodInject, readonly(useInputMethod()));

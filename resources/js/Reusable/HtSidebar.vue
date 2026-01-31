@@ -4,26 +4,26 @@ import DebugLocalSettings from '@/Components/sidebar/DebugLocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
 import UserMenu from '@/Components/UserMenu.vue';
-import { layoutOptionsInject, localSettingsInject, sidebarState } from '@/injection-keys';
+import { layoutOptionsInject, localSettingsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import { faAlignLeft, faAlignRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, inject } from 'vue';
 
-const state = inject(sidebarState);
 const localSettingsValue = inject(localSettingsInject);
 const layoutOptions = inject(layoutOptionsInject);
 const isOnRight = computed(() => Boolean(localSettingsValue?.sidebarOnRight));
-const isOpen = computed(() => Boolean(state?.isOpen));
+const isOpen = computed(() => localSettingsValue?.sidebarOpen === true);
+const isClosed = computed(() => localSettingsValue?.sidebarOpen === false);
 
 const close = () => {
-  state?.setIsOpen(false);
+  localSettingsValue?.setSidebarOpen(false);
 };
 </script>
 
 
 <template>
-  <aside :class="['sidebar', `position-${isOnRight ? 'right' : 'left'}`, { 'is-open': isOpen }]">
+  <aside :class="['sidebar', `position-${isOnRight ? 'right' : 'left'}`, { 'is-open': isOpen, 'is-closed': isClosed }]">
     <div class="sidebar-top">
       <HtButton @click="close">
         <FontAwesomeIcon :icon="faTimes" />
