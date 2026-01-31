@@ -115,6 +115,11 @@
       "username": "didli789",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14240276/medium/f323689794854363e02ccd452aeb0b60.png"
     },
+    "14288672": {
+      "username": "CrazySpy",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14288672/medium/6d93bb0f48fbd9b8090bda98b9bf9591.png",
+      "fullName": "Flavio Bonacordi"
+    },
     "14311950": {
       "username": "Ethxrnity",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14311950/medium/f66038a711625b43473c75b9b34b9944.jpeg",
@@ -1047,6 +1052,25 @@
       "username": "Jojo936-creator",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17553976/medium/3dbca244b3f7f9296166d08b310002f7.png",
       "fullName": "Jojo"
+    },
+    "17555404": {
+      "username": "alessandrotenace123",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17555404/medium/b177e62d94bb675882e216289c4d086a.png",
+      "fullName": "Alessandro Tenace"
+    },
+    "17557448": {
+      "username": "marcos.pqueirozz",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17557448/medium/3af3a2dafbaa2ece17e387a216733a98.jpeg",
+      "fullName": "Marcos"
+    },
+    "17558976": {
+      "username": "twofrags",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17558976/medium/419bb9e15fdee6bc985141e9cde60c39.png",
+      "fullName": "Allef Adolpho Hawatt de Moraes"
+    },
+    "17560756": {
+      "username": "Wellery",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17560756/medium/011e4cbc8aff507e0c1475b1068aef52.jpeg"
     }
   },
   "languages": {
@@ -1078,12 +1102,12 @@
         "13533384",
         "16655625",
         "17241656",
-        "17528082",
-        "17488256"
+        "17488256",
+        "17528082"
       ],
       "progress": {
         "approval": 13,
-        "translation": 13
+        "translation": 15
       }
     },
     "cs": {
@@ -1172,9 +1196,9 @@
         "16655625",
         "15031111",
         "17479286",
+        "17488256",
         "17461970",
         "17547688",
-        "17488256",
         "17502272",
         "17448206",
         "17533436",
@@ -1289,8 +1313,8 @@
         "17438540"
       ],
       "progress": {
-        "approval": 33,
-        "translation": 95
+        "approval": 100,
+        "translation": 100
       }
     },
     "it": {
@@ -1299,7 +1323,8 @@
         "16601907",
         "16603067",
         "17538742",
-        "17553976"
+        "17553976",
+        "17555404"
       ],
       "progress": {
         "approval": 96,
@@ -1451,12 +1476,15 @@
         "17540650",
         "17488616",
         "17520776",
+        "14288672",
+        "17560756",
         "17450480",
-        "17503118"
+        "17503118",
+        "17558976"
       ],
       "progress": {
         "approval": 46,
-        "translation": 46
+        "translation": 47
       }
     },
     "pt": {
@@ -1464,11 +1492,12 @@
         "15659129",
         "15281318",
         "16669695",
-        "15682999"
+        "15682999",
+        "17557448"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 10
       }
     },
     "ro": {
