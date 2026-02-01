@@ -22,7 +22,7 @@ return [
       'displayName' => 'Colunas',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Efêmero',
     ],
     'header' => [
       'displayName' => 'Cabeçalho',
@@ -47,5 +47,5 @@ return [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Suas configurações foram salvas com sucesso.',
 ];
