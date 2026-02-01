@@ -38,12 +38,12 @@ return [
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
       ],
       'customDateInput' => [
-        'label' => 'Custom date input',
-        'description' => "Replace the browser default date input with a custom one.",
+        'label' => 'Entrada de data personalizada',
+        'description' => "Substitui a entrada de data padrão do navegador por uma personalizada.",
       ],
       'customTimeInput' => [
-        'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'label' => 'Entrada de hora personalizada',
+        'description' => "Substitua a entrada de hora padrão do navegador por uma personalizada. Isso é especialmente útil se o senhor tiver problemas para selecionar a hora em navegadores móveis.",
       ],
       'separateInputs' => [
         'label' => 'Entradas separadas',
@@ -54,12 +54,12 @@ return [
         'description' => "Disable shadow and height effects on inputs and buttons",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
+        'label' => 'Formato do relógio',
         'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
         'options' => [
-          'default' => 'Language default',
-          'h12' => '12-hour',
-          'h24' => '24-hour',
+          'default' => 'Idioma padrão',
+          'h12' => '12 horas',
+          'h24' => '24 horas',
         ],
       ],
       'firstDayOfWeek' => [
@@ -69,14 +69,14 @@ return [
           'default' => 'Language default',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Configurações avançadas de entrada',
     ],
     'timeSync' => [
       'title' => 'Sincronizar Hora',
       'status' => [
         'syncing' => 'O seu relógio do sistema atualmente está sincronizando com nossos servidores, por favor aguarde.',
         'accurate' => 'O relógio do sistema está atualizado.',
-        'potentiallyWrong' => 'Your system clock might be wrong.',
+        'potentiallyWrong' => 'O relógio do seu sistema pode estar errado.',
         'value' => 'A diferença entre o horário local e do servidor é:',
       ],
       'autoTimeSync' => [
@@ -98,7 +98,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Configurações Locais',
     ],
     'credits' => [
       'title' => 'Créditos',
@@ -109,7 +109,7 @@ return [
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
-      'chrono' => 'chrono',
+      'chrono' => 'crono',
       'translatedBy' => 'Traduções por <1></1>',
       'openSourceSoftware' => 'Software de código aberto',
       'viewSourceCode' => 'Ver código fonte',
@@ -118,7 +118,7 @@ return [
     'themeButton' => [
       'dark' => 'Tema Escuro',
       'light' => 'Tema Claro',
-      'system' => 'Use System Theme',
+      'system' => 'Usar Tema do Sistema',
     ],
   ],
   'designEditor' => [
