@@ -9,8 +9,8 @@ return [
       'dateAndTime' => 'Data e hora',
       'timezone' => 'Fuso horário',
       'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Diferença absoluta',
+      'modeZoneName' => 'Nome da Zona',
     ],
     'button' => [
       'jumpToToday' => 'Ir para o mês atual',
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'Site antigo do "Hammer" "Time"',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'O antigo site do projeto, ainda disponível até segunda ordem',
     ],
     'textColor' => [
       'header' => 'Gerador de Texto <1>Colorido</1> do Rebane',

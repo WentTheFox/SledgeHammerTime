@@ -22,7 +22,7 @@ return [
   'copiedToClipboard' => 'Zkopírováno do schránky!',
   'jsDisabled' => [
     'title' => 'JavaScript je nezbytný',
-    'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript ve výchozím nastavení z bezpečnostních důvodů zakazují, ale pro tuto aplikaci je nezbytný. Povolte jej a obnovte stránku nebo použijte jiný prohlížeč.",
+    'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript z bezpečnostních důvodů vypínají ve výchozím nastavení, ale pro tuto aplikaci je nezbytný. Prosím, povolte jej a obnovte stránku, případně použijte jiný prohlížeč.",
   ],
   'nav' => [
     'botSettings' => 'Nastavení aplikace',
