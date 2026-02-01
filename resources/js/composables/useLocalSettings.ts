@@ -10,7 +10,7 @@ const nlpPrefKey = 'nlp-input';
 const customDatePrefKey = 'custom-date-input';
 const customTimePrefKey = 'custom-time-input';
 const sidebarPrefKey = 'sidebar-right';
-const sidebarOffDesktopPrefKey = 'sidebar-off-desktop';
+const sidebarOpenPrefKey = 'sidebar-open';
 const lightThemePrefKey = 'light-theme';
 const autoTimeSyncPrefKey = 'auto-time-sync';
 const hourCyclePrefKey = 'hour-cycle';
@@ -28,7 +28,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const combinedInputsEnabled = ref<boolean | null>(null);
   const flatUiEnabled = ref<boolean | null>(null);
   const sidebarOnRight = ref<boolean | null>(null);
-  const sidebarOffDesktop = ref<boolean | null>(null);
+  const sidebarOpen = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
   const autoTimeSync = ref<boolean | null>(null);
   const hourCycle = ref<HourCycle | null>(null);
@@ -60,8 +60,12 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   watch(sidebarOnRight, (newValue) => {
     localStorage.setItem(sidebarPrefKey, newValue ? 'true' : 'false');
   });
-  watch(sidebarOffDesktop, (newValue) => {
-    localStorage.setItem(sidebarOffDesktopPrefKey, newValue ? 'true' : 'false');
+  watch(sidebarOpen, (newValue) => {
+    if (newValue === null) {
+      localStorage.removeItem(sidebarOpenPrefKey);
+      return;
+    }
+    localStorage.setItem(sidebarOpenPrefKey, newValue ? 'true' : 'false');
   });
   watch(isLightTheme, (newValue) => {
     if (newValue === null) {
@@ -127,10 +131,10 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     // The sidebar is on the left by default
     sidebarOnRight.value = falseByDefault(storedPref);
   };
-  const setInitialSidebarOffDesktop = () => {
-    const storedPref = localStorage.getItem(sidebarOffDesktopPrefKey);
+  const setInitialSidebarOpen = () => {
+    const storedPref = localStorage.getItem(sidebarOpenPrefKey);
     // The sidebar is shown on desktop by default
-    sidebarOffDesktop.value = falseByDefault(storedPref);
+    sidebarOpen.value = nullByDefault(storedPref);
   };
   const setInitialLightTheme = () => {
     const storedPref = localStorage.getItem(lightThemePrefKey);
@@ -165,7 +169,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialCustomDateInput();
     setInitialCustomTimeInput();
     setInitialSidebarOnRight();
-    setInitialSidebarOffDesktop();
+    setInitialSidebarOpen();
     setInitialLightTheme();
     setInitialAutoTimeSync();
     setInitialHourCycle();
@@ -181,7 +185,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     flatUiEnabled,
     sidebarOnRight: effectiveSidebarOnRight,
     rawSidebarOnRight: sidebarOnRight,
-    sidebarOffDesktop,
+    sidebarOpen,
     isLightTheme,
     autoTimeSync,
     hourCycle,
@@ -214,8 +218,8 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     toggleSidebarOnRight() {
       sidebarOnRight.value = !sidebarOnRight.value;
     },
-    setSidebarOffDesktop(value: boolean) {
-      sidebarOffDesktop.value = value;
+    setSidebarOpen(value: boolean) {
+      sidebarOpen.value = value;
     },
     setLightTheme(isLight: boolean | null) {
       isLightTheme.value = isLight;
