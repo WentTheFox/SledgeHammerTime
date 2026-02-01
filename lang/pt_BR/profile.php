@@ -7,18 +7,18 @@ return [
     'heading' => 'Informações do perfil',
     'description' => "Atualizar as informações do perfil.",
     'displayName' => 'Exibir Nome',
-    'hiddenFormats' => 'Formats hidden from picker table',
+    'hiddenFormats' => 'Formatos ocultos da tabela de seleção',
     'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
     'heading' => 'Contas Conectadas',
-    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'description' => 'Você pode vincular várias contas à sua conta HammerTime para poder gerenciá-las em um só lugar. As informações básicas de usuário exibidas aqui são atualizadas automaticamente no máximo uma vez por hora ao carregar esta página.',
     'discord' => 'Contas do Discord',
     'crowdin' => 'Contas do CrowdIn',
-    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
+    'noConnectedAccounts' => 'Você não tem nenhuma conta conectada no momento',
     'linkAdditional' => [
-      'heading' => 'Link Additional Accounts',
-      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
+      'heading' => 'Conectar outras contas',
+      'description' => 'Utilize os botões abaixo para conectar contas adicionais à sua conta atual do HammerTime.',
       'discord' => [
         'description' => 'Se sua imagem de perfil ou nome de exibição mudou, você pode usar isto para atualizar essas informações para qualquer conta do Discord que já tenha sido vinculada.',
         'authorize' => 'Autorizar conta do Discord',
