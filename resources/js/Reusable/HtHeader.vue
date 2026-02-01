@@ -8,6 +8,12 @@ import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
+withDefaults(defineProps<{
+  swapSlots?: boolean
+}>(), {
+  swapSlots: false,
+});
+
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
@@ -20,7 +26,14 @@ const nonStick = computed(() => pageProps?.value.ziggy?.location?.pathname === s
 <template>
   <div :class="['header', {'non-stick': nonStick}]">
     <div class="header-left">
-      <slot name="left" />
+      <slot
+        v-if="swapSlots"
+        name="right"
+      />
+      <slot
+        v-else
+        name="left"
+      />
     </div>
     <Link
       :href="route('root')"
@@ -32,7 +45,14 @@ const nonStick = computed(() => pageProps?.value.ziggy?.location?.pathname === s
       </span>
     </Link>
     <div class="header-right">
-      <slot name="right" />
+      <slot
+        v-if="swapSlots"
+        name="left"
+      />
+      <slot
+        v-else
+        name="right"
+      />
     </div>
   </div>
 </template>

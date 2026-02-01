@@ -32,12 +32,6 @@ export const themeInject = Symbol('theme') as InjectionKey<{
   readonly changeTheme: (isLight: boolean | null) => void;
 }>;
 
-export const sidebarState = Symbol('sidebarState') as InjectionKey<{
-  readonly isOpen: boolean | null,
-  readonly setIsOpen: (value: boolean) => void;
-}>;
-
-
 export interface LayoutProps {
   languageSelector: boolean;
 }
@@ -60,7 +54,7 @@ export interface LocalSettingsValue {
    */
   readonly rawSidebarOnRight: boolean | null;
   readonly sidebarOnRight: boolean | null;
-  readonly sidebarOffDesktop: boolean | null;
+  readonly sidebarOpen: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly autoTimeSync: boolean | null;
   readonly hourCycle: HourCycle | null;
@@ -71,7 +65,7 @@ export interface LocalSettingsValue {
   readonly toggleSeparateInputs: (e: Event) => void;
   readonly toggleFlatUi: (e: Event) => void;
   readonly toggleSidebarOnRight: VoidFunction;
-  readonly setSidebarOffDesktop: (value: boolean) => void;
+  readonly setSidebarOpen: (value: boolean) => void;
   readonly setLightTheme: (isLight: boolean | null) => void;
   readonly toggleAutoTimeSync: (e: Event) => void;
   readonly setHourCycle: (e: Event) => void;
