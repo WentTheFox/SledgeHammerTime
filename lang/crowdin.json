@@ -115,6 +115,11 @@
       "username": "didli789",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14240276/medium/f323689794854363e02ccd452aeb0b60.png"
     },
+    "14288672": {
+      "username": "CrazySpy",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14288672/medium/6d93bb0f48fbd9b8090bda98b9bf9591.png",
+      "fullName": "Flavio Bonacordi"
+    },
     "14311950": {
       "username": "Ethxrnity",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14311950/medium/f66038a711625b43473c75b9b34b9944.jpeg",
@@ -1052,6 +1057,20 @@
       "username": "alessandrotenace123",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17555404/medium/b177e62d94bb675882e216289c4d086a.png",
       "fullName": "Alessandro Tenace"
+    },
+    "17557448": {
+      "username": "marcos.pqueirozz",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17557448/medium/3af3a2dafbaa2ece17e387a216733a98.jpeg",
+      "fullName": "Marcos"
+    },
+    "17558976": {
+      "username": "twofrags",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17558976/medium/419bb9e15fdee6bc985141e9cde60c39.png",
+      "fullName": "Allef Adolpho Hawatt de Moraes"
+    },
+    "17560756": {
+      "username": "Wellery",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17560756/medium/011e4cbc8aff507e0c1475b1068aef52.jpeg"
     }
   },
   "languages": {
@@ -1455,14 +1474,17 @@
         "12931321",
         "17151532",
         "17540650",
+        "17560756",
         "17488616",
         "17520776",
+        "14288672",
         "17450480",
-        "17503118"
+        "17503118",
+        "17558976"
       ],
       "progress": {
-        "approval": 46,
-        "translation": 46
+        "approval": 47,
+        "translation": 51
       }
     },
     "pt": {
@@ -1470,11 +1492,12 @@
         "15659129",
         "15281318",
         "16669695",
-        "15682999"
+        "15682999",
+        "17557448"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 10
       }
     },
     "ro": {
