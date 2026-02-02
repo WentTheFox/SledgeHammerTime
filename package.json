@@ -60,7 +60,7 @@
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/vue-fontawesome": "^3.1.2",
-    "@vueuse/core": "^14.1.0",
+    "@vueuse/core": "^14.2.0",
     "chart.js": "^4.5.1",
     "chrono-node": "^2.9.0",
     "date-fns": "^4.1.0",
