@@ -110,6 +110,7 @@
     "Invalid filename.": "نام فایل نامعتبر است.",
     "Invalid JSON was returned from the route.": "JSON نامعتبر از مسیر برگردانده شد.",
     "Invalid SSL Certificate": "گواهی SSL نامعتبر",
+    "length": "طول",
     "Length Required": "طول مورد نیاز است",
     "Like": "پسندیدن",
     "Load": "بارگذاری",

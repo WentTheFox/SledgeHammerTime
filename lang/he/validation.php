@@ -42,6 +42,7 @@ return [
     'doesnt_end_with'        => 'ייתכן שה-:attribute לא יסתיים באחת מהאפשרויות הבאות: :values.',
     'doesnt_start_with'      => 'ייתכן שה-:attribute לא יתחיל באחד מהבאים: :values.',
     'email'                  => 'שדה :attribute חייב להיות כתובת אימייל תקנית.',
+    'encoding'               => 'The :attribute field must be encoded in :encoding.',
     'ends_with'              => 'שדה :attribute חייב להסתיים באחד מהבאים: :values',
     'enum'                   => 'ה-:attribute שנבחר אינו חוקי.',
     'exists'                 => 'בחירת ה-:attribute אינה תקפה.',

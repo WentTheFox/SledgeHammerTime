@@ -110,6 +110,7 @@
     "Invalid filename.": "Nederīgs faila nosaukums.",
     "Invalid JSON was returned from the route.": "No maršruta tika atgriezts nederīgs JSON.",
     "Invalid SSL Certificate": "Nederīgs SSL sertifikāts",
+    "length": "garums",
     "Length Required": "Nepieciešamais garums",
     "Like": "Patīk",
     "Load": "Ielādēt",

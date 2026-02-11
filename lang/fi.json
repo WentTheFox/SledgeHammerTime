@@ -110,6 +110,7 @@
     "Invalid filename.": "Virheellinen tiedostonimi.",
     "Invalid JSON was returned from the route.": "Virheellinen JSON palautettiin reitiltä.",
     "Invalid SSL Certificate": "Virheellinen SSL-sertifikaatti",
+    "length": "pituus",
     "Length Required": "Pituus vaaditaan",
     "Like": "Kuten",
     "Load": "Ladata",

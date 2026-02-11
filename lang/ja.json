@@ -110,6 +110,7 @@
     "Invalid filename.": "無効なファイル名",
     "Invalid JSON was returned from the route.": "無効なJSON形式がルートから返却されました。",
     "Invalid SSL Certificate": "無効なSSL証明書",
+    "length": "長さ",
     "Length Required": "長さが必要",
     "Like": "いいね",
     "Load": "負荷",

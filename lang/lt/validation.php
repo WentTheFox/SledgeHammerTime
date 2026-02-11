@@ -42,6 +42,7 @@ return [
     'doesnt_end_with'        => 'Laukas :attribute negali baigtis viena iš šių reikšmių: :values.',
     'doesnt_start_with'      => 'Laukas :attribute negali prasidėti viena iš šių reikšmių: :values.',
     'email'                  => 'Lauko :attribute reikšmė turi būti galiojantis el. pašto adresas.',
+    'encoding'               => 'The :attribute field must be encoded in :encoding.',
     'ends_with'              => 'Laukas :attribute turi baigtis vienu iš: :values',
     'enum'                   => 'Pasirinkta negaliojanti :attribute reikšmė.',
     'exists'                 => 'Pasirinkta negaliojanti :attribute reikšmė.',
