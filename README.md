@@ -109,6 +109,7 @@ English and Hungarian translations have been included, so no translators will be
   - [HumainAbsurde](https://crowdin.com/profile/humain)
   - [ImTheSpyke](https://crowdin.com/profile/ImTheSpyke)
   - [Kyaz](https://crowdin.com/profile/09kyaz)
+  - [Linconuto DewishVersionNul](https://crowdin.com/profile/Mermourde)
   - [M4gicalCat](https://crowdin.com/profile/M4gicalCat)
   - [Malalia Mimi](https://crowdin.com/profile/MialyMusic)
   - [Nathan LAX](https://crowdin.com/profile/nathanfurry-neku)
@@ -139,6 +140,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Amit Cohen](https://crowdin.com/profile/ZeRealOne)
   - [Arthur](https://crowdin.com/profile/DuperKnight)
   - [didli789](https://crowdin.com/profile/didli789)
+  - [LiadProtop](https://crowdin.com/profile/liadgreen1970)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
 - 🇮🇳 Hindi
   - [Balajiasli](https://crowdin.com/profile/Balajiasli)
@@ -197,6 +199,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Not so nice potato](https://crowdin.com/profile/regimanhj)
 - 🇵🇱 Polish
   - [Aenrot Guile](https://crowdin.com/profile/aenriot)
+  - [Bartek Koszutowski](https://crowdin.com/profile/koszutowski.bartek)
   - [kaczuszki są najlepsze!](https://crowdin.com/profile/ToMacMa)
   - [Luna A](https://crowdin.com/profile/LumiKitten)
   - [meeekos](https://crowdin.com/profile/meeekos)
