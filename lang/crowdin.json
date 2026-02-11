@@ -1071,6 +1071,21 @@
     "17560756": {
       "username": "Wellery",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17560756/medium/011e4cbc8aff507e0c1475b1068aef52.jpeg"
+    },
+    "17570624": {
+      "username": "Mermourde",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17570624/medium/eeeee134fa9f8ff3c2c1eae150bc09f9.png",
+      "fullName": "Linconuto DewishVersionNul"
+    },
+    "17571446": {
+      "username": "liadgreen1970",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17571446/medium/c183b46bbec5267459ea56b589b928b2.png",
+      "fullName": "LiadProtop"
+    },
+    "17571936": {
+      "username": "koszutowski.bartek",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17571936/medium/c6807c34f177502713533c2861d2cf0e.jpeg",
+      "fullName": "Bartek Koszutowski"
     }
   },
   "languages": {
@@ -1255,11 +1270,12 @@
         "17433118",
         "16303638",
         "17134580",
-        "17551174"
+        "17551174",
+        "17570624"
       ],
       "progress": {
         "approval": 96,
-        "translation": 97
+        "translation": 98
       }
     },
     "he": {
@@ -1268,11 +1284,12 @@
         "15269410",
         "14240276",
         "16669695",
-        "17430436"
+        "17430436",
+        "17571446"
       ],
       "progress": {
         "approval": 9,
-        "translation": 9
+        "translation": 10
       }
     },
     "hi": {
@@ -1441,7 +1458,7 @@
       ],
       "progress": {
         "approval": 51,
-        "translation": 51
+        "translation": 61
       }
     },
     "pl": {
@@ -1457,7 +1474,8 @@
         "15502506",
         "17486798",
         "17436820",
-        "17490278"
+        "17490278",
+        "17571936"
       ],
       "progress": {
         "approval": 98,
