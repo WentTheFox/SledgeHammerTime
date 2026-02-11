@@ -442,22 +442,26 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   getInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp?: string | null, zeroSeconds?: boolean): [string, string] {
     const initialTs = typeof defaultUnixTimestamp === 'string' ? parseInt(defaultUnixTimestamp, 10) * 1000 : new Date().getTime();
 
-    let tzDate: TZDate;
+    let tzDate = new TZDate(1970, 0, 1, 0, 0, 0, 'UTC');
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const offsetString = getUtcOffsetString(timezone);
+        console.debug('TimeZoneSelectionType.OFFSET', { initialTs, timezone, offsetString });
         tzDate = this.applyOffsetToDate(new TZDate(initialTs, offsetString));
         break;
       }
       case TimeZoneSelectionType.ZONE_NAME:
+        console.debug('TimeZoneSelectionType.ZONE_NAME', { initialTs, timezone });
         tzDate = this.applyOffsetToDate(new TZDate(initialTs, timezone.name));
         break;
     }
 
     if (zeroSeconds) {
+      console.debug('zeroSeconds', { tzDate });
       tzDate = new TZDate(setSeconds(tzDate, 0), tzDate.timeZone);
     }
 
+    console.debug('preformat', { tzDate });
     const dateString = format(tzDate, isoFormattingDateFormat);
     const timeString = format(tzDate, isoTimeFormat);
     return [dateString, timeString];
