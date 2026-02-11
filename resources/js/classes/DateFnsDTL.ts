@@ -446,12 +446,19 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const offsetString = getUtcOffsetString(timezone);
-        console.debug('TimeZoneSelectionType.OFFSET', { initialTs, timezone, offsetString });
+        console.debug('TimeZoneSelectionType.OFFSET', {
+          initialTs,
+          timezone: JSON.stringify(timezone),
+          offsetString,
+        });
         tzDate = this.applyOffsetToDate(new TZDate(initialTs, offsetString));
         break;
       }
       case TimeZoneSelectionType.ZONE_NAME:
-        console.debug('TimeZoneSelectionType.ZONE_NAME', { initialTs, timezone });
+        console.debug('TimeZoneSelectionType.ZONE_NAME', {
+          initialTs,
+          timezone: JSON.stringify(timezone),
+        });
         tzDate = this.applyOffsetToDate(new TZDate(initialTs, timezone.name));
         break;
     }
