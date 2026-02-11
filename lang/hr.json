@@ -110,6 +110,7 @@
     "Invalid filename.": "Neispravan naziv datoteke.",
     "Invalid JSON was returned from the route.": "S rute je vraćen neispravan JSON.",
     "Invalid SSL Certificate": "Nevažeći SSL certifikat",
+    "length": "dužina",
     "Length Required": "Potrebna duljina",
     "Like": "Kao",
     "Load": "Opterećenje",

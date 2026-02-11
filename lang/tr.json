@@ -110,6 +110,7 @@
     "Invalid filename.": "Geçersiz dosya adı.",
     "Invalid JSON was returned from the route.": "Yoldan geçersiz JSON döndürüldü.",
     "Invalid SSL Certificate": "Geçersiz SSL Sertifikası",
+    "length": "uzunluk",
     "Length Required": "Uzunluk Gerekli",
     "Like": "Beğenmek",
     "Load": "Yük",

@@ -110,6 +110,7 @@
     "Invalid filename.": "Файлын нэр буруу.",
     "Invalid JSON was returned from the route.": "Буруу JSON-г маршрутаас буцаасан.",
     "Invalid SSL Certificate": "Хүчингүй SSL гэрчилгээ",
+    "length": "урт",
     "Length Required": "Шаардлагатай урт",
     "Like": "Дуртай",
     "Load": "Ачаалал",
