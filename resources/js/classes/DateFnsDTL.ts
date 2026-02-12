@@ -435,13 +435,17 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   getDefaultInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp: string | undefined | null): [string, string] {
+    console.debug('getDefaultInitialDateTime', {
+      timezone: JSON.stringify(timezone),
+      defaultUnixTimestamp,
+    });
     const hasDefaultTs = typeof defaultUnixTimestamp === 'string';
     return this.getInitialDateTime(timezone, defaultUnixTimestamp, !hasDefaultTs);
   }
 
   getInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp?: string | null, zeroSeconds?: boolean): [string, string] {
     const initialTs = typeof defaultUnixTimestamp === 'string' ? parseInt(defaultUnixTimestamp, 10) * 1000 : new Date().getTime();
-    console.debug({
+    console.debug('getInitialDateTime', {
       timezone: JSON.stringify(timezone),
       defaultUnixTimestamp,
       zeroSeconds,
