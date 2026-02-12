@@ -466,8 +466,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     }
 
     if (zeroSeconds) {
-      console.debug('zeroSeconds', { tzDate });
-      tzDate = new TZDate(setSeconds(tzDate, 0), tzDate.timeZone);
+      console.debug('pre zeroSeconds', { tzDate });
+      tzDate = setSeconds(tzDate, 0);
+      console.debug('post zeroSeconds', { tzDate });
     }
 
     console.debug('preformat', { tzDate });
