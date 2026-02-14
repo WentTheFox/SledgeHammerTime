@@ -61,9 +61,9 @@ return [
       'commands' => [
         'in' => 'Je moet minstens één tijdonderdeel specificeren om het te veranderen',
         'ago' => 'U moet minstens één tijdscomponent opgeven die u wilt wijzigen',
-        'add' => 'You must specify at least one time component to change',
-        'subtract' => 'You must specify at least one time component to change',
-        'Message Sent' => 'Provides the timestamp syntax for the time when a message was sent',
+        'add' => 'Je moet minstens één tijdonderdeel specificeren dat je gewijzigd wilt hebben',
+        'subtract' => 'Je moet minstens één tijdonderdeel specificeren dat je gewijzigd wilt hebben',
+        'Message Sent' => 'Geeft de tijdstempel voor het tijdstip waarop een bericht verstuurd is',
         'Message Last Edited' => 'Specificeer de tijd syntaxis voor de tijd wanneer een bericht laatst was aangepast',
         'Extract Timestamps' => 'Geeft een lijst weer van alle dynamische tijdstempels die in een specifiek bericht zijn gevonden',
       ],
