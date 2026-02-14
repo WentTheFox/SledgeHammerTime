@@ -2,10 +2,10 @@
 
 return [
   'translations' => [
-    'title' => 'Translated Content',
+    'title' => 'Vertaalde inhoud',
     'text' => 'Dit project bevat vertalingen van vrijwillige vertalers en andere leden van de community. Deze vertalingen zijn gemaakt voor gebruiksgemak en zijn mogelijk niet altijd up-to-date. De <1>originele taal</1> van deze pagina wordt altijd als geldig beschouwd.',
   ],
-  'lastUpdated' => 'Last updated: <1/>',
+  'lastUpdated' => 'Laatst bijgewerkt op: <1/>',
   'privacy' => [
     'heading' => 'Privacybeleid',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
