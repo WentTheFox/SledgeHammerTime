@@ -12,7 +12,6 @@ const customTimePrefKey = 'custom-time-input';
 const sidebarPrefKey = 'sidebar-right';
 const sidebarOpenPrefKey = 'sidebar-open';
 const lightThemePrefKey = 'light-theme';
-const autoTimeSyncPrefKey = 'auto-time-sync';
 const hourCyclePrefKey = 'hour-cycle';
 const firstDayOfWeekPrefKey = 'first-day-of-week';
 
@@ -30,7 +29,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const sidebarOnRight = ref<boolean | null>(null);
   const sidebarOpen = ref<boolean | null>(null);
   const isLightTheme = ref<boolean | null>(null);
-  const autoTimeSync = ref<boolean | null>(null);
   const hourCycle = ref<HourCycle | null>(null);
   const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
 
@@ -73,9 +71,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       return;
     }
     localStorage.setItem(lightThemePrefKey, newValue ? 'true' : 'false');
-  });
-  watch(autoTimeSync, (newValue) => {
-    localStorage.setItem(autoTimeSyncPrefKey, newValue ? 'true' : 'false');
   });
   watch(hourCycle, (newValue) => {
     if (newValue === null) {
@@ -141,11 +136,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     // The feature is unset by default
     isLightTheme.value = nullByDefault(storedPref);
   };
-  const setInitialAutoTimeSync = () => {
-    const storedPref = localStorage.getItem(autoTimeSyncPrefKey);
-    // The feature is disabled by default
-    autoTimeSync.value = falseByDefault(storedPref);
-  };
   const setInitialHourCycle = () => {
     const storedPref = localStorage.getItem(hourCyclePrefKey);
     if (isValidHourCycle(storedPref)) {
@@ -171,7 +161,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialSidebarOnRight();
     setInitialSidebarOpen();
     setInitialLightTheme();
-    setInitialAutoTimeSync();
     setInitialHourCycle();
     setInitialFirstDayOfWeek();
   });
@@ -187,7 +176,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     rawSidebarOnRight: sidebarOnRight,
     sidebarOpen,
     isLightTheme,
-    autoTimeSync,
     hourCycle,
     firstDayOfWeek,
     toggleNaturalLanguageInput(e: Event) {
@@ -224,11 +212,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setLightTheme(isLight: boolean | null) {
       isLightTheme.value = isLight;
     },
-    toggleAutoTimeSync(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      autoTimeSync.value = e.target.checked;
-    },
     setHourCycle(e: Event) {
       if (!(e.target instanceof HTMLSelectElement)) return;
 
@@ -245,5 +228,3 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     },
   };
 };
-
-export type LocalSettingsValue = ReturnType<typeof useLocalSettings>;
