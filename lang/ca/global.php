@@ -116,9 +116,9 @@ return [
       'notAffiliated' => 'Aquest projecte no està afiliat amb Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
-      'light' => 'Light Theme',
-      'system' => 'Use System Theme',
+      'dark' => 'Tema fosc',
+      'light' => 'Tema clar',
+      'system' => 'Utilitzeu el tema del sistema',
     ],
   ],
   'designEditor' => [

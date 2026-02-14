@@ -28,14 +28,14 @@ return [
     'botSettings' => 'App-instellingen',
     'profile' => 'Profiel',
     'legal' => 'Juridische informatie',
-    'analytics' => 'Analytics',
+    'analytics' => 'Statistieken',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Input instellingen',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time invoerveld',
+        'description' => 'Maak het mogelijk om de geselecteerde tijdstempel te manipuleren met natuurlijke taal (bijv. "over 5 uur") via een extra vrije tekstinvoer. Vergelijkbaar met de nieuwe Discord @time tag. Slechts een beperkt aantal talen wordt ondersteund.',
       ],
       'customDateInput' => [
         'label' => 'Aangepaste datum input',
@@ -54,22 +54,22 @@ return [
         'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
       ],
       'hourCycle' => [
-        'label' => 'Custom time input clock type',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'label' => 'Type aangepaste tijdsinput klok',
+        'description' => 'Wijzigen hoe uren worden weergegeven in de aangepaste tijd invoer. Heeft geen effect op de voorbeeldenkolom.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Taal standaard',
           'h12' => '12-uurs',
-          'h24' => '24-hour',
+          'h24' => '24-uurs',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Eerste dag van de week',
+        'description' => 'Verander welke dag moet worden beschouwd als de eerste dag van de week in de kalender van de aangepaste datuminvoer.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Taal standaard',
         ],
       ],
-      'advancedSettings' => 'Advanced input settings',
+      'advancedSettings' => 'Geavanceerde input instellingen',
     ],
     'timeSync' => [
       'title' => 'Tijdsynchronisatie',
