@@ -7,11 +7,7 @@ import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-se
 export interface DateTimeLibrary<T = any, L = any> {
   readonly timezoneNames: string[];
 
-  get offset(): number;
-
   getMinimumOffsetMs(): number;
-
-  updateOffset(offsetMs: number): void;
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string;
 
