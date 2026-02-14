@@ -110,6 +110,7 @@
     "Invalid filename.": "Érvénytelen fájlnév.",
     "Invalid JSON was returned from the route.": "Érvénytelen JSON-t adtak vissza az útvonalról.",
     "Invalid SSL Certificate": "Érvénytelen SSL-tanúsítvány",
+    "length": "hossz",
     "Length Required": "Hossz szükséges",
     "Like": "Mint",
     "Load": "Betöltés",

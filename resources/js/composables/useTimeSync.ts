@@ -14,7 +14,7 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
 
   const syncing = computed(() => isNaN(ntpOffsetMs.value));
 
-  const syncTime = async (apply: boolean = true) => {
+  const syncTime = async () => {
     ntpOffsetMs.value = NaN;
     let newT1: number, newT2: number;
     const newT0 = Date.now();
@@ -44,10 +44,6 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
     t1.value = dtl.value.fromTimestampMsUtc(newT1);
     t2.value = dtl.value.fromTimestampMsUtc(newT2);
     t3.value = dtl.value.fromTimestampMsUtc(newT3);
-
-    if (apply) {
-      dtl.value.updateOffset(Math.round(ntpOffsetMs.value));
-    }
   };
 
   return { syncTime, syncing, t0, t1, t2, t3, ntpOffsetMs };

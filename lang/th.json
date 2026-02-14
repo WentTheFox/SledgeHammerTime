@@ -110,6 +110,7 @@
     "Invalid filename.": "ชื่อไฟล์ไม่ถูกต้อง",
     "Invalid JSON was returned from the route.": "JSON ที่ไม่ถูกรูปแบบ ถูกส่งกลับจากเส้นทาง",
     "Invalid SSL Certificate": "ใบรับรอง SSL ไม่ถูกต้อง",
+    "length": "ความยาว",
     "Length Required": "ต้องระบุความยาวของเนื้อหา",
     "Like": "ชอบ",
     "Load": "โหลด",

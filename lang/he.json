@@ -110,6 +110,7 @@
     "Invalid filename.": "שם קובץ לא חוקי.",
     "Invalid JSON was returned from the route.": "JSON לא חוקי הוחזר מהמסלול.",
     "Invalid SSL Certificate": "אישור SSL לא חוקי",
+    "length": "מֶשֶׁך",
     "Length Required": "אורך נדרש",
     "Like": "כמו",
     "Load": "לִטעוֹן",

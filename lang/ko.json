@@ -110,6 +110,7 @@
     "Invalid filename.": "파일 이름이 잘못되었습니다.",
     "Invalid JSON was returned from the route.": "경로에서 잘못된 JSON이 반환되었습니다.",
     "Invalid SSL Certificate": "잘못된 SSL 인증서",
+    "length": "길이",
     "Length Required": "필요한 길이",
     "Like": "좋아요",
     "Load": "불러오기",

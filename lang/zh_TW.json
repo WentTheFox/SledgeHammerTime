@@ -110,6 +110,7 @@
     "Invalid filename.": "無效的檔案名稱。",
     "Invalid JSON was returned from the route.": "路由回傳了無效的 JSON。",
     "Invalid SSL Certificate": "無效的 SSL 證書",
+    "length": "長度",
     "Length Required": "所需長度",
     "Like": "喜歡",
     "Load": "載入",

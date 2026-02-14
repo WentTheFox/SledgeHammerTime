@@ -110,6 +110,7 @@
     "Invalid filename.": "Nom de fitxer no vàlid.",
     "Invalid JSON was returned from the route.": "S'ha retornat un JSON no vàlid des de la ruta.",
     "Invalid SSL Certificate": "Certificat SSL no vàlid",
+    "length": "longitud",
     "Length Required": "Longitud requerida",
     "Like": "M'agrada",
     "Load": "Carrega",

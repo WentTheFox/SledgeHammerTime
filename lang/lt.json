@@ -110,6 +110,7 @@
     "Invalid filename.": "Neteisingas failo pavadinimas.",
     "Invalid JSON was returned from the route.": "Iš maršruto buvo grąžintas netinkamas JSON.",
     "Invalid SSL Certificate": "Neteisingas SSL sertifikatas",
+    "length": "ilgio",
     "Length Required": "Reikalingas ilgis",
     "Like": "Kaip",
     "Load": "Įkelti",

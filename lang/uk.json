@@ -110,6 +110,7 @@
     "Invalid filename.": "Недійсна назва файлу.",
     "Invalid JSON was returned from the route.": "З маршруту повернуто недійсний JSON.",
     "Invalid SSL Certificate": "Недійсний сертифікат SSL",
+    "length": "довжина",
     "Length Required": "Необхідна довжина",
     "Like": "Люблю",
     "Load": "навантаження",

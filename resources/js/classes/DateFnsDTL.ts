@@ -39,7 +39,6 @@ const isoTimeFormat = 'HH:mm:ss';
 const isoFormattingDateFormat = 'yyyy-MM-dd';
 const isoParsingDateFormat = 'yyyy-MM-dd';
 const isoFormat = `${isoFormattingDateFormat} ${isoTimeFormat}`;
-const oneSecondInMs = 1e3 * 60;
 const oneMinuteInSecondsMs = 1e3 * 60;
 const alreadyLoggedMissingLocaleNames = new Set<string>();
 
@@ -107,7 +106,7 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
 
   set value(value: TZDate) {
     const valueCopy = new TZDate(value, value.timeZone);
-    valueCopy.setTime(value.getTime() - this.library.offset);
+    valueCopy.setTime(value.getTime());
     this.rawValue = value;
   }
 
@@ -297,28 +296,9 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
  */
 export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   readonly timezoneNames = timezoneNames;
-  private _offset: number = 0;
-
-  get offset(): number {
-    return this._offset;
-  }
 
   getMinimumOffsetMs(): number {
     return oneMinuteInSecondsMs * 5;
-  }
-
-  updateOffset(offsetMs: number) {
-    if (isNaN(offsetMs)) {
-      return;
-    }
-    const offsetMinimum = this.getMinimumOffsetMs();
-    if (Math.abs(offsetMs) < offsetMinimum) {
-      this._offset = 0;
-      return;
-    }
-
-    // Only apply offsets in whole seconds
-    this._offset = Math.round(offsetMs / oneSecondInMs) * oneSecondInMs;
   }
 
   getLocaleNameFromLanguage(language: AvailableLanguage): string {
@@ -361,9 +341,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
           return DateTimeLibraryWeekday.Sunday;
 
         default:
-          // Get first day of week based on locale
+          // Get the first day of week based on locale
           // Default to Sunday (0) if not available
-          return (locale?.options?.weekStartsOn ?? 0) as DateTimeLibraryWeekday;
+          return (locale?.options?.weekStartsOn ?? DateTimeLibraryWeekday.Sunday) as DateTimeLibraryWeekday;
       }
     };
 
@@ -435,29 +415,43 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   getDefaultInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp: string | undefined | null): [string, string] {
+    console.debug('getDefaultInitialDateTime', {
+      timezone: JSON.stringify(timezone),
+      defaultUnixTimestamp,
+    });
     const hasDefaultTs = typeof defaultUnixTimestamp === 'string';
     return this.getInitialDateTime(timezone, defaultUnixTimestamp, !hasDefaultTs);
   }
 
   getInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp?: string | null, zeroSeconds?: boolean): [string, string] {
     const initialTs = typeof defaultUnixTimestamp === 'string' ? parseInt(defaultUnixTimestamp, 10) * 1000 : new Date().getTime();
+    console.debug('getInitialDateTime', {
+      timezone: JSON.stringify(timezone),
+      defaultUnixTimestamp,
+      zeroSeconds,
+      initialTs,
+    });
 
-    let tzDate: TZDate;
+    let tzDate = new TZDate(1970, 0, 1, 0, 0, 0, 'UTC');
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const offsetString = getUtcOffsetString(timezone);
-        tzDate = this.applyOffsetToDate(new TZDate(initialTs, offsetString));
+        console.debug('TimeZoneSelectionType.OFFSET', { offsetString });
+        tzDate = new TZDate(initialTs, offsetString);
         break;
       }
       case TimeZoneSelectionType.ZONE_NAME:
-        tzDate = this.applyOffsetToDate(new TZDate(initialTs, timezone.name));
+        tzDate = new TZDate(initialTs, timezone.name);
         break;
     }
 
     if (zeroSeconds) {
-      tzDate = new TZDate(setSeconds(tzDate, 0), tzDate.timeZone);
+      console.debug('pre zeroSeconds', { tzDate });
+      tzDate = setSeconds(tzDate, 0);
+      console.debug('post zeroSeconds', { tzDate });
     }
 
+    console.debug('preformat', { tzDate });
     const dateString = format(tzDate, isoFormattingDateFormat);
     const timeString = format(tzDate, isoTimeFormat);
     return [dateString, timeString];
@@ -474,11 +468,11 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   nowInZone(timezone: string): DateTimeLibraryValue<TZDate> {
-    return new DateFnsDTLValue(new TZDate(this.applyOffsetToDate(), timezone), { library: this });
+    return new DateFnsDTLValue(new TZDate(new Date(), timezone), { library: this });
   }
 
   convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<Locale>): string {
-    const dateTime = parse(`${date} ${time}`, isoFormat, this.applyOffsetToDate());
+    const dateTime = parse(`${date} ${time}`, isoFormat, new Date());
     const localeObj = locale.lowLevelValue;
 
     // Format strings to match expected outputs for each locale
@@ -495,7 +489,7 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   convertIsoToLocalizedDateInputValue(date: string, locale: DateTimeLibraryLocale<Locale>): string {
-    const dateObj = parse(date, isoParsingDateFormat, this.applyOffsetToDate());
+    const dateObj = parse(date, isoParsingDateFormat, new Date());
     const localeObj = locale.lowLevelValue;
 
     // Format strings to match expected outputs for each locale
@@ -532,11 +526,11 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
-        const parsedDate = parse(inputString, isoFormat, new TZDate(this.applyOffsetToDate(), getUtcOffsetString(timezone)));
+        const parsedDate = parse(inputString, isoFormat, new TZDate(new Date(), getUtcOffsetString(timezone)));
         return new DateFnsDTLValue(parsedDate, { library: this });
       }
       case TimeZoneSelectionType.ZONE_NAME: {
-        const parsedDate = parse(inputString, isoFormat, new TZDate(this.applyOffsetToDate(), timezone.name));
+        const parsedDate = parse(inputString, isoFormat, new TZDate(new Date(), timezone.name));
         return new DateFnsDTLValue(parsedDate, { library: this });
       }
     }
@@ -556,10 +550,5 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     const utcDate = new Date(timestamp);
     // Create TZDate with explicit UTC timezone
     return new DateFnsDTLValue(new TZDate(utcDate, 'Etc/UTC'), { library: this });
-  }
-
-  private applyOffsetToDate<T extends Date>(date: T = new Date() as T): T {
-    date.setTime(date.getTime() - this.offset);
-    return date;
   }
 }

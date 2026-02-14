@@ -56,7 +56,6 @@ export interface LocalSettingsValue {
   readonly sidebarOnRight: boolean | null;
   readonly sidebarOpen: boolean | null;
   readonly isLightTheme: boolean | null;
-  readonly autoTimeSync: boolean | null;
   readonly hourCycle: HourCycle | null;
   readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
   readonly toggleNaturalLanguageInput: (e: Event) => void;
@@ -67,7 +66,6 @@ export interface LocalSettingsValue {
   readonly toggleSidebarOnRight: VoidFunction;
   readonly setSidebarOpen: (value: boolean) => void;
   readonly setLightTheme: (isLight: boolean | null) => void;
-  readonly toggleAutoTimeSync: (e: Event) => void;
   readonly setHourCycle: (e: Event) => void;
   readonly setFirstDayOfWeek: (e: Event) => void;
 }
@@ -107,7 +105,7 @@ export const timeSyncInject = Symbol('timeSyncInject') as InjectionKey<DeepReado
   t3: DateTimeLibraryValue | null;
   ntpOffsetMs: number;
   syncing: boolean;
-  syncTime(apply: boolean): Promise<void>;
+  syncTime(): Promise<void>;
 }>>;
 
 export interface BotInfoUsageFetchOptions {

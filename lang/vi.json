@@ -110,6 +110,7 @@
     "Invalid filename.": "Tên tập tin không hợp lệ.",
     "Invalid JSON was returned from the route.": "JSON không hợp lệ đã được trả về từ tuyến đường.",
     "Invalid SSL Certificate": "Chứng Chỉ SSL Không Hợp Lệ",
+    "length": "độ dài",
     "Length Required": "Yêu Cầu Chiều Dài",
     "Like": "Giống",
     "Load": "Trọng tải",
