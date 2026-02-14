@@ -110,6 +110,7 @@
     "Invalid filename.": "اسم الملف غير صالح.",
     "Invalid JSON was returned from the route.": "تم إرجاع JSON غير صالح من المسار.",
     "Invalid SSL Certificate": "شهادة SSL غير صالحة",
+    "length": "الطول",
     "Length Required": "المدة المطلوبة",
     "Like": "إعجاب",
     "Load": "تحميل",

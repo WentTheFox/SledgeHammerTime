@@ -42,6 +42,7 @@ return [
     'doesnt_end_with'        => ':Attribute mungkin tidak berakhir dengan salah satu daripada yang berikut: :values.',
     'doesnt_start_with'      => ':Attribute mungkin tidak bermula dengan salah satu daripada yang berikut: :values.',
     'email'                  => ':Attribute tidak sah.',
+    'encoding'               => 'The :attribute field must be encoded in :encoding.',
     'ends_with'              => ':Attribute mesti berakhir dengan salah satu dari: :values.',
     'enum'                   => ':Attribute yang dipilih adalah tidak sah.',
     'exists'                 => ':Attribute tidak sah.',

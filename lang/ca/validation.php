@@ -42,6 +42,7 @@ return [
     'doesnt_end_with'        => 'El :attribute no pot acabar amb un dels següents: :values.',
     'doesnt_start_with'      => 'El :attribute no pot començar amb un dels següents: :values.',
     'email'                  => ':Attribute no és un e-mail vàlid',
+    'encoding'               => 'The :attribute field must be encoded in :encoding.',
     'ends_with'              => 'La :attribute ha d\'acabar amb una de les següents: :values.',
     'enum'                   => 'El :attribute seleccionat no és vàlid.',
     'exists'                 => ':Attribute és invàlid.',

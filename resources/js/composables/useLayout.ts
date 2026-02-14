@@ -74,7 +74,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
   provide(isJsUnavailableInject, readonly(isJsUnavailable));
 
   const route = useRoute();
-  const { dateTimeLibrary, timeSync } = useDateTimeLibrary(route, localSettingsValue);
+  const { dateTimeLibrary, timeSync } = useDateTimeLibrary(route);
   provide(dateTimeLibraryInject, dateTimeLibrary);
   provide(timeSyncInject, readonly(timeSync));
 

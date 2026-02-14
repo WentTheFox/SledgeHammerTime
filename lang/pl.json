@@ -110,6 +110,7 @@
     "Invalid filename.": "Nieprawidłowa nazwa pliku.",
     "Invalid JSON was returned from the route.": "Routing zwrócił nieprawidłowy kod JSON.",
     "Invalid SSL Certificate": "Nieprawidłowy certyfikat SSL",
+    "length": "długość",
     "Length Required": "Wymagana długość",
     "Like": "Lubię",
     "Load": "Załaduj",

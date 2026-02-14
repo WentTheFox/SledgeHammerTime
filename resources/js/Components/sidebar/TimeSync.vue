@@ -1,34 +1,26 @@
 <script setup lang="ts">
-import FormMessage from '@/Components/FormMessage.vue';
 import SyncResultsVisualization from '@/Components/sidebar/SyncResultsVisualization.vue';
-import { dateTimeLibraryInject, localSettingsInject, timeSyncInject } from '@/injection-keys';
+import { dateTimeLibraryInject, timeSyncInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtButton from '@/Reusable/HtButton.vue';
-import HtButtonGroup from '@/Reusable/HtButtonGroup.vue';
 import HtCollapsible, { CollapsibleAPI } from '@/Reusable/HtCollapsible.vue';
-import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
-import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
-import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtTable from '@/Reusable/HtTable.vue';
-import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { fa0, faCaretDown, faCaretUp, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, inject, nextTick, ref, useTemplateRef, watch } from 'vue';
 
-const settings = inject(localSettingsInject);
 const dtl = inject(dateTimeLibraryInject);
 const timeSync = inject(timeSyncInject);
 const detailsCollapsible = useTemplateRef<CollapsibleAPI>('details-collapsible');
 
 const showSyncDetails = ref(false);
-const autoApply = ref(true);
 
 const inaccurateSystemClockThresholdMs = computed(() => dtl?.value.getMinimumOffsetMs());
 const isSystemClockAccurate = computed(() => typeof timeSync?.ntpOffsetMs === 'number' && typeof inaccurateSystemClockThresholdMs.value === 'number' && (isNaN(timeSync.ntpOffsetMs) || timeSync.ntpOffsetMs < inaccurateSystemClockThresholdMs.value));
 const roundTripDurationMs = computed(() => (timeSync?.t3?.value ?? 0) - (timeSync?.t0?.value ?? 0));
 
 const syncTime = () => {
-  timeSync?.syncTime(autoApply.value);
+  timeSync?.syncTime();
 };
 watch(() => timeSync?.syncing, (newValue) => {
   if (newValue) return;
@@ -92,14 +84,6 @@ watch(() => timeSync?.syncing, (newValue) => {
       <HtTable>
         <tbody>
           <tr>
-            <th>{{ $t('global.sidebar.timeSync.dtlOffsetCell') }}</th>
-            <td>
-              {{
-                $t('global.sidebar.timeSync.offsetAmount', { offset: String(dtl?.offset) })
-              }}
-            </td>
-          </tr>
-          <tr>
             <th>{{ $t('global.sidebar.timeSync.networkOffsetCell') }}</th>
             <td>
               {{
@@ -118,65 +102,17 @@ watch(() => timeSync?.syncing, (newValue) => {
         </tbody>
       </HtTable>
 
-      <HtFormControlGroup>
-        <HtFormCheckboxControlled
-          id="auto-time-sync"
-          :label="$t('global.sidebar.timeSync.autoTimeSync.label')"
-          :checked="Boolean(settings?.autoTimeSync)"
-          @change="settings?.toggleAutoTimeSync"
-        >
-          <template #message>
-            <FormMessage
-              class="mt-1"
-              :description="true"
-            >
-              <template #message>
-                <HtTranslate
-                  i18n-key="global.sidebar.timeSync.autoTimeSync.description"
-                  :replacements="{ offset: $t('global.sidebar.timeSync.offsetAmount', { offset: String(inaccurateSystemClockThresholdMs) }) }"
-                >
-                  <template #1="slotProps">
-                    <strong>{{ slotProps.text }}</strong>
-                  </template>
-                </HtTranslate>
-              </template>
-              =
-            </FormMessage>
-          </template>
-        </HtFormCheckboxControlled>
-      </HtFormControlGroup>
-      <form @submit.prevent="syncTime">
-        <HtFormControlGroup>
-          <HtFormCheckboxModelled
-            id="auto-apply"
-            v-model="autoApply"
-            name="autoApply"
-            :label="$t('global.sidebar.timeSync.autoApplyCheckbox', {
-              syncButtonLabel: $t('global.sidebar.timeSync.syncButtonLabel'),
-              offset: $t('global.sidebar.timeSync.offsetAmount', { offset: String(inaccurateSystemClockThresholdMs) }),
-            })"
-          />
-        </HtFormControlGroup>
-        <HtButtonGroup :separated="true">
-          <HtButton
-            type="submit"
-            color="primary"
-            :icon-start="faClockRotateLeft"
-            :pressed="timeSync?.syncing"
-            :loading="timeSync?.syncing"
-            :disabled="!timeSync"
-          >
-            {{ $t('global.sidebar.timeSync.syncButtonLabel') }}
-          </HtButton>
-          <HtButton
-            :icon-start="fa0"
-            :disabled="dtl?.offset === 0"
-            @click="dtl?.updateOffset(0)"
-          >
-            {{ $t('global.sidebar.timeSync.resetOffsetButtonLabel') }}
-          </HtButton>
-        </HtButtonGroup>
-      </form>
+      <HtButton
+        type="submit"
+        color="primary"
+        :icon-start="faClockRotateLeft"
+        :pressed="timeSync?.syncing"
+        :loading="timeSync?.syncing"
+        :disabled="!timeSync"
+        @click="syncTime"
+      >
+        {{ $t('global.sidebar.timeSync.syncButtonLabel') }}
+      </HtButton>
     </HtCollapsible>
   </section>
 </template>

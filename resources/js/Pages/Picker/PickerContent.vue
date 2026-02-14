@@ -8,7 +8,6 @@ import { useRouteParams } from '@/composables/useRouteParams';
 import { useUiLocale } from '@/composables/useUiLocale';
 import {
   dateTimeLibraryInject,
-  localSettingsInject,
   pagePropsInject,
   timestampInject,
   timeSyncInject,
@@ -16,7 +15,7 @@ import {
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString, normalizeTimeString } from '@/utils/time';
 import { router } from '@inertiajs/vue3';
-import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref, watch } from 'vue';
+import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref } from 'vue';
 
 const props = defineProps<{
   initialDate?: string;
@@ -25,7 +24,6 @@ const props = defineProps<{
 }>();
 
 const dtl = inject(dateTimeLibraryInject);
-const settings = inject(localSettingsInject);
 const timeSync = inject(timeSyncInject);
 const pageProps = inject(pagePropsInject);
 
@@ -123,9 +121,9 @@ const refresh = () => {
   if (dateTimeSelectionChanged.value) return;
   [dateString.value, timeString.value] = restoreLastTime() ?? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, defaultUnixTimestamp.value) ?? ['', ''];
 };
-const setNlpDate = (date: Date|null) => {
+const setNlpDate = (date: Date | null) => {
   nlpDate.value = (date && dtl?.value.fromIsoString(date.toISOString())) || null;
-}
+};
 
 provide(timestampInject, {
   currentTimestamp,
@@ -146,17 +144,16 @@ provide(timestampInject, {
   lock,
 });
 
-const handleTimeSync = async (newAutoTimeSync: boolean | null | undefined) => {
+const handleTimeSync = async () => {
   if (typeof window === 'undefined') return;
   await nextTick();
-  await timeSync?.syncTime(newAutoTimeSync === true);
+  await timeSync?.syncTime();
   await nextTick();
   refresh();
 };
 onMounted(() => {
-  handleTimeSync(settings?.autoTimeSync);
+  handleTimeSync();
 });
-watch(() => settings?.autoTimeSync, handleTimeSync);
 </script>
 
 <template>

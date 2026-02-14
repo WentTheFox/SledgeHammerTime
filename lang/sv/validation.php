@@ -42,6 +42,7 @@ return [
     'doesnt_end_with'        => ':Attribute får inte sluta med det följande värden: :values.',
     'doesnt_start_with'      => ':Attribute får inte börja med följande värden: :values.',
     'email'                  => ':Attribute måste innehålla en korrekt e-postadress.',
+    'encoding'               => 'The :attribute field must be encoded in :encoding.',
     'ends_with'              => ':Attribute måste sluta med en av följande: :values.',
     'enum'                   => ':Attribute är ogiltigt.',
     'exists'                 => ':Attribute existerar ej i databasen och är därför ogiltigt.',

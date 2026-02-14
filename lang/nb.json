@@ -110,6 +110,7 @@
     "Invalid filename.": "Ugyldig filnavn.",
     "Invalid JSON was returned from the route.": "Ugyldig JSON ble returnert fra endepunktet.",
     "Invalid SSL Certificate": "Ugyldig SSL-sertifikat",
+    "length": "lengde",
     "Length Required": "Lengde påkrevd",
     "Like": "Som",
     "Load": "Laste",
