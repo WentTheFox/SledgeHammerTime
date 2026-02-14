@@ -8,7 +8,7 @@ return [
       'time' => 'Tijd',
       'dateAndTime' => 'Datum en tijd',
       'timezone' => 'Tijdzone',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time invoer',
       'modeOffset' => 'Absoluut tijdsverschil',
       'modeZoneName' => 'Tijdzone Naam',
     ],
@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Oude Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'De oude website van dit project. Beschikbaar tot anders wordt vermeld',
     ],
     'textColor' => [
       'header' => 'Rebane\'s <1>gekleurde</1> tekst generator',

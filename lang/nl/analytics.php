@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'Paginaweergave statistieken',
+  'description' => 'Deze pagina bevat statistieken (zowel opgeslagen als weergegeven zonder persoonlijk identificeerbare gegevens) voor het totale aantal bekeken pagina\'s in de app gedurende de afgelopen 30 dagen.',
+  'collectionMethod' => 'De gegevens worden aan de serverkant verzameld, op basis van reacties die naar een beperkte set pagina\'s worden gestuurd. De bekeken pagina\'s worden individueel geregistreerd, maar dagelijks verzameld door een achtergrondproces.',
+  'lastUpdated' => 'De informatie op deze pagina wordt voor een korte periode in de cache geplaatst om de belasting van de server te verminderen. De gegevens zijn voor het laatst bijgewerkt op <1/>.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
+    'dailyTotal' => 'Totaal aantal pagina weergaven per dag',
+    'breakdown' => 'Opgesplitste pagina weergaves',
+    'byPage' => 'Per pagina',
+    'byLanguage' => 'Per taal',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Onbekend',
   ],
 ];
