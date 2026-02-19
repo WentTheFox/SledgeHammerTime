@@ -2,14 +2,14 @@
 
 return [
   'heading' => 'Statistiques des pages vues',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
+  'description' => 'Cette page comprend des statistiques basiques (à la fois stockées et affichées sans aucun détail personnel identifiable) sur le nombre total de pages vues dans l\'application ces 30 derniers jours.',
   'collectionMethod' => 'Les données sont collectées côté serveur, basé sur des réponses envoyées vers un nombre limité de pages. Les pages consultées sont enregistrées individuellement mais regroupées quotidiennement par un processus en arrière-plan.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'lastUpdated' => 'Les informations contenues dans cette page sont mises en cache pour une courte période afin de réduire la charge du serveur. Les données que vous voyez ont été mises à jour pour la dernière fois <1/>.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
+    'dailyTotal' => 'Nombre total de pages vues quotidien',
+    'breakdown' => 'Répartition des pages vues',
+    'byPage' => 'Par page',
+    'byLanguage' => 'Par langue',
   ],
   'values' => [
     'unknown' => 'Inconnu',
