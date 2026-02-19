@@ -28,7 +28,7 @@ return [
     'botSettings' => 'Paramètre de l\'application',
     'profile' => 'Profil',
     'legal' => 'Mentions légales',
-    'analytics' => 'Analytics',
+    'analytics' => 'Statistiques',
   ],
   'sidebar' => [
     'inputSettings' => [
