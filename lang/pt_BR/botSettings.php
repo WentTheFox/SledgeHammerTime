@@ -31,20 +31,20 @@ return [
       'displayName' => 'Formatar pré-visualização em negrito',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção padrão ":hourOptionName" para o comando /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção padrão ":minuteOptionName" para o comando /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção padrão ":secondOptionName" para o comando /:atCommandName',
     ],
     'telemetry' => [
       'displayName' => 'Permitir coleta de dados de Telemetria.',
       'explanation' => 'Isso é totalmente opcional e não tem nenhum efeito na capacidade de usar o "bot". Veja a página <1/> para informações.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Opção padrão ":hourOptionName" para o comando /:at12CommandName',
     ],
   ],
   'saveSuccess' => 'Suas configurações foram salvas com sucesso.',
