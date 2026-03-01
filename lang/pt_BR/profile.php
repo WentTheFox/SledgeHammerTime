@@ -8,7 +8,7 @@ return [
     'description' => "Atualizar as informações do perfil.",
     'displayName' => 'Exibir Nome',
     'hiddenFormats' => 'Formatos ocultos da tabela de seleção',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'saveSuccess' => 'Seu perfil foi atualizado com sucesso.',
   ],
   'accounts' => [
     'heading' => 'Contas Conectadas',
@@ -34,8 +34,8 @@ return [
     'description' => 'Uma vez excluída sua conta, todos os recursos e dados nela serão deletados de forma permanente. Antes disso, baixe qualquer dado ou informação que deseja manter.',
     'deleteButton' => 'Excluir Conta',
     'confirmDialog' => [
-      'header' => 'Are you sure you want to delete your account?',
-      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
+      'header' => 'Tem certeza de que deseja excluir sua conta?',
+      'body' => 'Após excluir sua conta, todos os seus recursos e dados serão excluídos permanentemente.',
     ],
   ],
 ];
