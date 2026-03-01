@@ -9,11 +9,10 @@ so here it is.
 
 This project is not affiliated with Discord in any way shape or form.
 
-Application logo based on [Hammer] by John Caserta, from The Noun Project licensed under [CC BY 3.0 Unported]
+Application logo based on [Hammer] by John Caserta from [Noun Project] (CC BY 3.0)
 
-[hammer]: https://meta.m.wikimedia.org/wiki/File:Hammer_-_Noun_project_1306.svg
-
-[cc by 3.0 unported]: https://creativecommons.org/licenses/by/3.0/deed.en
+[Hammer]: https://dereferer.me/?https://thenounproject.com/icon/hammer-1306/
+[Noun Project]: https://thenounproject.com/browse/icons/term/hammer/
 
 ## Translation
 
