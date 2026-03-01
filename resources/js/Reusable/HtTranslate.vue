@@ -11,7 +11,7 @@ const textRef = wTrans(props.i18nKey, props.replacements);
 
 const tags = computed(() => {
   const regex = /<(\d+)(?:>(.*)<\/\1|\/)>/g;
-  let match: RegExpExecArray | null = null;
+  let match: RegExpExecArray | null;
   const tagsObject: Record<number, string> = {};
   while ((match = regex.exec(textRef.value)) !== null) {
     tagsObject[parseInt(match[1], 10)] = match[2];
