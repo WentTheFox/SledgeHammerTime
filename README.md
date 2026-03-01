@@ -82,6 +82,8 @@ English and Hungarian translations have been included, so no translators will be
 - 🇳🇱 Dutch
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
+  - [daniël Groothuis](https://crowdin.com/profile/duscrafter)
+  - [ejenenenenenenenen](https://crowdin.com/profile/ejenenenenenenenen)
   - [Eppes4](https://crowdin.com/profile/Eppes4)
   - [ft Wenn](https://crowdin.com/profile/ftwenn93)
   - [Headspike](https://crowdin.com/profile/Headspike)
@@ -177,6 +179,7 @@ English and Hungarian translations have been included, so no translators will be
   - [공백](https://crowdin.com/profile/whiteblankzero)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
   - [서민석](https://crowdin.com/profile/seominseok001)
+  - [파인애플](https://crowdin.com/profile/pineapple10)
 - 🇱🇻 Latvian
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Haralds R](https://crowdin.com/profile/haralds.re)
@@ -224,6 +227,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Astro Ph_77](https://crowdin.com/profile/astroph.707)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
+  - [Felipe Augusto](https://crowdin.com/profile/Oyaku)
   - [Flavio Bonacordi](https://crowdin.com/profile/CrazySpy)
   - [Henrique Wallace Novais Silva](https://crowdin.com/profile/henriquewgamer)
   - [leo0six](https://crowdin.com/profile/leo0six)

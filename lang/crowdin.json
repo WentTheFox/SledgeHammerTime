@@ -728,6 +728,11 @@
       "username": "AwayFrom-Keyboard",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17217834/medium/d93fd15efe82f69fec1b3b5737a78595.png"
     },
+    "17223926": {
+      "username": "pineapple10",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17223926/medium/13a7471f42b421d2b963d6cef74ec4f0.png",
+      "fullName": "파인애플"
+    },
     "17227106": {
       "username": "jayden0108lee",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17227106/medium/af35f1a2c7d9f4248b6430a28805110f.png",
@@ -1086,6 +1091,20 @@
       "username": "koszutowski.bartek",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17571936/medium/c6807c34f177502713533c2861d2cf0e.jpeg",
       "fullName": "Bartek Koszutowski"
+    },
+    "17591114": {
+      "username": "ejenenenenenenenen",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17591114/medium/28fae8098fc776fcb95f973544d9e8b3.png"
+    },
+    "17594890": {
+      "username": "duscrafter",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17594890/medium/a6eb673e039d5ea51cc38ce9032b46b6.jpeg",
+      "fullName": "daniël Groothuis"
+    },
+    "17603464": {
+      "username": "Oyaku",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17603464/medium/613854f2c827d7c95b652df4cc0d09c5.jpeg",
+      "fullName": "Felipe Augusto"
     }
   },
   "languages": {
@@ -1274,7 +1293,7 @@
         "17570624"
       ],
       "progress": {
-        "approval": 97,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -1377,11 +1396,12 @@
         "17510552",
         "17217834",
         "17443466",
+        "17223926",
         "17452122"
       ],
       "progress": {
         "approval": 38,
-        "translation": 38
+        "translation": 40
       }
     },
     "lt": {
@@ -1449,16 +1469,18 @@
         "17179168",
         "17413820",
         "16122526",
+        "17591114",
         "17430050",
         "14089137",
         "17454240",
         "17540660",
         "16053916",
-        "17492914"
+        "17492914",
+        "17594890"
       ],
       "progress": {
         "approval": 59,
-        "translation": 59
+        "translation": 86
       }
     },
     "pl": {
@@ -1492,6 +1514,7 @@
         "12931321",
         "17151532",
         "17540650",
+        "17603464",
         "17560756",
         "17488616",
         "17520776",
@@ -1502,7 +1525,7 @@
       ],
       "progress": {
         "approval": 53,
-        "translation": 53
+        "translation": 91
       }
     },
     "pt": {
