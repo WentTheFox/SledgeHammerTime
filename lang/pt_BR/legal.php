@@ -44,18 +44,18 @@ return [
   'terms' => [
     'heading' => 'Termos e Condições',
     'license' => 'To o código-fonte do projeto está disponível no GitHub, sem qualquer garantia ou responsabilidade. Para acessar os termos completos da licença,  veja  <1>MIT license<1>',
-    'noAbuse' => 'You must not set up automations to run Commands via the Instance repeatedly. This Bot is not meant to be used by automated tools, such as other bots, or any other software designed to mimic legitimate user activity. Instead of relying on our Bot\'s output for automation purposes, please refer to the documentation of the programming language used by your bot on how to generate and manipulate UNIX timestamps.',
-    'fuckWeb3' => 'This Instance shall not be used to aid in the process of training generative AI models, nor to help facilitate any events and/or transactions related to non-fungible tokens ("NFTs") or any form of cryptocurrency (e.g. Ethereum, Bitcoin).',
-    'accessRevocation' => 'Your access to the Instance may be revoked for any reason (including no reason) at the Developer\'s discretion. Reasons can include, but are not limited to: violation of these terms, intentional abuse of the Instance\'s features, threats of violence towards the Developer or any of the Project\'s contributors, use of the Instance for malicious purposes.',
+    'noAbuse' => 'Você não deve configurar automações para executar comandos repetidamente por meio da instância. Este bot não foi projetado para ser usado por ferramentas automatizadas, como outros bots, ou qualquer outro software desenvolvido para simular a atividade legítima de um usuário. Em vez de depender da saída do nosso bot para fins de automação, consulte a documentação da linguagem de programação usada pelo seu bot para obter informações sobre como gerar e manipular data e hora UNIX.',
+    'fuckWeb3' => 'Esta instância não deve ser usada para auxiliar no processo de treinamento de modelos generativos de IA, nem para facilitar quaisquer eventos e/ou transações relacionadas a tokens não fungíveis ("NFTs") ou qualquer forma de criptomoeda (por exemplo, Ethereum, Bitcoin).',
+    'accessRevocation' => 'Seu acesso à Instância poderá ser revogado por qualquer motivo (inclusive sem motivo algum), a critério do Desenvolvedor. Os motivos podem incluir, mas não se limitam a: violação destes termos, uso indevido intencional dos recursos da Instância, ameaças de violência contra o Desenvolvedor ou qualquer um dos colaboradores do Projeto, uso da Instância para fins maliciosos.',
   ],
   'changes' => [
-    'heading' => 'Changes & Revisions',
-    'effectiveFrom' => 'The Terms & Conditions and Privacy Policy, collectively "Documents", are effective as of their last update date and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.',
-    'rightToChange' => 'We reserve the right to update or change these Documents at any time and you should check this page periodically. Your continued use of the Project after we post any modifications to the Documents on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Documents.',
-    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
+    'heading' => 'Mudanças e Revisões',
+    'effectiveFrom' => 'Os Termos e Condições e a Política de Privacidade, coletivamente denominados "Documentos", entram em vigor a partir da data da sua última atualização e permanecerão em vigor, exceto em relação a quaisquer alterações nas suas disposições no futuro, as quais entrarão em vigor imediatamente após serem publicadas nesta página.',
+    'rightToChange' => 'Reservamo-nos o direito de atualizar ou alterar estes Documentos a qualquer momento, e você deve consultar esta página periodicamente. O uso continuado do Projeto após a publicação de quaisquer modificações nos Documentos nesta página constituirá seu reconhecimento das modificações e seu consentimento em cumprir e estar vinculado aos Documentos modificados.',
+    'willNotify' => 'Caso façamos alterações substanciais a estes documentos, notificaremos você através de um aviso em destaque no nosso site, bem como publicando um comunicado no servidor de suporte do Discord do bot.',
   ],
   'contact' => [
-    'heading' => 'Contact Us',
-    'whereToContact' => 'If you have any questions about these Documents or want to ask for the removal of any PII we store please contact us via <1>the Bot\'s Discord server</1> or using any of the methods listed on the <3>Developer\'s website</3>.',
+    'heading' => 'Contato',
+    'whereToContact' => 'Se você tiver alguma dúvida sobre estes documentos ou quiser solicitar a remoção de quaisquer informações pessoais que armazenamos, entre em contato conosco através do <1>servidor Discord do Bot</1> ou usando qualquer um dos métodos listados no <3>site do desenvolvedor</3>.',
   ],
 ];
