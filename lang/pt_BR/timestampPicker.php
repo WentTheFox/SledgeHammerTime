@@ -8,7 +8,7 @@ return [
       'time' => 'Horário',
       'dateAndTime' => 'Data e hora',
       'timezone' => 'Fuso horário',
-      'naturalLanguageInput' => '@time input',
+      'naturalLanguageInput' => '@time campo',
       'modeOffset' => 'Diferença absoluta',
       'modeZoneName' => 'Nome da Zona',
     ],

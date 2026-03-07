@@ -8,18 +8,18 @@ return [
     "content" => "Nada para ver aqui.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Modo de Manutenção",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
-      'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
+      'pleaseWait' => "O aplicativo está sendo atualizado. Tente novamente em alguns segundos.",
+      'joinSupportServer' => "Se o problema persistir por mais de alguns minutos, por favor entre no servidor do Discord e nos informe.",
+      'contactDeveloper' => "Se o problema persistir por mais de alguns minutos, entre em contato com o desenvolvedor e informe-o.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Servidor de Suporte",
   ],
   'incompleteTranslations' => 'As traduções estão incompletas',
   'contributeTranslations' => 'Contribuir',
   'copyToClipboard' => 'Copiar para a área de transferência',
-  'copiedToClipboard' => 'Copied to clipboard!',
+  'copiedToClipboard' => 'Copiado para a área de transferência!',
   'jsDisabled' => [
     'title' => 'JavaScript é necessário',
     'body' => "Seu navegador ou não suporta JavaScript, ou atualmente está desabilitado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para este aplicativo. Ative e atualize a página, ou use um navegador diferente.",
@@ -28,14 +28,14 @@ return [
     'botSettings' => 'Configurações do Bot',
     'profile' => 'Perfil',
     'legal' => 'Informações legais',
-    'analytics' => 'Analytics',
+    'analytics' => 'Analíticas',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => 'Configurações de entrada',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'label' => '@time Campo de Texto',
+        'description' => 'Permite manipular o horário selecionado com linguagem natural (por exemplo, "em 5 horas") através de um campo de texto livre adicional. Semelhante à nova tag @time do Discord. Apenas um número limitado de idiomas é suportado.',
       ],
       'customDateInput' => [
         'label' => 'Entrada de data personalizada',
@@ -50,12 +50,12 @@ return [
         'description' => "Exibir duas entradas diferentes para data e horário em vez de uma combinação (que não é suportada em alguns navegadores)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
-        'description' => "Disable shadow and height effects on inputs and buttons",
+        'label' => 'Reduzir Interface',
+        'description' => "Desativar os efeitos de sombra e altura em entradas e botões",
       ],
       'hourCycle' => [
         'label' => 'Formato do relógio',
-        'description' => 'Change how hours should be displayed in the custom time input. Has no effect on the previews in the example results column.',
+        'description' => 'Altera a forma como as horas devem ser exibidas no campo de entrada de hora personalizado. Não afeta as pré-visualizações na coluna de resultados de exemplo.',
         'options' => [
           'default' => 'Idioma padrão',
           'h12' => '12 horas',
@@ -63,10 +63,10 @@ return [
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => 'First day of the week',
-        'description' => 'Change which day should be considered the first day of the week in the calendar of the custom date input.',
+        'label' => 'Primeiro dia da semana',
+        'description' => 'Altera qual dia deve ser considerado o primeiro dia da semana no calendário de data personalizada.',
         'options' => [
-          'default' => 'Language default',
+          'default' => 'Linguagem padrão',
         ],
       ],
       'advancedSettings' => 'Configurações avançadas de entrada',
@@ -80,15 +80,15 @@ return [
         'value' => 'A diferença entre o horário local e do servidor é:',
       ],
       'details' => 'Detalhes',
-      'syncButtonLabel' => 'Synchronize',
-      'roundTripDuration' => 'Round-trip duration',
+      'syncButtonLabel' => 'Sincronizar',
+      'roundTripDuration' => 'Duração Ida e Volta',
       't0' => 'The client\'s timestamp of the request transmission',
       't1' => 'The server\'s timestamp of the request reception',
       't2' => 'The server\'s timestamp of the response transmission',
       't3' => 'The client\'s timestamp of the response reception',
       'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
-      'networkOffsetCell' => 'Detected Offset (via Network)',
+      'networkOffsetCell' => 'Deslocamento Detectado (via Rede)',
     ],
     'localSettings' => [
       'title' => 'Configurações Locais',
