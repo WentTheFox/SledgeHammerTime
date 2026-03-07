@@ -10,7 +10,7 @@ return [
   'appDiscoveryCta' => 'Visualizar na Descoberta de Aplicativos',
   'shareableLink' => 'Você também pode compartilhar o link abaixo com outros usuários, possibilitando adicionar o aplicativo sem restrições adicionais:',
   'shardStats' => [
-    'title' => 'Shard Statistics',
+    'title' => 'Estatísticas do Fragmento',
     'description' => 'After an app reaches a certain number of servers where it is installed, Discord requires apps to use sharding, which essentially means splitting up the handling of interactions between multiple processes.',
     'boxesDescription' => 'Below you can see some rectangles representing all shards currently used by the application. Their width is proportional to the number of servers a given shard is assigned to out of the total (:totalServerCount). Hover over any one of them to see more information about the shard.',
     'shardId' => 'Shard ID',
@@ -46,7 +46,7 @@ return [
       10 => 'Número',
       11 => 'Attachment',
     ],
-    'totalUses' => 'Total number of times used (since we started counting)',
+    'totalUses' => 'Número total de vezes usado (desde que começamos a contar)',
     'values' => 'Valores',
     'valuesBetween' => '<0/>-<2/>',
     'minValue' => 'Valor mínimo',
