@@ -318,3 +318,4 @@ English and Hungarian translations have been included, so no translators will be
   - [Minh Huy Hồ](https://crowdin.com/profile/minhhuyho15)
   - [Nguyễn Hoàng Long](https://crowdin.com/profile/fangcognosphere)
   - [Quan](https://crowdin.com/profile/quanonthecob)
+  - [Tranhungdao A12](https://crowdin.com/profile/AKTVNTONYRBL7L)

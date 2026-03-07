@@ -1105,6 +1105,11 @@
       "username": "Oyaku",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17603464/medium/613854f2c827d7c95b652df4cc0d09c5.jpeg",
       "fullName": "Felipe Augusto"
+    },
+    "17613990": {
+      "username": "AKTVNTONYRBL7L",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17613990/medium/9a56a7ac9ff201e0d3758b41061f6ffb.jpeg",
+      "fullName": "Tranhungdao A12"
     }
   },
   "languages": {
@@ -1671,11 +1676,12 @@
         "16601907",
         "17285274",
         "17346592",
-        "17440890"
+        "17440890",
+        "17613990"
       ],
       "progress": {
         "approval": 23,
-        "translation": 23
+        "translation": 24
       }
     },
     "zh": {
