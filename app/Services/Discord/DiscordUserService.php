@@ -8,6 +8,7 @@ use App\Models\DiscordUser;
 use App\Models\Settings;
 use Illuminate\Container\Attributes\Singleton;
 use Illuminate\Support\Facades\Redis;
+use JsonException;
 
 #[Singleton]
 class DiscordUserService {
@@ -19,6 +20,10 @@ class DiscordUserService {
     Redis::del($discordUser->settings_cache_key);
   }
 
+  /**
+   * @return array<string, mixed>
+   * @throws JsonException
+   */
   public function getSettingsRecord(DiscordUser $discordUser, bool $cache = true):array {
     if ($cache){
       $cacheKey = $discordUser->settings_cache_key;
@@ -37,14 +42,21 @@ class DiscordUserService {
     return $settings;
   }
 
+  /**
+   * @return array<string, mixed>
+   */
   protected function getSettingsRecordUncached(DiscordUser $discordUser):array {
-    return $discordUser->settings()->get(['setting', 'value'])->reduce(fn(array $acc, Settings $s) => [
+    /**
+     * @var Settings[] $settings
+     */
+    $settings = $discordUser->settings()->get(['setting', 'value']);
+    return array_reduce($settings, fn(array $acc, Settings $s) => [
       ...$acc,
       $s->setting => $s->value,
     ], []);
   }
 
-  function refreshUserInfo(string $discordUserId):DiscordUser {
+  public function refreshUserInfo(string $discordUserId):DiscordUser {
     $userInfo = $this->discordApiService->getUser($discordUserId);
 
     return $this->updateUserInfo($userInfo);

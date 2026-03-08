@@ -18,7 +18,7 @@ class User extends Authenticatable {
   /**
    * The attributes that are mass assignable.
    *
-   * @var array<int, string>
+   * @var list<string>
    */
   protected $fillable = [
     'id',
@@ -30,17 +30,23 @@ class User extends Authenticatable {
   /**
    * The attributes that should be cast.
    *
-   * @var array
+   * @var array<string, class-string>
    */
   protected $casts = [
     'hidden_formats' => Json::class,
   ];
 
-  function discordUsers():HasMany {
+  /**
+   * @return HasMany<DiscordUser, $this>
+   */
+  public function discordUsers():HasMany {
     return $this->hasMany(DiscordUser::class);
   }
 
-  function crowdinUsers():HasMany {
+  /**
+   * @return HasMany<CrowdinUser, $this>
+   */
+  public function crowdinUsers():HasMany {
     return $this->hasMany(CrowdinUser::class);
   }
 

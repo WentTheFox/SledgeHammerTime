@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class TelemetryUsage extends Model {
   use HasUiInfo;
@@ -17,7 +18,10 @@ class TelemetryUsage extends Model {
     'value',
   ];
 
-  public function source() {
+  /**
+   * @return MorphTo<Model, $this>
+   */
+  public function source():MorphTo {
     return $this->morphTo('source');
   }
 
