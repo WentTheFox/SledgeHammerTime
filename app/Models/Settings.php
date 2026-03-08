@@ -7,6 +7,7 @@ use App\Enums\DiscordTimestampFormat;
 use App\Enums\SettingNames;
 use App\Enums\TimestampMessageColumns;
 use App\Rules\ValidTimezone;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,7 +26,7 @@ class Settings extends Model {
   /**
    * The attributes that should be cast.
    *
-   * @var array
+   * @var array<string, class-string>
    */
   protected $casts = [
     'value' => Json::class,
@@ -39,6 +40,12 @@ class Settings extends Model {
     return SettingNames::from($this->setting);
   }
 
+  /**
+   * @param array<string, mixed> $userSettings
+   *
+   * @return array<string, mixed>
+   * @throws Exception
+   */
   public static function mergeWithDefaults(array $userSettings, bool $editing = false):array {
     return array_reduce(SettingNames::cases(), fn(array $acc, SettingNames $case) => [
       ...$acc,
@@ -46,7 +53,10 @@ class Settings extends Model {
     ], []);
   }
 
-  public static function getFormattedValue(array $userSettings, SettingNames $case) {
+  /**
+   * @param array<string, mixed> $userSettings
+   */
+  public static function getFormattedValue(array $userSettings, SettingNames $case):mixed {
     $value = $userSettings[$case->value] ?? null;
     if ($value === null){
       return null;
@@ -58,7 +68,7 @@ class Settings extends Model {
           $hours = max(min((int)$matches[2], 14), -14) * $hoursMultiplier;
           $minutes = max(min((int)($matches[3] ?? 0), 59), 0);
 
-          return sprintf("GMT%s%s:%s", $hours < 0 ? '-' : '+', str_pad(abs($hours), 2, '0', STR_PAD_LEFT), str_pad($minutes, 2, 0, STR_PAD_LEFT));
+          return sprintf("GMT%s%s:%s", $hours < 0 ? '-' : '+', str_pad((string)abs($hours), 2, '0', STR_PAD_LEFT), str_pad((string)$minutes, 2, '0', STR_PAD_LEFT));
         }
 
         return $value;
@@ -67,7 +77,7 @@ class Settings extends Model {
     }
   }
 
-  public static function getDefaultValue(string|SettingNames $setting, bool $editing = false) {
+  public static function getDefaultValue(string|SettingNames $setting, bool $editing = false): mixed {
     $settingName = is_string($setting) ? SettingNames::from($setting) : $setting;
     switch ($settingName){
       case SettingNames::FORMAT:
@@ -89,11 +99,11 @@ class Settings extends Model {
       case SettingNames::DEFAULT_AT_SECOND:
         return 0;
       default:
-        throw new \Exception("Invalid setting: $setting");
+        throw new Exception("Invalid setting: $setting");
     }
   }
 
-  public static function shouldDeleteIfMatchingDefault(string $setting, $value):bool {
+  public static function shouldDeleteIfMatchingDefault(string $setting, mixed $value):bool {
     if ($value === null) return true;
     switch ($setting){
       case SettingNames::HEADER->value:
