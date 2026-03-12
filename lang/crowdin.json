@@ -417,6 +417,11 @@
       "username": "Balajiasli",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15923883/medium/c28c99b833b73ad713e6c7fc304a3837_default.png"
     },
+    "15945559": {
+      "username": "ghusyland",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15945559/medium/0d25787f70de92d9439b1d8c92c92181.png",
+      "fullName": "land Ghusy"
+    },
     "15980591": {
       "username": "ms.",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15980591/medium/266c3ea571aad5b10f5c60c300e600b2.png",
@@ -647,7 +652,7 @@
     },
     "17111570": {
       "username": "Gamer_Yaroslaw",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17111570/medium/90104c0bf590e20982b84141dfbca253.jpeg",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17111570/medium/68d0ce231a665f02954ec4777291aa75.jpg",
       "fullName": "Кухарчук Ярослав"
     },
     "17134580": {
@@ -1110,6 +1115,10 @@
       "username": "AKTVNTONYRBL7L",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17613990/medium/9a56a7ac9ff201e0d3758b41061f6ffb.jpeg",
       "fullName": "Tranhungdao A12"
+    },
+    "17619330": {
+      "username": "glitcheus.maximus",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17619330/medium/ac06ed12e9d38bccba147fb1048a9330_default.png"
     }
   },
   "languages": {
@@ -1382,11 +1391,12 @@
         "13047240",
         "17190310",
         "17197940",
-        "17429540"
+        "17429540",
+        "15945559"
       ],
       "progress": {
         "approval": 96,
-        "translation": 96
+        "translation": 97
       }
     },
     "ko": {
@@ -1526,7 +1536,8 @@
         "14288672",
         "17450480",
         "17503118",
-        "17558976"
+        "17558976",
+        "17619330"
       ],
       "progress": {
         "approval": 91,
@@ -1657,7 +1668,7 @@
       ],
       "progress": {
         "approval": 8,
-        "translation": 8
+        "translation": 11
       }
     },
     "ur": {
