@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BotCommandOption extends Model {
@@ -30,23 +31,38 @@ class BotCommandOption extends Model {
     'deleted_at' => 'datetime',
   ];
 
+  /**
+   * @return BelongsTo<BotCommand, $this>
+   */
   function command():BelongsTo {
     return $this->belongsTo(BotCommand::class);
   }
 
+  /**
+   * @return HasMany<BotCommandTranslation, $this>
+   */
   function translations():HasMany {
     return $this->hasMany(BotCommandTranslation::class, 'option_id');
   }
 
+  /**
+   * @return HasMany<BotCommandOptionChoice, $this>
+   */
   public function choices():HasMany {
     return $this->hasMany(BotCommandOptionChoice::class);
   }
 
+  /**
+   * @return HasMany<TelemetryCommandOptionUse, $this>
+   */
   function telemetryUses():HasMany {
     return $this->hasMany(TelemetryCommandOptionUse::class);
   }
 
-  function telemetryUsage() {
+  /**
+   * @return MorphMany<TelemetryUsage, $this>
+   */
+  function telemetryUsage():MorphMany {
     return $this->morphMany(TelemetryUsage::class, 'source');
   }
 }

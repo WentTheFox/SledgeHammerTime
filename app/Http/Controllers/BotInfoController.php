@@ -9,11 +9,14 @@ use App\Models\BotCommandOption;
 use App\Models\BotCommandTranslation;
 use App\Models\BotShard;
 use App\Models\TelemetryUsage;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 
 class BotInfoController extends Controller {
-  public function index() {
+  public function index(): InertiaResponse {
     return Inertia::render('BotInfo/IndexComponent', [
       'discordAppId' => config('services.discord.client_id'),
       'commands' => BotCommand::with(['options' => ['choices']])->orderBy('type')->orderBy('total_executions', 'desc')->orderBy('name')->get(),
@@ -23,7 +26,7 @@ class BotInfoController extends Controller {
     ]);
   }
 
-  public function usage(BotInfoUsageRequest $request) {
+  public function usage(BotInfoUsageRequest $request): JsonResponse|Response {
     $data = $request->validated();
     $type = match ($data['type']) {
       BotInfoUsageType::COMMAND->value => BotCommand::class,

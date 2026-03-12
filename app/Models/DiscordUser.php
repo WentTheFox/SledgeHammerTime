@@ -13,7 +13,7 @@ class DiscordUser extends Model {
   /**
    * The attributes that are mass assignable.
    *
-   * @var array<int, string>
+   * @var list<string>
    */
   protected $fillable = [
     'id',
@@ -34,10 +34,16 @@ class DiscordUser extends Model {
     'id' => 'string',
   ];
 
+  /**
+   * @return BelongsTo<User, $this>
+   */
   function user():BelongsTo {
     return $this->belongsTo(User::class);
   }
 
+  /**
+   * @return HasMany<Settings, $this>
+   */
   function settings():HasMany {
     return $this->hasMany(Settings::class);
   }

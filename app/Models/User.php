@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Casts\Json;
 use App\Traits\HasUiInfo;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,6 +14,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable {
+  /**
+   * @use HasFactory<UserFactory>
+   */
   use HasApiTokens, HasFactory, Notifiable, HasUuids, HasUiInfo;
 
   /**
@@ -50,7 +54,10 @@ class User extends Authenticatable {
     return $this->hasMany(CrowdinUser::class);
   }
 
-  function mapToUiInfo():array {
+  /**
+   * @return array{id: string, name: string, hiddenFormats: string[], horizonAccess: boolean}
+   */
+  public function mapToUiInfo():array {
     return [
       'id' => $this->id,
       'name' => $this->name,

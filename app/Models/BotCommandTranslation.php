@@ -25,14 +25,23 @@ class BotCommandTranslation extends Model {
     'command_id' => 'string',
   ];
 
+  /**
+   * @return BelongsTo<BotCommand, $this>
+   */
   public function command():BelongsTo {
     return $this->belongsTo(BotCommand::class, 'command_id');
   }
 
+  /**
+   * @return BelongsTo<BotCommandOption, $this>
+   */
   public function option():BelongsTo {
     return $this->belongsTo(BotCommandOption::class, 'option_id');
   }
 
+  /**
+   * @return BelongsTo<BotCommandOptionChoice, $this>
+   */
   public function choice():BelongsTo {
     return $this->belongsTo(BotCommandOptionChoice::class, 'choice_id');
   }

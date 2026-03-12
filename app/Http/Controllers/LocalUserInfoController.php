@@ -6,11 +6,12 @@ use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LocalUserInfoController extends Controller {
-  public function forProvider(string $provider, string $id, Request $request) {
+  public function forProvider(string $provider, string $id, Request $request): JsonResponse {
     $currentUser = Auth::user();
     if ($currentUser === null){
       return response()->json(['error' => 'You must be logged in to use this endpoint'], 401);

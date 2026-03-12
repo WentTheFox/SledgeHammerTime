@@ -12,7 +12,7 @@ class CrowdinUser extends Model {
   /**
    * The attributes that are mass assignable.
    *
-   * @var array<int, string>
+   * @var list<string>
    */
   protected $fillable = [
     'id',
@@ -36,6 +36,9 @@ class CrowdinUser extends Model {
     ];
   }
 
+  /**
+   * @return BelongsTo<User, $this>
+   */
   function user():BelongsTo {
     return $this->belongsTo(User::class);
   }

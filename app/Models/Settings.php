@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property SettingNames $name
  */
 class Settings extends Model {
-  use HasFactory;
 
   protected $fillable = [
     'setting',
@@ -32,6 +31,9 @@ class Settings extends Model {
     'value' => Json::class,
   ];
 
+  /**
+   * @return BelongsTo<DiscordUser, $this>
+   */
   public function discordUser():BelongsTo {
     return $this->belongsTo(DiscordUser::class);
   }
