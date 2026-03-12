@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class BotCommand extends Model {
   protected $fillable = [
@@ -19,6 +20,9 @@ class BotCommand extends Model {
     'id' => 'string',
   ];
 
+  /**
+   * @return HasMany<BotCommandOption, $this>
+   */
   function options():HasMany {
     return $this->hasMany(BotCommandOption::class)
       ->withTrashed()
@@ -26,15 +30,24 @@ class BotCommand extends Model {
       ->orderBy('order');
   }
 
+  /**
+   * @return HasMany<BotCommandTranslation, $this>
+   */
   function translations():HasMany {
     return $this->hasMany(BotCommandTranslation::class, 'command_id')->whereNull('option_id');
   }
 
+  /**
+   * @return HasMany<TelemetryCommandExecution, $this>
+   */
   function telemetryExecutions():HasMany {
     return $this->hasMany(TelemetryCommandExecution::class);
   }
 
-  function telemetryUsage() {
+  /**
+   * @return MorphMany<TelemetryUsage, $this>
+   */
+  function telemetryUsage():MorphMany {
     return $this->morphMany(TelemetryUsage::class, 'source');
   }
 }

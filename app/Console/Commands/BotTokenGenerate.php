@@ -25,7 +25,7 @@ class BotTokenGenerate extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():void {
     $consoleUserId = config('app.console_user_uuid');
     if (empty($consoleUserId)){
       $this->info('Console user UUID is missing in .env file, it wil be generated');

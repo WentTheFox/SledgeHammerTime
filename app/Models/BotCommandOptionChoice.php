@@ -22,16 +22,22 @@ class BotCommandOptionChoice extends Model {
   /**
    * The attributes that should be cast.
    *
-   * @var array
+   * @var array<string, string>
    */
   protected $casts = [
     'value' => Json::class,
   ];
 
+  /**
+   * @return HasMany<BotCommandTranslation, $this>
+   */
   function translations():HasMany {
     return $this->hasMany(BotCommandTranslation::class, 'choice_id');
   }
 
+  /**
+   * @return BelongsTo<BotCommandOption, $this>
+   */
   public function option():BelongsTo {
     return $this->belongsTo(BotCommandOption::class);
   }

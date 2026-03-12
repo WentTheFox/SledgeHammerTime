@@ -25,7 +25,7 @@ class CompressPageViews extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():int {
     $startDateArgument = $this->argument('startDate');
     $endDateArgument = $this->argument('endDate');
 
@@ -64,11 +64,12 @@ class CompressPageViews extends Command {
    *
    * @param Carbon $targetDate
    */
-  protected function compressDay(Carbon $targetDate) {
+  protected function compressDay(Carbon $targetDate):void {
     $targetDateString = $targetDate->toDateString();
 
     $query = PageView::where('date', $targetDateString);
 
+    /** @var \Illuminate\Support\Collection<int, object{locale: ?string, route_name: string, total_amount: int}> $stats */
     $stats = PageView::where('date', $targetDateString)
       ->select('locale', 'route_name', DB::raw('SUM(amount) as total_amount'))
       ->groupBy('locale', 'route_name')

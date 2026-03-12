@@ -47,13 +47,13 @@ class DiscordUserService {
    */
   protected function getSettingsRecordUncached(DiscordUser $discordUser):array {
     /**
-     * @var Settings[] $settings
+     * @var array<string, mixed> $settings
      */
-    $settings = $discordUser->settings()->get(['setting', 'value']);
-    return array_reduce($settings, fn(array $acc, Settings $s) => [
+    $settings = $discordUser->settings()->get(['setting', 'value'])->reduce(fn(array $acc, Settings $s) => [
       ...$acc,
       $s->setting => $s->value,
     ], []);
+    return $settings;
   }
 
   public function refreshUserInfo(string $discordUserId):DiscordUser {
