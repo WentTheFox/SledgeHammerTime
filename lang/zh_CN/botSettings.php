@@ -16,7 +16,7 @@ return [
       'displayName' => '格式',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => '使用格式选项时仅预览回复',
     ],
     'columns' => [
       'displayName' => '列',
@@ -44,7 +44,7 @@ return [
       'explanation' => '此功能为可选配置，不影响机器人核心功能的使用。详细信息请访问<1/>说明页面。',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => '/:at12CommandName 命令的默认 ":hourOptionName" 选项',
     ],
   ],
   'saveSuccess' => '您的设置已成功保存。',
