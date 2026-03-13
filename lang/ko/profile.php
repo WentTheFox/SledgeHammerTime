@@ -9,7 +9,7 @@ return [
     'description' => "계정의 프로필을 업데이트 해 주십시오.",
     'displayName' => '공개 이름',
     'hiddenFormats' => '테이블에서 숨긴 포맷들',
-    'saveSuccess' => 'Your profile has been updated successfully.',
+    'saveSuccess' => '당신의 프로필이 성공적으로 업데이트 되었습니다.',
   ],
   'accounts' => [
     'heading' => '연결된 계정',

@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Configurações do Aplicativo',
+  'description' => 'Abaixo você pode ver suas configurações atuais no aplicativo HammerTime para cada conta conectada.',
+  'learnMore' => 'Não tem certeza do que é o aplicativo ou está curioso para saber o que ele pode fazer? Visite o link <1>Aplicativo do Discord</1> para saber mais.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Configurações avançadas',
   ],
   'defaultOption' => 'Default',
   'fields' => [

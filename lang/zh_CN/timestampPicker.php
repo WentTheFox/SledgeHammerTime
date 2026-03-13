@@ -8,12 +8,12 @@ return [
       'time' => '时间',
       'dateAndTime' => '日期与时间',
       'timezone' => '时区',
-      'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'naturalLanguageInput' => '@time 输入',
+      'modeOffset' => '绝对偏移量',
+      'modeZoneName' => '时区名字',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => '跳转到当前月份',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
@@ -28,7 +28,7 @@ return [
       'nextDecade' => '下一个十年',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => '无法解析自然语言输入'
     ]
   ],
   'table' => [
@@ -46,8 +46,8 @@ return [
       'p' => '使用斜杠指令在 Discord 内生成时间戳',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'header' => 'HammerTime 旧网站',
+      'p' => '该项目的旧网站，在另行通知前仍可使用',
     ],
     'textColor' => [
       'header' => 'Rebane 的<1>彩色</1>文本生成器',
