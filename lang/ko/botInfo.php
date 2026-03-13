@@ -19,8 +19,8 @@ return [
     'lastUpdateTime' => '마지막 업데이트',
   ],
   'commandsReference' => [
-    'title' => 'Commands Reference',
-    'description' => 'Below you will find a list of all commands and their options for your reference. This page currently shows the same descriptions that you would see in Discord as you are running the command, but it might be extended with additional information and examples later on.',
+    'title' => '명령어 안내',
+    'description' => '아래에는 참고를 위해 모든 명령어와 옵션 목록이 표시됩니다. 이 페이지에는 Discord에서 명령어 실행 시 보이는 설명과 동일한 내용이 제공되며, 추후 추가 정보와 예시가 포함될 수 있습니다.',
     'commandType' => 'Type',
     'commandTypeNames' => [
       1 => 'slash command',
@@ -32,7 +32,7 @@ return [
     'commandOptions' => 'Options',
     'requiredOption' => 'Required',
     'removedOption' => 'Removed',
-    'optionType' => 'Type',
+    'optionType' => '유형',
     'optionTypes' => [
       1 => 'Sub-command',
       2 => 'Sub-command Group',
@@ -48,10 +48,10 @@ return [
     ],
     'totalUses' => '지금까지 사용 된 횟수 (기록 시작 이후)',
     'values' => 'Values',
-    'valuesBetween' => '<0/>–<2/>',
-    'minValue' => 'Minimum value',
+    'valuesBetween' => '<0/> ~ <2/>',
+    'minValue' => '최소 값',
     'maxValue' => 'Maximum value',
-    'length' => 'Length',
+    'length' => '길이',
     'lengthBetween' => '<0/>–<2/>',
     'minLength' => 'Minimum length',
     'maxLength' => 'Maximum length',
