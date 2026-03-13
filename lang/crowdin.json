@@ -167,6 +167,10 @@
       "username": "SkyStorage_",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14531480/medium/0b26cb0dbb2b20b7615fa67d8f847ba5.png"
     },
+    "14666868": {
+      "username": "Hoshub",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14666868/medium/73ecb5c55714b76c7650692c42305bf2_default.png"
+    },
     "14673608": {
       "username": "C.Ezra.M",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14673608/medium/efabe4b051700d86e1d7aaa137c69808.png",
@@ -416,6 +420,11 @@
     "15923883": {
       "username": "Balajiasli",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15923883/medium/c28c99b833b73ad713e6c7fc304a3837_default.png"
+    },
+    "15945559": {
+      "username": "ghusyland",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/15945559/medium/0d25787f70de92d9439b1d8c92c92181.png",
+      "fullName": "land Ghusy"
     },
     "15980591": {
       "username": "ms.",
@@ -1110,6 +1119,10 @@
       "username": "AKTVNTONYRBL7L",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17613990/medium/9a56a7ac9ff201e0d3758b41061f6ffb.jpeg",
       "fullName": "Tranhungdao A12"
+    },
+    "17619330": {
+      "username": "glitcheus.maximus",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17619330/medium/ac06ed12e9d38bccba147fb1048a9330_default.png"
     }
   },
   "languages": {
@@ -1368,7 +1381,7 @@
         "17555404"
       ],
       "progress": {
-        "approval": 95,
+        "approval": 96,
         "translation": 96
       }
     },
@@ -1382,11 +1395,12 @@
         "13047240",
         "17190310",
         "17197940",
-        "17429540"
+        "17429540",
+        "15945559"
       ],
       "progress": {
-        "approval": 96,
-        "translation": 96
+        "approval": 97,
+        "translation": 97
       }
     },
     "ko": {
@@ -1405,7 +1419,7 @@
         "17452122"
       ],
       "progress": {
-        "approval": 38,
+        "approval": 40,
         "translation": 40
       }
     },
@@ -1526,7 +1540,8 @@
         "14288672",
         "17450480",
         "17503118",
-        "17558976"
+        "17558976",
+        "17619330"
       ],
       "progress": {
         "approval": 91,
@@ -1542,7 +1557,7 @@
         "17557448"
       ],
       "progress": {
-        "approval": 9,
+        "approval": 10,
         "translation": 10
       }
     },
@@ -1656,7 +1671,7 @@
         "14236042"
       ],
       "progress": {
-        "approval": 8,
+        "approval": 11,
         "translation": 11
       }
     },
@@ -1681,7 +1696,7 @@
       ],
       "progress": {
         "approval": 23,
-        "translation": 24
+        "translation": 23
       }
     },
     "zh": {
@@ -1693,12 +1708,13 @@
         "16939833",
         "15176660",
         "16611181",
+        "14666868",
         "16478035",
         "17273286"
       ],
       "progress": {
-        "approval": 17,
-        "translation": 17
+        "approval": 100,
+        "translation": 100
       }
     },
     "zh-TW": {
