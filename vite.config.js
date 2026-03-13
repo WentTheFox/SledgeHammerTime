@@ -5,6 +5,7 @@ import { resolve } from 'path';
 import i18n from 'laravel-vue-i18n/vite';
 import viteImagemin from '@vheemstra/vite-plugin-imagemin';
 import sharp from 'sharp';
+import { Features } from 'lightningcss';
 
 const imageminWebp = async buffer => {
   return await sharp(buffer)
@@ -92,6 +93,11 @@ export default defineConfig(({ mode }) => {
             return null;
           },
         },
+      },
+    },
+    css: {
+      lightningcss: {
+        exclude: Features.LightDark,
       },
     },
     test: {
