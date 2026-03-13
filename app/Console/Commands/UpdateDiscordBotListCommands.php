@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\BotCommand;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Psr\Http\Message\ResponseInterface;
 
 class UpdateDiscordBotListCommands extends Command {
   /**
@@ -24,7 +25,7 @@ class UpdateDiscordBotListCommands extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():int {
     $token = config('services.discord-bot-list.token');
     if (empty($token)){
       $this->warn("You do not have a DiscordBotList token set, which is required to use this command.");
@@ -46,6 +47,9 @@ class UpdateDiscordBotListCommands extends Command {
     $this->info("Updating DiscordBotList bot commands…\n".var_export($commandsData, return: true));
 
     $endpoint = sprintf("/bots/%s/commands", config('services.discord-bot-list.bot_id'));
+    /**
+     * @var ResponseInterface $result
+     */
     $result = Http::asJson()
       ->baseUrl(config('services.discord-bot-list.base_url'))
       ->withHeaders([

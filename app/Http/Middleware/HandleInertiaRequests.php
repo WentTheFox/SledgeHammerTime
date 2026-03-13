@@ -44,6 +44,19 @@ class HandleInertiaRequests extends Middleware {
     return $shared;
   }
 
+  /**
+   * @return array{
+   *   app: array{
+   *     name: string,
+   *     locale: string,
+   *     fallbackLocale: string,
+   *     languages: array<string, string>,
+   *     supportedLanguages: list<string>,
+   *     crowdinProjectId: string,
+   *   },
+   *   ziggy: callable(): array<mixed>,
+   * }
+   */
   public static function getGlobalSharedArray():array {
     return [
       'app' => [

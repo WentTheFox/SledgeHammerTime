@@ -26,7 +26,7 @@ class CrowdinApiService {
       ]);
   }
 
-  protected function getProjectId():string {
+  protected function getProjectId():int {
     if ($this->projectId === null){
       $projects = $this->getFileBasedProjects();
       foreach ($projects->data as $project){

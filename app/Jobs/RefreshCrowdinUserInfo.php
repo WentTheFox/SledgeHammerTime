@@ -19,7 +19,7 @@ class RefreshCrowdinUserInfo implements ShouldQueue, ShouldBeUnique {
   protected CrowdinUserService $crowdinUserService;
   public readonly string $crowdinUserId;
 
-  public function __construct($crowdinUserId) {
+  public function __construct(string|int $crowdinUserId) {
     $this->crowdinUserId = (string)$crowdinUserId;
     $this->crowdinUserService = app(CrowdinUserService::class);
   }

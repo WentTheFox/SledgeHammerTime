@@ -28,7 +28,7 @@ class CalculateTelemetryUsage extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():void {
     DB::transaction(function () {
       $cutoff = self::STATISTICS_DAYS_CUTOFF;
       $sourceCommand = BotCommand::class;

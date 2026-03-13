@@ -5,6 +5,9 @@ namespace App\Casts;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @implements CastsAttributes<mixed, mixed>
+ */
 class Json implements CastsAttributes {
   /**
    * Cast the given value.

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RedirectController extends Controller {
-  function discord() {
+  function discord(): RedirectResponse {
     $inviteUrl = config('services.discord.invite_url');
     if (empty($inviteUrl)){
       throw new NotFoundHttpException();
@@ -15,7 +17,7 @@ class RedirectController extends Controller {
     return redirect($inviteUrl);
   }
 
-  function addBotLink(Request $request) {
+  function addBotLink(Request $request): RedirectResponse|Response {
     $install_type = $request->route('installType');
     $client_id = config('services.discord.client_id');
     switch ($install_type){

@@ -18,20 +18,22 @@ use App\Models\Settings;
 use App\Models\User;
 use App\Services\Discord\DiscordUserService;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\URL;
 
 class BotApiController extends Controller {
   public function __construct(protected DiscordUserService $discordUserService) { }
 
-  function user(Request $request) {
+  function user(Request $request): JsonResponse {
     /** @var User|null $user */
     $user = $request->user();
 
     return response()->json($user?->mapToUiInfo());
   }
 
-  function loginLink(BotLoginRequest $request) {
+  function loginLink(BotLoginRequest $request): JsonResponse {
     $data = $request->validated();
 
     $expiresAt = now()->addMinutes(5);
@@ -47,10 +49,10 @@ class BotApiController extends Controller {
     return response()->json(['loginUrl' => $loginUrl, 'expiresAt' => $expiresAt->unix()]);
   }
 
-  function settings(Request $request) {
+  function settings(Request $request): JsonResponse {
     $discordUserId = $request->route('discordUserId');
     /**
-     * @var DiscordUser $discordUser
+     * @var DiscordUser|null $discordUser
      */
     $discordUser = DiscordUser::find($discordUserId);
     $settings = [];
@@ -62,7 +64,7 @@ class BotApiController extends Controller {
     return response()->json($mergedSettings);
   }
 
-  function updateShardStats(SaveShardStatsRequest $request) {
+  function updateShardStats(SaveShardStatsRequest $request): JsonResponse {
     $requestData = $request->validated();
 
     $shard = BotShard::updateOrCreate([
@@ -78,7 +80,7 @@ class BotApiController extends Controller {
     return response()->json($shard);
   }
 
-  function updateBotCommands(UpdateBotCommandsRequest $request) {
+  function updateBotCommands(UpdateBotCommandsRequest $request): JsonResponse {
     $requestData = $request->validated();
 
     $commands = [];
@@ -219,7 +221,7 @@ class BotApiController extends Controller {
     ));
   }
 
-  protected function updateBotTimezones(UpdateBotTimezonesRequest $request) {
+  protected function updateBotTimezones(UpdateBotTimezonesRequest $request): Response {
     $data = $request->validated();
 
     foreach ($data['timezones'] as $timezoneName){
@@ -230,7 +232,7 @@ class BotApiController extends Controller {
     return response(status: 204);
   }
 
-  public function commandTelemetry(TelemetryRequest $request) {
+  public function commandTelemetry(TelemetryRequest $request): JsonResponse {
     $data = $request->validated();
 
     $command = BotCommand::find($data['commandId']);

@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Contracts\Provider as ProviderContract;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
+use SocialiteProviders\Discord\Provider;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AuthController extends Controller {
-  protected const LOGIN_LOCALE_SESSION_KEY = 'login_locale';
+  protected const string LOGIN_LOCALE_SESSION_KEY = 'login_locale';
 
   private static function createRedirectUrl(string $provider):string {
     $baseUrl = config('app.url');
@@ -31,12 +33,14 @@ class AuthController extends Controller {
   }
 
   private static function createSocialiteDriver(string $provider):ProviderContract {
-    return Socialite::driver($provider)
+    /** @var Provider $driver */
+    $driver = Socialite::driver($provider);
+    return $driver
       ->redirectUrl(self::createRedirectUrl($provider))
       ->stateless();
   }
 
-  public function redirect(OauthProviderRequest $request) {
+  public function redirect(OauthProviderRequest $request): \Symfony\Component\HttpFoundation\RedirectResponse {
     $validated = $request->validated();
     $driver = self::createSocialiteDriver($validated['provider']);
     switch ($validated['provider']){
@@ -54,7 +58,7 @@ class AuthController extends Controller {
     return $driver->redirect();
   }
 
-  public function callbackGuest(OauthProviderRequest $request) {
+  public function callbackGuest(OauthProviderRequest $request):RedirectResponse {
     $validated = $request->validated();
     $driver = self::createSocialiteDriver($validated['provider']);
     $data = $driver->user();
@@ -80,12 +84,12 @@ class AuthController extends Controller {
 
     Auth::login($user);
 
-    $login_locale = session()?->pull(self::LOGIN_LOCALE_SESSION_KEY);
+    $login_locale = session()->pull(self::LOGIN_LOCALE_SESSION_KEY);
 
     return redirect(RouteServiceProvider::HOME.($login_locale ?? ''));
   }
 
-  public function callbackAuthenticated(OauthProviderRequest $request) {
+  public function callbackAuthenticated(OauthProviderRequest $request):RedirectResponse {
     /**
      * @type $user User|null
      */
@@ -108,12 +112,12 @@ class AuthController extends Controller {
       default:
         abort(500, "Validated provider {$validated['provider']} does not match expectations");
     }
-    $login_locale = session()?->pull(self::LOGIN_LOCALE_SESSION_KEY) ?? App::getLocale();
+    $login_locale = session()->pull(self::LOGIN_LOCALE_SESSION_KEY) ?? App::getLocale();
 
     return redirect()->route('profile.edit', ['locale' => $login_locale]);
   }
 
-  protected function updateOrCreateDiscordUser(SocialiteUser $data) {
+  protected function updateOrCreateDiscordUser(SocialiteUser $data): DiscordUser {
     /**
      * @var DiscordUser $result
      */
@@ -134,7 +138,7 @@ class AuthController extends Controller {
     return $result;
   }
 
-  protected function updateOrCreateCrowdinUser($data, User $user) {
+  protected function updateOrCreateCrowdinUser(SocialiteUser $data, User $user): CrowdinUser {
     /**
      * @var CrowdinUser $result
      */
@@ -161,7 +165,7 @@ class AuthController extends Controller {
       ...array_keys(config('languages.locale_route_alias')),
     ];
     if (in_array($locale, $possible_locales, true)){
-      session()?->put(self::LOGIN_LOCALE_SESSION_KEY, $locale);
+      session()->put(self::LOGIN_LOCALE_SESSION_KEY, $locale);
     }
 
     return redirect("/$locale/oauth/redirect/discord");
@@ -180,7 +184,7 @@ class AuthController extends Controller {
     return redirect('/');
   }
 
-  public function botLogin(BotLoginRequest $request) {
+  public function botLogin(BotLoginRequest $request): Response {
     if (!$request->hasValidSignature()){
       abort(401);
     }
@@ -193,7 +197,7 @@ class AuthController extends Controller {
     DB::transaction(function () use ($discordUserId, $data, &$user) {
       $discordUser = DiscordUser::updateOrCreate(['id' => $discordUserId], $data);
 
-      /** @var User $user */
+      /** @var ?User $user */
       $user = $discordUser->user()->first();
       if (!$user){
         $user = $discordUser->user()->create([
@@ -204,7 +208,7 @@ class AuthController extends Controller {
     });
 
     if (!$user){
-      return response(500);
+      return response(status: 500);
     }
 
     Auth::login($user);

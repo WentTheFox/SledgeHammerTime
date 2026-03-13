@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\SocialProvider;
+use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Enum;
@@ -13,14 +14,14 @@ class OauthProviderRequest extends FormRequest {
    *
    * @return bool
    */
-  public function authorize() {
+  public function authorize():bool {
     return true;
   }
 
   /**
    * Get the validation rules that apply to the request.
    */
-  public function validator() {
+  public function validator():ValidatorContract {
     return Validator::make(['provider' => $this->route('provider')], [
       'provider' => ['required', new Enum(SocialProvider::class)],
     ]);
@@ -28,11 +29,11 @@ class OauthProviderRequest extends FormRequest {
 
   /**
    * @inheritDoc
-   * @return array = [
-   *     'provider' => SocialProvider::cases(),
-   * ]
+   * @return array{
+   *   'provider': string,
+   * }
    */
-  public function validated($key = null, $default = null) {
+  public function validated($key = null, $default = null):array {
     return parent::validated($key, $default);
   }
 }
