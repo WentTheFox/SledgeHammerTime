@@ -12,6 +12,6 @@ return [
     'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Sconosciuto',
   ],
 ];
