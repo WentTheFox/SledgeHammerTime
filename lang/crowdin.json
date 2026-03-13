@@ -167,6 +167,10 @@
       "username": "SkyStorage_",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14531480/medium/0b26cb0dbb2b20b7615fa67d8f847ba5.png"
     },
+    "14666868": {
+      "username": "Hoshub",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14666868/medium/73ecb5c55714b76c7650692c42305bf2_default.png"
+    },
     "14673608": {
       "username": "C.Ezra.M",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/14673608/medium/efabe4b051700d86e1d7aaa137c69808.png",
@@ -1704,12 +1708,13 @@
         "16939833",
         "15176660",
         "16611181",
+        "14666868",
         "16478035",
         "17273286"
       ],
       "progress": {
         "approval": 17,
-        "translation": 17
+        "translation": 100
       }
     },
     "zh-TW": {
