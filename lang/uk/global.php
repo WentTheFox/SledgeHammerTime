@@ -4,31 +4,31 @@ return [
   'seoDescription' => 'Створення індикаторів часових позначок для повідомлень чату Discord',
   'changeLanguage' => 'Змінити мову',
   "notFound" => [
-    "heading" => "Page Not Found",
+    "heading" => "Сторінку не знайдено",
     "content" => "Тут нічого не видно.",
   ],
   "maintenanceMode" => [
-    "heading" => "Maintenance Mode",
+    "heading" => "Режим тех. обслуговування",
     "content" => [
-      'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
-      'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
+      'pleaseWait' => "Додаток зараз оновлюється, будь ласка, спробуйте ще раз через кілька секунд.",
+      'joinSupportServer' => "Якщо проблема не зникає більше кількох хвилин, будь ласка, приєднайтеся до сервера підтримки Discord і повідомте нам про це.",
       'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
     ],
-    "supportServerButton" => "Support Server",
+    "supportServerButton" => "Сервер підтримки",
   ],
   'incompleteTranslations' => 'Переклади неповні',
   'contributeTranslations' => 'Зробити внесок',
   'copyToClipboard' => 'Копіювати в буфер обміну',
-  'copiedToClipboard' => 'Copied to clipboard!',
+  'copiedToClipboard' => 'Скопійовано!',
   'jsDisabled' => [
     'title' => 'JavaScript необхідний',
     'body' => "Ваш браузер або не підтримує JavaScript, або він наразі вимкнений. Деякі браузери вимикають JavaScript за умовчанням з міркувань безпеки, але це необхідно для цієї програми. Увімкніть його та оновіть сторінку або скористайтеся іншим браузером.",
   ],
   'nav' => [
-    'botSettings' => 'App Settings',
-    'profile' => 'Profile',
-    'legal' => 'Legal Information',
-    'analytics' => 'Analytics',
+    'botSettings' => 'Налаштування',
+    'profile' => 'Профіль',
+    'legal' => 'Юридична інформація',
+    'analytics' => 'Аналітика',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -43,7 +43,7 @@ return [
       ],
       'customTimeInput' => [
         'label' => 'Custom time input',
-        'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
+        'description' => "Замініть час за замовчуванням у браузері на власний. Це особливо корисно, якщо у вас виникають проблеми з вибором часу в мобільних браузерах.",
       ],
       'separateInputs' => [
         'label' => 'Окремі введення',
@@ -91,7 +91,7 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Local Settings',
+      'title' => 'Локальні налаштування',
     ],
     'credits' => [
       'title' => 'Автори',
