@@ -50,6 +50,7 @@ English and Hungarian translations have been included, so no translators will be
   - [CPYW_7226](https://crowdin.com/profile/CPYW_7226)
   - [Faer Yili](https://crowdin.com/profile/yilifaer)
   - [FTVTC\_ Alex.`](https://crowdin.com/profile/htcqqcomm)
+  - [Hoshub](https://crowdin.com/profile/Hoshub)
   - [Jack Batele](https://crowdin.com/profile/BateleJack)
   - [User670](https://crowdin.com/profile/User670)
   - [xianxiaojiu](https://crowdin.com/profile/xianxiaojiu)
@@ -158,6 +159,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Tomi Adekoya](https://crowdin.com/profile/tomiadekoya23)
 - 🇯🇵 Japanese
   - [eai04191](https://crowdin.com/profile/eai04191)
+  - [land Ghusy](https://crowdin.com/profile/ghusyland)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [Phrygia](https://github.com/sjkim04)
   - [sakana](https://crowdin.com/profile/sakana0580)
@@ -228,6 +230,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Eduardo](https://crowdin.com/profile/Nirewen)
   - [Felipe Augusto](https://crowdin.com/profile/Oyaku)
   - [Flavio Bonacordi](https://crowdin.com/profile/CrazySpy)
+  - [glitcheus.maximus](https://crowdin.com/profile/glitcheus.maximus)
   - [Henrique Wallace Novais Silva](https://crowdin.com/profile/henriquewgamer)
   - [leo0six](https://crowdin.com/profile/leo0six)
   - [ShadowG](https://crowdin.com/profile/ShadowG)
