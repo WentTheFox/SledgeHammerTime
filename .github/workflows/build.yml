@@ -1,6 +1,10 @@
 name: Build
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 concurrency:
   group: ci-node-${{ github.ref }}
@@ -45,7 +49,7 @@ jobs:
 
       - name: Install npm dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts
+        run: npm ci --ignore-scripts --force
 
       - run: npm run lint
 
@@ -76,6 +80,9 @@ jobs:
 
       - name: Run migrations
         run: php artisan migrate --force
+
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --error-format=github
 
       - name: Cache Playwright browsers
         uses: actions/cache@v4

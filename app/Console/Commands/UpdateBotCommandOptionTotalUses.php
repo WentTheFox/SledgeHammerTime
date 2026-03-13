@@ -24,7 +24,7 @@ class UpdateBotCommandOptionTotalUses extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():void {
     $executionData = TelemetryCommandOptionUse::groupBy('bot_command_option_id')->selectRaw('bot_command_option_id, count(*) as total_uses')->get();
 
     foreach ($executionData as $execution){

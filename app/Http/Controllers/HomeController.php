@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use DateTimeZone;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller {
-  function index() {
+  function index():InertiaResponse {
     $currentTime = new Carbon(timezone: new DateTimeZone('GMT'))->setSeconds(0)->getTimestamp();
 
     return Inertia::render('Picker/IndexComponent', [
@@ -18,7 +20,7 @@ class HomeController extends Controller {
     ]);
   }
 
-  function discord() {
+  function discord(): RedirectResponse {
     $inviteUrl = config('services.discord.invite_url');
     if (empty($inviteUrl)){
       throw new NotFoundHttpException();

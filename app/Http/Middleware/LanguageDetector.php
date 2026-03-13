@@ -3,12 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Symfony\Component\HttpFoundation\Response;
 use Teto\HTTP\AcceptLanguage;
 
 class LanguageDetector {
+  /**
+   * @var string[]
+   */
   protected array $ignored_segments = [
     // Server invite redirect
     'discord',
@@ -24,10 +29,10 @@ class LanguageDetector {
     'status',
   ];
 
-  protected const LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';
-  protected const SESSION_APP_LOCALE_KEY = 'app_locale';
+  protected const string LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';
+  protected const string SESSION_APP_LOCALE_KEY = 'app_locale';
 
-  public function handle(Request $request, Closure $next) {
+  public function handle(Request $request, Closure $next):RedirectResponse|Response {
     $session_locale = $request->session()->get(self::SESSION_APP_LOCALE_KEY);
     $request_path = $request->path();
     $request_method = $request->method();
@@ -74,7 +79,7 @@ class LanguageDetector {
   protected function detectLocale():string {
     $ui_locale_map = Config::get('languages.ui_locale_map');
     $ui_locale_map_flip = array_flip($ui_locale_map);
-    $app_locale = session()?->get(self::SESSION_APP_LOCALE_KEY);
+    $app_locale = session()->get(self::SESSION_APP_LOCALE_KEY);
     if (is_string($app_locale) && array_key_exists($app_locale, $ui_locale_map_flip)){
       // Restore selected locale from session
       return $ui_locale_map_flip[$app_locale];

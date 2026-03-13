@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider {
     });
   }
 
-  private function bootCrowdinSocialite() {
+  private function bootCrowdinSocialite(): void {
     $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
     $socialite->extend(
       'crowdin',

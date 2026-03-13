@@ -15,6 +15,9 @@ class TelemetryCommandOptionUse extends Model {
     'bot_command_option_id',
   ];
 
+  /**
+   * @return BelongsTo<BotCommandOption, $this>
+   */
   function option():BelongsTo {
     return $this->belongsTo(BotCommandOption::class);
   }

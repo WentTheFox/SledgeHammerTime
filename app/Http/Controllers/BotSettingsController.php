@@ -12,15 +12,17 @@ use App\Models\BotCommandTranslation;
 use App\Models\DiscordUser;
 use App\Models\Settings;
 use App\Services\Discord\DiscordUserService;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 
 class BotSettingsController extends Controller {
   public function __construct(protected DiscordUserService $discordUserService) { }
 
-  function edit() {
+  public function edit():InertiaResponse {
     $userSettings = Auth::user()?->discordUsers()->get()->map(fn(DiscordUser $du) => [
       'user' => $du->mapToUiInfo(),
       'settings' => $this->discordUserService->getSettingsRecord($du, cache: false),
@@ -35,7 +37,7 @@ class BotSettingsController extends Controller {
     ]);
   }
 
-  function set(BotSettingsUpdate $request) {
+  public function set(BotSettingsUpdate $request): Response {
     $data = $request->validated();
 
     $discordUserId = $request->route('discordUserId');
@@ -75,6 +77,17 @@ class BotSettingsController extends Controller {
     return response()->noContent(200);
   }
 
+  /**
+   * @return array{
+   *   atCommandName: string,
+   *   at12CommandName: string,
+   *   hourOptionName: string,
+   *   minuteOptionName: string,
+   *   secondOptionName: string,
+   *   formatOptionChoices: array<string, string>,
+   *   columnsOptionChoices: array<string, string>,
+   * }
+   */
   private function getBotTranslations():array {
     $commandNameToIdMap = (array)BotCommand::whereIn('name', ['at', 'at12'])
       ->get()

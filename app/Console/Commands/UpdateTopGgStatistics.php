@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\BotShard;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Psr\Http\Message\ResponseInterface;
 
 class UpdateTopGgStatistics extends Command {
   /**
@@ -24,7 +25,7 @@ class UpdateTopGgStatistics extends Command {
   /**
    * Execute the console command.
    */
-  public function handle() {
+  public function handle():int {
     $token = config('services.top-gg.token');
     if (empty($token)){
       $this->warn("You do not have a Top.gg token set, which is required to use this command.");
@@ -39,6 +40,9 @@ class UpdateTopGgStatistics extends Command {
     $this->info("Updating Top.gg bot stats…\n".var_export($statsData, return: true));
 
     $endpoint = sprintf("/bots/%s/stats", config('services.discord.client_id'));
+    /**
+     * @var ResponseInterface $result
+     */
     $result = Http::asJson()
       ->baseUrl(config('services.top-gg.base_url'))
       ->withHeaders([
