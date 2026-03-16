@@ -39,7 +39,7 @@
     "laravel-vue-i18n": "^2.8.0",
     "lightningcss": "*",
     "postcss": "^8.4.47",
-    "sass": "^1.80.4",
+    "sass": "^1.98.0",
     "sharp": "^0.34.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
