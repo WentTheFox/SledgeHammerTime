@@ -4254,20 +4254,20 @@
     },
     {
       "name": "league/uri",
-      "version": "7.8.0",
+      "version": "7.8.1",
       "source": {
         "type": "git",
         "url": "https://github.com/thephpleague/uri.git",
-        "reference": "4436c6ec8d458e4244448b069cc572d088230b76"
+        "reference": "08cf38e3924d4f56238125547b5720496fac8fd4"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/thephpleague/uri/zipball/4436c6ec8d458e4244448b069cc572d088230b76",
-        "reference": "4436c6ec8d458e4244448b069cc572d088230b76",
+        "url": "https://api.github.com/repos/thephpleague/uri/zipball/08cf38e3924d4f56238125547b5720496fac8fd4",
+        "reference": "08cf38e3924d4f56238125547b5720496fac8fd4",
         "shasum": ""
       },
       "require": {
-        "league/uri-interfaces": "^7.8",
+        "league/uri-interfaces": "^7.8.1",
         "php": "^8.1",
         "psr/http-factory": "^1"
       },
@@ -4340,7 +4340,7 @@
         "docs": "https://uri.thephpleague.com",
         "forum": "https://thephpleague.slack.com",
         "issues": "https://github.com/thephpleague/uri-src/issues",
-        "source": "https://github.com/thephpleague/uri/tree/7.8.0"
+        "source": "https://github.com/thephpleague/uri/tree/7.8.1"
       },
       "funding": [
         {
@@ -4348,20 +4348,20 @@
           "type": "github"
         }
       ],
-      "time": "2026-01-14T17:24:56+00:00"
+      "time": "2026-03-15T20:22:25+00:00"
     },
     {
       "name": "league/uri-interfaces",
-      "version": "7.8.0",
+      "version": "7.8.1",
       "source": {
         "type": "git",
         "url": "https://github.com/thephpleague/uri-interfaces.git",
-        "reference": "c5c5cd056110fc8afaba29fa6b72a43ced42acd4"
+        "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/c5c5cd056110fc8afaba29fa6b72a43ced42acd4",
-        "reference": "c5c5cd056110fc8afaba29fa6b72a43ced42acd4",
+        "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/85d5c77c5d6d3af6c54db4a78246364908f3c928",
+        "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928",
         "shasum": ""
       },
       "require": {
@@ -4424,7 +4424,7 @@
         "docs": "https://uri.thephpleague.com",
         "forum": "https://thephpleague.slack.com",
         "issues": "https://github.com/thephpleague/uri-src/issues",
-        "source": "https://github.com/thephpleague/uri-interfaces/tree/7.8.0"
+        "source": "https://github.com/thephpleague/uri-interfaces/tree/7.8.1"
       },
       "funding": [
         {
@@ -4432,7 +4432,7 @@
           "type": "github"
         }
       ],
-      "time": "2026-01-15T06:54:53+00:00"
+      "time": "2026-03-08T20:05:35+00:00"
     },
     {
       "name": "monolog/monolog",
@@ -11271,16 +11271,16 @@
     },
     {
       "name": "laravel/pint",
-      "version": "v1.28.0",
+      "version": "v1.29.0",
       "source": {
         "type": "git",
         "url": "https://github.com/laravel/pint.git",
-        "reference": "1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9"
+        "reference": "bdec963f53172c5e36330f3a400604c69bf02d39"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/laravel/pint/zipball/1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9",
-        "reference": "1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9",
+        "url": "https://api.github.com/repos/laravel/pint/zipball/bdec963f53172c5e36330f3a400604c69bf02d39",
+        "reference": "bdec963f53172c5e36330f3a400604c69bf02d39",
         "shasum": ""
       },
       "require": {
@@ -11297,8 +11297,8 @@
         "laravel-zero/framework": "^12.0.5",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/termwind": "^2.4.0",
-        "pestphp/pest": "^3.8.5",
-        "shipfastlabs/agent-detector": "^1.0.2"
+        "pestphp/pest": "^3.8.6",
+        "shipfastlabs/agent-detector": "^1.1.0"
       },
       "bin": [
         "builds/pint"
@@ -11335,7 +11335,7 @@
         "issues": "https://github.com/laravel/pint/issues",
         "source": "https://github.com/laravel/pint"
       },
-      "time": "2026-03-10T20:37:18+00:00"
+      "time": "2026-03-12T15:51:39+00:00"
     },
     {
       "name": "laravel/sail",
@@ -11402,20 +11402,20 @@
     },
     {
       "name": "league/uri-components",
-      "version": "7.8.0",
+      "version": "7.8.1",
       "source": {
         "type": "git",
         "url": "https://github.com/thephpleague/uri-components.git",
-        "reference": "8b5ffcebcc0842b76eb80964795bd56a8333b2ba"
+        "reference": "848ff9db2f0be06229d6034b7c2e33d41b4fd675"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/8b5ffcebcc0842b76eb80964795bd56a8333b2ba",
-        "reference": "8b5ffcebcc0842b76eb80964795bd56a8333b2ba",
+        "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/848ff9db2f0be06229d6034b7c2e33d41b4fd675",
+        "reference": "848ff9db2f0be06229d6034b7c2e33d41b4fd675",
         "shasum": ""
       },
       "require": {
-        "league/uri": "^7.8",
+        "league/uri": "^7.8.1",
         "php": "^8.1"
       },
       "suggest": {
@@ -11474,7 +11474,7 @@
         "docs": "https://uri.thephpleague.com",
         "forum": "https://thephpleague.slack.com",
         "issues": "https://github.com/thephpleague/uri-src/issues",
-        "source": "https://github.com/thephpleague/uri-components/tree/7.8.0"
+        "source": "https://github.com/thephpleague/uri-components/tree/7.8.1"
       },
       "funding": [
         {
@@ -11482,7 +11482,7 @@
           "type": "github"
         }
       ],
-      "time": "2026-01-14T17:24:56+00:00"
+      "time": "2026-03-15T20:22:25+00:00"
     },
     {
       "name": "mockery/mockery",
@@ -13118,12 +13118,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "8a08058dd09fdd6cc42f420f4cdbf0cac027c82b"
+        "reference": "c425a7015ff365f556908950c3ae1cd2167f1fc9"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/8a08058dd09fdd6cc42f420f4cdbf0cac027c82b",
-        "reference": "8a08058dd09fdd6cc42f420f4cdbf0cac027c82b",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c425a7015ff365f556908950c3ae1cd2167f1fc9",
+        "reference": "c425a7015ff365f556908950c3ae1cd2167f1fc9",
         "shasum": ""
       },
       "conflict": {
@@ -13788,7 +13788,7 @@
         "reportico-web/reportico": "<=8.1",
         "rhukster/dom-sanitizer": "<1.0.7",
         "rmccue/requests": ">=1.6,<1.8",
-        "robrichards/xmlseclibs": "<=3.1.3",
+        "robrichards/xmlseclibs": "<3.1.5",
         "roots/soil": "<4.1",
         "roundcube/roundcubemail": "<1.5.10|>=1.6,<1.6.11",
         "rudloff/alltube": "<3.0.3",
@@ -13839,7 +13839,7 @@
         "simplesamlphp/simplesamlphp-module-openid": "<1",
         "simplesamlphp/simplesamlphp-module-openidprovider": "<0.9",
         "simplesamlphp/xml-common": "<1.20",
-        "simplesamlphp/xml-security": "==1.6.11",
+        "simplesamlphp/xml-security": "<1.13.9|>=2,<2.3.1",
         "simplito/elliptic-php": "<1.0.6",
         "sitegeist/fluid-components": "<3.5",
         "sjbr/sr-feuser-register": "<2.6.2|>=5.1,<12.5",
@@ -13867,7 +13867,7 @@
         "starcitizentools/short-description": ">=4,<4.0.1",
         "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
         "starcitizenwiki/embedvideo": "<=4",
-        "statamic/cms": "<5.73.11|>=6,<6.4",
+        "statamic/cms": "<5.73.11|>=6,<6.6.2",
         "stormpath/sdk": "<9.9.99",
         "studio-42/elfinder": "<=2.1.64",
         "studiomitte/friendlycaptcha": "<0.1.4",
@@ -14028,7 +14028,7 @@
         "wikibase/wikibase": "<=1.39.3",
         "wikimedia/parsoid": "<0.12.2",
         "willdurand/js-translation-bundle": "<2.1.1",
-        "winter/wn-backend-module": "<1.2.4",
+        "winter/wn-backend-module": "<1.2.12",
         "winter/wn-cms-module": "<=1.2.9",
         "winter/wn-dusk-plugin": "<2.1",
         "winter/wn-system-module": "<1.2.4",
@@ -14140,7 +14140,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2026-03-11T22:08:36+00:00"
+      "time": "2026-03-16T13:34:57+00:00"
     },
     {
       "name": "sebastian/cli-parser",
@@ -14430,16 +14430,16 @@
     },
     {
       "name": "sebastian/environment",
-      "version": "8.0.3",
+      "version": "8.0.4",
       "source": {
         "type": "git",
         "url": "https://github.com/sebastianbergmann/environment.git",
-        "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68"
+        "reference": "7b8842c2d8e85d0c3a5831236bf5869af6ab2a11"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
-        "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
+        "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/7b8842c2d8e85d0c3a5831236bf5869af6ab2a11",
+        "reference": "7b8842c2d8e85d0c3a5831236bf5869af6ab2a11",
         "shasum": ""
       },
       "require": {
@@ -14482,7 +14482,7 @@
       "support": {
         "issues": "https://github.com/sebastianbergmann/environment/issues",
         "security": "https://github.com/sebastianbergmann/environment/security/policy",
-        "source": "https://github.com/sebastianbergmann/environment/tree/8.0.3"
+        "source": "https://github.com/sebastianbergmann/environment/tree/8.0.4"
       },
       "funding": [
         {
@@ -14502,7 +14502,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-08-12T14:11:56+00:00"
+      "time": "2026-03-15T07:05:40+00:00"
     },
     {
       "name": "sebastian/exporter",
