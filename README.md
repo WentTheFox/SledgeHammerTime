@@ -228,6 +228,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Astro Ph_77](https://crowdin.com/profile/astroph.707)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
+  - [Erik](https://crowdin.com/profile/eriktradutor)
   - [Felipe Augusto](https://crowdin.com/profile/Oyaku)
   - [Flavio Bonacordi](https://crowdin.com/profile/CrazySpy)
   - [glitcheus.maximus](https://crowdin.com/profile/glitcheus.maximus)
