@@ -2233,16 +2233,16 @@
     },
     {
       "name": "laravel-lang/lang",
-      "version": "15.29.0",
+      "version": "15.29.2",
       "source": {
         "type": "git",
         "url": "https://github.com/Laravel-Lang/lang.git",
-        "reference": "0ef94b493a0ff9db38761d1a0d9ede0ce993e6b0"
+        "reference": "791087e95fc8525c227f292ea6f6d4867f0bb2dc"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/0ef94b493a0ff9db38761d1a0d9ede0ce993e6b0",
-        "reference": "0ef94b493a0ff9db38761d1a0d9ede0ce993e6b0",
+        "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/791087e95fc8525c227f292ea6f6d4867f0bb2dc",
+        "reference": "791087e95fc8525c227f292ea6f6d4867f0bb2dc",
         "shasum": ""
       },
       "require": {
@@ -2303,7 +2303,7 @@
           "type": "yoomoney"
         }
       ],
-      "time": "2026-03-17T23:12:45+00:00"
+      "time": "2026-03-21T00:27:29+00:00"
     },
     {
       "name": "laravel-lang/locale-list",
@@ -3052,16 +3052,16 @@
     },
     {
       "name": "laravel-lang/starter-kits",
-      "version": "1.9.0",
+      "version": "1.10.1",
       "source": {
         "type": "git",
         "url": "https://github.com/Laravel-Lang/starter-kits.git",
-        "reference": "c1f3b36949bb7084013b361e5ab0f3734663d84d"
+        "reference": "a99d03b85e59e66e8b5e2da8996eefb80a794446"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/c1f3b36949bb7084013b361e5ab0f3734663d84d",
-        "reference": "c1f3b36949bb7084013b361e5ab0f3734663d84d",
+        "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/a99d03b85e59e66e8b5e2da8996eefb80a794446",
+        "reference": "a99d03b85e59e66e8b5e2da8996eefb80a794446",
         "shasum": ""
       },
       "require": {
@@ -3113,7 +3113,7 @@
       ],
       "support": {
         "issues": "https://github.com/Laravel-Lang/starter-kits/issues",
-        "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.9.0"
+        "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.10.1"
       },
       "funding": [
         {
@@ -3125,7 +3125,7 @@
           "type": "yoomoney"
         }
       ],
-      "time": "2026-02-28T00:57:54+00:00"
+      "time": "2026-03-20T08:43:52+00:00"
     },
     {
       "name": "laravel/framework",
@@ -5673,16 +5673,16 @@
     },
     {
       "name": "psy/psysh",
-      "version": "v0.12.21",
+      "version": "v0.12.22",
       "source": {
         "type": "git",
         "url": "https://github.com/bobthecow/psysh.git",
-        "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97"
+        "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
-        "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
+        "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
+        "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
         "shasum": ""
       },
       "require": {
@@ -5746,9 +5746,9 @@
       ],
       "support": {
         "issues": "https://github.com/bobthecow/psysh/issues",
-        "source": "https://github.com/bobthecow/psysh/tree/v0.12.21"
+        "source": "https://github.com/bobthecow/psysh/tree/v0.12.22"
       },
-      "time": "2026-03-06T21:21:28+00:00"
+      "time": "2026-03-22T23:03:24+00:00"
     },
     {
       "name": "ralouphie/getallheaders",
@@ -10540,16 +10540,16 @@
     },
     {
       "name": "brianium/paratest",
-      "version": "v7.19.0",
+      "version": "v7.19.2",
       "source": {
         "type": "git",
         "url": "https://github.com/paratestphp/paratest.git",
-        "reference": "7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6"
+        "reference": "66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/paratestphp/paratest/zipball/7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6",
-        "reference": "7c6c29af7c4b406b49ce0c6b0a3a81d3684474e6",
+        "url": "https://api.github.com/repos/paratestphp/paratest/zipball/66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9",
+        "reference": "66e4f7910cecf67736bccf2b8bd53a2e3eb98bd9",
         "shasum": ""
       },
       "require": {
@@ -10563,9 +10563,9 @@
         "phpunit/php-code-coverage": "^12.5.3 || ^13.0.1",
         "phpunit/php-file-iterator": "^6.0.1 || ^7",
         "phpunit/php-timer": "^8 || ^9",
-        "phpunit/phpunit": "^12.5.9 || ^13",
+        "phpunit/phpunit": "^12.5.14 || ^13.0.5",
         "sebastian/environment": "^8.0.3 || ^9",
-        "symfony/console": "^7.4.4 || ^8.0.4",
+        "symfony/console": "^7.4.7 || ^8.0.7",
         "symfony/process": "^7.4.5 || ^8.0.5"
       },
       "require-dev": {
@@ -10573,11 +10573,11 @@
         "ext-pcntl": "*",
         "ext-pcov": "*",
         "ext-posix": "*",
-        "phpstan/phpstan": "^2.1.38",
-        "phpstan/phpstan-deprecation-rules": "^2.0.3",
-        "phpstan/phpstan-phpunit": "^2.0.12",
-        "phpstan/phpstan-strict-rules": "^2.0.8",
-        "symfony/filesystem": "^7.4.0 || ^8.0.1"
+        "phpstan/phpstan": "^2.1.40",
+        "phpstan/phpstan-deprecation-rules": "^2.0.4",
+        "phpstan/phpstan-phpunit": "^2.0.16",
+        "phpstan/phpstan-strict-rules": "^2.0.10",
+        "symfony/filesystem": "^7.4.6 || ^8.0.6"
       },
       "bin": [
         "bin/paratest",
@@ -10617,7 +10617,7 @@
       ],
       "support": {
         "issues": "https://github.com/paratestphp/paratest/issues",
-        "source": "https://github.com/paratestphp/paratest/tree/v7.19.0"
+        "source": "https://github.com/paratestphp/paratest/tree/v7.19.2"
       },
       "funding": [
         {
@@ -10629,7 +10629,7 @@
           "type": "paypal"
         }
       ],
-      "time": "2026-02-06T10:53:26+00:00"
+      "time": "2026-03-09T14:33:17+00:00"
     },
     {
       "name": "daverandom/libdns",
@@ -11735,20 +11735,20 @@
     },
     {
       "name": "pestphp/pest",
-      "version": "v4.4.2",
+      "version": "v4.4.3",
       "source": {
         "type": "git",
         "url": "https://github.com/pestphp/pest.git",
-        "reference": "5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701"
+        "reference": "e6ab897594312728ef2e32d586cb4f6780b1b495"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/pestphp/pest/zipball/5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701",
-        "reference": "5d42e8fe3ae1d9fdf7c9f73ee88138fd30265701",
+        "url": "https://api.github.com/repos/pestphp/pest/zipball/e6ab897594312728ef2e32d586cb4f6780b1b495",
+        "reference": "e6ab897594312728ef2e32d586cb4f6780b1b495",
         "shasum": ""
       },
       "require": {
-        "brianium/paratest": "^7.19.0",
+        "brianium/paratest": "^7.19.2",
         "nunomaduro/collision": "^8.9.1",
         "nunomaduro/termwind": "^2.4.0",
         "pestphp/pest-plugin": "^4.0.0",
@@ -11756,12 +11756,12 @@
         "pestphp/pest-plugin-mutate": "^4.0.1",
         "pestphp/pest-plugin-profanity": "^4.2.1",
         "php": "^8.3.0",
-        "phpunit/phpunit": "^12.5.12",
+        "phpunit/phpunit": "^12.5.14",
         "symfony/process": "^7.4.5|^8.0.5"
       },
       "conflict": {
         "filp/whoops": "<2.18.3",
-        "phpunit/phpunit": ">12.5.12",
+        "phpunit/phpunit": ">12.5.14",
         "sebastian/exporter": "<7.0.0",
         "webmozart/assert": "<1.11.0"
       },
@@ -11835,7 +11835,7 @@
       ],
       "support": {
         "issues": "https://github.com/pestphp/pest/issues",
-        "source": "https://github.com/pestphp/pest/tree/v4.4.2"
+        "source": "https://github.com/pestphp/pest/tree/v4.4.3"
       },
       "funding": [
         {
@@ -11847,7 +11847,7 @@
           "type": "github"
         }
       ],
-      "time": "2026-03-10T21:09:12+00:00"
+      "time": "2026-03-21T13:14:39+00:00"
     },
     {
       "name": "pestphp/pest-plugin",
@@ -12946,16 +12946,16 @@
     },
     {
       "name": "phpunit/phpunit",
-      "version": "12.5.12",
+      "version": "12.5.14",
       "source": {
         "type": "git",
         "url": "https://github.com/sebastianbergmann/phpunit.git",
-        "reference": "418e06b3b46b0d54bad749ff4907fc7dfb530199"
+        "reference": "47283cfd98d553edcb1353591f4e255dc1bb61f0"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/418e06b3b46b0d54bad749ff4907fc7dfb530199",
-        "reference": "418e06b3b46b0d54bad749ff4907fc7dfb530199",
+        "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/47283cfd98d553edcb1353591f4e255dc1bb61f0",
+        "reference": "47283cfd98d553edcb1353591f4e255dc1bb61f0",
         "shasum": ""
       },
       "require": {
@@ -13024,7 +13024,7 @@
       "support": {
         "issues": "https://github.com/sebastianbergmann/phpunit/issues",
         "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-        "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.12"
+        "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.14"
       },
       "funding": [
         {
@@ -13048,7 +13048,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2026-02-16T08:34:36+00:00"
+      "time": "2026-02-18T12:38:40+00:00"
     },
     {
       "name": "revolt/event-loop",
@@ -13128,12 +13128,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "fc0cbbd2b57d9b5aa47f9f7e17c8be5bb8afb08b"
+        "reference": "e19b0f27b204991af95a5fefad00630bc3e376ae"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/fc0cbbd2b57d9b5aa47f9f7e17c8be5bb8afb08b",
-        "reference": "fc0cbbd2b57d9b5aa47f9f7e17c8be5bb8afb08b",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e19b0f27b204991af95a5fefad00630bc3e376ae",
+        "reference": "e19b0f27b204991af95a5fefad00630bc3e376ae",
         "shasum": ""
       },
       "conflict": {
@@ -13189,6 +13189,7 @@
         "auth0/wordpress": "<=5.4",
         "automad/automad": "<2.0.0.0-alpha5",
         "automattic/jetpack": "<9.8",
+        "avideo/avideo": "<=26",
         "awesome-support/awesome-support": "<=6.0.7",
         "aws/aws-sdk-php": "<3.368",
         "ayacoo/redirect-tab": "<2.1.2|>=3,<3.1.7|>=4,<4.0.5",
@@ -13323,6 +13324,7 @@
         "dolibarr/dolibarr": "<21.0.3",
         "dompdf/dompdf": "<2.0.4",
         "doublethreedigital/guest-entries": "<3.1.2",
+        "dreamfactory/df-core": "<1.0.4",
         "drupal-pattern-lab/unified-twig-extensions": "<=0.1",
         "drupal/access_code": "<2.0.5",
         "drupal/acquia_dam": "<1.1.5",
@@ -13520,6 +13522,7 @@
         "jbartels/wec-map": "<3.0.3",
         "jcbrand/converse.js": "<3.3.3",
         "joelbutcher/socialstream": "<5.6|>=6,<6.2",
+        "johnbillion/query-monitor": "<3.20.4",
         "johnbillion/wp-crontrol": "<1.16.2|>=1.17,<1.19.2",
         "joomla/application": "<1.0.13",
         "joomla/archive": "<1.1.12|>=2,<2.0.1",
@@ -13567,7 +13570,7 @@
         "lavalite/cms": "<=10.1",
         "lavitto/typo3-form-to-database": "<2.2.5|>=3,<3.2.2|>=4,<4.2.3|>=5,<5.0.2",
         "lcobucci/jwt": ">=3.4,<3.4.6|>=4,<4.0.4|>=4.1,<4.1.5",
-        "league/commonmark": "<=2.8",
+        "league/commonmark": "<=2.8.1",
         "league/flysystem": "<1.1.4|>=2,<2.1.1",
         "league/oauth2-server": ">=8.3.2,<8.4.2|>=8.5,<8.5.3",
         "leantime/leantime": "<3.3",
@@ -13885,7 +13888,7 @@
         "starcitizentools/short-description": ">=4,<4.0.1",
         "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
         "starcitizenwiki/embedvideo": "<=4",
-        "statamic/cms": "<5.73.14|>=6,<6.7",
+        "statamic/cms": "<5.73.14|>=6,<6.7.1",
         "stormpath/sdk": "<9.9.99",
         "studio-42/elfinder": "<=2.1.64",
         "studiomitte/friendlycaptcha": "<0.1.4",
@@ -14060,7 +14063,7 @@
         "wpcloud/wp-stateless": "<3.2",
         "wpglobus/wpglobus": "<=1.9.6",
         "wpmetabox/meta-box": "<5.11.2",
-        "wwbn/avideo": "<=25",
+        "wwbn/avideo": "<=26",
         "xataface/xataface": "<3",
         "xpressengine/xpressengine": "<3.0.15",
         "yab/quarx": "<2.4.5",
@@ -14079,6 +14082,7 @@
         "yiisoft/yii2-redis": "<2.0.20",
         "yikesinc/yikes-inc-easy-mailchimp-extender": "<6.8.6",
         "yoast-seo-for-typo3/yoast_seo": "<7.2.3",
+        "yoast/duplicate-post": "<=4.5",
         "yourls/yourls": "<=1.10.2",
         "yuan1994/tpadmin": "<=1.3.12",
         "yungifez/skuul": "<=2.6.5",
@@ -14158,7 +14162,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2026-03-19T17:24:26+00:00"
+      "time": "2026-03-20T22:08:23+00:00"
     },
     {
       "name": "sebastian/cli-parser",
