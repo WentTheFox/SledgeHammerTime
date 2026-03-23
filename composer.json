@@ -18,7 +18,7 @@
     "laravel/horizon": "^5.41",
     "laravel/sanctum": "^4.0",
     "laravel/socialite": "^v5.21",
-    "laravel/tinker": "^2.8",
+    "laravel/tinker": "^3.0",
     "socialiteproviders/crowdin": "^5.0",
     "socialiteproviders/discord": "^4.2",
     "spatie/laravel-google-fonts": "^1.4.4",
