@@ -35,7 +35,7 @@
     "eslint": "^10.0.2",
     "eslint-plugin-vue": "^10.8.0",
     "js-cookie": "^3.0.5",
-    "laravel-vite-plugin": "^2.1.0",
+    "laravel-vite-plugin": "^3.0.0",
     "laravel-vue-i18n": "^2.8.0",
     "lightningcss": "*",
     "postcss": "^8.4.47",
