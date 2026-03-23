@@ -1123,6 +1123,11 @@
     "17619330": {
       "username": "glitcheus.maximus",
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17619330/medium/ac06ed12e9d38bccba147fb1048a9330_default.png"
+    },
+    "17629152": {
+      "username": "eriktradutor",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17629152/medium/96e7e81ac6bb52ae003df0af3fdecc76_default.png",
+      "fullName": "Erik"
     }
   },
   "languages": {
@@ -1284,7 +1289,7 @@
       ],
       "progress": {
         "approval": 12,
-        "translation": 18
+        "translation": 100
       }
     },
     "fr": {
@@ -1536,6 +1541,7 @@
         "17603464",
         "17560756",
         "17488616",
+        "17629152",
         "17520776",
         "14288672",
         "17450480",
@@ -1545,7 +1551,7 @@
       ],
       "progress": {
         "approval": 91,
-        "translation": 91
+        "translation": 95
       }
     },
     "pt": {
