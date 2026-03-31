@@ -55,7 +55,7 @@ return [
     'pages' => [
         'ensure_pages_exist' => false,
         'paths' => [
-            resource_path('js/pages'),
+            resource_path('js/Pages'),
         ],
         'extensions' => [
             'js',
