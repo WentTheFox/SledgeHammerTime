@@ -22,7 +22,7 @@
       @php
         try {
           $href = Route($routeName, ['locale' => $supportedLocale]);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
           // Skip loop entirely if URL creation fails
           break;
         }
@@ -35,7 +35,7 @@
     @endforeach
   @endif
 
-  <title inertia>{{ $appName }}</title>
+  <title data-inertia>{{ $appName }}</title>
 
   <meta property="og:title" content="{{ $appName }}">
   <meta property="og:description" content="{{ __('global.seoDescription') }}">
@@ -55,9 +55,9 @@
   {{-- Scripts --}}
   @routes
   @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
-  @inertiaHead
+  <x-inertia::head/>
 </head>
 <body class="no-anim">
-@inertia
+  <x-inertia::app />
 </body>
 </html>
