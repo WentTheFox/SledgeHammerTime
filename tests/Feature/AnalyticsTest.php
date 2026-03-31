@@ -7,6 +7,7 @@ use App\Models\PageView;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Carbon;
+use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
 class AnalyticsTest extends TestCase {
@@ -48,7 +49,7 @@ class AnalyticsTest extends TestCase {
     $response = $this->actingAs($user)->get('/en/analytics');
 
     $response->assertStatus(200);
-    $response->assertInertia(fn($page) => $page
+    $response->assertInertia(fn(AssertableInertia $page) => $page
       ->component('Analytics/IndexComponent')
       ->has('dailyTotals')
       ->has('routeBreakdown')
