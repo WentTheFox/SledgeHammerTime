@@ -1,0 +1,10 @@
+# phpstan-phpstorm.neon
+# This configuration is specifically for PHPStorm's real-time inspection.
+# It inherits all rules from the main config but disables the 'env()' check
+# for config files, which gives false positives due to the IDE using temp files.
+
+parameters:
+    ignoreErrors:
+        -
+            message: "#^Called 'env' outside of the config directory which returns null when the config is cached, use 'config'.$#"
+            path: *config/*.php

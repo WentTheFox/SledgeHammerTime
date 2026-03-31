@@ -11,7 +11,7 @@
     "php": "^8.5",
     "ext-pdo": "*",
     "guzzlehttp/guzzle": "^7.2",
-    "inertiajs/inertia-laravel": "^2.0",
+    "inertiajs/inertia-laravel": "^3.0",
     "laravel-lang/common": "^6.7.1",
     "laravel-lang/native-locale-names": "^2.6.0",
     "laravel/framework": "^12.0",
