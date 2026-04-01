@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last 30 days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => 'Sivun näyttökertojen analytiikka',
+  'description' => 'Tämä sivu sisältää perusanalytiikkaa (sekä tallennettuna että näytettynä ilman henkilökohtaa paljastavia tietoja) sivun koodut näyttökerrat viimeisen 30 päivän aikana.',
+  'collectionMethod' => 'Data kerätään palvelimen puolella, perustuen rajoitettuun määrään sivuja lähetettyjä vastauksia. Sivun näyttökerrat tallennetaan erikseen, mutta kootaan päivittäin taustaprosessin toimesta.',
+  'lastUpdated' => 'Tämän sivun tiedot tallennetaan välimuistiin palvelimen kuormituksen vähentämiseksi. Data joka täällä näkyy, on viimeksi päivitetty <1/>.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
+    'dailyTotal' => 'Päivittäiset sivun näyttökerrat',
+    'breakdown' => 'Sivun näyttökertojen jakautuminen',
+    'byPage' => 'Sivujen mukaan',
+    'byLanguage' => 'Kielen mukaan',
   ],
   'values' => [
-    'unknown' => 'Unknown',
+    'unknown' => 'Tuntematon',
   ],
 ];
