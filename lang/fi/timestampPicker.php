@@ -8,12 +8,12 @@ return [
       'time' => 'Aika',
       'dateAndTime' => 'Päivämäärä ja aika',
       'timezone' => 'Aikavyöhyke',
-      'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'naturalLanguageInput' => '@time syöte',
+      'modeOffset' => 'Täydellinen offset',
+      'modeZoneName' => 'Alueen nimi',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Siirry kuluvaan kuukauteen',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
@@ -28,7 +28,7 @@ return [
       'nextDecade' => 'Seuraava vuosikymmen',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Ei voitu jäsentää luonnollisen kielen syötettä'
     ]
   ],
   'table' => [
@@ -46,7 +46,7 @@ return [
       'p' => 'Luo aikaleimoja Discordissa kauttaviivakomennoilla',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
+      'header' => 'HammerTime:n vanha sivu',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
