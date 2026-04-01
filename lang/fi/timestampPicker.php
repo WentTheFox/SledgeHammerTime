@@ -47,7 +47,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime:n vanha sivu',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Projektin vanha sivu, saatavilla toistaiseksi',
     ],
     'textColor' => [
       'header' => 'Rebanen <1>Värillinen</1> Tekstigeneraattori',
