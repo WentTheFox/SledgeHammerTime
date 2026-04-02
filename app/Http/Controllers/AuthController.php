@@ -139,12 +139,14 @@ class AuthController extends Controller {
   }
 
   protected function updateOrCreateCrowdinUser(SocialiteUser $data, User $user): CrowdinUser {
+    $username = $data->getName();
+    $fullName = $data->getNickname();
     return CrowdinUser::updateOrCreate([
       'id' => $data->getId(),
     ], [
       'id' => $data->getId(),
-      'username' => $data->getName(),
-      'full_name' => $data->getNickname(),
+      'username' => $username,
+      'full_name' => $fullName === $username ? null : $fullName,
       'avatar_url' => $data->getAvatar(),
       'access_token' => $data->token,
       'refresh_token' => $data->refreshToken,
