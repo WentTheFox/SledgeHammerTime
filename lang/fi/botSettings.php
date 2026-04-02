@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Asetukset',
+  'description' => 'Alla näet tämänhetkiset asetukset HammerTime apissa jokaiselle yhdistetylle käyttäjälle.',
+  'learnMore' => 'Et ole varma mikä appi on tai kiinnostunut siitä mitä se voi tehdä? Vieraile <1>Discord apin</1> linkissä oppiaksesi lisää.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Edistyneet asetukset',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Oletus',
   'fields' => [
     'timezone' => [
       'displayName' => 'Aikavyöhyke',
@@ -16,36 +16,36 @@ return [
       'displayName' => 'Muoto',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Vain esikatselu vastaus kun muoto vaihtoehto on käytössä',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Sarakkeet',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Katoava',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Otsikko',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Esikatsele muoto lihavoituna',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Oletuksena ":hourOptionName" vaihtoehto /:atCommandName komentoa varten',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Oletuksena ":minuteOptionName" vaihtoehto /:atCommandName komentoa varten',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Oletuksena ":secondOptionName" vaihtoehto /:atCommandName komentoa varten',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Salli telemetrian keräys',
+      'explanation' => 'Tämä on täysin vaihtoehtoista eikä sillä ole vaikutusta apin käyttöön. Katso <1/> sivu saadaksesi lisätietoa.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Oletuksena ":hourOptionName" vaihtoehto /:at12CommandName komentoa varten',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Asetuksesi tallennettiin onnistuneesti.',
 ];
