@@ -13,12 +13,10 @@ use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
 use App\Models\BotShard;
 use App\Models\BotTimezone;
-use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
-use App\Models\TranslationProgress;
 use App\Models\Settings;
-use App\Models\Translator;
 use App\Models\User;
+use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
 use App\Services\Discord\DiscordUserService;
 use Carbon\Carbon;
@@ -31,6 +29,7 @@ class BotApiController extends Controller {
   public function __construct(
     protected DiscordUserService $discordUserService,
     protected ImportCrowdinTranslatorsService $importTranslatorsService,
+    protected CrowdinCreditsService $crowdinCreditsService,
   ) {
   }
 
@@ -291,6 +290,8 @@ class BotApiController extends Controller {
       projectIds: $projectIds,
     );
 
+    $this->crowdinCreditsService->invalidateCache();
+
     return response()->json([
       'created' => $result->created,
       'updated' => $result->updated,
@@ -300,64 +301,6 @@ class BotApiController extends Controller {
   }
 
   public function getCrowdinTranslatorCredits():JsonResponse {
-    $translators = Translator::where('translated', '>', 0)->orWhere('voted', '>', 0)->get();
-
-    // Build the indexed report data structure
-    $indexedReportData = [
-      'users' => [],
-      'languages' => [],
-    ];
-
-    // Collect all unique user IDs
-    $userIds = $translators->pluck('crowdin_user_id')->unique();
-
-    // Build users dictionary, excluding accounts removed from Crowdin
-    $crowdinUsers = CrowdinUser::whereIn('id', $userIds)
-      ->where('username', '!=', 'REMOVED_USER')
-      ->get()
-      ->keyBy('id');
-
-    foreach ($crowdinUsers as $user){
-      $userData = [
-        'username' => $user->username,
-        'avatarUrl' => $user->avatar_url,
-      ];
-      if ($user->full_name){
-        $userData['fullName'] = $user->full_name;
-      }
-      $indexedReportData['users'][(string)$user->id] = $userData;
-    }
-
-    foreach ($translators as $translator){
-      // Skip translators whose Crowdin account has been removed
-      if (!$crowdinUsers->has($translator->crowdin_user_id)){
-        continue;
-      }
-      $langCode = $translator->language_code;
-      if (!isset($indexedReportData['languages'][$langCode])){
-        $indexedReportData['languages'][$langCode] = [
-          'translatorIds' => [],
-        ];
-      }
-      if (!in_array((string)$translator->crowdin_user_id, $indexedReportData['languages'][$langCode]['translatorIds'], true)){
-        $indexedReportData['languages'][$langCode]['translatorIds'][] = (string)$translator->crowdin_user_id;
-      }
-    }
-
-    // Attach per-language progress from the main project only
-    $mainProjectId = (int)config('services.crowdin.project_id');
-    $progressRecords = TranslationProgress::where('project_id', $mainProjectId)->get();
-    foreach ($progressRecords as $progress){
-      $langCode = $progress->language_code;
-      if (!isset($indexedReportData['languages'][$langCode])){
-        $indexedReportData['languages'][$langCode] = ['translatorIds' => []];
-      }
-      $indexedReportData['languages'][$langCode]['progress'] = [
-        'approval' => $progress->approval,
-        'translation' => $progress->translation,
-      ];
-    }
-
-    return response()->json($indexedReportData);
+    return response()->json($this->crowdinCreditsService->getIndexedReportData());
   }
 }

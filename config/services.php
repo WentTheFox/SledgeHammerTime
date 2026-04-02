@@ -53,6 +53,7 @@ return [
     'report_cache' => env('CROWDIN_REPORT_CACHE'),
     'report_cache_expiration' => env('CROWDIN_REPORT_CACHE_EXPIRATION', 3600),
     'report_debug' => env('CROWDIN_REPORT_DEBUG'),
+    'credits_cache_ttl_minutes' => env('CROWDIN_CREDITS_CACHE_TTL_MINUTES', 60),
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
   ],

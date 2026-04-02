@@ -1,3 +1,4 @@
+import { IndexedReportData } from '@/utils/crowdin';
 import { AvailableLanguage } from '@/utils/language-settings';
 import { Config } from 'ziggy-js';
 
@@ -22,5 +23,6 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
   auth: {
     user: User;
   };
+  crowdinData?: IndexedReportData;
   ziggy?: Config;
 };

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\Crowdin\CrowdinCreditsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
@@ -40,6 +41,7 @@ class HandleInertiaRequests extends Middleware {
       ...new Ziggy(url: config('app.url'))->toArray(),
       'location' => $request->url(),
     ];
+    $shared['crowdinData'] = fn() => app(CrowdinCreditsService::class)->getIndexedReportData();
 
     return $shared;
   }
