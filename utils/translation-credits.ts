@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { config as dotenvConfig } from 'dotenv';
 import { promises as fs } from 'fs';
 import https from 'https';
 import path from 'path';
-import axios from 'axios';
 import localeConfig from '../lang/config.json' with { type: 'json' };
 import { IndexedReportData } from '../resources/js/utils/crowdin';
 import {
@@ -109,28 +109,6 @@ void (async () => {
     }
   }
   const indexedReportData: IndexedReportData = { ...rawReportData, languages: remappedLanguages };
-
-  const assembledReportDataOutputPath = path.join(readmeFolder, 'lang', 'crowdin.json');
-  console.info(`Writing assembled report data to ${assembledReportDataOutputPath}…`);
-  // Normalise key ordering to match the original file format and minimise diffs:
-  // users and language keys sorted numerically/alphabetically; translatorIds sorted numerically.
-  const sortedUsers = Object.fromEntries(
-    Object.entries(indexedReportData.users).sort(([a], [b]) => Number(a) - Number(b)),
-  );
-  const sortedLanguages = Object.fromEntries(
-    Object.entries(indexedReportData.languages)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([locale, data]) => [
-        locale,
-        data
-          ? { ...data, translatorIds: [...data.translatorIds].sort((a, b) => Number(a) - Number(b)) }
-          : data,
-      ]),
-  );
-  const normalisedReportData = { ...indexedReportData, users: sortedUsers, languages: sortedLanguages };
-  const assembledReportDataString = JSON.stringify(normalisedReportData, null, 2);
-  await fs.writeFile(assembledReportDataOutputPath, assembledReportDataString);
-
   const localesConfigPath = path.join(readmeFolder, 'lang', 'config.json');
   await migrateLanguageConfig(localesConfigPath);
 

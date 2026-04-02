@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DeveloperCredit from '@/Components/sidebar/DeveloperCredit.vue';
 import TranslationCredits from '@/Components/sidebar/TranslationCredits.vue';
+import { useCrowdinData } from '@/composables/useCrowdinData';
 import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
@@ -8,7 +9,6 @@ import { useUiLocale } from '@/composables/useUiLocale';
 import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { reportData } from '@/utils/crowdin';
 import { safeRoute } from '@/utils/safe-route';
 import { getTranslatorIds, normalizeCredit, NormalizedCredits } from '@/utils/translation';
 import { faGithub, faOsi } from '@fortawesome/free-brands-svg-icons';
@@ -31,16 +31,18 @@ const currentLanguage = inject(currentLanguageInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 
+const crowdinData = useCrowdinData();
+
 const translationCredits = computed(() => {
   if (!currentLanguage?.value) return null;
 
-  const currentLocaleReportData = reportData.languages[currentLanguage.value.locale];
+  const currentLocaleReportData = crowdinData.value?.languages[currentLanguage.value.locale];
   const translatorIds = getTranslatorIds(currentLanguage.value.languageConfig, currentLocaleReportData);
 
   if (translatorIds.length === 0) return null;
 
   return translatorIds
-    .map((crowdinId) => normalizeCredit(crowdinId, currentLanguage.value.languageConfig?.creditOverrides, reportData))
+    .map((crowdinId) => normalizeCredit(crowdinId, currentLanguage.value.languageConfig?.creditOverrides, crowdinData.value))
     .filter((credit): credit is NormalizedCredits => credit !== null)
     .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName, uiLocale.value));
 });

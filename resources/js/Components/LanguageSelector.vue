@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CustomFlag from '@/Components/CustomFlag.vue';
+import { useCrowdinData } from '@/composables/useCrowdinData';
 import { useLocale } from '@/composables/useLocale';
 import { useNativeLocaleNames } from '@/composables/useNativeLocaleNames';
 import { useRoute } from '@/composables/useRoute';
@@ -9,7 +10,7 @@ import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
-import { getTranslationCompletePercent, reportData } from '@/utils/crowdin';
+import { getTranslationCompletePercent } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
@@ -25,6 +26,8 @@ const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 const routeParams = useRouteParams(route, pageProps);
 const nativeLocaleNames = useNativeLocaleNames();
+
+const crowdinData = useCrowdinData();
 
 const noTranslationsNeededLocales = new Set(['en', 'en-GB', 'hu']);
 
@@ -46,7 +49,7 @@ const displayContributionHints = computed(() =>
 
 const currentLanguageApprovalPercent = computed(() =>
   currentLanguage?.value.locale
-    ? getTranslationCompletePercent(reportData.languages[currentLanguage.value.locale]?.progress)
+    ? getTranslationCompletePercent(crowdinData.value?.languages[currentLanguage.value.locale]?.progress)
     : 100,
 );
 
