@@ -42,11 +42,8 @@ jobs:
       - name: Re-generate translation credits
         run: npm run generate-translation-credits
         env:
-          CROWDIN_API_KEY: ${{ secrets.CROWDIN_API_KEY }}
-          CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
-          CROWDIN_DEVELOPER_ID: ${{ vars.CROWDIN_DEVELOPER_ID }}
-          CROWDIN_REPORT_CACHE: false
-          CROWDIN_REPORT_DEBUG: false
+          APP_URL: ${{ vars.APP_URL }}
+          APP_CONSOLE_USER_TOKEN: ${{ secrets.APP_CONSOLE_USER_TOKEN }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7

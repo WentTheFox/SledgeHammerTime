@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
   Route::get('/user', [BotApiController::class, 'user']);
+  Route::get('/crowdin-translator-credits', [BotApiController::class, 'getCrowdinTranslatorCredits']);
 
   Route::middleware('console-user')->group(function () {
     Route::post('/login-link/{discordUserId}/{locale}', [BotApiController::class, 'loginLink']);
@@ -24,5 +25,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/bot-commands', [BotApiController::class, 'updateBotCommands']);
     Route::put('/bot-timezones', [BotApiController::class, 'updateBotTimezones']);
     Route::post('/command-telemetry', [BotApiController::class, 'commandTelemetry']);
+    Route::post('/import-crowdin-translators', [BotApiController::class, 'importCrowdinTranslators']);
   });
 });
