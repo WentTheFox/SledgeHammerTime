@@ -10,7 +10,8 @@ import { currentLanguageInject, pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
-import { getTranslationCompletePercent } from '@/utils/crowdin';
+import { ProgressBarProps } from '@/Reusable/HtProgressBar.vue';
+import { getTranslationProgress, TranslationCompletionData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
@@ -47,11 +48,32 @@ const displayContributionHints = computed(() =>
   Boolean(currentLanguage?.value?.locale && !noTranslationsNeededLocales.has(currentLanguage.value?.locale)),
 );
 
-const currentLanguageApprovalPercent = computed(() =>
+const currentLanguageProgress = computed<TranslationCompletionData>(() =>
   currentLanguage?.value.locale
-    ? getTranslationCompletePercent(crowdinData.value?.languages[currentLanguage.value.locale]?.progress)
-    : 100,
+    ? getTranslationProgress(crowdinData.value?.languages[currentLanguage.value.locale]?.progress)
+    : { approval: 100, translation: 100 },
 );
+
+const currentLanguageProgressBars = computed<ProgressBarProps[]>(() => {
+  if (!displayContributionHints.value || currentLanguageProgress.value.approval === 100) {
+    return [];
+  }
+
+  const bars: ProgressBarProps[] = [];
+  if (currentLanguageProgress.value.approval === currentLanguageProgress.value.translation) {
+    bars.push({ progress: currentLanguageProgress.value.approval, color: 'approval' });
+  } else {
+    bars.push({
+      progress: currentLanguageProgress.value.translation,
+      color: 'translation'
+    });
+    bars.push({
+      progress: currentLanguageProgress.value.approval,
+      color: 'approval',
+    });
+  }
+  return bars;
+});
 
 const searchParamsString = computed(() => {
   return searchParams.value && searchParams.value.size > 0 ? `?${searchParams.value}` : '';
@@ -100,13 +122,13 @@ onMounted(router.on('success', navigateListener));
       </div>
     </div>
     <div
-      v-if="displayContributionHints && currentLanguageApprovalPercent < 100"
+      v-if="displayContributionHints && currentLanguageProgress.approval < 100"
       class="language-progress mb-2"
     >
       <p class="mb-1">
         {{ $t('global.incompleteTranslations') }}
       </p>
-      <HtProgress :progress="currentLanguageApprovalPercent" />
+      <HtProgress :bars="currentLanguageProgressBars" />
     </div>
     <div class="language-controls">
       <div class="change-language-button-wrap">

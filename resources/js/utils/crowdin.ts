@@ -23,8 +23,5 @@ export interface IndexedReportData {
   >;
 }
 
-export const getTranslationCompletePercent = (value: TranslationCompletionData | null | undefined): number =>
-  typeof value !== 'undefined' && value !== null ? value.approval : 0;
-
-export const getIsTranslationComplete = (value: TranslationCompletionData | undefined | null | number): boolean =>
-  (typeof value === 'number' ? value : getTranslationCompletePercent(value)) === 100;
+export const getTranslationProgress = (value: TranslationCompletionData | null | undefined): TranslationCompletionData =>
+  typeof value !== 'undefined' && value !== null ? value : { translation: 0, approval: 0 };
