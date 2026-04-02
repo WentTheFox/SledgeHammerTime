@@ -159,13 +159,13 @@ English and Hungarian translations have been included, so no translators will be
   - [Tomi Adekoya](https://crowdin.com/profile/tomiadekoya23)
 - 🇯🇵 Japanese
   - [eai04191](https://crowdin.com/profile/eai04191)
+  - [find](https://crowdin.com/profile/undefined9651)
   - [land Ghusy](https://crowdin.com/profile/ghusyland)
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [Phrygia](https://github.com/sjkim04)
   - [sakana](https://crowdin.com/profile/sakana0580)
   - [Shiny4649](https://crowdin.com/profile/Shiny4649)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
-  - [undefined9651](https://crowdin.com/profile/undefined9651)
   - [ちあたん](https://crowdin.com/profile/chiatan1006)
   - [ゆううゆ](https://crowdin.com/profile/yuuuyu)
 - 🇰🇷 Korean
@@ -176,7 +176,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Phrygia](https://github.com/sjkim04)
   - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
   - [Sehoon Park](https://crowdin.com/profile/sehoon.sese)
-  - [SkyStorage\_](https://crowdin.com/profile/SkyStorage_)
+  - [uxirq](https://crowdin.com/profile/uxirq)
   - [공백](https://crowdin.com/profile/whiteblankzero)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
   - [서민석](https://crowdin.com/profile/seominseok001)

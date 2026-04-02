@@ -42,4 +42,11 @@ class CrowdinUser extends Model {
   function user():BelongsTo {
     return $this->belongsTo(User::class);
   }
+
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany<Translator>
+   */
+  function translators():\Illuminate\Database\Eloquent\Relations\HasMany {
+    return $this->hasMany(Translator::class);
+  }
 }

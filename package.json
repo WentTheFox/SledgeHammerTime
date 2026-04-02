@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts",
+    "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts --force",
     "dev:server": "vite",
     "dev:queue": "php artisan horizon",
     "dev": "concurrently -p name npm:dev:*",

@@ -139,10 +139,7 @@ class AuthController extends Controller {
   }
 
   protected function updateOrCreateCrowdinUser(SocialiteUser $data, User $user): CrowdinUser {
-    /**
-     * @var CrowdinUser $result
-     */
-    $result = $user->crowdinUsers()->updateOrCreate([
+    return CrowdinUser::updateOrCreate([
       'id' => $data->getId(),
     ], [
       'id' => $data->getId(),
@@ -153,9 +150,8 @@ class AuthController extends Controller {
       'refresh_token' => $data->refreshToken,
       'scopes' => $data->accessTokenResponseBody['scope'] ?? null,
       'token_expires' => (new Carbon())->add('seconds', $data->expiresIn),
+      'user_id' => $user->id,
     ]);
-
-    return $result;
   }
 
   public function login(Request $request):RedirectResponse {

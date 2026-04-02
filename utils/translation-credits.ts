@@ -1,12 +1,12 @@
 import { config as dotenvConfig } from 'dotenv';
 import { promises as fs } from 'fs';
+import https from 'https';
 import path from 'path';
+import axios from 'axios';
 import localeConfig from '../lang/config.json' with { type: 'json' };
-import crowdinHammertime from '../lang/crowdin_hammertime.json' with { type: 'json' };
-import { IndexedReportData, ReportUserData } from '../resources/js/utils/crowdin';
+import { IndexedReportData } from '../resources/js/utils/crowdin';
 import {
   AvailableLanguage,
-  LANGUAGES,
   LatestLanguageConfigType,
 } from '../resources/js/utils/language-settings';
 import {
@@ -14,25 +14,13 @@ import {
   normalizeCredit,
   NormalizedCredits,
 } from '../resources/js/utils/translation';
-import {
-  ProjectData,
-  ProjectListResponse,
-  ProjectReportDataResponse,
-  ProjectTranslationProgressResponse,
-} from './crowdin-api-types';
-import { crowdinApiRequest } from './helpers/crowdin-api-request';
-import { getCrowdinReportData } from './helpers/get-crowdin-report-data';
-import {
-  mapCrowdinLanguageToAvailableLanguage,
-} from './helpers/map-crowdin-language-to-available-language';
 import { migrateLanguageConfig } from './helpers/migrate-language-config';
 
-dotenvConfig();
+dotenvConfig({ quiet: true });
 
 const markerString = '### Credits';
 const readmeFolder = path.join(import.meta.dirname, '..');
 const readmePath = path.join(readmeFolder, 'README.md');
-const REMOVED_USER_USERNAME = 'REMOVED_USER';
 
 const mapCreditToString = (credit: NormalizedCredits) => {
   const escapedDisplayName = credit.displayName.replace(/(^_|_$|_\s)/g, '\\$1');
@@ -42,22 +30,29 @@ const mapCreditToString = (credit: NormalizedCredits) => {
 /* eslint-disable no-console */
 
 void (async () => {
-  const crowdinApiKey = process.env.CROWDIN_API_KEY as string;
-  if (!crowdinApiKey) {
-    console.warn('Missing Crowdin API key, skipping translation credits generation.');
+  const appUrl = process.env.APP_URL;
+  if (!appUrl) {
+    console.warn('Missing APP_URL, skipping translation credits generation.');
     return;
   }
 
-  const crowdinProjectIdentifier = process.env.CROWDIN_PROJECT_IDENTIFIER;
-  if (!crowdinProjectIdentifier) {
-    console.warn('Missing Crowdin project identifier, skipping translation credits generation.');
+  const appConsoleUserToken = process.env.APP_CONSOLE_USER_TOKEN;
+  if (!appConsoleUserToken) {
+    console.warn('Missing APP_CONSOLE_USER_TOKEN, skipping translation credits generation.');
     return;
   }
 
-  const crowdinDeveloperId = process.env.CROWDIN_DEVELOPER_ID;
-  if (crowdinDeveloperId) {
-    console.info(`Crowdin ID for site developer is set, user ${crowdinDeveloperId} will be excluded from reports`);
-  }
+  const bypassCache = process.argv.includes('--force');
+
+  const caCertPath = process.env.APP_CA_CERT_PATH;
+  const httpsAgent = caCertPath
+    ? new https.Agent({ ca: await fs.readFile(caCertPath) })
+    : undefined;
+  const apiClient = axios.create({
+    baseURL: appUrl,
+    headers: { Authorization: `Bearer ${appConsoleUserToken}` },
+    httpsAgent,
+  });
 
   console.info('Reading README file…');
   const readmeText = await fs.readFile(readmePath, 'utf8');
@@ -69,156 +64,71 @@ void (async () => {
   }
   const readmeTextBeforeMarker = readmeText.substring(0, markerIndex);
 
-  const rawReportDataCachePath = path.join(readmeFolder, 'crowdin_report.json5');
-  const useCache = process.env.CROWDIN_REPORT_CACHE === 'true';
-  const cacheDurationHours = 1;
-
-  const cachedDataExists = useCache
-    ? await fs
-      .stat(rawReportDataCachePath)
-      .then((stats) => {
-        const cacheExpiresAtMs = stats.mtimeMs + cacheDurationHours * 60 * 60e3;
-        const currentTimeMs = new Date().getTime();
-        const cacheValid = currentTimeMs < cacheExpiresAtMs;
-        if (cacheValid) {
-          const cacheExpiresInMs = cacheExpiresAtMs - currentTimeMs;
-          console.info(`Cache expires in ${Math.round(cacheExpiresInMs / 1000)}s`);
-        } else {
-          const cacheExpiredAgoMs = currentTimeMs - cacheExpiresAtMs;
-          console.info(`Cache expired ${Math.round(cacheExpiredAgoMs / 1000)}s ago and will be refreshed`);
-        }
-        return cacheValid;
-      })
-      .catch((e) => {
-        if (e instanceof Error && e.message.includes('ENOENT')) {
-          console.info(`Cache file ${rawReportDataCachePath} missing and will be generated`);
-        } else {
-          console.warn(`Failed to access cache at ${rawReportDataCachePath}`);
-          console.warn(e);
-        }
-        return false;
-      })
-    : false;
-
-  let crowdinProjectId = Number(process.env.CROWDIN_PROJECT_ID);
-  if (isNaN(crowdinProjectId)) {
-    console.info('Getting project information from Crowdin…');
-    const projectList = await fetch('https://api.crowdin.com/api/v2/projects?hasManagerAccess=1', {
-      headers: {
-        Authorization: `Bearer ${crowdinApiKey}`,
-      },
-    }).then((r) => r.json() as Promise<ProjectListResponse>);
-
-    const projectIdentifierToIdMap = (projectList.data as ProjectData[]).reduce(
-      (acc: Record<string, { id: number }>, p) => ({
-        ...acc,
-        [p.data.identifier]: { id: p.data.id },
-      }),
-      {},
+  if (bypassCache) {
+    console.info('Triggering translator import with cache bypass…');
+    const importResult = await apiClient.post<{ created: number; updated: number; skipped: number }>(
+      '/api/import-crowdin-translators?force=true',
     );
-
-    console.info(`Found projects:`);
-    console.table(projectIdentifierToIdMap);
-
-    console.info(`Checking for project with identifier ${crowdinProjectIdentifier}…`);
-    const crowdinProjectInfo = projectIdentifierToIdMap[crowdinProjectIdentifier];
-    if (!crowdinProjectInfo) {
-      throw new Error(`Could not find Crowdin project with identifier "${crowdinProjectIdentifier}"`);
-    }
-
-    crowdinProjectId = crowdinProjectInfo.id;
+    console.info(`Import completed: ${importResult.data.created} created, ${importResult.data.updated} updated, ${importResult.data.skipped} skipped`);
   }
 
-  const rawReportData: ProjectReportDataResponse = await getCrowdinReportData({
-    crowdinApiKey,
-    cachedDataExists,
-    useCache,
-    crowdinProjectId,
-    rawReportDataCachePath,
-  });
+  console.info('Fetching translator data from API…');
+  const translatorCreditsResponse = await apiClient.get<IndexedReportData>('/api/crowdin-translator-credits');
+  const rawReportData = translatorCreditsResponse.data;
 
-  console.info(`Reading translation progress for project ${crowdinProjectIdentifier}…`);
-  const translationProgressResponse = await crowdinApiRequest<ProjectTranslationProgressResponse>({
-    // Multiplier accounts for languages which have not been set up for use in the app yet
-    path: `/projects/${crowdinProjectId}/languages/progress?limit=${Math.ceil(Object.keys(LANGUAGES).length * 1.25)}`,
-    crowdinApiKey,
-  });
-
-  console.info(`Creating assembled report data…`);
-  const indexedReportData: IndexedReportData = crowdinHammertime;
-  translationProgressResponse.data.sort((a, b) => a.data.languageId.localeCompare(b.data.languageId));
-  translationProgressResponse.data.forEach(({ data: languageProgress }) => {
-    const availableLanguageCode = mapCrowdinLanguageToAvailableLanguage(languageProgress.language);
-    if (!availableLanguageCode) {
-      return;
+  // Remap language codes from Crowdin locale codes to app locale keys.
+  // Primary mapping is derived from crowdinLocale in config (e.g. 'sv-SE' → 'sv').
+  // Additional hardcoded entries cover cases not expressible via crowdinLocale.
+  const crowdinLocaleToAppLocale: Record<string, string> = {
+    'no': 'nb',      // Crowdin uses 'no' for Norwegian; app uses 'nb'
+    'ur-PK': 'ur',   // Crowdin uses 'ur-PK' for Urdu; app uses 'ur'
+  };
+  for (const [locale, cfg] of Object.entries(localeConfig.languages) as [AvailableLanguage, LatestLanguageConfigType][]) {
+    if (cfg.crowdinLocale) {
+      crowdinLocaleToAppLocale[cfg.crowdinLocale] = locale;
     }
-    indexedReportData.languages[availableLanguageCode] = {
-      translatorIds: [...indexedReportData.languages[availableLanguageCode]?.translatorIds ?? []],
-      progress: {
-        approval: languageProgress.approvalProgress,
-        translation: languageProgress.translationProgress,
-      },
-    };
-  });
-  rawReportData.data.forEach((reportDataItem) => {
-    if (
-      reportDataItem.user.username === REMOVED_USER_USERNAME ||
-      (reportDataItem.winning === 0 && reportDataItem.translated === 0 && reportDataItem.voted === 0)
-    ) {
-      // Skip removed users & users with no activity
-      return;
-    }
-    if (reportDataItem.user.id === crowdinDeveloperId) {
-      // Skip developer
-      return;
-    }
-    const id = parseInt(reportDataItem.user.id, 10);
-    const username = reportDataItem.user.username;
-    let fullName = reportDataItem.user.fullName;
-    if (fullName === username) {
-      fullName = '';
+  }
+  // Merge all Crowdin language entries into the correct app locale key.
+  // Multiple Crowdin codes can map to the same app locale (e.g. 'no' and 'nb' both → 'nb'),
+  // so translatorIds are deduplicated across them.
+  const remappedLanguages: IndexedReportData['languages'] = {};
+  for (const [langCode, langData] of Object.entries(rawReportData.languages)) {
+    if (!langData) continue;
+    const appLocale = crowdinLocaleToAppLocale[langCode] ?? langCode;
+    const existing = remappedLanguages[appLocale];
+    if (existing) {
+      const merged = new Set([...existing.translatorIds, ...(langData.translatorIds ?? [])]);
+      remappedLanguages[appLocale] = {
+        ...existing,
+        translatorIds: Array.from(merged),
+        // Carry progress from langData if existing doesn't have it yet
+        ...(!existing.progress && langData.progress ? { progress: langData.progress } : {}),
+      };
     } else {
-      const usernameSuffix = ` (${username})`;
-      if (fullName.endsWith(usernameSuffix)) {
-        // Removing username at the end of the full name
-        fullName = fullName.substring(0, fullName.length - usernameSuffix.length);
-      }
+      remappedLanguages[appLocale] = langData;
     }
-    const reportUserData: ReportUserData = {
-      username,
-      avatarUrl: reportDataItem.user.avatarUrl,
-    };
-    if (fullName) {
-      reportUserData.fullName = fullName;
-    }
-    if (reportDataItem.languages.length > 0) {
-      const userLanguages = reportDataItem.languages.reduce((acc: AvailableLanguage[], language) => {
-        const mappedLanguage = mapCrowdinLanguageToAvailableLanguage(language);
-        if (!mappedLanguage) {
-          return acc;
-        }
-        return [...acc, mappedLanguage];
-      }, []);
+  }
+  const indexedReportData: IndexedReportData = { ...rawReportData, languages: remappedLanguages };
 
-      userLanguages.forEach((langCode) => {
-        const existingIds = indexedReportData.languages[langCode]?.translatorIds || [];
-        if (!existingIds) {
-          console.warn(`No existing translator IDs found for language ${langCode} at user ${username} (id: ${id})`);
-          return;
-        }
-        if (!indexedReportData.languages[langCode]) {
-          console.warn(`No indexed report data found for language ${langCode} at user ${username} (id: ${id})`);
-          return;
-        }
-        indexedReportData.languages[langCode]!.translatorIds = Array.from(new Set([...existingIds, String(id)]));
-      });
-    }
-
-    indexedReportData.users[id] = reportUserData;
-  });
   const assembledReportDataOutputPath = path.join(readmeFolder, 'lang', 'crowdin.json');
   console.info(`Writing assembled report data to ${assembledReportDataOutputPath}…`);
-  const assembledReportDataString = JSON.stringify(indexedReportData, null, 2);
+  // Normalise key ordering to match the original file format and minimise diffs:
+  // users and language keys sorted numerically/alphabetically; translatorIds sorted numerically.
+  const sortedUsers = Object.fromEntries(
+    Object.entries(indexedReportData.users).sort(([a], [b]) => Number(a) - Number(b)),
+  );
+  const sortedLanguages = Object.fromEntries(
+    Object.entries(indexedReportData.languages)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([locale, data]) => [
+        locale,
+        data
+          ? { ...data, translatorIds: [...data.translatorIds].sort((a, b) => Number(a) - Number(b)) }
+          : data,
+      ]),
+  );
+  const normalisedReportData = { ...indexedReportData, users: sortedUsers, languages: sortedLanguages };
+  const assembledReportDataString = JSON.stringify(normalisedReportData, null, 2);
   await fs.writeFile(assembledReportDataOutputPath, assembledReportDataString);
 
   const localesConfigPath = path.join(readmeFolder, 'lang', 'config.json');

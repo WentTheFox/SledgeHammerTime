@@ -48,6 +48,11 @@ return [
     'api_key' => env('CROWDIN_API_KEY'),
     'project_id' => env('CROWDIN_PROJECT_ID'),
     'project_identifier' => env('CROWDIN_PROJECT_IDENTIFIER'),
+    'project_identifiers_for_credits' => env('CROWDIN_PROJECT_IDENTIFIERS_FOR_CREDITS'),
+    'developer_id' => env('CROWDIN_DEVELOPER_ID'),
+    'report_cache' => env('CROWDIN_REPORT_CACHE'),
+    'report_cache_expiration' => env('CROWDIN_REPORT_CACHE_EXPIRATION', 3600),
+    'report_debug' => env('CROWDIN_REPORT_DEBUG'),
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
   ],
