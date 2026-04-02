@@ -45,7 +45,7 @@ class CrowdinUser extends Model {
   }
 
   /**
-   * @return HasMany<Translator>
+   * @return HasMany<Translator, $this>
    */
   function translators():HasMany {
     return $this->hasMany(Translator::class);
