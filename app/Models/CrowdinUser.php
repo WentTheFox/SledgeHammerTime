@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CrowdinUser extends Model {
   use HasUiInfo;
@@ -44,9 +45,9 @@ class CrowdinUser extends Model {
   }
 
   /**
-   * @return \Illuminate\Database\Eloquent\Relations\HasMany<Translator>
+   * @return HasMany<Translator>
    */
-  function translators():\Illuminate\Database\Eloquent\Relations\HasMany {
+  function translators():HasMany {
     return $this->hasMany(Translator::class);
   }
 }

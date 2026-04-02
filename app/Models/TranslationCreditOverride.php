@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TranslationCreditOverride extends Model
 {
-    use HasUuids;
+    use HasUuids, HasUiInfo;
 
     protected $fillable = [
         'translator_id',
@@ -24,7 +25,16 @@ class TranslationCreditOverride extends Model
         'hide' => 'boolean',
     ];
 
-    public function translator(): BelongsTo
+    public function mapToUiInfo():array {
+      return [
+        'displayName' => $this->displayName,
+        'avatarUrl' => $this->avatarUrl,
+        'url' => $this->url,
+        'hide' => $this->hide,
+      ];
+    }
+
+  public function translator(): BelongsTo
     {
         return $this->belongsTo(Translator::class);
     }

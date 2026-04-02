@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Translator extends Model {
-  use HasUuids;
+  use HasUuids, HasUiInfo;
 
   /**
    * The attributes that are mass assignable.
@@ -34,6 +36,16 @@ class Translator extends Model {
     'voted' => 'integer',
   ];
 
+  public function mapToUiInfo(): array {
+    return [
+      'languageCode' => $this->language_code,
+      'translated' => $this->translated,
+      'approved' => $this->approved,
+      'voted' => $this->voted,
+      'override' => $this->creditOverride()->first()?->mapToUiInfo(),
+    ];
+  }
+
   /**
    * @return BelongsTo<CrowdinUser, $this>
    */
@@ -42,7 +54,7 @@ class Translator extends Model {
   }
 
   /**
-   * @return \Illuminate\Database\Eloquent\Relations\HasOne<TranslationCreditOverride, $this>
+   * @return HasOne<TranslationCreditOverride, $this>
    */
   public function creditOverride() {
     return $this->hasOne(TranslationCreditOverride::class);
