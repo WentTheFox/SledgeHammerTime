@@ -37,7 +37,7 @@ final readonly class GetTopMembersReportResponse implements CreateFromResponseIn
 
     $contributors = [];
 
-    foreach ($data['data'] ?? [] as $entry) {
+    foreach ($data['data'] as $entry) {
       $userData = $entry['user'] ?? [];
 
       if (empty($userData['id'])) {

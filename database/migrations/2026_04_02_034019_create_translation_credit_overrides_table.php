@@ -11,7 +11,7 @@ return new class extends Migration {
   public function up():void {
     Schema::create('translation_credit_overrides', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('translator_id')->unique()->constrained('translators')->cascadeOnDelete();
+      $table->foreignUuid('translator_id')->constrained('translators')->cascadeOnDelete();
       $table->foreignUuid('created_by')->constrained('users')->cascadeOnDelete();
       $table->foreignUuid('approved_by')->nullable()->default(null)->constrained('users')->nullOnDelete();
       $table->string('displayName')->nullable();

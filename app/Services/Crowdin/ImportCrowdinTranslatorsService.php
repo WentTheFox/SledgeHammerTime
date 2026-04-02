@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services\Crowdin;
 
+use App\Models\TranslationCreditOverride;
 use App\Models\TranslationProgress;
 use App\Models\Translator;
-use App\Models\TranslationCreditOverride;
 use Carbon\Carbon;
 use Exception;
 use JsonException;
@@ -75,6 +75,9 @@ final class ImportCrowdinTranslatorsService {
     }
 
     // Fetch all credit overrides upfront (keyed by translator_id)
+    /**
+     * @var array<string, TranslationCreditOverride> $overrides
+     */
     $overrides = TranslationCreditOverride::all()->keyBy('translator_id');
 
     // The main project is always the one from config; additional project IDs are for
@@ -104,8 +107,10 @@ final class ImportCrowdinTranslatorsService {
 
   /**
    * Import translators for a single project.
+   *
+   * @param array<string, TranslationCreditOverride> $overrides
    */
-  private function importProjectTranslators(int $projectId, bool $bypassCache, ?int $developerIdFilter, $overrides): ImportResult {
+  private function importProjectTranslators(int $projectId, bool $bypassCache, ?int $developerIdFilter, array $overrides): ImportResult {
     $cacheFile = storage_path("crowdin_report_raw_{$projectId}.json5");
     $cacheEnabled = config('services.crowdin.report_cache', false);
     $cacheExpirationSeconds = config('services.crowdin.report_cache_expiration', 3600);
@@ -222,8 +227,10 @@ final class ImportCrowdinTranslatorsService {
 
   /**
    * Persist translator records to database.
+   *
+   * @param array<string, TranslationCreditOverride> $overrides
    */
-  private function persistTranslators(GetTopMembersReportResponse $report, int $projectId, ?int $developerIdFilter, $overrides): ImportResult {
+  private function persistTranslators(GetTopMembersReportResponse $report, int $projectId, ?int $developerIdFilter, array $overrides): ImportResult {
     $created = 0;
     $updated = 0;
     $skipped = 0;
@@ -309,8 +316,12 @@ final class ImportCrowdinTranslatorsService {
   /**
    * Ensure overrides have corresponding translator records.
    * Creates stub records for overrides that are not in the report.
+   *
+   * @param array<string, TranslationCreditOverride> $overrides
+   * @param list<string> $processedUserLanguagePairs
+   * @param array<string> $processedTranslatorIds
    */
-  private function ensureOverridesHaveTranslators(int $projectId, $overrides, array $processedUserLanguagePairs, array &$processedTranslatorIds, int &$created): int {
+  private function ensureOverridesHaveTranslators(int $projectId, array $overrides, array $processedUserLanguagePairs, array &$processedTranslatorIds, int &$created): int {
     $overridesProcessed = 0;
 
     foreach ($overrides as $override) {
@@ -391,6 +402,9 @@ final class ImportCrowdinTranslatorsService {
 
   /**
    * Delete translator records for this project that were not in the import.
+   *
+   * @param int $projectId
+   * @param array<string> $processedIds IDs of translator records that were processed
    */
   private function cleanupMissingTranslators(int $projectId, array $processedIds): int {
     $deleted = Translator::where('project_id', $projectId)
