@@ -858,8 +858,8 @@
       "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17433118/medium/bbff633de8e7f965b6f101198753a7c5.png"
     },
     "17435812": {
-      "username": "Mrgrass",
-      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/020b9fd504ca5a90da78ddc27c20226b.jpeg"
+      "username": "MrCoookie",
+      "avatarUrl": "https://crowdin-static.cf-downloads.crowdin.com/avatar/17435812/medium/d46c0db32097231fbbe0f986e0c84125.png"
     },
     "17436820": {
       "username": "Versus41",
@@ -1221,7 +1221,7 @@
       ],
       "progress": {
         "approval": 99,
-        "translation": 100
+        "translation": 99
       }
     },
     "en-GB": {
@@ -1288,7 +1288,7 @@
         "17483564"
       ],
       "progress": {
-        "approval": 12,
+        "approval": 100,
         "translation": 100
       }
     },
@@ -1550,7 +1550,7 @@
         "17619330"
       ],
       "progress": {
-        "approval": 91,
+        "approval": 95,
         "translation": 95
       }
     },
