@@ -15,6 +15,7 @@ import {
   NormalizedCredits,
 } from '../resources/js/utils/translation';
 import { migrateLanguageConfig } from './helpers/migrate-language-config';
+import { withExponentialBackoff } from './helpers/with-exponential-backoff';
 
 dotenvConfig({ quiet: true });
 
@@ -66,14 +67,18 @@ void (async () => {
 
   if (bypassCache) {
     console.info('Triggering translator import with cache bypass…');
-    const importResult = await apiClient.post<{ created: number; updated: number; skipped: number }>(
-      '/api/import-crowdin-translators?force=true',
+    const importResult = await withExponentialBackoff(
+      () => apiClient.post<{ created: number; updated: number; skipped: number }>('/api/import-crowdin-translators?force=true'),
+      'Import Crowdin Translators',
     );
     console.info(`Import completed: ${importResult.data.created} created, ${importResult.data.updated} updated, ${importResult.data.skipped} skipped`);
   }
 
   console.info('Fetching translator data from API…');
-  const translatorCreditsResponse = await apiClient.get<IndexedReportData>('/api/crowdin-translator-credits');
+  const translatorCreditsResponse = await withExponentialBackoff(
+    () => apiClient.get<IndexedReportData>('/api/crowdin-translator-credits'),
+    'Get Translator Credits',
+  );
   const rawReportData = translatorCreditsResponse.data;
 
   // Remap language codes from Crowdin locale codes to app locale keys.
