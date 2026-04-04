@@ -6,25 +6,25 @@ import { ButtonColors, getButtonClasses } from '@/utils/buttons';
 import { computed, inject } from 'vue';
 
 const props = withDefaults(defineProps<{
-  type?: 'button' | 'submit',
+  type?: 'button' | 'submit';
   /**
    * Defaults to gray when not provided
    */
-  color?: ButtonColors,
-  'class'?: string | Record<string, boolean> | Array<string | undefined | Record<string, boolean>>,
-  disabled?: boolean,
-  tabindex?: string | number,
-  block?: boolean,
-  pressed?: boolean,
-  justifyCenter?: boolean,
-  title?: string,
+  color?: ButtonColors;
+  'class'?: string | Record<string, boolean> | Array<string | undefined | Record<string, boolean>>;
+  disabled?: boolean;
+  tabindex?: string | number;
+  fullWidth?: boolean;
+  pressed?: boolean;
+  justifyCenter?: boolean;
+  title?: string;
 } & Partial<HtButtonContentProps>>(), {
   type: 'button',
   color: undefined,
   'class': undefined,
-  disabled: false,
+  disabled: undefined,
   loading: false,
-  block: false,
+  fullWidth: undefined,
   tabindex: undefined,
   pressed: false,
   iconOnly: false,

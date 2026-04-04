@@ -73,6 +73,8 @@ export interface LocalSettingsValue {
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;
 
 export const formControlIdInject = Symbol('formControlId') as InjectionKey<ComputedRef<string | undefined>>;
+export const formControlDisabledInject = Symbol('formControlDisabled') as InjectionKey<ComputedRef<boolean | undefined>>;
+export const formControlFullWidthInject = Symbol('formControlFullWidth') as InjectionKey<ComputedRef<boolean | undefined>>;
 
 export const positionAnchor = Symbol('positionAnchor') as InjectionKey<`--${string}`>;
 

@@ -1,11 +1,12 @@
 @use "../design";
 
-.credit-override-sections {
+.card-forms {
   display: flex;
   flex-flow: row wrap;
   gap: design.app-value('card-padding');
+  justify-content: flex-start;
 
-  .credit-override-section {
+  .card-forms-section {
     flex: 0 1 100%;
 
     @include design.screen-above('xl') {

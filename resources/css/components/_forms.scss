@@ -187,6 +187,10 @@
   display: inline-block;
   position: relative;
 
+  &.full-width {
+    width: 100%;
+  }
+
   > .form-select-input {
     --padding-value: calc(#{design.app-value('input-field-padding')} * 2 + #{design.app-value('form-select-icon-padding')} * 2 + #{design.app-value('form-select-icon-size')});
 
@@ -227,7 +231,7 @@
   }
 }
 
-.form-control-wrap.combo-box, .form-control-combobox {
+.form-control-wrap:has(.form-control-combobox), .form-control-combobox {
   z-index: unset;
 }
 

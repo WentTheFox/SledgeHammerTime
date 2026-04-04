@@ -129,7 +129,6 @@ const disabled = computed(() => props.idPrefix === 'disabled');
     <HtFormControl
       :id="`${idPrefix}-combobox`"
       label="Combobox"
-      :combo-box="true"
     >
       <HtFormCombobox
         v-model="comboboxValue"

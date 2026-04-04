@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import TimeZonePicker, { TimeZonePickerApi } from '@/Components/home/pickers/TimeZonePicker.vue';
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlId } from '@/composables/useFormControlId';
 import { positionAnchor, timestampInject } from '@/injection-keys';
 import { TimezoneSelection } from '@/model/timezone-selection';
@@ -8,12 +9,11 @@ import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { convertTimeZoneSelectionToString } from '@/utils/time';
 import { computed, inject, provide, useTemplateRef } from 'vue';
 
-withDefaults(defineProps<InputSelectorImplProps>(), {
-  disabled: false,
-});
+const props = defineProps<InputSelectorImplProps>();
 
 const ts = inject(timestampInject);
 const id = useFormControlId();
+const effectiveDisabled = useFormControlDisabled(props);
 
 const timezonepicker = useTemplateRef<TimeZonePickerApi>('timezone-picker');
 const inputEl = useTemplateRef<InputApi>('input-el');
@@ -50,7 +50,7 @@ provide(positionAnchor, positionAnchorName);
       ref="input-el"
       v-model="inputValue"
       :readonly="true"
-      :disabled="disabled"
+      :disabled="effectiveDisabled"
       :hide-selection="true"
       :position-anchor-name="positionAnchorName"
       @click.prevent="openPopup"

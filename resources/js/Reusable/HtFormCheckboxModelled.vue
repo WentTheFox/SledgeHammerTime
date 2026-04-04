@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { formControlIdInject, isJsUnavailableInject } from '@/injection-keys';
+import { isJsUnavailableInject } from '@/injection-keys';
 import HtFormCheckbox from '@/Reusable/HtFormCheckbox.vue';
-import { computed, inject, provide } from 'vue';
+import HtFormControlSettings from '@/Reusable/HtFormControlSettings.vue';
+import { computed, inject } from 'vue';
 
 const props = defineProps<{
   id: string,
@@ -15,29 +16,31 @@ const model = defineModel<boolean>({ required: true });
 const isJsUnavailable = inject(isJsUnavailableInject);
 
 const inputDisabled = computed(() => isJsUnavailable?.value || props.disabled);
-
-const formControlId = computed(() => props.id);
-provide(formControlIdInject, formControlId);
 </script>
 
 <template>
-  <HtFormCheckbox
-    :label="label"
+  <HtFormControlSettings
+    :id="id"
     :disabled="disabled"
   >
-    <template #input>
-      <input
-        :id="formControlId"
-        v-model="model"
-        type="checkbox"
-        :name="name"
-        :disabled="inputDisabled"
-        class="form-checkbox-input"
-        :aria-describedby="`${formControlId}-description`"
-      >
-    </template>
-    <template #message>
-      <slot name="message" />
-    </template>
-  </HtFormCheckbox>
+    <HtFormCheckbox
+      :label="label"
+      :disabled="disabled"
+    >
+      <template #input>
+        <input
+          :id="id"
+          v-model="model"
+          type="checkbox"
+          :name="name"
+          :disabled="inputDisabled"
+          class="form-checkbox-input"
+          :aria-describedby="`${id}-description`"
+        >
+      </template>
+      <template #message>
+        <slot name="message" />
+      </template>
+    </HtFormCheckbox>
+  </HtFormControlSettings>
 </template>

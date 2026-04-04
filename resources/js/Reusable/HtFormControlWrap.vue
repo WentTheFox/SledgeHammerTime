@@ -1,17 +1,13 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-  comboBox?: boolean,
-  disabled?: boolean,
-  fullWidth?: boolean,
-}>(), {
-  comboBox: false,
-  disabled: false,
-  fullWidth: false,
-});
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
+import { useFormControlFullWidth } from '@/composables/useFormControlFullWidth';
+
+const disabled = useFormControlDisabled();
+const fullWidth = useFormControlFullWidth();
 </script>
 
 <template>
-  <div :class="['form-control-wrap', { 'combo-box': comboBox, disabled, 'full-width': fullWidth }]">
+  <div :class="['form-control-wrap', { disabled, 'full-width': fullWidth }]">
     <slot />
   </div>
 </template>

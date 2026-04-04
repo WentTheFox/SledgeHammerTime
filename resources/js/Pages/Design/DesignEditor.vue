@@ -6,7 +6,7 @@ import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCode from '@/Reusable/HtCode.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
-import HtFormControlId from '@/Reusable/HtFormControlId.vue';
+import HtFormControlSettings from '@/Reusable/HtFormControlSettings.vue';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import HtInputGropupText from '@/Reusable/HtInputGropupText.vue';
@@ -279,7 +279,7 @@ onMounted(() => {
                 {{ cssVar.unit }}
               </HtInputGropupText>
             </HtFormInputGroup>
-            <HtFormControlId
+            <HtFormControlSettings
               v-else
               :id="cssVar.name"
             >
@@ -288,7 +288,7 @@ onMounted(() => {
                 type="text"
                 @input="updateVariable(cssVar.name, cssVar.value)"
               />
-            </HtFormControlId>
+            </HtFormControlSettings>
           </td>
         </tr>
       </tbody>

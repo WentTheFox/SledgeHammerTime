@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlId } from '@/composables/useFormControlId';
 import { timestampInject } from '@/injection-keys';
 import HtInput from '@/Reusable/HtInput.vue';
 import { inject, ref, watch } from 'vue';
 
-withDefaults(defineProps<InputSelectorImplProps>(), {
-  disabled: false,
-});
+const props = defineProps<InputSelectorImplProps>();
 
 const ts = inject(timestampInject);
 const id = useFormControlId();
+const effectiveDisabled = useFormControlDisabled(props);
 
 const selectedDateTime = ref('');
 
@@ -41,7 +41,7 @@ watch(ts!.currentTime, () => {
       :id="id"
       v-model="selectedDateTime"
       type="datetime-local"
-      :disabled="disabled"
+      :disabled="effectiveDisabled"
       step="1"
       @change="changeDateTime"
     />

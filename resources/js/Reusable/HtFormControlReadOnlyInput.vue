@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
+import { useFormControlFullWidth } from '@/composables/useFormControlFullWidth';
 import { useFormControlId } from '@/composables/useFormControlId';
 import { useTemplateRef } from 'vue';
 
@@ -10,9 +12,10 @@ const emit = defineEmits<{
   (e: 'keydown', ev: KeyboardEvent): void;
 }>();
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   value?: string;
   disabled?: boolean;
+  fullWidth?: boolean;
   hideSelection?: boolean;
   positionAnchorName?: string;
   type?: 'text' | 'number' | 'date' | 'time' | 'datetime-local' | 'color';
@@ -20,11 +23,24 @@ const props = defineProps<{
   max?: string | number;
   tabindex?: string | number;
   'class'?: string;
-}>();
+}>(), {
+  value: undefined,
+  fullWidth: undefined,
+  fullWidth: undefined,
+  hideSelection: undefined,
+  positionAnchorName: undefined,
+  type: undefined,
+  min: undefined,
+  max: undefined,
+  tabindex: undefined,
+  class: undefined,
+});
 
 const inputRef = useTemplateRef<HTMLInputElement>('input-el');
 
 const id = useFormControlId();
+const effectiveDisabled = useFormControlDisabled(props);
+const effectiveFullWidth = useFormControlFullWidth(props);
 
 export interface InputApi {
   focus: () => void;
@@ -45,9 +61,9 @@ defineExpose({
     ref="input-el"
     :value="value"
     :type="type"
-    :class="['input-field', props.class, { 'hide-selection': hideSelection }]"
+    :class="['input-field', props.class, { 'hide-selection': hideSelection, 'full-width': effectiveFullWidth }]"
     :readonly="true"
-    :disabled="disabled"
+    :disabled="effectiveDisabled"
     :min="min"
     :max="max"
     :tabindex="tabindex"

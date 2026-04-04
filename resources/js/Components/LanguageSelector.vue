@@ -140,7 +140,7 @@ onMounted(router.on('success', navigateListener));
         >
           <template #default="{ state }">
             <HtButton
-              :block="true"
+              :full-width="true"
               class="change-language-button"
               :icon-start="faLanguage"
               :icon-end="state.isVisible ? faCaretDown : faCaretUp"
