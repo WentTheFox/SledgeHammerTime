@@ -7,14 +7,19 @@ import { computed } from 'vue';
 export type BotShardData = BotShard[];
 
 const props = defineProps<{
-  shards: BotShardData;
+  shards: BotShardData | null;
 }>();
 const nf = useNumberFormatter();
-const totalServerCount = computed(() => nf.value.format(props.shards.reduce((total, shard) => total + shard.serverCount, 0)));
+const totalServerCountNumber = computed(() => (props.shards ?? []).reduce((total, shard) => total + shard.serverCount, 0));
+const totalServerCount = computed(() => (
+  totalServerCountNumber.value > 0
+    ? nf.value.format(totalServerCountNumber.value)
+    : '…'
+));
 </script>
 
 <template>
-  <HtCard v-if="shards && shards.length > 0">
+  <HtCard>
     <template #header>
       <h2>{{ $t('botInfo.shardStats.title') }}</h2>
     </template>

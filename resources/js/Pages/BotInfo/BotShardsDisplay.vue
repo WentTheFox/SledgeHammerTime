@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { dateTimeLibraryInject } from '@/injection-keys';
 import BotShardsDisplayItem, { EnhancedBotShard } from '@/Pages/BotInfo/BotShardsDisplayItem.vue';
+import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
 import { computed, inject } from 'vue';
 import { TippySingleton } from 'vue-tippy';
 
@@ -14,12 +15,12 @@ export interface BotShard {
 }
 
 const props = defineProps<{
-  shards: BotShard[],
+  shards: BotShard[] | null,
 }>();
 
 const dtl = inject(dateTimeLibraryInject);
 
-const enhancedShards = computed(() => props.shards.map((shard): EnhancedBotShard => {
+const enhancedShards = computed(() => (props.shards ?? []).map((shard): EnhancedBotShard => {
   return {
     id: shard.id,
     serverCount: shard.serverCount,
@@ -28,12 +29,18 @@ const enhancedShards = computed(() => props.shards.map((shard): EnhancedBotShard
   };
 }));
 
-const totalServerCount = computed(() => props.shards.reduce((totalCount, shard) => totalCount + shard.serverCount, 0));
+const totalServerCount = computed(() => (props.shards ?? []).reduce((totalCount, shard) => totalCount + shard.serverCount, 0));
 </script>
 
 <template>
   <div class="bot-shards-display">
-    <TippySingleton>
+    <span
+      v-if="shards === null"
+      class="bot-shard-tick bot-shard-inactive"
+    >
+      <HtLoadingIndicator :size="16" />
+    </span>
+    <TippySingleton v-else>
       <BotShardsDisplayItem
         v-for="(shard, i) in enhancedShards"
         :key="i"
