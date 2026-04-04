@@ -24,7 +24,7 @@ return [
         'authorize' => 'Autorizar conta do Discord',
       ],
       'crowdin' => [
-        'description' => 'Se você é um tradutor do projeto, vincular sua conta do CrowdIn eventualmente permitirá que você customize como o seu nome aparece nos créditos de tradução, além de servir como um nível a mais de verificação de que estas contas pertencem a você, caso entre no servidor do Discord do projeto.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Autorizar conta do CrowdIn',
       ],
     ],
