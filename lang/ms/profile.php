@@ -24,7 +24,7 @@ return [
         'authorize' => 'Beri keizinan akaun Discord',
       ],
       'crowdin' => [
-        'description' => 'Sekiranya anda seorang penterjemah bagi projek ini, pemautan akaun Crowdin anda lama-kelamaan akan membolehkan anda mengubah suai cara nama anda dipaparkan pada penghargaan terjemahan, dan juga memberikan tahap pengesahan tambahan bahawa akaun ini dimiliki oleh anda sekiranya anda menyertai pelayan Discord projek.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Beri keizinan akaun Crowdin',
       ],
     ],
