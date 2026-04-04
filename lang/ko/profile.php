@@ -26,8 +26,7 @@ return [
         'authorize' => 'Discord 계정 연결',
       ],
       'crowdin' => [
-        'description' => '이 프로젝트의 번역자라면, Crowdin 계정 연결 시 번역자 기여 창에 보이는 이름을 변경 가능합니다.
-그리고 프로젝트의 Discord 서버에 가입 시, 또 하나의 확인 정보로 사용 가능합니다.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Crowdin 계정 연결',
       ],
     ],
