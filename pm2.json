@@ -11,17 +11,6 @@
       "interpreter": "php",
       "watch": false,
       "time": true
-    },
-    {
-      "name": "SledgeHammerTime:Horizon",
-      "script": "artisan",
-      "args": ["horizon"],
-      "instances": 1,
-      "wait_ready": true,
-      "autorestart": true,
-      "interpreter": "php",
-      "watch": false,
-      "time": true
     }
   ]
 }

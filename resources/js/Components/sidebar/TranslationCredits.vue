@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HtAvatar from '@/Reusable/HtAvatar.vue';
-import { NormalizedCredits } from '@/utils/translation';
+import { NormalizedCredits } from '@/utils/crowdin';
 
 defineProps<{
   credits: NormalizedCredits[];
@@ -16,7 +16,7 @@ defineProps<{
       :href="credit.url"
     >
       <div class="translator-avatar">
-        <HtAvatar :src="credit.avatarUrl" />
+        <HtAvatar :src="credit.avatarUrl ?? undefined" />
       </div>
       <span class="translator-name">{{ credit.displayName }}</span>
     </a>

@@ -46,12 +46,13 @@ final readonly class GetTopMembersReportResponse implements CreateFromResponseIn
 
       // Create or update CrowdinUser
       $username = $userData['username'] ?? null;
+      $fullName = self::normalizeFullName($userData['fullName'] ?? null, $username);
       $crowdinUser = CrowdinUser::updateOrCreate([
         'id' => (int)$userData['id'],
       ], [
         'id' => (int)$userData['id'],
         'username' => $username,
-        'full_name' => self::normalizeFullName($userData['fullName'] ?? null, $username),
+        'full_name' => $fullName !== $username ? $fullName : null,
         'avatar_url' => $userData['avatarUrl'] ?? null,
       ]);
 

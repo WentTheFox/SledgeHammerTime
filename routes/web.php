@@ -4,6 +4,7 @@ use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotInfoController;
 use App\Http\Controllers\BotSettingsController;
+use App\Http\Controllers\CreditOverrideController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
@@ -39,6 +40,12 @@ Route::middleware('auth')->group(function () {
   Route::put('/settings/{discordUserId}', [BotSettingsController::class, 'set'])->name('settings.set');
   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
   Route::get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
+
+  Route::middleware('translator')->group(function () {
+    Route::put('/credit-overrides/{crowdinUser}/{languageCode}', [CreditOverrideController::class, 'upsert'])->name('credit-overrides.upsert')->where('languageCode', '[a-zA-Z0-9-]+');
+    Route::delete('/credit-overrides/{crowdinUser}/{languageCode}', [CreditOverrideController::class, 'deleteOverride'])->name('credit-overrides.delete')->where('languageCode', '[a-zA-Z0-9-]+');
+    Route::delete('/credit-overrides/{crowdinUser}/{languageCode}/proposal', [CreditOverrideController::class, 'cancelProposal'])->name('credit-overrides.cancel-proposal')->where('languageCode', '[a-zA-Z0-9-]+');
+  });
 });
 
 // Vue frontend API

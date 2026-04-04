@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class CrowdinUser extends Model {
+class CrowdinUser extends Model implements AvatarUrlProvider, ProfileUrlProvider {
   use HasUiInfo;
 
   /**
@@ -33,8 +33,17 @@ class CrowdinUser extends Model {
       'id' => $this->id,
       'username' => $this->username,
       'fullName' => $this->full_name,
+      'url' => $this->getProfileUrl(),
       'avatarUrl' => $this->avatar_url,
     ];
+  }
+
+  public function getAvatarUrl():?string {
+    return $this->avatar_url;
+  }
+
+  public function getProfileUrl(): string {
+    return "https://crowdin.com/profile/{$this->username}";
   }
 
   /**
@@ -49,5 +58,19 @@ class CrowdinUser extends Model {
    */
   function translators():HasMany {
     return $this->hasMany(Translator::class);
+  }
+
+  /**
+   * @return HasMany<TranslationCreditOverride, $this>
+   */
+  function creditOverrides():HasMany {
+    return $this->hasMany(TranslationCreditOverride::class);
+  }
+
+  /**
+   * @return HasMany<TranslationCreditOverrideProposal, $this>
+   */
+  function creditOverrideProposals():HasMany {
+    return $this->hasMany(TranslationCreditOverrideProposal::class);
   }
 }

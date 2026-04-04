@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class DiscordUser extends Model {
+class DiscordUser extends Model implements AvatarUrlProvider {
   use HasUiInfo;
 
   /**
@@ -56,11 +56,28 @@ class DiscordUser extends Model {
     return "user-settings-{$this->id}";
   }
 
+  function getAvatarUrl():string {
+    if (!empty($this->avatar)) {
+      $avatarFileExtension = str_starts_with($this->avatar, 'a_') ? 'gif' : 'png';
+
+      return "https://cdn.discordapp.com/avatars/{$this->id}/{$this->avatar}.$avatarFileExtension";
+    }
+
+    // Default avatar logic
+    $defaultAvatarFileName = (
+      $this->discriminator === '0'
+        ? (intval($this->id) >> 22)   // New username system
+        : intval($this->discriminator) // Old username system
+      ) % 5;
+
+    return "https://cdn.discordapp.com/embed/avatars/{$defaultAvatarFileName}.png";
+  }
+
   function mapToUiInfo():array {
     return [
       'id' => $this->id,
       'name' => $this->public_name,
-      'avatar' => $this->avatar,
+      'avatarUrl' => $this->getAvatarUrl(),
       'discriminator' => $this->discriminator,
     ];
   }

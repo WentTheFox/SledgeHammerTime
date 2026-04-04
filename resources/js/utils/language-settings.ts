@@ -1,9 +1,9 @@
-import { LanguageConfigV2 } from '@/model/language-config';
+import { LanguageConfigV3 } from '@/model/language-config';
 import localeConfig from '../../../lang/config.json' with { type: 'json' };
 
 export type AvailableLanguage = keyof typeof localeConfig.languages;
 
-export type LatestLanguageConfigType = LanguageConfigV2;
+export type LatestLanguageConfigType = LanguageConfigV3;
 type LanguagesConfig = Record<AvailableLanguage, LatestLanguageConfigType>;
 
 export const LANGUAGES = localeConfig.languages as LanguagesConfig;

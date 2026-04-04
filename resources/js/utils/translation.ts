@@ -1,23 +1,14 @@
 import { TranslationCreditOverride } from '@/model/translation-credit-override';
-import { LatestLanguageConfigType } from '@/utils/language-settings';
-import { IndexedReportData, ReportUserData } from './crowdin';
+import { IndexedReportData, NormalizedCredits, ReportUserData } from '@/utils/crowdin';
 
 export const getTranslatorIds = (
-  currentLocaleConfig?: LatestLanguageConfigType,
   currentLocaleReportData?: IndexedReportData['languages'][string],
 ): string[] =>
   Array.from(
     new Set([
       ...(currentLocaleReportData?.translatorIds ?? []),
-      ...(currentLocaleConfig?.creditOverrides ? Object.keys(currentLocaleConfig?.creditOverrides) : []),
     ]),
   );
-
-export interface NormalizedCredits {
-  displayName: string;
-  url: string;
-  avatarUrl?: string;
-}
 
 export const normalizeCredit = (
   crowdinId: string,
@@ -37,7 +28,7 @@ export const normalizeCredit = (
   }
   const displayName = overrides?.displayName ?? details?.fullName ?? details?.username;
   if (!displayName) {
-    throw new Error(`Display name is required for credit:\n${JSON.stringify(overrides)}`);
+    return null;
   }
   let url = overrides?.url;
   if (!url) {
@@ -76,4 +67,3 @@ export const getBotCommandTranslationKey = ({
   field,
 }: GetBotCommandTranslationKeyOptions) =>
   `${commandId}.${optionId}.${choiceId}.${field}`;
-

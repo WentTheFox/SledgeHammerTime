@@ -74,11 +74,10 @@ final class ImportCrowdinTranslatorsService {
       $developerIdInt = $developerIdFilter;
     }
 
-    // Fetch all credit overrides upfront (keyed by translator_id)
-    /**
-     * @var array<string, TranslationCreditOverride> $overrides
-     */
-    $overrides = TranslationCreditOverride::all()->keyBy('translator_id');
+    // Fetch hide overrides upfront keyed by "crowdin_user_id:language_code"
+    $hideOverrides = TranslationCreditOverride::where('hide', true)
+      ->get()
+      ->keyBy(fn($o) => "{$o->crowdin_user_id}:{$o->language_code}");
 
     // The main project is always the one from config; additional project IDs are for
     // historical contributor data only and are not used for progress tracking.
@@ -89,7 +88,7 @@ final class ImportCrowdinTranslatorsService {
 
     foreach ($projectsToProcess as $projectId) {
       Log::info('Importing translators for project', ['project_id' => $projectId]);
-      $projectResult = $this->importProjectTranslators($projectId, $bypassCache, $developerIdInt, $overrides);
+      $projectResult = $this->importProjectTranslators($projectId, $bypassCache, $developerIdInt, $hideOverrides);
 
       $combinedResult = new ImportResult(
         created: $combinedResult->created + $projectResult->created,
@@ -108,9 +107,9 @@ final class ImportCrowdinTranslatorsService {
   /**
    * Import translators for a single project.
    *
-   * @param array<string, TranslationCreditOverride> $overrides
+   * @param iterable<string, TranslationCreditOverride> $hideOverrides Hide overrides keyed by "crowdin_user_id:language_code"
    */
-  private function importProjectTranslators(int $projectId, bool $bypassCache, ?int $developerIdFilter, array $overrides): ImportResult {
+  private function importProjectTranslators(int $projectId, bool $bypassCache, ?int $developerIdFilter, iterable $hideOverrides): ImportResult {
     $cacheFile = storage_path("crowdin_report_raw_{$projectId}.json5");
     $cacheEnabled = config('services.crowdin.report_cache', false);
     $cacheExpirationSeconds = config('services.crowdin.report_cache_expiration', 3600);
@@ -128,7 +127,7 @@ final class ImportCrowdinTranslatorsService {
     }
 
     // Persist translator records
-    return $this->persistTranslators($report, $projectId, $developerIdFilter, $overrides);
+    return $this->persistTranslators($report, $projectId, $developerIdFilter, $hideOverrides);
   }
 
   /**
@@ -228,14 +227,13 @@ final class ImportCrowdinTranslatorsService {
   /**
    * Persist translator records to database.
    *
-   * @param array<string, TranslationCreditOverride> $overrides
+   * @param iterable<string, TranslationCreditOverride> $hideOverrides Hide overrides keyed by "crowdin_user_id:language_code"
    */
-  private function persistTranslators(GetTopMembersReportResponse $report, int $projectId, ?int $developerIdFilter, array $overrides): ImportResult {
+  private function persistTranslators(GetTopMembersReportResponse $report, int $projectId, ?int $developerIdFilter, iterable $hideOverrides): ImportResult {
     $created = 0;
     $updated = 0;
     $skipped = 0;
     $processedTranslatorIds = [];
-    $processedUserLanguagePairs = [];
 
     foreach ($report->contributors as $contribution) {
       if ($contribution->languageCode === null) {
@@ -246,6 +244,17 @@ final class ImportCrowdinTranslatorsService {
 
       // Skip developer's contributions if filter is set
       if ($developerIdFilter !== null && $crowdinUserId === $developerIdFilter) {
+        $skipped++;
+        continue;
+      }
+
+      // Check if this user+language has a hide override before persisting
+      $hideKey = "{$crowdinUserId}:{$contribution->languageCode}";
+      if (isset($hideOverrides[$hideKey])) {
+        Log::debug('Skipping translator due to hide override', [
+          'crowdin_user_id' => $crowdinUserId,
+          'language_code' => $contribution->languageCode,
+        ]);
         $skipped++;
         continue;
       }
@@ -262,20 +271,6 @@ final class ImportCrowdinTranslatorsService {
         ]
       );
 
-      // Track this user+language pair
-      $processedUserLanguagePairs[] = "{$crowdinUserId}:{$contribution->languageCode}";
-
-      // Check if this translator has a hide override
-      if (isset($overrides[$translator->id]) && $overrides[$translator->id]->hide) {
-        Log::debug('Skipping translator due to hide override', [
-          'translator_id' => $translator->id,
-          'crowdin_user_id' => $crowdinUserId,
-          'language_code' => $contribution->languageCode,
-        ]);
-        $skipped++;
-        continue;
-      }
-
       $processedTranslatorIds[] = $translator->id;
 
       if ($translator->wasRecentlyCreated) {
@@ -284,15 +279,6 @@ final class ImportCrowdinTranslatorsService {
         $updated++;
       }
     }
-
-    // Create stub records for overrides that are not in the report but should be visible
-    $overridesProcessed = $this->ensureOverridesHaveTranslators(
-      $projectId,
-      $overrides,
-      $processedUserLanguagePairs,
-      $processedTranslatorIds,
-      $created
-    );
 
     // Clean up translator records that were not in this import
     $deleted = $this->cleanupMissingTranslators($projectId, $processedTranslatorIds);
@@ -303,7 +289,6 @@ final class ImportCrowdinTranslatorsService {
       'updated' => $updated,
       'skipped' => $skipped,
       'deleted' => $deleted,
-      'overrides_created' => $overridesProcessed,
     ]);
 
     return new ImportResult(
@@ -311,67 +296,6 @@ final class ImportCrowdinTranslatorsService {
       updated: $updated,
       skipped: $skipped,
     );
-  }
-
-  /**
-   * Ensure overrides have corresponding translator records.
-   * Creates stub records for overrides that are not in the report.
-   *
-   * @param array<string, TranslationCreditOverride> $overrides
-   * @param list<string> $processedUserLanguagePairs
-   * @param array<string> $processedTranslatorIds
-   */
-  private function ensureOverridesHaveTranslators(int $projectId, array $overrides, array $processedUserLanguagePairs, array &$processedTranslatorIds, int &$created): int {
-    $overridesProcessed = 0;
-
-    foreach ($overrides as $override) {
-      // Skip hide-only overrides (null entries in config don't matter if there's no translator)
-      if ($override->hide && $override->displayName === null && $override->url === null && $override->avatarUrl === null) {
-        continue;
-      }
-
-      $translator = $override->translator;
-      if (!$translator) {
-        Log::warning('Override has no associated translator', ['override_id' => $override->id]);
-        continue;
-      }
-
-      $userLanguagePair = "{$translator->crowdin_user_id}:{$translator->language_code}";
-
-      // If this override's translator wasn't in the report, ensure it's created in this project
-      if (!in_array($userLanguagePair, $processedUserLanguagePairs)) {
-        // Check if translator already exists for this project
-        $projectTranslator = Translator::where('project_id', $projectId)
-          ->where('crowdin_user_id', $translator->crowdin_user_id)
-          ->where('language_code', $translator->language_code)
-          ->first();
-
-        if (!$projectTranslator) {
-          // Create stub record with zero values so the override can be applied
-          $projectTranslator = Translator::create([
-            'project_id' => $projectId,
-            'crowdin_user_id' => $translator->crowdin_user_id,
-            'language_code' => $translator->language_code,
-            'translated' => 0,
-            'approved' => 0,
-            'voted' => 0,
-          ]);
-
-          $created++;
-          Log::info('Created stub translator record from override', [
-            'translator_id' => $projectTranslator->id,
-            'crowdin_user_id' => $translator->crowdin_user_id,
-            'language_code' => $translator->language_code,
-            'project_id' => $projectId,
-          ]);
-        }
-
-        $processedTranslatorIds[] = $projectTranslator->id;
-        $overridesProcessed++;
-      }
-    }
-
-    return $overridesProcessed;
   }
 
   /**

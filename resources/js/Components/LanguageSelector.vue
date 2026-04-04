@@ -50,7 +50,7 @@ const displayContributionHints = computed(() =>
 
 const currentLanguageProgress = computed<TranslationCompletionData>(() =>
   currentLanguage?.value.locale
-    ? getTranslationProgress(crowdinData.value?.languages[currentLanguage.value.locale]?.progress)
+    ? getTranslationProgress(crowdinData.value?.progress)
     : { approval: 100, translation: 100 },
 );
 

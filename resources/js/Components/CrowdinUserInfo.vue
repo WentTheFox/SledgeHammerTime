@@ -2,20 +2,28 @@
 import UserInfo from '@/Components/UserInfo.vue';
 import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
 import { useRoute } from '@/composables/useRoute';
-import { devModeInject } from '@/injection-keys';
-import { computed, inject, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 
-interface CrowdinTranslators {
+export interface CreditOverrideValues {
+  displayName: string | null;
+  avatarProvider: string | null;
+  avatarId: string | null;
+  url: string | null;
+  hide: boolean;
+}
+
+export interface ProposalValues extends Omit<CreditOverrideValues, 'hide'> {
+  rejectedAt: string | null;
+}
+
+export interface CrowdinTranslators {
+  id: string;
   languageCode: string;
   translated: number;
   approved: number;
   voted: number;
-  override: null | {
-    displayName: string | null;
-    avatarUrl: string | null;
-    url: string | null;
-    hide: boolean;
-  };
+  override: CreditOverrideValues | null;
+  proposal: ProposalValues | null;
 }
 
 export interface CrowdinUserInfoProps {
@@ -23,6 +31,7 @@ export interface CrowdinUserInfoProps {
   fullName?: string;
   username: string;
   avatarUrl: string;
+  url: string;
   staleAt?: string;
   translators: CrowdinTranslators[];
 }
@@ -30,7 +39,6 @@ export interface CrowdinUserInfoProps {
 const props = defineProps<CrowdinUserInfoProps>();
 
 const route = useRoute();
-const devMode = inject(devModeInject);
 const updatedInfo = ref<null | CrowdinUserInfoProps>(null);
 
 const currentInfo = computed((): CrowdinUserInfoProps => updatedInfo.value ?? props);
@@ -72,5 +80,4 @@ watch(() => props.staleAt, (staleAt) => {
       <span class="username">({{ currentInfo.username }})</span>
     </template>
   </UserInfo>
-  <pre v-if="devMode"><code>{{ JSON.stringify(translators, null, 2) }}</code></pre>
 </template>

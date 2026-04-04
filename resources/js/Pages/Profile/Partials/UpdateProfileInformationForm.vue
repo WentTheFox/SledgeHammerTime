@@ -108,6 +108,7 @@ const handleHiddenChange = (e: Event) => {
       <pre v-if="devMode"><code>{{ JSON.stringify(form.data(), null, 2) }}</code></pre>
 
       <HtFormSubmitButton
+        id="update-profile"
         :form="form"
         :success-text="$t('profile.information.saveSuccess')"
       />

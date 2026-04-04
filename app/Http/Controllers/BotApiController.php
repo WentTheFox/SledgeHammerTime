@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Enums\DiscordBotCommandOptionType;
+use App\Enums\ReviewDecision;
 use App\Http\Requests\BotLoginRequest;
+use App\Http\Requests\ReviewTranslationCreditOverrideProposal;
 use App\Http\Requests\SaveShardStatsRequest;
 use App\Http\Requests\TelemetryRequest;
 use App\Http\Requests\UpdateBotCommandsRequest;
@@ -15,14 +17,18 @@ use App\Models\BotShard;
 use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\Settings;
+use App\Models\TranslationCreditOverride;
+use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
 use App\Services\Discord\DiscordUserService;
+use App\Services\Discord\GetUserResponse;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class BotApiController extends Controller {
@@ -228,7 +234,7 @@ class BotApiController extends Controller {
     ));
   }
 
-  protected function updateBotTimezones(UpdateBotTimezonesRequest $request): Response {
+  protected function updateBotTimezones(UpdateBotTimezonesRequest $request):Response {
     $data = $request->validated();
 
     foreach ($data['timezones'] as $timezoneName){
@@ -239,7 +245,7 @@ class BotApiController extends Controller {
     return response(status: 204);
   }
 
-  public function commandTelemetry(TelemetryRequest $request): JsonResponse {
+  public function commandTelemetry(TelemetryRequest $request):JsonResponse {
     $data = $request->validated();
 
     $command = BotCommand::find($data['commandId']);
@@ -272,7 +278,7 @@ class BotApiController extends Controller {
     $projectIdentifiersEnv = config('services.crowdin.project_identifiers_for_credits');
     $projectIds = [];
 
-    if ($projectIdentifiersEnv) {
+    if ($projectIdentifiersEnv){
       $identifiers = array_filter(array_map('trim', explode(',', $projectIdentifiersEnv)));
       $projectIds = $this->importTranslatorsService->resolveProjectIdentifiersToIds($identifiers);
     }
@@ -302,5 +308,61 @@ class BotApiController extends Controller {
 
   public function getCrowdinTranslatorCredits():JsonResponse {
     return response()->json($this->crowdinCreditsService->getIndexedReportData());
+  }
+
+  public function reviewCreditOverride(ReviewTranslationCreditOverrideProposal $request, TranslationCreditOverrideProposal $proposal):JsonResponse {
+    $data = $request->validated();
+    $reviewerDiscordUser = $this->discordUserService->updateUserInfo(
+      GetUserResponse::fromArray($data['approver'])
+    );
+    $reviewerUser = $reviewerDiscordUser->user()->first();
+    if (!$reviewerUser || !$reviewerUser->horizon_access){
+      return response()->json([
+        'success' => false,
+        'message' => 'You do not have permission to review credit overrides',
+      ]);
+    }
+    switch ($data['decision']){
+      case ReviewDecision::APPROVE->value:
+        $isBlank = !$proposal->display_name && !$proposal->avatar_url && !$proposal->url;
+
+        DB::transaction(function () use ($proposal, $isBlank, $reviewerUser) {
+          if ($isBlank){
+            TranslationCreditOverride::where('crowdin_user_id', $proposal->crowdin_user_id)
+              ->where('language_code', $proposal->language_code)
+              ->delete();
+          }
+          else {
+            $override = TranslationCreditOverride::updateOrCreate(
+              ['crowdin_user_id' => $proposal->crowdin_user_id, 'language_code' => $proposal->language_code],
+              [
+                'created_by' => $proposal->proposed_by,
+                'display_name' => $proposal->display_name,
+                'avatar_url' => $proposal->avatar_url,
+                'url' => $proposal->url,
+              ],
+            );
+            $override->approved_by = $reviewerUser->id;
+            $override->approved_at = now();
+            $override->save();
+          }
+          $proposal->delete();
+        });
+
+        $this->crowdinCreditsService->invalidateCache();
+      break;
+      case ReviewDecision::REJECT->value:
+        $proposal->rejected_by = $reviewerUser->id;
+        $proposal->rejected_at = now();
+        $proposal->save();
+      break;
+      default:
+        return response()->json([
+          'success' => false,
+          'message' => "Unhandled review decision: {$data['decision']}",
+        ]);
+    }
+
+    return response()->json(['success' => true]);
   }
 }

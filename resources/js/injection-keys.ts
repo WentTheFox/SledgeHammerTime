@@ -134,3 +134,5 @@ export enum InputMethod {
 }
 
 export const inputMethodInject = Symbol('inputMethodInject') as InjectionKey<DeepReadonly<Ref<InputMethod>>>;
+
+export const avatarUrlMapInject = Symbol('avatarUrlMapInject') as InjectionKey<ComputedRef<Record<string, string>>>;

@@ -46,4 +46,17 @@ final readonly class GetUserResponse implements CreateFromResponseInterface {
       avatar: $response->json('avatar'),
     );
   }
+
+  /**
+   * @param array<string, string> $data
+   */
+  public static function fromArray(array $data):self {
+    return new self(
+      id: $data['id'],
+      username: $data['username'],
+      discriminator: $data['discriminator'],
+      global_name: $data['global_name'],
+      avatar: $data['avatar'],
+    );
+  }
 }

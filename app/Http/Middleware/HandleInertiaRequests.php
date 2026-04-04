@@ -41,7 +41,6 @@ class HandleInertiaRequests extends Middleware {
       ...new Ziggy(url: config('app.url'))->toArray(),
       'location' => $request->url(),
     ];
-    $shared['crowdinData'] = fn() => app(CrowdinCreditsService::class)->getIndexedReportData();
 
     return $shared;
   }
@@ -57,6 +56,7 @@ class HandleInertiaRequests extends Middleware {
    *     crowdinProjectId: string,
    *   },
    *   ziggy: callable(): array<mixed>,
+   *   crowdinData: callable(): array<mixed>,
    * }
    */
   public static function getGlobalSharedArray():array {
@@ -70,6 +70,7 @@ class HandleInertiaRequests extends Middleware {
         'crowdinProjectId' => Config::get('services.crowdin.project_identifier'),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
+      'crowdinData' => fn() => app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
     ];
   }
 }

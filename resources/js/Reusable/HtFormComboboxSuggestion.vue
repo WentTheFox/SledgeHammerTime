@@ -4,6 +4,7 @@ import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTextHighlighter from '@/Reusable/HtTextHighlighter.vue';
 import {
   ComboboxOption,
+  FormComboboxSuggestionAddonMode,
   highlightedClass,
   selectedClass,
   suggestionItemClass,
@@ -18,6 +19,7 @@ const props = defineProps<{
   isVisible: boolean;
   intersectionObserver: IntersectionObserver | null;
   addonComponent?: ComponentType<{ option: ComboboxOption }>;
+  addonMode: FormComboboxSuggestionAddonMode;
 }>();
 
 const emit = defineEmits<{
@@ -52,7 +54,7 @@ onUnmounted(() => {
 <template>
   <button
     ref="suggestion"
-    :class="[suggestionItemClass, {[selectedClass]: option.value === selectedOption, [highlightedClass]: isHighlighted}]"
+    :class="[suggestionItemClass, {[selectedClass]: option.value === selectedOption, [highlightedClass]: isHighlighted, [`addon-mode-${addonMode}`]: addonComponent}]"
     type="button"
     :data-value="option.value"
     @click.prevent="emit('click', option)"

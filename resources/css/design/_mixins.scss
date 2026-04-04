@@ -228,3 +228,21 @@
 @mixin drop-shadow {
   filter: drop-shadow(0 0.0625em 0.0625em #{functions.app-color('drop-shadow')});
 }
+
+@mixin invalid-input-field {
+  color: functions.app-color('input-field-invalid-color');
+  background-color: functions.app-color('input-field-invalid-bg');
+}
+
+@mixin invalid-input-field-focused {
+  outline: functions.app-value('focus-outline') solid functions.app-color('input-field-invalid-focus-border-color');
+}
+
+@mixin placeholder-pseudo {
+  &::-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}

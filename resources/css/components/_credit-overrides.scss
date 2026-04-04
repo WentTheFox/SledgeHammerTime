@@ -1,0 +1,15 @@
+@use "../design";
+
+.credit-override-sections {
+  display: flex;
+  flex-flow: row wrap;
+  gap: design.app-value('card-padding');
+
+  .credit-override-section {
+    flex: 0 1 100%;
+
+    @include design.screen-above('xl') {
+      flex-basis: calc(50% - (#{design.app-value('card-padding')} / 2));
+    }
+  }
+}
