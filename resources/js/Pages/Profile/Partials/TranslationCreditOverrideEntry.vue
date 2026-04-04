@@ -127,7 +127,7 @@ const isBlankSubmission = computed(() =>
   !form.displayName && !effectiveAvatarProvider.value && !form.url,
 );
 
-// True when no content field introduces a new non-null value vs the current override —
+// True when no content field introduces a new non-null value vs the current override,
 // i.e. every change is a deletion/clearing, not an addition or modification.
 const isDeletionOnlyChange = computed(() => {
   const o = props.translator.override;

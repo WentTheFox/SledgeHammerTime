@@ -78,15 +78,19 @@ const optionMeta = computed(() => props.options.reduce((acc: OptionMeta, option)
     ...acc.label,
     [option.value]: option.label,
   },
+  description: option.description ? { ...acc.description, [option.value]: option.description } : acc.description,
   aliases: option.aliases ? { ...acc.aliases, [option.value]: option.aliases } : acc.aliases,
-}), { label: {}, aliases: {} }));
+  searchTerms: option.searchTerms ? { ...acc.searchTerms, [option.value]: option.searchTerms } : acc.searchTerms,
+}), { label: {}, description: {}, aliases: {}, searchTerms: {} }));
 const filteredOptions = computed<ComboboxOption[]>(() => {
   const normalizedInputValue = (mode.value === 'select' ? (typingModeValue.value ?? '') : inputValue.value).trim();
   return normalizedInputValue
     ? timezoneIndex.find.value(normalizedInputValue).map(value => ({
       value,
       label: optionMeta.value.label[value],
+      description: optionMeta.value.description?.[value],
       aliases: optionMeta.value.aliases?.[value],
+      searchTerms: optionMeta.value.searchTerms?.[value],
     }))
     : props.options;
 });

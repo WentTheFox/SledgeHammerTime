@@ -2,6 +2,7 @@
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTextHighlighter from '@/Reusable/HtTextHighlighter.vue';
+import { BadgeColor } from '@/utils/badges';
 import {
   ComboboxOption,
   FormComboboxSuggestionAddonMode,
@@ -9,7 +10,14 @@ import {
   selectedClass,
   suggestionItemClass,
 } from '@/utils/combobox';
-import { Component as ComponentType, onMounted, onUnmounted, useTemplateRef, watch } from 'vue';
+import {
+  Component as ComponentType,
+  computed,
+  onMounted,
+  onUnmounted,
+  useTemplateRef,
+  watch,
+} from 'vue';
 
 const props = defineProps<{
   option: ComboboxOption;
@@ -26,6 +34,25 @@ const emit = defineEmits<{
   (e: 'click', option: ComboboxOption): void;
   (e: 'scrollToSelected'): void;
 }>();
+
+interface BadgeItem {
+  text: string;
+  color: BadgeColor | undefined;
+}
+
+const badges = computed<BadgeItem[] | undefined>(() => {
+  const { description, aliases, currentAlias } = props.option;
+  if (!description && !aliases?.length) return undefined;
+
+  const sortedItems = aliases
+    ? [...(description ? [description] : []), ...aliases].sort((a, b) => (b === currentAlias ? 1 : 0) - (a === currentAlias ? 1 : 0))
+    : [];
+
+  return sortedItems.map(alias => ({
+    text: alias,
+    color: alias === currentAlias ? 'cyan' as BadgeColor : undefined,
+  }));
+});
 
 const suggestionRef = useTemplateRef('suggestion');
 
@@ -61,10 +88,12 @@ onUnmounted(() => {
   >
     <span class="combobox-suggestion-item-label">
       <span class="combobox-suggestion-item-text">
-        <HtTextHighlighter
-          :text="option.label"
-          :query="inputValue"
-        />
+        <span class="combobox-suggestion-item-main-text">
+          <HtTextHighlighter
+            :text="option.label"
+            :query="inputValue"
+          />
+        </span>
       </span>
       <span
         v-if="isVisible && addonComponent"
@@ -77,15 +106,16 @@ onUnmounted(() => {
       </span>
     </span>
     <HtBadgeGroup
-      v-if="option.aliases"
+      v-if="badges"
       :compact="true"
     >
       <HtBadge
-        v-for="alias in option.aliases"
-        :key="alias"
+        v-for="badge in badges"
+        :key="badge.text"
+        :color="badge.color"
       >
         <HtTextHighlighter
-          :text="alias"
+          :text="badge.text"
           :query="inputValue"
         />
       </HtBadge>

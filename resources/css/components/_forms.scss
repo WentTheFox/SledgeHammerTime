@@ -288,19 +288,26 @@
       align-items: center;
 
       .combobox-suggestion-item-text {
+        display: flex;
+        flex-direction: column;
         flex: 1 1 100%;
         min-width: 0;
         overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+
+        .combobox-suggestion-item-main-text {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       .combobox-suggestion-item-addon {
-        flex: 0 1 60%;
+        flex: 0 0 auto;
         font-variant: tabular-nums;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        max-width: 60%;
 
         @include design.if-ltr {
           text-align: right;

@@ -1,5 +1,4 @@
 import { ComboboxOption, normalizeQueryValue } from '@/utils/combobox';
-import { timeZoneAliases } from '@/utils/time-zone-aliases';
 import levenshtein from 'js-levenshtein';
 import { computed, ref, Ref, watch } from 'vue';
 
@@ -16,12 +15,28 @@ export const useTimezoneIndex = (dataSource: Ref<ComboboxOption[]>): DynamicInde
     if (slashPart) {
       lowerKeys.push(slashPart[1]);
     }
-    if (data.value in timeZoneAliases) {
-      timeZoneAliases[data.value as keyof typeof timeZoneAliases].forEach(alias => {
+    if (data.aliases) {
+      data.aliases.forEach(alias => {
         const aliasParts = alias.toLowerCase().split(/\s/g);
         aliasParts.forEach(aliasPart => {
           lowerKeys.push(aliasPart);
         });
+      });
+    }
+    // Index description words so the Intl-generated display name is also searchable
+    if (data.description) {
+      data.description.toLowerCase().split(/\s+/).forEach(word => {
+        if (word && !lowerKeys.includes(word)) {
+          lowerKeys.push(word);
+        }
+      });
+    }
+    // Index English search terms when a localized description is shown
+    if (data.searchTerms) {
+      data.searchTerms.forEach(word => {
+        if (word && !lowerKeys.includes(word)) {
+          lowerKeys.push(word);
+        }
       });
     }
     return lowerKeys.reduce((part, lowerKey) => {
