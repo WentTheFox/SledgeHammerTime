@@ -319,7 +319,7 @@ const cancelProposal = () => {
         type="submit"
         color="primary"
         :loading="form.processing"
-        :save-text="bypassesApproval ? $t('profile.creditOverrides.saveHide') : $t('profile.creditOverrides.submit')"
+        :save-text="bypassesApproval ? undefined : $t('profile.creditOverrides.submit')"
         :save-icon="bypassesApproval ? undefined : faEnvelopeCircleCheck"
         :success-text="bypassesApproval ? $t('profile.creditOverrides.saveHideSuccess') : $t('profile.creditOverrides.saveSuccess')"
         :disabled="!hasChanges || (translator.proposal !== null && !bypassesApproval)"
