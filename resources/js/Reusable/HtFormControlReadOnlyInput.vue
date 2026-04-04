@@ -26,7 +26,6 @@ const props = withDefaults(defineProps<{
 }>(), {
   value: undefined,
   fullWidth: undefined,
-  fullWidth: undefined,
   hideSelection: undefined,
   positionAnchorName: undefined,
   type: undefined,

@@ -283,7 +283,7 @@ class CreditOverrideController extends Controller {
 
   /**
    * Returns true when every content field in the submission is either null (clearing) or unchanged
-   * from the existing override — i.e. no new non-null values are being introduced.
+   * from the existing override, i.e. no new non-null values are being introduced.
    * Requires an existing override; without one there is nothing to delete from.
    *
    * @param array<string, string> $validated

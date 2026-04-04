@@ -7,12 +7,13 @@ import {
 import { DefaultDTL } from '@/utils/dtl';
 import {
   coerceToTwelveHours,
+  getTimezoneValue,
   getUtcOffsetString,
   rangeLimit,
   toTwelveHours,
   toTwentyFourHours,
 } from '@/utils/time';
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 describe('toTwentyFourHours', () => {
   const AM = true;
@@ -253,5 +254,75 @@ describe('DTLValue.replaceZone', () => {
       name: 'Europe/Budapest',
     };
     expect(now.replaceZone(defaultObject).getUtcOffsetMinutes()).toEqual(60);
+  });
+});
+
+describe('getTimezoneValue', () => {
+  describe('aliases', () => {
+    it.each([
+      ['Europe/Paris', ['CET', 'CEST']],
+      ['America/New_York', ['EST', 'EDT']],
+      ['America/Los_Angeles', ['PST', 'PDT']],
+      ['America/Chicago', ['CST', 'CDT']],
+      ['Australia/Sydney', ['AEST', 'AEDT']],
+      ['Asia/Tokyo', ['JST']],
+      ['Asia/Kolkata', ['IST']],
+      ['Europe/London', ['GMT', 'BST']],
+    ] as [string, string[]][])('should include the expected abbreviations for %s', (timezone, expected) => {
+      const { aliases } = getTimezoneValue(timezone);
+      for (const abbrev of expected) {
+        expect(aliases, `expected aliases to contain ${abbrev}`).toContain(abbrev);
+      }
+    });
+
+    it('should return undefined aliases for an offset-only timezone', () => {
+      // Etc/GMT+5 has no named abbreviations, all Intl formats return GMT offsets
+      const { aliases } = getTimezoneValue('Etc/GMT+5');
+      expect(aliases).toBeUndefined();
+    });
+  });
+
+  describe('currentAlias', () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+    });
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('should always be one of the known aliases when defined', () => {
+      const timezones = ['Europe/Paris', 'America/New_York', 'Asia/Tokyo', 'Australia/Sydney', 'Europe/London'];
+      const dates = [new Date('2024-01-15T12:00:00Z'), new Date('2024-07-15T12:00:00Z')];
+      for (const tz of timezones) {
+        for (const date of dates) {
+          vi.setSystemTime(date);
+          const { aliases, currentAlias } = getTimezoneValue(tz);
+          if (currentAlias !== undefined) {
+            expect(aliases, `${tz} on ${date.toISOString()}: currentAlias "${currentAlias}" not in aliases`).toContain(currentAlias);
+          }
+        }
+      }
+    });
+
+    // Node.js returns proper short abbreviations for North American timezones,
+    // so these can assert the exact expected value in all environments
+    it.each([
+      ['America/New_York', '2024-01-15T12:00:00Z', 'EST'],
+      ['America/New_York', '2024-07-15T12:00:00Z', 'EDT'],
+      ['America/Los_Angeles', '2024-01-15T12:00:00Z', 'PST'],
+      ['America/Los_Angeles', '2024-07-15T12:00:00Z', 'PDT'],
+      ['America/Chicago', '2024-01-15T12:00:00Z', 'CST'],
+      ['America/Chicago', '2024-07-15T12:00:00Z', 'CDT'],
+    ] as [string, string, string][])('%s on %s should have currentAlias %s', (timezone, dateStr, expected) => {
+      vi.setSystemTime(new Date(dateStr));
+      expect(getTimezoneValue(timezone).currentAlias).toBe(expected);
+    });
+
+    it('should always return JST for Asia/Tokyo regardless of season', () => {
+      vi.setSystemTime(new Date('2024-01-15T12:00:00Z'));
+      expect(getTimezoneValue('Asia/Tokyo').currentAlias).toBe('JST');
+      vi.setSystemTime(new Date('2024-07-15T12:00:00Z'));
+      expect(getTimezoneValue('Asia/Tokyo').currentAlias).toBe('JST');
+    });
   });
 });

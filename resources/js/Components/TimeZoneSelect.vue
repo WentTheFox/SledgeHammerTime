@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LocalTimeComboboxAddon from '@/Components/LocalTimeComboboxAddon.vue';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import { currentLanguageInject, dateTimeLibraryInject } from '@/injection-keys';
 import HtFormCombobox, { FormComboboxApi } from '@/Reusable/HtFormCombobox.vue';
 import { ComboboxOption } from '@/utils/combobox';
 import { getTimezoneValue } from '@/utils/time';
@@ -14,7 +14,11 @@ const props = defineProps<{
 
 
 const dtl = inject(dateTimeLibraryInject);
-const timezones = computed(() => dtl?.value.timezoneNames.map(getTimezoneValue) ?? []);
+const currentLanguage = inject(currentLanguageInject);
+const timezones = computed(() => {
+  const locale = currentLanguage?.value.locale ?? 'en';
+  return dtl?.value.timezoneNames.map(tz => getTimezoneValue(tz, locale)) ?? [];
+});
 
 const model = defineModel<string>();
 const emit = defineEmits<{

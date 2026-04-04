@@ -4,15 +4,97 @@ import {
   TimeZoneSelectionType,
 } from '@/model/timezone-selection';
 import { pad } from '@/utils/pad';
-import { timeZoneAliases } from '@/utils/time-zone-aliases';
 
 export const offsetZoneRegex = /^(?:Etc\/)?(?:GMT|UTC)\+?(-?\d{1,2})(?::?(\d{2}))?$/i;
 
-export const getTimezoneValue = (timezone: string) => ({
-  value: timezone,
-  label: timezone,
-  aliases: timeZoneAliases[timezone as keyof typeof timeZoneAliases],
-});
+// Fixed reference dates to capture both standard and daylight time abbreviations
+const STANDARD_TIME_DATE = new Date(Date.UTC(2024, 0, 15)); // January for standard time
+const DAYLIGHT_TIME_DATE = new Date(Date.UTC(2024, 6, 15)); // July for daylight time
+
+const getTimezoneDisplayName = (timezone: string, locale: string): string => {
+  try {
+    const parts = new Intl.DateTimeFormat(locale, {
+      timeZone: timezone,
+      timeZoneName: 'longGeneric',
+    }).formatToParts(new Date());
+    return parts.find(p => p.type === 'timeZoneName')?.value ?? timezone;
+  } catch {
+    return timezone;
+  }
+};
+
+const getInitials = (name: string): string =>
+  name.split(/\s+/).map(word => word[0]).join('');
+
+const formatTzName = (timezone: string, format: Intl.DateTimeFormatOptions['timeZoneName'], date: Date): string | undefined => {
+  try {
+    return new Intl.DateTimeFormat('en', { timeZone: timezone, timeZoneName: format })
+      .formatToParts(date)
+      .find(p => p.type === 'timeZoneName')?.value;
+  } catch {
+    return undefined;
+  }
+};
+
+const getTimezoneAbbreviations = (timezone: string): string[] => {
+  const abbrevs = new Set<string>();
+
+  for (const date of [STANDARD_TIME_DATE, DAYLIGHT_TIME_DATE]) {
+    // Use short format directly where available (e.g. EST, EDT in Chrome)
+    const short = formatTzName(timezone, 'short', date);
+    if (short && !/^(GMT|UTC)[+-]/.test(short)) {
+      abbrevs.add(short);
+    }
+
+    // Derive abbreviation from long name initials: "Eastern Daylight Time" → "EDT"
+    const long = formatTzName(timezone, 'long', date);
+    if (long) {
+      const initials = getInitials(long);
+      if (initials.length >= 2) abbrevs.add(initials);
+    }
+  }
+
+  // longGeneric drops the Standard/Summer qualifier:
+  // "Central European Time" → "CET" (vs "CEST" from "Central European Standard/Summer Time")
+  const generic = formatTzName(timezone, 'longGeneric', STANDARD_TIME_DATE);
+  if (generic) {
+    const initials = getInitials(generic);
+    if (initials.length >= 2) abbrevs.add(initials);
+  }
+
+  return Array.from(abbrevs);
+};
+
+const getCurrentTimezoneAbbreviation = (timezone: string, aliases: string[]): string | undefined => {
+  const now = new Date();
+  const short = formatTzName(timezone, 'short', now);
+  if (short && !/^(GMT|UTC)[+-]/.test(short) && aliases.includes(short)) return short;
+  const long = formatTzName(timezone, 'long', now);
+  if (long) {
+    const initials = getInitials(long);
+    if (initials.length >= 2 && aliases.includes(initials)) return initials;
+  }
+  return undefined;
+};
+
+export const getTimezoneValue = (timezone: string, locale = 'en') => {
+  const displayName = getTimezoneDisplayName(timezone, locale);
+  const abbreviations = getTimezoneAbbreviations(timezone);
+  const currentAlias = getCurrentTimezoneAbbreviation(timezone, abbreviations);
+  const englishName = locale !== 'en' ? getTimezoneDisplayName(timezone, 'en') : undefined;
+  // When showing a localized name, also store the English words for search
+  const searchTerms = englishName && englishName !== displayName
+    ? englishName.toLowerCase().split(/\s+/).filter(Boolean)
+    : undefined;
+  return {
+    value: timezone,
+    label: timezone,
+    description: displayName !== timezone ? displayName : undefined,
+    aliases: abbreviations.length > 0 ? abbreviations : undefined,
+    currentAlias,
+    searchTerms,
+  };
+};
 
 export const rangeLimit = (value: number, min: number, max: number): number => {
   let log = false;
