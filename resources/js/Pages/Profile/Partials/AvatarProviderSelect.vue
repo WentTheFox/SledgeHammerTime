@@ -97,11 +97,19 @@ function resetToDefaultCrowdin() {
 }
 
 const discordOptions = computed((): ComboboxOption[] =>
-  props.discordUsers.map(u => ({ label: u.name, value: u.id })),
+  props.discordUsers.map(u => ({
+    label: u.name,
+    value: u.id,
+    description: u.id,
+  })),
 );
 
 const crowdinOptions = computed((): ComboboxOption[] =>
-  props.crowdinUsers.map(u => ({ label: u.fullName ?? u.username, value: String(u.id) })),
+  props.crowdinUsers.map(u => ({
+    label: u.fullName ?? u.username,
+    value: String(u.id),
+    description: String(u.id),
+  })),
 );
 
 const activeOptions = computed((): ComboboxOption[] => {
