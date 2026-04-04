@@ -13,7 +13,7 @@ class ReviewTranslationCreditOverrideProposal extends ConsoleUserFormRequest {
    */
   public function rules():array {
     return [
-      'decision' => ['required','string', Rule::in(['approve', 'deny'])],
+      'decision' => ['required','string', Rule::in(['approve', 'reject'])],
       'approver' => 'required|array',
       'approver.id' => 'required|numeric',
       'approver.username' => ['required', 'string', 'max:32'],

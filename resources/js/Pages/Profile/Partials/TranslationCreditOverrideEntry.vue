@@ -51,7 +51,7 @@ const ownerCrowdinUserId = computed(() =>
 
 const source = (): ProposalValues | CreditOverrideValues | null => {
   const proposal = props.translator.proposal;
-  if (proposal !== null && proposal.rejectedAt === null) return proposal;
+  if (proposal !== null) return proposal;
   return props.translator.override;
 };
 
@@ -322,7 +322,7 @@ const cancelProposal = () => {
         :save-text="bypassesApproval ? undefined : $t('profile.creditOverrides.submit')"
         :save-icon="bypassesApproval ? undefined : faEnvelopeCircleCheck"
         :success-text="bypassesApproval ? $t('profile.creditOverrides.saveHideSuccess') : $t('profile.creditOverrides.saveSuccess')"
-        :disabled="!hasChanges || (translator.proposal !== null && !bypassesApproval)"
+        :disabled="!hasChanges || (pendingReview && !bypassesApproval)"
         :form="form"
       >
         <HtButton
