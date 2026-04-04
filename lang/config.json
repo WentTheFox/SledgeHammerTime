@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "languages": {
     "ar": {
       "name": "Arabic",
@@ -7,27 +7,18 @@
       "countryCode": "AE",
       "emoji": "🇸🇦",
       "rtl": true,
-      "calendarWeekdayFormat": "dddd",
-      "creditOverrides": {
-        "13533384": null
-      }
+      "calendarWeekdayFormat": "dddd"
     },
     "bg": {
       "name": "Bulgarian",
       "nativeName": "Български",
       "countryCode": "BG",
-      "emoji": "🇧🇬",
-      "creditOverrides": {
-        "13533384": null
-      }
+      "emoji": "🇧🇬"
     },
     "ca": {
       "name": "Catalan",
       "nativeName": "Català",
-      "countryCode": "ES-CA",
-      "creditOverrides": {
-        "15497858": null
-      }
+      "countryCode": "ES-CA"
     },
     "zh": {
       "name": "Chinese Simplified",
@@ -47,11 +38,7 @@
       "emoji": "🇹🇼",
       "laravelLocale": "zh_TW",
       "calendarLabelFormat": "YYYY年MMM",
-      "calendarYearLabelFormat": "YYYY年",
-      "creditOverrides": {
-        "15497858": null,
-        "15258052": null
-      }
+      "calendarYearLabelFormat": "YYYY年"
     },
     "hr": {
       "name": "Croatian",
@@ -60,13 +47,7 @@
       "emoji": "🇭🇷",
       "weekendDays": [
         0
-      ],
-      "creditOverrides": {
-        "15734961": {
-          "displayName": "Volvone",
-          "url": "https://github.com/volvone"
-        }
-      }
+      ]
     },
     "cs": {
       "name": "Czech",
@@ -82,25 +63,14 @@
       "weekendDays": [
         6,
         0
-      ],
-      "creditOverrides": {
-        "13533384": null,
-        "14730100": {
-          "displayName": "Jesse",
-          "url": "https://github.com/Jessuhh"
-        }
-      }
+      ]
     },
     "en-GB": {
       "name": "English, United Kingdom",
       "nativeName": "English, UK",
       "countryCode": "GB",
       "emoji": "🇬🇧",
-      "laravelLocale": "en_GB",
-      "creditOverrides": {
-        "13533384": null,
-        "17378908": null
-      }
+      "laravelLocale": "en_GB"
     },
     "en": {
       "name": "English, United States",
@@ -113,20 +83,13 @@
       "name": "French",
       "nativeName": "Français",
       "countryCode": "FR",
-      "emoji": "🇫🇷",
-      "creditOverrides": {
-        "13533384": null,
-        "15497858": null
-      }
+      "emoji": "🇫🇷"
     },
     "de": {
       "name": "German",
       "nativeName": "Deutsch",
       "countryCode": "DE",
-      "emoji": "🇩🇪",
-      "creditOverrides": {
-        "13533384": null
-      }
+      "emoji": "🇩🇪"
     },
     "el": {
       "name": "Greek",
@@ -149,11 +112,7 @@
       "weekendDays": [
         5,
         6
-      ],
-      "creditOverrides": {
-        "13533384": null,
-        "15497858": null
-      }
+      ]
     },
     "hu": {
       "name": "Hungarian",
@@ -163,22 +122,13 @@
       "weekendDays": [
         6,
         0
-      ],
-      "creditOverrides": {
-        "13533384": null
-      }
+      ]
     },
     "id": {
       "name": "Indonesian",
       "nativeName": "Bahasa Indonesia",
       "countryCode": "ID",
-      "emoji": "🇮🇩",
-      "creditOverrides": {
-        "13533384": null,
-        "15258052": {
-          "url": "https://github.com/Jckcr"
-        }
-      }
+      "emoji": "🇮🇩"
     },
     "it": {
       "name": "Italian",
@@ -188,13 +138,7 @@
       "weekendDays": [
         6,
         0
-      ],
-      "creditOverrides": {
-        "15096881": {
-          "url": "https://github.com/lorypelli"
-        },
-        "16601907": null
-      }
+      ]
     },
     "ja": {
       "name": "Japanese",
@@ -202,14 +146,7 @@
       "countryCode": "JP",
       "emoji": "🇯🇵",
       "calendarLabelFormat": "YYYY年MMMM",
-      "calendarYearLabelFormat": "YYYY年",
-      "creditOverrides": {
-        "14469636": {
-          "displayName": "Phrygia",
-          "url": "https://github.com/sjkim04"
-        },
-        "15497858": null
-      }
+      "calendarYearLabelFormat": "YYYY年"
     },
     "ko": {
       "name": "Korean",
@@ -217,14 +154,7 @@
       "countryCode": "KR",
       "emoji": "🇰🇷",
       "calendarLabelFormat": "YYYY년 MMMM",
-      "calendarYearLabelFormat": "YYYY년",
-      "creditOverrides": {
-        "14469636": {
-          "displayName": "Phrygia",
-          "url": "https://github.com/sjkim04"
-        },
-        "15497858": null
-      }
+      "calendarYearLabelFormat": "YYYY년"
     },
     "lv": {
       "name": "Latvian",
@@ -236,11 +166,7 @@
       "name": "Lithuanian",
       "nativeName": "Lietuviškai",
       "countryCode": "LT",
-      "emoji": "🇱🇹",
-      "creditOverrides": {
-        "13533384": null,
-        "15497858": null
-      }
+      "emoji": "🇱🇹"
     },
     "ms": {
       "name": "Malay",
@@ -272,13 +198,7 @@
       "emoji": "🇵🇱",
       "weekendDays": [
         0
-      ],
-      "creditOverrides": {
-        "14844020": {
-          "displayName": "MinerPL",
-          "url": "https://github.com/minerpl"
-        }
-      }
+      ]
     },
     "pt": {
       "name": "Portuguese",
@@ -286,39 +206,26 @@
       "countryCode": "PT",
       "crowdinLocale": "pt-PT",
       "emoji": "🇵🇹",
-      "calendarWeekdayFormat": "ddd",
-      "creditOverrides": {
-        "15497858": null
-      }
+      "calendarWeekdayFormat": "ddd"
     },
     "pt-BR": {
       "name": "Portuguese, Brazilian",
       "nativeName": "Português do Brasil",
       "countryCode": "BR",
       "emoji": "🇧🇷",
-      "calendarWeekdayFormat": "ddd",
-      "creditOverrides": {
-        "13533384": null
-      }
+      "calendarWeekdayFormat": "ddd"
     },
     "ro": {
       "name": "Romanian",
       "nativeName": "Română",
       "countryCode": "RO",
-      "emoji": "🇷🇴",
-      "creditOverrides": {
-        "16601907": null
-      }
+      "emoji": "🇷🇴"
     },
     "ru": {
       "name": "Russian",
       "nativeName": "Русский",
       "countryCode": "RU",
-      "emoji": "🇷🇺",
-      "creditOverrides": {
-        "15497858": null,
-        "13533384": null
-      }
+      "emoji": "🇷🇺"
     },
     "sr": {
       "name": "Serbian (Latin)",
@@ -330,28 +237,14 @@
         6,
         0
       ],
-      "laravelLocale": "sr_Latin",
-      "creditOverrides": {
-        "14936099": {
-          "displayName": "net-tech-#7475",
-          "url": "https://nettech.dev/"
-        }
-      }
+      "laravelLocale": "sr_Latin"
     },
     "es": {
       "name": "Spanish",
       "nativeName": "Español",
       "countryCode": "ES",
       "emoji": "🇪🇸",
-      "crowdinLocale": "es-ES",
-      "creditOverrides": {
-        "13533384": null,
-        "17448206": null,
-        "14524626": {
-          "displayName": "Yareaj",
-          "url": "https://github.com/Yareaj/"
-        }
-      }
+      "crowdinLocale": "es-ES"
     },
     "sv": {
       "name": "Swedish",
@@ -361,46 +254,25 @@
       "crowdinLocale": "sv-SE",
       "weekendDays": [
         0
-      ],
-      "creditOverrides": {
-        "25282": {
-          "displayName": "Liggliluff",
-          "url": "https://github.com/Liggliluff"
-        },
-        "13533384": null,
-        "15497858": null
-      }
+      ]
     },
     "th": {
       "name": "Thai",
       "nativeName": "ไทย",
       "countryCode": "TH",
-      "emoji": "🇹🇭",
-      "creditOverrides": {
-        "15497858": null,
-        "15514192": {
-          "displayName": "timelessnesses",
-          "url": "https://github.com/timelessnesses"
-        }
-      }
+      "emoji": "🇹🇭"
     },
     "tr": {
       "name": "Turkish",
       "nativeName": "Türkçe",
       "countryCode": "TR",
-      "emoji": "🇹🇷",
-      "creditOverrides": {
-        "13533384": null
-      }
+      "emoji": "🇹🇷"
     },
     "uk": {
       "name": "Ukrainian",
       "nativeName": "Українська",
       "countryCode": "UA",
-      "emoji": "🇺🇦",
-      "creditOverrides": {
-        "15497858": null
-      }
+      "emoji": "🇺🇦"
     },
     "ur": {
       "name": "Urdu (Pakistan)",
@@ -413,10 +285,7 @@
       "name": "Vietnamese",
       "nativeName": "Tiếng Việt",
       "countryCode": "VN",
-      "emoji": "🇻🇳",
-      "creditOverrides": {
-        "16601907": null
-      }
+      "emoji": "🇻🇳"
     },
     "da": {
       "name": "Danish",
@@ -428,10 +297,7 @@
       "name": "Norwegian",
       "nativeName": "Norsk",
       "countryCode": "NO",
-      "emoji": "🇳🇴",
-      "creditOverrides": {
-        "16601907": null
-      }
+      "emoji": "🇳🇴"
     },
     "fi": {
       "name": "Finnish",
