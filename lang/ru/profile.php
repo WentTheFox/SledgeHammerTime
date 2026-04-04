@@ -24,7 +24,7 @@ return [
         'authorize' => 'Авторизовать аккаунт Discord',
       ],
       'crowdin' => [
-        'description' => 'Привязывая ваш аккаунт Crowdin, вы сможете настроить ваше отображение в списке переводчиков, а также это послужит дополнительным уровнем верификации того, что эти учетные записи принадлежат вам, если вы присоединитесь к Discord серверу проекта.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Авторизовать аккаунт Crowdin',
       ],
     ],
