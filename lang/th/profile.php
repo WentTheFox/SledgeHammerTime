@@ -34,7 +34,7 @@ return [
     'heading' => 'Translation Credits',
     'description' => 'Customize how you appear in the translation credits for each language where you are a contributor.',
     'displayName' => 'Display Name',
-    'avatarProvider' => 'Avatar provider',
+    'avatarProvider' => 'Avatar',
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
@@ -48,7 +48,6 @@ return [
     'hide' => 'Hide from credits',
     'submit' => 'Submit for approval',
     'saveSuccess' => 'Submitted for approval',
-    'saveHide' => 'Save',
     'saveHideSuccess' => 'Visibility updated',
     'cancel' => 'Cancel changes',
     'statusPrefix' => 'Status',
