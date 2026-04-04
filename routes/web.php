@@ -12,7 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
-use App\Http\Middleware\CachePickerResponse;
+use App\Http\Middleware\CachePageResponse;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +55,7 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');
+  Route::get('/shards', [BotInfoController::class, 'shards'])->name('app.shards');
 });
 
 Route::get('/status', [StaticController::class, 'status'])->name('status');
@@ -63,7 +64,7 @@ Route::get('/bot-login', [NotFoundController::class, 'notFound']);
 Route::get('/bot-login/{discordUserId}', [NotFoundController::class, 'notFound']);
 Route::get('/bot-login/{discordUserId}/{locale}', [AuthController::class, 'botLogin'])->name('botLogin');
 Route::get('/', [HomeController::class, 'localeRedirect'])->name('root');
-Route::get('/{locale}', [HomeController::class, 'index'])->whereIn('locale', $uiLocaleValues)->name('home')->middleware(CachePickerResponse::class);
+Route::get('/{locale}', [HomeController::class, 'index'])->whereIn('locale', $uiLocaleValues)->name('home')->middleware(CachePageResponse::class . ':picker');
 Route::get('/{locale}/discord', [RedirectController::class, 'discord'])->whereIn('locale', $uiLocaleValues)->name('discord');
 Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect'])->whereIn('locale', $uiLocaleValues)->name('oauthRedirect');
 
@@ -74,7 +75,7 @@ $defineRoutes = function (bool $inLocaleGroup) {
   $designRoute = Route::get('/design', [StaticController::class, 'design']);
   $legalRoute = Route::get('/legal', [StaticController::class, 'legal']);
   $loginRoute = Route::get('/login', [AuthController::class, 'login']);
-  $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index']);
+  $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index'])->middleware(CachePageResponse::class . ':botinfo');
   $analyticsEnabled = config('analytics.enabled');
   if ($analyticsEnabled){
     $analyticsRoute = Route::get('/analytics', [AnalyticsController::class, 'index']);

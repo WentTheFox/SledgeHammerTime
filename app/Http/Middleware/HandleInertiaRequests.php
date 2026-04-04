@@ -48,7 +48,7 @@ class HandleInertiaRequests extends Middleware {
   }
 
   private function shouldIncludeUser(Request $request): bool {
-    return !in_array($request->route()?->getName(), ['root', 'home']);
+    return !in_array($request->route()?->getName(), ['home', 'botInfo'], strict: true);
   }
 
   /**

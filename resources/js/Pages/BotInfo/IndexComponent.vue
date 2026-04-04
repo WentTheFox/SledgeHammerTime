@@ -6,14 +6,25 @@ import BotShards, { BotShardData } from '@/Pages/BotInfo/BotShards.vue';
 import CommandsReference from '@/Pages/BotInfo/CommandsReference.vue';
 import { BotCommandTranslation, getBotCommandTranslationKey } from '@/utils/translation';
 import { Head } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import axios from 'axios';
+import { computed, onMounted, ref } from 'vue';
 
 const props = defineProps<{
   discordAppId: string;
   commands: BotCommand[];
   translations: BotCommandTranslation[];
-  shards: BotShardData;
 }>();
+
+const shards = ref<BotShardData | null>(null);
+
+onMounted(async () => {
+  try {
+    const { data } = await axios.get<BotShardData>('/frontend/shards');
+    shards.value = data;
+  } catch {
+    shards.value = [];
+  }
+});
 
 const flatTranslations = computed(() => props.translations.reduce((acc, translation) => {
   return ({

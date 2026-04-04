@@ -7,10 +7,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpFoundation\Response;
 
-class CachePickerResponse {
+class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
+
+  public static function cacheKey(string $page, string $locale, string $manifestHash): string {
+    return "page-html-{$page}-{$locale}-{$manifestHash}";
+  }
+
+  /**
+   * Forget all locale variants of a cached page.
+   * Call this whenever the underlying data for a page changes.
+   */
+  public static function forgetPage(string $page): void {
+    $manifestHash = @md5_file(public_path('build/manifest.json')) ?: 'default';
+    foreach (array_keys(Config::get('languages.ui_locale_map', [])) as $locale) {
+      Cache::forget(static::cacheKey($page, $locale, $manifestHash));
+    }
+  }
 
   /**
    * Returns true only when the Inertia app container has SSR-rendered content.
@@ -35,7 +51,7 @@ class CachePickerResponse {
     ];
   }
 
-  public function handle(Request $request, Closure $next): Response {
+  public function handle(Request $request, Closure $next, string $page): Response {
     // Inertia SPA navigations send X-Inertia header — serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
@@ -44,10 +60,16 @@ class CachePickerResponse {
 
     $locale = App::getLocale();
     $manifestHash = @md5_file(public_path('build/manifest.json')) ?: 'default';
-    $cacheKey = "picker-html-{$locale}-{$manifestHash}";
+    $cacheKey = static::cacheKey($page, $locale, $manifestHash);
 
     /** @var array{html: string, last_modified: int}|null $cached */
     $cached = Cache::get($cacheKey);
+
+    // Discard legacy cache entries that are plain strings (pre-format migration).
+    if (is_string($cached)) {
+      Cache::forget($cacheKey);
+      $cached = null;
+    }
 
     if ($cached !== null) {
       $lastModified = $cached['last_modified'];

@@ -22,8 +22,13 @@ class BotInfoController extends Controller {
       'commands' => BotCommand::with(['options' => ['choices']])->orderBy('type')->orderBy('total_executions', 'desc')->orderBy('name')->get(),
       'translations' => BotCommandTranslation::where('locale', App::getLocale())->get()
         ->map(fn(BotCommandTranslation $t) => $t->mapToUiInfo()),
-      'shards' => BotShard::orderBy('id')->get()->map(fn(BotShard $t) => $t->mapToUiInfo()),
     ]);
+  }
+
+  public function shards(): JsonResponse {
+    return response()->json(
+      BotShard::orderBy('id')->get()->map(fn(BotShard $s) => $s->mapToUiInfo()),
+    );
   }
 
   public function usage(BotInfoUsageRequest $request): JsonResponse|Response {

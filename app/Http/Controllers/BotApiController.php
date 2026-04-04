@@ -22,6 +22,7 @@ use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
+use App\Http\Middleware\CachePageResponse;
 use App\Services\Discord\DiscordUserService;
 use App\Services\Discord\GetUserResponse;
 use Carbon\Carbon;
@@ -216,6 +217,8 @@ class BotApiController extends Controller {
       }
       $commands[] = $command;
     }
+
+    CachePageResponse::forgetPage('botinfo');
 
     return response()->json($commands);
   }
