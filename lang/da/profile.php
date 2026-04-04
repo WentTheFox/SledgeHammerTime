@@ -53,6 +53,7 @@ return [
     'status' => [
       'approved' => 'Approved',
       'inReview' => 'In review',
+      'rejected' => 'Rejected',
     ],
     'currentlyApproved' => 'Currently approved values',
     'reApprovalWarning' => 'Changing anything besides visibility will require a manual review. You can cancel the review request at any time from this page.',
