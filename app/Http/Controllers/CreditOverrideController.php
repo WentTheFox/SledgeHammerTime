@@ -75,6 +75,26 @@ class CreditOverrideController extends Controller {
       return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
     }
 
+    if ($this->isDeletionOnlyChange($validated, $existingOverride)){
+      DB::transaction(function () use ($crowdinUser, $languageCode, $validated, $existingOverride) {
+        $this->findProposal($crowdinUser->id, $languageCode)?->delete();
+        $existingOverride->display_name = $validated['display_name'] ?? null;
+        $existingOverride->avatar_url = $validated['avatar_url'] ?? null;
+        $existingOverride->url = $validated['url'] ?? null;
+        $existingOverride->hide = (bool)($validated['hide'] ?? false);
+        if ($this->isBlankOverride($existingOverride)){
+          $existingOverride->delete();
+        }
+        else {
+          $existingOverride->save();
+        }
+      });
+
+      $this->crowdinCreditsService->invalidateCache();
+
+      return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+    }
+
     if ($this->isBlankSubmission($validated)){
       DB::transaction(function () use ($crowdinUser, $languageCode) {
         $this->findProposal($crowdinUser->id, $languageCode)?->delete();
@@ -259,6 +279,27 @@ class CreditOverrideController extends Controller {
 
   private function isBlankOverride(TranslationCreditOverride $override):bool {
     return !$override->display_name && !$override->avatar_url && !$override->url && !$override->hide;
+  }
+
+  /**
+   * Returns true when every content field in the submission is either null (clearing) or unchanged
+   * from the existing override — i.e. no new non-null values are being introduced.
+   * Requires an existing override; without one there is nothing to delete from.
+   *
+   * @param array<string, string> $validated
+   */
+  private function isDeletionOnlyChange(array $validated, ?TranslationCreditOverride $existingOverride):bool {
+    if ($existingOverride === null){
+      return false;
+    }
+    $displayNameIsNew = ($validated['display_name'] ?? null) !== null
+      && ($validated['display_name'] ?? null) !== $existingOverride->display_name;
+    $avatarUrlIsNew = ($validated['avatar_url'] ?? null) !== null
+      && ($validated['avatar_url'] ?? null) !== $existingOverride->avatar_url;
+    $urlIsNew = ($validated['url'] ?? null) !== null
+      && ($validated['url'] ?? null) !== $existingOverride->url;
+
+    return !$displayNameIsNew && !$avatarUrlIsNew && !$urlIsNew;
   }
 
   /**

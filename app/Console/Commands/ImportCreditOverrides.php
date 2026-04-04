@@ -80,7 +80,6 @@ class ImportCreditOverrides extends Command {
               );
             }
             else if (is_array($override)){
-              // Set override properties — system-imported, bypass model events to avoid clearing approval
               $data = [
                 'created_by' => $consoleUser->id,
                 'approved_by' => $consoleUser->id,
@@ -100,12 +99,10 @@ class ImportCreditOverrides extends Command {
                 $data['avatar_url'] = $override['avatarUrl'];
               }
 
-              TranslationCreditOverride::withoutEvents(function () use ($crowdinUserIdInt, $dbLanguageCode, $data) {
-                TranslationCreditOverride::updateOrCreate(
-                  ['crowdin_user_id' => $crowdinUserIdInt, 'language_code' => $dbLanguageCode],
-                  $data
-                );
-              });
+              TranslationCreditOverride::updateOrCreate(
+                ['crowdin_user_id' => $crowdinUserIdInt, 'language_code' => $dbLanguageCode],
+                $data
+              );
             }
 
             $processed++;

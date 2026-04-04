@@ -29,18 +29,6 @@ class TranslationCreditOverride extends Model {
     'approved_at' => 'datetime',
   ];
 
-  protected static function boot():void {
-    parent::boot();
-    static::updating(function (TranslationCreditOverride $override) {
-      $contentFields = ['display_name', 'avatar_url', 'url'];
-      $hasDirtyContent = collect($contentFields)->contains(fn($field) => $override->isDirty($field));
-      if ($hasDirtyContent) {
-        $override->approved_by = null;
-        $override->approved_at = null;
-      }
-    });
-  }
-
   public function mapToUiInfo():array {
     $avatar = AvatarProvider::parseUri($this->avatar_url);
     $avatarUrl = null;
