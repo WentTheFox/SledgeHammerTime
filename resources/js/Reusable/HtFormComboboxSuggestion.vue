@@ -44,9 +44,10 @@ const badges = computed<BadgeItem[] | undefined>(() => {
   const { description, aliases, currentAlias } = props.option;
   if (!description && !aliases?.length) return undefined;
 
+  const descriptionArray = (description ? [description] : []);
   const sortedItems = aliases
-    ? [...(description ? [description] : []), ...aliases].sort((a, b) => (b === currentAlias ? 1 : 0) - (a === currentAlias ? 1 : 0))
-    : [];
+    ? [...descriptionArray, ...aliases].sort((a, b) => (b === currentAlias ? 1 : 0) - (a === currentAlias ? 1 : 0))
+    : descriptionArray;
 
   return sortedItems.map(alias => ({
     text: alias,
