@@ -293,11 +293,11 @@ class CreditOverrideController extends Controller {
       return false;
     }
     $displayNameIsNew = ($validated['display_name'] ?? null) !== null
-      && ($validated['display_name'] ?? null) !== $existingOverride->display_name;
+      && $validated['display_name'] !== $existingOverride->display_name;
     $avatarUrlIsNew = ($validated['avatar_url'] ?? null) !== null
-      && ($validated['avatar_url'] ?? null) !== $existingOverride->avatar_url;
+      && $validated['avatar_url'] !== $existingOverride->avatar_url;
     $urlIsNew = ($validated['url'] ?? null) !== null
-      && ($validated['url'] ?? null) !== $existingOverride->url;
+      && $validated['url'] !== $existingOverride->url;
 
     return !$displayNameIsNew && !$avatarUrlIsNew && !$urlIsNew;
   }

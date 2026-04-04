@@ -37,6 +37,18 @@ parameters:
 			path: app/Http/Controllers/AuthController.php
 
 		-
+			message: '#^Anonymous function should return non\-empty\-array\<string, mixed\> but returns non\-empty\-array\<string, mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Http/Controllers/ProfileController.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Database\\Eloquent\\Collection\<int,App\\Models\\CrowdinUser\>\:\:map\(\) expects callable\(App\\Models\\CrowdinUser, int\)\: non\-empty\-array\<string, mixed\>, Closure\(App\\Models\\CrowdinUser\)\: non\-empty\-array\<string, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/ProfileController.php
+
+		-
 			message: '#^Parameter \#3 \$options of static method Redis\:\:set\(\) expects array\|int, string given\.$#'
 			identifier: argument.type
 			count: 1
