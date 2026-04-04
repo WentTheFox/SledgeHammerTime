@@ -267,6 +267,7 @@ English and Hungarian translations have been included, so no translators will be
   - [work 17](https://crowdin.com/profile/w17_)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
   - [Амир Юсупов (KNGames)](https://crowdin.com/profile/KNGames)
+  - [Анатолий Быков](https://crowdin.com/profile/tolyar)
   - [Крутой Бо](https://crowdin.com/profile/arturfomenko8)
   - [Никита](https://crowdin.com/profile/fnaffffera)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
@@ -300,7 +301,7 @@ English and Hungarian translations have been included, so no translators will be
   - [tunket](https://crowdin.com/profile/tunket)
 - 🇹🇭 Thai
   - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
-  - [timelessnesses](https://github.com/timelessnesses)
+  - [timelessnesses](https://timelessnesses.me)
 - 🇹🇷 Turkish
   - [Baran Mordoğan](https://crowdin.com/profile/okunamayanad)
   - [korayharman](https://crowdin.com/profile/korayharman)
