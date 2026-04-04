@@ -24,7 +24,7 @@ return [
         'authorize' => 'Discord hesabını yetkilendir',
       ],
       'crowdin' => [
-        'description' => 'Proje çevirmenlerinden biriyseniz, Crowdin hesabınızı bağlamak, ileride çeviri emeği geçenler listesinde isminizin nasıl görüneceğini özelleştirmenize olanak tanıyacaktır. Ayrıca bu işlem, projenin Discord sunucusuna katılmanız durumunda bu hesapların size ait olduğunu gösteren ek bir doğrulama düzeyi işlevi de görür.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Crowdin hesabını yetkilendir',
       ],
     ],
