@@ -30,15 +30,42 @@ class CachePageResponse {
   }
 
   /**
-   * Returns true only when the Inertia app container has SSR-rendered content.
-   * When the SSR server is unavailable Laravel falls back to an empty container,
-   * which must not be cached or subsequent visitors would receive a blank shell.
+   * Returns true only when the response is a complete, valid Inertia SSR page.
+   *
+   * Inertia's buildSSRBody() emits:
+   *   <script data-page="{id}" type="application/json">{page JSON}</script>
+   *   <div data-server-rendered="true" id="{id}">…rendered HTML…</div>
+   *
+   * The client-only fallback (SSR server unavailable) omits data-server-rendered
+   * and leaves the div empty.  The data-page attribute value is always just the
+   * element ID ("app"), not the JSON — the JSON is the script tag's text content.
+   *
+   * Checks performed:
+   * 1. Must be a complete HTML document (DOCTYPE + closing </html>).
+   * 2. Must contain data-server-rendered="true" — the sole reliable SSR indicator.
+   * 3. The inline page-data script must contain parseable Inertia JSON with a
+   *    "component" key; a truncated payload would break client-side hydration.
    */
-  private function hasSSRContent(string|false $content): bool {
-    if ($content === false) return false;
-    // An empty app container looks like: <div id="app"></div>
-    // A server-rendered one has child nodes between the tags.
-    return !str_contains($content, '<div id="app"></div>');
+  private function isValidPageContent(string|false $content): bool {
+    if ($content === false || $content === '') return false;
+
+    if (!str_contains($content, '<!DOCTYPE html') || !str_contains($content, '</html>')) {
+      return false;
+    }
+
+    // Only present when the SSR server actually rendered the page
+    if (!str_contains($content, 'data-server-rendered="true"')) {
+      return false;
+    }
+
+    // Extract and validate the Inertia page JSON from the inline script tag.
+    // Inertia escapes "/" as "\/" in the JSON so "</script>" never appears inside it.
+    if (!preg_match('/<script\b[^>]*\btype="application\/json"[^>]*>(.+?)<\/script>/si', $content, $matches)) {
+      return false;
+    }
+
+    $pageData = json_decode($matches[1], true);
+    return is_array($pageData) && isset($pageData['component']);
   }
 
   /** @return array<string, string> */
@@ -77,6 +104,13 @@ class CachePageResponse {
     }
 
     if ($cached !== null) {
+      // Re-validate on every cache hit so corrupt or incomplete entries that
+      // somehow passed the write-time check are evicted rather than served.
+      if (!$this->isValidPageContent($cached['html'])) {
+        Cache::forget($cacheKey);
+        return $next($request);
+      }
+
       $lastModified = $cached['last_modified'];
       $headers = $this->cacheHeaders($lastModified);
 
@@ -96,7 +130,7 @@ class CachePageResponse {
 
     $response = $next($request);
 
-    if ($response->getStatusCode() === 200 && $this->hasSSRContent($response->getContent())) {
+    if ($response->getStatusCode() === 200 && $this->isValidPageContent($response->getContent())) {
       $lastModified = now()->utc()->timestamp;
       Cache::put($cacheKey, [
         'html' => $response->getContent(),
