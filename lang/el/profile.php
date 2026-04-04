@@ -24,7 +24,7 @@ return [
         'authorize' => 'Εξουσιοδότηση λογαριασμού Discord',
       ],
       'crowdin' => [
-        'description' => 'Αν είστε μεταφραστής για το HammerTime, η σύνδεση του λογαριασμού σας στο Crowdin θα σας επιτρέψει να προσαρμόσετε τον τρόπο με τον οποίο εμφανίζεται το όνομά σας στα credits της μετάφρασης, και χρησιμεύει επίσης ως ένα επιπλέον επίπεδο επαλήθευσης ότι αυτοί οι λογαριασμοί σας ανήκουν σε περίπτωση που συμμετάσχετε στον διακομιστή Discord του HammerTime.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Εξουσιοδότηση λογαριασμού Crowdin',
       ],
     ],
