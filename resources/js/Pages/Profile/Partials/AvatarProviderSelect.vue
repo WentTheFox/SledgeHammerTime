@@ -3,6 +3,7 @@ import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import FormMessage from '@/Components/FormMessage.vue';
 import { avatarUrlMapInject } from '@/injection-keys';
+import HtButton from '@/Reusable/HtButton.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtFormCombobox from '@/Reusable/HtFormCombobox.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
@@ -12,7 +13,7 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { AVATAR_PROVIDERS, AvatarProviderName, gravatarEmailToHash } from '@/utils/avatarUri';
 import { ComboboxOption } from '@/utils/combobox';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
-import { faAt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAt, faRotateLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 import { InertiaForm } from '@inertiajs/vue3';
 import { computed, provide, ref, watch } from 'vue';
 import AvatarProviderAddon from './AvatarProviderAddon.vue';
@@ -82,6 +83,17 @@ function onProviderChange(provider: AvatarProviderName) {
     selectedProvider.value = provider;
     selectedAccountId.value = null;
   }
+}
+
+const isDefaultCrowdinAvatar = computed(() =>
+  props.defaultCrowdinId !== undefined
+  && selectedProvider.value === 'crowdin'
+  && selectedAccountId.value === props.defaultCrowdinId,
+);
+
+function resetToDefaultCrowdin() {
+  selectedProvider.value = 'crowdin';
+  selectedAccountId.value = props.defaultCrowdinId ?? null;
 }
 
 const discordOptions = computed((): ComboboxOption[] =>
@@ -189,4 +201,15 @@ provide(avatarUrlMapInject, providedAvatarUrlMap);
       />
     </template>
   </HtFormControl>
+
+  <HtButton
+    v-if="defaultCrowdinId !== undefined"
+    type="button"
+    class="mt-1"
+    :icon-start="faRotateLeft"
+    :disabled="disabled || isDefaultCrowdinAvatar"
+    @click="resetToDefaultCrowdin"
+  >
+    {{ $t('actions.restore') }}
+  </HtButton>
 </template>
