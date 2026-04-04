@@ -8,7 +8,7 @@ return new class extends Migration {
   public function up(): void {
     foreach (['translation_credit_overrides', 'translation_credit_override_proposals'] as $tableName) {
       Schema::table($tableName, function (Blueprint $table) {
-        $table->dropConstrainedForeignId('translator_id');
+        // $table->dropConstrainedForeignId('translator_id');
         $table->unsignedBigInteger('crowdin_user_id')->after('id');
         $table->string('language_code', 10)->after('crowdin_user_id');
         $table->foreign('crowdin_user_id')->references('id')->on('crowdin_users')->cascadeOnDelete();
