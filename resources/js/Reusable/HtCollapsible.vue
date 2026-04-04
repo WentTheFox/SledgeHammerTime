@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<{
   animate: true,
 });
 
-const isSsr = typeof window === 'undefined';
+const isSsr = import.meta.env.SSR;
 const collapsibleRef = useTemplateRef('collapsibleRef');
 const height = ref(props.maxHeight);
 const isTransitioning = ref(false);

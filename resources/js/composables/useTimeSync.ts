@@ -15,6 +15,9 @@ export const useTimeSync = (apiEndpoint: string, dtl: DeepReadonly<ComputedRef<D
   const syncing = computed(() => isNaN(ntpOffsetMs.value));
 
   const syncTime = async () => {
+    // Skip during SSR
+    if (import.meta.env.SSR) return;
+
     ntpOffsetMs.value = NaN;
     let newT1: number, newT2: number;
     const newT0 = Date.now();

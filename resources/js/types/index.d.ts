@@ -21,7 +21,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     crowdinProjectId: string;
   }
   auth: {
-    user: User;
+    user: User | null;
   };
   crowdinData?: LocaleReportData;
   ziggy?: Config;

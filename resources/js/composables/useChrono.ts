@@ -1,48 +1,64 @@
+import type { Chrono } from 'chrono-node';
 import { CurrentLanguageData } from '@/injection-keys';
-import { Chrono, de, en,
-fr,
-ja,
-pt,
-nl,
-zh,
-ru,
-es,
-uk,
-it,
-sv } from 'chrono-node';
-import { computed, ComputedRef, Ref } from 'vue';
+import { computed, ComputedRef, ref, Ref, watch } from 'vue';
 
-export const useChrono = (currentLanguage?: Ref<CurrentLanguageData>): ComputedRef<Chrono | null> => computed(() => {
-  switch (currentLanguage?.value.locale) {
-    case 'en':
-      return en.casual;
-    case 'en-GB':
-      return en.GB;
-    case 'de':
-      return de.casual;
-    case 'fr':
-      return fr.casual;
-    case 'ja':
-      return ja.casual;
-    case 'pt':
-    case 'pt-BR':
-      return pt.casual;
-    case 'nl':
-      return nl.casual;
-    case 'zh':
-    case 'zh-TW':
-      return zh.casual;
-    case 'ru':
-      return ru.casual;
-    case 'es':
-      return es.casual;
-    case 'uk':
-      return uk.casual;
-    case 'it':
-      return it.casual;
-    case 'sv':
-      return sv.casual;
-    default:
-      return null;
-  }
-});
+export const useChrono = (currentLanguage?: Ref<CurrentLanguageData>): ComputedRef<Chrono | null> => {
+  if (import.meta.env.SSR) return computed(() => null);
+
+  const chronoInstance = ref<Chrono | null>(null);
+
+  watch(
+    () => currentLanguage?.value.locale,
+    async (locale) => {
+      const chrono = await import('chrono-node');
+      switch (locale) {
+        case 'en':
+          chronoInstance.value = chrono.en.casual;
+          break;
+        case 'en-GB':
+          chronoInstance.value = chrono.en.GB;
+          break;
+        case 'de':
+          chronoInstance.value = chrono.de.casual;
+          break;
+        case 'fr':
+          chronoInstance.value = chrono.fr.casual;
+          break;
+        case 'ja':
+          chronoInstance.value = chrono.ja.casual;
+          break;
+        case 'pt':
+        case 'pt-BR':
+          chronoInstance.value = chrono.pt.casual;
+          break;
+        case 'nl':
+          chronoInstance.value = chrono.nl.casual;
+          break;
+        case 'zh':
+        case 'zh-TW':
+          chronoInstance.value = chrono.zh.casual;
+          break;
+        case 'ru':
+          chronoInstance.value = chrono.ru.casual;
+          break;
+        case 'es':
+          chronoInstance.value = chrono.es.casual;
+          break;
+        case 'uk':
+          chronoInstance.value = chrono.uk.casual;
+          break;
+        case 'it':
+          chronoInstance.value = chrono.it.casual;
+          break;
+        case 'sv':
+          chronoInstance.value = chrono.sv.casual;
+          break;
+        default:
+          chronoInstance.value = null;
+      }
+    },
+    { immediate: true },
+  );
+
+  return computed(() => chronoInstance.value);
+};

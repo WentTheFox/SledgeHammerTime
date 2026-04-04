@@ -11,12 +11,15 @@ export type CurrentDateRef = ComputedRef<{
 export function useCurrentDate(dtl: DeepReadonly<ComputedRef<DateTimeLibrary>> | undefined): CurrentDateRef {
   const currentDate = ref(dtl?.value.now());
 
-  const intervalId = setInterval(() => {
-    currentDate.value = dtl?.value.now();
-  }, 60e3);
+  let intervalId: ReturnType<typeof setInterval> | undefined;
+  if (!import.meta.env.SSR) {
+    intervalId = setInterval(() => {
+      currentDate.value = dtl?.value.now();
+    }, 60e3);
+  }
 
   onUnmounted(() => {
-    clearInterval(intervalId);
+    if (intervalId !== undefined) clearInterval(intervalId);
   });
 
   return computed(() => ({

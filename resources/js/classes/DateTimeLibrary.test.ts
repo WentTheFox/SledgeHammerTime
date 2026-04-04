@@ -1,4 +1,4 @@
-import { DateFnsDTL } from '@/classes/DateFnsDTL';
+import { DateFnsDTL, getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
 import { DateTimeLibraryMonth } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
@@ -8,13 +8,21 @@ import {
   LANGUAGES,
   LatestLanguageConfigType,
 } from '@/utils/language-settings';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 describe('DateTimeLibrary', () => {
   const implementations = [
     ['date-fns', new DateFnsDTL()],
   ] as const satisfies [string, DateTimeLibrary][];
   const testLanguages = ['en', 'en-GB', 'hu'] as const satisfies AvailableLanguage[];
+
+  // Locales are lazy-loaded at runtime; preload all that are referenced in these tests.
+  beforeAll(async () => {
+    await Promise.all(
+      (['en', 'en-GB', 'hu', 'pt-BR', 'nl', 'de'] as AvailableLanguage[])
+        .map(lang => preloadDateFnsLocale(getDateFnsNormalizedLocaleName(lang))),
+    );
+  });
   const utcTimezone: TimezoneSelection = {
     type: TimeZoneSelectionType.ZONE_NAME,
     name: 'Etc/UTC',

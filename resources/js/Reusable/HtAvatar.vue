@@ -15,7 +15,7 @@ const fallbackImage = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAA
 
 const loadedUrl = ref<null | string>(props.src ?? null);
 const loadingImage = ref<HTMLImageElement | null>(null);
-const isSsr = typeof window === 'undefined';
+const isSsr = import.meta.env.SSR;
 
 const currentSrc = computed(() => loadedUrl.value ?? fallbackImage);
 

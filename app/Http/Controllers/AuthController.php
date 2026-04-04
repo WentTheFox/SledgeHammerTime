@@ -10,6 +10,7 @@ use App\Models\DiscordUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -217,5 +218,9 @@ class AuthController extends Controller {
     }
 
     return redirect()->route('settings', ['locale' => $locale]);
+  }
+  
+  public function userInfo(Request $request): JsonResponse {
+    return response()->json($request->user()?->mapToUiInfo());
   }
 }

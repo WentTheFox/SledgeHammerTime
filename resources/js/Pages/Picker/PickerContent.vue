@@ -43,13 +43,17 @@ const defaultTimezone = computed(() => {
   return typeof tzParam !== 'undefined' ? tzParam : (defaultUnixTimestamp.value !== null ? 'Etc/UTC' : undefined);
 });
 
-const currentTimezone: Ref<TimezoneSelection> = ref((typeof window === 'undefined' ? null : dtl?.value.getDefaultInitialTimezoneSelection(defaultTimezone.value)) ?? {
+const currentTimezone: Ref<TimezoneSelection> = ref((import.meta.env.SSR ? null : dtl?.value.getDefaultInitialTimezoneSelection(defaultTimezone.value)) ?? {
   type: TimeZoneSelectionType.OFFSET,
   hours: 0,
   minutes: 0,
 });
-const dateString = ref(props.initialDate ?? '');
-const timeString = ref(props.initialTime ?? '');
+const [defaultDate, defaultTime]: [string, string] =
+  !import.meta.env.SSR && !props.initialDate
+    ? dtl?.value.getDefaultInitialDateTime(currentTimezone.value, null) ?? ['', '']
+    : [props.initialDate ?? '', props.initialTime ?? ''];
+const dateString = ref(defaultDate);
+const timeString = ref(defaultTime);
 const nlpDate = ref<DateTimeLibraryValue | null>(null);
 const dateTimeSelectionChanged = ref(false);
 
@@ -145,7 +149,7 @@ provide(timestampInject, {
 });
 
 const handleTimeSync = async () => {
-  if (typeof window === 'undefined') return;
+  if (import.meta.env.SSR) return;
   await nextTick();
   await timeSync?.syncTime();
   await nextTick();

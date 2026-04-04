@@ -13,6 +13,7 @@
     "build:static": "vite build",
     "build:ssr": "vite build --ssr",
     "build": "concurrently -p name npm:build:*",
+    "ssr": "php artisan inertia:start-ssr",
     "test": "vitest --coverage"
   },
   "devDependencies": {

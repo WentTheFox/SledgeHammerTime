@@ -1,7 +1,7 @@
 import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { CurrentLanguageData } from '@/injection-keys';
-import { Chrono } from 'chrono-node';
+import type { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
 
 const splitPrefKey = 'split-input';

@@ -6,13 +6,13 @@ export function useTheme(settings: LocalSettingsValue) {
   const isLightTheme = computed(() => settings.isLightTheme ?? !darkMediaMatches.value);
   const usingSystemStyle = computed(() => settings.isLightTheme === null);
   const themeWatcher = ([lightValue, isSystem]: [boolean, boolean]) => {
-    if (typeof document === 'undefined') return;
+    if (import.meta.env.SSR) return;
 
     document.documentElement.style.colorScheme = isSystem ? '' : (lightValue ? 'light' : 'dark');
   };
   watch([isLightTheme, usingSystemStyle], themeWatcher, { immediate: true });
 
-  const colorSchemeMedia = typeof window !== 'undefined'
+  const colorSchemeMedia = !import.meta.env.SSR
     ? window.matchMedia('(prefers-color-scheme: dark)')
     : undefined;
   const handleMediaChange = (e: Pick<MediaQueryListEvent, 'matches'>) => {

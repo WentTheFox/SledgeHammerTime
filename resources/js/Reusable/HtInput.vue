@@ -2,8 +2,8 @@
 import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlFullWidth } from '@/composables/useFormControlFullWidth';
 import { useFormControlId } from '@/composables/useFormControlId';
-import { isJsUnavailableInject } from '@/injection-keys';
-import { inject, useTemplateRef } from 'vue';
+import { useIsJsUnavailable } from '@/composables/useIsJsUnavailable';
+import { useTemplateRef } from 'vue';
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void;
@@ -54,7 +54,7 @@ const formControlId = useFormControlId(props);
 const effectiveDisabled = useFormControlDisabled(props);
 const effectiveFullWidth = useFormControlFullWidth(props);
 
-const isJsUnavailable = inject(isJsUnavailableInject);
+const isJsUnavailable = useIsJsUnavailable();
 
 export interface InputApi {
   focus: () => void;

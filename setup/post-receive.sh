@@ -13,6 +13,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_NPM="npm ci --force"
     CMD_BUILD="npm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
+    CMD_CLEAR_PICKER_CACHE="php artisan picker:clear-cache"
     CMD_LARAVEL_DOWN="php artisan down"
     CMD_LARAVEL_UP="php artisan up"
     CMD_PM2="pm2 restart pm2.json"
@@ -30,6 +31,9 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
 
     echo "$ $CMD_MIGRATE"
     eval ${CMD_MIGRATE}
+
+    echo "$ $CMD_CLEAR_PICKER_CACHE"
+    eval ${CMD_CLEAR_PICKER_CACHE}
 
     if $GIT diff --name-only $oldrev $newrev | grep "^package-lock.json"; then
         echo "$ $CMD_NPM"

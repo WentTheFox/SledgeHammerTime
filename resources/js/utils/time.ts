@@ -77,22 +77,50 @@ const getCurrentTimezoneAbbreviation = (timezone: string, aliases: string[]): st
   return undefined;
 };
 
-export const getTimezoneValue = (timezone: string, locale = 'en') => {
-  const displayName = getTimezoneDisplayName(timezone, locale);
-  const abbreviations = getTimezoneAbbreviations(timezone);
-  const currentAlias = getCurrentTimezoneAbbreviation(timezone, abbreviations);
-  const englishName = locale !== 'en' ? getTimezoneDisplayName(timezone, 'en') : undefined;
-  // When showing a localized name, also store the English words for search
-  const searchTerms = englishName && englishName !== displayName
-    ? englishName.toLowerCase().split(/\s+/).filter(Boolean)
-    : undefined;
+export interface TimezoneValue {
+  value: string;
+  label: string;
+  description: string | undefined;
+  aliases: string[] | undefined;
+  currentAlias: string | undefined;
+  searchTerms: string[] | undefined;
+}
+
+// Only cache the parts that are expensive to compute (Intl calls with fixed dates).
+// currentAlias depends on new Date() and must be computed fresh on every call.
+interface CachedTimezoneData {
+  value: string;
+  label: string;
+  description: string | undefined;
+  aliases: string[] | undefined;
+  searchTerms: string[] | undefined;
+}
+
+const timezoneValueCache = new Map<string, CachedTimezoneData>();
+
+export const getTimezoneValue = (timezone: string, locale = 'en'): TimezoneValue => {
+  const cacheKey = `${timezone}|${locale}`;
+  let cached = timezoneValueCache.get(cacheKey);
+  if (!cached) {
+    const displayName = getTimezoneDisplayName(timezone, locale);
+    const abbreviations = getTimezoneAbbreviations(timezone);
+    const englishName = locale !== 'en' ? getTimezoneDisplayName(timezone, 'en') : undefined;
+    // When showing a localized name, also store the English words for search
+    const searchTerms = englishName && englishName !== displayName
+      ? englishName.toLowerCase().split(/\s+/).filter(Boolean)
+      : undefined;
+    cached = {
+      value: timezone,
+      label: timezone,
+      description: displayName !== timezone ? displayName : undefined,
+      aliases: abbreviations.length > 0 ? abbreviations : undefined,
+      searchTerms,
+    };
+    timezoneValueCache.set(cacheKey, cached);
+  }
   return {
-    value: timezone,
-    label: timezone,
-    description: displayName !== timezone ? displayName : undefined,
-    aliases: abbreviations.length > 0 ? abbreviations : undefined,
-    currentAlias,
-    searchTerms,
+    ...cached,
+    currentAlias: getCurrentTimezoneAbbreviation(timezone, cached.aliases ?? []),
   };
 };
 

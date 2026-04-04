@@ -27,7 +27,7 @@ watch(fromNow, (fromNowValue) => {
   }
 
   if (fromNowValue) {
-    if (typeof window !== 'undefined') {
+    if (!import.meta.env.SSR) {
       updateInterval.value = setInterval(() => {
         instance?.proxy?.$forceUpdate();
       }, 1e3);
