@@ -24,7 +24,7 @@ return [
         'authorize' => '授权 Discord 账户',
       ],
       'crowdin' => [
-        'description' => '如果您是该项目的翻译者，关联您的 Crowdin 账户最终将允许您自定义姓名在翻译贡献名单中的显示方式，同时在您加入该项目的 Discord 服务器时，这还可以作为额外的身份验证，证明这些账户属于您。',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => '授权 Crowdin 账户',
       ],
     ],
