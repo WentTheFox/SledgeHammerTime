@@ -1,3 +1,4 @@
+import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { getAppName } from '@/utils/app';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -20,6 +21,7 @@ createInertiaApp({
     const createAppFn = el.innerHTML.length > 0 ? createSSRApp : createApp;
 
     const mountAC = new AbortController();
+    let dateFnsLocalePreload: Promise<void> | undefined;
     const app = createAppFn({ render: () => h(App, props) })
       .use(plugin)
       .use(ZiggyVue, Ziggy)
@@ -31,6 +33,7 @@ createInertiaApp({
           if (!jsonPathForLocale) {
             throw new Error(`Could not find lang json path for lang ${lang}`);
           }
+          dateFnsLocalePreload = preloadDateFnsLocale(getDateFnsNormalizedLocaleName(lang));
           const result = await langJsonImporters[jsonPathForLocale]();
           if (typeof result !== 'object' || result === null || !('default' in result)) {
             throw new Error(`Missing default export in json for lang ${lang}`);
@@ -41,7 +44,7 @@ createInertiaApp({
           if (mountAC.signal.aborted)
             return;
           mountAC.abort();
-          app.mount(el);
+          (dateFnsLocalePreload ?? Promise.resolve()).then(() => app.mount(el));
         },
       });
   },

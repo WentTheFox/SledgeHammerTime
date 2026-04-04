@@ -21,10 +21,12 @@ import {
   themeInject,
   timeSyncInject,
   userInfoInject,
+  userInfoLoadingInject,
 } from '@/injection-keys';
-import { PageProps } from '@/types';
+import { PageProps, User } from '@/types';
 import { computeCurrentLanguage } from '@/utils/app';
 import { router, usePage } from '@inertiajs/vue3';
+import axios from 'axios';
 import { loadLanguageAsync } from 'laravel-vue-i18n';
 import { computed, onMounted, onUnmounted, provide, readonly, ref, watch } from 'vue';
 
@@ -35,8 +37,31 @@ export const useLayout = (layoutProps: LayoutProps) => {
   const inertiaPage = usePage();
   const pagePropsRef = ref<PageProps>(inertiaPage.props);
   provide(pagePropsInject, pagePropsRef);
-  const userInfo = computed(() => pagePropsRef.value?.auth?.user);
+  // Home/root routes omit auth.user from page props (for HTML caching).
+  // When props carry null, fetch it asynchronously; on other pages use props directly.
+  const userInfoFromProps = computed(() => pagePropsRef.value?.auth?.user ?? null);
+  const asyncUserInfo = ref<User | null>(null);
+  const userInfoLoading = ref(true);
+  watch(userInfoFromProps, async (propsUser) => {
+    if (propsUser !== null) {
+      asyncUserInfo.value = null;
+      return;
+    }
+    if (!import.meta.env.SSR) {
+      userInfoLoading.value = true;
+      try {
+        const { data } = await axios.get<User | null>('/frontend/user-info');
+        asyncUserInfo.value = data;
+      } catch {
+        asyncUserInfo.value = null;
+      } finally {
+        userInfoLoading.value = false;
+      }
+    }
+  }, { immediate: true });
+  const userInfo = computed(() => userInfoFromProps.value ?? asyncUserInfo.value);
   provide(userInfoInject, userInfo);
+  provide(userInfoLoadingInject, userInfoLoading);
   const devModeRef = useCheatCode(IDDQD);
   provide(devModeInject, devModeRef);
   let routerHandlerCleanup: VoidFunction | undefined;
@@ -45,7 +70,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
       pagePropsRef.value = event.detail.page.props;
     });
 
-    if (typeof document !== 'undefined') {
+    if (!import.meta.env.SSR) {
       setTimeout(() => {
         document.body.classList.remove(noAnimClass);
       }, 1e3);
@@ -79,7 +104,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
   provide(timeSyncInject, readonly(timeSync));
 
   watch(localSettings.flatUiEnabled, (isFlatUiEnabled) => {
-    if (typeof document === 'undefined') return;
+    if (import.meta.env.SSR) return;
 
     if (isFlatUiEnabled) {
       document.body.classList.add(flatUiClass);
@@ -90,7 +115,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
 
   watch(currentLanguage, (currentLanguage) => {
     const { locale, languageConfig } = currentLanguage;
-    if (typeof document !== 'undefined' && document.documentElement) {
+    if (!import.meta.env.SSR && document.documentElement) {
       document.documentElement.dir = languageConfig?.rtl ? 'rtl' : 'ltr';
     }
 
@@ -108,7 +133,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
   });
 
   onMounted(() => {
-    isJsUnavailable.value = typeof window === 'undefined';
+    isJsUnavailable.value = import.meta.env.SSR;
   });
 
   let scrollFunction: ((progress?: number) => void) | null = null;

@@ -34,7 +34,9 @@ class HandleInertiaRequests extends Middleware {
       ...parent::share($request),
       ...self::getGlobalSharedArray(),
       'auth' => [
-        'user' => $request->user()?->mapToUiInfo(),
+        // Home/root routes omit user data — it is fetched asynchronously by the
+        // frontend so the full-page HTML response can be cached per locale.
+        'user' => $this->shouldIncludeUser($request) ? $request->user()?->mapToUiInfo() : null,
       ],
     ];
     $shared['ziggy'] = fn() => [
@@ -43,6 +45,10 @@ class HandleInertiaRequests extends Middleware {
     ];
 
     return $shared;
+  }
+
+  private function shouldIncludeUser(Request $request): bool {
+    return !in_array($request->route()?->getName(), ['root', 'home']);
   }
 
   /**

@@ -28,4 +28,12 @@ class HomeController extends Controller {
 
     return redirect($inviteUrl);
   }
+
+  public function localeRedirect(): RedirectResponse {
+    $appLocale = app()->getLocale();
+    // ui_locale_map is keyed by UI locale and valued by app locale; invert to find the UI key.
+    $uiLocale = array_search($appLocale, config('languages.ui_locale_map'), strict: true) ?: 'en';
+
+    return to_route('home', ['locale' => $uiLocale]);
+  }
 }

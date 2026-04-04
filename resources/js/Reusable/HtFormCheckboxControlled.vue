@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { isJsUnavailableInject } from '@/injection-keys';
+import { useIsJsUnavailable } from '@/composables/useIsJsUnavailable';
 import HtFormCheckbox from '@/Reusable/HtFormCheckbox.vue';
 import HtFormControlSettings from '@/Reusable/HtFormControlSettings.vue';
-import { computed, inject, useSlots } from 'vue';
+import { computed, useSlots } from 'vue';
 
 const props = defineProps<{
   id: string,
@@ -19,7 +19,7 @@ const emit = defineEmits<{
 
 const slots = useSlots();
 
-const isJsUnavailable = inject(isJsUnavailableInject);
+const isJsUnavailable = useIsJsUnavailable();
 
 const inputDisabled = computed(() => isJsUnavailable?.value || props.disabled);
 </script>

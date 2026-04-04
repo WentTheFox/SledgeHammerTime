@@ -4,7 +4,7 @@ import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTime
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps, User } from '@/types';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
-import { Chrono } from 'chrono-node';
+import type { Chrono } from 'chrono-node';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
 
 export const timestampInject = Symbol('timestamp') as InjectionKey<{
@@ -80,7 +80,8 @@ export const positionAnchor = Symbol('positionAnchor') as InjectionKey<`--${stri
 
 export const pagePropsInject = Symbol('pagePropsInject') as InjectionKey<Ref<PageProps>>;
 
-export const userInfoInject = Symbol('userInfoInject') as InjectionKey<Ref<User | undefined>>;
+export const userInfoInject = Symbol('userInfoInject') as InjectionKey<Ref<User | null>>;
+export const userInfoLoadingInject = Symbol('userInfoLoadingInject') as InjectionKey<Ref<boolean>>;
 
 export interface CurrentLanguageData {
   locale: AvailableLanguage;

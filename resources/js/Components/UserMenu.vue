@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
-import { pagePropsInject, userInfoInject } from '@/injection-keys';
+import { pagePropsInject, userInfoInject, userInfoLoadingInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
@@ -23,6 +23,7 @@ import { Tippy } from 'vue-tippy';
 
 const route = useRoute();
 const userInfo = inject(userInfoInject);
+const userInfoLoading = inject(userInfoLoadingInject);
 
 
 const pageProps = inject(pagePropsInject);
@@ -117,6 +118,7 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, {
       :href="safeRoute('login', route, {routeParams})"
       :external="true"
       :target-blank="false"
+      :loading="userInfoLoading"
     >
       {{ $t('actions.log_in') }}
     </HtLinkButton>

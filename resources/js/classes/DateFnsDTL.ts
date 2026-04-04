@@ -32,7 +32,67 @@ import {
   setSeconds,
   subYears,
 } from 'date-fns';
-import * as locales from 'date-fns/locale';
+import { enUS } from 'date-fns/locale/en-US';
+
+// Locale cache — pre-seeded with the fallback locale so loadLocaleLowLevel is always synchronous.
+// Populated on-demand via preloadDateFnsLocale before rendering starts.
+const localeCache = new Map<string, Locale>([['enUS', enUS]]);
+
+const localeImports: Record<string, () => Promise<Locale>> = {
+  ar:   () => import('date-fns/locale/ar').then(m => m.ar),
+  bg:   () => import('date-fns/locale/bg').then(m => m.bg),
+  ca:   () => import('date-fns/locale/ca').then(m => m.ca),
+  zhCN: () => import('date-fns/locale/zh-CN').then(m => m.zhCN),
+  zhTW: () => import('date-fns/locale/zh-TW').then(m => m.zhTW),
+  hr:   () => import('date-fns/locale/hr').then(m => m.hr),
+  cs:   () => import('date-fns/locale/cs').then(m => m.cs),
+  da:   () => import('date-fns/locale/da').then(m => m.da),
+  nl:   () => import('date-fns/locale/nl').then(m => m.nl),
+  enGB: () => import('date-fns/locale/en-GB').then(m => m.enGB),
+  enUS: () => import('date-fns/locale/en-US').then(m => m.enUS),
+  eo:   () => import('date-fns/locale/eo').then(m => m.eo),
+  fi:   () => import('date-fns/locale/fi').then(m => m.fi),
+  fr:   () => import('date-fns/locale/fr').then(m => m.fr),
+  de:   () => import('date-fns/locale/de').then(m => m.de),
+  el:   () => import('date-fns/locale/el').then(m => m.el),
+  hi:   () => import('date-fns/locale/hi').then(m => m.hi),
+  he:   () => import('date-fns/locale/he').then(m => m.he),
+  hu:   () => import('date-fns/locale/hu').then(m => m.hu),
+  id:   () => import('date-fns/locale/id').then(m => m.id),
+  it:   () => import('date-fns/locale/it').then(m => m.it),
+  ja:   () => import('date-fns/locale/ja').then(m => m.ja),
+  ko:   () => import('date-fns/locale/ko').then(m => m.ko),
+  lv:   () => import('date-fns/locale/lv').then(m => m.lv),
+  lt:   () => import('date-fns/locale/lt').then(m => m.lt),
+  ms:   () => import('date-fns/locale/ms').then(m => m.ms),
+  mn:   () => import('date-fns/locale/mn').then(m => m.mn),
+  nb:   () => import('date-fns/locale/nb').then(m => m.nb),
+  fa:   () => import('date-fns/locale/fa-IR').then(m => m.faIR),
+  pl:   () => import('date-fns/locale/pl').then(m => m.pl),
+  pt:   () => import('date-fns/locale/pt').then(m => m.pt),
+  ptBR: () => import('date-fns/locale/pt-BR').then(m => m.ptBR),
+  ro:   () => import('date-fns/locale/ro').then(m => m.ro),
+  ru:   () => import('date-fns/locale/ru').then(m => m.ru),
+  sr:   () => import('date-fns/locale/sr').then(m => m.sr),
+  es:   () => import('date-fns/locale/es').then(m => m.es),
+  sv:   () => import('date-fns/locale/sv').then(m => m.sv),
+  th:   () => import('date-fns/locale/th').then(m => m.th),
+  tr:   () => import('date-fns/locale/tr').then(m => m.tr),
+  uk:   () => import('date-fns/locale/uk').then(m => m.uk),
+  vi:   () => import('date-fns/locale/vi').then(m => m.vi),
+};
+
+export const preloadDateFnsLocale = async (normalizedName: string): Promise<void> => {
+  if (localeCache.has(normalizedName)) return;
+  const importer = localeImports[normalizedName];
+  if (!importer) return;
+  localeCache.set(normalizedName, await importer());
+};
+
+export const getDateFnsNormalizedLocaleName = (locale: string): string => {
+  const lang = (locale in LANGUAGES) ? locale as AvailableLanguage : FALLBACK_LANGUAGE;
+  return (LANGUAGES[lang]?.dateFnsLocale ?? lang).replace(/[^a-z\d]/gi, '');
+};
 
 // Format constants
 const isoTimeFormat = 'HH:mm:ss';
@@ -312,14 +372,14 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
 
   loadLocaleLowLevel(localeName: string): Locale | undefined {
     const normalizedLocaleName = localeName.replace(/[^a-z\d]/gi, '');
-    let locale: Locale = locales[normalizedLocaleName as keyof typeof locales];
+    let locale: Locale | undefined = localeCache.get(normalizedLocaleName);
     if (typeof locale === 'undefined') {
       if (!alreadyLoggedMissingLocaleNames.has(localeName)) {
         console.warn(`No date-fns locale found by key ${normalizedLocaleName}`);
         alreadyLoggedMissingLocaleNames.add(localeName);
       }
       // Load English as a fallback when locale is unavailable for date-fns
-      locale = locales.enUS;
+      locale = enUS;
     }
 
     return locale;
@@ -415,28 +475,17 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
   }
 
   getDefaultInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp: string | undefined | null): [string, string] {
-    console.debug('getDefaultInitialDateTime', {
-      timezone: JSON.stringify(timezone),
-      defaultUnixTimestamp,
-    });
     const hasDefaultTs = typeof defaultUnixTimestamp === 'string';
     return this.getInitialDateTime(timezone, defaultUnixTimestamp, !hasDefaultTs);
   }
 
   getInitialDateTime(timezone: TimezoneSelection, defaultUnixTimestamp?: string | null, zeroSeconds?: boolean): [string, string] {
     const initialTs = typeof defaultUnixTimestamp === 'string' ? parseInt(defaultUnixTimestamp, 10) * 1000 : new Date().getTime();
-    console.debug('getInitialDateTime', {
-      timezone: JSON.stringify(timezone),
-      defaultUnixTimestamp,
-      zeroSeconds,
-      initialTs,
-    });
 
     let tzDate = new TZDate(1970, 0, 1, 0, 0, 0, 'UTC');
     switch (timezone.type) {
       case TimeZoneSelectionType.OFFSET: {
         const offsetString = getUtcOffsetString(timezone);
-        console.debug('TimeZoneSelectionType.OFFSET', { offsetString });
         tzDate = new TZDate(initialTs, offsetString);
         break;
       }
@@ -446,12 +495,9 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     }
 
     if (zeroSeconds) {
-      console.debug('pre zeroSeconds', { tzDate });
       tzDate = setSeconds(tzDate, 0);
-      console.debug('post zeroSeconds', { tzDate });
     }
 
-    console.debug('preformat', { tzDate });
     const dateString = format(tzDate, isoFormattingDateFormat);
     const timeString = format(tzDate, isoTimeFormat);
     return [dateString, timeString];
