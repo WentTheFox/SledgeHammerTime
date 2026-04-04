@@ -2,10 +2,10 @@ import { formControlIdInject } from '@/injection-keys';
 import { computed, ComputedRef, inject } from 'vue';
 
 export const useFormControlId = <P extends {
-  id: string | undefined
+  id?: string
 }>(props?: P): ComputedRef<string | undefined> => {
-  const providedId = inject(formControlIdInject);
+  const injectedId = inject(formControlIdInject);
   const randomId = typeof window !== 'undefined' ? window.crypto.randomUUID() : undefined;
 
-  return computed(() => props?.id ?? providedId?.value ?? randomId);
+  return computed(() => props?.id ?? injectedId?.value ?? randomId);
 };

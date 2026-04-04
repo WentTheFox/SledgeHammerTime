@@ -9,7 +9,7 @@ import ControlledTimeZoneInput from '@/Pages/Settings/ControlledTimeZoneInput.vu
 import FormatComboboxAddon from '@/Pages/Settings/FormatComboboxAddon.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtButton from '@/Reusable/HtButton.vue';
-import HtCard from '@/Reusable/HtCard.vue';
+import HtCardFormsSection from '@/Reusable/HtCardFormsSection.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
 import HtFormCombobox from '@/Reusable/HtFormCombobox.vue';
@@ -83,7 +83,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
 </script>
 
 <template>
-  <HtCard>
+  <HtCardFormsSection>
     <template #header>
       <DiscordUserInfo v-bind="entry.user" />
     </template>
@@ -92,7 +92,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
         <HtFormControl
           :id="'timezone-'+entry.user.id"
           :label="$t('botSettings.fields.timezone.displayName')"
-          :combo-box="true"
+          :full-width="true"
         >
           <ControlledTimeZoneInput
             v-model="settingsForm.timezone"
@@ -111,7 +111,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
           v-if="formatOptions"
           :id="'format-'+entry.user.id"
           :label="$t('botSettings.fields.format.displayName')"
-          :combo-box="true"
+          :full-width="true"
         >
           <HtFormCombobox
             v-model="settingsForm.format"
@@ -149,6 +149,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
           v-if="columnsOptions"
           :id="'columns-'+entry.user.id"
           :label="$t('botSettings.fields.columns.displayName')"
+          :full-width="true"
         >
           <HtFormSelect
             v-model="settingsForm.columns"
@@ -365,5 +366,5 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
         :success-text="$t('botSettings.saveSuccess')"
       />
     </form>
-  </HtCard>
+  </HtCardFormsSection>
 </template>

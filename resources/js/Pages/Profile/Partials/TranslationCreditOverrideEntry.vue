@@ -12,6 +12,7 @@ import { useRoute } from '@/composables/useRoute';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtButton from '@/Reusable/HtButton.vue';
+import HtCardFormsSection from '@/Reusable/HtCardFormsSection.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
@@ -189,29 +190,27 @@ watch(() => form.recentlySuccessful, (recentSuccess) => {
 </script>
 
 <template>
-  <section class="credit-override-section">
-    <div class="credit-override-section-header">
-      <h3 class="credit-override-language mb-2">
-        {{ nativeLocaleNames[translator.languageCode] }}
+  <HtCardFormsSection>
+    <template #header>
+      {{ nativeLocaleNames[translator.languageCode] }}
 
-        <HtBadge
-          v-if="translator.override || translator.proposal"
-          class="credit-override-status ms-2"
-          :color="isRejected ? 'red' : (pendingReview ? 'yellow' : 'green')"
-        >
-          <template #prefix>
-            {{ $t('profile.creditOverrides.statusPrefix') }}
-          </template>
-          {{
-            isRejected
-              ? $t('profile.creditOverrides.status.rejected')
-              : (pendingReview
-                ? $t('profile.creditOverrides.status.inReview')
-                : $t('profile.creditOverrides.status.approved'))
-          }}
-        </HtBadge>
-      </h3>
-    </div>
+      <HtBadge
+        v-if="translator.override || translator.proposal"
+        class="credit-override-status ms-2"
+        :color="isRejected ? 'red' : (pendingReview ? 'yellow' : 'green')"
+      >
+        <template #prefix>
+          {{ $t('profile.creditOverrides.statusPrefix') }}
+        </template>
+        {{
+          isRejected
+            ? $t('profile.creditOverrides.status.rejected')
+            : (pendingReview
+              ? $t('profile.creditOverrides.status.inReview')
+              : $t('profile.creditOverrides.status.approved'))
+        }}
+      </HtBadge>
+    </template>
 
     <HtAlert
       v-if="translator.override !== null"
@@ -400,5 +399,5 @@ watch(() => form.recentlySuccessful, (recentSuccess) => {
         </div>
       </HtCollapsible>
     </div>
-  </section>
+  </HtCardFormsSection>
 </template>

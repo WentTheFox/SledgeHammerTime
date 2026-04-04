@@ -43,25 +43,23 @@ provide(positionAnchor, positionAnchorName);
 </script>
 
 <template>
-  <div>
-    <HtFormControlReadOnlyInput
-      ref="input-el"
-      :class="props.class"
-      :value="model.replace(/^([+-])/, 'GMT$1')"
-      :hide-selection="true"
-      :position-anchor-name="positionAnchorName"
-      @click.prevent="openPopup"
-      @keydown="openPopup"
-    />
-    <input
-      type="hidden"
-      :name="name"
-      :value="model"
-    >
-    <TimeZonePicker
-      ref="timezone-picker"
-      :save-on-close="false"
-      @change="v => model = convertTimeZoneSelectionToString(v)"
-    />
-  </div>
+  <HtFormControlReadOnlyInput
+    ref="input-el"
+    :class="props.class"
+    :value="model.replace(/^([+-])/, 'GMT$1')"
+    :hide-selection="true"
+    :position-anchor-name="positionAnchorName"
+    @click.prevent="openPopup"
+    @keydown="openPopup"
+  />
+  <input
+    type="hidden"
+    :name="name"
+    :value="model"
+  >
+  <TimeZonePicker
+    ref="timezone-picker"
+    :save-on-close="false"
+    @change="v => model = convertTimeZoneSelectionToString(v)"
+  />
 </template>

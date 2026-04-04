@@ -6,6 +6,8 @@ import AppSettingsCard from '@/Pages/Settings/AppSettingsCard.vue';
 import UserSettingsForm, {
   UserSettingsFormBotTranslations,
 } from '@/Pages/Settings/UserSettingsForm.vue';
+import HtCard from '@/Reusable/HtCard.vue';
+import HtCardForms from '@/Reusable/HtCardForms.vue';
 import { Head } from '@inertiajs/vue3';
 
 defineProps<{
@@ -26,14 +28,18 @@ defineProps<{
   <Layout>
     <AppSettingsCard />
 
-    <UserSettingsForm
-      v-for="entry in userSettings"
-      :key="entry.user.id"
-      :entry="entry"
-      :default-settings="defaultSettings"
-      :format-options="formatOptions"
-      :columns-options="columnsOptions"
-      :bot-translations="botTranslations"
-    />
+    <HtCard>
+      <HtCardForms>
+        <UserSettingsForm
+          v-for="entry in userSettings"
+          :key="entry.user.id"
+          :entry="entry"
+          :default-settings="defaultSettings"
+          :format-options="formatOptions"
+          :columns-options="columnsOptions"
+          :bot-translations="botTranslations"
+        />
+      </HtCardForms>
+    </HtCard>
   </Layout>
 </template>

@@ -335,7 +335,7 @@ onUnmounted(() => {
     <HtButton
       v-if="dateLibLocale && dateTime"
       class="calendar-context"
-      :block="true"
+      :full-width="true"
       :justify-center="true"
       :pressed="currentContext === CalendarContext.DECADE"
       :disabled="currentContext === CalendarContext.DECADE"
@@ -369,7 +369,7 @@ onUnmounted(() => {
   >
     <HtButton
       :disabled="isShowingCurrentMonth"
-      :block="true"
+      :full-width="true"
       @click="jumpToToday"
     >
       {{ $t('timestampPicker.picker.button.jumpToToday') }}

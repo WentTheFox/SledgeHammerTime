@@ -8,9 +8,7 @@ const props = defineProps<{
   id?: string;
 }>();
 
-const formControlId = computed(() => props.id);
-
-provide(formControlIdInject, formControlId);
+provide(formControlIdInject, computed(() => props.id));
 </script>
 
 <template>

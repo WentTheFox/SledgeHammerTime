@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { formControlIdInject, isJsUnavailableInject } from '@/injection-keys';
+import { isJsUnavailableInject } from '@/injection-keys';
 import HtFormCheckbox from '@/Reusable/HtFormCheckbox.vue';
-import { computed, inject, provide, useSlots } from 'vue';
+import HtFormControlSettings from '@/Reusable/HtFormControlSettings.vue';
+import { computed, inject, useSlots } from 'vue';
 
 const props = defineProps<{
   id: string,
@@ -21,37 +22,39 @@ const slots = useSlots();
 const isJsUnavailable = inject(isJsUnavailableInject);
 
 const inputDisabled = computed(() => isJsUnavailable?.value || props.disabled);
-
-const formControlId = computed(() => props.id);
-provide(formControlIdInject, formControlId);
 </script>
 
 <template>
-  <HtFormCheckbox
-    :label="label"
+  <HtFormControlSettings
+    :id="id"
     :disabled="disabled"
   >
-    <template
-      v-if="slots.label"
-      #label
+    <HtFormCheckbox
+      :label="label"
+      :disabled="disabled"
     >
-      <slot name="label" />
-    </template>
-    <template #input>
-      <input
-        :id="formControlId"
-        type="checkbox"
-        :checked="checked"
-        :name="name"
-        :value="value"
-        :disabled="inputDisabled"
-        class="form-checkbox-input"
-        :aria-describedby="`${formControlId}-description`"
-        @change="emit('change', $event)"
+      <template
+        v-if="slots.label"
+        #label
       >
-    </template>
-    <template #message>
-      <slot name="message" />
-    </template>
-  </HtFormCheckbox>
+        <slot name="label" />
+      </template>
+      <template #input>
+        <input
+          :id="id"
+          type="checkbox"
+          :checked="checked"
+          :name="name"
+          :value="value"
+          :disabled="inputDisabled"
+          class="form-checkbox-input"
+          :aria-describedby="`${id}-description`"
+          @change="emit('change', $event)"
+        >
+      </template>
+      <template #message>
+        <slot name="message" />
+      </template>
+    </HtFormCheckbox>
+  </HtFormControlSettings>
 </template>

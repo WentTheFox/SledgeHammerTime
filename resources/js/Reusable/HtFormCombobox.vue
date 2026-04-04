@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
+import { useFormControlFullWidth } from '@/composables/useFormControlFullWidth';
 import { useFormControlId } from '@/composables/useFormControlId';
 import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
 import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
@@ -22,7 +24,6 @@ import {
   watch,
 } from 'vue';
 
-const id = useFormControlId();
 const model = defineModel<string | null>({ default: null });
 
 const props = withDefaults(defineProps<{
@@ -35,6 +36,7 @@ const props = withDefaults(defineProps<{
   allowTyping?: boolean;
   disabled?: boolean;
   readonly?: boolean;
+  fullWidth?: boolean;
 }>(), {
   name: undefined,
   class: undefined,
@@ -42,9 +44,14 @@ const props = withDefaults(defineProps<{
   addonComponent: undefined,
   addonMode: 'dynamic',
   allowTyping: true,
-  disabled: false,
+  fullWidth: undefined,
+  disabled: undefined,
   readonly: false,
 });
+
+const id = useFormControlId();
+const effectiveDisabled = useFormControlDisabled(props);
+const effectiveFullWidth = useFormControlFullWidth(props);
 
 const emit = defineEmits<{
   (e: 'change', option: ComboboxOption): void;
@@ -435,18 +442,18 @@ watch(model, (newModelValue) => {
 </script>
 
 <template>
-  <div :class="[`form-control-combobox form-control-select addon-mode-${addonMode}`, {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping, disabled}]">
+  <div :class="[`form-control-combobox form-control-select addon-mode-${addonMode}`, {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping, disabled: effectiveDisabled, 'full-width': effectiveFullWidth}]">
     <input
       :id="id"
       ref="input-el"
       v-model="inputValue"
       type="text"
       :name="props.name"
-      :class="['form-select-input input-field', props.class, { 'hide-selection': !allowTyping }]"
+      :class="['form-select-input input-field', props.class, { 'hide-selection': !allowTyping, 'full-width': effectiveFullWidth }]"
       :tabindex="props.tabindex"
       autocomplete="off"
       :readonly="!allowTyping || readonly"
-      :disabled="disabled"
+      :disabled="effectiveDisabled"
       @keydown="handleKeyDown"
       @input="handleInput"
       @focus="handleFocus"
@@ -455,9 +462,9 @@ watch(model, (newModelValue) => {
     >
     <button
       type="button"
-      :class="[formSelectIconClass, { [clickableClass]: mode === 'select' && !disabled && !readonly }]"
+      :class="[formSelectIconClass, { [clickableClass]: mode === 'select' && !effectiveDisabled && !readonly }]"
       tabindex="-1"
-      :disabled="disabled || readonly"
+      :disabled="effectiveDisabled || readonly"
       @click="handleIconClick"
       @mousedown="isInteractingWithSuggestions = true"
     >

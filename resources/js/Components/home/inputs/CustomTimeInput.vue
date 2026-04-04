@@ -2,23 +2,19 @@
 import type { InputSelectorImplProps } from '@/Components/home/inputs/InputSelector.vue';
 import TimePicker, { TimePickerPopupApi } from '@/Components/home/pickers/TimePicker.vue';
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
+import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlId } from '@/composables/useFormControlId';
-import {
-  dateTimeLibraryInject,
-  positionAnchor,
-  timestampInject,
-} from '@/injection-keys';
+import { dateTimeLibraryInject, positionAnchor, timestampInject } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, inject, provide, useTemplateRef } from 'vue';
 
-withDefaults(defineProps<InputSelectorImplProps>(), {
-  disabled: false,
-});
+const props = defineProps<InputSelectorImplProps>();
 
 const ts = inject(timestampInject);
 const id = useFormControlId();
+const effectiveDisabled = useFormControlDisabled(props);
 const dtl = inject(dateTimeLibraryInject);
 
 const dateLibLocale = useDateLibraryLocale(dtl);
@@ -67,7 +63,7 @@ provide(positionAnchor, positionAnchorName);
       ref="input-el"
       :model-value="selectedTime"
       :readonly="true"
-      :disabled="disabled"
+      :disabled="effectiveDisabled"
       :hide-selection="true"
       :position-anchor-name="positionAnchorName"
       @click.prevent="openPopup"

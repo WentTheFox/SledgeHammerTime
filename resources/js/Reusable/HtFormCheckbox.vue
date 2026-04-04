@@ -17,7 +17,7 @@ const formControlId = useFormControlId(props);
 </script>
 
 <template>
-  <HtFormControlWrap :disabled="disabled">
+  <HtFormControlWrap>
     <div class="form-control-checkbox">
       <span class="form-checkbox-input-wrap">
         <slot name="input" />

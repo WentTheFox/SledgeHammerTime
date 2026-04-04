@@ -3,6 +3,7 @@ import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
+import HtCardForms from '@/Reusable/HtCardForms.vue';
 import { computed } from 'vue';
 import TranslationCreditOverrideEntry from './TranslationCreditOverrideEntry.vue';
 
@@ -36,7 +37,7 @@ const allTranslators = computed(() =>
       </HtAlert>
     </template>
 
-    <div class="credit-override-sections">
+    <HtCardForms>
       <TranslationCreditOverrideEntry
         v-for="translator in allTranslators"
         :key="translator.id"
@@ -44,6 +45,6 @@ const allTranslators = computed(() =>
         :crowdin-users="crowdinUsers"
         :discord-users="discordUsers"
       />
-    </div>
+    </HtCardForms>
   </HtCard>
 </template>
