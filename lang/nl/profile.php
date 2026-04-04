@@ -24,7 +24,7 @@ return [
         'authorize' => 'Discord account autoriseren',
       ],
       'crowdin' => [
-        'description' => 'Als je een vertaler voor het project bent, kan je door je Crowdin-account te koppelen aanpassen hoe je naam in de \'met dank aan\'-sectie verschijnt. Als je je aansluit in de Discord server dan dient het ook als extra verificatie dat jouw discord account hoort bij jouw Crowdin account.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Crowdin account autoriseren',
       ],
     ],
