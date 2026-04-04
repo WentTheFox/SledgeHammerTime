@@ -14,7 +14,8 @@ class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
 
   public static function cacheKey(string $page, string $locale, string $manifestHash): string {
-    return "page-html-{$page}-{$locale}-{$manifestHash}";
+    $version = Config::get('app.page_cache.version', 0);
+    return "page-html-{$page}-{$locale}-{$manifestHash}-v$version";
   }
 
   /**
@@ -52,7 +53,7 @@ class CachePageResponse {
   }
 
   public function handle(Request $request, Closure $next, string $page): Response {
-    if (!Config::get('app.page_cache_enabled')) {
+    if (!Config::get('app.page_cache.enabled')) {
       return $next($request);
     }
 
