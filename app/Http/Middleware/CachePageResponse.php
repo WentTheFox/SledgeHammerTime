@@ -94,7 +94,7 @@ class CachePageResponse {
     $manifestHash = @md5_file(public_path('build/manifest.json')) ?: 'default';
     $cacheKey = static::cacheKey($page, $locale, $manifestHash);
 
-    /** @var array{html: string, last_modified: int}|null $cached */
+    /** @var array{html: string, last_modified: int}|string|null $cached */
     $cached = Cache::get($cacheKey);
 
     // Discard legacy cache entries that are plain strings (pre-format migration).
