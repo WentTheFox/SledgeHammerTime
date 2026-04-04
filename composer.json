@@ -20,6 +20,7 @@
     "laravel/socialite": "^v5.21",
     "laravel/tinker": "^2.8",
     "paragonie/sodium_compat": "^2.5",
+    "sentry/sentry-laravel": "^4.24",
     "socialiteproviders/crowdin": "^5.0",
     "socialiteproviders/discord": "^4.2",
     "spatie/laravel-google-fonts": "^1.4.4",
