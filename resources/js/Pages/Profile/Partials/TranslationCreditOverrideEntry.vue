@@ -126,8 +126,21 @@ const isBlankSubmission = computed(() =>
   !form.displayName && !effectiveAvatarProvider.value && !form.url,
 );
 
+// True when no content field introduces a new non-null value vs the current override —
+// i.e. every change is a deletion/clearing, not an addition or modification.
+const isDeletionOnlyChange = computed(() => {
+  const o = props.translator.override;
+  const displayNameIsNew = form.displayName !== null && form.displayName !== (o?.displayName ?? null);
+  const avatarIsNew = effectiveAvatarProvider.value !== null && (
+    effectiveAvatarProvider.value !== (o?.avatarProvider ?? null)
+    || effectiveAvatarId.value !== (o?.avatarId ?? null)
+  );
+  const urlIsNew = form.url !== null && form.url !== (o?.url ?? null);
+  return !displayNameIsNew && !avatarIsNew && !urlIsNew;
+});
+
 const lastSubmitBypassedApproval = ref<boolean | null>(null);
-const bypassesApproval = computed(() => lastSubmitBypassedApproval.value ?? (isHideOnlyChange.value || isBlankSubmission.value));
+const bypassesApproval = computed(() => lastSubmitBypassedApproval.value ?? (isHideOnlyChange.value || isBlankSubmission.value || isDeletionOnlyChange.value));
 
 const overrideRouteParams = computed(() => ({
   crowdinUser: ownerCrowdinUserId.value,
