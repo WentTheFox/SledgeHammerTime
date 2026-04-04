@@ -31,14 +31,16 @@ class Handler extends ExceptionHandler {
   public function render($request, Throwable $e) {
     $response = parent::render($request, $e);
     $status = $response->getStatusCode();
+    if ($status === 503 && !$request->expectsJson()){
+      return Inertia::render('Errors/MaintenanceMode', [
+        ...HandleInertiaRequests::getGlobalSharedArray(),
+        'discordUrl' => config('services.discord.invite_url'),
+      ])->toResponse($request)->setStatusCode($status);
+    }
 
-    if ($request->inertia()) {
+    if ($request->inertia()){
       return match ($status) {
         404 => Inertia::render('Errors/NotFound')->toResponse($request)->setStatusCode($status),
-        503 => Inertia::render('Errors/MaintenanceMode', [
-          ...HandleInertiaRequests::getGlobalSharedArray(),
-          'discordUrl' => config('services.discord.invite_url'),
-        ])->toResponse($request)->setStatusCode($status),
         default => $response
       };
     }
