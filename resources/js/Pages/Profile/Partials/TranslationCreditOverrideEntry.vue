@@ -28,7 +28,7 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from '@inertiajs/vue3';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import AvatarProviderSelect from './AvatarProviderSelect.vue';
 
 const props = defineProps<{
@@ -126,7 +126,8 @@ const isBlankSubmission = computed(() =>
   !form.displayName && !effectiveAvatarProvider.value && !form.url,
 );
 
-const bypassesApproval = computed(() => isHideOnlyChange.value || isBlankSubmission.value);
+const lastSubmitBypassedApproval = ref<boolean | null>(null);
+const bypassesApproval = computed(() => lastSubmitBypassedApproval.value ?? (isHideOnlyChange.value || isBlankSubmission.value));
 
 const overrideRouteParams = computed(() => ({
   crowdinUser: ownerCrowdinUserId.value,
@@ -134,6 +135,7 @@ const overrideRouteParams = computed(() => ({
 }));
 
 const submitOverride = () => {
+  lastSubmitBypassedApproval.value = bypassesApproval.value;
   form.put(route('credit-overrides.upsert', overrideRouteParams.value), {
     preserveScroll: true,
   });
@@ -165,6 +167,12 @@ const cancelProposal = () => {
     },
   );
 };
+
+watch(() => form.recentlySuccessful, (recentSuccess) => {
+  if (recentSuccess) return;
+
+  lastSubmitBypassedApproval.value = null;
+})
 </script>
 
 <template>
@@ -245,7 +253,7 @@ const cancelProposal = () => {
             v-model="form.displayName"
             type="text"
             :placeholder="ownerCrowdinUser?.fullName ?? ownerCrowdinUser?.username"
-            :disabled="pendingReview"
+            :disabled="pendingReview || form.processing"
             :maxlength="255"
           />
           <template #message>
@@ -264,7 +272,7 @@ const cancelProposal = () => {
           :crowdin-users="crowdinUsers"
           :discord-users="discordUsers"
           :default-crowdin-id="ownerCrowdinUserId ?? undefined"
-          :disabled="pendingReview"
+          :disabled="pendingReview || form.processing"
           :form="form"
         />
 
@@ -279,7 +287,7 @@ const cancelProposal = () => {
             v-model="form.url"
             type="url"
             :placeholder="ownerCrowdinUser?.url"
-            :disabled="pendingReview"
+            :disabled="pendingReview || form.processing"
             :maxlength="255"
             :full-width="true"
           />
@@ -302,6 +310,7 @@ const cancelProposal = () => {
             :name="`hide-${translator.id}`"
             :label="$t('profile.creditOverrides.approvedValues.visible')"
             :checked="!form.hide"
+            :disabled="form.processing"
             @change="form.hide = false"
           />
           <HtFormRadio
@@ -309,6 +318,7 @@ const cancelProposal = () => {
             :name="`hide-${translator.id}`"
             :label="$t('profile.creditOverrides.approvedValues.hidden')"
             :checked="form.hide"
+            :disabled="form.processing"
             @change="form.hide = true"
           />
         </HtFormControl>
