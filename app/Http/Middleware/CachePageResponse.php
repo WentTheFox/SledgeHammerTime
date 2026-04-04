@@ -74,7 +74,7 @@ class CachePageResponse {
       ->format('D, d M Y H:i:s') . ' GMT';
 
     return [
-      'Cache-Control' => 'public, max-age=' . self::CACHE_TTL_SECONDS . ', must-revalidate',
+      'Cache-Control' => 'public, max-age=0, must-revalidate',
       'Last-Modified' => $lastModifiedFormatted,
     ];
   }
