@@ -24,7 +24,7 @@ return [
         'authorize' => 'Valtuuta Discord tili',
       ],
       'crowdin' => [
-        'description' => 'Jos olet projektin kääntäjä, sinun Crowdin käyttäjän yhdistäminen antaa sinun lopulta muokata miten nimesi näkyy käännöskrediiteissä, ja se toimii myös lisätasona henkilöllisyytesi varmistamiseen, mikäli liityt projektin Discord-palvelimelle.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Valtuuta Crowdin tili',
       ],
     ],
