@@ -28,7 +28,7 @@ return [
     'botSettings' => 'การตั้งค่าแอปพลิเคชั่น',
     'profile' => 'โปรไฟล์',
     'legal' => 'ข้อมูลทางกฎหมาย',
-    'analytics' => 'Analytics',
+    'analytics' => 'สถิติ',
   ],
   'sidebar' => [
     'inputSettings' => [
