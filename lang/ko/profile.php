@@ -47,7 +47,6 @@ return [
     'avatarAccount' => 'Account',
     'url' => 'Link',
     'visibility' => 'Visibility',
-    'hide' => 'Hide from credits',
     'submit' => 'Submit for approval',
     'saveSuccess' => 'Submitted for approval',
     'saveHideSuccess' => 'Visibility updated',
