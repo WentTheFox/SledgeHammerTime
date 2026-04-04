@@ -315,9 +315,23 @@
       .combobox-suggestion-item-addon {
         // Take the element out of the flex layout while visually hiding it to allow the text to become full-width
         position: absolute;
-        top: 0;
-        font-size: .65em;
-        padding: .2em .4em;
+        transition-property: font-size, padding;
+        transition-duration: .1s;
+        transition-timing-function: ease-out;
+        animation: reposition .1s ease-out forwards;
+
+        @keyframes reposition {
+          0% {
+            top: design.app-value('input-field-padding');
+            right: design.app-value('input-field-padding');
+          }
+          100% {
+            top: 0;
+            right: 0;
+            font-size: .65em;
+            padding: .2em .4em;
+          }
+        }
 
         @include design.if-ltr {
           right: 0;
