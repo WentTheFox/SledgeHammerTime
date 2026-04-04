@@ -13,8 +13,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_NPM="npm ci --force"
     CMD_BUILD="npm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
-    CMD_CLEAR_PICKER_CACHE="php artisan picker:clear-cache"
     CMD_LARAVEL_DOWN="php artisan down"
+    CMD_CLEAR_PAGE_CACHE="php artisan app:clear-page-cache"
     CMD_LARAVEL_UP="php artisan up"
     CMD_PM2="pm2 restart pm2.json"
     CMD_HORIZON="sudo service horizon restart"
@@ -32,9 +32,6 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     echo "$ $CMD_MIGRATE"
     eval ${CMD_MIGRATE}
 
-    echo "$ $CMD_CLEAR_PICKER_CACHE"
-    eval ${CMD_CLEAR_PICKER_CACHE}
-
     if $GIT diff --name-only $oldrev $newrev | grep "^package-lock.json"; then
         echo "$ $CMD_NPM"
         eval $CMD_NPM
@@ -47,6 +44,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         # Put the app in maintenance mode during frontend build
         echo "$ $CMD_LARAVEL_DOWN"
         eval $CMD_LARAVEL_DOWN
+        echo "$ $CMD_CLEAR_PAGE_CACHE"
+        eval ${CMD_CLEAR_PAGE_CACHE}
         echo "$ $CMD_BUILD"
         eval $CMD_BUILD || BUILD_EXIT_CODE=$?
         # Clear maintenance mode after frontend build (regardless of errors)
@@ -63,6 +62,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         fi
     else
         echo "# Skipping asset rebuild, no changes in resources/lang folders"
+        echo "$ $CMD_CLEAR_PAGE_CACHE"
+        eval ${CMD_CLEAR_PAGE_CACHE}
     fi
 else
     echo "Ref does not match $RUN_FOR_REF, exiting."
