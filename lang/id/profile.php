@@ -24,7 +24,7 @@ return [
         'authorize' => 'Otorisasi akun Discord',
       ],
       'crowdin' => [
-        'description' => 'Jika Anda adalah penerjemah untuk proyek ini, menautkan akun Crowdin Anda pada akhirnya akan memungkinkan Anda untuk menyesuaikan bagaimana nama Anda muncul dalam kredit terjemahan, dan juga berfungsi sebagai tingkat verifikasi tambahan bahwa akun-akun ini milik Anda jika Anda bergabung dengan server Discord proyek ini.',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Otorisasi akun Crowdin',
       ],
     ],
