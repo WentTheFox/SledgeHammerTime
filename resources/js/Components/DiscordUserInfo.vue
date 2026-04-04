@@ -7,7 +7,7 @@ import { computed, ref, watch } from 'vue';
 export interface DiscordUserInfoProps {
   id: string;
   name: string;
-  avatar: string;
+  avatarUrl: string;
   discriminator: string;
   staleAt?: string;
 }
@@ -18,7 +18,6 @@ const route = useRoute();
 const updatedInfo = ref<null | DiscordUserInfoProps>(null);
 
 const currentInfo = computed((): DiscordUserInfoProps => updatedInfo.value ?? props);
-const avatarUrl = computed(() => getAvatarLink(currentInfo.value));
 
 const refreshUserInfo = useExponentialBackoff('refresh-user-info', async () => {
   if (!props.staleAt) return true;
@@ -36,22 +35,6 @@ const refreshUserInfo = useExponentialBackoff('refresh-user-info', async () => {
   return true;
 });
 
-const getAvatarLink = (du: DiscordUserInfoProps) => {
-  if (du.avatar) {
-    const avatarFileExtension = du.avatar.startsWith('a_') ? 'gif' : 'png';
-    return `https://cdn.discordapp.com/avatars/${du.id}/${du.avatar}.${avatarFileExtension}`;
-  }
-
-  // Default avatar logic
-  const defaultAvatarFileName =
-    (du.discriminator === '0'
-      ? // User is migrated to the new username system
-      parseInt(du.id, 10) >> 22
-      : // User is on the previous username system
-      parseInt(du.discriminator, 10)) % 5;
-  return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarFileName}.png`;
-};
-
 watch(() => props.staleAt, (staleAt) => {
   if (!staleAt) return;
 
@@ -63,7 +46,7 @@ watch(() => props.staleAt, (staleAt) => {
   <UserInfo
     class="discord-user-info"
     :name="currentInfo.name"
-    :avatar-url="avatarUrl"
+    :avatar-url="currentInfo.avatarUrl"
     service="Discord"
     :stale="!!currentInfo.staleAt"
   >

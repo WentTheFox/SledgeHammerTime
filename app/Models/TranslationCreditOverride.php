@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\AvatarProvider;
+use App\Services\AvatarProvider\AvatarResolverService;
 use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -11,33 +13,59 @@ class TranslationCreditOverride extends Model {
   use HasUuids, HasUiInfo;
 
   protected $fillable = [
-    'translator_id',
+    'crowdin_user_id',
+    'language_code',
     'created_by',
     'approved_by',
-    'displayName',
-    'avatarUrl',
+    'approved_at',
+    'display_name',
+    'avatar_url',
     'url',
     'hide',
   ];
 
   protected $casts = [
     'hide' => 'boolean',
+    'approved_at' => 'datetime',
   ];
 
+  protected static function boot():void {
+    parent::boot();
+    static::updating(function (TranslationCreditOverride $override) {
+      $contentFields = ['display_name', 'avatar_url', 'url'];
+      $hasDirtyContent = collect($contentFields)->contains(fn($field) => $override->isDirty($field));
+      if ($hasDirtyContent) {
+        $override->approved_by = null;
+        $override->approved_at = null;
+      }
+    });
+  }
+
   public function mapToUiInfo():array {
+    $avatar = AvatarProvider::parseUri($this->avatar_url);
+    $avatarUrl = null;
+    if ($this->avatar_url !== null) {
+      /**
+       * @var AvatarResolverService $avatarResolverService
+       */
+      $avatarResolverService = app(AvatarResolverService::class);
+      $avatarUrl = $avatarResolverService->resolveUri($this->avatar_url);
+    }
     return [
-      'displayName' => $this->displayName,
-      'avatarUrl' => $this->avatarUrl,
+      'displayName' => $this->display_name,
+      'avatarProvider' => $avatar['provider'] ?? null,
+      'avatarId' => $avatar['id'] ?? null,
+      'avatarUrl' => $avatarUrl,
       'url' => $this->url,
       'hide' => $this->hide,
     ];
   }
 
   /**
-   * @return BelongsTo<Translator, $this>
+   * @return BelongsTo<CrowdinUser, $this>
    */
-  public function translator():BelongsTo {
-    return $this->belongsTo(Translator::class);
+  public function crowdinUser():BelongsTo {
+    return $this->belongsTo(CrowdinUser::class);
   }
 
   /**

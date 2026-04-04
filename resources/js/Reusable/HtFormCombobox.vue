@@ -2,7 +2,12 @@
 import { useFormControlId } from '@/composables/useFormControlId';
 import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
 import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
-import { ComboboxAddonComponentProps, ComboboxOption, suggestionItemClass } from '@/utils/combobox';
+import {
+  ComboboxAddonComponentProps,
+  ComboboxOption,
+  FormComboboxSuggestionAddonMode,
+  suggestionItemClass,
+} from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -26,6 +31,7 @@ const props = withDefaults(defineProps<{
   class?: string;
   tabindex?: number | string;
   addonComponent?: Component<ComboboxAddonComponentProps>;
+  addonMode?: FormComboboxSuggestionAddonMode;
   allowTyping?: boolean;
   disabled?: boolean;
   readonly?: boolean;
@@ -34,6 +40,7 @@ const props = withDefaults(defineProps<{
   class: undefined,
   tabindex: undefined,
   addonComponent: undefined,
+  addonMode: 'dynamic',
   allowTyping: true,
   disabled: false,
   readonly: false,
@@ -428,11 +435,12 @@ watch(model, (newModelValue) => {
 </script>
 
 <template>
-  <div :class="['form-control-combobox form-control-select', {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping, disabled}]">
+  <div :class="[`form-control-combobox form-control-select addon-mode-${addonMode}`, {'suggestions-open': showSuggestions, 'has-suggestions': filteredOptions.length > 0, 'allow-typing': allowTyping, disabled}]">
     <input
       :id="id"
       ref="input-el"
       v-model="inputValue"
+      type="text"
       :name="props.name"
       :class="['form-select-input input-field', props.class, { 'hide-selection': !allowTyping }]"
       :tabindex="props.tabindex"
@@ -473,6 +481,7 @@ watch(model, (newModelValue) => {
         :is-visible="visibleEntries.has(option.value)"
         :intersection-observer="suggestionIO"
         :addon-component="addonComponent"
+        :addon-mode="addonMode"
         :input-value="mode === 'typing' ? inputValue : typingModeValue"
         @click.passive="handleSuggestionClick(option, i)"
         @mouseenter.passive="highlightedIndex = i"

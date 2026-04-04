@@ -165,6 +165,7 @@ $_badge-green-hue: -60;
 $_badge-cyan-hue: -25;
 $_badge-purple-hue: 50;
 $_badge-red-hue: 120;
+$_badge-yellow-hue: 190;
 $_dark_theme_color: #222;
 $_light_theme_color: #eee;
 
@@ -337,6 +338,10 @@ $color-map: (
     light: #212121,
     dark: #c1c2c5,
   ),
+  input-field-placeholder-color: (
+    light: rgba(#212121, .5),
+    dark: rgba(#c1c2c5, .5),
+  ),
   input-field-bg: (
     light: color.adjust($_base-blue, $lightness: 25%, $saturation: -10%),
     dark: #25262b,
@@ -504,6 +509,14 @@ $color-map: (
   badge-red-bg: (
     light: color.adjust($_badge-base-color-dark, $hue: $_badge-red-hue),
     dark: color.adjust($_badge-base-color-light, $hue: $_badge-red-hue),
+  ),
+  badge-yellow-color: (
+    light: color.adjust($_badge-base-color-light, $hue: $_badge-yellow-hue),
+    dark: color.adjust($_badge-base-color-dark, $hue: $_badge-yellow-hue),
+  ),
+  badge-yellow-bg: (
+    light: color.adjust($_badge-base-color-dark, $hue: $_badge-yellow-hue),
+    dark: color.adjust($_badge-base-color-light, $hue: $_badge-yellow-hue),
   ),
   bot-shard-actvie-color: (
     light: #559933,

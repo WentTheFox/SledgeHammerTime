@@ -4,16 +4,12 @@ import { promises as fs } from 'fs';
 import https from 'https';
 import path from 'path';
 import localeConfig from '../lang/config.json' with { type: 'json' };
-import { IndexedReportData } from '../resources/js/utils/crowdin';
+import { IndexedReportData, NormalizedCredits } from '../resources/js/utils/crowdin';
 import {
   AvailableLanguage,
   LatestLanguageConfigType,
 } from '../resources/js/utils/language-settings';
-import {
-  getTranslatorIds,
-  normalizeCredit,
-  NormalizedCredits,
-} from '../resources/js/utils/translation';
+import { getTranslatorIds, normalizeCredit } from '../resources/js/utils/translation';
 import { migrateLanguageConfig } from './helpers/migrate-language-config';
 import { withExponentialBackoff } from './helpers/with-exponential-backoff';
 
@@ -68,7 +64,11 @@ void (async () => {
   if (bypassCache) {
     console.info('Triggering translator import with cache bypass…');
     const importResult = await withExponentialBackoff(
-      () => apiClient.post<{ created: number; updated: number; skipped: number }>('/api/import-crowdin-translators?force=true'),
+      () => apiClient.post<{
+        created: number;
+        updated: number;
+        skipped: number
+      }>('/api/import-crowdin-translators?force=true'),
       'Import Crowdin Translators',
     );
     console.info(`Import completed: ${importResult.data.created} created, ${importResult.data.updated} updated, ${importResult.data.skipped} skipped`);
@@ -108,6 +108,8 @@ void (async () => {
         translatorIds: Array.from(merged),
         // Carry progress from langData if existing doesn't have it yet
         ...(!existing.progress && langData.progress ? { progress: langData.progress } : {}),
+        // Merge overrides from both entries; existing (current project) takes precedence over langData
+        overrides: { ...(langData.overrides ?? {}), ...(existing.overrides ?? {}) },
       };
     } else {
       remappedLanguages[appLocale] = langData;
@@ -125,10 +127,11 @@ void (async () => {
   sortedConfigs.forEach(([locale, config]) => {
     const localeReportData = indexedReportData.languages[locale];
     const languageString = `- ${config.emoji ? `${config.emoji} ` : ''}${config.name}`;
-    const translatorIds = getTranslatorIds(config, localeReportData);
+    const translatorIds = getTranslatorIds(localeReportData);
     if (translatorIds.length > 0) {
+      const creditOverrides = indexedReportData.languages[locale]?.overrides ?? {};
       const sortedCredits = translatorIds
-        .map((crowdinId) => normalizeCredit(crowdinId, config.creditOverrides, indexedReportData))
+        .map((crowdinId) => normalizeCredit(crowdinId, creditOverrides, indexedReportData))
         .filter((credit): credit is NormalizedCredits => credit !== null)
         .sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName));
       const creditCount = sortedCredits.length;

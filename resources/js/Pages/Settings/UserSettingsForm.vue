@@ -360,6 +360,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
       <pre v-if="devMode"><code>{{ JSON.stringify(settingsForm.data(), null, 2) }}</code></pre>
 
       <HtFormSubmitButton
+        id="update-settings"
         :form="settingsForm"
         :success-text="$t('botSettings.saveSuccess')"
       />

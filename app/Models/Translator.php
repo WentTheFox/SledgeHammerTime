@@ -6,7 +6,6 @@ use App\Traits\HasUiInfo;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Translator extends Model {
   use HasUuids, HasUiInfo;
@@ -38,11 +37,11 @@ class Translator extends Model {
 
   public function mapToUiInfo(): array {
     return [
+      'id' => (string)$this->id,
       'languageCode' => $this->language_code,
       'translated' => $this->translated,
       'approved' => $this->approved,
       'voted' => $this->voted,
-      'override' => $this->creditOverride()->first()?->mapToUiInfo(),
     ];
   }
 
@@ -51,12 +50,5 @@ class Translator extends Model {
    */
   public function crowdinUser(): BelongsTo {
     return $this->belongsTo(CrowdinUser::class);
-  }
-
-  /**
-   * @return HasOne<TranslationCreditOverride, $this>
-   */
-  public function creditOverride() {
-    return $this->hasOne(TranslationCreditOverride::class);
   }
 }

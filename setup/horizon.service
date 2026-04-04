@@ -1,0 +1,24 @@
+[Unit]
+Description=Laravel Horizon Queue Worker
+After=network.target
+
+[Service]
+# The user and group that should run Horizon
+User=www-data
+Group=www-data
+
+WorkingDirectory=/var/www/SledgeHammerTime
+
+# Run Horizon via Laravel's artisan
+ExecStart=/usr/bin/php artisan horizon
+ExecStop=/usr/bin/php artisan horizon:terminate
+
+# Restart if Horizon crashes or stops
+Restart=always
+RestartSec=3
+
+# Ensure environment variables from .env are available
+EnvironmentFile="/var/www/SledgeHammerTime/.env"
+
+[Install]
+WantedBy=multi-user.target

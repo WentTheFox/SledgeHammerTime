@@ -62,7 +62,7 @@ class DiscordUserService {
     return $this->updateUserInfo($userInfo);
   }
 
-  protected function updateUserInfo(GetUserResponse $data):DiscordUser {
+  public function updateUserInfo(GetUserResponse $data):DiscordUser {
     return DiscordUser::updateOrCreate([
       'id' => $data->id,
     ], [

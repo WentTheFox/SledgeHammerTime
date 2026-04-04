@@ -61,6 +61,20 @@ return [
     'no' => 'nb',
   ],
   /**
+   * Maps route locale codes to the corresponding Crowdin language IDs (only needed where they differ).
+   * Keep in sync with crowdinLocale entries in lang/config.json and hardcoded mappings in
+   * utils/translation-credits.ts (crowdinLocaleToAppLocale).
+   */
+  'crowdin_locale_map' => [
+    'es' => 'es-ES',
+    'nb' => 'no',
+    'pt' => 'pt-PT',
+    'sr' => 'sr-CS',
+    'sv' => 'sv-SE',
+    'ur' => 'ur-PK',
+    'zh' => 'zh-CN',
+  ],
+  /**
    * Maps languages on the UI/router level to the corresponding application locale
    */
   'ui_locale_map' => [

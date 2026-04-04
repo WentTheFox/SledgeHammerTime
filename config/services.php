@@ -39,6 +39,7 @@ return [
     // Changed in controllers, but required in config
     'redirect' => 'https://example.com',
     'invite_url' => env('DISCORD_INVITE_URL'),
+    'credits_webhook_url' => env('DISCORD_CREDITS_WEBHOOK_URL'),
   ],
 
   'crowdin' => [

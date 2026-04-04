@@ -22,6 +22,10 @@
     pointer-events: none;
     opacity: .5;
   }
+
+  &.full-width {
+    width: 100%;
+  }
 }
 
 .form-control {
@@ -277,6 +281,7 @@
       display: flex;
       flex-flow: row nowrap;
       gap: inherit;
+      align-items: center;
 
       .combobox-suggestion-item-text {
         flex: 1 1 100%;
@@ -302,7 +307,7 @@
       }
     }
 
-    &:hover {
+    &.addon-mode-dynamic:hover {
       .combobox-suggestion-item-addon {
         // Take the element out of the flex layout while visually hiding it to allow the text to become full-width
         position: absolute;
@@ -384,6 +389,7 @@
   &:not([dir="rtl"]) > .input-field {
     @include design.combined-border-radius;
   }
+
   &:not([dir="rtl"]) > .form-control-select {
     @include design.combined-border-radius('> .form-select-input');
   }
@@ -391,6 +397,7 @@
   &[dir="rtl"] > .input-field {
     @include design.combined-border-radius-inverted;
   }
+
   &[dir="rtl"] > .form-control-select {
     @include design.combined-border-radius-inverted('> .form-select-input');
   }
@@ -411,6 +418,8 @@
   &.form-message-description {
     color: design.app-color('form-message-description');
   }
+
+  @include design.content-link-style;
 }
 
 .from-control-submit {

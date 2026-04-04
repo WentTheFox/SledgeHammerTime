@@ -35,16 +35,26 @@ class ProfileController extends Controller {
         return $result;
       });
       $crowdinProjectId = config('services.crowdin.project_id');
-      $crowdinUsers = $authUser->crowdinUsers()->with(['translators' => ['creditOverride']])->get()->map(function (CrowdinUser $cu) use ($crowdinProjectId) {
+      $crowdinUsers = $authUser->crowdinUsers()->with(['translators', 'creditOverrides', 'creditOverrideProposals'])->get()->map(function (CrowdinUser $cu) use ($crowdinProjectId) {
         $result = $cu->mapToUiInfo();
         if ($cu->updated_at->addHours(1)->isPast()) {
           $result['staleAt'] = now();
           RefreshCrowdinUserInfo::dispatch((string)$cu->id);
         }
-        $result['translators'] = $cu->translators()
-          ->where('project_id', $crowdinProjectId)
-          ->get()
-          ->map(fn(Translator $t) => $t->mapToUiInfo());
+
+        $overridesByLang = $cu->creditOverrides->keyBy('language_code');
+        $proposalsByLang = $cu->creditOverrideProposals->keyBy('language_code');
+
+        $result['translators'] = $cu->translators
+          ->groupBy('language_code')
+          ->map(fn($group) => $group->firstWhere('project_id', $crowdinProjectId) ?? $group->first())
+          ->values()
+          ->map(function (Translator $t) use ($overridesByLang, $proposalsByLang) {
+            return array_merge($t->mapToUiInfo(), [
+              'override' => $overridesByLang->get($t->language_code)?->mapToUiInfo(),
+              'proposal' => $proposalsByLang->get($t->language_code)?->mapToUiInfo(),
+            ]);
+          });
 
         return $result;
       });

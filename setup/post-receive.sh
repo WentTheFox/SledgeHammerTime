@@ -16,6 +16,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_LARAVEL_DOWN="php artisan down"
     CMD_LARAVEL_UP="php artisan up"
     CMD_PM2="pm2 restart pm2.json"
+    CMD_HORIZON="sudo service horizon restart"
 
     echo "$ $CMD_CD"
     eval ${CMD_CD}
@@ -47,6 +48,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         # Clear maintenance mode after frontend build (regardless of errors)
         echo "$ $CMD_LARAVEL_UP"
         eval $CMD_LARAVEL_UP
+        echo "$ $CMD_HORIZON"
+        eval $CMD_HORIZON
         if [[ "$BUILD_EXIT_CODE" == "0" ]]; then
             echo "$ $CMD_PM2"
             eval $CMD_PM2

@@ -1,6 +1,5 @@
 import { promises as fs } from 'fs';
-import { LanguageConfigV2 } from '../../resources/js/model/language-config';
-import { LanguageConfigV1 } from '../../resources/js/model/legacy';
+import { LanguageConfigV1, LanguageConfigV2 } from '../../resources/js/model/legacy';
 import { TranslationCreditOverride } from '../../resources/js/model/translation-credit-override';
 import {
   AvailableLanguage,
@@ -28,8 +27,10 @@ const runMigration = (currentConfig: PublicLocalesConfig): PublicLocalesConfig =
   /* eslint-disable no-fallthrough,default-case,no-empty,no-param-reassign */
   // noinspection FallThroughInSwitchStatementJS
   switch (version) {
+    // @ts-expect-error fall-through case is intentional
     case undefined:
       migratedConfigContent = { version: 1, ...configContent };
+    // @ts-expect-error fall-through case is intentional
     case 1: {
       const previousVersionContent = migratedConfigContent as unknown as PublicLocalesConfig<1>;
       migratedConfigContent = { version: 2, languages: {} } as PublicLocalesConfig<2>;
@@ -59,6 +60,14 @@ const runMigration = (currentConfig: PublicLocalesConfig): PublicLocalesConfig =
             migratedConfigContent.languages[language].creditOverrides = creditOverrides;
           }
         }
+      });
+    }
+    case 2: {
+      const previousVersionContent = migratedConfigContent as unknown as PublicLocalesConfig<2>;
+      migratedConfigContent = { version: 3, languages: {} } as PublicLocalesConfig<3>;
+      forEachLanguage(previousVersionContent, (language) => {
+        const { creditOverrides, ...rest } = previousVersionContent.languages[language];
+        migratedConfigContent.languages[language] = rest;
       });
     }
     // Add new migrations here

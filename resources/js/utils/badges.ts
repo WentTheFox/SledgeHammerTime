@@ -4,6 +4,7 @@ export const badgeColors = [
   'cyan',
   'purple',
   'red',
+  'yellow',
   'muted',
 ];
 

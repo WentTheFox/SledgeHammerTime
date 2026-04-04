@@ -10,14 +10,21 @@
     box-shadow: none !important;
   }
 
+  &.full-width {
+    width: 100%;
+  }
+
   &:not([type="color"]) {
     color: design.app-color('input-field-color');
     background-color: design.app-color('input-field-bg');
     padding: design.app-value('input-field-padding');
 
+    @include design.placeholder-pseudo {
+      color: design.app-color('input-field-placeholder-color');
+    }
+
     &:invalid {
-      color: design.app-color('input-field-invalid-color');
-      background-color: design.app-color('input-field-invalid-bg');
+      @include design.invalid-input-field;
     }
   }
 
@@ -45,7 +52,7 @@
     outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
 
     &:invalid {
-      outline: design.app-value('focus-outline') solid design.app-color('input-field-invalid-focus-border-color');
+      @include design.invalid-input-field-focused;
     }
   }
 

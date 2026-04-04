@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Models\CrowdinUser;
-use App\Models\Translator;
 use App\Models\TranslationCreditOverride;
 use App\Models\User;
 use Exception;
@@ -51,32 +50,16 @@ class ImportCreditOverrides extends Command {
           continue;
         }
 
+        // Use the Crowdin locale code stored in the DB, falling back to the config key
+        $dbLanguageCode = $languageData['crowdinLocale'] ?? $languageCode;
+
         foreach ($languageData['creditOverrides'] as $crowdinUserId => $override){
           $crowdinUserIdInt = (int)$crowdinUserId;
 
           try {
-            // Find the translator record for this user and language
-            $translator = Translator::whereHas('crowdinUser', function ($query) use ($crowdinUserIdInt) {
-              $query->where('id', $crowdinUserIdInt);
-            })->where('language_code', $languageCode)->first();
-
-            if (!$translator){
-              // Null entries are skip-only, don't create stubs for them
-              if ($override === null) {
-                $skipped++;
-                continue;
-              }
-
-              // Only log warnings for actual overrides (not null entries)
-              if (is_array($override) && !empty($override)) {
-                $this->warn("Missing translator record: User $crowdinUserIdInt in language '$languageCode' has override but no translator record");
-                $this->line("Override data: " . json_encode($override, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-                Log::warning('Missing translator record for override - import will create stub during next sync', [
-                  'crowdin_user_id' => $crowdinUserIdInt,
-                  'language_code' => $languageCode,
-                  'override_data' => $override,
-                ]);
-              }
+            // Verify the Crowdin user exists
+            if (!CrowdinUser::where('id', $crowdinUserIdInt)->exists()){
+              $this->warn("Crowdin user $crowdinUserIdInt not found in database, skipping");
               $skipped++;
               continue;
             }
@@ -84,25 +67,29 @@ class ImportCreditOverrides extends Command {
             if ($override === null){
               // Hide this translator
               TranslationCreditOverride::updateOrCreate(
-                ['translator_id' => $translator->id],
+                ['crowdin_user_id' => $crowdinUserIdInt, 'language_code' => $dbLanguageCode],
                 [
                   'hide' => true,
                   'created_by' => $consoleUser->id,
-                  'displayName' => null,
-                  'avatarUrl' => null,
+                  'approved_by' => $consoleUser->id,
+                  'approved_at' => now(),
+                  'display_name' => null,
+                  'avatar_url' => null,
                   'url' => null,
                 ]
               );
             }
             else if (is_array($override)){
-              // Set override properties
+              // Set override properties — system-imported, bypass model events to avoid clearing approval
               $data = [
                 'created_by' => $consoleUser->id,
+                'approved_by' => $consoleUser->id,
+                'approved_at' => now(),
                 'hide' => false,
               ];
 
               if (isset($override['displayName'])){
-                $data['displayName'] = $override['displayName'];
+                $data['display_name'] = $override['displayName'];
               }
 
               if (isset($override['url'])){
@@ -110,19 +97,21 @@ class ImportCreditOverrides extends Command {
               }
 
               if (isset($override['avatarUrl'])){
-                $data['avatarUrl'] = $override['avatarUrl'];
+                $data['avatar_url'] = $override['avatarUrl'];
               }
 
-              TranslationCreditOverride::updateOrCreate(
-                ['translator_id' => $translator->id],
-                $data
-              );
+              TranslationCreditOverride::withoutEvents(function () use ($crowdinUserIdInt, $dbLanguageCode, $data) {
+                TranslationCreditOverride::updateOrCreate(
+                  ['crowdin_user_id' => $crowdinUserIdInt, 'language_code' => $dbLanguageCode],
+                  $data
+                );
+              });
             }
 
             $processed++;
           }
           catch (Exception $e){
-            $errors[] = "Failed to process user $crowdinUserIdInt in language '$languageCode': {$e->getMessage()}";
+            $errors[] = "Failed to process user $crowdinUserIdInt in language '$dbLanguageCode': {$e->getMessage()}";
             $skipped++;
           }
         }

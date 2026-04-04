@@ -15,3 +15,5 @@ export const normalizeQueryValue = (value: string) => value.trim().toLowerCase()
 export interface ComboboxAddonComponentProps {
   option: ComboboxOption;
 }
+
+export type FormComboboxSuggestionAddonMode = 'dynamic' | 'static';

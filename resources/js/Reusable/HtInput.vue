@@ -15,13 +15,16 @@ const props = defineProps<{
   id?: string;
   readonly?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
   hideSelection?: boolean;
   positionAnchorName?: string;
-  type?: 'text' | 'number' | 'date' | 'time' | 'datetime-local' | 'color' | 'checkbox';
+  type?: 'text' | 'url' | 'number' | 'date' | 'time' | 'datetime-local' | 'color' | 'checkbox';
   min?: string | number;
   max?: string | number;
   step?: string | number;
   tabindex?: string | number;
+  maxlength?: string | number;
+  placeholder?: string;
   inputmode?: 'decimal' | 'email' | 'none' | 'numeric' | 'search' | 'tel' | 'text' | 'url';
   'class'?: string;
 }>();
@@ -57,13 +60,15 @@ defineExpose({
     ref="input-el"
     v-model="model"
     :type="type"
-    :class="['input-field', props.class, { 'hide-selection': hideSelection }]"
+    :class="['input-field', props.class, { 'hide-selection': hideSelection, 'full-width': fullWidth }]"
     :readonly="readonly"
     :disabled="isJsUnavailable || disabled"
     :min="min"
     :max="max"
     :tabindex="tabindex"
+    :maxlength="maxlength"
     :inputmode="inputmode"
+    :placeholder="placeholder"
     :style="positionAnchorName ? `anchor-name: ${positionAnchorName}` : undefined"
     :step="step"
     :aria-describedby="`${formControlId}-description`"
