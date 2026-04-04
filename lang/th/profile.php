@@ -25,7 +25,7 @@ return [
         'authorize' => 'อนุญาตบัญชี Discord',
       ],
       'crowdin' => [
-        'description' => 'หากคุณเป็นผู้แปลสำหรับโปรเจ็กต์นี้ การเชื่อมโยงบัญชี Crowdin ของคุณจะช่วยให้คุณสามารถปรับแต่งวิธีการแสดงชื่อของคุณในส่วนเครดิตของการแปลได้ในภายหลัง และยังทำหน้าที่เป็นระดับการยืนยันเพิ่มเติม เพื่อยืนยันว่าบัญชีเหล่านี้เป็นของคุณจริง หากคุณเข้าร่วมเซิร์ฟเวอร์ Discord ของโปรเจ็กต์',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'อนุญาตบัญชี Crowdin',
       ],
     ],
