@@ -9,8 +9,8 @@ return [
       'dateAndTime' => 'วันและเวลา',
       'timezone' => 'เขตเวลา',
       'naturalLanguageInput' => 'ช่องป้อน @time',
-      'modeOffset' => 'ค่าความคลาดเคลื่อนสัมบูรณ์',
-      'modeZoneName' => 'ชื่อเขต',
+      'modeOffset' => 'ส่วนต่างโซนเวลาแบบกำหนดเอง',
+      'modeZoneName' => 'ชื่อเขตเวลา',
     ],
     'button' => [
       'jumpToToday' => 'ไปที่เดือนปัจจุบัน',
