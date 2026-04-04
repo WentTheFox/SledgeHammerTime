@@ -24,7 +24,7 @@ return [
         'authorize' => 'Discordアカウントを認証する',
       ],
       'crowdin' => [
-        'description' => 'プロジェクトの翻訳者である場合、Crowdinアカウントを連携することで、翻訳クレジットに表示されるお名前をカスタマイズできるようになります。また、プロジェクトのDiscordサーバーに参加される際に、これらのアカウントがご本人様のものであることを確認する追加の手段としても機能します。',
+        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
         'authorize' => 'Crowdinアカウントを認証する',
       ],
     ],
