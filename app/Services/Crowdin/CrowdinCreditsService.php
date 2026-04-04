@@ -122,8 +122,7 @@ class CrowdinCreditsService {
     $mainProjectId = (int)config('services.crowdin.project_id');
 
     $translators = Translator::where('language_code', $locale)
-      ->where(fn($q) => $q->where('translated', '>', 0))
-      ->orWhere('voted', '>', 0)
+      ->where(fn($q) => $q->where('translated', '>', 0)->orWhere('voted', '>', 0))
       ->with(['crowdinUser'])
       ->get();
 
