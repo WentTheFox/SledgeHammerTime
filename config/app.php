@@ -198,5 +198,8 @@ return [
 
   'console_user_uuid' => env('APP_CONSOLE_USER_UUID'),
 
-  'page_cache_enabled' => env('APP_PAGE_CACHE_ENABLED', false),
+  'page_cache' => [
+    'enabled' => env('APP_PAGE_CACHE_ENABLED', false),
+    'version' => env('APP_PAGE_CACHE_VERSION', 0),
+  ],
 ];
