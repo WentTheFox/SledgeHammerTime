@@ -52,6 +52,10 @@ class CachePageResponse {
   }
 
   public function handle(Request $request, Closure $next, string $page): Response {
+    if (!Config::get('app.page_cache_enabled')) {
+      return $next($request);
+    }
+
     // Inertia SPA navigations send X-Inertia header — serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
