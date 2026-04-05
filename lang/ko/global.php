@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => '번역 미완료',
   'contributeTranslations' => '기여하기',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => '클립보드에 복사',
   'copiedToClipboard' => '클립보드에 복사했습니다!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Flatten interface',
         'description' => "입력 창과 버튼의 그림자와 높이 효과 비활성화",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => '사용자 시간 입력 시간 유형',
