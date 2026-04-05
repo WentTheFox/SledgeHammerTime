@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Αντιγραφή στο πρόχειρο',
   'copiedToClipboard' => 'Αντιγράφηκε στο πρόχειρο!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Επιπεδοποίηση διεπαφής',
         'description' => "Απενεργοποίηση εφέ σκίασης και ύψους στις εισόδους και τα κουμπιά",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Προσαρμοσμένη εισαγωγή ώρας',
