@@ -85,6 +85,7 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :disabled="ts.isLocked.value"
           :icon-start="faClockRotateLeft"
           :icon-only="true"
+          size="input"
           @click="ts.setCurrentTime"
         />
         <template #content>
@@ -97,6 +98,7 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :icon-start="faLockOpen"
           :icon-only="true"
           :href="ts.unlockedTimestampUrl.value"
+          size-="input"
           @click.prevent="ts.unlock"
         />
         <template #content>
@@ -109,6 +111,7 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :icon-start="faLock"
           :icon-only="true"
           :href="ts.lockedTimestampUrl.value"
+          size="input"
           @click.prevent="ts.lock"
         />
         <template #content>

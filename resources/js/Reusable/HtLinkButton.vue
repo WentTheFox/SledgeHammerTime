@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HtButtonContent, { HtButtonContentProps } from '@/Reusable/HtButtonContent.vue';
-import { ButtonColors, getButtonClasses } from '@/utils/buttons';
+import { ButtonColors, ButtonSizes, getButtonClasses } from '@/utils/buttons';
 import type { Method } from '@inertiajs/core';
 import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
@@ -14,6 +14,7 @@ interface CommonLinkButtonProps {
   href: string,
   block?: boolean,
   pressed?: boolean,
+  size?: ButtonSizes,
 }
 
 type ConditionalLinkButtonProps = {
@@ -42,6 +43,7 @@ const props = withDefaults(defineProps<CommonLinkButtonProps & ConditionalLinkBu
   external: false,
   method: undefined,
   targetBlank: undefined,
+  size: undefined,
 });
 
 const buttonClasses = computed(() => getButtonClasses(props));

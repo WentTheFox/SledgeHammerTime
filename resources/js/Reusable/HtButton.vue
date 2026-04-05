@@ -2,7 +2,7 @@
 
 import { useIsJsUnavailable } from '@/composables/useIsJsUnavailable';
 import HtButtonContent, { HtButtonContentProps } from '@/Reusable/HtButtonContent.vue';
-import { ButtonColors, getButtonClasses } from '@/utils/buttons';
+import { ButtonColors, ButtonSizes, getButtonClasses } from '@/utils/buttons';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<{
   pressed?: boolean;
   justifyCenter?: boolean;
   title?: string;
+  size?: ButtonSizes;
 } & Partial<HtButtonContentProps>>(), {
   type: 'button',
   color: undefined,
@@ -32,6 +33,7 @@ const props = withDefaults(defineProps<{
   iconEnd: undefined,
   justifyCenter: false,
   title: undefined,
+  size: undefined,
 });
 
 const buttonClasses = computed(() => getButtonClasses(props));
