@@ -34,13 +34,13 @@ defineProps<{ discordAppId: string }>();
         class="bot-info-image"
         :src="usefulLinksBot"
       />
-      <h2>
+      <h1>
         <FontAwesomeIcon
           :icon="faRobot"
           class="me-1"
         />
         {{ $t('botInfo.heading') }}
-      </h2>
+      </h1>
     </template>
 
     <p class="mb-3">

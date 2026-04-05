@@ -19,13 +19,13 @@ const routeParams = useRouteParams(route, pageProps);
 <template>
   <HtCard>
     <template #header>
-      <h2>
+      <h1>
         <FontAwesomeIcon
           :icon="faHammer"
           class="me-1"
         />
         {{ $t('botSettings.title') }}
-      </h2>
+      </h1>
     </template>
 
     <p class="mt-1 mb-3">
