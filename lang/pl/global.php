@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Tłumaczenia są niekompletne',
   'contributeTranslations' => 'Wspomóż',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Skopiuj do schowka',
   'copiedToClipboard' => 'Skopiowano do schowka!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Wyrównaj interfejs',
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Niestandardowy typ zegara czasu',
