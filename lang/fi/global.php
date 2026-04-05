@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Jos ongelma jatkuu yli muutaman minuutin, liity Discord-palvelimelle ja ilmoita asiasta.",
       'contactDeveloper' => "Jos ongelma jatkuu yli muutaman minuutin, ota yhteyttä kehittäjään ja ilmoita asiasta.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Palvelin",
   ],
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
