@@ -219,6 +219,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ً](https://crowdin.com/profile/buckshot-)
   - [Arthur](https://crowdin.com/profile/DuperKnight)
   - [Casper](https://crowdin.com/profile/JajarGG)
+  - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [Marcos](https://crowdin.com/profile/marcos.pqueirozz)
   - [Tiago](https://crowdin.com/profile/DemiCool)
 - 🇧🇷 Portuguese, Brazilian
@@ -278,6 +279,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DearReux](https://crowdin.com/profile/DearReux)
+  - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
   - [Jatniel Torres Rivera](https://crowdin.com/profile/Jatnielo)
   - [Longsword](https://crowdin.com/profile/longsword)
