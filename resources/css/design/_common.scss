@@ -415,6 +415,10 @@ $color-map: (
     light: #9cc7ff,
     dark: #5b89c6,
   ),
+  progress-bar-warning: (
+    light: color.adjust(#997733, $lightness: -5%),
+    dark: color.adjust(#997733, $lightness: 10%),
+  ),
   combobox-highlighted-item-bg: (
     light: color.adjust($_button-primary-bg-light, $saturation: -15%),
     dark: color.adjust($_button-primary-bg-dark, $saturation: -15%),
