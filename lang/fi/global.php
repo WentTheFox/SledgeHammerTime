@@ -19,9 +19,9 @@ return [
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
   'contributeTranslations' => 'Avusta',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Noudatettu tällä hetkellä',
+    'atPickedDate' => 'Noudatettu valittuun aikaan',
+    'currentlyAndAtPickedDate' => 'Noudatettu tällä hetkellä ja valittuun aikaan',
   ],
   'copyToClipboard' => 'Kopioi leikepöydälle',
   'copiedToClipboard' => 'Kopioitu leikepöydälle!',
@@ -59,8 +59,8 @@ return [
         'description' => "Poista varjo- ja korkeusefektit syötteissä ja napeissa",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Aikavyöhykkeiden ryhmien otsikot',
+        'description' => 'Näyttää aikavyöhykkeen ryhmän (esim. America, Europe) aikavyöhykkeen valikossa.',
       ],
       'hourCycle' => [
         'label' => 'Mukautettu aikasyötteen kellon tyyppi',
