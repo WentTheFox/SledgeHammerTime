@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Vágólapra másolás',
   'copiedToClipboard' => 'Vágólapra másolva!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Felület kilapítása',
         'description' => "Kikapcsolja az árnyék és magasság hatásokat a beviteli mezőkön és gombokon",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Egyéni idő beviteli mező óra típusa',
