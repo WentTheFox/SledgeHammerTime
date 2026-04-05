@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
   'contributeTranslations' => 'Đóng góp',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Sao chép vào bảng nhớ tạm',
   'copiedToClipboard' => 'Đã sao chép vào bộ nhớ tạm thời!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Giao diện phẳng',
         'description' => "Tắt hiệu ứng bóng và hiệu ứng nổi ở các ô nhập và nút bấm",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Custom time input clock type',
