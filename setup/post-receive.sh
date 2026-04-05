@@ -39,32 +39,20 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         echo "# Skipping npm install, lockfile not modified"
     fi
 
-    if $GIT diff --name-only $oldrev $newrev | grep "^\(resources\|lang\)/"; then
-        BUILD_EXIT_CODE=0
-        # Put the app in maintenance mode during frontend build
-        echo "$ $CMD_LARAVEL_DOWN"
-        eval $CMD_LARAVEL_DOWN
-        echo "$ $CMD_CLEAR_PAGE_CACHE"
-        eval ${CMD_CLEAR_PAGE_CACHE}
-        echo "$ $CMD_BUILD"
-        eval $CMD_BUILD || BUILD_EXIT_CODE=$?
-        # Clear maintenance mode after frontend build (regardless of errors)
-        echo "$ $CMD_LARAVEL_UP"
-        eval $CMD_LARAVEL_UP
-        echo "$ $CMD_HORIZON"
-        eval $CMD_HORIZON
-        if [[ "$BUILD_EXIT_CODE" == "0" ]]; then
-            echo "$ $CMD_PM2"
-            eval $CMD_PM2
-        else
-          echo "/!\ Skipping PM2 restart, Build failed with exit code $BUILD_EXIT_CODE"
-          exit $BUILD_EXIT_CODE
-        fi
-    else
-        echo "# Skipping asset rebuild, no changes in resources/lang folders"
-        echo "$ $CMD_CLEAR_PAGE_CACHE"
-        eval ${CMD_CLEAR_PAGE_CACHE}
-    fi
+    # Put the app in maintenance mode during build
+    echo "$ $CMD_LARAVEL_DOWN"
+    eval $CMD_LARAVEL_DOWN
+    echo "$ $CMD_BUILD"
+    eval $CMD_BUILD || BUILD_EXIT_CODE=$?
+    echo "$ $CMD_HORIZON"
+    eval $CMD_HORIZON
+    echo "$ $CMD_PM2"
+    eval $CMD_PM2
+    echo "$ $CMD_CLEAR_PAGE_CACHE"
+    eval ${CMD_CLEAR_PAGE_CACHE}
+    # Clear maintenance mode after deployment (regardless of errors)
+    echo "$ $CMD_LARAVEL_UP"
+    eval $CMD_LARAVEL_UP
 else
     echo "Ref does not match $RUN_FOR_REF, exiting."
 fi
