@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#5865F2" />
   <meta name="color-scheme" content="light dark" />
   <meta name="keywords" content="discord,chat,formatting,timestamps,date,markdown" />
+  <meta name="description" content="{{ __('global.seoDescription') }}">
 
   <link rel="icon" href="/logos/logo.png" />
 
@@ -35,7 +36,9 @@
     @endforeach
   @endif
 
-  <title data-inertia>{{ $appName }}</title>
+  <x-inertia::head>
+    <title data-inertia>{{ $appName }}</title>
+  </x-inertia::head>
 
   <meta property="og:title" content="{{ $appName }}">
   <meta property="og:description" content="{{ __('global.seoDescription') }}">
@@ -55,7 +58,6 @@
   {{-- Scripts --}}
   @routes
   @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
-  <x-inertia::head/>
 </head>
 <body class="no-anim">
   <x-inertia::app />
