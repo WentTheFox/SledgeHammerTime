@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Якщо проблема не зникає більше кількох хвилин, будь ласка, приєднайтеся до сервера підтримки Discord і повідомте нам про це.",
       'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Сервер підтримки",
   ],
   'incompleteTranslations' => 'Переклади неповні',
