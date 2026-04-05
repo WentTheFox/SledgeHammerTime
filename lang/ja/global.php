@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "問題が数分以上続く場合は、Discordサポートサーバーに参加してご連絡ください。",
       'contactDeveloper' => "問題が数分以上続く場合は、開発者に連絡し、その旨をお知らせください。",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "サポートサーバー",
   ],
   'incompleteTranslations' => '翻訳は未完成です',
