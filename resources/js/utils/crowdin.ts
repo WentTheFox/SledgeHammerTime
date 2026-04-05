@@ -37,5 +37,4 @@ export interface IndexedReportData {
   >;
 }
 
-export const getTranslationProgress = (value: TranslationCompletionData | null | undefined): TranslationCompletionData =>
-  typeof value !== 'undefined' && value !== null ? value : { translation: 0, approval: 0 };
+export const fallbackTranslationCompletionData: TranslationCompletionData = { translation: 100, approval: 100 };

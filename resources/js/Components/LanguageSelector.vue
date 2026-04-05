@@ -11,7 +11,7 @@ import HtButton from '@/Reusable/HtButton.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtProgress from '@/Reusable/HtProgress.vue';
 import { ProgressBarProps } from '@/Reusable/HtProgressBar.vue';
-import { getTranslationProgress, TranslationCompletionData } from '@/utils/crowdin';
+import { fallbackTranslationCompletionData, TranslationCompletionData } from '@/utils/crowdin';
 import { AvailableLanguage, LANGUAGES, LatestLanguageConfigType } from '@/utils/language-settings';
 import { faCaretDown, faCaretUp, faLanguage, faLifeRing } from '@fortawesome/free-solid-svg-icons';
 import { router } from '@inertiajs/vue3';
@@ -49,9 +49,8 @@ const displayContributionHints = computed(() =>
 );
 
 const currentLanguageProgress = computed<TranslationCompletionData>(() =>
-  currentLanguage?.value.locale
-    ? getTranslationProgress(crowdinData?.value?.progress)
-    : { approval: 100, translation: 100 },
+  (currentLanguage?.value.locale && crowdinData?.value?.progress) ??
+  fallbackTranslationCompletionData,
 );
 
 const currentLanguageProgressBars = computed<ProgressBarProps[]>(() => {
@@ -65,7 +64,7 @@ const currentLanguageProgressBars = computed<ProgressBarProps[]>(() => {
   } else {
     bars.push({
       progress: currentLanguageProgress.value.translation,
-      color: 'translation'
+      color: 'translation',
     });
     bars.push({
       progress: currentLanguageProgress.value.approval,
