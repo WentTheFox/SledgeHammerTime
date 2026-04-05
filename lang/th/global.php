@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
   'contributeTranslations' => 'สนับสนุน',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'คัดลอกไปยังคลิปบอร์ด',
   'copiedToClipboard' => 'คัดลอกไปยังคลิปบอร์ดแล้ว!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'อินเทอร์เฟซแบบเรียบง่าย',
         'description' => "ปิดการใช้งานเอฟเฟกต์เงาและความสูงบนช่องข้อความและปุ่ม",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'กำหนดประเภทของนาฬิกาสำหรับการป้อนเวลา',
