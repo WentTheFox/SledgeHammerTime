@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Sorun birkaç dakikadan fazla devam ederse, lütfen Discord destek sunucumuza katılın ve bize bildirin.",
       'contactDeveloper' => "Sorun birkaç dakikadan fazla devam ederse, lütfen geliştiriciyle iletişime geçin ve durumu bildirin.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Destek Sunucusu",
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
