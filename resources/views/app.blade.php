@@ -18,6 +18,7 @@
   @endphp
 
   @if(!empty($routeName))
+    <link rel="canonical" href="{{ url()->current() }}">
     @foreach(Config::get('languages.supported_locales') as $supportedLocale)
       @php
         try {
@@ -27,10 +28,9 @@
           break;
         }
       @endphp
+      <link rel="alternate" hreflang="{{ $supportedLocale }}" href="{{ $href }}" />
       @if ($supportedLocale === $fallbackLocale)
-        <link rel="canonical" href="{{ $href }}">
-      @else
-        <link rel="alternate" hreflang="{{ $supportedLocale }}" href="{{ $href }}" />
+        <link rel="alternate" hreflang="x-default" href="{{ $href }}" />
       @endif
     @endforeach
   @endif
