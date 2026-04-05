@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Nếu vấn đề vẫn tiếp diễn sau vài phút, vui lòng tham gia cộng đồng hỗ trợ trên Discord và thông báo cho chúng tôi.",
       'contactDeveloper' => "Nếu vấn đề vẫn tiếp diễn sau vài phút, vui lòng liên hệ nhà phát triển ứng dụng và thông báo cho họ biết.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Cộng đồng hỗ trợ",
   ],
   'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
