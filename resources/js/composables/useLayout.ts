@@ -2,11 +2,14 @@ import { IDDQD, useCheatCode } from '@/composables/useCheatCode';
 import { useChrono } from '@/composables/useChrono';
 import { useDateTimeLibrary } from '@/composables/useDateTimeLibrary';
 import { useInputMethod } from '@/composables/useInputMethod';
+import { useLazyData } from '@/composables/useLazyloadedData';
 import { useLocalSettings } from '@/composables/useLocalSettings';
 import { useRoute } from '@/composables/useRoute';
 import { useTheme } from '@/composables/useTheme';
 import {
   chronoInject,
+  crowdinDataInject,
+  crowdinDataLoadingInject,
   CurrentLanguageData,
   currentLanguageInject,
   dateTimeLibraryInject,
@@ -25,6 +28,7 @@ import {
 } from '@/injection-keys';
 import { PageProps, User } from '@/types';
 import { computeCurrentLanguage } from '@/utils/app';
+import { LocaleReportData } from '@/utils/crowdin';
 import { router, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
 import { loadLanguageAsync } from 'laravel-vue-i18n';
@@ -37,31 +41,12 @@ export const useLayout = (layoutProps: LayoutProps) => {
   const inertiaPage = usePage();
   const pagePropsRef = ref<PageProps>(inertiaPage.props);
   provide(pagePropsInject, pagePropsRef);
-  // Home/root routes omit auth.user from page props (for HTML caching).
-  // When props carry null, fetch it asynchronously; on other pages use props directly.
-  const userInfoFromProps = computed(() => pagePropsRef.value?.auth?.user ?? null);
-  const asyncUserInfo = ref<User | null>(null);
-  const userInfoLoading = ref(true);
-  watch(userInfoFromProps, async (propsUser) => {
-    if (propsUser !== null) {
-      asyncUserInfo.value = null;
-      return;
-    }
-    if (!import.meta.env.SSR) {
-      userInfoLoading.value = true;
-      try {
-        const { data } = await axios.get<User | null>('/frontend/user-info');
-        asyncUserInfo.value = data;
-      } catch {
-        asyncUserInfo.value = null;
-      } finally {
-        userInfoLoading.value = false;
-      }
-    }
-  }, { immediate: true });
-  const userInfo = computed(() => userInfoFromProps.value ?? asyncUserInfo.value);
-  provide(userInfoInject, userInfo);
-  provide(userInfoLoadingInject, userInfoLoading);
+  useLazyData(
+    () => pagePropsRef.value?.auth?.user ?? null,
+    () => axios.get<User | null>('/frontend/user-info'),
+    userInfoInject,
+    userInfoLoadingInject,
+  );
   const devModeRef = useCheatCode(IDDQD);
   provide(devModeInject, devModeRef);
   let routerHandlerCleanup: VoidFunction | undefined;
@@ -86,6 +71,12 @@ export const useLayout = (layoutProps: LayoutProps) => {
 
   const currentLanguage = computed<CurrentLanguageData>(() => computeCurrentLanguage(pagePropsRef.value));
   provide(currentLanguageInject, currentLanguage);
+  useLazyData(
+    () => pagePropsRef.value?.crowdinData ?? null,
+    () => axios.get<LocaleReportData | null>(`/frontend/translation-progress/${currentLanguage.value.locale}`),
+    crowdinDataInject,
+    crowdinDataLoadingInject,
+  );
 
   const chrono = useChrono(currentLanguage);
   const localSettings = useLocalSettings(currentLanguage, chrono);

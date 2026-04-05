@@ -65,15 +65,40 @@ const getTimezoneAbbreviations = (timezone: string): string[] => {
   return Array.from(abbrevs);
 };
 
-const getCurrentTimezoneAbbreviation = (timezone: string, aliases: string[]): string | undefined => {
-  const now = new Date();
-  const short = formatTzName(timezone, 'short', now);
+export const getTimezoneAbbreviationAtDate = (timezone: string, aliases: string[], date: Date): string | undefined => {
+  // Try 'short' first — works in browser environments (returns "CET", "CEST", "EST", etc.)
+  const short = formatTzName(timezone, 'short', date);
   if (short && !/^(GMT|UTC)[+-]/.test(short) && aliases.includes(short)) return short;
-  const long = formatTzName(timezone, 'long', now);
-  if (long) {
-    const initials = getInitials(long);
+
+  // In Node.js, 'short' returns GMT offsets (e.g. "GMT+1"). Compare UTC offsets against
+  // the two reference dates to determine whether we're in standard or daylight time,
+  // then pick the correct initials format:
+  //   - Standard time: use 'longGeneric' which drops the "Standard" qualifier
+  //     ("Central European Time" → "CET", not "CEST")
+  //   - Daylight time: use 'long' which preserves the "Summer" qualifier
+  //     ("Central European Summer Time" → "CEST")
+  const offsetAtDate = formatTzName(timezone, 'shortOffset', date);
+  const isStandardTime = offsetAtDate === formatTzName(timezone, 'shortOffset', STANDARD_TIME_DATE);
+  const isDaylightTime = offsetAtDate === formatTzName(timezone, 'shortOffset', DAYLIGHT_TIME_DATE);
+
+  if (isStandardTime || isDaylightTime) {
+    // isStandardTime takes priority when both match (no-DST timezone)
+    const format = isStandardTime ? 'longGeneric' : 'long';
+    const refDate = isStandardTime ? STANDARD_TIME_DATE : DAYLIGHT_TIME_DATE;
+    const name = formatTzName(timezone, format, refDate);
+    if (name) {
+      const initials = getInitials(name);
+      if (initials.length >= 2 && aliases.includes(initials)) return initials;
+    }
+  }
+
+  // Final fallback: longGeneric on the given date
+  const generic = formatTzName(timezone, 'longGeneric', date);
+  if (generic) {
+    const initials = getInitials(generic);
     if (initials.length >= 2 && aliases.includes(initials)) return initials;
   }
+
   return undefined;
 };
 
@@ -120,7 +145,7 @@ export const getTimezoneValue = (timezone: string, locale = 'en'): TimezoneValue
   }
   return {
     ...cached,
-    currentAlias: getCurrentTimezoneAbbreviation(timezone, cached.aliases ?? []),
+    currentAlias: getTimezoneAbbreviationAtDate(timezone, cached.aliases ?? [], new Date()),
   };
 };
 
@@ -250,5 +275,5 @@ export const calculateNtpOffset = (t0: number | undefined, t1: number | undefine
 };
 
 export const normalizeTimeString = (value: string) => (
-  value.length === 5 ? `${value}:00` : value
+  value.length === 5 ? `${value}ű:00` : value
 );

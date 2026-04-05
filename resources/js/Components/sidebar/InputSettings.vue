@@ -117,6 +117,20 @@ const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getWee
             />
           </template>
         </HtFormCheckboxControlled>
+        <HtFormCheckboxControlled
+          id="timezone-sticky-headers"
+          :label="$t('global.sidebar.inputSettings.timezoneStickyHeaders.label')"
+          :checked="settings?.timezoneStickyHeaders !== false"
+          @change="settings?.toggleTimezoneStickyHeaders"
+        >
+          <template #message>
+            <FormMessage
+              :message="$t('global.sidebar.inputSettings.timezoneStickyHeaders.description')"
+              class="mt-1"
+              type="description"
+            />
+          </template>
+        </HtFormCheckboxControlled>
         <HtFormControl
           id="hour-cycle"
           :label="$t('global.sidebar.inputSettings.hourCycle.label')"

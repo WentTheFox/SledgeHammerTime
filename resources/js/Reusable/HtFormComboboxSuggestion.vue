@@ -2,8 +2,9 @@
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
 import HtTextHighlighter from '@/Reusable/HtTextHighlighter.vue';
-import { BadgeColor } from '@/utils/badges';
 import {
+  AliasBadgeItem,
+  buildAliasBadges,
   ComboboxOption,
   FormComboboxSuggestionAddonMode,
   highlightedClass,
@@ -13,19 +14,21 @@ import {
 import {
   Component as ComponentType,
   computed,
+  getCurrentInstance,
+  nextTick,
   onMounted,
-  onUnmounted,
+  ref,
   useTemplateRef,
   watch,
 } from 'vue';
+import { directive as vTippy } from 'vue-tippy';
 
 const props = defineProps<{
   option: ComboboxOption;
+  displayLabel?: string;
   inputValue: string | null;
   selectedOption: string | null;
   isHighlighted: boolean;
-  isVisible: boolean;
-  intersectionObserver: IntersectionObserver | null;
   addonComponent?: ComponentType<{ option: ComboboxOption }>;
   addonMode: FormComboboxSuggestionAddonMode;
 }>();
@@ -35,69 +38,54 @@ const emit = defineEmits<{
   (e: 'scrollToSelected'): void;
 }>();
 
-interface BadgeItem {
-  text: string;
-  color: BadgeColor | undefined;
-}
+const badges = computed<AliasBadgeItem[] | undefined>(() => buildAliasBadges(props.option));
 
-const badges = computed<BadgeItem[] | undefined>(() => {
-  const { description, aliases, currentAlias } = props.option;
-  if (!description && !aliases?.length) return undefined;
 
-  const descriptionArray = (description ? [description] : []);
-  const sortedItems = aliases
-    ? [...descriptionArray, ...aliases].sort((a, b) => (b === currentAlias ? 1 : 0) - (a === currentAlias ? 1 : 0))
-    : descriptionArray;
+const mainTextRef = useTemplateRef<HTMLElement>('main-text-el');
+const instance = getCurrentInstance();
+const isLabelTruncated = ref(false);
 
-  return sortedItems.map(alias => ({
-    text: alias,
-    color: alias === currentAlias ? 'cyan' as BadgeColor : undefined,
-  }));
-});
+const checkTruncation = () => {
+  const el = mainTextRef.value;
+  isLabelTruncated.value = !!el && el.scrollWidth > el.clientWidth;
+};
 
-const suggestionRef = useTemplateRef('suggestion');
+const getTooltipAppendTarget = () => {
+  if (import.meta.env.SSR) return undefined;
+  return instance?.proxy?.$el?.closest('dialog') ?? document.body;
+};
 
 onMounted(() => {
   if (props.selectedOption === props.option.value) {
     emit('scrollToSelected');
   }
-  if (suggestionRef.value) {
-    props.intersectionObserver?.observe(suggestionRef.value);
-  }
+  nextTick(checkTruncation);
 });
 
-watch(() => props.intersectionObserver, (suggestionIO) => {
-  if (suggestionRef.value) {
-    suggestionIO?.observe(suggestionRef.value);
-  }
-});
-
-onUnmounted(() => {
-  if (suggestionRef.value) {
-    props.intersectionObserver?.unobserve(suggestionRef.value);
-  }
-});
+watch(() => props.displayLabel ?? props.option.label, () => nextTick(checkTruncation));
 </script>
 
 <template>
   <button
-    ref="suggestion"
-    :class="[suggestionItemClass, {[selectedClass]: option.value === selectedOption, [highlightedClass]: isHighlighted, [`addon-mode-${addonMode}`]: addonComponent}]"
+    :class="[suggestionItemClass, {[selectedClass]: option.value === selectedOption, [highlightedClass]: isHighlighted, [`addon-mode-${addonMode}`]: addonComponent, 'label-truncated': isLabelTruncated}]"
     type="button"
     :data-value="option.value"
     @click.prevent="emit('click', option)"
   >
     <span class="combobox-suggestion-item-label">
       <span class="combobox-suggestion-item-text">
-        <span class="combobox-suggestion-item-main-text">
+        <span
+          ref="main-text-el"
+          class="combobox-suggestion-item-main-text"
+        >
           <HtTextHighlighter
-            :text="option.label"
+            :text="displayLabel ?? option.label"
             :query="inputValue"
           />
         </span>
       </span>
       <span
-        v-if="isVisible && addonComponent"
+        v-if="addonComponent"
         class="combobox-suggestion-item-addon"
       >
         <component
@@ -110,16 +98,31 @@ onUnmounted(() => {
       v-if="badges"
       :compact="true"
     >
-      <HtBadge
+      <template
         v-for="badge in badges"
         :key="badge.text"
-        :color="badge.color"
       >
-        <HtTextHighlighter
-          :text="badge.text"
-          :query="inputValue"
-        />
-      </HtBadge>
+        <HtBadge
+          v-if="badge.color"
+          v-tippy="{ content: $t(badge.tooltipKey!), appendTo: getTooltipAppendTarget, placement: 'left' }"
+          :color="badge.color"
+          class="cursor-help"
+        >
+          <HtTextHighlighter
+            :text="badge.text"
+            :query="inputValue"
+          />
+        </HtBadge>
+        <HtBadge
+          v-else
+          :color="badge.color"
+        >
+          <HtTextHighlighter
+            :text="badge.text"
+            :query="inputValue"
+          />
+        </HtBadge>
+      </template>
     </HtBadgeGroup>
   </button>
 </template>

@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
+use App\Http\Controllers\TranslationProgressController;
 use App\Http\Middleware\CachePageResponse;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,7 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');
   Route::get('/shards', [BotInfoController::class, 'shards'])->name('app.shards');
+  Route::get('/translation-progress/{locale}', [TranslationProgressController::class, 'progress'])->name('app.translationProgress');
 });
 
 Route::get('/status', [StaticController::class, 'status'])->name('status');

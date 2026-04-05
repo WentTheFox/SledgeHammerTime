@@ -7,6 +7,7 @@ import {
 import { DefaultDTL } from '@/utils/dtl';
 import {
   coerceToTwelveHours,
+  getTimezoneAbbreviationAtDate,
   getTimezoneValue,
   getUtcOffsetString,
   rangeLimit,
@@ -323,6 +324,55 @@ describe('getTimezoneValue', () => {
       expect(getTimezoneValue('Asia/Tokyo').currentAlias).toBe('JST');
       vi.setSystemTime(new Date('2024-07-15T12:00:00Z'));
       expect(getTimezoneValue('Asia/Tokyo').currentAlias).toBe('JST');
+    });
+  });
+
+  describe('getTimezoneAbbreviationAtDate', () => {
+    it('returns the winter alias for a winter date', () => {
+      const { aliases } = getTimezoneValue('America/New_York');
+      const result = getTimezoneAbbreviationAtDate('America/New_York', aliases!, new Date('2024-12-16T12:00:00Z'));
+      expect(result).toBe('EST');
+    });
+
+    it('returns the summer alias for a summer date', () => {
+      const { aliases } = getTimezoneValue('America/New_York');
+      const result = getTimezoneAbbreviationAtDate('America/New_York', aliases!, new Date('2024-07-15T12:00:00Z'));
+      expect(result).toBe('EDT');
+    });
+
+    it('returns winter alias for Europe/Berlin on December 16', () => {
+      const { aliases } = getTimezoneValue('Europe/Berlin');
+      const result = getTimezoneAbbreviationAtDate('Europe/Berlin', aliases!, new Date('2024-12-16T12:00:00Z'));
+      // December is CET (UTC+1), not CEST (UTC+2)
+      expect(result).not.toBe('CEST');
+      expect(aliases).toContain(result);
+    });
+
+    it('returns summer alias for Europe/Berlin on July 15', () => {
+      const { aliases } = getTimezoneValue('Europe/Berlin');
+      const result = getTimezoneAbbreviationAtDate('Europe/Berlin', aliases!, new Date('2024-07-15T12:00:00Z'));
+      expect(result).not.toBe('CET');
+      expect(aliases).toContain(result);
+    });
+
+    it('returns undefined for an offset-only timezone', () => {
+      const result = getTimezoneAbbreviationAtDate('Etc/GMT+5', [], new Date('2024-12-16T12:00:00Z'));
+      expect(result).toBeUndefined();
+    });
+
+    it('returns undefined when aliases array does not include the computed abbreviation', () => {
+      // Passing an empty aliases array should always return undefined
+      const result = getTimezoneAbbreviationAtDate('America/New_York', [], new Date('2024-12-16T12:00:00Z'));
+      expect(result).toBeUndefined();
+    });
+
+    it('is distinct from currentAlias when the timezone observes DST and dates are in different seasons', () => {
+      vi.setSystemTime(new Date('2024-07-15T12:00:00Z')); // summer: CEST / EDT / etc.
+      const { aliases, currentAlias } = getTimezoneValue('America/New_York');
+      const winterAlias = getTimezoneAbbreviationAtDate('America/New_York', aliases!, new Date('2024-12-16T12:00:00Z'));
+      expect(currentAlias).toBe('EDT');
+      expect(winterAlias).toBe('EST');
+      expect(winterAlias).not.toBe(currentAlias);
     });
   });
 });

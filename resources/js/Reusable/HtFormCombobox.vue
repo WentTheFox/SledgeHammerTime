@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { useComboboxSuggestionList } from '@/composables/useComboboxSuggestionList';
+import { ComboboxSearchIndex } from '@/composables/useComboboxIndex';
 import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlFullWidth } from '@/composables/useFormControlFullWidth';
 import { useFormControlId } from '@/composables/useFormControlId';
-import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
 import HtFormComboboxSuggestion from '@/Reusable/HtFormComboboxSuggestion.vue';
 import {
   ComboboxAddonComponentProps,
   ComboboxOption,
   FormComboboxSuggestionAddonMode,
+  normalizeQueryValue,
   suggestionItemClass,
 } from '@/utils/combobox';
 import { faChevronDown, faChevronUp, faKeyboard } from '@fortawesome/free-solid-svg-icons';
@@ -37,6 +39,8 @@ const props = withDefaults(defineProps<{
   disabled?: boolean;
   readonly?: boolean;
   fullWidth?: boolean;
+  stickyHeaders?: boolean;
+  searchIndex?: ComboboxSearchIndex;
 }>(), {
   name: undefined,
   class: undefined,
@@ -47,6 +51,8 @@ const props = withDefaults(defineProps<{
   fullWidth: undefined,
   disabled: undefined,
   readonly: false,
+  stickyHeaders: false,
+  searchIndex: undefined,
 });
 
 const id = useFormControlId();
@@ -59,7 +65,6 @@ const emit = defineEmits<{
 }>();
 
 const inputRef = useTemplateRef<HTMLInputElement>('input-el');
-const suggestionsRef = useTemplateRef<HTMLInputElement>('suggestions-el');
 const inputValue = ref<string>('');
 const typingModeValue = ref<string | null>(null);
 const typingModeSelectionStart = ref<number>(0);
@@ -69,67 +74,43 @@ const mode = ref<'typing' | 'select'>('typing');
 const showSuggestions = ref<boolean>(false);
 const isInteractingWithSuggestions = ref(false);
 
-type OptionMeta = { [k in keyof Omit<ComboboxOption, 'value'>]: Record<string, ComboboxOption[k]> };
-
-const timezoneIndex = useTimezoneIndex(toRef(() => props.options));
-const optionMeta = computed(() => props.options.reduce((acc: OptionMeta, option) => ({
-  ...acc,
-  label: {
-    ...acc.label,
-    [option.value]: option.label,
-  },
-  description: option.description ? { ...acc.description, [option.value]: option.description } : acc.description,
-  aliases: option.aliases ? { ...acc.aliases, [option.value]: option.aliases } : acc.aliases,
-  searchTerms: option.searchTerms ? { ...acc.searchTerms, [option.value]: option.searchTerms } : acc.searchTerms,
-}), { label: {}, description: {}, aliases: {}, searchTerms: {} }));
+const optionsByValue = computed(() => new Map(props.options.map(option => [option.value, option])));
+const normalizedInputValue = computed(() => (mode.value === 'select' ? (typingModeValue.value ?? '') : inputValue.value).trim());
 const filteredOptions = computed<ComboboxOption[]>(() => {
-  const normalizedInputValue = (mode.value === 'select' ? (typingModeValue.value ?? '') : inputValue.value).trim();
-  return normalizedInputValue
-    ? timezoneIndex.find.value(normalizedInputValue).map(value => ({
-      value,
-      label: optionMeta.value.label[value],
-      description: optionMeta.value.description?.[value],
-      aliases: optionMeta.value.aliases?.[value],
-      searchTerms: optionMeta.value.searchTerms?.[value],
-    }))
-    : props.options;
+  if (!normalizedInputValue.value) return props.options;
+  if (props.searchIndex) {
+    return props.searchIndex.find.value(normalizedInputValue.value)
+      .map(value => optionsByValue.value.get(value)!)
+      .filter(Boolean);
+  }
+  const query = normalizeQueryValue(normalizedInputValue.value);
+  return props.options.filter(option => normalizeQueryValue(option.label).includes(query));
 });
+
 const optionMatchingInputIndex = computed<number>(() =>
   filteredOptions.value.findIndex(option => option.label === inputValue.value),
 );
 const inputMatchesOption = computed<boolean>(() => optionMatchingInputIndex.value !== -1);
-const visibleEntries = ref(new Set<string>());
 
-const suggestionIO = computed(() => suggestionsRef.value ? new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const entryValue = String((entry.target as HTMLElement).dataset.value);
+const {
+  containerRef,
+  containerProps,
+  wrapperProps,
+  virtualItems,
+  showStickyHeaderOverlay,
+  currentStickyHeader,
+  scrollHighlightedOptionIntoView,
+  scrollByPage,
+} = useComboboxSuggestionList({
+  filteredOptions,
+  highlightedIndex,
+  showSuggestions,
+  normalizedInputValue,
+  stickyHeaders: toRef(() => props.stickyHeaders),
+});
 
-    if (entry.isIntersecting) {
-      visibleEntries.value.add(entryValue);
-    } else {
-      visibleEntries.value.delete(entryValue);
-    }
-  });
-}, {
-  root: suggestionsRef.value,
-  threshold: 0.2,
-}) : null);
-
-const scrollHighlightedOptionIntoView = () => {
-  nextTick(() => {
-    if (!suggestionsRef.value) {
-      return;
-    }
-    const targetSuggestion = suggestionsRef.value.children[highlightedIndex.value] as HTMLElement;
-    if (!targetSuggestion || !targetSuggestion.offsetParent) return;
-
-    const parentHeightHalf = targetSuggestion.offsetParent.getBoundingClientRect().height / 2;
-    const targetOffsetHeightHalf = targetSuggestion.offsetHeight / 2;
-    targetSuggestion.offsetParent.scrollTo(0, Math.max(0, targetSuggestion.offsetTop - parentHeightHalf + targetOffsetHeightHalf));
-  });
-};
 const setInputValueFromModelValue = (newModelValue: string | null) => {
-  inputValue.value = props.options.find(opt => opt.value === newModelValue)?.label ?? '';
+  inputValue.value = (newModelValue !== null ? optionsByValue.value.get(newModelValue)?.label : undefined) ?? '';
   detectSelectMode();
 };
 
@@ -137,29 +118,19 @@ const setTypingMode = ({ newInputValue, newTypingModeValue }: {
   newInputValue?: string,
   newTypingModeValue?: string
 }) => {
-  if (!props.allowTyping) {
-    return;
-  }
+  if (!props.allowTyping) return;
   mode.value = 'typing';
-  if (typeof newInputValue !== 'undefined') {
-    inputValue.value = newInputValue;
-  }
-  if (typeof newTypingModeValue !== 'undefined') {
-    typingModeValue.value = newTypingModeValue;
-  }
+  if (typeof newInputValue !== 'undefined') inputValue.value = newInputValue;
+  if (typeof newTypingModeValue !== 'undefined') typingModeValue.value = newTypingModeValue;
   highlightedIndex.value = -1;
 };
 
-// Detect manual user input & show suggestions
 const handleInput = (e: Event) => {
   if (!props.allowTyping) {
     e.preventDefault();
     return;
   }
-
-  if (mode.value === 'select') {
-    setTypingMode({ newTypingModeValue: inputValue.value });
-  }
+  if (mode.value === 'select') setTypingMode({ newTypingModeValue: inputValue.value });
   showSuggestions.value = true;
 };
 
@@ -172,9 +143,7 @@ const isModifiedKeyboardEventWithoutShift = (event: KeyboardEvent) =>
 const handleKeyDown = (event: KeyboardEvent) => {
   switch (event.key) {
     case 'Home':
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+      if (isModifiedKeyboardEvent(event)) return;
       if (mode.value === 'select' && showSuggestions.value && filteredOptions.value.length > 0) {
         highlightedIndex.value = filteredOptions.value.length - 1;
       }
@@ -186,26 +155,20 @@ const handleKeyDown = (event: KeyboardEvent) => {
       break;
 
     case ' ':
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+      if (isModifiedKeyboardEvent(event)) return;
       if (inputMatchesOption.value) {
-        showSuggestions.value = true; // Show suggestions only if input matches an option
+        showSuggestions.value = true;
         event.preventDefault();
       }
       break;
 
     case 'ArrowDown':
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+      if (isModifiedKeyboardEvent(event)) return;
       if (mode.value === 'typing' && filteredOptions.value.length > 0) {
         typingModeValue.value = inputValue.value;
         typingModeSelectionStart.value = inputRef.value?.selectionStart ?? 0;
         typingModeSelectionEnd.value = inputRef.value?.selectionStart ?? 0;
-        highlightedIndex.value = optionMatchingInputIndex.value === -1
-          ? 0
-          : optionMatchingInputIndex.value;
+        highlightedIndex.value = optionMatchingInputIndex.value === -1 ? 0 : optionMatchingInputIndex.value;
         mode.value = 'select';
         inputValue.value = filteredOptions.value[0].label;
         showSuggestions.value = true;
@@ -218,14 +181,11 @@ const handleKeyDown = (event: KeyboardEvent) => {
         }
         event.preventDefault();
       }
-
       scrollHighlightedOptionIntoView();
       break;
 
     case 'ArrowUp':
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+      if (isModifiedKeyboardEvent(event)) return;
       if (mode.value === 'select') {
         event.preventDefault();
         const currentIndex = highlightedIndex.value;
@@ -250,12 +210,8 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
     case 'Enter':
     case 'Tab':
-      if (event.key === 'Tab' ? isModifiedKeyboardEventWithoutShift(event) : isModifiedKeyboardEvent(event)) {
-        return;
-      }
-      if (event.key === 'Enter') {
-        event.preventDefault();
-      }
+      if (event.key === 'Tab' ? isModifiedKeyboardEventWithoutShift(event) : isModifiedKeyboardEvent(event)) return;
+      if (event.key === 'Enter') event.preventDefault();
       if (mode.value === 'select' && showSuggestions.value && highlightedIndex.value !== -1) {
         const selectedOption = filteredOptions.value[highlightedIndex.value];
         if (selectedOption) {
@@ -272,53 +228,29 @@ const handleKeyDown = (event: KeyboardEvent) => {
       showSuggestions.value = false;
       return;
 
-    case "PageDown":
-    case "PageUp":
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+    case 'PageDown':
+    case 'PageUp': {
+      if (isModifiedKeyboardEvent(event)) return;
       if (mode.value === 'select' && showSuggestions.value) {
-        const suggestionsRefValue = suggestionsRef.value;
-        if (!suggestionsRefValue || !suggestionsRefValue.offsetParent) {
-          return;
-        }
+        const container = containerRef.value;
+        if (!container || !container.offsetParent) break;
         event.preventDefault();
-
-        const scrollAmount = suggestionsRefValue.getBoundingClientRect().height / 2;
-        const scrollDirection = event.key === 'PageDown' ? 1 : -1;
-        suggestionsRefValue.scrollTop += scrollAmount * scrollDirection;
-
-        nextTick(() => {
-          const children = Array.from(suggestionsRefValue.children) as HTMLElement[];
-          const containerRect = suggestionsRefValue.getBoundingClientRect();
-          let firstVisible: HTMLElement | null = null;
-          for (let i = scrollDirection > 0 ? children.length - 1 : 0; scrollDirection > 0 ? i > -1 : i < children.length; i -= scrollDirection) {
-            const child = children[i];
-            const rect = child.getBoundingClientRect();
-            const visible = rect.bottom <= containerRect.bottom && rect.top >= containerRect.top;
-            if (visible) {
-              firstVisible = child;
-              break;
-            }
-          }
-          if (firstVisible) {
-            highlightedIndex.value = children.indexOf(firstVisible);
-            inputValue.value = filteredOptions.value[highlightedIndex.value].label;
-            scrollHighlightedOptionIntoView();
-          }
+        const direction = (event.key === 'PageDown' ? 1 : -1) as 1 | -1;
+        scrollByPage(direction).then(visibleValue => {
+          if (!visibleValue) return;
+          highlightedIndex.value = filteredOptions.value.findIndex(o => o.value === visibleValue);
+          inputValue.value = filteredOptions.value[highlightedIndex.value].label;
+          scrollHighlightedOptionIntoView();
         });
       }
       break;
+    }
 
     case 'Escape':
-      if (isModifiedKeyboardEvent(event)) {
-        return;
-      }
+      if (isModifiedKeyboardEvent(event)) return;
       event.preventDefault();
       if (mode.value === 'select' && typingModeValue.value !== null) {
-        if (!inputMatchesOption.value) {
-          setTypingMode({ newInputValue: typingModeValue.value });
-        }
+        if (!inputMatchesOption.value) setTypingMode({ newInputValue: typingModeValue.value });
       } else {
         highlightedIndex.value = optionMatchingInputIndex.value;
         setInputValueFromModelValue(model.value);
@@ -327,9 +259,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
       break;
   }
 
-  if (!props.allowTyping && !event.defaultPrevented) {
-    event.preventDefault();
-  }
+  if (!props.allowTyping && !event.defaultPrevented) event.preventDefault();
 };
 
 const handleSuggestionClick = (option: ComboboxOption, index: number) => {
@@ -341,19 +271,15 @@ const handleSuggestionClick = (option: ComboboxOption, index: number) => {
   detectSelectMode();
 };
 
-// Handle focus & blur correctly
 const handleFocus = (event: FocusEvent) => {
   emit('focus', event);
   if (props.allowTyping && !isInteractingWithSuggestions.value) {
-    // Hide suggestions on focus (except during restore after option click)
     showSuggestions.value = false;
   }
   detectSelectMode();
 };
 const handleInputClick = () => {
-  if (props.allowTyping) {
-    return;
-  }
+  if (props.allowTyping) return;
   showSuggestions.value = !showSuggestions.value;
 };
 const detectSelectMode = () => {
@@ -379,21 +305,14 @@ const handleIconClick = (event: MouseEvent) => {
 const formSelectIconClass = 'form-select-icon';
 const clickableClass = 'clickable';
 const handleBlur = (event: FocusEvent) => {
-  // Check if focus is moving to a suggestion
   const relatedTarget = event.relatedTarget as HTMLElement | null;
   if (relatedTarget) {
-    if (isInteractingWithSuggestions.value) {
-      return;
-    }
+    if (isInteractingWithSuggestions.value) return;
     const targetClasses = relatedTarget.classList;
-    if (targetClasses.contains(suggestionItemClass) || targetClasses.contains(formSelectIconClass)) {
-      return;
-    }
+    if (targetClasses.contains(suggestionItemClass) || targetClasses.contains(formSelectIconClass)) return;
   }
   showSuggestions.value = false;
-  if (!inputMatchesOption.value) {
-    setInputValueFromModelValue(model.value);
-  }
+  if (!inputMatchesOption.value) setInputValueFromModelValue(model.value);
 };
 
 const handleMouseDown = () => {
@@ -409,9 +328,7 @@ export interface FormComboboxApi {
   focus: typeof focus;
 }
 
-defineExpose<FormComboboxApi>({
-  focus,
-});
+defineExpose<FormComboboxApi>({ focus });
 
 const globalMouseupHandler = () => {
   if (isInteractingWithSuggestions.value && showSuggestions.value) {
@@ -428,7 +345,6 @@ onMounted(() => {
   if (!props.allowTyping && mode.value === 'typing') {
     mode.value = 'select';
     if (!props.options.some(o => o.value === model.value)) {
-      // Select the first option if no matching option is provided
       model.value = props.options?.[0].value ?? null;
     }
   }
@@ -437,7 +353,6 @@ onUnmounted(() => {
   if (document) {
     document.body.removeEventListener('mouseup', globalMouseupHandler);
   }
-  suggestionIO.value?.disconnect();
 });
 
 watch(model, (newModelValue) => {
@@ -479,25 +394,45 @@ watch(model, (newModelValue) => {
     </button>
     <div
       v-if="showSuggestions && filteredOptions.length"
-      ref="suggestions-el"
+      v-bind="containerProps"
       class="combobox-suggestions"
       @mousedown.passive="handleMouseDown"
     >
-      <HtFormComboboxSuggestion
-        v-for="(option, i) in filteredOptions"
-        :key="option.value"
-        :option="option"
-        :selected-option="model"
-        :is-highlighted="highlightedIndex === i"
-        :is-visible="visibleEntries.has(option.value)"
-        :intersection-observer="suggestionIO"
-        :addon-component="addonComponent"
-        :addon-mode="addonMode"
-        :input-value="mode === 'typing' ? inputValue : typingModeValue"
-        @click.passive="handleSuggestionClick(option, i)"
-        @mouseenter.passive="highlightedIndex = i"
-        @scroll-to-selected="scrollHighlightedOptionIntoView"
-      />
+      <div
+        v-if="showStickyHeaderOverlay"
+        ref="sticky-overlay-el"
+        class="combobox-suggestion-header combobox-suggestion-header-overlay"
+        aria-hidden="true"
+      >
+        {{ currentStickyHeader }}
+      </div>
+      <div v-bind="wrapperProps">
+        <template
+          v-for="virtualItem in virtualItems"
+          :key="virtualItem.data.key"
+        >
+          <div
+            v-if="virtualItem.data.type === 'header'"
+            class="combobox-suggestion-header"
+            aria-hidden="true"
+          >
+            {{ virtualItem.data.label }}
+          </div>
+          <HtFormComboboxSuggestion
+            v-else
+            :option="virtualItem.data.option"
+            :display-label="virtualItem.data.displayLabel"
+            :selected-option="model"
+            :is-highlighted="highlightedIndex === virtualItem.data.index"
+            :addon-component="addonComponent"
+            :addon-mode="addonMode"
+            :input-value="mode === 'typing' ? inputValue : typingModeValue"
+            @click.passive="handleSuggestionClick(virtualItem.data.option, virtualItem.data.index)"
+            @mouseenter.passive="highlightedIndex = virtualItem.data.index"
+            @scroll-to-selected="scrollHighlightedOptionIntoView"
+          />
+        </template>
+      </div>
     </div>
   </div>
 </template>

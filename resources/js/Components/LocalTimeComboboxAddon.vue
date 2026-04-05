@@ -43,18 +43,3 @@ watch([dtl, dateLibLocale], () => {
 <template>
   <span class="local-time">{{ localTime }}</span>
 </template>
-
-<style lang="scss" scoped>
-.local-time {
-  animation: local-time-fade-in .2s ease-out forwards;
-
-  @keyframes local-time-fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-</style>

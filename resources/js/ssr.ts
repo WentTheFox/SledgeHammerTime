@@ -10,7 +10,9 @@ import { ZiggyVue } from 'ziggy-js';
 const fallbackAppName = 'HammerTime';
 createServer(
   async (page) => {
-    await preloadDateFnsLocale(getDateFnsNormalizedLocaleName(page.props.app?.locale ?? 'en'));
+    const pageAppProps = page.props.app;
+    const pageBcp47Locale = pageAppProps?.languages?.[pageAppProps?.locale ?? ''];
+    await preloadDateFnsLocale(getDateFnsNormalizedLocaleName(pageBcp47Locale ?? 'en'));
     return createInertiaApp({
       page,
       render: renderToString,

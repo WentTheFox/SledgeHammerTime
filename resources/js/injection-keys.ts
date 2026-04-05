@@ -3,6 +3,7 @@ import { HourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue, DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { PageProps, User } from '@/types';
+import { LocaleReportData } from '@/utils/crowdin';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
 import type { Chrono } from 'chrono-node';
 import { ComputedRef, DeepReadonly, InjectionKey, Ref } from 'vue';
@@ -58,6 +59,7 @@ export interface LocalSettingsValue {
   readonly isLightTheme: boolean | null;
   readonly hourCycle: HourCycle | null;
   readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
+  readonly timezoneStickyHeaders: boolean | null;
   readonly toggleNaturalLanguageInput: (e: Event) => void;
   readonly toggleCustomDateInput: (e: Event) => void;
   readonly toggleCustomTimeInput: (e: Event) => void;
@@ -68,6 +70,7 @@ export interface LocalSettingsValue {
   readonly setLightTheme: (isLight: boolean | null) => void;
   readonly setHourCycle: (e: Event) => void;
   readonly setFirstDayOfWeek: (e: Event) => void;
+  readonly toggleTimezoneStickyHeaders: (e: Event) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;
@@ -82,6 +85,8 @@ export const pagePropsInject = Symbol('pagePropsInject') as InjectionKey<Ref<Pag
 
 export const userInfoInject = Symbol('userInfoInject') as InjectionKey<Ref<User | null>>;
 export const userInfoLoadingInject = Symbol('userInfoLoadingInject') as InjectionKey<Ref<boolean>>;
+export const crowdinDataInject = Symbol('crowdinDataInject') as InjectionKey<Ref<LocaleReportData | null>>;
+export const crowdinDataLoadingInject = Symbol('crowdinDataLoadingInject') as InjectionKey<Ref<boolean>>;
 
 export interface CurrentLanguageData {
   locale: AvailableLanguage;

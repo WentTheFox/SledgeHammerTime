@@ -14,6 +14,7 @@ const sidebarOpenPrefKey = 'sidebar-open';
 const lightThemePrefKey = 'light-theme';
 const hourCyclePrefKey = 'hour-cycle';
 const firstDayOfWeekPrefKey = 'first-day-of-week';
+const timezoneStickyHeadersPrefKey = 'timezone-sticky-headers';
 
 const trueByDefault = (storedPref: string | null): boolean => storedPref !== 'false';
 const falseByDefault = (storedPref: string | null): boolean => storedPref === 'true';
@@ -31,6 +32,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const isLightTheme = ref<boolean | null>(null);
   const hourCycle = ref<HourCycle | null>(null);
   const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
+  const timezoneStickyHeaders = ref<boolean | null>(null);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -85,6 +87,9 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       return;
     }
     localStorage.setItem(firstDayOfWeekPrefKey, newValue.toString());
+  });
+  watch(timezoneStickyHeaders, (newValue) => {
+    localStorage.setItem(timezoneStickyHeadersPrefKey, newValue ? 'true' : 'false');
   });
 
   const setInitialCombinedInput = () => {
@@ -151,6 +156,11 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       }
     }
   };
+  const setInitialTimezoneStickyHeaders = () => {
+    const storedPref = localStorage.getItem(timezoneStickyHeadersPrefKey);
+    // Enable timezone sticky headers by default
+    timezoneStickyHeaders.value = trueByDefault(storedPref);
+  };
 
   onMounted(() => {
     setInitialFlatUi();
@@ -163,6 +173,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialLightTheme();
     setInitialHourCycle();
     setInitialFirstDayOfWeek();
+    setInitialTimezoneStickyHeaders();
   });
 
   return {
@@ -225,6 +236,11 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       firstDayOfWeek.value = !isNaN(parsed) && parsed >= 0 && parsed <= 6
         ? parsed as DateTimeLibraryWeekday
         : null;
+    },
+    timezoneStickyHeaders,
+    toggleTimezoneStickyHeaders(e: Event) {
+      if (!(e.target instanceof HTMLInputElement)) return;
+      timezoneStickyHeaders.value = e.target.checked;
     },
   };
 };
