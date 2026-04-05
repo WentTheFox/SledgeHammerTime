@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, παρακαλούμε συνδεθείτε στο διακομιστή υποστήριξης Discord και ενημερώστε μας.",
       'contactDeveloper' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, επικοινωνήστε με τον προγραμματιστή και ενημερώστε τον.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
