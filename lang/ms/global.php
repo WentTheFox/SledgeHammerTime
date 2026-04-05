@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Terjemahan masih belum lengkap',
   'contributeTranslations' => 'Sumbang',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Salin ke papan keratan',
   'copiedToClipboard' => 'Disalin ke papan keratan!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Leperkan antara muka',
         'description' => "Nyahdayakan kesan ketinggian dan bayang pada input dan butang",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Jenis jam input masa tersuai',
