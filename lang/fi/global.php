@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
   'contributeTranslations' => 'Avusta',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Kopioi leikepöydälle',
   'copiedToClipboard' => 'Kopioitu leikepöydälle!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Tasoita käyttöliittymä',
         'description' => "Poista varjo- ja korkeusefektit syötteissä ja napeissa",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Mukautettu aikasyötteen kellon tyyppi',
