@@ -28,7 +28,7 @@
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "v3.6.1",
+    "barryvdh/laravel-ide-helper": "v3.7.0",
     "fakerphp/faker": "^1.9.1",
     "laravel-lang/lang": "^15.26.2",
     "laravel/breeze": "^2.0",
