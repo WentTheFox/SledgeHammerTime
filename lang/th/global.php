@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรเข้าร่วมเซิร์ฟเวอร์ Discord และแจ้งให้พวกเราทราบ",
       'contactDeveloper' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรแจ้งผู้พัฒนาเว็บไซต์และแจ้งให้พวกเขารู้",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "เซิร์ฟเวอร์สนับสนุน",
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
