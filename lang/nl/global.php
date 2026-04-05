@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Als het probleem langer dan een paar minuten aanhoudt, laat het ons dan weten in de supportserver op Discord.",
       'contactDeveloper' => "Als het probleem langer dan een paar minuten aanhoudt, neem dan contact op met de ontwikkelaar.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
