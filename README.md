@@ -114,6 +114,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Linconuto DewishVersionNul](https://crowdin.com/profile/Mermourde)
   - [M4gicalCat](https://crowdin.com/profile/M4gicalCat)
   - [Malalia Mimi](https://crowdin.com/profile/MialyMusic)
+  - [mifi127 \_](https://crowdin.com/profile/mifi127)
   - [Nathan LAX](https://crowdin.com/profile/nathanfurry-neku)
   - [Ouiouibaguette](https://crowdin.com/profile/Ouiouibaguette)
   - [Quent12b0](https://crowdin.com/profile/Quent12b0)
@@ -202,6 +203,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Mohammad Safa Gray](https://crowdin.com/profile/DeadMarco)
   - [Not so nice potato](https://crowdin.com/profile/regimanhj)
 - 🇵🇱 Polish
+  - [770skiyt](https://crowdin.com/profile/770skiyt)
   - [Aenrot Guile](https://crowdin.com/profile/aenriot)
   - [Bartek Koszutowski](https://crowdin.com/profile/koszutowski.bartek)
   - [kaczuszki są najlepsze!](https://crowdin.com/profile/ToMacMa)
