@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Перевод не завершен',
   'contributeTranslations' => 'Внести свой вклад',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Скопировать в буфер обмена',
   'copiedToClipboard' => 'Скопировано в буфер обмена!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Плоский интерфейс',
         'description' => "Отключает эффекты тени на элементах интерфейса ввода и кнопках",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Настраиваемый тип часов для ввода времени',
