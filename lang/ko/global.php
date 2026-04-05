@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "문제가 수 분 동안 계속 된다면, Discord 지원 서버에 참가 후에 문의 해 주세요.",
       'contactDeveloper' => "문제가 수 분 동안 계속 된다면, 개발자에게 연락하여 문제를 알려주세요.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "지원 서버",
   ],
   'incompleteTranslations' => '번역 미완료',
