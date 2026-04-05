@@ -19,9 +19,9 @@ return [
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Παρατηρήθηκε αυτή τη στιγμή',
+    'atPickedDate' => 'Παρατηρήθηκε την επιλεγμένη ώρα',
+    'currentlyAndAtPickedDate' => 'Παρατηρήθηκε αυτή τη στιγμή & κατά την επιλεγμένη ώρα',
   ],
   'copyToClipboard' => 'Αντιγραφή στο πρόχειρο',
   'copiedToClipboard' => 'Αντιγράφηκε στο πρόχειρο!',
@@ -59,7 +59,7 @@ return [
         'description' => "Απενεργοποίηση εφέ σκίασης και ύψους στις εισόδους και τα κουμπιά",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
+        'label' => 'Επικεφαλίδες ομάδων ζώνης ώρας',
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
