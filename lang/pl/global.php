@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Jeśli problem będzie się powtarzał przez więcej niż kilka minut, dołącz do serwera wsparcia Discord'a i daj nam znać.",
       'contactDeveloper' => "Jeśli problem będzie się powtarzał przez więcej niż kilka minut, skontaktuj się z twórcą i daj im znać.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Serwer pomocy technicznej",
   ],
   'incompleteTranslations' => 'Tłumaczenia są niekompletne',
