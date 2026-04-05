@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Sekiranya masalah berterusan melebihi beberapa minit, sila sertai pelayan sokongan Discord dan beritahu kami.",
       'contactDeveloper' => "Sekiranya masalah berterusan melebihi beberapa minit, sila hubungi pembangun dan beritahunya.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Pelayan Sokongan",
   ],
   'incompleteTranslations' => 'Terjemahan masih belum lengkap',
