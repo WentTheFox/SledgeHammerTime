@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Traducerile sunt incomplete',
   'contributeTranslations' => 'Contribuie',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Copiați în clipboard',
   'copiedToClipboard' => 'Copiat în clipboard!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Interfață plată',
         'description' => "Dezactivează efectele de umbră și înălțime pe intrări și butoane",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Custom time input clock type',
