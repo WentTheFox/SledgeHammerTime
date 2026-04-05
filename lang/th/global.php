@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรเข้าร่วมเซิร์ฟเวอร์ Discord และแจ้งให้พวกเราทราบ",
       'contactDeveloper' => "ถ้ายังมีปัญหาอยู่มากกว่า 5 นาที กรุณาควรแจ้งผู้พัฒนาเว็บไซต์และแจ้งให้พวกเขารู้",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "เซิร์ฟเวอร์สนับสนุน",
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
   'contributeTranslations' => 'สนับสนุน',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'คัดลอกไปยังคลิปบอร์ด',
   'copiedToClipboard' => 'คัดลอกไปยังคลิปบอร์ดแล้ว!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'อินเทอร์เฟซแบบเรียบง่าย',
         'description' => "ปิดการใช้งานเอฟเฟกต์เงาและความสูงบนช่องข้อความและปุ่ม",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'กำหนดประเภทของนาฬิกาสำหรับการป้อนเวลา',

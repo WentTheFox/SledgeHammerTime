@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Pokud problém přetrvává déle než pár minut, připojte se prosím na Discord server podpory a dejte nám vědět.",
       'contactDeveloper' => "Pokud problém přetrvává déle než pár minut, kontaktujte prosím vývojáře a dejte jim vědět.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Server podpory",
   ],
   'incompleteTranslations' => 'Překlad není úplný',
   'contributeTranslations' => 'Přispět',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Zkopírovat do schránky',
   'copiedToClipboard' => 'Zkopírováno do schránky!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Zjednodušené rozhraní',
         'description' => "Odstraní stíny a výškové efekty u vstupních polí a tlačítek",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Vlastní formát pro zadávání času',

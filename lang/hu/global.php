@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Ha a probléma pár perc után is fennáll, kérlek csatlakozz a Discord támogatási szerverhez és jelezd felénk.",
       'contactDeveloper' => "Ha a probléma pár perc után is fennáll, kérlek vedd fel a kapcsolatot a fejlesztővel és jelezd felé.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Támogatási Szerver",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
+  'timezoneBadge' => [
+    'currently' => 'Jelenleg használatban',
+    'atPickedDate' => 'A kiválasztott időpontban használt',
+    'currentlyAndAtPickedDate' => 'Jelenleg és a kiválasztott időpontban használt',
+  ],
   'copyToClipboard' => 'Vágólapra másolás',
   'copiedToClipboard' => 'Vágólapra másolva!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Felület kilapítása',
         'description' => "Kikapcsolja az árnyék és magasság hatásokat a beviteli mezőkön és gombokon",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Időzóna csoport fejlécek',
+        'description' => 'Ragadós csoport gejlécek (pl. America, Europe) megjelenítése az időzóna kiválasztó legördülő listában.',
       ],
       'hourCycle' => [
         'label' => 'Egyéni idő beviteli mező óra típusa',
