@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Kopiëren naar klembord',
   'copiedToClipboard' => 'Naar klembord gekopieerd!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Platte interface gebruiken',
         'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Type aangepaste tijdsinput klok',
