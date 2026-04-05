@@ -67,6 +67,8 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract fromNow(): string;
 
+  abstract addMilliseconds(days: number): DateTimeLibraryValue<T, L>;
+
   abstract addDays(days: number): DateTimeLibraryValue<T, L>;
 
   abstract addMonths(months: number): DateTimeLibraryValue<T, L>;
@@ -116,6 +118,8 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
   abstract getUnixMilliseconds(): number;
 
   abstract getUtcOffsetMinutes(): number;
+
+  abstract getIsPast(): boolean;
 
   abstract daysInMonth(): number;
 

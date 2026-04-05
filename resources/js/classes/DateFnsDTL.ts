@@ -18,12 +18,14 @@ import { getUtcOffsetString, offsetZoneRegex, rangeLimit } from '@/utils/time';
 import { TZDate } from '@date-fns/tz';
 import {
   addDays,
+  addMilliseconds,
   addMonths,
   addYears,
   format,
   formatDistanceToNowStrict,
   getDaysInMonth,
   getUnixTime,
+  isPast,
   isValid,
   Locale,
   parse,
@@ -204,6 +206,10 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     });
   }
 
+  addMilliseconds(days: number) {
+    return new DateFnsDTLValue(addMilliseconds(this.value, days), this.context);
+  }
+
   addDays(days: number) {
     return new DateFnsDTLValue(addDays(this.value, days), this.context);
   }
@@ -259,6 +265,10 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
   getUtcOffsetMinutes(): number {
     // TZDate provides timezone offset in minutes
     return -this.value.getTimezoneOffset();
+  }
+
+  getIsPast(): boolean {
+    return isPast(this.value);
   }
 
   toDate(): Date {

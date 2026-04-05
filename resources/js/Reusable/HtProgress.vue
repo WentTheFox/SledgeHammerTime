@@ -5,9 +5,11 @@ const props = withDefaults(defineProps<{
   bars: ProgressBarProps[];
   min?: number;
   max?: number;
+  class?: string;
 }>(), {
   min: 0,
   max: 100,
+  class: undefined,
 });
 
 const maxProgress = Math.max(...props.bars.map(bar => bar.progress), 0);
@@ -15,7 +17,7 @@ const maxProgress = Math.max(...props.bars.map(bar => bar.progress), 0);
 
 <template>
   <div
-    class="progress"
+    :class="['progress', props.class]"
     role="progressbar"
     :aria-valuemax="max"
     :aria-valuemin="min"

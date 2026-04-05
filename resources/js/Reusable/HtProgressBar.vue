@@ -1,7 +1,7 @@
 <script setup lang="ts">
 export interface ProgressBarProps {
   progress: number;
-  color?: 'approval' | 'translation';
+  color?: 'approval' | 'translation' | 'warning';
 }
 
 defineProps<ProgressBarProps>();
@@ -31,6 +31,10 @@ defineProps<ProgressBarProps>();
 
   &-translation {
     background-color: design.app-color('progress-bar-translation');
+  }
+
+  &-warning {
+    background-color: design.app-color('progress-bar-warning');
   }
 }
 </style>
