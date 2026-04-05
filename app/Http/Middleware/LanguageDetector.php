@@ -27,6 +27,8 @@ class LanguageDetector {
     'horizon',
     // Uptime monitoring endpoint
     'status',
+    // SEO sitemap
+    'sitemap.xml',
   ];
 
   protected const string LOCALIZED_PATH_REGEX = '/^[a-z]{2}(?:[_-][a-zA-Z\d]{2,})?(?:$|\/)/';
