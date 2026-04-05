@@ -19,9 +19,9 @@ return [
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Jelenleg használatban',
+    'atPickedDate' => 'A kiválasztott időpontban használt',
+    'currentlyAndAtPickedDate' => 'Jelenleg és a kiválasztott időpontban használt',
   ],
   'copyToClipboard' => 'Vágólapra másolás',
   'copiedToClipboard' => 'Vágólapra másolva!',
@@ -59,8 +59,8 @@ return [
         'description' => "Kikapcsolja az árnyék és magasság hatásokat a beviteli mezőkön és gombokon",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Időzóna csoport fejlécek',
+        'description' => 'Ragadós csoport gejlécek (pl. America, Europe) megjelenítése az időzóna kiválasztó legördülő listában.',
       ],
       'hourCycle' => [
         'label' => 'Egyéni idő beviteli mező óra típusa',
