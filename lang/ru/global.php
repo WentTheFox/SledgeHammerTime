@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Если проблема сохраняется более нескольких минут, присоединитесь к серверу поддержки Discord и сообщите нам об этом.",
       'contactDeveloper' => "Если проблема сохраняется более нескольких минут, пожалуйста свяжитесь с разработчиком и сообщите ему об этом.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Сервер поддержки",
   ],
   'incompleteTranslations' => 'Перевод не завершен',
