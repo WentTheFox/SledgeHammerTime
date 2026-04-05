@@ -18,6 +18,11 @@ return [
   ],
   'incompleteTranslations' => 'अनुवाद अधूरे हैं',
   'contributeTranslations' => 'योगदान दें',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'क्लिपबोर्ड पर कॉपी करें',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
@@ -52,6 +57,10 @@ return [
       'flatUi' => [
         'label' => 'Flatten interface',
         'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Custom time input clock type',
