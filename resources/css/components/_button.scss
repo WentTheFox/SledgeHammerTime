@@ -27,6 +27,14 @@
     transition: none !important;
   }
 
+  &.button-size-input {
+    padding: design.app-value('input-field-padding') !important;
+
+    &.icon-only {
+      font-size: 1.2em;
+    }
+  }
+
   @include design.if-prefers-reduced-motion {
     transition: none !important;
   }
