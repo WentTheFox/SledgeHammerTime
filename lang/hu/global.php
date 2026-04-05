@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "Ha a probléma pár perc után is fennáll, kérlek csatlakozz a Discord támogatási szerverhez és jelezd felénk.",
       'contactDeveloper' => "Ha a probléma pár perc után is fennáll, kérlek vedd fel a kapcsolatot a fejlesztővel és jelezd felé.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Támogatási Szerver",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
