@@ -14,6 +14,8 @@ return [
       'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
       'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
   'incompleteTranslations' => 'Prevodi su nepotpuni',
