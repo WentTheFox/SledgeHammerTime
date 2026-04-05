@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /frontend/
+Disallow: /oauth/
+Disallow: /profile
+Disallow: /settings
+Disallow: /status
+Disallow: /discord
+
+Sitemap: https://hammertime.cyou/sitemap.xml

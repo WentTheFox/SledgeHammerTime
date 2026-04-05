@@ -10,6 +10,7 @@ use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
 use App\Http\Controllers\TranslationProgressController;
@@ -60,6 +61,7 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/translation-progress/{locale}', [TranslationProgressController::class, 'progress'])->name('app.translationProgress');
 });
 
+Route::get('/sitemap.xml', [SitemapController::class, 'sitemap'])->name('sitemap');
 Route::get('/status', [StaticController::class, 'status'])->name('status');
 Route::get('/discord', [RedirectController::class, 'discord']);
 Route::get('/bot-login', [NotFoundController::class, 'notFound']);
