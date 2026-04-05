@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
 import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
 import { useRoute } from '@/composables/useRoute';
@@ -114,7 +115,7 @@ watch(updating, (newUpdating) => {
         <HtTranslate i18n-key="global.maintenanceMode.autoReload">
           <template #1>
             <TimestampPreview
-              :ts="nextExecutionAt"
+              :ts="nextExecutionAt as DateTimeLibraryValue"
               :format="MessageTimestampFormat.RELATIVE"
             />
           </template>
