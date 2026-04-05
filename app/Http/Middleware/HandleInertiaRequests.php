@@ -18,6 +18,13 @@ class HandleInertiaRequests extends Middleware {
   protected $rootView = 'app';
 
   /**
+   * Routes which are heavily cached due to high traffic and must not be given sensitive or frequently-changing data
+   *
+   * @var string[]
+   */
+  protected static array $staticCachedRoutes = ['home', 'botInfo'];
+
+  /**
    * Determine the current asset version.
    */
   public function version(Request $request):string|null {
@@ -32,11 +39,9 @@ class HandleInertiaRequests extends Middleware {
   public function share(Request $request):array {
     $shared = [
       ...parent::share($request),
-      ...self::getGlobalSharedArray(),
+      ...self::getGlobalSharedArray($request),
       'auth' => [
-        // Home/root routes omit user data — it is fetched asynchronously by the
-        // frontend so the full-page HTML response can be cached per locale.
-        'user' => $this->shouldIncludeUser($request) ? $request->user()?->mapToUiInfo() : null,
+        'user' => self::isStaticCachedRoute($request) ? null : $request->user()?->mapToUiInfo(),
       ],
     ];
     $shared['ziggy'] = fn() => [
@@ -47,8 +52,16 @@ class HandleInertiaRequests extends Middleware {
     return $shared;
   }
 
-  private function shouldIncludeUser(Request $request): bool {
-    return !in_array($request->route()?->getName(), ['home', 'botInfo'], strict: true);
+  /**
+   * Static cached routes omit user data — it is fetched asynchronously by the
+   * frontend so the full-page HTML response can be cached per locale.
+   *
+   * @param Request $request
+   *
+   * @return bool
+   */
+  private static function isStaticCachedRoute(Request $request): bool {
+    return in_array($request->route()?->getName(), self::$staticCachedRoutes, strict: true);
   }
 
   /**
@@ -65,7 +78,7 @@ class HandleInertiaRequests extends Middleware {
    *   crowdinData: callable(): array<mixed>,
    * }
    */
-  public static function getGlobalSharedArray():array {
+  public static function getGlobalSharedArray(Request $request):array {
     return [
       'app' => [
         'name' => config('app.name'),
@@ -76,7 +89,7 @@ class HandleInertiaRequests extends Middleware {
         'crowdinProjectId' => Config::get('services.crowdin.project_identifier'),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
-      'crowdinData' => fn() => app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
+      'crowdinData' => fn() => self::isStaticCachedRoute($request) ? null : app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
     ];
   }
 }

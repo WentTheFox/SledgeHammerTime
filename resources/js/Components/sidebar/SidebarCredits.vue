@@ -32,7 +32,7 @@ const uiLocale = useUiLocale(pageProps, locale);
 const crowdinData = useCrowdinData();
 
 const translationCredits = computed(() => {
-  const credits = crowdinData.value?.credits;
+  const credits = crowdinData?.value?.credits;
   if (!credits || credits.length === 0) return null;
   return [...credits].sort((cr1, cr2) => cr1.displayName.localeCompare(cr2.displayName, uiLocale.value));
 });

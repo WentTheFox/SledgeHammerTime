@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler {
     $status = $response->getStatusCode();
     if ($status === 503 && !$request->expectsJson()){
       return Inertia::render('Errors/MaintenanceMode', [
-        ...HandleInertiaRequests::getGlobalSharedArray(),
+        ...HandleInertiaRequests::getGlobalSharedArray($request),
         'discordUrl' => config('services.discord.invite_url'),
       ])->toResponse($request)->setStatusCode($status);
     }

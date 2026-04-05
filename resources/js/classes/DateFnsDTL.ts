@@ -90,7 +90,9 @@ export const preloadDateFnsLocale = async (normalizedName: string): Promise<void
 };
 
 export const getDateFnsNormalizedLocaleName = (locale: string): string => {
-  const lang = (locale in LANGUAGES) ? locale as AvailableLanguage : FALLBACK_LANGUAGE;
+  // Laravel locales use underscores (en_GB); LANGUAGES keys use hyphens (en-GB). Normalize first.
+  const bcp47 = locale.replace(/_/g, '-');
+  const lang = (bcp47 in LANGUAGES) ? bcp47 as AvailableLanguage : FALLBACK_LANGUAGE;
   return (LANGUAGES[lang]?.dateFnsLocale ?? lang).replace(/[^a-z\d]/gi, '');
 };
 

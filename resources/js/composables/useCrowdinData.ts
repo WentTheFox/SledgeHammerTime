@@ -1,7 +1,6 @@
-import { pagePropsInject } from '@/injection-keys';
-import { computed, inject } from 'vue';
+import { crowdinDataInject } from '@/injection-keys';
+import { inject } from 'vue';
 
 export const useCrowdinData = () => {
-  const pageProps = inject(pagePropsInject);
-  return computed(() => pageProps?.value?.crowdinData);
+  return inject(crowdinDataInject);
 };
