@@ -18,13 +18,13 @@ const routeParams = useRouteParams(route, pageProps);
 <template>
   <HtCard>
     <template #header>
-      <h2>
+      <h1>
         <FontAwesomeIcon
           :icon="faUserGear"
           class="me-1"
         />
         {{ $t('profile.title') }}
-      </h2>
+      </h1>
     </template>
     <p class="content-link-style">
       <HtTranslate i18n-key="profile.intro">

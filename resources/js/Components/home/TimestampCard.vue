@@ -54,6 +54,10 @@ onMounted(() => {
   </HtAlert>
 
   <HtCard>
+    <h1 class="visually-hidden">
+      {{ $t('global.seoDescription') }}
+    </h1>
+
     <TimestampPicker />
 
     <TimestampTable />

@@ -13,7 +13,7 @@ import { Head } from '@inertiajs/vue3';
       :closable="false"
     >
       <template #title>
-        <h2>Congratulations!</h2>
+        <h1>Congratulations!</h1>
       </template>
       <template #text>
         <p>
