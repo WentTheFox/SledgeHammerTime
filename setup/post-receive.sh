@@ -10,7 +10,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_FETCH="timeout 15 $GIT fetch"
     CMD_COMPOSER="if [ -d vendor/ ]; then sudo chmod -R ug+rw vendor/; fi; composer install --optimize-autoloader --no-dev 2>&1"
     CMD_MIGRATE="php artisan migrate --force"
-    CMD_NPM="npm ci --force"
+    CMD_NPM="npm ci"
     CMD_BUILD="npm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
     CMD_LARAVEL_DOWN="php artisan down"
