@@ -64,18 +64,19 @@ createInertiaApp({
     if (dsn) {
       console.debug('Initializing Sentry', { dsn });
       import('@sentry/vue').then((Sentry) => {
-        Sentry.init({
+        const sentryClient = Sentry.init({
           app,
           dsn,
           integrations: [
             Sentry.browserTracingIntegration(),
             Sentry.replayIntegration(),
           ],
-          tracesSampleRate: 0.1,
-          replaysSessionSampleRate: 0.1,
-          replaysOnErrorSampleRate: 1.0,
+          tracesSampleRate: import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE,
+          replaysSessionSampleRate: import.meta.env.VITE_REPLAYS_SESSION_SAMPLE_RATE,
+          replaysOnErrorSampleRate: import.meta.env.VITE_REPLAYS_ON_ERROR_SAMPLE_RATE,
           environment: import.meta.env.MODE,
         });
+        console.debug('Sentry initialized', { sentryClient });
       });
     } else {
       console.debug('Sentry initialization skipped', { dsn });
