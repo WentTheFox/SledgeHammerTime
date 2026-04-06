@@ -84,6 +84,13 @@ class CachePageResponse {
       return $next($request);
     }
 
+    // Only cache responses for requests that match the configured app base URL.
+    // Requests arriving via a different host (e.g. a raw server IP) are skipped.
+    $appBaseUrl = rtrim(Config::get('app.url', ''), '/');
+    if ($appBaseUrl !== '' && !str_starts_with($request->url(), $appBaseUrl)) {
+      return $next($request);
+    }
+
     // Inertia SPA navigations send X-Inertia header — serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
