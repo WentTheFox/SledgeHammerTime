@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "문제가 수 분 동안 계속 된다면, Discord 지원 서버에 참가 후에 문의 해 주세요.",
       'contactDeveloper' => "문제가 수 분 동안 계속 된다면, 개발자에게 연락하여 문제를 알려주세요.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "지원 서버",
   ],
   'incompleteTranslations' => '번역 미완료',
   'contributeTranslations' => '기여하기',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => '클립보드에 복사',
   'copiedToClipboard' => '클립보드에 복사했습니다!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Flatten interface',
         'description' => "입력 창과 버튼의 그림자와 높이 효과 비활성화",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => '사용자 시간 입력 시간 유형',

@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Jos ongelma jatkuu yli muutaman minuutin, liity Discord-palvelimelle ja ilmoita asiasta.",
       'contactDeveloper' => "Jos ongelma jatkuu yli muutaman minuutin, ota yhteyttä kehittäjään ja ilmoita asiasta.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Palvelin",
   ],
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
   'contributeTranslations' => 'Avusta',
+  'timezoneBadge' => [
+    'currently' => 'Noudatettu tällä hetkellä',
+    'atPickedDate' => 'Noudatettu valittuun aikaan',
+    'currentlyAndAtPickedDate' => 'Noudatettu tällä hetkellä ja valittuun aikaan',
+  ],
   'copyToClipboard' => 'Kopioi leikepöydälle',
   'copiedToClipboard' => 'Kopioitu leikepöydälle!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Tasoita käyttöliittymä',
         'description' => "Poista varjo- ja korkeusefektit syötteissä ja napeissa",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Aikavyöhykkeiden ryhmien otsikot',
+        'description' => 'Näyttää aikavyöhykkeen ryhmän (esim. America, Europe) aikavyöhykkeen valikossa.',
       ],
       'hourCycle' => [
         'label' => 'Mukautettu aikasyötteen kellon tyyppi',

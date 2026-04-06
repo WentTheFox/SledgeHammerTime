@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
       'contactDeveloper' => "If the issue persists for more than a few minutes, please contact the developer and let them know.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
   'incompleteTranslations' => 'Prijevodi su nepotpuni',
   'contributeTranslations' => 'Doprinos',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Kopirajte u međuspremnik',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Flatten interface',
         'description' => "Disable shadow and height effects on inputs and buttons",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Custom time input clock type',

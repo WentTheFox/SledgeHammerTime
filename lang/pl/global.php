@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Jeśli problem będzie się powtarzał przez więcej niż kilka minut, dołącz do serwera wsparcia Discord'a i daj nam znać.",
       'contactDeveloper' => "Jeśli problem będzie się powtarzał przez więcej niż kilka minut, skontaktuj się z twórcą i daj im znać.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Serwer pomocy technicznej",
   ],
   'incompleteTranslations' => 'Tłumaczenia są niekompletne',
   'contributeTranslations' => 'Wspomóż',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Skopiuj do schowka',
   'copiedToClipboard' => 'Skopiowano do schowka!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Wyrównaj interfejs',
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Niestandardowy typ zegara czasu',
