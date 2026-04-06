@@ -8,6 +8,7 @@ use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LanguageDetector;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\SentryWarning;
 use App\Http\Middleware\TrackPageViews;
 use App\Http\Middleware\TranslatorMiddleware;
 use App\Http\Middleware\TrimStrings;
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel {
       ValidateCsrfToken::class,
       SubstituteBindings::class,
       LanguageDetector::class,
+      SentryWarning::class,
       HandleInertiaRequests::class,
       AddLinkHeadersForPreloadedAssets::class,
       TrackPageViews::class,
