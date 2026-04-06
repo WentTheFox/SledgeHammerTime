@@ -219,8 +219,12 @@ class AuthController extends Controller {
 
     return redirect()->route('settings', ['locale' => $locale]);
   }
-  
+
   public function userInfo(Request $request): JsonResponse {
-    return response()->json($request->user()?->mapToUiInfo());
+    $requestUser = $request->user();
+    if (!$requestUser){
+      abort(401);
+    }
+    return response()->json($requestUser->mapToUiInfo());
   }
 }
