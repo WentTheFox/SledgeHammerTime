@@ -23,22 +23,41 @@ class SentryTunnelController extends Controller {
         throw new Exception('Sentry tunnel not configured');
       }
 
-      $envelopeBytes = $request->getContent(true);
+      $envelopeBytes = $request->getContent(false);
       if (empty($envelopeBytes)){
         throw new Exception('Empty envelope');
       }
 
       $envelope = (string)$envelopeBytes;
-      $lines = explode("\n", $envelope);
-      $headerLine = $lines[0] ?? '';
+      
+      // Split on various newline formats
+      $lines = preg_split("/\r?\n/", $envelope);
+      $headerLine = trim($lines[0] ?? '');
 
       if (empty($headerLine)){
+        Log::debug('Sentry envelope: empty header line', [
+          'total_lines' => count($lines),
+          'first_100_chars' => substr($envelope, 0, 100),
+        ]);
         throw new Exception('Invalid envelope: missing header');
       }
 
       $header = json_decode($headerLine, true);
-      if (!$header || !isset($header['dsn'])){
-        throw new Exception('Invalid envelope: missing DSN in header');
+      if (!is_array($header)){
+        Log::debug('Sentry envelope: header JSON decode failed', [
+          'header_line' => substr($headerLine, 0, 300),
+          'json_error' => json_last_error_msg(),
+        ]);
+        throw new Exception('Invalid envelope: malformed header JSON');
+      }
+
+      $dsn = $header['dsn'] ?? null;
+      
+      if (!$dsn){
+        Log::debug('Sentry envelope: DSN not in header', [
+          'header_keys' => array_keys($header),
+        ]);
+        throw new Exception('Invalid envelope: missing DSN');
       }
 
       $dsn = $header['dsn'];
