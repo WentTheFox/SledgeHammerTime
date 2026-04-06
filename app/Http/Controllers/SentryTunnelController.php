@@ -75,7 +75,9 @@ class SentryTunnelController extends Controller {
 
       $upstreamUrl = "https://{$sentryHost}/api/{$projectId}/envelope/";
 
-      $response = Http::post($upstreamUrl, $envelopeBytes);
+      $response = Http::withHeaders([
+        'Content-Type' => 'application/x-sentry-envelope',
+      ])->withBody($envelopeBytes, 'application/x-sentry-envelope')->post($upstreamUrl);
 
       if (!$response->successful()){
         Log::warning('Sentry tunnel upstream error', [
