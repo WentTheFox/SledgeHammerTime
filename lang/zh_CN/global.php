@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "如果问题持续几分钟以上，请加入 Discord 支持服务器并告知我们。",
       'contactDeveloper' => "如果问题持续几分钟以上，请联系开发人员并告知他们。",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "支持服务器",
   ],
   'incompleteTranslations' => '翻译内容不完整',
   'contributeTranslations' => '参与贡献',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => '复制到剪切板',
   'copiedToClipboard' => '已复制到复制到剪切板！',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => '扁平化界面',
         'description' => "禁用输入和按钮上的阴影和高度效果",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => '自定义时间输入时钟类型',

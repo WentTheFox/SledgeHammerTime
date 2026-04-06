@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "問題が数分以上続く場合は、Discordサポートサーバーに参加してご連絡ください。",
       'contactDeveloper' => "問題が数分以上続く場合は、開発者に連絡し、その旨をお知らせください。",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "サポートサーバー",
   ],
   'incompleteTranslations' => '翻訳は未完成です',
   'contributeTranslations' => '貢献',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'クリップボードにコピー',
   'copiedToClipboard' => 'クリップボードにコピーしました！',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'インターフェースをフラット化する',
         'description' => "入力項目とボタンで影と高さの立体エフェクトを無効にする",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'カスタム時刻の時計タイプ',

@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, παρακαλούμε συνδεθείτε στο διακομιστή υποστήριξης Discord και ενημερώστε μας.",
       'contactDeveloper' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, επικοινωνήστε με τον προγραμματιστή και ενημερώστε τον.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',
+  'timezoneBadge' => [
+    'currently' => 'Παρατηρήθηκε αυτή τη στιγμή',
+    'atPickedDate' => 'Παρατηρήθηκε την επιλεγμένη ώρα',
+    'currentlyAndAtPickedDate' => 'Παρατηρήθηκε αυτή τη στιγμή & κατά την επιλεγμένη ώρα',
+  ],
   'copyToClipboard' => 'Αντιγραφή στο πρόχειρο',
   'copiedToClipboard' => 'Αντιγράφηκε στο πρόχειρο!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Επιπεδοποίηση διεπαφής',
         'description' => "Απενεργοποίηση εφέ σκίασης και ύψους στις εισόδους και τα κουμπιά",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Επικεφαλίδες ομάδων ζώνης ώρας',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Προσαρμοσμένη εισαγωγή ώρας',

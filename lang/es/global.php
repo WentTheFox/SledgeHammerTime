@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Si el problema persiste por más de unos minutos, por favor únete al servidor de soporte de Discord y avísanos.",
       'contactDeveloper' => "Si el problema persiste por más de unos minutos, por favor contacta al desarrollador y avísale.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Servidor de soporte",
   ],
   'incompleteTranslations' => 'Las traducciones están incompletas',
   'contributeTranslations' => 'Contribuye',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Copiar al portapapeles',
   'copiedToClipboard' => '¡Copiado al portapapeles!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Aplanar interfaz',
         'description' => "Desactivar efectos de sombra y altura en campos de entrada y botones",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Tipo de reloj de entrada de tiempo personalizado',

@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Nếu vấn đề vẫn tiếp diễn sau vài phút, vui lòng tham gia cộng đồng hỗ trợ trên Discord và thông báo cho chúng tôi.",
       'contactDeveloper' => "Nếu vấn đề vẫn tiếp diễn sau vài phút, vui lòng liên hệ nhà phát triển ứng dụng và thông báo cho họ biết.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Cộng đồng hỗ trợ",
   ],
   'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
   'contributeTranslations' => 'Đóng góp',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Sao chép vào bảng nhớ tạm',
   'copiedToClipboard' => 'Đã sao chép vào bộ nhớ tạm thời!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Giao diện phẳng',
         'description' => "Tắt hiệu ứng bóng và hiệu ứng nổi ở các ô nhập và nút bấm",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Custom time input clock type',

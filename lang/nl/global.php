@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Als het probleem langer dan een paar minuten aanhoudt, laat het ons dan weten in de supportserver op Discord.",
       'contactDeveloper' => "Als het probleem langer dan een paar minuten aanhoudt, neem dan contact op met de ontwikkelaar.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Kopiëren naar klembord',
   'copiedToClipboard' => 'Naar klembord gekopieerd!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Platte interface gebruiken',
         'description' => "Zet schaduw- en hoogte effecten uit op inputs en knoppen",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Type aangepaste tijdsinput klok',

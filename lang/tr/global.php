@@ -14,10 +14,17 @@ return [
       'joinSupportServer' => "Sorun birkaç dakikadan fazla devam ederse, lütfen Discord destek sunucumuza katılın ve bize bildirin.",
       'contactDeveloper' => "Sorun birkaç dakikadan fazla devam ederse, lütfen geliştiriciyle iletişime geçin ve durumu bildirin.",
     ],
+    'autoReload' => 'The page will reload automatically <1/>',
+    'reloadButton' => 'Reload manually',
     "supportServerButton" => "Destek Sunucusu",
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
   'contributeTranslations' => 'Katkıda Bulun',
+  'timezoneBadge' => [
+    'currently' => 'Observed currently',
+    'atPickedDate' => 'Observed at picked time',
+    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+  ],
   'copyToClipboard' => 'Panoya kopyala',
   'copiedToClipboard' => 'Panoya kopyalandı!',
   'jsDisabled' => [
@@ -52,6 +59,10 @@ return [
       'flatUi' => [
         'label' => 'Düzleştirilmiş arayüz',
         'description' => "Girişler ve butonlardaki gölge ve yükseklik efektlerini devre dışı bırakın",
+      ],
+      'timezoneStickyHeaders' => [
+        'label' => 'Timezone group headers',
+        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
         'label' => 'Özel saat girişi formatı',
