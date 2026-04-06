@@ -61,12 +61,14 @@ createInertiaApp({
 
     // Initialize Sentry for Vue if DSN is provided
     const dsn = import.meta.env.VITE_SENTRY_DSN;
-    if (dsn) {
+    if (dsn && dsn !== 'null') {
       console.debug('Initializing Sentry', { dsn });
       import('@sentry/vue').then((Sentry) => {
         const sentryClient = Sentry.init({
           app,
           dsn,
+          sendDefaultPii: true,
+          tunnel: '/sentry-tunnel',
           integrations: [
             Sentry.browserTracingIntegration(),
             Sentry.replayIntegration(),
