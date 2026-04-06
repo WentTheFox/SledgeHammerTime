@@ -5,6 +5,7 @@ import { pagePropsInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCode from '@/Reusable/HtCode.vue';
+import HtColorInput from '@/Reusable/HtColorInput.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtFormControlSettings from '@/Reusable/HtFormControlSettings.vue';
 import HtFormInputGroup from '@/Reusable/HtFormInputGroup.vue';
@@ -34,17 +35,32 @@ interface StringCssVar {
 interface ColorCssVar {
   value: string;
   type: 'color';
-  alpha: number;
+}
+
+interface ColorVariant {
+  name: string;
+  value: string;
+}
+
+interface ColorPairCssVar {
+  type: 'color-pair';
+  name: string;
+  displayName: string;
+  light: ColorVariant;
+  dark: ColorVariant;
 }
 
 type CssVar = StringCssVar | NumberCssVar | ColorCssVar;
 type NamedCssVar = CssVar & { name: string, displayName: string };
+type EditorCssVar = NamedCssVar | ColorPairCssVar;
 
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 
-const cssVars = ref<NamedCssVar[]>([]);
+const cssVars = ref<EditorCssVar[]>([]);
+
+const varNamePrefix = '--ht-';
 
 const getCssVarDisplayName = (cssVar: string) =>
   cssVar
@@ -57,6 +73,11 @@ const getCssVarDisplayName = (cssVar: string) =>
     .replace(/^value-/, '')
     .replace(/-+/g, ' ')
     .replace(/((?:^| )[a-z])/g, (m) => m.toUpperCase());
+
+const getColorPairDisplayName = (baseName: string) =>
+  getCssVarDisplayName(baseName + '-light')
+    .replace(/ Color Light$/, '')
+    .replace(/ Light$/, '');
 
 const parseCssValue = (value: string, name: string): CssVar => {
   if (value.endsWith('rem')) return {
@@ -102,26 +123,17 @@ const parseCssValue = (value: string, name: string): CssVar => {
     unit: '',
     value: parseFloat(value),
   };
-  if (/^#([\da-f]{3})$/i.test(value)) {
-    return {
-      type: 'color',
-      value: '#' + value[1].repeat(2) + value[2].repeat(2) + value[3].repeat(2),
-      alpha: 1,
-    };
+  if (/^#[\da-f]{3}$/i.test(value)) {
+    // Expand 3-char hex for native color picker compatibility
+    return { type: 'color', value: '#' + value[1].repeat(2) + value[2].repeat(2) + value[3].repeat(2) };
   }
-  if (/^#([\da-f]{6})$/i.test(value)) return { type: 'color', value, alpha: 1 };
-  const rgbaMatch = value.match(/^rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)$/);
-  if (rgbaMatch) {
-    return {
-      type: 'color',
-      value: '#' + rgbaMatch.slice(1, 4).map(n => Math.round(parseFloat(n)).toString(16).padStart(2, '0')).join(''),
-      alpha: rgbaMatch[4] ? parseFloat(rgbaMatch[4]) : 1,
-    };
-  }
+  if (/^#[\da-f]{6}$/i.test(value)) return { type: 'color', value };
+  if (value === 'transparent') return { type: 'color', value };
+  if (/^rgba?\(/.test(value)) return { type: 'color', value };
+  if (/^hsla?\(/.test(value)) return { type: 'color', value };
 
   return { type: 'text', value }; // Default fallback
 };
-
 
 const exportUserStyle = () => {
   let userStyle = `
@@ -131,7 +143,12 @@ const exportUserStyle = () => {
 `;
 
   cssVars.value.forEach(cssVar => {
-    userStyle += `    ${cssVar.name}: ${cssVar.value}${'unit' in cssVar ? cssVar.unit : ''};\n`;
+    if (cssVar.type === 'color-pair') {
+      userStyle += `    ${cssVar.light.name}: ${cssVar.light.value};\n`;
+      userStyle += `    ${cssVar.dark.name}: ${cssVar.dark.value};\n`;
+    } else {
+      userStyle += `    ${cssVar.name}: ${cssVar.value}${'unit' in cssVar ? cssVar.unit : ''};\n`;
+    }
   });
 
   userStyle += `  }
@@ -146,16 +163,14 @@ const exportUserStyle = () => {
   document.body.removeChild(link);
 };
 
-const hex2rgb = (hex: string) => hex.replace(/^#/, '').match(/.{2}/g)?.map(digit => parseInt(digit, 16)).join(',') ?? '0,0,0';
-
-
 const updateVariable = (name: string, value: string | number, unit: string = ''): void => {
   document.documentElement.style.setProperty(name, `${value}${unit}`);
 };
 
-const varNamePrefix = '--ht-';
 onMounted(() => {
   const styles = getComputedStyle(document.documentElement);
+  const allVarMap = new Map<string, NamedCssVar>();
+
   for (let i = 0; i < styles.length; i++) {
     const varName = styles[i];
     if (varName && varName.startsWith(varNamePrefix)) {
@@ -164,15 +179,44 @@ onMounted(() => {
       if (parsed.type === 'number') {
         parsed.negative = parsed.value < 0;
       }
-      const cssVar: NamedCssVar = {
+      allVarMap.set(varName, {
         ...parsed,
         name: varName,
         displayName: getCssVarDisplayName(varName),
-      };
-      cssVars.value.push(cssVar);
+      });
     }
   }
-  cssVars.value.sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+  const pairedNames = new Set<string>();
+  const result: EditorCssVar[] = [];
+
+  for (const [name, cssVar] of allVarMap) {
+    if (cssVar.type === 'color' && name.endsWith('-light')) {
+      const base = name.slice(0, -6);
+      const darkName = base + '-dark';
+      const darkVar = allVarMap.get(darkName);
+      if (darkVar?.type === 'color') {
+        pairedNames.add(name);
+        pairedNames.add(darkName);
+        pairedNames.add(base);
+        result.push({
+          type: 'color-pair',
+          name: base,
+          displayName: getColorPairDisplayName(base),
+          light: { name, value: cssVar.value },
+          dark: { name: darkName, value: darkVar.value },
+        });
+      }
+    }
+  }
+
+  for (const [name, cssVar] of allVarMap) {
+    if (!pairedNames.has(name)) {
+      result.push(cssVar);
+    }
+  }
+
+  cssVars.value = result.sort((a, b) => a.displayName.localeCompare(b.displayName));
 });
 </script>
 
@@ -229,7 +273,7 @@ onMounted(() => {
           :key="cssVar.name"
         >
           <td>
-            <label :for="cssVar.name">
+            <label :for="cssVar.type !== 'color-pair' ? cssVar.name : undefined">
               {{ cssVar.displayName }}
             </label>
             <br>
@@ -238,50 +282,54 @@ onMounted(() => {
             </HtCode>
           </td>
           <td>
-            <HtFormInputGroup
-              v-if="cssVar.type === 'color'"
+            <template v-if="cssVar.type === 'color-pair'">
+              <div class="color-pair-inputs">
+                <div
+                  v-for="variant in [
+                    { label: $t('global.sidebar.themeButton.light'), data: cssVar.light },
+                    { label: $t('global.sidebar.themeButton.dark'), data: cssVar.dark },
+                  ]"
+                  :key="variant.data.name"
+                  class="color-pair-variant"
+                >
+                  <label :for="variant.data.name">{{ variant.label }}</label>
+                  <HtColorInput
+                    :id="variant.data.name"
+                    :model-value="variant.data.value"
+                    @update:model-value="(v) => { variant.data.value = v; updateVariable(variant.data.name, v); }"
+                  />
+                </div>
+              </div>
+            </template>
+            <HtColorInput
+              v-else-if="cssVar.type === 'color'"
               :id="cssVar.name"
-              dir="ltr"
-            >
-              <HtInput
-                v-model="cssVar.value"
-                type="color"
-                @input="updateVariable(cssVar.name, cssVar.value)"
-              />
-              <template v-if="'alpha' in cssVar && typeof cssVar.alpha !== 'undefined'">
-                <HtInputGropupText align="right">
-                  &alpha;:
-                </HtInputGropupText>
-                <HtInput
-                  v-model="cssVar.alpha"
-                  type="number"
-                  min="0"
-                  max="1"
-                  step="0.1"
-                  @input="updateVariable(cssVar.name, cssVar.alpha === 1 ? cssVar.value : `rgba(${hex2rgb(cssVar.value)},${cssVar.alpha})`)"
-                />
-              </template>
-            </HtFormInputGroup>
+              :model-value="cssVar.value"
+              @update:model-value="(v) => { cssVar.value = v; updateVariable(cssVar.name, v); }"
+            />
             <HtFormInputGroup
               v-else-if="cssVar.type === 'number'"
               :id="cssVar.name"
               dir="ltr"
             >
-              <HtInput
-                v-model="cssVar.value"
-                type="number"
-                :step="cssVar.step"
-                :min="cssVar.negative ? undefined : 0"
-                :max="cssVar.negative ? 0 : undefined"
-                @input="updateVariable(cssVar.name, cssVar.value, cssVar.unit)"
-              />
-              <HtInputGropupText v-if="'unit' in cssVar && cssVar.unit.length > 0">
-                {{ cssVar.unit }}
-              </HtInputGropupText>
+              <HtFormControlSettings>
+                <HtInput
+                  v-model="cssVar.value"
+                  type="number"
+                  :step="cssVar.step"
+                  :min="cssVar.negative ? undefined : 0"
+                  :max="cssVar.negative ? 0 : undefined"
+                  @input="updateVariable(cssVar.name, cssVar.value, cssVar.unit)"
+                />
+                <HtInputGropupText v-if="'unit' in cssVar && cssVar.unit.length > 0">
+                  {{ cssVar.unit }}
+                </HtInputGropupText>
+              </HtFormControlSettings>
             </HtFormInputGroup>
             <HtFormControlSettings
               v-else
               :id="cssVar.name"
+              :full-width="true"
             >
               <HtInput
                 v-model="cssVar.value"

@@ -37,7 +37,7 @@ const fontSize = computed(() => props.size / 16);
 <style>
 .custom-flag {
   background: none;
-  margin: 0 -0.9em -0.2em -0.7em;
+  margin: 0 -0.875em -0.1875em -0.6875em;
   transform: scale(0.5);
   max-width: unset;
 }

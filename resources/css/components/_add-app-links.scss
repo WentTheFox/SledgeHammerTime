@@ -1,7 +1,7 @@
 @use "../design";
 
 .add-app-links {
-  gap: 0.15em;
+  gap: 0.125em;
   display: flex;
   flex-direction: column;
 
@@ -66,14 +66,14 @@
 
 .add-link-icon {
   color: design.app-color('add-app-link-icon');
-  font-size: 1.4em;
+  font-size: 1.375em;
 }
 
 .add-link-text {
   flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
-  gap: 0.15em;
+  gap: 0.125em;
 
   .add-link-title {
     font-size: 1rem;

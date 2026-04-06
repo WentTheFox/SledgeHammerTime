@@ -8,6 +8,23 @@
     @each $variant, $value in $variants {
       --#{functions.$color-var-prefix}-#{$key}-#{$variant}: #{$value};
     }
+    --#{functions.$color-var-prefix}-#{$key}: var(--#{functions.$color-var-prefix}-#{$key}-light);
+  }
+
+  @at-root {
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        @each $key, $variants in common.$color-map {
+          --#{functions.$color-var-prefix}-#{$key}: var(--#{functions.$color-var-prefix}-#{$key}-dark);
+        }
+      }
+    }
+
+    :root[data-theme="dark"] {
+      @each $key, $variants in common.$color-map {
+        --#{functions.$color-var-prefix}-#{$key}: var(--#{functions.$color-var-prefix}-#{$key}-dark);
+      }
+    }
   }
 }
 

@@ -81,15 +81,15 @@
   }
 
   .red {
-    color: light-dark(#c00, #faa);
+    color: design.app-color('calendar-red');
   }
 
   .blue {
-    color: light-dark(#0af, #adf);
+    color: design.app-color('calendar-blue');
   }
 
   .calendar-button-label, .calendar-grid-header {
-    border-radius: .15em;
+    border-radius: .125em;
     box-sizing: border-box;
     margin: 0;
     background-color: transparent;

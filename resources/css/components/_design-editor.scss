@@ -4,6 +4,33 @@
   @include design.content-link-style;
 }
 
+.color-input-fields {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 0 !important;
+
+  .input-field {
+    @include design.monospace-font;
+  }
+
+  input[type="color"] {
+    flex: 0 0 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.color-pair-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: .5rem;
+}
+
+.color-pair-variant {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: .1rem;
+}
+
 .design-editor-table {
   td, th {
     padding: .5rem;

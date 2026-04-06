@@ -27,17 +27,7 @@ $color-var-prefix: 'ht-color';
 
 @function app-color($key) {
   @if (map.has-key(common.$color-map, $key)) {
-    $color-data: map.get(common.$color-map, $key);
-    $light-color: #FF00FF;
-    $dark-color: #FF00FF;
-    @if (map.has-key($color-data, 'light')) {
-      $light-color: var(--#{$color-var-prefix}-#{$key}-light);
-    }
-    @if (map.has-key($color-data, 'dark')) {
-      $dark-color: var(--#{$color-var-prefix}-#{$key}-dark);
-    }
-
-    @return light-dark(#{$light-color}, #{$dark-color});
+    @return var(--#{$color-var-prefix}-#{$key});
   }
 
   @return #FF00FF;
