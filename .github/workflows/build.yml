@@ -49,7 +49,7 @@ jobs:
 
       - name: Install npm dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts --force
+        run: npm ci --ignore-scripts
 
       - run: npm run lint
 

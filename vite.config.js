@@ -3,7 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import i18n from 'laravel-vue-i18n/vite';
-import viteImagemin from '@vheemstra/vite-plugin-imagemin';
+import viteImagemin from '@wentthefox-forks/vite-plugin-imagemin';
 import sharp from 'sharp';
 import { Features } from 'lightningcss';
 
