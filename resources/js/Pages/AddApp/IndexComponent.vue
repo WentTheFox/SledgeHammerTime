@@ -52,12 +52,12 @@ const appName = getAppName();
 }
 
 .title {
-  font-size: 1.4rem;
+  font-size: 1.375rem;
   margin: 0.5em 0;
 }
 
 .subtitle {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   margin: 0 0 1em;
 }
 

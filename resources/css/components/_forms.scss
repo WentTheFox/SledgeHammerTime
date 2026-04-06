@@ -353,7 +353,7 @@
             top: 0;
             right: 0;
             font-size: .65em;
-            padding: .2em .4em;
+            padding: .1875em .375em;
           }
         }
 
@@ -447,7 +447,7 @@
 
 .form-message {
   display: block;
-  font-size: 0.9em;
+  font-size: 0.875em;
 
   &.form-message-error {
     color: design.app-color('form-message-error');

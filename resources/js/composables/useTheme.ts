@@ -9,6 +9,11 @@ export function useTheme(settings: LocalSettingsValue) {
     if (import.meta.env.SSR) return;
 
     document.documentElement.style.colorScheme = isSystem ? '' : (lightValue ? 'light' : 'dark');
+    if (isSystem) {
+      delete document.documentElement.dataset.theme;
+    } else {
+      document.documentElement.dataset.theme = lightValue ? 'light' : 'dark';
+    }
   };
   watch([isLightTheme, usingSystemStyle], themeWatcher, { immediate: true });
 
