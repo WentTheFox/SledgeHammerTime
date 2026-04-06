@@ -10,6 +10,7 @@ use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\SentryWarningController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 $languages = config('languages');
 $uiLocaleValues = array_keys($languages['ui_locale_map']);
+
+Route::post('/sentry-warning/acknowledge', [SentryWarningController::class, 'acknowledge'])->name('sentry-warning.acknowledge');
 
 Route::middleware('guest')->group(function () {
   Route::get('login', [AuthController::class, 'login']);

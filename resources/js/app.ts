@@ -1,6 +1,6 @@
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
-import { getAppName } from '@/utils/app';
 import { PageProps } from '@/types';
+import { getAppName } from '@/utils/app';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { i18nVue } from 'laravel-vue-i18n';
@@ -58,6 +58,28 @@ createInertiaApp({
           dateFnsLocalePreload.then(() => app.mount(el));
         },
       });
+
+    // Initialize Sentry for Vue if DSN is provided
+    const dsn = import.meta.env.VITE_SENTRY_DSN;
+    if (dsn) {
+      console.debug('Initializing Sentry', { dsn });
+      import('@sentry/vue').then((Sentry) => {
+        Sentry.init({
+          app,
+          dsn,
+          integrations: [
+            Sentry.browserTracingIntegration(),
+            Sentry.replayIntegration(),
+          ],
+          tracesSampleRate: 0.1,
+          replaysSessionSampleRate: 0.1,
+          replaysOnErrorSampleRate: 1.0,
+          environment: import.meta.env.MODE,
+        });
+      });
+    } else {
+      console.debug('Sentry initialization skipped', { dsn });
+    }
   },
   progress: {
     color: '#5865F2',
