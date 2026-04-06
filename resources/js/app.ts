@@ -73,6 +73,7 @@ createInertiaApp({
             Sentry.browserTracingIntegration(),
             Sentry.replayIntegration(),
             Sentry.consoleLoggingIntegration({ levels: ["warn", "error"] }),
+            Sentry.feedbackIntegration(),
           ],
           tracesSampleRate: import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE,
           replaysSessionSampleRate: import.meta.env.VITE_REPLAYS_SESSION_SAMPLE_RATE,
