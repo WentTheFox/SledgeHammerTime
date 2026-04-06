@@ -69,4 +69,9 @@ return [
     'base_url' => 'https://discordbotlist.com/api/v1',
     'bot_id' => env('DISCORD_BOT_LIST_BOT_ID'),
   ],
+
+  'sentry' => [
+    'host' => env('SENTRY_HOST'),
+    'project_ids' => array_filter(explode(',', env('SENTRY_PROJECT_IDS', ''))),
+  ],
 ];
