@@ -11,6 +11,7 @@ use App\Models\TranslationProgress;
 use App\Models\Translator;
 use App\Services\AvatarProvider\AvatarResolverService;
 use DateInterval;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use JsonException;
@@ -116,7 +117,8 @@ class CrowdinCreditsService {
     return $crowdinLocaleMap[$routeLocale] ?? $routeLocale;
   }
 
-  private function getTranslators(?string $locale = null):iterable {
+  /** @return Collection<int, Translator> */
+  private function getTranslators(?string $locale = null):Collection {
     $translators = Translator::where(fn($q) => $q->where('translated', '>', 0)->orWhere('voted', '>', 0));
 
     if ($locale){
