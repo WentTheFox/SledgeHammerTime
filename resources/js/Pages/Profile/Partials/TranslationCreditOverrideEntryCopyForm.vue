@@ -10,7 +10,7 @@ import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import { ComboboxOption } from '@/utils/combobox';
-import { faCopy, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCopy, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from '@inertiajs/vue3';
 import { computed, watch } from 'vue';
 
@@ -67,7 +67,7 @@ watch(() => copyForm.recentlySuccessful, (wasSuccessful) => {
       <HtFormControl
         :id="`source-language-${translator.languageCode}`"
         :label="$t('profile.creditOverrides.creditSourceLanguage')"
-        :label-icon="faUser"
+        :label-icon="faLanguage"
       >
         <HtFormCombobox
           v-model="copyForm.sourceLanguage"
