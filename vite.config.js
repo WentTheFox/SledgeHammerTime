@@ -6,6 +6,9 @@ import i18n from 'laravel-vue-i18n/vite';
 import viteImagemin from '@wentthefox-forks/vite-plugin-imagemin';
 import sharp from 'sharp';
 import { Features } from 'lightningcss';
+import { config } from 'dotenv';
+
+config({ quiet: true });
 
 const imageminWebp = async buffer => {
   return await sharp(buffer)
@@ -46,7 +49,11 @@ export default defineConfig(({ mode }) => {
 
   return ({
     server: {
-      host: 'localhost',
+      origin: process.env.APP_VITE_SERVER_ORIGIN,
+      host: process.env.APP_VITE_SERVER_HOST || 'localhost',
+      cors: process.env.APP_VITE_SERVER_CORS_ORIGIN ? {
+        origin: process.env.APP_VITE_SERVER_CORS_ORIGIN,
+      } : undefined,
     },
     resolve: {
       alias: {
