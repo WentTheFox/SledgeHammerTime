@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
-import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
+import { DiscordUser } from '@/Components/DiscordUserInfo.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCardForms from '@/Reusable/HtCardForms.vue';
@@ -9,11 +9,14 @@ import TranslationCreditOverrideEntry from './TranslationCreditOverrideEntry.vue
 
 const props = defineProps<{
   crowdinUsers: CrowdinUserInfoProps[];
-  discordUsers: DiscordUserInfoProps[];
+  discordUsers: DiscordUser[];
 }>();
 
 const allTranslators = computed(() =>
-  props.crowdinUsers.flatMap(cu => cu.translators),
+  props.crowdinUsers.flatMap(cu => {
+    const { translators, ...restCrowdinUser } = cu;
+    return translators?.map((t) => ({ ...t, crowdinUser: restCrowdinUser }));
+  }),
 );
 </script>
 
@@ -42,6 +45,7 @@ const allTranslators = computed(() =>
         v-for="translator in allTranslators"
         :key="translator.id"
         :translator="translator"
+        :all-translators="allTranslators"
         :crowdin-users="crowdinUsers"
         :discord-users="discordUsers"
       />

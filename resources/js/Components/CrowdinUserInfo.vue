@@ -4,7 +4,7 @@ import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
 import { useRoute } from '@/composables/useRoute';
 import { computed, ref, watch } from 'vue';
 
-export interface CreditOverrideValues {
+export interface TranslatorCreditOverride {
   displayName: string | null;
   avatarProvider: string | null;
   avatarId: string | null;
@@ -12,28 +12,33 @@ export interface CreditOverrideValues {
   hide: boolean;
 }
 
-export interface ProposalValues extends Omit<CreditOverrideValues, 'hide'> {
+export interface TranslatorCreditOverrideProposal extends Omit<TranslatorCreditOverride, 'hide'> {
   rejectedAt: string | null;
 }
 
-export interface CrowdinTranslators {
+export interface Translator {
   id: string;
   languageCode: string;
   translated: number;
   approved: number;
   voted: number;
-  override: CreditOverrideValues | null;
-  proposal: ProposalValues | null;
+  override: TranslatorCreditOverride | null;
+  proposal: TranslatorCreditOverrideProposal | null;
+  crowdinUser?: CrowdinUser;
 }
 
-export interface CrowdinUserInfoProps {
+export interface CrowdinUser {
   id: number;
   fullName?: string;
   username: string;
   avatarUrl: string;
   url: string;
+}
+
+export interface CrowdinUserInfoProps extends CrowdinUser {
   staleAt?: string;
-  translators: CrowdinTranslators[];
+  avatarOnly?: boolean;
+  translators?: Translator[];
 }
 
 const props = defineProps<CrowdinUserInfoProps>();
@@ -74,6 +79,7 @@ watch(() => props.staleAt, (staleAt) => {
     service="Crowdin"
     :avatar-url="currentInfo.avatarUrl"
     :stale="!!currentInfo.staleAt"
+    :avatar-only="avatarOnly"
   >
     <span class="full-name">{{ displayName }}</span>
     <template v-if="currentInfo.fullName">

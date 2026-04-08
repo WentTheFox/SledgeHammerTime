@@ -7,13 +7,18 @@ import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccou
 import ProfileInfoCard from '@/Pages/Profile/Partials/ProfileInfoCard.vue';
 import TranslationCreditsOverrides from '@/Pages/Profile/Partials/TranslationCreditsOverrides.vue';
 import { Head } from '@inertiajs/vue3';
+import { computed, ref } from 'vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 
-defineProps<{
+const props = defineProps<{
   discordUsers: DiscordUserInfoProps[];
   crowdinUsers: CrowdinUserInfoProps[];
 }>();
+
+const latestCrowdinUsers = ref<CrowdinUserInfoProps[] | null>(null);
+
+const effectiveCrowdinUsers = computed(() => latestCrowdinUsers.value ?? props.crowdinUsers);
 </script>
 
 <template>
@@ -25,8 +30,9 @@ defineProps<{
     <UpdateProfileInformationForm />
 
     <TranslationCreditsOverrides
-      :crowdin-users="crowdinUsers"
+      :crowdin-users="effectiveCrowdinUsers"
       :discord-users="discordUsers"
+      @success="latestCrowdinUsers = $event"
     />
 
     <ConnectedAccounts

@@ -1,41 +1,34 @@
 <script setup lang="ts">
 import {
-  CreditOverrideValues,
-  CrowdinTranslators,
   CrowdinUserInfoProps,
-  ProposalValues,
+  Translator,
+  TranslatorCreditOverride,
+  TranslatorCreditOverrideProposal,
 } from '@/Components/CrowdinUserInfo.vue';
-import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
+import { DiscordUser } from '@/Components/DiscordUserInfo.vue';
 import FormMessage from '@/Components/FormMessage.vue';
 import { useNativeLocaleNames } from '@/composables/useNativeLocaleNames';
 import { useRoute } from '@/composables/useRoute';
+import TranslationCreditOverrideEntryCopyForm
+  from '@/Pages/Profile/Partials/TranslationCreditOverrideEntryCopyForm.vue';
+import TranslationCreditOverrideEntryEditForm
+  from '@/Pages/Profile/Partials/TranslationCreditOverrideEntryEditForm.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtCardFormsSection from '@/Reusable/HtCardFormsSection.vue';
 import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import HtFormControl from '@/Reusable/HtFormControl.vue';
-import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormRadio from '@/Reusable/HtFormRadio.vue';
-import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
-import HtInput from '@/Reusable/HtInput.vue';
-import {
-  faAddressCard,
-  faClockRotateLeft,
-  faEnvelopeCircleCheck,
-  faEye,
-  faLink,
-  faTimes,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from '@inertiajs/vue3';
 import { computed, ref, watch } from 'vue';
-import AvatarProviderSelect from './AvatarProviderSelect.vue';
 
 const props = defineProps<{
-  translator: CrowdinTranslators;
+  translator: Required<Translator>;
+  allTranslators: Required<Translator>[];
   crowdinUsers: CrowdinUserInfoProps[];
-  discordUsers: DiscordUserInfoProps[];
+  discordUsers: DiscordUser[];
 }>();
 
 const route = useRoute();
@@ -43,14 +36,14 @@ const route = useRoute();
 const nativeLocaleNames = useNativeLocaleNames();
 
 const ownerCrowdinUser = computed(() =>
-  props.crowdinUsers.find(cu => cu.translators.some(t => t.id === props.translator.id)),
+  props.crowdinUsers.find(cu => cu.translators?.some(t => t.id === props.translator.id)),
 );
 
 const ownerCrowdinUserId = computed(() =>
   ownerCrowdinUser.value ? String(ownerCrowdinUser.value.id) : null,
 );
 
-const source = (): ProposalValues | CreditOverrideValues | null => {
+const source = (): TranslatorCreditOverrideProposal | TranslatorCreditOverride | null => {
   const proposal = props.translator.proposal;
   if (proposal !== null) return proposal;
   return props.translator.override;
@@ -77,7 +70,6 @@ form.transform(data => {
   };
 });
 
-const cancelForm = useForm({});
 const deleteForm = useForm({});
 const confirmingDelete = ref(false);
 
@@ -96,104 +88,43 @@ const approvedAvatarDiscordUser = computed(() => {
   return props.discordUsers.find(u => u.id === o.avatarId) ?? null;
 });
 
-const isDefaultCrowdinAvatar = computed(() =>
-  ownerCrowdinUserId.value !== null
-  && form.avatarProvider === 'crowdin'
-  && form.avatarId === ownerCrowdinUserId.value,
-);
-
-const effectiveAvatarProvider = computed(() => isDefaultCrowdinAvatar.value ? null : form.avatarProvider);
-const effectiveAvatarId = computed(() => isDefaultCrowdinAvatar.value ? null : form.avatarId);
-
-const hasChanges = computed(() => {
-  const o = props.translator.override;
-  return form.displayName !== (o?.displayName ?? null)
-    || effectiveAvatarProvider.value !== (o?.avatarProvider ?? null)
-    || effectiveAvatarId.value !== (o?.avatarId ?? null)
-    || form.url !== (o?.url ?? null)
-    || form.hide !== (o?.hide ?? false);
-});
-
-const isHideOnlyChange = computed(() => {
-  const o = props.translator.override;
-  return form.displayName === (o?.displayName ?? null)
-    && effectiveAvatarProvider.value === (o?.avatarProvider ?? null)
-    && effectiveAvatarId.value === (o?.avatarId ?? null)
-    && form.url === (o?.url ?? null)
-    && form.hide !== (o?.hide ?? false);
-});
-
-const isBlankSubmission = computed(() =>
-  !form.displayName && !effectiveAvatarProvider.value && !form.url,
-);
-
-// True when no content field introduces a new non-null value vs the current override,
-// i.e. every change is a deletion/clearing, not an addition or modification.
-const isDeletionOnlyChange = computed(() => {
-  const o = props.translator.override;
-  const displayNameIsNew = form.displayName !== null && form.displayName !== (o?.displayName ?? null);
-  const avatarIsNew = effectiveAvatarProvider.value !== null && (
-    effectiveAvatarProvider.value !== (o?.avatarProvider ?? null)
-    || effectiveAvatarId.value !== (o?.avatarId ?? null)
-  );
-  const urlIsNew = form.url !== null && form.url !== (o?.url ?? null);
-  return !displayNameIsNew && !avatarIsNew && !urlIsNew;
-});
-
 const lastSubmitBypassedApproval = ref<boolean | null>(null);
-const bypassesApproval = computed(() => lastSubmitBypassedApproval.value ?? (isHideOnlyChange.value || isBlankSubmission.value || isDeletionOnlyChange.value));
 
 const overrideRouteParams = computed(() => ({
   crowdinUser: ownerCrowdinUserId.value,
   languageCode: props.translator.languageCode,
 }));
 
-const submitOverride = () => {
-  lastSubmitBypassedApproval.value = bypassesApproval.value;
-  form.put(route('credit-overrides.upsert', overrideRouteParams.value), {
-    preserveScroll: true,
-  });
-};
-
 const deleteOverride = () => {
   deleteForm.delete(route('credit-overrides.delete', overrideRouteParams.value), {
     preserveScroll: true,
+    preserveState: false,
     onSuccess: () => {
       confirmingDelete.value = false;
     },
   });
 };
 
-const cancelProposal = () => {
-  cancelForm.delete(
-    route('credit-overrides.cancel-proposal', overrideRouteParams.value),
-    {
-      preserveScroll: true,
-      onSuccess: () => {
-        const s = source();
-        form.displayName = s?.displayName ?? null;
-        form.avatarProvider = s?.avatarProvider ?? null;
-        form.avatarId = s?.avatarId ?? null;
-        form.url = s?.url ?? null;
-        form.hide = props.translator.override?.hide ?? false;
-        form.clearErrors();
-      },
-    },
-  );
-};
-
 watch(() => form.recentlySuccessful, (recentSuccess) => {
   if (recentSuccess) return;
 
   lastSubmitBypassedApproval.value = null;
-})
+});
+
+const selectedUpdateMethod = ref<'copy' | 'edit'>('edit');
 </script>
 
 <template>
   <HtCardFormsSection>
     <template #header>
-      {{ nativeLocaleNames[translator.languageCode] }}
-
+<!--
+      TODO Show crowdin user image and name with tooltip
+      <CrowdinUserInfo
+        v-bind="translator.crowdinUser"
+        :avatar-only="true"
+      />
+      -->{{ nativeLocaleNames[translator.languageCode] }} ({{ translator.languageCode }})<!--
+      -->
       <HtBadge
         v-if="translator.override || translator.proposal"
         class="credit-override-status ms-2"
@@ -254,111 +185,52 @@ watch(() => form.recentlySuccessful, (recentSuccess) => {
       </template>
     </HtAlert>
 
-    <form @submit.prevent="submitOverride">
-      <HtFormControlGroup :vertical="true">
-        <HtFormControl
-          :id="`displayName-${translator.id}`"
-          :label="$t('profile.creditOverrides.displayName')"
-          :label-icon="faAddressCard"
-        >
-          <HtInput
-            v-model="form.displayName"
-            type="text"
-            :placeholder="ownerCrowdinUser?.fullName ?? ownerCrowdinUser?.username"
-            :disabled="pendingReview || form.processing"
-            :maxlength="255"
-          />
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.displayName"
-            />
-          </template>
-        </HtFormControl>
-
-        <AvatarProviderSelect
-          v-model:provider="form.avatarProvider"
-          v-model:id="form.avatarId"
-          :translator-id="translator.id"
-          :crowdin-users="crowdinUsers"
-          :discord-users="discordUsers"
-          :default-crowdin-id="ownerCrowdinUserId ?? undefined"
-          :disabled="pendingReview || form.processing"
-          :form="form"
+    <HtFormControl
+      v-if="allTranslators.length > 1"
+      :id="`update-method-${translator.id}`"
+      :label="$t('profile.creditOverrides.updateMethodLabel')"
+    >
+      <HtFormRadio
+        :id="`update-method-${translator.id}-edit`"
+        :name="`update-method-${translator.id}`"
+        value="edit"
+        :label="$t(`profile.creditOverrides.updateMethodEditLabel`)"
+        :checked="selectedUpdateMethod === 'edit'"
+        @change="selectedUpdateMethod = 'edit'"
+      />
+      <HtFormRadio
+        :id="`update-method-${translator.id}-copy`"
+        :name="`update-method-${translator.id}`"
+        value="copy"
+        :label="$t(`profile.creditOverrides.updateMethodCopyLabel`)"
+        :checked="selectedUpdateMethod === 'copy'"
+        @change="selectedUpdateMethod = 'copy'"
+      />
+      <template #message>
+        <FormMessage
+          type="description"
+          class="mt-1"
+          :message="$t('profile.creditOverrides.updateMethodDescription')"
         />
-
-        <HtFormControl
-          :id="`url-${translator.id}`"
-          :label="$t('profile.creditOverrides.url')"
-          :label-icon="faLink"
-          :full-width="true"
-        >
-          <HtInput
-            :id="`url-${translator.id}`"
-            v-model="form.url"
-            type="url"
-            :placeholder="ownerCrowdinUser?.url"
-            :disabled="pendingReview || form.processing"
-            :maxlength="255"
-            :full-width="true"
-          />
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.url"
-            />
-          </template>
-        </HtFormControl>
-
-        <HtFormControl
-          :id="`hide-${translator.id}-visible`"
-          :label="$t('profile.creditOverrides.visibility')"
-          :label-icon="faEye"
-        >
-          <HtFormRadio
-            :id="`hide-${translator.id}-visible`"
-            :name="`hide-${translator.id}`"
-            :label="$t('profile.creditOverrides.approvedValues.visible')"
-            :checked="!form.hide"
-            :disabled="form.processing"
-            @change="form.hide = false"
-          />
-          <HtFormRadio
-            :id="`hide-${translator.id}-hidden`"
-            :name="`hide-${translator.id}`"
-            :label="$t('profile.creditOverrides.approvedValues.hidden')"
-            :checked="form.hide"
-            :disabled="form.processing"
-            @change="form.hide = true"
-          />
-        </HtFormControl>
-      </HtFormControlGroup>
-
-      <HtFormSubmitButton
-        :id="`submit-override-${translator.id}`"
-        type="submit"
-        color="primary"
-        :loading="form.processing"
-        :save-text="bypassesApproval ? undefined : $t('profile.creditOverrides.submit')"
-        :save-icon="bypassesApproval ? undefined : faEnvelopeCircleCheck"
-        :success-text="bypassesApproval ? $t('profile.creditOverrides.saveHideSuccess') : $t('profile.creditOverrides.saveSuccess')"
-        :disabled="!hasChanges || (pendingReview && !bypassesApproval)"
-        :form="form"
-      >
-        <HtButton
-          v-if="translator.proposal !== null"
-          type="button"
-          color="warning"
-          :loading="cancelForm.processing"
-          :icon-start="faClockRotateLeft"
-          @click="cancelProposal"
-        >
-          {{ $t('profile.creditOverrides.cancel') }}
-        </HtButton>
-      </HtFormSubmitButton>
-    </form>
+      </template>
+    </HtFormControl>
+    <HtCollapsible :visible="selectedUpdateMethod === 'copy'">
+      <TranslationCreditOverrideEntryCopyForm
+        :translator="translator"
+        :all-translators="allTranslators"
+        :crowdin-users="crowdinUsers"
+        :discord-users="discordUsers"
+        :owner-crowdin-user-id="ownerCrowdinUserId"
+      />
+    </HtCollapsible>
+    <HtCollapsible :visible="selectedUpdateMethod === 'edit'">
+      <TranslationCreditOverrideEntryEditForm
+        :translator="translator"
+        :crowdin-users="crowdinUsers"
+        :discord-users="discordUsers"
+        :owner-crowdin-user="ownerCrowdinUser"
+      />
+    </HtCollapsible>
 
     <div
       v-if="translator.override !== null"

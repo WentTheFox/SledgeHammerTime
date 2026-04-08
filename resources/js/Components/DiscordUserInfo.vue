@@ -4,11 +4,14 @@ import { useExponentialBackoff } from '@/composables/useExponentialBackoff';
 import { useRoute } from '@/composables/useRoute';
 import { computed, ref, watch } from 'vue';
 
-export interface DiscordUserInfoProps {
+export interface DiscordUser {
   id: string;
   name: string;
   avatarUrl: string;
   discriminator: string;
+}
+
+export interface DiscordUserInfoProps extends DiscordUser {
   staleAt?: string;
 }
 
