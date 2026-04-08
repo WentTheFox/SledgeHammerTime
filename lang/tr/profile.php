@@ -32,6 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Çeviri Katkıları',
     'description' => 'Katkıda bulunduğunuz her dil için çeviri katkılarında nasıl görüneceğinizi özelleştirin.',
+    'updateMethodLabel' => 'Update method',
+    'updateMethodDescription' => 'Copying from another language does not require manual review',
+    'updateMethodCopyLabel' => 'Copy from another language',
+    'updateMethodEditLabel' => 'Specify individual values',
+    'creditSourceLanguage' => 'Language to copy from',
     'displayName' => 'Görünen Ad',
     'avatarProvider' => 'Avatar',
     'avatarProviders' => [
@@ -47,6 +52,7 @@ return [
     'submit' => 'Onaya gönder',
     'saveSuccess' => 'Onaya gönderildi',
     'saveHideSuccess' => 'Görünürlük güncellendi',
+    'copySuccess' => 'Credits copied',
     'cancel' => 'Değişiklikleri iptal et',
     'statusPrefix' => 'Durum',
     'status' => [
