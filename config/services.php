@@ -40,6 +40,7 @@ return [
     'redirect' => 'https://example.com',
     'invite_url' => env('DISCORD_INVITE_URL'),
     'credits_webhook_url' => env('DISCORD_CREDITS_WEBHOOK_URL'),
+    'credits_reviewer_role_id' => env('DISCORD_CREDITS_REVIEWER_ROLE_ID'),
   ],
 
   'crowdin' => [

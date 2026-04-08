@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\DiscordButtonStyle;
 use App\Enums\DiscordComponentType;
+use App\Http\Requests\CopyCreditOverrideRequest;
 use App\Http\Requests\UpsertCreditOverrideRequest;
 use App\Models\CrowdinUser;
 use App\Models\TranslationCreditOverride;
@@ -13,8 +14,6 @@ use App\Services\AvatarProvider\AvatarResolverService;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Discord\DiscordUserService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -36,7 +35,7 @@ class CreditOverrideController extends Controller {
     /** @var User $authUser */
     $authUser = Auth::user();
 
-    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()) {
+    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()){
       abort(403);
     }
 
@@ -44,7 +43,7 @@ class CreditOverrideController extends Controller {
     $existingOverride = $this->findOverride($crowdinUser->id, $languageCode);
 
     if ($this->doesSubmittedMatchOverride($validated, $existingOverride)){
-      return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+      return Redirect::back();
     }
 
     if ($this->isOnlyHideChanging($validated, $existingOverride)){
@@ -72,7 +71,7 @@ class CreditOverrideController extends Controller {
 
       $this->crowdinCreditsService->invalidateCache();
 
-      return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+      return Redirect::back();
     }
 
     if ($this->isDeletionOnlyChange($validated, $existingOverride)){
@@ -92,7 +91,7 @@ class CreditOverrideController extends Controller {
 
       $this->crowdinCreditsService->invalidateCache();
 
-      return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+      return Redirect::back();
     }
 
     if ($this->isBlankSubmission($validated)){
@@ -103,7 +102,7 @@ class CreditOverrideController extends Controller {
 
       $this->crowdinCreditsService->invalidateCache();
 
-      return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+      return Redirect::back();
     }
 
     $existingProposal = $this->findProposal($crowdinUser->id, $languageCode);
@@ -128,27 +127,74 @@ class CreditOverrideController extends Controller {
       $this->sendDiscordWebhook($proposal, $crowdinUser, $languageCode);
     });
 
-    return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+    return Redirect::back();
   }
 
-  public function cancelProposal(CrowdinUser $crowdinUser, string $languageCode):Response {
+  public function cancelProposal(CrowdinUser $crowdinUser, string $languageCode):RedirectResponse {
     /** @var User $authUser */
     $authUser = Auth::user();
 
-    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()) {
+    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()){
       abort(403);
     }
 
     $this->findProposal($crowdinUser->id, $languageCode)?->delete();
 
-    return response(status: 200);
+    return Redirect::back();
+  }
+
+  public function copy(CopyCreditOverrideRequest $request, CrowdinUser $crowdinUser, string $languageCode):RedirectResponse {
+    /** @var User $authUser */
+    $authUser = Auth::user();
+
+    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()){
+      abort(403);
+    }
+
+    $sourceLanguage = $request->validated('source_language');
+
+    $sourceOverride = $this->findOverride($crowdinUser->id, $sourceLanguage);
+    if ($sourceOverride === null){
+      throw ValidationException::withMessages([
+        'source_language' => ['No override found for the selected source language.'],
+      ]);
+    }
+
+    DB::transaction(function () use ($authUser, $crowdinUser, $languageCode, $sourceOverride) {
+      $targetOverride = $this->findOverride($crowdinUser->id, $languageCode);
+
+      if ($targetOverride === null){
+        TranslationCreditOverride::create([
+          'crowdin_user_id' => $crowdinUser->id,
+          'language_code' => $languageCode,
+          'created_by' => $authUser->id,
+          'display_name' => $sourceOverride->display_name,
+          'avatar_url' => $sourceOverride->avatar_url,
+          'url' => $sourceOverride->url,
+          'hide' => $sourceOverride->hide,
+        ]);
+      }
+      else {
+        $targetOverride->display_name = $sourceOverride->display_name;
+        $targetOverride->avatar_url = $sourceOverride->avatar_url;
+        $targetOverride->url = $sourceOverride->url;
+        $targetOverride->hide = $sourceOverride->hide;
+        $targetOverride->save();
+      }
+
+      $this->findProposal($crowdinUser->id, $languageCode)?->delete();
+    });
+
+    $this->crowdinCreditsService->invalidateCache();
+
+    return Redirect::back();
   }
 
   public function deleteOverride(CrowdinUser $crowdinUser, string $languageCode):RedirectResponse {
     /** @var User $authUser */
     $authUser = Auth::user();
 
-    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()) {
+    if (!$authUser->crowdinUsers()->where('id', $crowdinUser->id)->exists()){
       abort(403);
     }
 
@@ -157,7 +203,7 @@ class CreditOverrideController extends Controller {
       $this->findOverride($crowdinUser->id, $languageCode)?->delete();
     });
 
-    return Redirect::route('profile.edit', ['locale' => App::getLocale()]);
+    return Redirect::back();
   }
 
   private function findOverride(int $crowdinUserId, string $languageCode):?TranslationCreditOverride {
@@ -179,6 +225,7 @@ class CreditOverrideController extends Controller {
 
       return;
     }
+    $pingRoleId = config('services.discord.credits_reviewer_role_id');
 
     $name = ($crowdinUser->full_name
       ? "{$crowdinUser->full_name} ({$crowdinUser->username})"
@@ -214,6 +261,10 @@ class CreditOverrideController extends Controller {
         ];
       }
     }
+    $reviewInstructions = 'Please review this proposal and indicate your decision with the buttons below';
+    if ($pingRoleId !== null){
+      $reviewInstructions = "<@&$pingRoleId> $reviewInstructions";
+    }
 
     $contentStr = implode("\n", $content);
 
@@ -226,11 +277,21 @@ class CreditOverrideController extends Controller {
             [
               'type' => DiscordComponentType::TEXT_DISPLAY->value,
               'content' => <<<MD
-                  User: [$name](<$profileUrl>) | Language: {$languageCode}
-                  $contentStr
-                  MD,
+              User: [$name](<$profileUrl>)
+              Language: $languageCode
+              $contentStr
+              MD,
             ],
             ...($mediaGallery ? [$mediaGallery] : []),
+            [
+              'type' => DiscordComponentType::SEPARATOR->value,
+              'divider' => true,
+              'spacing' => 2,
+            ],
+            [
+              'type' => DiscordComponentType::TEXT_DISPLAY->value,
+              'content' => $reviewInstructions,
+            ],
             [
               'type' => DiscordComponentType::ACTION_ROW->value,
               'components' => [

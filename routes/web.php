@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
 
   Route::middleware('translator')->group(function () {
     Route::put('/credit-overrides/{crowdinUser}/{languageCode}', [CreditOverrideController::class, 'upsert'])->name('credit-overrides.upsert')->where('languageCode', '[a-zA-Z0-9-]+');
+    Route::put('/credit-overrides/{crowdinUser}/{languageCode}/copy', [CreditOverrideController::class, 'copy'])->name('credit-overrides.copy')->where('languageCode', '[a-zA-Z0-9-]+');
     Route::delete('/credit-overrides/{crowdinUser}/{languageCode}', [CreditOverrideController::class, 'deleteOverride'])->name('credit-overrides.delete')->where('languageCode', '[a-zA-Z0-9-]+');
     Route::delete('/credit-overrides/{crowdinUser}/{languageCode}/proposal', [CreditOverrideController::class, 'cancelProposal'])->name('credit-overrides.cancel-proposal')->where('languageCode', '[a-zA-Z0-9-]+');
   });

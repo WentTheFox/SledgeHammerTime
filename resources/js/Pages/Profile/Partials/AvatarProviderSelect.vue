@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
-import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
+import { CrowdinUser } from '@/Components/CrowdinUserInfo.vue';
+import { DiscordUser } from '@/Components/DiscordUserInfo.vue';
 import FormMessage from '@/Components/FormMessage.vue';
 import { avatarUrlMapInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
@@ -23,8 +23,8 @@ const idModel = defineModel<string | null>('id', { default: null });
 
 const props = defineProps<{
   translatorId: string;
-  crowdinUsers: CrowdinUserInfoProps[];
-  discordUsers: DiscordUserInfoProps[];
+  crowdinUsers: CrowdinUser[];
+  discordUsers: DiscordUser[];
   defaultCrowdinId?: string;
   disabled?: boolean;
   form: InertiaForm<{ avatarProvider: string | null; avatarId: string | null }>;

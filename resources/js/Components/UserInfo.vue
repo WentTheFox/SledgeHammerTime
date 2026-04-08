@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
+import { useId } from 'vue';
+import { Tippy } from 'vue-tippy';
 
 const props = defineProps<{
   class: string;
@@ -7,12 +9,18 @@ const props = defineProps<{
   avatarUrl: string;
   service: string;
   stale: boolean | undefined;
+  avatarOnly?: boolean;
 }>();
+
+const id = useId();
 </script>
 
 <template>
   <figure :class="['user-info', props.class]">
-    <span class="user-image-wrap">
+    <span
+      :id="id"
+      class="user-image-wrap"
+    >
       <HtLoadingIndicator
         v-if="stale"
         size="100%"
@@ -23,6 +31,12 @@ const props = defineProps<{
         class="user-image"
       >
     </span>
-    <slot />
+    <Tippy
+      v-if="avatarOnly"
+      :content="name"
+      :inline-positioning="true"
+      :to="id"
+    />
+    <slot v-if="!avatarOnly" />
   </figure>
 </template>
