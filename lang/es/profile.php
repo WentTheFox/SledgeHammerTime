@@ -32,6 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Créditos de traducción',
     'description' => 'Preséntate como quieras en los créditos de cada lenguaje donde eres contribuyente.',
+    'updateMethodLabel' => 'Update method',
+    'updateMethodDescription' => 'Copying from another language does not require manual review',
+    'updateMethodCopyLabel' => 'Copy from another language',
+    'updateMethodEditLabel' => 'Specify individual values',
+    'creditSourceLanguage' => 'Language to copy from',
     'displayName' => 'Nombre para mostrar',
     'avatarProvider' => 'Foto',
     'avatarProviders' => [
@@ -47,6 +52,7 @@ return [
     'submit' => 'Enviar',
     'saveSuccess' => 'Enviado',
     'saveHideSuccess' => 'Estado de visibilidad actualizada',
+    'copySuccess' => 'Credits copied',
     'cancel' => 'Cancelar cambios',
     'statusPrefix' => 'Estado',
     'status' => [
