@@ -10,6 +10,7 @@ import {
   getTimezoneAbbreviationAtDate,
   getTimezoneValue,
   getUtcOffsetString,
+  normalizeTimeString,
   rangeLimit,
   toTwelveHours,
   toTwentyFourHours,
@@ -374,5 +375,36 @@ describe('getTimezoneValue', () => {
       expect(winterAlias).toBe('EST');
       expect(winterAlias).not.toBe(currentAlias);
     });
+  });
+});
+
+describe('normalizeTimeString', () => {
+  it('should convert 5-character time string (HH:MM) to 8-character format (HH:MM:SS)', () => {
+    expect(normalizeTimeString('12:34')).to.eql('12:34:00');
+    expect(normalizeTimeString('00:00')).to.eql('00:00:00');
+    expect(normalizeTimeString('23:59')).to.eql('23:59:00');
+  });
+
+  it('should return the input unchanged if it is already 8 characters (HH:MM:SS)', () => {
+    expect(normalizeTimeString('12:34:56')).to.eql('12:34:56');
+    expect(normalizeTimeString('00:00:00')).to.eql('00:00:00');
+    expect(normalizeTimeString('23:59:59')).to.eql('23:59:59');
+  });
+
+  it('should handle time strings with different hour and minute values', () => {
+    expect(normalizeTimeString('01:02')).to.eql('01:02:00');
+    expect(normalizeTimeString('13:45')).to.eql('13:45:00');
+    expect(normalizeTimeString('09:30')).to.eql('09:30:00');
+  });
+
+  it('should return strings longer than 8 characters unchanged', () => {
+    expect(normalizeTimeString('12:34:56:789')).to.eql('12:34:56:789');
+    expect(normalizeTimeString('extra text 12:34:56')).to.eql('extra text 12:34:56');
+  });
+
+  it('should return strings shorter than 5 characters unchanged', () => {
+    expect(normalizeTimeString('1:2')).to.eql('1:2');
+    expect(normalizeTimeString('1')).to.eql('1');
+    expect(normalizeTimeString('')).to.eql('');
   });
 });

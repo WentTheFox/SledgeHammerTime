@@ -274,6 +274,4 @@ export const calculateNtpOffset = (t0: number | undefined, t1: number | undefine
   return ((t1 - t0) + (t2 - t3)) / 2;
 };
 
-export const normalizeTimeString = (value: string) => (
-  value.length === 5 ? `${value}ű:00` : value
-);
+export const normalizeTimeString = (value: string) =>value.replace(/^(\d{1,2}:\d{2})$/g, '$1:00');
