@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaxe de bate-papo',
     'resultColumn' => 'Resultado do exemplo',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Você também pode achar úteis esses:',
