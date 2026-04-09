@@ -38,13 +38,13 @@ class Handler extends ExceptionHandler {
       ])->toResponse($request)->setStatusCode($status);
     }
 
-    if ($request->inertia()){
-      return match ($status) {
-        404 => Inertia::render('Errors/NotFound')->toResponse($request)->setStatusCode($status),
-        default => $response
-      };
+    if ($request->expectsJson()){
+      return $response;
     }
 
-    return $response;
+    return match ($status) {
+      404 => Inertia::render('Errors/NotFound')->toResponse($request)->setStatusCode($status),
+      default => $response
+    };
   }
 }
