@@ -14,8 +14,8 @@ return [
       'joinSupportServer' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, παρακαλούμε συνδεθείτε στο διακομιστή υποστήριξης Discord και ενημερώστε μας.",
       'contactDeveloper' => "Αν το πρόβλημα επιμένει για περισσότερο από μερικά λεπτά, επικοινωνήστε με τον προγραμματιστή και ενημερώστε τον.",
     ],
-    'autoReload' => 'The page will reload automatically <1/>',
-    'reloadButton' => 'Reload manually',
+    'autoReload' => 'Η σελίδα θα ανανεωθεί αυτόματα <1/>',
+    'reloadButton' => 'Χειροκίνητη επαναφόρτωση',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
@@ -62,7 +62,7 @@ return [
       ],
       'timezoneStickyHeaders' => [
         'label' => 'Επικεφαλίδες ομάδων ζώνης ώρας',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'description' => 'Εμφάνιση κολλωδών κεφαλίδων ομάδων (π.χ. America, Europe) στην αναπτυσσόμενη λίστα επιλογής ζώνης ώρας.',
       ],
       'hourCycle' => [
         'label' => 'Προσαρμοσμένη εισαγωγή ώρας',

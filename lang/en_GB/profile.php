@@ -32,6 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Translation Credits',
     'description' => 'Customise how you appear in the translation credits for each language where you are a contributor.',
+    'updateMethodLabel' => 'Update method',
+    'updateMethodDescription' => 'Copying from another language does not require manual review',
+    'updateMethodCopyLabel' => 'Copy from another language',
+    'updateMethodEditLabel' => 'Specify individual values',
+    'creditSourceLanguage' => 'Language to copy from',
     'displayName' => 'Display Name',
     'avatarProvider' => 'Avatar',
     'avatarProviders' => [
@@ -47,6 +52,7 @@ return [
     'submit' => 'Submit for approval',
     'saveSuccess' => 'Submitted for approval',
     'saveHideSuccess' => 'Visibility updated',
+    'copySuccess' => 'Credits copied',
     'cancel' => 'Cancel changes',
     'statusPrefix' => 'Status',
     'status' => [
