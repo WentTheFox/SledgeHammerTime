@@ -5,11 +5,82 @@
     text-align: center;
   }
 
+  .edit-column {
+    text-align: center;
+    white-space: nowrap;
+
+    .edit-formats-btn {
+      opacity: 0.5;
+      transition: opacity 0.15s;
+
+      &:hover,
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .controls-column {
+    white-space: nowrap;
+    text-align: center;
+
+    .drag-handle {
+      cursor: grab;
+      opacity: 0.4;
+      margin-inline-end: 0.25rem;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .visibility-toggle {
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  tr.locally-hidden {
+    td:not(.controls-column) {
+      opacity: 0.35;
+    }
+  }
+
+  tr.drag-over-before td,
+  tr.drag-over-after td {
+    transition: border-color 0.1s;
+  }
+
+  tr.drag-over-before td {
+    border-top: 2px solid var(--bs-primary, currentColor);
+  }
+
+  tr.drag-over-after td {
+    border-bottom: 2px solid var(--bs-primary, currentColor);
+  }
+
+  tr.dragging {
+    opacity: 0.4;
+  }
+
+  tbody tr[draggable="true"] {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
   @include design.screen-below('md') {
     text-align: center;
 
     .result-column,
-    .icon-column {
+    .icon-column,
+    .edit-column,
+    .controls-column {
       display: none !important;
     }
 

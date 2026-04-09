@@ -60,6 +60,10 @@ export interface LocalSettingsValue {
   readonly hourCycle: HourCycle | null;
   readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
   readonly timezoneStickyHeaders: boolean | null;
+  readonly localHiddenFormats: readonly string[];
+  readonly localFormatOrder: readonly string[];
+  readonly toggleLocalHiddenFormat: (format: string) => void;
+  readonly setLocalFormatOrder: (order: string[]) => void;
   readonly toggleNaturalLanguageInput: (e: Event) => void;
   readonly toggleCustomDateInput: (e: Event) => void;
   readonly toggleCustomTimeInput: (e: Event) => void;

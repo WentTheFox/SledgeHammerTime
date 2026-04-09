@@ -91,7 +91,7 @@ const handleHiddenChange = (e: Event) => {
           :checked="form.hidden_formats.includes(format)"
           name="hidden_formats[]"
           :value="format"
-          @change.passive="handleHiddenChange"
+          @change="handleHiddenChange"
         >
           <template #label>
             {{ format }}
