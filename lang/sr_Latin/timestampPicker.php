@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaksa u poruci',
     'resultColumn' => 'Primer rezultata',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Ovo Vam takođe može biti korisno:',
