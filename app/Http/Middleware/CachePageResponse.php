@@ -13,9 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
 
-  public static function cacheKey(string $page, string $locale, string $manifestHash): string {
+  public static function cacheKey(string $page, string $locale): string {
     $version = Config::get('app.page_cache.version', 0);
-    return "page-html-{$page}-{$locale}-{$manifestHash}-v$version";
+    return "page-html-{$page}-{$locale}-v$version";
   }
 
   /**
@@ -23,9 +23,8 @@ class CachePageResponse {
    * Call this whenever the underlying data for a page changes.
    */
   public static function forgetPage(string $page): void {
-    $manifestHash = @md5_file(public_path('build/manifest.json')) ?: 'default';
     foreach (array_keys(Config::get('languages.ui_locale_map', [])) as $locale) {
-      Cache::forget(static::cacheKey($page, $locale, $manifestHash));
+      Cache::forget(static::cacheKey($page, $locale));
     }
   }
 
@@ -98,8 +97,7 @@ class CachePageResponse {
     }
 
     $locale = App::getLocale();
-    $manifestHash = @md5_file(public_path('build/manifest.json')) ?: 'default';
-    $cacheKey = static::cacheKey($page, $locale, $manifestHash);
+    $cacheKey = static::cacheKey($page, $locale);
 
     /** @var array{html: string, last_modified: int}|string|null $cached */
     $cached = Cache::get($cacheKey);

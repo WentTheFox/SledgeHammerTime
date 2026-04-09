@@ -10,6 +10,7 @@
   "require": {
     "php": "^8.5",
     "ext-pdo": "*",
+    "ext-redis": "*",
     "guzzlehttp/guzzle": "^7.2",
     "inertiajs/inertia-laravel": "^3.0",
     "laravel-lang/common": "^6.7.1",
