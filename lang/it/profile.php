@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Riconoscimenti Traduzione',
     'description' => 'Personalizza il modo in cui appari nei crediti di traduzione per ogni lingua in cui sei un collaboratore.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Metodo di aggiornamento',
+    'updateMethodDescription' => 'La copia da un\'altra lingua non richiede una revisione manuale',
+    'updateMethodCopyLabel' => 'Copia da un\'altra lingua',
+    'updateMethodEditLabel' => 'Specifica valori individuali',
+    'creditSourceLanguage' => 'Lingua da cui copiare',
     'displayName' => 'Nome Visualizzato',
     'avatarProvider' => 'Avatar',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Invia per l\'approvazione',
     'saveSuccess' => 'Inviato per l\'approvazione',
     'saveHideSuccess' => 'Visibilità aggiornata',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Crediti copiati',
     'cancel' => 'Annulla le modifiche',
     'statusPrefix' => 'Stato',
     'status' => [
