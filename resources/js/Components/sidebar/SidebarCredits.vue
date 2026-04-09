@@ -9,6 +9,7 @@ import { useUiLocale } from '@/composables/useUiLocale';
 import { pagePropsInject } from '@/injection-keys';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { GITHUB_REPO_URL } from '@/utils/app';
 import { safeRoute } from '@/utils/safe-route';
 import { faGithub, faOsi } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -134,7 +135,7 @@ const translationCredits = computed(() => {
       {{ $t('global.sidebar.credits.openSourceSoftware') }}
     </p>
     <p class="view-source mb-3">
-      <HtExternalLink href="https://github.com/WentTheFox/SledgeHammerTime">
+      <HtExternalLink :href="GITHUB_REPO_URL">
         <FontAwesomeIcon
           :icon="faGithub"
           class="me-1"

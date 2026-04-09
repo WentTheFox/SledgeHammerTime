@@ -180,3 +180,10 @@ $_sidebar_space_reserved_from_breakpoint: 'lg';
     font-size: .75rem;
   }
 }
+
+.build-info {
+  opacity: 0.4;
+  font-size: 0.75em;
+  font-family: monospace;
+  align-self: center;
+}
