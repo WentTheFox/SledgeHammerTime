@@ -191,8 +191,9 @@ $_sidebar_space_reserved_from_breakpoint: 'lg';
 }
 
 .build-info {
-  opacity: 0.4;
-  font-size: 0.75em;
-  font-family: monospace;
+  opacity: design.app-value('sidebar-build-info-opacity');
+  font-size: design.app-value('sidebar-build-info-font-size');
   align-self: center;
+
+  @include design.monospace-font;
 }
