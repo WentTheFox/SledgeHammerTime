@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat syntaks',
     'resultColumn' => 'Eksempel resultat',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Du kan også finne dette nyttig:',
