@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Zápis v chatu',
     'resultColumn' => 'Ukázkový výstup',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Užitečné pro vás mohou být také tyto:',
