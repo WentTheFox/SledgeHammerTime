@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Čata sintakses',
     'resultColumn' => 'Rezultāta piemērs',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Jūs varat arī atrast šos noderīgus:',
