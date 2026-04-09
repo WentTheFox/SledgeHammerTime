@@ -1,6 +1,7 @@
 import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
 import { CurrentLanguageData } from '@/injection-keys';
+import { isValidMessageTimestampFormat } from '@/model/message-timestamp-format';
 import type { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
 
@@ -15,6 +16,8 @@ const lightThemePrefKey = 'light-theme';
 const hourCyclePrefKey = 'hour-cycle';
 const firstDayOfWeekPrefKey = 'first-day-of-week';
 const timezoneStickyHeadersPrefKey = 'timezone-sticky-headers';
+const localHiddenFormatsPrefKey = 'local-hidden-formats';
+const localFormatOrderPrefKey = 'local-format-order';
 
 const trueByDefault = (storedPref: string | null): boolean => storedPref !== 'false';
 const falseByDefault = (storedPref: string | null): boolean => storedPref === 'true';
@@ -33,6 +36,8 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const hourCycle = ref<HourCycle | null>(null);
   const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
   const timezoneStickyHeaders = ref<boolean | null>(null);
+  const localHiddenFormats = ref<string[]>([]);
+  const localFormatOrder = ref<string[]>([]);
 
   const effectiveSidebarOnRight = computed(() => (
     currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
@@ -91,6 +96,12 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   watch(timezoneStickyHeaders, (newValue) => {
     localStorage.setItem(timezoneStickyHeadersPrefKey, newValue ? 'true' : 'false');
   });
+  watch(localHiddenFormats, (newValue) => {
+    localStorage.setItem(localHiddenFormatsPrefKey, JSON.stringify(newValue));
+  }, { deep: true });
+  watch(localFormatOrder, (newValue) => {
+    localStorage.setItem(localFormatOrderPrefKey, JSON.stringify(newValue));
+  }, { deep: true });
 
   const setInitialCombinedInput = () => {
     const storedPref = localStorage.getItem(splitPrefKey);
@@ -161,6 +172,30 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     // Enable timezone sticky headers by default
     timezoneStickyHeaders.value = trueByDefault(storedPref);
   };
+  const setInitialLocalHiddenFormats = () => {
+    const raw = localStorage.getItem(localHiddenFormatsPrefKey);
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        localHiddenFormats.value = parsed.filter(
+          (v): v is string => isValidMessageTimestampFormat(v) || v === 'unix',
+        );
+      }
+    } catch { /* ignore malformed data */ }
+  };
+  const setInitialLocalFormatOrder = () => {
+    const raw = localStorage.getItem(localFormatOrderPrefKey);
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        localFormatOrder.value = parsed.filter(
+          (v): v is string => isValidMessageTimestampFormat(v) || v === 'unix',
+        );
+      }
+    } catch { /* ignore malformed data */ }
+  };
 
   onMounted(() => {
     setInitialFlatUi();
@@ -174,6 +209,8 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setInitialHourCycle();
     setInitialFirstDayOfWeek();
     setInitialTimezoneStickyHeaders();
+    setInitialLocalHiddenFormats();
+    setInitialLocalFormatOrder();
   });
 
   return {
@@ -241,6 +278,19 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     toggleTimezoneStickyHeaders(e: Event) {
       if (!(e.target instanceof HTMLInputElement)) return;
       timezoneStickyHeaders.value = e.target.checked;
+    },
+    localHiddenFormats,
+    localFormatOrder,
+    toggleLocalHiddenFormat(format: string) {
+      const idx = localHiddenFormats.value.indexOf(format);
+      if (idx >= 0) {
+        localHiddenFormats.value.splice(idx, 1);
+      } else {
+        localHiddenFormats.value.push(format);
+      }
+    },
+    setLocalFormatOrder(order: string[]) {
+      localFormatOrder.value = order;
     },
   };
 };
