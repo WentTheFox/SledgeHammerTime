@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaks sembang',
     'resultColumn' => 'Contoh hasilnya',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Ini mungkin berguna untuk anda:',
