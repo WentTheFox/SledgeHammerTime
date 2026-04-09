@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Üzenet formája',
     'resultColumn' => 'Példa megjelenés',
+    'editFormats' => 'Formátumok testreszabása',
+    'resetFormats' => 'Alaphelyzetbe állítás',
+    'hideFormat' => 'Formátum elrejtése',
+    'showFormat' => 'Formátum megjelenítése',
+    'unhideInProfile' => 'Megjelenítés a profilbeállításokban',
   ],
   'usefulLinks' => [
     'lead' => 'Ezeket is hasznosnak találhatod:',
