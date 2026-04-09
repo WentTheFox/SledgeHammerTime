@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Định dạng tin nhắn',
     'resultColumn' => 'Kết quả ví dụ',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Những đường dẫn dưới đây có thể có ích đối với bạn:',
