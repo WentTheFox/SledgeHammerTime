@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat-Syntax',
     'resultColumn' => 'Beispiel',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Das könnte für dich ebenfalls nützlich sein:',
