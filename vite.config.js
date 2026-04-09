@@ -1,3 +1,4 @@
+import { execSync } from 'child_process';
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -7,6 +8,17 @@ import viteImagemin from '@wentthefox-forks/vite-plugin-imagemin';
 import sharp from 'sharp';
 import { Features } from 'lightningcss';
 import { parse } from 'dotenv';
+
+const tryExec = (cmd) => {
+  try {
+    return execSync(cmd).toString().trim();
+  } catch (e) {
+    console.warn(`tryExec failed: ${cmd}`, e);
+    return null;
+  }
+};
+const gitCommitHash = tryExec('git rev-parse --short HEAD');
+const gitCommitDate = tryExec('git log -1 --format=%cI');
 
 const imageminWebp = async buffer => {
   return await sharp(buffer)
@@ -48,6 +60,10 @@ export default defineConfig(({ mode }) => {
 
   const env = parse('./.env');
   return ({
+    define: {
+      __GIT_COMMIT_HASH__: JSON.stringify(gitCommitHash),
+      __GIT_COMMIT_DATE__: JSON.stringify(gitCommitDate),
+    },
     server: {
       origin: env.APP_VITE_SERVER_ORIGIN,
       host: env.APP_VITE_SERVER_HOST || 'localhost',

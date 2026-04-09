@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LanguageSelector from '@/Components/LanguageSelector.vue';
+import BuildInfo from '@/Components/sidebar/BuildInfo.vue';
 import DebugLocalSettings from '@/Components/sidebar/DebugLocalSettings.vue';
 import SidebarCredits from '@/Components/sidebar/SidebarCredits.vue';
 import ThemeButtonGroup from '@/Components/sidebar/ThemeButtonGroup.vue';
@@ -44,6 +45,7 @@ const close = () => {
         </li>
         <li class="parallel-actions">
           <UserMenu />
+          <BuildInfo />
           <ThemeButtonGroup />
         </li>
       </ul>
