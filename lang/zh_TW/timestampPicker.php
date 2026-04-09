@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => '聊天語法',
     'resultColumn' => '結果範例',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => '您可能也會發現這些資訊很有用：',
