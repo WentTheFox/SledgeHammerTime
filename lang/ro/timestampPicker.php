@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaxa chat-ului',
     'resultColumn' => 'Exemplu de rezultat',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'S-ar putea să vă fie utile și acestea:',
