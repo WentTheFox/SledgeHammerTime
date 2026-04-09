@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Fordítói névjegyek',
     'description' => 'Testreszabhatod, hogyan jelensz meg a fordítási névjegyekben minden olyan nyelv esetében, ahol közreműködtél.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Frissítés módja',
+    'updateMethodDescription' => 'A másik nyelvről másolás nem igényel kézi ellenőrzést',
+    'updateMethodCopyLabel' => 'Másik nyelvről másolás',
+    'updateMethodEditLabel' => 'Különálló értékek megadása',
+    'creditSourceLanguage' => 'Forrás nyelv',
     'displayName' => 'Megjelenített Név',
     'avatarProvider' => 'Profilkép',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Beküldés jóváhagyásra',
     'saveSuccess' => 'Jóváhagyásra beküldve',
     'saveHideSuccess' => 'Láhatóság frissítve',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Névjegy átmásolva',
     'cancel' => 'Változtatások visszavonása',
     'statusPrefix' => 'Állapot',
     'status' => [
