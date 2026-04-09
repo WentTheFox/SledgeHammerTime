@@ -62,6 +62,7 @@ English and Hungarian translations have been included, so no translators will be
   - [notlin4](https://crowdin.com/profile/notlin4)
   - [sfgbfdce](https://crowdin.com/profile/3582452209)
   - [呂宥廷](https://crowdin.com/profile/avery11111102)
+  - [煇煇](https://crowdin.com/profile/huihuila)
 - 🇭🇷 Croatian
   - [net-tech-](https://crowdin.com/profile/net-tech-)
   - [tovhov](https://crowdin.com/profile/tovhov)
@@ -106,6 +107,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
+  - [Arthur LUCAS](https://crowdin.com/profile/ablasters1)
   - [Biscotte](https://crowdin.com/profile/Ilovelinux68)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
   - [HumainAbsurde](https://crowdin.com/profile/humain)
@@ -278,6 +280,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
 - 🇪🇸 Spanish
   - [?????](https://crowdin.com/profile/elpapuvanegas)
+  - [Anomen77](https://crowdin.com/profile/Anomen77)
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
   - [DearReux](https://crowdin.com/profile/DearReux)
