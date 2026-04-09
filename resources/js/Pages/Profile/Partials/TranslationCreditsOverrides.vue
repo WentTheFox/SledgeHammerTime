@@ -15,7 +15,7 @@ const props = defineProps<{
 const allTranslators = computed(() =>
   props.crowdinUsers.flatMap(cu => {
     const { translators, ...restCrowdinUser } = cu;
-    return translators?.map((t) => ({ ...t, crowdinUser: restCrowdinUser }));
+    return translators?.map((t) => ({ ...t, crowdinUser: restCrowdinUser })) ?? [];
   }),
 );
 </script>

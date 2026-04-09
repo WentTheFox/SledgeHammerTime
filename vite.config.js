@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
       input: 'resources/js/app.ts',
       ssr: 'resources/js/ssr.ts',
       refresh: true,
+      buildDirectory: process.env.VITE_BUILD_OUTDIR ?? 'build',
     }));
   }
 
