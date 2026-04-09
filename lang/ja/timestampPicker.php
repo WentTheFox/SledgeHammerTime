@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'メッセージの構文',
     'resultColumn' => '例',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => '関連するもの',
