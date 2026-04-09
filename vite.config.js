@@ -17,8 +17,8 @@ const tryExec = (cmd) => {
     return null;
   }
 };
-const gitCommitHash = tryExec('git rev-parse --short HEAD');
-const gitCommitDate = tryExec('git log -1 --format=%cI');
+const gitCommitHash = process.env.GIT_COMMIT_HASH ?? tryExec('git rev-parse --short HEAD');
+const gitCommitDate = process.env.GIT_COMMIT_DATE ?? tryExec('git log -1 --format=%cI');
 
 const imageminWebp = async buffer => {
   return await sharp(buffer)
