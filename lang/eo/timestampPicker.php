@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Babilsintakso',
     'resultColumn' => 'Ekzempla rezulto',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'You may also find these useful:',
