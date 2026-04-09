@@ -68,7 +68,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         echo "# Skipping npm install, lockfile not modified"
     fi
 
-    # Build outside maintenance mode: old assets/SSR stay live until restart
+    # Build and swap frontend assets before maintenance mode so the
+    # maintenance page itself is served with the new build in place.
     echo "$ $CMD_BUILD"
     mkdir -p public/builds
     eval $CMD_BUILD || {
@@ -77,14 +78,17 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         exit 1
     }
 
-    # Maintenance mode: only for symlink swap and restarts
-    echo "$ $CMD_LARAVEL_DOWN"
-    eval $CMD_LARAVEL_DOWN
-
     echo "$ $CMD_SYMLINK_NEW"
     eval $CMD_SYMLINK_NEW
     echo "$ $CMD_SYMLINK_SWAP"
     eval $CMD_SYMLINK_SWAP
+
+    echo "$ $CMD_CLEAR_PAGE_CACHE"
+    eval $CMD_CLEAR_PAGE_CACHE
+
+    # Maintenance mode: only for PHP/Laravel restarts
+    echo "$ $CMD_LARAVEL_DOWN"
+    eval $CMD_LARAVEL_DOWN
 
     echo "$ $CMD_LARAVEL_OPTIMIZE"
     eval $CMD_LARAVEL_OPTIMIZE
@@ -102,9 +106,6 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         echo "$ $CMD_PM2"
         eval $CMD_PM2
     fi
-
-    echo "$ $CMD_CLEAR_PAGE_CACHE"
-    eval $CMD_CLEAR_PAGE_CACHE
 
     # Clear maintenance mode after deployment
     echo "$ $CMD_LARAVEL_UP"
