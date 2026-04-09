@@ -32,6 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Mitwirkende Übersetzer',
     'description' => 'Passe an, wie du in den Übersetzungs-Credits für jede Sprache erscheinst, in der du ein Mitwirkender bist.',
+    'updateMethodLabel' => 'Update method',
+    'updateMethodDescription' => 'Copying from another language does not require manual review',
+    'updateMethodCopyLabel' => 'Copy from another language',
+    'updateMethodEditLabel' => 'Specify individual values',
+    'creditSourceLanguage' => 'Language to copy from',
     'displayName' => 'Anzeigename',
     'avatarProvider' => 'Profilbild',
     'avatarProviders' => [
@@ -47,6 +52,7 @@ return [
     'submit' => 'Zur Genehmigung einreichen',
     'saveSuccess' => 'Zur Genehmigung eingereicht',
     'saveHideSuccess' => 'Sichtbarkeit aktualisiert',
+    'copySuccess' => 'Credits copied',
     'cancel' => 'Änderungen verwerfen',
     'statusPrefix' => 'Status',
     'status' => [

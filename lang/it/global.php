@@ -14,16 +14,16 @@ return [
       'joinSupportServer' => "Se il problema persiste per più di qualche minuto, unisciti al server di supporto Discord e faccelo sapere.",
       'contactDeveloper' => "Se il problema persiste per più di pochi minuti, contatta lo sviluppatore e fallo sapere.",
     ],
-    'autoReload' => 'The page will reload automatically <1/>',
-    'reloadButton' => 'Reload manually',
+    'autoReload' => 'La pagina si ricaricherà automaticamente <1/>',
+    'reloadButton' => 'Ricarica manualmente',
     "supportServerButton" => "Server di Supporto",
   ],
   'incompleteTranslations' => 'Le traduzioni sono incomplete',
   'contributeTranslations' => 'Contribuisci',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Osservato attualmente',
+    'atPickedDate' => 'Osservato al tempo scelto',
+    'currentlyAndAtPickedDate' => 'Osservato attualmente e al tempo scelto',
   ],
   'copyToClipboard' => 'Copia negli appunti',
   'copiedToClipboard' => 'Copiato negli appunti!',
@@ -35,7 +35,7 @@ return [
     'botSettings' => 'Impostazioni App',
     'profile' => 'Profilo',
     'legal' => 'Informazioni legali',
-    'analytics' => 'Analytics',
+    'analytics' => 'Telemetria',
   ],
   'sidebar' => [
     'inputSettings' => [
@@ -61,8 +61,8 @@ return [
         'description' => "Disabilita gli effetti di ombra e altezza sugli input e sui pulsanti",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Intestazioni gruppo fuso orario',
+        'description' => 'Mostra intestazioni gruppi fisse (ad esempio America, Europa) nella tendina del selettore di fuso orario.',
       ],
       'hourCycle' => [
         'label' => 'Tipo di orologio input orario personalizzato',
