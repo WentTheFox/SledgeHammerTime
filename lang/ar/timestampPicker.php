@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'صيغة الدردشة',
     'resultColumn' => 'مثال على النتيجة',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'قد تعجبك هذه الخدمات أيضا:',
