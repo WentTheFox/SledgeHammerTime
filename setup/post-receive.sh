@@ -11,6 +11,11 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     echo "$ cd ${APP_DIR}"
     cd "${APP_DIR}"
 
+    if [ -f "setup/deploy-config.sh" ]; then
+        echo "# Loading setup/deploy-config.sh"
+        source "setup/deploy-config.sh"
+    fi
+
     if [ -d "public/build" ] && [ ! -L "public/build" ]; then
         echo "ERROR: public/build is a real directory, not a symlink."
         echo "Run the one-time migration before using this script:"
@@ -21,6 +26,10 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     BUILD_TIMESTAMP=$(date +%Y%m%d%H%M%S)
     BUILD_DIR="builds/build-${BUILD_TIMESTAMP}"
     BUILDS_KEEP=3
+
+    SKIP_MIGRATE="${SKIP_MIGRATE:-false}"
+    SKIP_HORIZON="${SKIP_HORIZON:-false}"
+    SKIP_SSR="${SKIP_SSR:-false}"
 
     CMD_FETCH="timeout 15 $GIT fetch"
     CMD_COMPOSER="if [ -d vendor/ ]; then sudo chmod -R ug+rw vendor/; fi; composer install --optimize-autoloader --no-dev 2>&1"
@@ -45,8 +54,12 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     echo "$ $CMD_COMPOSER"
     eval $CMD_COMPOSER
 
-    echo "$ $CMD_MIGRATE"
-    eval $CMD_MIGRATE
+    if [[ "$SKIP_MIGRATE" == "true" ]]; then
+        echo "# Skipping migrations (SKIP_MIGRATE=true)"
+    else
+        echo "$ $CMD_MIGRATE"
+        eval $CMD_MIGRATE
+    fi
 
     if $GIT diff --name-only $oldrev $newrev | grep "^package-lock.json"; then
         echo "$ $CMD_NPM"
@@ -64,7 +77,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         exit 1
     }
 
-    # Maintenance mode: only for symlink swap, migrations, and restarts
+    # Maintenance mode: only for symlink swap and restarts
     echo "$ $CMD_LARAVEL_DOWN"
     eval $CMD_LARAVEL_DOWN
 
@@ -76,11 +89,19 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     echo "$ $CMD_LARAVEL_OPTIMIZE"
     eval $CMD_LARAVEL_OPTIMIZE
 
-    echo "$ $CMD_HORIZON"
-    eval $CMD_HORIZON
+    if [[ "$SKIP_HORIZON" == "true" ]]; then
+        echo "# Skipping Horizon restart (SKIP_HORIZON=true)"
+    else
+        echo "$ $CMD_HORIZON"
+        eval $CMD_HORIZON
+    fi
 
-    echo "$ $CMD_PM2"
-    eval $CMD_PM2
+    if [[ "$SKIP_SSR" == "true" ]]; then
+        echo "# Skipping PM2/SSR restart (SKIP_SSR=true)"
+    else
+        echo "$ $CMD_PM2"
+        eval $CMD_PM2
+    fi
 
     echo "$ $CMD_CLEAR_PAGE_CACHE"
     eval $CMD_CLEAR_PAGE_CACHE

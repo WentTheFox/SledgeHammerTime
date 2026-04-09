@@ -7,6 +7,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/setup/deploy-config.sh
 .env
 .env.backup
 .env.production
