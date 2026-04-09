@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Синтаксис чату',
     'resultColumn' => 'Приклад результату',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Вам також можуть бути корисними:',
