@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => '代码语法',
     'resultColumn' => '示例显示效果',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => '也许您也想看看这些链接：',
