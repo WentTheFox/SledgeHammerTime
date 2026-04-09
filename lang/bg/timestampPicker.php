@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Синтаксис на чата',
     'resultColumn' => 'Образец на резултата',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Може да намериш тези неща полезни:',
