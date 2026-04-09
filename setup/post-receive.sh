@@ -43,6 +43,9 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     echo "$ $CMD_COMPOSER"
     eval $CMD_COMPOSER
 
+    echo "$ $CMD_MIGRATE"
+    eval $CMD_MIGRATE
+
     if $GIT diff --name-only $oldrev $newrev | grep "^package-lock.json"; then
         echo "$ $CMD_NPM"
         eval $CMD_NPM
@@ -50,7 +53,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         echo "# Skipping npm install, lockfile not modified"
     fi
 
-    # Build outside maintenance mode — old assets/SSR stay live until restart
+    # Build outside maintenance mode: old assets/SSR stay live until restart
     echo "$ $CMD_BUILD"
     mkdir -p public/builds
     eval $CMD_BUILD || {
@@ -59,7 +62,7 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         exit 1
     }
 
-    # Maintenance mode — only for symlink swap, migrations, and restarts
+    # Maintenance mode: only for symlink swap, migrations, and restarts
     echo "$ $CMD_LARAVEL_DOWN"
     eval $CMD_LARAVEL_DOWN
 
@@ -67,9 +70,6 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     eval $CMD_SYMLINK_NEW
     echo "$ $CMD_SYMLINK_SWAP"
     eval $CMD_SYMLINK_SWAP
-
-    echo "$ $CMD_MIGRATE"
-    eval $CMD_MIGRATE
 
     echo "$ $CMD_LARAVEL_OPTIMIZE"
     eval $CMD_LARAVEL_OPTIMIZE
