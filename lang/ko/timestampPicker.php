@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => '메시지 형식',
     'resultColumn' => '결과 예시',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => '유용할 수도 있는 링크들',
