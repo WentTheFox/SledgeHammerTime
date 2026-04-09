@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Чат синтакс',
     'resultColumn' => 'Жишээ үр дүн',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Та бас энийг хэрэгтэй гэж божод магадгүй:',
