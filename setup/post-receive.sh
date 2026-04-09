@@ -25,7 +25,9 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_FETCH="timeout 15 $GIT fetch"
     CMD_COMPOSER="if [ -d vendor/ ]; then sudo chmod -R ug+rw vendor/; fi; composer install --optimize-autoloader --no-dev 2>&1"
     CMD_NPM="npm ci"
-    CMD_BUILD="VITE_BUILD_OUTDIR=\"${BUILD_DIR}\" npm run build"
+    GIT_COMMIT_HASH=$($GIT rev-parse --short HEAD)
+    GIT_COMMIT_DATE=$($GIT log -1 --format=%cI)
+    CMD_BUILD="VITE_BUILD_OUTDIR=\"${BUILD_DIR}\" GIT_COMMIT_HASH=\"${GIT_COMMIT_HASH}\" GIT_COMMIT_DATE=\"${GIT_COMMIT_DATE}\" npm run build"
     CMD_SYMLINK_NEW="ln -s \"${BUILD_DIR}\" \"public/build-${BUILD_TIMESTAMP}.new\""
     CMD_SYMLINK_SWAP="mv -Tf \"public/build-${BUILD_TIMESTAMP}.new\" \"public/build\""
     CMD_MIGRATE="php artisan migrate --force"
