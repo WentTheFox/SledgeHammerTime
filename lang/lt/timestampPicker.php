@@ -34,6 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Pokalbio sintaksė',
     'resultColumn' => 'Pavyzdinis rezultatas',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'usefulLinks' => [
     'lead' => 'Galbūt tau taip pat naudingos šios nuorodos:',
