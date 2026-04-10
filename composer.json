@@ -19,7 +19,7 @@
     "laravel/horizon": "^5.41",
     "laravel/sanctum": "^4.0",
     "laravel/socialite": "^v5.21",
-    "laravel/tinker": "^2.8",
+    "laravel/tinker": "^3.0",
     "paragonie/sodium_compat": "^2.5",
     "sentry/sentry-laravel": "^4.24",
     "socialiteproviders/crowdin": "^5.0",
@@ -29,7 +29,7 @@
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "v3.6.1",
+    "barryvdh/laravel-ide-helper": "v3.7.0",
     "fakerphp/faker": "^1.9.1",
     "laravel-lang/lang": "^15.26.2",
     "laravel/breeze": "^2.0",
