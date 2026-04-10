@@ -12,10 +12,11 @@ use App\Models\BotCommandTranslation;
 use App\Models\DiscordUser;
 use App\Models\Settings;
 use App\Services\Discord\DiscordUserService;
-use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response as InertiaResponse;
 
@@ -37,7 +38,7 @@ class BotSettingsController extends Controller {
     ]);
   }
 
-  public function set(BotSettingsUpdate $request): Response {
+  public function set(BotSettingsUpdate $request): RedirectResponse {
     $data = $request->validated();
 
     $discordUserId = $request->route('discordUserId');
@@ -74,7 +75,7 @@ class BotSettingsController extends Controller {
 
     $this->discordUserService->clearSettingsCache($discordUser);
 
-    return response()->noContent(200);
+    return Redirect::route('settings', ['locale' => App::getLocale()]);
   }
 
   /**
