@@ -36,7 +36,7 @@ import {
 } from 'date-fns';
 import { enUS } from 'date-fns/locale/en-US';
 
-// Locale cache — pre-seeded with the fallback locale so loadLocaleLowLevel is always synchronous.
+// Locale cache - pre-seeded with the fallback locale so loadLocaleLowLevel is always synchronous.
 // Populated on-demand via preloadDateFnsLocale before rendering starts.
 const localeCache = new Map<string, Locale>([['enUS', enUS]]);
 

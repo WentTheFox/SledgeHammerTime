@@ -27,5 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/command-telemetry', [BotApiController::class, 'commandTelemetry']);
     Route::post('/import-crowdin-translators', [BotApiController::class, 'importCrowdinTranslators']);
     Route::post('/credit-overrides/{proposal}/review', [BotApiController::class, 'reviewCreditOverride']);
+    Route::put('/faq-entries', [BotApiController::class, 'updateFaqEntries']);
   });
 });

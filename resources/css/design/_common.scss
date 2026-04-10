@@ -151,6 +151,13 @@ $value-map: (
     lg: .5rem,
   ),
   time-picker-max-width: 260px,
+  faq-list-gap: 0.25rem,
+  faq-body-padding: 0.75rem,
+  faq-body-line-height: 1.3,
+  faq-blockquote-padding-left: 0.75rem,
+  faq-blockquote-border-left: 3px,
+  faq-blockquote-opacity: 0.8,
+  faq-list-padding-left: 1.5rem,
 );
 
 $_text-color-light: #313131;
@@ -243,7 +250,7 @@ $color-map: (
   ),
   button-default-bg: (
     light: color.adjust($_base-blue, $lightness: 20%, $saturation: -100%),
-    dark: color.adjust($_base-blue, $lightness: -20%, $saturation: -100%),
+    dark: color.adjust($_base-blue, $lightness: -25%, $saturation: -100%),
   ),
   button-default-border-color: (
     light: color.adjust($_base-blue, $lightness: 10%, $saturation: -100%),
@@ -577,9 +584,21 @@ $color-map: (
     light: #282,
     dark: #afa
   ),
-  form-message-description: (
+  muted-text: (
     light: #555,
     dark: #999,
+  ),
+  discord-mention-color: (
+    light: $_base-blue,
+    dark: $_base-blue,
+  ),
+  discord-mention-bg: (
+    light: rgba($_base-blue, .15),
+    dark: rgba($_base-blue, .15),
+  ),
+  discord-mention-bg-hover: (
+    light: rgba($_base-blue, .25),
+    dark: rgba($_base-blue, .25),
   ),
 );
 

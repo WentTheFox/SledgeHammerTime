@@ -82,3 +82,8 @@ body {
     position: absolute !important;
   }
 }
+
+.muted {
+  color: functions.app-color("muted-text");
+  font-size: 0.875em;
+}

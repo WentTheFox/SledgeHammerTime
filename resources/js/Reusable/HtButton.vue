@@ -15,8 +15,9 @@ const props = withDefaults(defineProps<{
   disabled?: boolean;
   tabindex?: string | number;
   fullWidth?: boolean;
+  allowOverflow?: boolean;
   pressed?: boolean;
-  justifyCenter?: boolean;
+  justify?: 'start' | 'center' | 'end';
   title?: string;
   size?: ButtonSizes;
 } & Partial<HtButtonContentProps>>(), {
@@ -26,12 +27,13 @@ const props = withDefaults(defineProps<{
   disabled: undefined,
   loading: false,
   fullWidth: undefined,
+  allowOverflow: undefined,
   tabindex: undefined,
   pressed: false,
   iconOnly: false,
   iconStart: undefined,
   iconEnd: undefined,
-  justifyCenter: false,
+  justify: undefined,
   title: undefined,
   size: undefined,
 });

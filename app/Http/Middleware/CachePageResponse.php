@@ -37,11 +37,11 @@ class CachePageResponse {
    *
    * The client-only fallback (SSR server unavailable) omits data-server-rendered
    * and leaves the div empty.  The data-page attribute value is always just the
-   * element ID ("app"), not the JSON — the JSON is the script tag's text content.
+   * element ID ("app"), not the JSON - the JSON is the script tag's text content.
    *
    * Checks performed:
    * 1. Must be a complete HTML document (DOCTYPE + closing </html>).
-   * 2. Must contain data-server-rendered="true" — the sole reliable SSR indicator.
+   * 2. Must contain data-server-rendered="true" - the sole reliable SSR indicator.
    * 3. The inline page-data script must contain parseable Inertia JSON with a
    *    "component" key; a truncated payload would break client-side hydration.
    */
@@ -90,7 +90,7 @@ class CachePageResponse {
       return $next($request);
     }
 
-    // Inertia SPA navigations send X-Inertia header — serve those fresh so shared
+    // Inertia SPA navigations send X-Inertia header - serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
       return $next($request);

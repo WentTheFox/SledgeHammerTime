@@ -458,7 +458,7 @@
   }
 
   &.form-message-description {
-    color: design.app-color('form-message-description');
+    color: design.app-color('muted-text');
   }
 
   @include design.content-link-style;

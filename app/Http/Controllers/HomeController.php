@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FaqEntry;
 use Carbon\Carbon;
 use DateTimeZone;
 use Illuminate\Http\RedirectResponse;
@@ -13,10 +14,13 @@ class HomeController extends Controller {
   function index():InertiaResponse {
     $currentTime = new Carbon(timezone: new DateTimeZone('GMT'))->setSeconds(0)->getTimestamp();
 
+    $faqEntries = FaqEntry::orderBy('identifier')->get()->map(fn(FaqEntry $entry) => $entry->mapToUiInfo())->values()->all();
+
     return Inertia::render('Picker/IndexComponent', [
       'initialUtcDate' => gmdate('Y-m-d', $currentTime),
       'initialUtcTime' => gmdate('H:i:s', $currentTime),
       'initialTimestamp' => $currentTime,
+      'faqEntries' => $faqEntries,
     ]);
   }
 

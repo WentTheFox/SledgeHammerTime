@@ -27,4 +27,10 @@ export default tseslint.config(
       },
     },
   },
+  {
+    files: ['resources/js/Components/home/FaqCard.vue'],
+    rules: {
+      'vue/no-v-html': 'off',
+    }
+  },
 );

@@ -46,7 +46,7 @@ describe('buildAliasBadges', () => {
       secondaryAlias: 'CET',
     });
     expect(result).toBeDefined();
-    // Both CET (green) and CEST (yellow) are highlighted — they should come before un-highlighted
+    // Both CET (green) and CEST (yellow) are highlighted - they should come before un-highlighted
     const texts = result!.map(b => b.text);
     expect(texts.indexOf('CEST')).toBeLessThan(texts.indexOf('CEST') + 1); // both are highlighted so order between them is not strict
   });

@@ -336,7 +336,7 @@ onUnmounted(() => {
       v-if="dateLibLocale && dateTime"
       class="calendar-context"
       :full-width="true"
-      :justify-center="true"
+      justify="center"
       :pressed="currentContext === CalendarContext.DECADE"
       :disabled="currentContext === CalendarContext.DECADE"
       @click.prevent="switchContext"

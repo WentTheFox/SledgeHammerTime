@@ -64,13 +64,27 @@
     opacity: 0 !important;
   }
 
+  &.justify-start .button-content {
+    justify-content: start;
+  }
+
   &.justify-center .button-content {
     justify-content: center;
+  }
+
+  &.justify-end .button-content {
+    justify-content: end;
   }
 
   &.full-width {
     display: block;
     width: 100%;
+  }
+
+  &:not(.allow-overflow) .button-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &:not(:disabled):active, &.pressed {
@@ -118,9 +132,6 @@
     .button-text {
       flex: 0 1 auto;
       min-width: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 }

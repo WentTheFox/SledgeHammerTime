@@ -163,7 +163,7 @@ defineExpose<TimeZonePickerApi>({
       <HtButtonGroup>
         <HtButton
           color="primary"
-          :justify-center="true"
+          justify="center"
           type="submit"
         >
           {{ saveOnClose ? $t('actions.save_and_close') : $t('actions.select') }}
