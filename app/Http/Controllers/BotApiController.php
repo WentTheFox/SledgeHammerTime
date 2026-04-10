@@ -395,7 +395,8 @@ class BotApiController extends Controller {
           $entry['source_text'],
           $channels,
           $users,
-          $roles
+          $roles,
+          $guildId
         ),
         'created_at' => $now,
         'updated_at' => $now,
