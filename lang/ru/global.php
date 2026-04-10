@@ -6,6 +6,14 @@ return [
   "notFound" => [
     "heading" => "Страница не найдена",
     "content" => "Здесь пусто.",
+    "suggestions" => [
+      "heading" => "Looking for something?",
+      "description" => "Here are some pages that might help:",
+      "picker" => "Timestamp Picker",
+      "botInfoDescription" => "Information about the Discord app and available commands",
+      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
+      "discordButton" => "Join the Discord Server",
+    ],
   ],
   "maintenanceMode" => [
     "heading" => "Ведутся технические работы",
@@ -14,16 +22,16 @@ return [
       'joinSupportServer' => "Если проблема сохраняется более нескольких минут, присоединитесь к серверу поддержки Discord и сообщите нам об этом.",
       'contactDeveloper' => "Если проблема сохраняется более нескольких минут, пожалуйста свяжитесь с разработчиком и сообщите ему об этом.",
     ],
-    'autoReload' => 'The page will reload automatically <1/>',
-    'reloadButton' => 'Reload manually',
+    'autoReload' => 'Страница обновится автоматически <1/>',
+    'reloadButton' => 'Перезагрузите вручную',
     "supportServerButton" => "Сервер поддержки",
   ],
   'incompleteTranslations' => 'Перевод не завершен',
   'contributeTranslations' => 'Внести свой вклад',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Наблюдается в настоящее время',
+    'atPickedDate' => 'Наблюдается в выбранное время',
+    'currentlyAndAtPickedDate' => 'Наблюдается в настоящее время и в выбранное время',
   ],
   'copyToClipboard' => 'Скопировать в буфер обмена',
   'copiedToClipboard' => 'Скопировано в буфер обмена!',
@@ -61,8 +69,8 @@ return [
         'description' => "Отключает эффекты тени на элементах интерфейса ввода и кнопках",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Группы часовых поясов',
+        'description' => 'Показывать липкие заголовки групп (например, America, Europe) в выпадающем списке часового пояса.',
       ],
       'hourCycle' => [
         'label' => 'Настраиваемый тип часов для ввода времени',

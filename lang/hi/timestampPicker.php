@@ -34,6 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'चैट वाक्य - विन्यास (सिंटैक्स)',
     'resultColumn' => 'उदाहरण परिणाम',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
+  ],
+  'faq' => [
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
     'lead' => 'आपको ये भी उपयोगी लग सकते हैं:',

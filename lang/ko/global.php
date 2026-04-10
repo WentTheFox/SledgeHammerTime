@@ -6,6 +6,14 @@ return [
   "notFound" => [
     "heading" => "페이지를 찾을 수 없습니다",
     "content" => "표시할 콘텐츠가 없습니다",
+    "suggestions" => [
+      "heading" => "Looking for something?",
+      "description" => "Here are some pages that might help:",
+      "picker" => "Timestamp Picker",
+      "botInfoDescription" => "Information about the Discord app and available commands",
+      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
+      "discordButton" => "Join the Discord Server",
+    ],
   ],
   "maintenanceMode" => [
     "heading" => "관리 모드",

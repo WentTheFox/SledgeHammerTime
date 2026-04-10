@@ -6,6 +6,14 @@ return [
   "notFound" => [
     "heading" => "Sivua ei löydy",
     "content" => "Täällä ei ole mitään nähtävää.",
+    "suggestions" => [
+      "heading" => "Looking for something?",
+      "description" => "Here are some pages that might help:",
+      "picker" => "Timestamp Picker",
+      "botInfoDescription" => "Information about the Discord app and available commands",
+      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
+      "discordButton" => "Join the Discord Server",
+    ],
   ],
   "maintenanceMode" => [
     "heading" => "Huoltotila",

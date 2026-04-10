@@ -34,6 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Синтаксис в чате',
     'resultColumn' => 'Пример',
+    'editFormats' => 'Изменяемые шрифты',
+    'resetFormats' => 'Сбросить до настроек по умолчанию',
+    'hideFormat' => 'Скрыть этот формат',
+    'showFormat' => 'Показывать этот формат',
+    'unhideInProfile' => 'Показывать в настройках профиля',
+  ],
+  'faq' => [
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
     'lead' => 'Возможно вы заинтересуетесь этим:',
