@@ -42,8 +42,7 @@ return [
   ],
   'faq' => [
     'title' => 'Frequently Asked Questions',
-    'description' => '
-        This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
     'lead' => 'Możesz również uznać to za przydatne:',
