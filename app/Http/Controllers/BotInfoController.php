@@ -19,7 +19,7 @@ class BotInfoController extends Controller {
   public function index(): InertiaResponse {
     return Inertia::render('BotInfo/IndexComponent', [
       'discordAppId' => config('services.discord.client_id'),
-      'commands' => BotCommand::with(['options' => ['choices']])->orderBy('type')->orderBy('total_executions', 'desc')->orderBy('name')->get(),
+      'commands' => BotCommand::with(['options' => ['choices']])->orderBy('type')->orderByRaw('total_executions IS NULL')->orderBy('total_executions', 'desc')->orderBy('name')->get(),
       'translations' => BotCommandTranslation::where('locale', App::getLocale())->get()
         ->map(fn(BotCommandTranslation $t) => $t->mapToUiInfo()),
     ]);
