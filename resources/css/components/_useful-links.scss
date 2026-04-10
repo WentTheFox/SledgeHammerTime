@@ -11,17 +11,26 @@
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: stretch;
+    gap: design.app-value('useful-link-spacing');
+
+    &.justify-center {
+      justify-content: center;
+
+      .useful-link {
+        flex-grow: 0;
+      }
+    }
   }
 
   .useful-link {
     flex: 1 1 auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: design.app-value('useful-link-spacing');
+    margin-bottom: design.app-value('useful-link-spacing');
 
     .link-wrap {
-      border-radius: 0.375rem;
+      border-radius: design.app-value('useful-link-border-radius');
       text-decoration: none !important;
-      max-width: 175px;
+      max-width: design.app-value('useful-link-max-width');
       margin: 0 auto;
 
       &,
@@ -37,14 +46,6 @@
         background-color: design.app-color('useful-link-card-bg');
         padding: design.app-value('useful-link-padding');
         text-align: center;
-      }
-
-      @media (min-width: 576px) {
-        max-width: 225px;
-      }
-
-      @media (min-width: 768px) {
-        max-width: 280px;
       }
 
       .card-top-half {

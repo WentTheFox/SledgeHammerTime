@@ -43,7 +43,9 @@ class Handler extends ExceptionHandler {
     }
 
     return match ($status) {
-      404 => Inertia::render('Errors/NotFound')->toResponse($request)->setStatusCode($status),
+      404 => Inertia::render('Errors/NotFound', [
+        'discordUrl' => config('services.discord.invite_url'),
+      ])->toResponse($request)->setStatusCode($status),
       default => $response
     };
   }
