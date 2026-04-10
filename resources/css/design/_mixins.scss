@@ -82,37 +82,37 @@
 
 @mixin padding-start($size) {
   @include if-ltr {
-    padding-left: $size;
+    padding-left: $size !important;
   }
   @include if-rtl {
-    padding-right: $size;
+    padding-right: $size !important;
   }
 }
 
 @mixin padding-end($size) {
   @include if-ltr {
-    padding-right: $size;
+    padding-right: $size !important;
   }
   @include if-rtl {
-    padding-left: $size;
+    padding-left: $size !important;
   }
 }
 
 @mixin margin-start($size) {
   @include if-ltr {
-    margin-left: $size;
+    margin-left: $size !important;
   }
   @include if-rtl {
-    margin-right: $size;
+    margin-right: $size !important;
   }
 }
 
 @mixin margin-end($size) {
   @include if-ltr {
-    margin-right: $size;
+    margin-right: $size !important;
   }
   @include if-rtl {
-    margin-left: $size;
+    margin-left: $size !important;
   }
 }
 

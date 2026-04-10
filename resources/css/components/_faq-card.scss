@@ -1,0 +1,35 @@
+@use '../design';
+
+.faq-card {
+  .faq-list {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .faq-body {
+    padding: design.app-value('faq-body-padding');
+    line-height: design.app-value('faq-body-line-height');
+
+    @include design.content-link-style;
+
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    ul {
+      padding-left: design.app-value('faq-list-padding-left');
+      list-style: disc;
+    }
+    ol {
+      padding-left: design.app-value('faq-list-padding-left');
+      list-style: decimal;
+    }
+
+    blockquote {
+      border-left: design.app-value('faq-blockquote-border-left') solid currentColor;
+      padding-left: design.app-value('faq-blockquote-padding-left');
+      opacity: design.app-value('faq-blockquote-opacity');
+    }
+  }
+}

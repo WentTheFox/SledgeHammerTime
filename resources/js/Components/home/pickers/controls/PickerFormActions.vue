@@ -11,7 +11,7 @@ const emit = defineEmits<{
   <HtButtonGroup class="mt-2">
     <HtButton
       color="primary"
-      :justify-center="true"
+      justify="center"
       type="submit"
       data-testid="picker-form-submit-button"
     >

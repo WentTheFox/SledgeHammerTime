@@ -162,6 +162,5 @@ onMounted(() => {
 
 <template>
   <TimestampCard />
-
   <UsefulLinks />
 </template>

@@ -143,7 +143,7 @@ onMounted(router.on('success', navigateListener));
               class="change-language-button"
               :icon-start="faLanguage"
               :icon-end="state.isVisible ? faCaretDown : faCaretUp"
-              :justify-center="true"
+              justify="center"
               :pressed="state.isVisible"
             >
               <span>{{ $t('global.changeLanguage') }}</span>

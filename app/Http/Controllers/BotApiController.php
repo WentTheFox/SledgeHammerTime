@@ -4,27 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Enums\DiscordBotCommandOptionType;
 use App\Enums\ReviewDecision;
+use App\Http\Middleware\CachePageResponse;
 use App\Http\Requests\BotLoginRequest;
 use App\Http\Requests\ReviewTranslationCreditOverrideProposal;
 use App\Http\Requests\SaveShardStatsRequest;
 use App\Http\Requests\TelemetryRequest;
 use App\Http\Requests\UpdateBotCommandsRequest;
 use App\Http\Requests\UpdateBotTimezonesRequest;
+use App\Http\Requests\UpdateFaqEntriesRequest;
 use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
 use App\Models\BotShard;
 use App\Models\BotTimezone;
 use App\Models\DiscordUser;
+use App\Models\FaqEntry;
 use App\Models\Settings;
 use App\Models\TranslationCreditOverride;
 use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
-use App\Http\Middleware\CachePageResponse;
 use App\Services\Discord\DiscordUserService;
 use App\Services\Discord\GetUserResponse;
+use App\Services\DiscordMarkdownService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -37,6 +40,7 @@ class BotApiController extends Controller {
     protected DiscordUserService $discordUserService,
     protected ImportCrowdinTranslatorsService $importTranslatorsService,
     protected CrowdinCreditsService $crowdinCreditsService,
+    protected DiscordMarkdownService $discordMarkdownService,
   ) {
   }
 
@@ -367,5 +371,58 @@ class BotApiController extends Controller {
     }
 
     return response()->json(['success' => true]);
+  }
+
+  public function updateFaqEntries(UpdateFaqEntriesRequest $request): JsonResponse {
+    $data = $request->validated();
+    $entries = $data['entries'];
+
+    // Convert mention arrays to id => name mappings
+    $channels = $this->mentionArrayToMap($data['channels'] ?? []);
+    $users = $this->mentionArrayToMap($data['users'] ?? []);
+    $roles = $this->mentionArrayToMap($data['roles'] ?? []);
+    $guildId = $data['guild_id'];
+
+    DB::transaction(function () use ($entries, $channels, $users, $roles, $guildId) {
+      FaqEntry::truncate();
+
+      $now = now();
+      $rows = array_map(fn(array $entry) => [
+        'identifier' => $entry['identifier'],
+        'topic' => $entry['topic'],
+        'source_text' => $entry['source_text'],
+        'converted_html' => $this->discordMarkdownService->convert(
+          $entry['source_text'],
+          $channels,
+          $users,
+          $roles
+        ),
+        'created_at' => $now,
+        'updated_at' => $now,
+      ], $entries);
+
+      if (!empty($rows)) {
+        FaqEntry::insert($rows);
+      }
+    });
+
+    return response()->json(['count' => count($entries)]);
+  }
+
+  /**
+   * Convert mention arrays with id/name to id => name mappings
+   *
+   * @param array<array{id: ?string, name: ?string}> $mentions
+   *
+   * @return array<string, string> Mapping of ID to name
+   */
+  private function mentionArrayToMap(array $mentions): array {
+    $map = [];
+    foreach ($mentions as $mention) {
+      if (isset($mention['id'], $mention['name'])) {
+        $map[(string)$mention['id']] = $mention['name'];
+      }
+    }
+    return $map;
   }
 }

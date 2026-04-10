@@ -1,0 +1,17 @@
+@use '../design';
+
+.discord-mention {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background-color: design.app-color('discord-mention-bg');
+  color: design.app-color('discord-mention-color');
+
+  &:hover {
+    background-color: design.app-color('discord-mention-bg-hover');
+    text-decoration: none;
+  }
+}
+

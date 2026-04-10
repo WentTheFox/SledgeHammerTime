@@ -53,7 +53,7 @@ class HandleInertiaRequests extends Middleware {
   }
 
   /**
-   * Static cached routes omit user data — it is fetched asynchronously by the
+   * Static cached routes omit user data - it is fetched asynchronously by the
    * frontend so the full-page HTML response can be cached per locale.
    *
    * @param Request $request

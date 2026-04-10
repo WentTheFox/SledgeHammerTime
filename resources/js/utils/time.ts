@@ -66,7 +66,7 @@ const getTimezoneAbbreviations = (timezone: string): string[] => {
 };
 
 export const getTimezoneAbbreviationAtDate = (timezone: string, aliases: string[], date: Date): string | undefined => {
-  // Try 'short' first — works in browser environments (returns "CET", "CEST", "EST", etc.)
+  // Try 'short' first - works in browser environments (returns "CET", "CEST", "EST", etc.)
   const short = formatTzName(timezone, 'short', date);
   if (short && !/^(GMT|UTC)[+-]/.test(short) && aliases.includes(short)) return short;
 

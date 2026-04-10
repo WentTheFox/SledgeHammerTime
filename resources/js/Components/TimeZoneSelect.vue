@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import LocalTimeComboboxAddon from '@/Components/LocalTimeComboboxAddon.vue';
 import { useTimezoneIndex } from '@/composables/useTimezoneIndex';
-import { currentLanguageInject, dateTimeLibraryInject, localSettingsInject, timestampInject } from '@/injection-keys';
+import {
+  currentLanguageInject,
+  dateTimeLibraryInject,
+  localSettingsInject,
+  timestampInject,
+} from '@/injection-keys';
 import HtFormCombobox, { FormComboboxApi } from '@/Reusable/HtFormCombobox.vue';
 import { getTimezoneAbbreviationAtDate, getTimezoneValue } from '@/utils/time';
 import { computed, inject, toRef, useTemplateRef } from 'vue';
@@ -18,7 +23,7 @@ const currentLanguage = inject(currentLanguageInject);
 const settings = inject(localSettingsInject);
 const timestampState = inject(timestampInject);
 
-// Static timezone options — only recomputes when locale or timezone list changes.
+// Static timezone options - only recomputes when locale or timezone list changes.
 const timezones = computed(() => {
   const locale = currentLanguage?.value.locale ?? 'en';
   return dtl?.value.timezoneNames.map(tz => getTimezoneValue(tz, locale)) ?? [];

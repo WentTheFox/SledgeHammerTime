@@ -5,21 +5,21 @@ $spacing-keys: map.keys(design.$spacing);
 @each $key in $spacing-keys {
   $size: map.get(design.$spacing, $key);
   .p-#{$key} {
-    padding: $size;
+    padding: $size !important;
   }
   .pt-#{$key} {
-    padding-top: $size;
+    padding-top: $size !important;
   }
   .pb-#{$key} {
-    padding-bottom: $size;
+    padding-bottom: $size !important;
   }
   .py-#{$key} {
-    padding-top: $size;
-    padding-bottom: $size;
+    padding-top: $size !important;
+    padding-bottom: $size !important;
   }
   .px-#{$key} {
-    padding-left: $size;
-    padding-right: $size;
+    padding-left: $size !important;
+    padding-right: $size !important;
   }
   .ps-#{$key} {
     @include design.padding-start($size);
