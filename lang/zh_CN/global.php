@@ -6,6 +6,14 @@ return [
   "notFound" => [
     "heading" => "页面不存在",
     "content" => "这里空无一物。",
+    "suggestions" => [
+      "heading" => "Looking for something?",
+      "description" => "Here are some pages that might help:",
+      "picker" => "Timestamp Picker",
+      "botInfoDescription" => "Information about the Discord app and available commands",
+      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
+      "discordButton" => "Join the Discord Server",
+    ],
   ],
   "maintenanceMode" => [
     "heading" => "服务不可用",
