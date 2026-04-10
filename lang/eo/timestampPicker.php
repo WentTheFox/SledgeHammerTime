@@ -40,6 +40,11 @@ return [
     'showFormat' => 'Show this format',
     'unhideInProfile' => 'Unhide in profile settings',
   ],
+  'faq' => [
+    'title' => 'Frequently Asked Questions',
+    'description' => '
+        This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+  ],
   'usefulLinks' => [
     'lead' => 'You may also find these useful:',
     'server' => [
