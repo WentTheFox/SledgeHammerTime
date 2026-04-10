@@ -34,6 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Üzenet formája',
     'resultColumn' => 'Példa megjelenés',
+    'editFormats' => 'Formátumok testreszabása',
+    'resetFormats' => 'Alaphelyzetbe állítás',
+    'hideFormat' => 'Formátum elrejtése',
+    'showFormat' => 'Formátum megjelenítése',
+    'unhideInProfile' => 'Megjelenítés a profilbeállításokban',
+  ],
+  'faq' => [
+    'title' => 'Gyakran Ismételt Kérdések',
+    'description' => 'Ez a rész egyelőre csak angol nyelven érhető el, és nagyrészt <1>a Discord szerverünk</1> tartalmán alapul. Egyes linkek lehet, hogy nen működnek, csak ha tagja vagy.',
   ],
   'usefulLinks' => [
     'lead' => 'Ezeket is hasznosnak találhatod:',

@@ -6,6 +6,14 @@ return [
   "notFound" => [
     "heading" => "Página no encontrada",
     "content" => "No hay resultados para mostrar.",
+    "suggestions" => [
+      "heading" => "Looking for something?",
+      "description" => "Here are some pages that might help:",
+      "picker" => "Timestamp Picker",
+      "botInfoDescription" => "Information about the Discord app and available commands",
+      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
+      "discordButton" => "Join the Discord Server",
+    ],
   ],
   "maintenanceMode" => [
     "heading" => "Modo de mantenimiento",
