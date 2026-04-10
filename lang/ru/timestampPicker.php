@@ -34,11 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Синтаксис в чате',
     'resultColumn' => 'Пример',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Изменяемые шрифты',
+    'resetFormats' => 'Сбросить до настроек по умолчанию',
+    'hideFormat' => 'Скрыть этот формат',
+    'showFormat' => 'Показывать этот формат',
+    'unhideInProfile' => 'Показывать в настройках профиля',
   ],
   'faq' => [
     'title' => 'Frequently Asked Questions',
