@@ -265,6 +265,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
   - [SAYREX](https://crowdin.com/profile/sayrex9625)
+  - [Sheva She](https://crowdin.com/profile/Sheva09)
   - [Skumen](https://crowdin.com/profile/Skumen)
   - [stolarchukboris](https://crowdin.com/profile/PleasedontslammykeyboarddfsdoijfwR)
   - [Timofey K.](https://crowdin.com/profile/timakimit)
