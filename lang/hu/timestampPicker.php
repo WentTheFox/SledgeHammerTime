@@ -42,7 +42,7 @@ return [
   ],
   'faq' => [
     'title' => 'Gyakran Ismételt Kérdések',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'description' => 'Ez a rész egyelőre csak angol nyelven érhető el, és nagyrészt <1>a Discord szerverünk</1> tartalmán alapul. Egyes linkek lehet, hogy nen működnek, csak ha tagja vagy.',
   ],
   'usefulLinks' => [
     'lead' => 'Ezeket is hasznosnak találhatod:',
