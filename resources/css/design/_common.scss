@@ -120,6 +120,12 @@ $value-map: (
   useful-link-spacing: .5rem,
   useful-link-desc-font-size: .875rem,
   useful-link-desc-line-height: 1.55,
+  useful-link-border-radius: .375rem,
+  useful-link-max-width: (
+    default: 175px,
+    sm: 225px,
+    md: 280px,
+  ),
   badge-border: .125rem,
   badge-border-radius: .5rem,
   badge-padding-horozontal: .25rem,
