@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Συντελεστές Μετάφρασης',
     'description' => 'Προσαρμόστε τον τρόπο με τον οποίο εμφανίζεστε στους Συντελεστές Μετάφρασης για κάθε γλώσσα όπου είστε συνεισφέρων.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Μέθοδος Ενημέρωσης',
+    'updateMethodDescription' => 'Η αντιγραφή από άλλη γλώσσα δεν απαιτεί χειροκίνητη αναθεώρηση',
+    'updateMethodCopyLabel' => 'Αντιγραφή από άλλη γλώσσα',
+    'updateMethodEditLabel' => 'Καθορίστε μεμονωμένες τιμές',
+    'creditSourceLanguage' => 'Γλώσσα για αντιγραφή',
     'displayName' => 'Εμφανιζόμενο Όνομα',
     'avatarProvider' => 'Εικόνα προφίλ',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Υποβολή για έγκριση',
     'saveSuccess' => 'Υποβλήθηκε προς έγκριση',
     'saveHideSuccess' => 'Η ορατότητα ενημερώθηκε',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Συντελεστές αντιγράφηκαν',
     'cancel' => 'Ακύρωση αλλαγών',
     'statusPrefix' => 'Κατάσταση',
     'status' => [
