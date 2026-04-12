@@ -34,11 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Σύνταξη συνομιλίας',
     'resultColumn' => 'Παράδειγμα αποτελέσματος',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Προσαρμογή δομής πίνακα',
+    'resetFormats' => 'Επαναφορά προεπιλογών πίνακα',
+    'hideFormat' => 'Απόκρυψη',
+    'showFormat' => 'Εμφάνιση',
+    'unhideInProfile' => 'Αποκάλυψη στις ρυθμίσεις προφίλ',
   ],
   'faq' => [
     'title' => 'Frequently Asked Questions',
