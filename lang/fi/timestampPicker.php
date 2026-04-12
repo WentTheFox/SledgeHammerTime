@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat-syntaksi',
     'resultColumn' => 'Esimerkki tuloksesta',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Mukauta muotoja',
+    'resetFormats' => 'Palauta oletusarvot',
+    'hideFormat' => 'Piilota tämä muoto',
+    'showFormat' => 'Näytä tämä muoto',
+    'unhideInProfile' => 'Poista piilotus profiilin asetuksista',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Usein kysytyt kysymykset',
+    'description' => 'Tämä osio on vain englanniksi toistaiseksi, ja se pohjautuu vahvasti tietoon <1>Discord-palvelimeltamme</1>. Jotkut linkit eivät saata toimia odotetusti ellet ole jäsen.',
   ],
   'usefulLinks' => [
     'lead' => 'Saatat myös löytää nämä hyödyllisenä:',

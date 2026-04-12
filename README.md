@@ -225,6 +225,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [Marcos](https://crowdin.com/profile/marcos.pqueirozz)
+  - [Samir Simoes](https://crowdin.com/profile/Kazenca)
   - [Tiago](https://crowdin.com/profile/DemiCool)
 - 🇧🇷 Portuguese, Brazilian
   - [Allan Poubel (The Poubel)](https://crowdin.com/profile/allanpoubel)
@@ -265,6 +266,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
   - [SAYREX](https://crowdin.com/profile/sayrex9625)
+  - [Sheva She](https://crowdin.com/profile/Sheva09)
   - [Skumen](https://crowdin.com/profile/Skumen)
   - [stolarchukboris](https://crowdin.com/profile/PleasedontslammykeyboarddfsdoijfwR)
   - [Timofey K.](https://crowdin.com/profile/timakimit)
@@ -323,6 +325,7 @@ English and Hungarian translations have been included, so no translators will be
   - [i](https://crowdin.com/profile/enky)
   - [Mykhailo Yaremenko](https://crowdin.com/profile/WhiteBear60)
   - [O5](https://crowdin.com/profile/O5)
+  - [Sheva She](https://crowdin.com/profile/Sheva09)
   - [Кухарчук Ярослав](https://crowdin.com/profile/Gamer_Yaroslaw)
 - 🇵🇰 Urdu (Pakistan)
   - [Muhammad Dawood](https://crowdin.com/profile/Developer_X)

@@ -7,12 +7,12 @@ return [
     "heading" => "Страница не найдена",
     "content" => "Здесь пусто.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Ищете что-нибудь?",
+      "description" => "Вот несколько страниц, которые могут помочь:",
+      "picker" => "Выбор времени",
+      "botInfoDescription" => "Информация о приложении Discord и о доступных командах",
+      "discordCta" => "Думаете, чего-то не хватает? Присоединяйтесь к серверу Discord и дайте нам знать.",
+      "discordButton" => "Присоединяйтесь к серверу Discord",
     ],
   ],
   "maintenanceMode" => [

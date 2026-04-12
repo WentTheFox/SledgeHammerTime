@@ -41,8 +41,8 @@ return [
     'unhideInProfile' => 'Показывать в настройках профиля',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Часто Задаваемые Вопросы (FAQ)',
+    'description' => 'Этот раздел доступен только на английском языке, и он сильно основан на содержании <1>нашего Discord сервера</1>. Некоторые ссылки могут не работать, если вы не являетесь участником.',
   ],
   'usefulLinks' => [
     'lead' => 'Возможно вы заинтересуетесь этим:',
