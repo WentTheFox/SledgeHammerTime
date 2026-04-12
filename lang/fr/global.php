@@ -7,12 +7,12 @@ return [
     "heading" => "Page non trouvée",
     "content" => "Il n'y a rien à voir ici.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Vous cherchez quelque chose ?",
+      "description" => "Voici quelques pages qui pourraient vous aider :",
+      "picker" => "Sélecteur d'horodatage",
+      "botInfoDescription" => "Informations sur l'application Discord et les commandes disponibles",
+      "discordCta" => "Vous pensez qu'il manque quelque chose ? Rejoignez le serveur Discord et faites-le nous savoir.",
+      "discordButton" => "Rejoindre le serveur Discord",
     ],
   ],
   "maintenanceMode" => [
@@ -69,7 +69,7 @@ return [
         'description' => "Désactiver les effets d'ombre et de hauteur sur les entrées et les boutons",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
+        'label' => 'En-têtes du groupe de fuseau horaire',
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
