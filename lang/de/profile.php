@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Mitwirkende Übersetzer',
     'description' => 'Passe an, wie du in den Übersetzungs-Credits für jede Sprache erscheinst, in der du ein Mitwirkender bist.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Aktualisierungsmethode',
+    'updateMethodDescription' => 'Das Kopieren aus einer anderen Sprache erfordert keine manuelle Überprüfung',
+    'updateMethodCopyLabel' => 'Aus einer anderen Sprache kopieren',
+    'updateMethodEditLabel' => 'Individuelle Werte festlegen',
+    'creditSourceLanguage' => 'Zu kopierende Sprache',
     'displayName' => 'Anzeigename',
     'avatarProvider' => 'Profilbild',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Zur Genehmigung einreichen',
     'saveSuccess' => 'Zur Genehmigung eingereicht',
     'saveHideSuccess' => 'Sichtbarkeit aktualisiert',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Mitwirkende kopiert',
     'cancel' => 'Änderungen verwerfen',
     'statusPrefix' => 'Status',
     'status' => [
