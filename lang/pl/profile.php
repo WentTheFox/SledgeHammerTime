@@ -46,7 +46,7 @@ return [
     ],
     'gravatarEmail' => 'Email address',
     'gravatarDescription' => '<1>Gravatar</1> allows you to use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
-    'avatarAccount' => 'Account',
+    'avatarAccount' => 'Konto',
     'url' => 'Link',
     'visibility' => 'Visibility',
     'submit' => 'Submit for approval',

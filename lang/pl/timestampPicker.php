@@ -34,11 +34,11 @@ return [
   'table' => [
     'syntaxColumn' => 'Składnia',
     'resultColumn' => 'Przykładowy wynik',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Dostosuj formaty',
+    'resetFormats' => 'Przywróć domyślne',
+    'hideFormat' => 'Ukryj ten format',
+    'showFormat' => 'Pokaż ten format',
+    'unhideInProfile' => 'Odkryj w ustawieniach profilu',
   ],
   'faq' => [
     'title' => 'Frequently Asked Questions',

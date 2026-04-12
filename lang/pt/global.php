@@ -4,7 +4,7 @@ return [
   'seoDescription' => 'Gerar indicadores de timestamp para mensagens de chat Discord',
   'changeLanguage' => 'Mudar idioma',
   "notFound" => [
-    "heading" => "Page Not Found",
+    "heading" => "Página não encontrada",
     "content" => "Nada para visualizar aqui.",
     "suggestions" => [
       "heading" => "Looking for something?",
