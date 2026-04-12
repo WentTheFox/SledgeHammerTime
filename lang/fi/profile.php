@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Käännöskrediitit',
     'description' => 'Muokkaa miten näyt käännöskrediiteissä jokaiselle kielelle joissa olet avustaja.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Päivitysmetodi',
+    'updateMethodDescription' => 'Toisesta kielestä kopiointi ei edellytä manuaalista tarkistusta',
+    'updateMethodCopyLabel' => 'Kopio toisesta kielestä',
+    'updateMethodEditLabel' => 'Täsmennä yksittäisiä arvoja',
+    'creditSourceLanguage' => 'Kieli josta kopioida',
     'displayName' => 'Näyttönimi',
     'avatarProvider' => 'Avatari',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Lähetä hyväksyttäväksi',
     'saveSuccess' => 'Lähetetty hyväksyttäväksi',
     'saveHideSuccess' => 'Näkyvyys päivitetty',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Krediitit kopioitu',
     'cancel' => 'Peruuta muutokset',
     'statusPrefix' => 'Tila',
     'status' => [
