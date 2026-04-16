@@ -7,12 +7,12 @@ return [
     "heading" => "Seite nicht gefunden",
     "content" => "Hier gibt es nichts zu sehen.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Auf der Suche nach etwas?",
+      "description" => "Hier sind einige Seiten, die nützlich sein könnten:",
+      "picker" => "Zeitstempel Auswahl",
+      "botInfoDescription" => "Informationen über die Discord App und die verfügbaren Befehle",
+      "discordCta" => "Denkst du, es fehlt etwas? Trete dem Discord-Server bei und lassen Sie es uns wissen.",
+      "discordButton" => "Tritt unserem Discord Server bei",
     ],
   ],
   "maintenanceMode" => [
@@ -29,9 +29,9 @@ return [
   'incompleteTranslations' => 'Übersetzungen sind unvollständig',
   'contributeTranslations' => 'Beitragen',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Aktuell Ausgewählt',
+    'atPickedDate' => 'Aktuell ausgewählte Zeit',
+    'currentlyAndAtPickedDate' => 'Aktuell ausgewählt mit Zeit',
   ],
   'copyToClipboard' => 'In Zwischenablage kopieren',
   'copiedToClipboard' => 'In die Zwischenablage kopiert!',
@@ -69,8 +69,8 @@ return [
         'description' => "Deaktiviert Schatten- und Höheneffekte bei Eingabefeldern und Buttons",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Zeitzonen Gruppen Kopfzeile',
+        'description' => 'Zeigen Sie feste Gruppenüberschriften (z.B. Amerika, Europa) im Dropdown-Menü für die Zeitzonenauswahl an.',
       ],
       'hourCycle' => [
         'label' => 'Benutzerdefinierter Zeiteingabe-Typ',
