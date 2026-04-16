@@ -128,6 +128,7 @@ English and Hungarian translations have been included, so no translators will be
   - [XXL Steve](https://crowdin.com/profile/XXL_Steve)
 - 🇩🇪 German
   - [Carlos Diener](https://crowdin.com/profile/carlos.diener)
+  - [Fabian](https://crowdin.com/profile/Fabi254)
   - [Fabian9799](https://crowdin.com/profile/Fabian9799)
   - [gsgsgdggfd](https://crowdin.com/profile/gsgsgdggfd)
   - [Julius Geiger](https://crowdin.com/profile/julix00)
@@ -290,6 +291,7 @@ English and Hungarian translations have been included, so no translators will be
   - [DearReux](https://crowdin.com/profile/DearReux)
   - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
+  - [Its Me Lol](https://crowdin.com/profile/ServiceAide)
   - [Jatniel Torres Rivera](https://crowdin.com/profile/Jatnielo)
   - [Longsword](https://crowdin.com/profile/longsword)
   - [Luis Diaz](https://crowdin.com/profile/ldrfhjygghjj5556677)
@@ -315,8 +317,8 @@ English and Hungarian translations have been included, so no translators will be
   - [timelessnesses](https://timelessnesses.me)
 - 🇹🇷 Turkish
   - [Baran Mordoğan](https://crowdin.com/profile/okunamayanad)
+  - [Dovg](https://crowdin.com/profile/tututuana)
   - [korayharman](https://crowdin.com/profile/korayharman)
-  - [tututuana](https://crowdin.com/profile/tututuana)
   - [x0jony](https://crowdin.com/profile/x0jony)
 - 🇺🇦 Ukrainian
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
