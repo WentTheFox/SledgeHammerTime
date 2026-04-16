@@ -32,11 +32,11 @@ return [
   'creditOverrides' => [
     'heading' => 'Çeviri Katkıları',
     'description' => 'Katkıda bulunduğunuz her dil için çeviri katkılarında nasıl görüneceğinizi özelleştirin.',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'Güncelleme yöntemi',
+    'updateMethodDescription' => 'Başka bir dilden kopyalamak manuel inceleme gerektirmez',
+    'updateMethodCopyLabel' => 'Başka bir dilden kopyala',
+    'updateMethodEditLabel' => 'Bireysel değerleri belirtin',
+    'creditSourceLanguage' => 'Kopyalanacak dil',
     'displayName' => 'Görünen Ad',
     'avatarProvider' => 'Avatar',
     'avatarProviders' => [
@@ -52,7 +52,7 @@ return [
     'submit' => 'Onaya gönder',
     'saveSuccess' => 'Onaya gönderildi',
     'saveHideSuccess' => 'Görünürlük güncellendi',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'Katkılar kopyalandı',
     'cancel' => 'Değişiklikleri iptal et',
     'statusPrefix' => 'Durum',
     'status' => [
