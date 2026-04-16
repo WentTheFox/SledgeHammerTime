@@ -7,12 +7,12 @@ return [
     "heading" => "Página no encontrada",
     "content" => "No hay resultados para mostrar.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "¿Buscando algo más?",
+      "description" => "Aquí van algunas páginas que te pueden ayudar:",
+      "picker" => "Selector de Marcas de Tiempo",
+      "botInfoDescription" => "Información sobre la aplicación de Discord y comandos disponibles",
+      "discordCta" => "¿Crees que falta algo? Únete al servidor de Discord y háznoslo saber.",
+      "discordButton" => "Unirse al Servidor de Discord",
     ],
   ],
   "maintenanceMode" => [
