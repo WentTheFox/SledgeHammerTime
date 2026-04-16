@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat-Syntax',
     'resultColumn' => 'Beispiel',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Formate anpassen',
+    'resetFormats' => 'Auf Standardwerte zurücksetzen',
+    'hideFormat' => 'Dieses Format ausblenden',
+    'showFormat' => 'Dieses Format anzeigen',
+    'unhideInProfile' => 'Ausblenden in den Profileinstellungen',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Häufig gestellte Fragen',
+    'description' => 'Dieser Bereich ist vorerst nur auf Englisch und basiert hauptsächlich auf Inhalten von <1>unserem Discord-Server</1>. Einige Links funktionieren möglicherweise nicht wie erwartet, wenn Sie kein Mitglied sind.',
   ],
   'usefulLinks' => [
     'lead' => 'Das könnte für dich ebenfalls nützlich sein:',
