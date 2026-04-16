@@ -63,7 +63,7 @@ return [
     'currentlyApproved' => 'Derzeit genehmigte Werte',
     'reApprovalWarning' => 'Wenn du was anderes als die Sichtbarkeit änderst, muss das manuell geprüft werden. Du kannst die Prüfanfrage jederzeit von dieser Seite aus stornieren.',
     'deleteOverride' => 'Überschreibung zurücksetzen',
-    'deleteOverrideConfirm' => 'Are you sure you want to remove your translation credit override? Your entry will revert to the default information from Crowdin.',
+    'deleteOverrideConfirm' => 'Sind Sie sicher, dass Sie Ihre Übersetzungsgutschrift entfernen möchten? Ihr Eintrag wird auf die Standardinformationen von Crowdin zurückgesetzt.',
     'approvedValues' => [
       'displayName' => 'Name',
       'avatarProvider' => 'Avatar Anbieter',
