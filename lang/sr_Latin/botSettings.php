@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'title' => 'Podešavanja aplikacije',
+  'description' => 'Ovde možete da vidite Vaše trenutne postavke za HammerTime aplikaciju za svaki povezani nalog.',
+  'learnMore' => 'Niste sigurni šta je aplikacija ili šta može da radi? Posetite link <1>Discord aplikacije</1> da bi više saznali.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Napredna podešavanja',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Podrazumevano',
   'fields' => [
     'timezone' => [
       'displayName' => 'Vremenska zona',
@@ -19,7 +19,7 @@ return [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Kolone',
     ],
     'ephemeral' => [
       'displayName' => 'Ephemeral',

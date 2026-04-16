@@ -7,12 +7,12 @@ return [
     "heading" => "Sayfa bulunamadı",
     "content" => "Burada görülecek bir şey yok.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Bir şey mi arıyorsunuz?",
+      "description" => "Yardımcı olabilecek bazı sayfalar şunlardır:",
+      "picker" => "Zaman Damgası Seçici",
+      "botInfoDescription" => "Discord uygulaması ve mevcut komutlar hakkında bilgi",
+      "discordCta" => "Bir şeylerin eksik olduğunu mu düşünüyorsunuz? Discord sunucusuna katılın ve bize bildirin.",
+      "discordButton" => "Discord Sunucusuna Katıl",
     ],
   ],
   "maintenanceMode" => [
