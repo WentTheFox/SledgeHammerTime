@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Sohbet Görünümü',
     'resultColumn' => 'Örnek sonuç',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Biçimleri özelleştir',
+    'resetFormats' => 'Varsayılanlara sıfırla',
+    'hideFormat' => 'Bu biçimi gizle',
+    'showFormat' => 'Bu biçimi göster',
+    'unhideInProfile' => 'Profil ayarlarında gizliliği kaldır',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Sıkça Sorulan Sorular',
+    'description' => 'Bu bölüm şimdilik yalnızca İngilizcedir ve büyük ölçüde <1>Discord sunucumuzdaki</1> içeriklere dayanmaktadır. Üye olmadığınız sürece bazı bağlantılar beklendiği gibi çalışmayabilir.',
   ],
   'usefulLinks' => [
     'lead' => 'Bunları da faydalı bulabilirsiniz:',
