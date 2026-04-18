@@ -63,7 +63,6 @@ return [
       'p' => 'Una aplicación simple que crea mensajes coloreados de Discord utilizando los códigos de color ANSI',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "La comunidad que organiza retos semanales para un juego de carrera infravalorado que inspiró la creación de este proyecto",
     ],
     'competitors' => [
@@ -72,23 +71,20 @@ return [
         'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
-        'header' => 'r.3v.fi/discord-timestamps',
+        'header' => '',
         'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
-        'header' => 'timestamp.dabric.xyz',
+        'header' => '',
         'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'header' => 'DiscordTimestamp.com',
         'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'header' => 'DiscordTimestamp.org',
         'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'header' => 'sesh.fyi/timestamp',
         'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
