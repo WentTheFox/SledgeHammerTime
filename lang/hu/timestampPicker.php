@@ -63,33 +63,29 @@ return [
       'p' => 'Egy egyszerű oldal, ami ANSI színkódokkal színezett Discord üzeneteket készít',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "Egy alulértékelt autóversenyzős játék közössége, mely heti kihívások házigazdája, és a projekt létrejöttét ihlette",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Tudtad, hogy a HammerTime nem az egyetlen eszköz időbélyegek generálására?',
+        'p2' => 'Érdemes megnézned ezeket a más Discord időbélyeg generátorokat, hogy megtaláld a számodra legmegfelelőbbet:',
       ],
       '3vfi' => [
-        'header' => 'r.3v.fi/discord-timestamps',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'header' => '',
+        'p' => 'Egy egyszerű és gyors időbélyeg generátor 3ventic által',
       ],
       'dabric' => [
-        'header' => 'timestamp.dabric.xyz',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'header' => '',
+        'p' => 'Természetes nyelvű Discord időbélyeg generátor dabric által',
       ],
       'discordtimestampCom' => [
-        'header' => 'DiscordTimestamp.com',
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Ingyenes Discord időbélyeggenerátor helyi időzóna-támogatással a Sellframe Ltd. által.',
       ],
       'discordtimestampOrg' => [
-        'header' => 'DiscordTimestamp.org',
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Discord időbélyeg generátor és idő átalakító a DiscordTimestamp.org segítségével',
       ],
       'sesh' => [
-        'header' => 'sesh.fyi/timestamp',
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Discord markdown időbélyegzők létrehozása a Sesh ütemező bot ökoszisztémájából Tunks által',
       ],
     ],
   ],
