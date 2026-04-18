@@ -63,8 +63,30 @@ return [
       'p' => 'एक सरल ऐप जो एएनएसआई रंग कोड का उपयोग करके रंगीन डिस्कॉर्ड संदेश बनाता है',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
+    ],
+    'competitors' => [
+      'lead' => [
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+      ],
+      '3vfi' => [
+        'header' => '',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
+      ],
+      'dabric' => [
+        'header' => '',
+        'p' => 'Natural language Discord timestamp generator by dabric',
+      ],
+      'discordtimestampCom' => [
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+      ],
+      'discordtimestampOrg' => [
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+      ],
+      'sesh' => [
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+      ],
     ],
   ],
 ];
