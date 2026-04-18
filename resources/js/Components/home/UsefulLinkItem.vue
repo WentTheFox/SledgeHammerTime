@@ -14,6 +14,7 @@ defineProps<{
   name?: string;
   desc?: string;
   isLocal?: boolean;
+  allowReferrer?: boolean;
 }>();
 
 const route = useRoute();
@@ -26,7 +27,7 @@ const currentLanguage = inject(currentLanguageInject);
       :is="isLocal ? Link : 'a'"
       :href="isLocal ? route(href, { locale: currentLanguage?.locale ?? FALLBACK_LANGUAGE }) : href"
       :target="isLocal ? undefined : '_blank'"
-      :rel="isLocal ? undefined : 'noopener noreferrer'"
+      :rel="isLocal ? undefined : `noopener${allowReferrer ? '' : ' noreferrer'}`"
       class="link-wrap"
     >
       <div class="link-card">

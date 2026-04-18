@@ -4,8 +4,13 @@ import UsefulLinksCard from '@/Components/home/UsefulLinksCard.vue';
 import { currentLanguageInject } from '@/injection-keys';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import usefulLinksBot from '@img/useful-links/bot.png';
+import dabric from '@img/useful-links/dabric.png';
+import discordTimestampCom from '@img/useful-links/discordTimestampCom.png';
+import discordTimestampOrg from '@img/useful-links/discordTimestampOrg.png';
 import usefulLinksOldsite from '@img/useful-links/oldsite.png';
+import r3vfi from '@img/useful-links/r3vfi.png';
 import usefulLinksServer from '@img/useful-links/server.png';
+import seshFyi from '@img/useful-links/seshFyi.png';
 import usefulLinksSubreddit from '@img/useful-links/subreddit.png';
 import usefulLinksTextcolor from '@img/useful-links/textcolor.png';
 import { inject } from 'vue';
@@ -58,6 +63,53 @@ const currentLanguage = inject(currentLanguageInject);
       :desc="$t('timestampPicker.usefulLinks.subreddit.p')"
       href="https://reddit.com/r/SplitSecond"
       :image="usefulLinksSubreddit"
+    />
+  </UsefulLinksCard>
+
+  <UsefulLinksCard>
+    <template #header>
+      <p class="lead-text mb-2">
+        {{ $t('timestampPicker.usefulLinks.competitors.lead.p1') }}
+      </p>
+      <p class="lead-text">
+        {{ $t('timestampPicker.usefulLinks.competitors.lead.p2') }}
+      </p>
+    </template>
+
+    <UsefulLinkItem
+      :name="$t('timestampPicker.usefulLinks.competitors.3vfi.header')"
+      :desc="$t('timestampPicker.usefulLinks.competitors.3vfi.p')"
+      href="https://r.3v.fi/discord-timestamps/"
+      :image="r3vfi"
+      :allow-referrer="true"
+    />
+    <UsefulLinkItem
+      :name="$t('timestampPicker.usefulLinks.competitors.dabric.header')"
+      :desc="$t('timestampPicker.usefulLinks.competitors.dabric.p')"
+      href="https://timestamp.dabric.xyz/"
+      :image="dabric"
+      :allow-referrer="true"
+    />
+    <UsefulLinkItem
+      :name="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.header')"
+      :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.p')"
+      href="https://discordtimestamp.com/"
+      :image="discordTimestampCom"
+      :allow-referrer="true"
+    />
+    <UsefulLinkItem
+      :name="$t('timestampPicker.usefulLinks.competitors.discordtimestampOrg.header')"
+      :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampOrg.p')"
+      href="https://discordtimestamp.org/"
+      :image="discordTimestampOrg"
+      :allow-referrer="true"
+    />
+    <UsefulLinkItem
+      :name="$t('timestampPicker.usefulLinks.competitors.sesh.header')"
+      :desc="$t('timestampPicker.usefulLinks.competitors.sesh.p')"
+      href="https://sesh.fyi/timestamp/"
+      :image="seshFyi"
+      :allow-referrer="true"
     />
   </UsefulLinksCard>
 </template>
