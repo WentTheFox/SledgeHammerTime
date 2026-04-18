@@ -63,8 +63,30 @@ return [
       'p' => 'ANSIカラーコードを使って、色を付けたDiscordメッセージを作るアプリ',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "このプロジェクトのきっかけとなった、過小評価されているレースゲームを対象に、週次チャレンジを開催しているコミュニティ",
+    ],
+    'competitors' => [
+      'lead' => [
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+      ],
+      '3vfi' => [
+        'header' => '',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
+      ],
+      'dabric' => [
+        'header' => '',
+        'p' => 'Natural language Discord timestamp generator by dabric',
+      ],
+      'discordtimestampCom' => [
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+      ],
+      'discordtimestampOrg' => [
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+      ],
+      'sesh' => [
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+      ],
     ],
   ],
 ];
