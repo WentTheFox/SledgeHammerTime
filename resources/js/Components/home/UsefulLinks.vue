@@ -59,7 +59,7 @@ const currentLanguage = inject(currentLanguageInject);
       </template>
     </UsefulLinkItem>
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.subreddit.header')"
+      name="r/SplitSecond"
       :desc="$t('timestampPicker.usefulLinks.subreddit.p')"
       href="https://reddit.com/r/SplitSecond"
       :image="usefulLinksSubreddit"
@@ -77,35 +77,30 @@ const currentLanguage = inject(currentLanguageInject);
     </template>
 
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.competitors.3vfi.header')"
       :desc="$t('timestampPicker.usefulLinks.competitors.3vfi.p')"
       href="https://r.3v.fi/discord-timestamps/"
       :image="r3vfi"
       :allow-referrer="true"
     />
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.competitors.dabric.header')"
       :desc="$t('timestampPicker.usefulLinks.competitors.dabric.p')"
       href="https://timestamp.dabric.xyz/"
       :image="dabric"
       :allow-referrer="true"
     />
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.header')"
       :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.p')"
       href="https://discordtimestamp.com/"
       :image="discordTimestampCom"
       :allow-referrer="true"
     />
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.competitors.discordtimestampOrg.header')"
       :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampOrg.p')"
       href="https://discordtimestamp.org/"
       :image="discordTimestampOrg"
       :allow-referrer="true"
     />
     <UsefulLinkItem
-      :name="$t('timestampPicker.usefulLinks.competitors.sesh.header')"
       :desc="$t('timestampPicker.usefulLinks.competitors.sesh.p')"
       href="https://sesh.fyi/timestamp/"
       :image="seshFyi"
