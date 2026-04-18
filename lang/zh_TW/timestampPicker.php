@@ -63,7 +63,6 @@ return [
       'p' => '使用 ANSI 顏色代碼建立彩色 Discord 訊息的簡單應用程式',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "這個專案的靈感來源，是一個社群為一款被低估的賽車遊戲每週舉辦挑戰賽",
     ],
     'competitors' => [
@@ -72,23 +71,20 @@ return [
         'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
-        'header' => 'r.3v.fi/discord-timestamps',
+        'header' => '',
         'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
-        'header' => 'timestamp.dabric.xyz',
+        'header' => '',
         'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'header' => 'DiscordTimestamp.com',
         'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'header' => 'DiscordTimestamp.org',
         'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'header' => 'sesh.fyi/timestamp',
         'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
