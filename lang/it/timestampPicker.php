@@ -63,33 +63,29 @@ return [
       'p' => 'Una semplice app che crea messaggi Discord colorati utilizzando i codici colore ANSI',
     ],
     "subreddit" => [
-      "header" => "r/SplitSecond",
       "p" => "La comunità che ospita sfide settimanali per un gioco di corse sottovalutato che ha ispirato la creazione di questo progetto",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Sapevi che HammerTime non è l\'unico strumento per generare timestamp?',
+        'p2' => 'Può dare un\'occhiata a questi altri generatori di timestamp Discord per trovare quello che funziona meglio per lei:',
       ],
       '3vfi' => [
-        'header' => 'r.3v.fi/discord-timestamps',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'header' => '',
+        'p' => 'Un generatore di timestamp semplice e veloce di 3ventic',
       ],
       'dabric' => [
-        'header' => 'timestamp.dabric.xyz',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'header' => '',
+        'p' => 'Generatore timestamp di Discord in linguaggio naturale, di dabric',
       ],
       'discordtimestampCom' => [
-        'header' => 'DiscordTimestamp.com',
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Generatore gratuito di timestamp di Discord con supporto del fuso orario locale, di Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'header' => 'DiscordTimestamp.org',
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Generatore di timestamp Discord e convertitore di tempo di DiscordTimestamp.org',
       ],
       'sesh' => [
-        'header' => 'sesh.fyi/timestamp',
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Crea timestamp di markdown Discord dall\'ecosistema del bot di pianificazione Sesh da Tunks',
       ],
     ],
   ],
