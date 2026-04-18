@@ -66,5 +66,31 @@ return [
       "header" => "r/SplitSecond",
       "p" => "La communauté organisant des défis hebdomadaires pour un jeu de course méconnu qui a inspiré la création de ce projet",
     ],
+    'competitors' => [
+      'lead' => [
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+      ],
+      '3vfi' => [
+        'header' => 'r.3v.fi/discord-timestamps',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
+      ],
+      'dabric' => [
+        'header' => 'timestamp.dabric.xyz',
+        'p' => 'Natural language Discord timestamp generator by dabric',
+      ],
+      'discordtimestampCom' => [
+        'header' => 'DiscordTimestamp.com',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+      ],
+      'discordtimestampOrg' => [
+        'header' => 'DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+      ],
+      'sesh' => [
+        'header' => 'sesh.fyi/timestamp',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+      ],
+    ],
   ],
 ];
