@@ -6,9 +6,9 @@ import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 // noinspection ES6UnusedImports
 import { FALLBACK_LANGUAGE } from '@/utils/language-settings';
 import { Link } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   href: string;
   image: string;
   name?: string;
@@ -19,6 +19,14 @@ defineProps<{
 
 const route = useRoute();
 const currentLanguage = inject(currentLanguageInject);
+const displayName = computed(() => {
+  if (props.name) {
+    return props.name;
+  }
+
+  const url = new URL(props.href);
+  return (url.hostname + url.pathname).replace(/\/+$/, '');
+});
 </script>
 
 <template>
@@ -40,7 +48,7 @@ const currentLanguage = inject(currentLanguageInject);
 
         <div class="card-bottom-half">
           <span class="link-name">
-            <slot name="name">{{ name }}</slot>
+            <slot name="name">{{ displayName }}</slot>
           </span>
 
           <span class="link-desc">
