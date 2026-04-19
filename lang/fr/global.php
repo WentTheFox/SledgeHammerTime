@@ -29,9 +29,9 @@ return [
   'incompleteTranslations' => 'La traduction est incomplète',
   'contributeTranslations' => 'Contribuer',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Observé actuellement',
+    'atPickedDate' => 'Observé à l\'heure choisie',
+    'currentlyAndAtPickedDate' => 'Observé actuellement & à l\'heure choisie',
   ],
   'copyToClipboard' => 'Copier dans le presse papier',
   'copiedToClipboard' => 'Copié dans le presse-papiers !',
@@ -70,7 +70,7 @@ return [
       ],
       'timezoneStickyHeaders' => [
         'label' => 'En-têtes du groupe de fuseau horaire',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'description' => 'Afficher les en-têtes de groupe persistants (par exemple America, Europe) dans le menu déroulant de sélection du fuseau horaire.',
       ],
       'hourCycle' => [
         'label' => 'Type d\'horloge de saisie de temps personnalisé',
