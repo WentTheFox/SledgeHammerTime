@@ -22,16 +22,16 @@ return [
       'joinSupportServer' => "Si le problème persiste plus de quelques minutes, merci de rejoindre le serveur Discord de support et nous en informer.",
       'contactDeveloper' => "Si le problème persiste plus de quelques minutes, merci de contacter le développeur pour lui en informer.",
     ],
-    'autoReload' => 'La page s\'actualisera automatiquement<1/>',
+    'autoReload' => 'La page s\'actualisera automatiquement <1/>',
     'reloadButton' => 'Actualisation manuelle',
     "supportServerButton" => "Serveur de Support",
   ],
   'incompleteTranslations' => 'La traduction est incomplète',
   'contributeTranslations' => 'Contribuer',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Observé actuellement',
+    'atPickedDate' => 'Observé à l\'heure choisie',
+    'currentlyAndAtPickedDate' => 'Observé actuellement & à l\'heure choisie',
   ],
   'copyToClipboard' => 'Copier dans le presse papier',
   'copiedToClipboard' => 'Copié dans le presse-papiers !',
@@ -40,7 +40,7 @@ return [
     'body' => "Votre navigateur ne prend pas en charge JavaScript ou il est actuellement désactivé. Certains navigateurs désactivent JavaScript par défaut pour des raisons de sécurité, mais il est nécessaire pour cette application. Veuillez l'activer et rafraîchir la page, ou utiliser un autre navigateur.",
   ],
   'nav' => [
-    'botSettings' => 'Paramètre de l\'application',
+    'botSettings' => 'Paramètres de l\'application',
     'profile' => 'Profil',
     'legal' => 'Mentions légales',
     'analytics' => 'Statistiques',
@@ -70,7 +70,7 @@ return [
       ],
       'timezoneStickyHeaders' => [
         'label' => 'En-têtes du groupe de fuseau horaire',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'description' => 'Afficher les en-têtes de groupe persistants (par exemple America, Europe) dans le menu déroulant de sélection du fuseau horaire.',
       ],
       'hourCycle' => [
         'label' => 'Type d\'horloge de saisie de temps personnalisé',
