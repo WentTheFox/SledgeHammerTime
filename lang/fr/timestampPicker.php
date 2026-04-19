@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Saviez-vous que HammerTime n\'est pas le seul outil pour générer des horodatages ?',
+        'p2' => 'Vous voudrez peut-être essayer ces autres générateurs d\'horodatages Discord pour trouver celui qui vous convient le mieux :',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Un générateur simple et rapide d\'horodatages par 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Générateur d\'horodatages Discord en langage naturel par dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Générateur gratuit d\'horodatages Discord avec prise en charge de fuseaux horaires locaux par Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Générateur d\'horodatages Discord et convertisseur de temps par DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Créez des horodatages markdown Discord depuis l\'écosystème du bot de planification Sesh par Tunks',
       ],
     ],
   ],
