@@ -62,7 +62,7 @@ return [
     ],
     'currentlyApproved' => 'Valeurs actuellement approuvées',
     'reApprovalWarning' => 'Toute modification autre que la visibilité demande une vérification manuelle. Vous pouvez annuler cette action à tout moment depuis cette page.',
-    'deleteOverride' => 'Rétablir par défaut',
+    'deleteOverride' => 'Supprimer les modifications',
     'deleteOverrideConfirm' => 'Êtes-vous sûr de vouloir supprimer vos modifications de crédits de traduction ? Vos entrées retourneront aux informations par défaut de Crowdin.',
     'approvedValues' => [
       'displayName' => 'Nom',
