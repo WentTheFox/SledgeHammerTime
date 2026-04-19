@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Zaman damgası oluşturmak için HammerTime\'ın tek araç olmadığını biliyor muydunuz?',
+        'p2' => 'Size en uygun olanı bulmak için bu diğer Discord zaman damgası oluşturucularına göz atmak isteyebilirsiniz:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => '3ventic tarafından geliştirilen basit ve hızlı bir zaman damgası oluşturucu',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'dabric tarafından geliştirilen doğal dil Discord zaman damgası oluşturucu',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Sellframe Ltd. tarafından geliştirilen, yerel saat dilimi destekli ücretsiz Discord zaman damgası oluşturucu',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'DiscordTimestamp.org tarafından geliştirilen Discord zaman damgası oluşturucu ve zaman dönüştürücü',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Tunks tarafından geliştirilen Sesh planlama botu ekosistemi içerisinden Discord markdown zaman damgaları oluşturun',
       ],
     ],
   ],
