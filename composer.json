@@ -15,7 +15,7 @@
     "inertiajs/inertia-laravel": "^3.0",
     "laravel-lang/common": "^6.7.1",
     "laravel-lang/native-locale-names": "^2.6.0",
-    "laravel/framework": "^12.0",
+    "laravel/framework": "^13.5",
     "laravel/horizon": "^5.41",
     "laravel/sanctum": "^4.0",
     "laravel/socialite": "^v5.21",
