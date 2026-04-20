@@ -23,7 +23,7 @@ class CachePageResponse {
    * Call this whenever the underlying data for a page changes.
    */
   public static function forgetPage(string $page): void {
-    foreach (array_keys(Config::get('languages.ui_locale_map', [])) as $locale) {
+    foreach (Config::get('languages.ui_locale_map', []) as $locale) {
       Cache::forget(static::cacheKey($page, $locale));
     }
   }
