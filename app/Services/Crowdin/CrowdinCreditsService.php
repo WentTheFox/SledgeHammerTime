@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\Crowdin;
 
-use App\Jobs\RefreshCrowdinLocaleData;
 use App\Models\CrowdinUser;
 use App\Models\TranslationCreditOverride;
 use App\Models\TranslationProgress;
@@ -28,18 +27,12 @@ class CrowdinCreditsService {
   public function getLocaleData(string $locale):array {
     $locale = $this->toCrowdinLocale($locale);
     $cacheTtlMinutes = (int)config('services.crowdin.credits_cache_ttl_minutes', 60);
-    $dataKey = $this->getLocaleCacheKey($locale);
-    $freshnessKey = $this->getLocaleFreshnessKey($locale);
 
-    $hasFreshData = $cacheTtlMinutes > 0 || Cache::has($freshnessKey);
-    $hasData = Cache::has($dataKey);
-
-    if ($hasData){
-      if (!$hasFreshData){
-        RefreshCrowdinLocaleData::dispatch($locale);
+    if ($cacheTtlMinutes > 0) {
+      $cached = Cache::get($this->getLocaleCacheKey($locale));
+      if ($cached !== null) {
+        return json_decode($cached, associative: true, flags: JSON_THROW_ON_ERROR);
       }
-
-      return json_decode(Cache::get($dataKey), associative: true, flags: JSON_THROW_ON_ERROR);
     }
 
     return $this->refreshLocaleData($locale);
@@ -52,14 +45,10 @@ class CrowdinCreditsService {
   public function refreshLocaleData(string $locale):array {
     $locale = $this->toCrowdinLocale($locale);
     $cacheTtlMinutes = (int)config('services.crowdin.credits_cache_ttl_minutes', 60);
-    $dataKey = $this->getLocaleCacheKey($locale);
-    $freshnessKey = $this->getLocaleFreshnessKey($locale);
-
     $data = $this->buildLocaleData($locale);
 
-    Cache::forever($dataKey, json_encode($data, JSON_THROW_ON_ERROR));
-    if ($cacheTtlMinutes > 0){
-      Cache::set($freshnessKey, true, new DateInterval("PT{$cacheTtlMinutes}M"));
+    if ($cacheTtlMinutes > 0) {
+      Cache::put($this->getLocaleCacheKey($locale), json_encode($data, JSON_THROW_ON_ERROR), new DateInterval("PT{$cacheTtlMinutes}M"));
     }
 
     return $data;
@@ -72,14 +61,17 @@ class CrowdinCreditsService {
   public function getIndexedReportData():array {
     $cacheTtlMinutes = (int)config('services.crowdin.credits_cache_ttl_minutes', 60);
 
-    if ($cacheTtlMinutes > 0 && Cache::has(self::CACHE_KEY)){
-      return json_decode(Cache::get(self::CACHE_KEY), associative: true, flags: JSON_THROW_ON_ERROR);
+    if ($cacheTtlMinutes > 0) {
+      $cached = Cache::get(self::CACHE_KEY);
+      if ($cached !== null) {
+        return json_decode($cached, associative: true, flags: JSON_THROW_ON_ERROR);
+      }
     }
 
     $data = $this->buildIndexedReportData();
 
-    if ($cacheTtlMinutes > 0){
-      Cache::set(self::CACHE_KEY, json_encode($data, JSON_THROW_ON_ERROR), new DateInterval("PT{$cacheTtlMinutes}M"));
+    if ($cacheTtlMinutes > 0) {
+      Cache::put(self::CACHE_KEY, json_encode($data, JSON_THROW_ON_ERROR), new DateInterval("PT{$cacheTtlMinutes}M"));
     }
 
     return $data;
@@ -88,18 +80,12 @@ class CrowdinCreditsService {
   public function invalidateCache():void {
     Cache::forget(self::CACHE_KEY);
     foreach (Config::get('languages.supported_locales', []) as $locale){
-      $locale = $this->toCrowdinLocale($locale);
-      Cache::forget($this->getLocaleCacheKey($locale));
-      Cache::forget($this->getLocaleFreshnessKey($locale));
+      Cache::forget($this->getLocaleCacheKey($this->toCrowdinLocale($locale)));
     }
   }
 
   private function getLocaleCacheKey(string $locale):string {
     return "crowdin-credits-locale-{$locale}-v1";
-  }
-
-  private function getLocaleFreshnessKey(string $locale):string {
-    return "crowdin-credits-locale-{$locale}-fresh-v1";
   }
 
   /**
