@@ -17,7 +17,7 @@ use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
 use App\Http\Controllers\TranslationProgressController;
 use App\Http\Middleware\CachePageResponse;
-use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 $languages = config('languages');
 $uiLocaleValues = array_keys($languages['ui_locale_map']);
 
-Route::post('/sentry-tunnel', [SentryTunnelController::class, 'tunnel'])->name('sentry.tunnel')->withoutMiddleware([ValidateCsrfToken::class]);
+Route::post('/sentry-tunnel', [SentryTunnelController::class, 'tunnel'])->name('sentry.tunnel')->withoutMiddleware([PreventRequestForgery::class]);
 Route::post('/sentry-warning/acknowledge', [SentryWarningController::class, 'acknowledge'])->name('sentry-warning.acknowledge');
 
 Route::middleware('guest')->group(function () {
