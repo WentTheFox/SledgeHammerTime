@@ -15,7 +15,7 @@
     "inertiajs/inertia-laravel": "^3.0",
     "laravel-lang/common": "^6.7.1",
     "laravel-lang/native-locale-names": "^2.6.0",
-    "laravel/framework": "^12.0",
+    "laravel/framework": "^13.0",
     "laravel/horizon": "^5.41",
     "laravel/sanctum": "^4.0",
     "laravel/socialite": "^v5.21",
@@ -31,6 +31,8 @@
   "require-dev": {
     "barryvdh/laravel-ide-helper": "v3.7.0",
     "fakerphp/faker": "^1.9.1",
+    "fruitcake/laravel-debugbar": "^4.2",
+    "larastan/larastan": "^v3.9.3",
     "laravel-lang/lang": "^15.26.2",
     "laravel/breeze": "^2.0",
     "laravel/pint": "^1.0",
@@ -39,7 +41,6 @@
     "nunomaduro/collision": "^8.1",
     "pestphp/pest": "^4.3",
     "pestphp/pest-plugin-browser": "^4.2",
-    "larastan/larastan": "^v3.9.3",
     "roave/security-advisories": "dev-latest",
     "spatie/laravel-ignition": "^2.0",
     "timwassenburg/laravel-service-generator": "^1.0"
