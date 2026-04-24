@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => '메시지 형식',
     'resultColumn' => '결과 예시',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
+    'editFormats' => '형식 사용자 지정',
+    'resetFormats' => '설정 초기화',
+    'hideFormat' => '이 형식 숨기기',
+    'showFormat' => '이 형식 표시',
     'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => '자주 묻는 질문',
+    'description' => '이 섹션은 현재 영어로만 제공되며, 주로 <1>Discord 서버의</1> 콘텐츠를 기반으로 합니다. 회원이 아닌 경우 일부 링크가 정상적으로 작동하지 않을 수 있습니다.',
   ],
   'usefulLinks' => [
     'lead' => '유용할 수도 있는 링크들',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => '타임스탬프를 생성하는 유일한 도구가 HammerTime이 아니라는 사실을 알고 계셨나요?',
+        'p2' => '다른 Discord 타임스탬프 생성기를 확인하여 당신에게 가장 적합한 것을 찾을 수 있습니다:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => '간단하고 빠른 타임스탬프 생성기(3ventic)',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => '자연어 디스코드 타임스탬프 생성기(dabric)',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => '현지 시간대 지원 무료 디스코드 타임스탬프 생성기(Sellframe Ltd.)',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Discord 타임스탬프 생성기 및 시간 변환기(DiscordTimestamp.org)',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Tunks의 Sesh 스케줄 봇 생태계 내에서 Discord 마크다운 타임스탬프 생성하기',
       ],
     ],
   ],

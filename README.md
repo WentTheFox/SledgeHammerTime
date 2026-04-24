@@ -175,6 +175,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇰🇷 Korean
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
+  - [haav](https://crowdin.com/profile/haav)
   - [Hweesang W.](https://crowdin.com/profile/hwswoo)
   - [Nomu Ako](https://crowdin.com/profile/irisfernwyn)
   - [Phrygia](https://github.com/sjkim04)
@@ -286,6 +287,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
 - 🇪🇸 Spanish
   - [?????](https://crowdin.com/profile/elpapuvanegas)
+  - [Alejandro Venancio Calviño](https://crowdin.com/profile/The-Pro-141106)
   - [Anomen77](https://crowdin.com/profile/Anomen77)
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
@@ -303,6 +305,7 @@ English and Hungarian translations have been included, so no translators will be
   - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
+  - [yizz](https://crowdin.com/profile/yizzmadrizz)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
   - [Liggliluff](https://github.com/Liggliluff)
