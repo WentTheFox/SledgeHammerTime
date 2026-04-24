@@ -7,12 +7,12 @@ return [
     "heading" => "페이지를 찾을 수 없습니다",
     "content" => "표시할 콘텐츠가 없습니다",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "찾으시는게 있으신가요?",
+      "description" => "도움이 될 만한 몇 가지 페이지입니다:",
+      "picker" => "Timestamp 선택기",
+      "botInfoDescription" => "Discord 봇 및 사용 가능한 명령어에 대한 정보",
+      "discordCta" => "무언가 빠진 것이 있다고 생각되시나요? 디스코드 서버에 가입하여 알려주세요.",
+      "discordButton" => "디스코드 서버 참여하기",
     ],
   ],
   "maintenanceMode" => [
@@ -22,8 +22,8 @@ return [
       'joinSupportServer' => "문제가 수 분 동안 계속 된다면, Discord 지원 서버에 참가 후에 문의 해 주세요.",
       'contactDeveloper' => "문제가 수 분 동안 계속 된다면, 개발자에게 연락하여 문제를 알려주세요.",
     ],
-    'autoReload' => 'The page will reload automatically <1/>',
-    'reloadButton' => 'Reload manually',
+    'autoReload' => '페이지가 자동으로 다시 새로고침됩니다. <1/>',
+    'reloadButton' => '수동으로 새로고침',
     "supportServerButton" => "지원 서버",
   ],
   'incompleteTranslations' => '번역 미완료',
@@ -49,7 +49,7 @@ return [
     'inputSettings' => [
       'title' => '입력 설정',
       'naturalLanguageInput' => [
-        'label' => '@time input field',
+        'label' => '@시간 입력 필드',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
       ],
       'customDateInput' => [
@@ -65,7 +65,7 @@ return [
         'description' => "한 입력창 대신, 날짜와 시간으로 나뉜 두 입력창을 표시합니다 (일부 브라우저에서 지원하지 않음)",
       ],
       'flatUi' => [
-        'label' => 'Flatten interface',
+        'label' => '인터페이스 평면화',
         'description' => "입력 창과 버튼의 그림자와 높이 효과 비활성화",
       ],
       'timezoneStickyHeaders' => [
@@ -106,7 +106,7 @@ return [
       't1' => 'The server\'s timestamp of the request reception',
       't2' => 'The server\'s timestamp of the response transmission',
       't3' => 'The client\'s timestamp of the response reception',
-      'timestampValue' => ':value s',
+      'timestampValue' => ':value 초',
       'offsetAmount' => ':offset ms',
       'networkOffsetCell' => '감지된 차감 (네트워크)',
     ],
