@@ -305,7 +305,6 @@ English and Hungarian translations have been included, so no translators will be
   - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
-  - [yizz](https://crowdin.com/profile/yizzmadrizz)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
   - [Liggliluff](https://github.com/Liggliluff)
