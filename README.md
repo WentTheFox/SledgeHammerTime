@@ -173,6 +173,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ちあたん](https://crowdin.com/profile/chiatan1006)
   - [ゆううゆ](https://crowdin.com/profile/yuuuyu)
 - 🇰🇷 Korean
+  - [Appie](https://crowdin.com/profile/Appie_0)
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
   - [haav](https://crowdin.com/profile/haav)
@@ -259,6 +260,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Dayz Channel](https://crowdin.com/profile/panicattack)
   - [Dead3XD](https://crowdin.com/profile/Dead3XD)
   - [Dev Core](https://crowdin.com/profile/Dev-Cored)
+  - [DJ Ishak](https://crowdin.com/profile/dj.rave)
   - [Feor](https://crowdin.com/profile/EL0nMusk)
   - [ff rgg](https://crowdin.com/profile/rggff246)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
