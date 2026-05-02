@@ -34,7 +34,7 @@ return [
   'table' => [
     'syntaxColumn' => 'Синтаксис в чате',
     'resultColumn' => 'Пример',
-    'editFormats' => 'Изменяемые шрифты',
+    'editFormats' => 'Настроить форматы',
     'resetFormats' => 'Сбросить до настроек по умолчанию',
     'hideFormat' => 'Скрыть этот формат',
     'showFormat' => 'Показывать этот формат',
@@ -42,7 +42,7 @@ return [
   ],
   'faq' => [
     'title' => 'Часто Задаваемые Вопросы (FAQ)',
-    'description' => 'Этот раздел доступен только на английском языке, и он сильно основан на содержании <1>нашего Discord сервера</1>. Некоторые ссылки могут не работать, если вы не являетесь участником.',
+    'description' => 'Этот раздел пока что доступен только на английском языке и сильно основан на содержании <1>нашего Discord сервера</1>. Некоторые ссылки могут не работать, если вы не являетесь участником.',
   ],
   'usefulLinks' => [
     'lead' => 'Возможно вы заинтересуетесь этим:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Вы знали, что HammerTime – не единственный инструмент для создания меток времени?',
+        'p2' => 'Вы можете ознакомиться с другими генераторами меток времени Discord и найти такой, который подходит Вам больше всего:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Простой и быстрый генератор меток времени от 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Генератор меток времени Discord на естественном языке от dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Бесплатный генератор временных меток Discord с поддержкой локальных часовых поясов от Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Генератор временных меток Discord и преобразователь времени от DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Создавайте метки времени Discord с помощью бота Sesh от Tunks',
       ],
     ],
   ],
