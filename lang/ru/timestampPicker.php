@@ -67,12 +67,12 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Вы знали, что HammerTime – не единственный инструмент для создания меток времени?',
+        'p2' => 'Вы можете ознакомиться с другими генераторами меток времени Discord и найти такой, который подходит Вам больше всего:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Простой и быстрый генератор меток времени от 3ventic',
       ],
       'dabric' => [
         'header' => '',
