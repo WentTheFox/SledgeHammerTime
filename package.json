@@ -30,7 +30,7 @@
     "@vue/server-renderer": "^3.5.27",
     "@wentthefox-forks/vite-plugin-imagemin": "^2.2.2",
     "autoprefixer": "^10.4.12",
-    "axios": "^1.1.2",
+    "axios": "^1.15.1",
     "classnames": "^2.3.2",
     "concurrently": "^9.2.1",
     "deepmerge-ts": "^7.1.3",
