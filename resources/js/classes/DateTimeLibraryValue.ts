@@ -1,5 +1,5 @@
 import { DateTimeLibrary } from '@/classes/DateTimeLibrary';
-import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryLocale, HourCycle } from '@/classes/DateTimeLibraryLocale';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { TimezoneSelection } from '@/model/timezone-selection';
 
@@ -77,7 +77,7 @@ export abstract class DateTimeLibraryValue<T = any, L = any> {
 
   abstract toDate(): Date;
 
-  abstract formatDiscordTimestamp(mtf: MessageTimestampFormat): string;
+  abstract formatDiscordTimestamp(mtf: MessageTimestampFormat, hourCycle?: HourCycle | null): string;
 
   abstract formatCalendarDateDisplay(): string;
 

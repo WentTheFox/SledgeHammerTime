@@ -4,7 +4,7 @@ import TimePicker, { TimePickerPopupApi } from '@/Components/home/pickers/TimePi
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlId } from '@/composables/useFormControlId';
-import { dateTimeLibraryInject, positionAnchor, timestampInject } from '@/injection-keys';
+import { dateTimeLibraryInject, localSettingsInject, positionAnchor, timestampInject } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { DialMode } from '@/utils/dial';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
@@ -16,6 +16,7 @@ const ts = inject(timestampInject);
 const id = useFormControlId();
 const effectiveDisabled = useFormControlDisabled(props);
 const dtl = inject(dateTimeLibraryInject);
+const settings = inject(localSettingsInject);
 
 const dateLibLocale = useDateLibraryLocale(dtl);
 const selectedTime = computed(() => {
@@ -25,6 +26,7 @@ const selectedTime = computed(() => {
       return dtl.value.convertIsoToLocalizedTimeInputValue(
         currentTimeValue,
         dateLibLocale.value,
+        settings?.hourCycle,
       );
     }
   }

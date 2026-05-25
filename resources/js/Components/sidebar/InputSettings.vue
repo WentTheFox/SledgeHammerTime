@@ -77,6 +77,32 @@ const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getWee
           />
         </template>
       </HtFormCheckboxControlled>
+      <HtFormControl
+        id="hour-cycle"
+        :label="$t('global.sidebar.inputSettings.hourCycle.label')"
+      >
+        <HtFormSelect
+          v-model="settings!.hourCycle"
+          @change="settings?.setHourCycle"
+        >
+          <option :value="null">
+            {{ $t('global.sidebar.inputSettings.hourCycle.options.default') }}
+          </option>
+          <option :value="HourCycle.H12">
+            {{ $t('global.sidebar.inputSettings.hourCycle.options.h12') }}
+          </option>
+          <option :value="HourCycle.H24">
+            {{ $t('global.sidebar.inputSettings.hourCycle.options.h24') }}
+          </option>
+        </HtFormSelect>
+        <template #message>
+          <FormMessage
+            :message="$t('global.sidebar.inputSettings.hourCycle.description')"
+            class="mt-1"
+            type="description"
+          />
+        </template>
+      </HtFormControl>
       <HtButton
         :pressed="showAdvancedSettings"
         :icon-end="showAdvancedSettings ? faCaretUp : faCaretDown"
@@ -131,32 +157,6 @@ const weekdaysItems = computed(() => getWeekdayItems(dateLibLocale.value?.getWee
             />
           </template>
         </HtFormCheckboxControlled>
-        <HtFormControl
-          id="hour-cycle"
-          :label="$t('global.sidebar.inputSettings.hourCycle.label')"
-        >
-          <HtFormSelect
-            v-model="settings!.hourCycle"
-            @change="settings?.setHourCycle"
-          >
-            <option :value="null">
-              {{ $t('global.sidebar.inputSettings.hourCycle.options.default') }}
-            </option>
-            <option :value="HourCycle.H12">
-              {{ $t('global.sidebar.inputSettings.hourCycle.options.h12') }}
-            </option>
-            <option :value="HourCycle.H24">
-              {{ $t('global.sidebar.inputSettings.hourCycle.options.h24') }}
-            </option>
-          </HtFormSelect>
-          <template #message>
-            <FormMessage
-              :message="$t('global.sidebar.inputSettings.hourCycle.description')"
-              class="mt-1"
-              type="description"
-            />
-          </template>
-        </HtFormControl>
         <HtFormControl
           v-if="dateLibLocale"
           id="first-day-of-week"

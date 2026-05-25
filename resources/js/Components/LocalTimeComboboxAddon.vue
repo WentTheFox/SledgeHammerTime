@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
-import { dateTimeLibraryInject } from '@/injection-keys';
+import { dateTimeLibraryInject, localSettingsInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import { ComboboxOption } from '@/utils/combobox';
 import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
@@ -13,6 +13,7 @@ const localTime = ref<string>('');
 const localTimeCalculatorInterval = ref<null | ReturnType<typeof setInterval>>(null);
 const dtl = inject(dateTimeLibraryInject);
 const dateLibLocale = useDateLibraryLocale(dtl);
+const settings = inject(localSettingsInject);
 
 const updateLocalTime = () => {
   if (!dtl || !dateLibLocale.value) {
@@ -22,7 +23,7 @@ const updateLocalTime = () => {
   const zonedNowValue = dtl.value
     .nowInZone(props.option.value)
     .setLocale(dateLibLocale.value);
-  localTime.value = zonedNowValue.formatDiscordTimestamp(MessageTimestampFormat.SHORT_TIME);
+  localTime.value = zonedNowValue.formatDiscordTimestamp(MessageTimestampFormat.SHORT_TIME, settings?.hourCycle);
 };
 
 onMounted(() => {
