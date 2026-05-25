@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'Niestandardowy typ zegara czasu',
-        'description' => 'Zmienia sposób wyświetlania godzin w niestandardowym polu czasu. Nie ma wpływu na podglądy w przykładowej kolumnie wyników.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Domyślny język',
           'h12' => '12-godzinny',
