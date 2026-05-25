@@ -73,8 +73,8 @@ return [
         'description' => '在时区选择器下拉菜单中显示会固定在顶部的分组标题（例如美洲、欧洲）。',
       ],
       'hourCycle' => [
-        'label' => '自定义时间输入时钟类型',
-        'description' => '更改自定义时间输入中小时数的显示方式。对示例结果列中的预览没有影响。',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => '语言默认设置',
           'h12' => '12小时制',
