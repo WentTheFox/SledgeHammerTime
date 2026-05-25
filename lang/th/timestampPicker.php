@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'ไวยากรณ์ของแชท',
     'resultColumn' => 'ตัวอย่างผลลัพธ์',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'ปรับแต่งรูปแบบเวลา',
+    'resetFormats' => 'ตั้งค่ากลับเป็นค่าเริ่มต้น',
+    'hideFormat' => 'ซ่อนรูปแบบเวลานี้',
+    'showFormat' => 'แสดงรูปแบบเวลานี้',
+    'unhideInProfile' => 'ยกเลิกการซ่อนรูปแบบเวลานี้ในการตั้งค่าโปรไฟล์',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'คำถามที่พบบ่อย',
+    'description' => 'ส่วนข้อความนี้จะใช้ภาษาอังกฤษเท่านั้นในตอนนี้ และอิงจากเนื้อหา<1>ในเซิร์ฟเวอร์ Discord ของเรา</1>เป็นอย่างมาก บางลิงก์อาจไม่ทำงานตามที่คาดหวังหากคุณไม่ใช่สมาชิกของเซิร์ฟเวอร์',
   ],
   'usefulLinks' => [
     'lead' => 'คุณอาจจะพบว่าสิ่งพวกนี้มีประโยชน์สำหรับคุณ',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'คุณรู้หรือไม่ว่า HammerTime ไม่ใช่เครื่องมือเดียวที่ใช้สร้างประทับเวลา',
+        'p2' => 'คุณอาจจะต้องการดูตัวสร้างประทับเวลา Discord เพื่อหาสิ่งที่เหมาะสมกับคุณมากที่สุด',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'เครื่องสร้างเวลาประทับที่ง่ายและรวดเร็วโดย 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'ตัวสร้างประทับเวลา Discord ด้วยภาษาธรรมชาติ โดย dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'เครื่องมือสร้างเวลา Discord ฟรีพร้อมรองรับเขตเวลาท้องถิ่น โดย Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'เครื่องมือสร้างประทับเวลา Discord และตัวแปลงเวลาโดย DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'สร้างตัวประทับเวลาใน Discord markdown ในระบบจัดตารางเวลาของบอท Sesh โดย Tunks',
       ],
     ],
   ],
