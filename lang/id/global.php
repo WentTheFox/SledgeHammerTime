@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'Jenis jam input waktu khusus',
-        'description' => 'Mengubah cara jam ditampilkan dalam input waktu kustom. Tidak berpengaruh pada pratinjau di kolom contoh hasil.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Bahasa bawaan',
           'h12' => '12 jam',
