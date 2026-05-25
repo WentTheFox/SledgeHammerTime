@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'カスタム時刻の時計タイプ',
-        'description' => 'カスタム時間入力欄における時間の表示方法を変更します。サンプル結果列のプレビューには影響しません。',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'デフォルトの言語',
           'h12' => '12時間',
