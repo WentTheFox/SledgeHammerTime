@@ -73,8 +73,8 @@ return [
         'description' => 'Zaman dilimi seçici açılır menüsünde yapışkan grup başlıklarını (ör. America, Europe) göster.',
       ],
       'hourCycle' => [
-        'label' => 'Özel saat girişi formatı',
-        'description' => 'Özel saat girişinde saatlerin nasıl görüntüleneceğini değiştirin. Bunun, örnek sonuçlar sütunundaki önizlemeler üzerinde herhangi bir etkisi yoktur.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Dil varsayılanı',
           'h12' => '12 saat',
