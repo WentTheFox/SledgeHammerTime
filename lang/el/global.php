@@ -73,8 +73,8 @@ return [
         'description' => 'Εμφάνιση κολλωδών κεφαλίδων ομάδων (π.χ. America, Europe) στην αναπτυσσόμενη λίστα επιλογής ζώνης ώρας.',
       ],
       'hourCycle' => [
-        'label' => 'Προσαρμοσμένη εισαγωγή ώρας',
-        'description' => 'Αλλάξτε τον τρόπο εμφάνισης των ωρών στην προσαρμοσμένη εισαγωγή ώρας. Δεν έχει καμία επίδραση στις προεπισκοπήσεις στη στήλη αποτελεσμάτων παραδείγματος.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Προεπιλεγμένη ώρα',
           'h12' => '12-ωρών',
