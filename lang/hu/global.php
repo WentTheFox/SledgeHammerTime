@@ -73,8 +73,8 @@ return [
         'description' => 'Ragadós csoport gejlécek (pl. America, Europe) megjelenítése az időzóna kiválasztó legördülő listában.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Időformátum',
+        'description' => 'Megváltoztatja az idő megejelenítését, beleértve az egyéni idő bevitelt és az előnézeteket.',
         'options' => [
           'default' => 'Nyelvi alapértelmezés',
           'h12' => '12 órás',
