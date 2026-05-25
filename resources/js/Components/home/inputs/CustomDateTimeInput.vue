@@ -4,7 +4,7 @@ import DateTimePicker, { DateTimePickerApi } from '@/Components/home/pickers/Dat
 import { useDateLibraryLocale } from '@/composables/useDateLibraryLocale';
 import { useFormControlDisabled } from '@/composables/useFormControlDisabled';
 import { useFormControlId } from '@/composables/useFormControlId';
-import { dateTimeLibraryInject, positionAnchor, timestampInject } from '@/injection-keys';
+import { dateTimeLibraryInject, localSettingsInject, positionAnchor, timestampInject } from '@/injection-keys';
 import HtInput, { InputApi } from '@/Reusable/HtInput.vue';
 import { keyboardOrMouseEventHandlerFactory } from '@/utils/events';
 import { computed, inject, provide, useTemplateRef } from 'vue';
@@ -15,6 +15,7 @@ const ts = inject(timestampInject);
 const id = useFormControlId();
 const effectiveDisabled = useFormControlDisabled(props);
 const dtl = inject(dateTimeLibraryInject);
+const settings = inject(localSettingsInject);
 
 const dateLibLocale = useDateLibraryLocale(dtl);
 const selectedDateTime = computed(() => {
@@ -27,6 +28,7 @@ const selectedDateTime = computed(() => {
           currentDateValue,
           currentTimeValue,
           dateLibLocale.value,
+          settings?.hourCycle,
         );
       }
     }

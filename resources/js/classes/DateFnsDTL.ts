@@ -114,47 +114,53 @@ const timezoneNames = Intl.supportedValuesOf('timeZone')
   .filter((name) => !name.startsWith('Etc/GMT'))
   .sort((a, b) => a.localeCompare(b));
 
-const getDiscordToUnicodeFormat = (format: MessageTimestampFormat, language: string | undefined): string => {
-  const normalizedLanguage = language?.toLowerCase();
+// Adjusts a time format string (from locale.formatLong) to force a specific hour cycle.
+// h/hh ↔ H/HH swaps preserve leading-zero padding; meridiem token added/removed accordingly.
+const applyHourCycleToTimeFormat = (timeFormat: string, hourCycle: HourCycle): string => {
+  if (hourCycle === HourCycle.H24) {
+    return timeFormat
+      .replace(/hh/g, 'HH')
+      .replace(/(?<!h)h(?!h)/g, 'H')
+      .replace(/\s*a+\s*/g, '')
+      .trim();
+  }
+  // HourCycle.H12
+  const result = timeFormat
+    .replace(/HH/g, 'hh')
+    .replace(/(?<!H)H(?!H)/g, 'h');
+  return /a/.test(result) ? result : `${result.trim()} a`;
+};
+
+const getDiscordToUnicodeFormat = (
+  format: MessageTimestampFormat,
+  locale: Locale | undefined,
+  hourCycle?: HourCycle | null,
+): string => {
+  const rawShortTime = locale?.formatLong?.time({ width: 'short' }) ?? 'p';
+  const rawLongTime = locale?.formatLong?.time({ width: 'medium' }) ?? 'pp';
+  const shortTime = hourCycle ? applyHourCycleToTimeFormat(rawShortTime, hourCycle) : rawShortTime;
+  const longTime = hourCycle ? applyHourCycleToTimeFormat(rawLongTime, hourCycle) : rawLongTime;
+  const shortDate = locale?.formatLong?.date({ width: 'short' }) ?? 'P';
+  const longDate = locale?.formatLong?.date({ width: 'long' }) ?? 'PPP';
+  const fullDate = locale?.formatLong?.date({ width: 'full' }) ?? 'PPPP';
+
   switch (format) {
     case MessageTimestampFormat.SHORT_DATE:
-      switch (normalizedLanguage) {
-        default:
-          return 'P';
-      }
+      return shortDate;
     case MessageTimestampFormat.SHORT_TIME:
-      switch (normalizedLanguage) {
-        case 'en-gb':
-          return 'HH:mm';
-        default:
-          return 'p';
-      }
+      return shortTime;
     case MessageTimestampFormat.SHORT_FULL:
-      switch (normalizedLanguage) {
-        default:
-          return `PPP ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
-      }
+      return `${longDate} ${shortTime}`;
     case MessageTimestampFormat.LONG_DATE:
-      switch (normalizedLanguage) {
-        default:
-          return 'PPP';
-      }
+      return longDate;
     case MessageTimestampFormat.LONG_TIME:
-      switch (normalizedLanguage) {
-        case 'en-gb':
-          return 'HH:mm:ss';
-        default:
-          return 'pp';
-      }
+      return longTime;
     case MessageTimestampFormat.LONG_FULL:
-      switch (normalizedLanguage) {
-        default:
-          return `PPPP ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
-      }
+      return `${fullDate} ${shortTime}`;
     case MessageTimestampFormat.SHORT_COMPACT:
-      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_TIME, language)}`;
+      return `${shortDate} ${shortTime}`;
     case MessageTimestampFormat.LONG_COMPACT:
-      return `${getDiscordToUnicodeFormat(MessageTimestampFormat.SHORT_DATE, language)} ${getDiscordToUnicodeFormat(MessageTimestampFormat.LONG_TIME, language)}`;
+      return `${shortDate} ${longTime}`;
     default:
       throw new Error(`Unsupported format: ${format}`);
   }
@@ -297,10 +303,10 @@ class DateFnsDTLValue extends DateTimeLibraryValue<TZDate, Locale> {
     }
   }
 
-  formatDiscordTimestamp(mtf: MessageTimestampFormat): string {
+  formatDiscordTimestamp(mtf: MessageTimestampFormat, hourCycle?: HourCycle | null): string {
     const locale = this.getLocale();
     if (!isValid(this.value)) return '';
-    return format(this.value, getDiscordToUnicodeFormat(mtf, locale.name), { locale: locale.lowLevelValue });
+    return format(this.value, getDiscordToUnicodeFormat(mtf, locale.lowLevelValue, hourCycle), { locale: locale.lowLevelValue });
   }
 
   daysInMonth(): number {
@@ -529,21 +535,21 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     return new DateFnsDTLValue(new TZDate(new Date(), timezone), { library: this });
   }
 
-  convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<Locale>): string {
+  convertIsoToLocalizedDateTimeInputValue(date: string, time: string, locale: DateTimeLibraryLocale<Locale>, hourCycle?: HourCycle | null): string {
     const dateTime = parse(`${date} ${time}`, isoFormat, new Date());
     const localeObj = locale.lowLevelValue;
 
-    // Format strings to match expected outputs for each locale
+    let dateFormat: string;
     switch (locale.name) {
-      case 'en-US':
-        return format(dateTime, 'MMMM d, yyyy h:mm:ss a', { locale: localeObj });
-      case 'en-GB':
-        return format(dateTime, 'd MMMM yyyy HH:mm:ss', { locale: localeObj });
-      case 'hu':
-        return format(dateTime, 'yyyy. MMMM d. HH:mm:ss', { locale: localeObj });
-      default:
-        return format(dateTime, 'PPpp', { locale: localeObj });
+      case 'en-US': dateFormat = 'MMMM d, yyyy'; break;
+      case 'en-GB': dateFormat = 'd MMMM yyyy'; break;
+      case 'hu':    dateFormat = 'yyyy. MMMM d.'; break;
+      default:      dateFormat = localeObj?.formatLong?.date({ width: 'medium' }) ?? 'PP';
     }
+
+    const rawTimeFormat = localeObj?.formatLong?.time({ width: 'medium' }) ?? 'pp';
+    const timeFormat = hourCycle ? applyHourCycleToTimeFormat(rawTimeFormat, hourCycle) : rawTimeFormat;
+    return format(dateTime, `${dateFormat} ${timeFormat}`, { locale: localeObj });
   }
 
   convertIsoToLocalizedDateInputValue(date: string, locale: DateTimeLibraryLocale<Locale>): string {
@@ -563,12 +569,12 @@ export class DateFnsDTL implements DateTimeLibrary<TZDate, Locale> {
     }
   }
 
-  convertIsoToLocalizedTimeInputValue(time: string, locale: DateTimeLibraryLocale<Locale>): string {
+  convertIsoToLocalizedTimeInputValue(time: string, locale: DateTimeLibraryLocale<Locale>, hourCycle?: HourCycle | null): string {
     const baseDate = new Date(1970, 0, 1);
     const timeObj = parse(time, isoTimeFormat, baseDate);
 
     const value = this.fromIsoString(timeObj.toISOString());
-    return value.setLocale(locale).formatDiscordTimestamp(MessageTimestampFormat.LONG_TIME);
+    return value.setLocale(locale).formatDiscordTimestamp(MessageTimestampFormat.LONG_TIME, hourCycle);
   }
 
   getValueForIsoZonedDate(date: string, timezone: TimezoneSelection): DateTimeLibraryValue<TZDate> {

@@ -1,4 +1,4 @@
-import { DateTimeLibraryLocale } from '@/classes/DateTimeLibraryLocale';
+import { DateTimeLibraryLocale, HourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import { TimezoneSelection } from '@/model/timezone-selection';
 import { AvailableLanguage, LatestLanguageConfigType } from '@/utils/language-settings';
@@ -42,6 +42,7 @@ export interface DateTimeLibrary<T = any, L = any> {
     date: string,
     time: string,
     locale: DateTimeLibraryLocale<L>,
+    hourCycle?: HourCycle | null,
   ): string;
 
   convertIsoToLocalizedDateInputValue(
@@ -52,6 +53,7 @@ export interface DateTimeLibrary<T = any, L = any> {
   convertIsoToLocalizedTimeInputValue(
     time: string,
     locale: DateTimeLibraryLocale<L>,
+    hourCycle?: HourCycle | null,
   ): string;
 
   getValueForIsoZonedDate(
