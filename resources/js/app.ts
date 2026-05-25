@@ -58,33 +58,6 @@ createInertiaApp({
           dateFnsLocalePreload.then(() => app.mount(el));
         },
       });
-
-    // Initialize Sentry for Vue if DSN is provided
-    const dsn = import.meta.env.VITE_SENTRY_DSN;
-    if (dsn && dsn !== 'null') {
-      console.debug('Initializing Sentry', { dsn });
-      import('@sentry/vue').then((Sentry) => {
-        const sentryClient = Sentry.init({
-          app,
-          dsn,
-          sendDefaultPii: true,
-          tunnel: '/sentry-tunnel',
-          integrations: [
-            Sentry.browserTracingIntegration(),
-            Sentry.replayIntegration(),
-            Sentry.consoleLoggingIntegration({ levels: ["warn", "error"] }),
-            Sentry.feedbackIntegration(),
-          ],
-          tracesSampleRate: import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE,
-          replaysSessionSampleRate: import.meta.env.VITE_REPLAYS_SESSION_SAMPLE_RATE,
-          replaysOnErrorSampleRate: import.meta.env.VITE_REPLAYS_ON_ERROR_SAMPLE_RATE,
-          environment: import.meta.env.MODE,
-        });
-        console.debug('Sentry initialized', { sentryClient });
-      });
-    } else {
-      console.debug('Sentry initialization skipped', { dsn });
-    }
   },
   progress: {
     color: '#5865F2',

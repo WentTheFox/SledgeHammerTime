@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Configuration\Exceptions;
-use Sentry\Laravel\Integration;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +14,6 @@ use Sentry\Laravel\Integration;
 */
 
 $app = Application::configure(basePath: $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__))
-    ->withExceptions(function (Exceptions $exceptions) {
-      Integration::handles($exceptions);
-    })
     ->create();
 
 /*

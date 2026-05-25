@@ -10,14 +10,11 @@ use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedirectController;
-use App\Http\Controllers\SentryTunnelController;
-use App\Http\Controllers\SentryWarningController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\TimeSyncController;
 use App\Http\Controllers\TranslationProgressController;
 use App\Http\Middleware\CachePageResponse;
-use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,9 +30,6 @@ use Illuminate\Support\Facades\Route;
 
 $languages = config('languages');
 $uiLocaleValues = array_keys($languages['ui_locale_map']);
-
-Route::post('/sentry-tunnel', [SentryTunnelController::class, 'tunnel'])->name('sentry.tunnel')->withoutMiddleware([PreventRequestForgery::class]);
-Route::post('/sentry-warning/acknowledge', [SentryWarningController::class, 'acknowledge'])->name('sentry-warning.acknowledge');
 
 Route::middleware('guest')->group(function () {
   Route::get('login', [AuthController::class, 'login']);
