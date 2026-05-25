@@ -82,7 +82,7 @@ return [
         'p' => 'Generador gratuito de timestamps de Discord con soporte de zona horaria local por Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Generador de marcas de tiempo de Discord y convertidor de hora por DiscordTimestamp.org',
       ],
       'sesh' => [
         'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
