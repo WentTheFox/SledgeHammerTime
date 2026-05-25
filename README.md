@@ -69,6 +69,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Volvone](https://github.com/volvone)
 - 🇨🇿 Czech
   - [Blurplix](https://crowdin.com/profile/Blurplix)
+  - [Daniel5769](https://crowdin.com/profile/Daniel5769)
   - [HolyRadek](https://crowdin.com/profile/holyradek)
   - [Keša mot](https://crowdin.com/profile/kesamott.6534)
   - [klauny](https://crowdin.com/profile/klauny)
@@ -215,6 +216,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Luna A](https://crowdin.com/profile/LumiKitten)
   - [meeekos](https://crowdin.com/profile/meeekos)
   - [MinerPL](https://github.com/minerpl)
+  - [Oskarinnio Games](https://crowdin.com/profile/oskarinnio)
   - [Pawe_\_](https://crowdin.com/profile/Pawe__)
   - [Piotr G.](https://crowdin.com/profile/ekidoxx)
   - [stha](https://crowdin.com/profile/sthakrk)
@@ -305,6 +307,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [TT-Docs](https://crowdin.com/profile/TT-Docs)
+  - [vAdrien](https://crowdin.com/profile/vAdrien)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
 - 🇸🇪 Swedish
