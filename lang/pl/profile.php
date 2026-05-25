@@ -24,14 +24,14 @@ return [
         'authorize' => 'Autoryzuj konto Discord',
       ],
       'crowdin' => [
-        'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
+        'description' => 'Jeśli jesteś tłumaczem dla projektu, połączenie konta Crowdin pozwoli Ci dostosować Twoją nazwę w podziękowaniach dla tłumaczów, a także służy jako dodatkowy poziom weryfikacji, że te konta należą do Ciebie, jeśli dołączysz do serwera Discord projektu.',
         'authorize' => 'Autoryzuj konto Crowdin',
       ],
     ],
   ],
   'creditOverrides' => [
-    'heading' => 'Translation Credits',
-    'description' => 'Customize how you appear in the translation credits for each language where you are a contributor.',
+    'heading' => 'Podziękowania dla tłumaczy',
+    'description' => 'Dostosuj sposób wyświetlania się w podziękowaniach dla tłumaczy dla każdego języka, w którym jesteś współautorem.',
     'updateMethodLabel' => 'Update method',
     'updateMethodDescription' => 'Copying from another language does not require manual review',
     'updateMethodCopyLabel' => 'Copy from another language',
