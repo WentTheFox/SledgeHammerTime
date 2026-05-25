@@ -13,7 +13,7 @@ return [
     '203'          => 'Informações Não Autorizadas',
     '204'          => 'Nenhum Conteúdo',
     '205'          => 'Redefinir Conteúdo',
-    '206'          => 'Contéudo Parcial',
+    '206'          => 'Conteúdo Parcial',
     '207'          => 'Vários status',
     '208'          => 'Já Reportado',
     '226'          => 'Estou Usando',
