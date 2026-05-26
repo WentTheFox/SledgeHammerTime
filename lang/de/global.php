@@ -73,8 +73,8 @@ return [
         'description' => 'Zeigen Sie feste Gruppenüberschriften (z.B. Amerika, Europa) im Dropdown-Menü für die Zeitzonenauswahl an.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Zeitformat',
+        'description' => 'Ändere, wie die Uhrzeit in der gesamten Anwendung angezeigt wird – einschließlich der benutzerdefinierten Zeiteingabe und der Vorschauen.',
         'options' => [
           'default' => 'Sprachstandard',
           'h12' => '12 Stunden',
