@@ -73,8 +73,8 @@ return [
         'description' => 'Показывать липкие заголовки групп (например, America, Europe) в выпадающем списке часового пояса.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Формат времени',
+        'description' => 'Измените как время отображается везде, включая пользовательский ввод времени и предпросмотр.',
         'options' => [
           'default' => 'От языка сайта',
           'h12' => '12-часовой',
