@@ -73,8 +73,8 @@ return [
         'description' => 'Näyttää aikavyöhykkeen ryhmän (esim. America, Europe) aikavyöhykkeen valikossa.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Aikamuoto',
+        'description' => 'Vaihda miten aika näytetään läpi sovelluksen, sisältäen mukautetun aikasyötön ja esikatselun.',
         'options' => [
           'default' => 'Oletuskieli',
           'h12' => '12 tunnin kello',
