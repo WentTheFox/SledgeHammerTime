@@ -73,8 +73,8 @@ return [
         'description' => 'Mostra intestazioni gruppi fisse (ad esempio America, Europa) nella tendina del selettore di fuso orario.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Formato orario',
+        'description' => 'Cambia come viene visualizzato l\'orario in tutta l\'app, inclusi l\'input orario personalizzato e le anteprime.',
         'options' => [
           'default' => 'Lingua predefinita',
           'h12' => '12 ore',
