@@ -18,18 +18,18 @@ jobs:
       CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
       CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - run: git config --global --add safe.directory /app
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc # v2
         with:
           php-version: 8.5
           extensions: bcmath intl pcntl pdo_pgsql
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: vendor
           key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
@@ -38,12 +38,12 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
         with:
           version: 11
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
           cache: 'pnpm'
@@ -85,7 +85,7 @@ jobs:
         run: ./vendor/bin/phpstan analyse --error-format=github
 
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
