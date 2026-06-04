@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => '代码语法',
     'resultColumn' => '示例显示效果',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => '自定义格式排列方式',
+    'resetFormats' => '重置为默认值',
+    'hideFormat' => '隐藏此格式',
+    'showFormat' => '显示此格式',
+    'unhideInProfile' => '在个人资料设置中取消隐藏',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => '常见问题解答',
+    'description' => '本节目前仅提供英文版本，内容很大程度上基于<1>我们Discord服务器</1>上的讨论。若非成员，部分链接可能无法正常访问。',
   ],
   'usefulLinks' => [
     'lead' => '也许您也想看看这些链接：',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => '你是否知道 HammerTime 并不是唯一能生成时间戳的工具？',
+        'p2' => '你可能会想看看这些其他的 Discord 时间戳生成器，找到最适合你的那一个：',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => '由 3ventic 制作的简易快速时间戳生成器',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => '由 dabric 制作的自然语言 Discord 时间戳生成器',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => '由 Sellframe Ltd. 提供的免费 Discord 时间戳生成器，支持本地时区。',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Discord 时间戳生成器与时间转换器，来自 DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => '由 Tunks 开发，可通过 Sesh 日程安排机器人生态创建 Discord Markdown 时间戳',
       ],
     ],
   ],

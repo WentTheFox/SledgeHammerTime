@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'Vlastní formát pro zadávání času',
-        'description' => 'Změňte, jaký formát hodin, by měl být zobrazován ve vstupním poli času. Tato možnost nemá žádný vliv na náhledy ve sloupci s ukázkovými výstupy.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Standard vašeho jazyka',
           'h12' => '12-hodinový',

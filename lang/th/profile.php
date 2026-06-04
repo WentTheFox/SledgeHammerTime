@@ -33,11 +33,11 @@ return [
   'creditOverrides' => [
     'heading' => 'เครดิตการแปล:',
     'description' => 'ปรับแต่งวิธีที่ชื่อของคุณปรากฏในเครดิตการแปลสำหรับแต่ละภาษาที่คุณเป็นผู้มีส่วนร่วม',
-    'updateMethodLabel' => 'Update method',
-    'updateMethodDescription' => 'Copying from another language does not require manual review',
-    'updateMethodCopyLabel' => 'Copy from another language',
-    'updateMethodEditLabel' => 'Specify individual values',
-    'creditSourceLanguage' => 'Language to copy from',
+    'updateMethodLabel' => 'วิธีการอัปเดต',
+    'updateMethodDescription' => 'การคัดลอกเครดิตจากภาษาอื่นไม่จำเป็นต้องมีการตรวจสอบจากผู้ดูแล',
+    'updateMethodCopyLabel' => 'คัดลอกเครดิตจากภาษาอื่น',
+    'updateMethodEditLabel' => 'ระบุค่าในแต่ละรายการ',
+    'creditSourceLanguage' => 'ภาษาที่จะคัดลอกเครดิต',
     'displayName' => 'ชื่อที่แสดง',
     'avatarProvider' => 'รูปโปรไฟล์',
     'avatarProviders' => [
@@ -53,7 +53,7 @@ return [
     'submit' => 'ส่งเพื่อขออนุมัติ',
     'saveSuccess' => 'ได้ส่งเพื่อขออนุมัติแล้ว',
     'saveHideSuccess' => 'ได้เปลี่ยนการมองเห็นแล้ว',
-    'copySuccess' => 'Credits copied',
+    'copySuccess' => 'คัดลอกเครดิตเรียบร้อยแล้ว',
     'cancel' => 'ยกเลิกการเปลี่ยนแปลง',
     'statusPrefix' => 'สถานะ',
     'status' => [

@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'Type aangepaste tijdsinput klok',
-        'description' => 'Wijzigen hoe uren worden weergegeven in de aangepaste tijd invoer. Heeft geen effect op de voorbeeldenkolom.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Taal standaard',
           'h12' => '12-uurs',

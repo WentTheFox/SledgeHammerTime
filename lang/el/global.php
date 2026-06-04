@@ -7,12 +7,12 @@ return [
     "heading" => "Η σελίδα δεν βρέθηκε",
     "content" => "Δεν υπάρχει κάτι να δεις εδώ.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Ψάχνετε κάτι;",
+      "description" => "Ακολουθούν μερικές σελίδες που μπορεί να σας βοηθήσουν:",
+      "picker" => "Επιλογέας Χρονοσήμανσης",
+      "botInfoDescription" => "Πληροφορίες σχετικά με την εφαρμογή Discord και τις διαθέσιμες εντολές",
+      "discordCta" => "Πιστεύετε ότι κάτι λείπει; Γίνετε μέλος στον διακομιστή Discord μας και ενημερώστε μας.",
+      "discordButton" => "Γίνετε μέλος του διακομιστή Discord",
     ],
   ],
   "maintenanceMode" => [
@@ -73,8 +73,8 @@ return [
         'description' => 'Εμφάνιση κολλωδών κεφαλίδων ομάδων (π.χ. America, Europe) στην αναπτυσσόμενη λίστα επιλογής ζώνης ώρας.',
       ],
       'hourCycle' => [
-        'label' => 'Προσαρμοσμένη εισαγωγή ώρας',
-        'description' => 'Αλλάξτε τον τρόπο εμφάνισης των ωρών στην προσαρμοσμένη εισαγωγή ώρας. Δεν έχει καμία επίδραση στις προεπισκοπήσεις στη στήλη αποτελεσμάτων παραδείγματος.',
+        'label' => 'Μορφή ώρας',
+        'description' => 'Αλλάξτε τον τρόπο εμφάνισης της ώρας σε όλη την εφαρμογή, συμπεριλαμβανομένης της προσαρμοσμένης εισαγωγής ώρας και των προεπισκοπήσεων.',
         'options' => [
           'default' => 'Προεπιλεγμένη ώρα',
           'h12' => '12-ωρών',

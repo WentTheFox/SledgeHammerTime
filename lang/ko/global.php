@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => '사용자 시간 입력 시간 유형',
-        'description' => '사용자 시간 입력 창에 시간을 표시하는 방법을 변경합니다. 미리 보기 열에는 영향이 없습니다.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => '기본 언어',
           'h12' => '12시간',

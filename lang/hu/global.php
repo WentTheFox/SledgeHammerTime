@@ -73,8 +73,8 @@ return [
         'description' => 'Ragadós csoport gejlécek (pl. America, Europe) megjelenítése az időzóna kiválasztó legördülő listában.',
       ],
       'hourCycle' => [
-        'label' => 'Egyéni idő beviteli mező óra típusa',
-        'description' => 'Megváltoztatja hogyan jelenik meg az óra az egyéni idő beviteli mezőben. Nincs hatással az előnézetekre a példa megjelenés oszlopban.',
+        'label' => 'Időformátum',
+        'description' => 'Megváltoztatja az idő megejelenítését, beleértve az egyéni idő bevitelt és az előnézeteket.',
         'options' => [
           'default' => 'Nyelvi alapértelmezés',
           'h12' => '12 órás',
