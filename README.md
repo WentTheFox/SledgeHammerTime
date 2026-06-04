@@ -108,6 +108,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
+  - [alexandre fergani](https://crowdin.com/profile/a.fergani91)
   - [Arthur LUCAS](https://crowdin.com/profile/ablasters1)
   - [Biscotte](https://crowdin.com/profile/Ilovelinux68)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
@@ -132,6 +133,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Fabian](https://crowdin.com/profile/Fabi254)
   - [Fabian9799](https://crowdin.com/profile/Fabian9799)
   - [gsgsgdggfd](https://crowdin.com/profile/gsgsgdggfd)
+  - [J. Ratiopharm](https://crowdin.com/profile/Ratiopharm)
   - [Julius Geiger](https://crowdin.com/profile/julix00)
   - [Leo](https://crowdin.com/profile/35klxo)
   - [lukas koeppe](https://crowdin.com/profile/Lukas_k)
@@ -210,7 +212,9 @@ English and Hungarian translations have been included, so no translators will be
   - [Not so nice potato](https://crowdin.com/profile/regimanhj)
 - 🇵🇱 Polish
   - [770skiyt](https://crowdin.com/profile/770skiyt)
+  - [A O](https://crowdin.com/profile/TendoHydro)
   - [Aenrot Guile](https://crowdin.com/profile/aenriot)
+  - [AlpacaMan](https://crowdin.com/profile/Alpaca_Man)
   - [Bartek Koszutowski](https://crowdin.com/profile/koszutowski.bartek)
   - [kaczuszki są najlepsze!](https://crowdin.com/profile/ToMacMa)
   - [Luna A](https://crowdin.com/profile/LumiKitten)
@@ -263,6 +267,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Dead3XD](https://crowdin.com/profile/Dead3XD)
   - [Dev Core](https://crowdin.com/profile/Dev-Cored)
   - [DJ Ishak](https://crowdin.com/profile/dj.rave)
+  - [Emil](https://crowdin.com/profile/pomorgite)
   - [Feor](https://crowdin.com/profile/EL0nMusk)
   - [ff rgg](https://crowdin.com/profile/rggff246)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
@@ -288,6 +293,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Никита](https://crowdin.com/profile/fnaffffera)
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
+  - [Українский Лучший](https://crowdin.com/profile/kot2154)
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
 - 🇪🇸 Spanish
   - [?????](https://crowdin.com/profile/elpapuvanegas)
