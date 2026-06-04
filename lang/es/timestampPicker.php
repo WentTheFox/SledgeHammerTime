@@ -85,7 +85,7 @@ return [
         'p' => 'Generador de marcas de tiempo de Discord y convertidor de hora por DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Crea marcas de tiempo de Discord con markdown con el ecosistema del bot de programación Sesh, por Tunks',
       ],
     ],
   ],
