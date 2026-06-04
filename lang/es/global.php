@@ -73,8 +73,8 @@ return [
         'description' => 'Mostrar cabeceras de grupo pegajosas (por ejemplo, América, Europa) en el desplegable del selector de zona horaria.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Formato de hora',
+        'description' => 'Cambia como se muestra la hora en toda la aplicación, incluyendo la entrada de hora personalizada y las previsualizaciones.',
         'options' => [
           'default' => 'Lenguaje por defecto',
           'h12' => '12-hora',
