@@ -25,8 +25,8 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
     CMD_MIGRATE="php artisan migrate --force"
     GIT_COMMIT_HASH=$($GIT rev-parse --short HEAD)
     GIT_COMMIT_DATE=$($GIT log -1 --format=%cI)
-    CMD_NPM="npm ci"
-    CMD_BUILD="GIT_COMMIT_HASH=\"${GIT_COMMIT_HASH}\" GIT_COMMIT_DATE=\"${GIT_COMMIT_DATE}\" npm run build"
+    CMD_PNPM="pnpm install --frozen-lockfile"
+    CMD_BUILD="GIT_COMMIT_HASH=\"${GIT_COMMIT_HASH}\" GIT_COMMIT_DATE=\"${GIT_COMMIT_DATE}\" pnpm run build"
     CMD_LARAVEL_OPTIMIZE="php artisan optimize"
     CMD_LARAVEL_DOWN="php artisan down"
     CMD_CLEAR_PAGE_CACHE="php artisan app:clear-page-cache"
@@ -49,11 +49,11 @@ if [[ "$refname" ==  "$RUN_FOR_REF" ]]; then
         eval $CMD_MIGRATE
     fi
 
-    if $GIT diff --name-only $oldrev $newrev | grep "^package-lock.json"; then
-        echo "$ $CMD_NPM"
-        eval $CMD_NPM
+    if $GIT diff --name-only $oldrev $newrev | grep "^pnpm-lock.yaml"; then
+        echo "$ $CMD_PNPM"
+        eval $CMD_PNPM
     else
-        echo "# Skipping npm install, lockfile not modified"
+        echo "# Skipping pnpm install, lockfile not modified"
     fi
 
     # Put the app in maintenance mode during build
