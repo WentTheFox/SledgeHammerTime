@@ -1,4 +1,3 @@
-import { PageProps as InertiaPageProps } from '@inertiajs/core';
 import { AxiosInstance } from 'axios';
 import { Config as ZiggyConfig } from 'ziggy-js';
 import { PageProps as AppPageProps } from './';
@@ -12,7 +11,8 @@ declare global {
 }
 
 declare module '@inertiajs/core' {
-  interface PageProps extends InertiaPageProps, AppPageProps {
+  export interface InertiaConfig {
+    sharedPageProps: AppPageProps;
   }
 }
 

@@ -19,28 +19,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: 'pnpm'
 
-      - name: Cache node_modules folder
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: ./node_modules
-          key: node_modules-${{ hashFiles('./package-lock.json') }}
-
-      - name: Upgrade NPM
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm install -g npm
-
-      - name: Install npm dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Re-generate translation credits
-        run: npm run generate-translation-credits
+        run: pnpm run generate-translation-credits
         env:
           APP_URL: ${{ vars.APP_URL }}
           APP_CONSOLE_USER_TOKEN: ${{ secrets.APP_CONSOLE_USER_TOKEN }}

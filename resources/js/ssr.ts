@@ -1,4 +1,5 @@
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
+import { PageProps } from '@/types';
 import { createInertiaApp } from '@inertiajs/vue3';
 import createServer from '@inertiajs/vue3/server';
 import { renderToString } from '@vue/server-renderer';
@@ -10,23 +11,24 @@ import { ZiggyVue } from 'ziggy-js';
 const fallbackAppName = 'HammerTime';
 createServer(
   async (page) => {
-    const pageAppProps = page.props.app;
+    const typedProps = page.props as unknown as PageProps;
+    const pageAppProps = typedProps.app;
     const pageBcp47Locale = pageAppProps?.languages?.[pageAppProps?.locale ?? ''];
     await preloadDateFnsLocale(getDateFnsNormalizedLocaleName(pageBcp47Locale ?? 'en'));
     return createInertiaApp({
       page,
       render: renderToString,
       title: (title) => {
-        const appName = page.props.app?.name ?? fallbackAppName;
+        const appName = typedProps.app?.name ?? fallbackAppName;
         return title ? `${title} - ${appName}` : appName;
       },
       resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
       setup({ App, props, plugin }) {
         return createSSRApp({ render: () => h(App, props) })
           .use(plugin)
-          .use(ZiggyVue, page.props.ziggy)
+          .use(ZiggyVue, typedProps.ziggy)
           .use(i18nVue, {
-            lang: props.initialPage.props.app?.locale ?? 'en',
+            lang: (props.initialPage.props as unknown as PageProps).app?.locale ?? 'en',
             fallbackLang: 'en',
             fallbackMissingTranslations: true,
             resolve: (lang: string) => {
