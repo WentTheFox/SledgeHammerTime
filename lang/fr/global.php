@@ -73,8 +73,8 @@ return [
         'description' => 'Afficher les en-têtes de groupe persistants (par exemple America, Europe) dans le menu déroulant de sélection du fuseau horaire.',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'Format de l\'heure',
+        'description' => 'Modifie le format d\'affichage de l\'heure dans toute l\'application, y compris dans les champs de saisie personnalisés et les aperçus.',
         'options' => [
           'default' => 'Par défaut selon la langue',
           'h12' => '12 heures',
