@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaks obrolan',
     'resultColumn' => 'Contoh hasil',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Sesuaikan format',
+    'resetFormats' => 'Kembalikan ke pengaturan bawaan',
+    'hideFormat' => 'Sembunyikan format ini',
+    'showFormat' => 'Tampilkan format ini',
+    'unhideInProfile' => 'Tampilkan di pengaturan profil',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Pertanyaan Umum',
+    'description' => 'Bagian ini untuk sementara hanya tersedia dalam bahasa Inggris, dan sebagian besar isinya berasal dari <1>server Discord kami</1>. Beberapa tautan mungkin tidak berfungsi sebagaimana mestinya kecuali Anda adalah anggota.',
   ],
   'usefulLinks' => [
     'lead' => 'Anda mungkin juga menemukan ini berguna:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Tahukah Anda bahwa HammerTime bukanlah satu-satunya alat untuk menghasilkan stempel waktu?',
+        'p2' => 'Anda mungkin ingin melihat generator stempel waktu Discord lainnya untuk menemukan yang paling sesuai untuk Anda.',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Generator stempel waktu sederhana dan cepat dari 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Generator stempel waktu Discord bahasa alami oleh dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Generator stempel waktu Discord gratis dengan dukungan zona waktu lokal oleh Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Generator stempel waktu dan konverter waktu Discord oleh DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Buat stempel waktu markdown Discord dari dalam ekosistem bot penjadwalan Sesh oleh Tunks.',
       ],
     ],
   ],

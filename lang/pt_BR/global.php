@@ -73,8 +73,8 @@ return [
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
-        'label' => 'Formato do relógio',
-        'description' => 'Altera a forma como as horas devem ser exibidas no campo de entrada de hora personalizado. Não afeta as pré-visualizações na coluna de resultados de exemplo.',
+        'label' => 'Time format',
+        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
         'options' => [
           'default' => 'Idioma padrão',
           'h12' => '12 horas',

@@ -41,8 +41,8 @@ return [
     'unhideInProfile' => 'Αποκάλυψη στις ρυθμίσεις προφίλ',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Συχνές Ερωτήσεις',
+    'description' => 'Αυτή η ενότητα είναι μόνο στα Αγγλικά προς το παρόν και βασίζεται σε μεγάλο βαθμό στο περιεχόμενο <1>του διακομιστή Discord</1>. Ορισμένοι σύνδεσμοι ενδέχεται να μην λειτουργούν όπως αναμένεται, εκτός αν είστε μέλος.',
   ],
   'usefulLinks' => [
     'lead' => 'Μπορεί επίσης να σας φανούν χρήσιμα:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Γνωρίζατε ότι το HammerTime δεν είναι το μόνο εργαλείο για τη δημιουργία χρονοσημάνσεων;',
+        'p2' => 'Ίσως να θέλετε να ελέγξετε αυτές τις άλλες γεννήτριες χρονοσημάνσεων Discord για να βρείτε αυτή που λειτουργεί καλύτερα για εσάς:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Μια απλή και γρήγορη γεννήτρια χρονοσημάνσεων από 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Γεννήτρια χρονοσφραγίδων φυσικής γλώσσας Discord από dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Δωρεάν γεννήτρια χρονοσφραγίδων Discord με υποστήριξη τοπικής ζώνης ώρας από Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Γεννήτρια χρονοσήμανσης Discord και μετατροπέας χρόνου από DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Δημιουργήστε χρονοσημάνσεις Discord από το οικοσύστημα του Sesh bot χρονοδρομολόγησης από Tunks',
       ],
     ],
   ],

@@ -7,12 +7,12 @@ return [
     "heading" => "Nie znaleziono strony",
     "content" => "Niczego tutaj nie ma.",
     "suggestions" => [
-      "heading" => "Looking for something?",
-      "description" => "Here are some pages that might help:",
-      "picker" => "Timestamp Picker",
-      "botInfoDescription" => "Information about the Discord app and available commands",
-      "discordCta" => "Think something is missing? Join the Discord server and let us know.",
-      "discordButton" => "Join the Discord Server",
+      "heading" => "Szukasz czegoś?",
+      "description" => "Oto kilka stron, które mogą pomóc:",
+      "picker" => "Selektor Wskaźników Czasowych",
+      "botInfoDescription" => "Informacje o aplikacji na Discordzie i dostępnych poleceniach",
+      "discordCta" => "Myślisz, że czegoś brakuje? Dołącz na serwer Discord i poinformuj nas o tym.",
+      "discordButton" => "Dołącz na serwer Discord",
     ],
   ],
   "maintenanceMode" => [
@@ -69,12 +69,12 @@ return [
         'description' => "Wyłącz efekt cienia i wysokości na polach tekstowych i przyciskach",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'label' => 'Nagłówki grup stref czasowych',
+        'description' => 'Wyświetlanie przyklejonych nagłówków grup (np. Ameryka, Europa) w menu rozwijanym wyboru strefy czasowej.',
       ],
       'hourCycle' => [
-        'label' => 'Niestandardowy typ zegara czasu',
-        'description' => 'Zmienia sposób wyświetlania godzin w niestandardowym polu czasu. Nie ma wpływu na podglądy w przykładowej kolumnie wyników.',
+        'label' => 'Format czasu',
+        'description' => 'Zmień format wyświetlania czasu w aplikacji, w tym ustawienia własne oraz podglądy.',
         'options' => [
           'default' => 'Domyślny język',
           'h12' => '12-godzinny',

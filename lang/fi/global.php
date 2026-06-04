@@ -73,8 +73,8 @@ return [
         'description' => 'Näyttää aikavyöhykkeen ryhmän (esim. America, Europe) aikavyöhykkeen valikossa.',
       ],
       'hourCycle' => [
-        'label' => 'Mukautettu aikasyötteen kellon tyyppi',
-        'description' => 'Vaihda miten tunnit pitäisi näyttää mukautetussa aikasyötteessä. Tällä ei ole vaikutusta tuloksien sarakkeessa esikatseluihin.',
+        'label' => 'Aikamuoto',
+        'description' => 'Vaihda miten aika näytetään läpi sovelluksen, sisältäen mukautetun aikasyötön ja esikatselun.',
         'options' => [
           'default' => 'Oletuskieli',
           'h12' => '12 tunnin kello',

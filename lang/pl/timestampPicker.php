@@ -41,8 +41,8 @@ return [
     'unhideInProfile' => 'Odkryj w ustawieniach profilu',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Najczęściej zadawane pytania',
+    'description' => 'Ta sekcja jest na razie tylko w języku angielskim i jest w dużej mierze oparta na treściach z <1>naszego serwera Discord</1>. Niektóre linki mogą nie działać zgodnie z oczekiwaniami, chyba że jesteś członkiem serwera.',
   ],
   'usefulLinks' => [
     'lead' => 'Możesz również uznać to za przydatne:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Czy wiesz, że HammerTime nie jest jedynym narzędziem do generowania znaczników czasu?',
+        'p2' => 'Warto sprawdzić inne generatory znaczników czasu Discord, aby znaleźć taki, który będzie dla Ciebie najlepszy:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Prosty i szybki generator znaczników czasu firmy 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Generator znaczników czasu Discord w języku naturalnym autorstwa dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Darmowy generator znaczników czasu Discord z obsługą lokalnej strefy czasowej przez Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Generator znaczników czasu Discord i konwerter czasu DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Tworzenie znaczników czasu Discord z poziomu ekosystemu bota planującego Sesh firmy Tunks',
       ],
     ],
   ],

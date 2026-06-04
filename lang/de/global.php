@@ -73,8 +73,8 @@ return [
         'description' => 'Zeigen Sie feste Gruppenüberschriften (z.B. Amerika, Europa) im Dropdown-Menü für die Zeitzonenauswahl an.',
       ],
       'hourCycle' => [
-        'label' => 'Benutzerdefinierter Zeiteingabe-Typ',
-        'description' => 'Ändere, wie Stunden in der Zeiteingabe gezeigt werden. Dies ändert nichts an den Beispielen.',
+        'label' => 'Zeitformat',
+        'description' => 'Ändere, wie die Uhrzeit in der gesamten Anwendung angezeigt wird – einschließlich der benutzerdefinierten Zeiteingabe und der Vorschauen.',
         'options' => [
           'default' => 'Sprachstandard',
           'h12' => '12 Stunden',
