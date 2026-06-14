@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Sintaks sembang',
     'resultColumn' => 'Contoh hasilnya',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Sesuaikan format',
+    'resetFormats' => 'Tetapkan semula kepada asal',
+    'hideFormat' => 'Sembunyikan format ini',
+    'showFormat' => 'Tunjukkan format ini',
+    'unhideInProfile' => 'Nyahsembunyi dalam tetapan profil',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Soalan Lazim',
+    'description' => 'Bahagian ini hanya dalam bahasa Inggeris buat masa ini, dan ia banyak berdasarkan kandungan daripada <1>pelayan Discord kami</1>. Sesetengah pautan mungkin tidak berfungsi seperti dijangka melainkan anda menyertainya.',
   ],
   'usefulLinks' => [
     'lead' => 'Ini mungkin berguna untuk anda:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Tahukah anda bahawa HammerTime bukanlah satu-satunya alat untuk menjana cap masa?',
+        'p2' => 'Mungkin anda ingin lihat penjana cap masa Discord yang lain ini untuk mencari yang mana paling sesuai untuk anda:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Penjana cap masa ringkas dan pantas oleh 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Penjana cap masa Discord bahasa tabii oleh dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Penjana cap masa Discord percuma dengan sokongan zon waktu tempatan oleh Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Penjana cap masa Discord dan penukar masa oleh DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Cipta cap masa markdown Discord dari dalam ekosistem bot penjadualan Sesh oleh Tunks',
       ],
     ],
   ],
