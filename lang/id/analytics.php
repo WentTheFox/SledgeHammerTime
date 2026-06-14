@@ -2,7 +2,7 @@
 
 return [
   'heading' => 'Analisis Tayangan Halaman',
-  'description' => 'Halaman ini berisi analitik dasar (baik yang disimpan maupun ditampilkan tanpa detail yang dapat mengidentifikasi individu) untuk total tampilan halaman agregat di aplikasi selama 30 hari terakhir.',
+  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
   'collectionMethod' => 'Data dikumpulkan di sisi server, berdasarkan respons yang dikirim ke sejumlah halaman terbatas. Tampilan halaman dicatat secara individual tetapi diagregasikan setiap hari oleh proses latar belakang.',
   'lastUpdated' => 'Informasi di halaman ini disimpan sementara untuk mengurangi beban server. Data yang Anda lihat terakhir diperbarui <1/>.',
   'charts' => [
