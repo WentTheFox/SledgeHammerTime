@@ -96,6 +96,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Riinku](https://crowdin.com/profile/Riinku)
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
+  - [SixieP](https://crowdin.com/profile/SixieP)
 - Esperanto
   - [Rémi Simonnin](https://crowdin.com/profile/remsoff)
   - [Stela Verd](https://crowdin.com/profile/Verdstela)
