@@ -240,7 +240,7 @@ const byLocaleChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
       <h1>{{ $t('analytics.heading') }}</h1>
     </template>
     <p class="mb-2">
-      {{ $t('analytics.description', { days: windowDays }) }}
+      {{ $t('analytics.description', { days: String(windowDays) }) }}
     </p>
     <p class="mb-2">
       {{ $t('analytics.collectionMethod') }}
