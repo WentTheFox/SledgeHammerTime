@@ -7,7 +7,7 @@ return [
     "heading" => "Pagina Niet Gevonden",
     "content" => "Niets te zien hier.",
     "suggestions" => [
-      "heading" => "Looking for something?",
+      "heading" => "Ergens naar op zoek?",
       "description" => "Here are some pages that might help:",
       "picker" => "Timestamp Picker",
       "botInfoDescription" => "Information about the Discord app and available commands",
