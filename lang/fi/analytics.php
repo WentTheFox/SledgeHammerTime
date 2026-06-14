@@ -2,7 +2,7 @@
 
 return [
   'heading' => 'Sivun näyttökertojen analytiikka',
-  'description' => 'Tämä sivu sisältää perusanalytiikkaa (sekä tallennettuna että näytettynä ilman henkilökohtaa paljastavia tietoja) sivun koodut näyttökerrat viimeisen 30 päivän aikana.',
+  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
   'collectionMethod' => 'Data kerätään palvelimen puolella, perustuen rajoitettuun määrään sivuja lähetettyjä vastauksia. Sivun näyttökerrat tallennetaan erikseen, mutta kootaan päivittäin taustaprosessin toimesta.',
   'lastUpdated' => 'Tämän sivun tiedot tallennetaan välimuistiin palvelimen kuormituksen vähentämiseksi. Data joka täällä näkyy, on viimeksi päivitetty <1/>.',
   'charts' => [
