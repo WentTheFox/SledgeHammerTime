@@ -50,6 +50,7 @@ export interface LocaleBreakdownItem {
 
 export interface AnalyticsCardsProps {
   lastUpdated: string;
+  windowDays: number;
   dailyTotals: Array<DailyTotalItem>;
   routeBreakdown: Array<RouteBreakdownItem>;
   localeBreakdown: Array<LocaleBreakdownItem>;
@@ -239,7 +240,7 @@ const byLocaleChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
       <h1>{{ $t('analytics.heading') }}</h1>
     </template>
     <p class="mb-2">
-      {{ $t('analytics.description') }}
+      {{ $t('analytics.description', { days: windowDays }) }}
     </p>
     <p class="mb-2">
       {{ $t('analytics.collectionMethod') }}

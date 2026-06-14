@@ -44,13 +44,15 @@ class AnalyticsController extends Controller {
   /**
    * @return array{
    *   lastUpdated: non-falsy-string,
+   *   windowDays: int,
    *   dailyTotals: array{date: non-falsy-string, route: string, total: int},
    *   routeBreakdown: array{route: string|null, total: int},
    *   localeBreakdown: array{locale: string|null, total: int},
    * }
    */
   private function collectPageData():array {
-    $startDate = Carbon::now('UTC')->subDays(29)->startOfDay();
+    $windowDays = (int)config('analytics.window_days');
+    $startDate = Carbon::now('UTC')->subDays($windowDays - 1)->startOfDay();
 
     // 1. Daily totals for Stacked Bar Chart (grouped by date and route)
     $dailyTotals = DB::query()->where('date', '>=', $startDate->toDateString())
@@ -95,6 +97,7 @@ class AnalyticsController extends Controller {
 
     return [
       'lastUpdated' => date('c'),
+      'windowDays' => $windowDays,
       'dailyTotals' => $dailyTotals,
       'routeBreakdown' => $routeBreakdown,
       'localeBreakdown' => $localeBreakdown,

@@ -12,6 +12,7 @@ defineProps<AnalyticsCardsProps>();
   <Layout>
     <AnalyticsCards
       :last-updated="lastUpdated"
+      :window-days="windowDays"
       :daily-totals="dailyTotals"
       :locale-breakdown="localeBreakdown"
       :route-breakdown="routeBreakdown"
