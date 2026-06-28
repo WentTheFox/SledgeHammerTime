@@ -21,6 +21,7 @@ jobs:
           upload_sources: true
           download_translations: true
           localization_branch_name: i18n_main
+          crowdin_branch_name: main
           create_pull_request: true
           pull_request_title: New Crowdin updates
           pull_request_base_branch_name: main
