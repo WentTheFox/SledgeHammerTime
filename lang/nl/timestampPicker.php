@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Chat syntaxis',
     'resultColumn' => 'Voorbeeld resultaat',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Pas de indeling aan',
+    'resetFormats' => 'Herstel naar standaard',
+    'hideFormat' => 'Verberg deze indeling',
+    'showFormat' => 'Laat deze indeling zien',
+    'unhideInProfile' => 'Verberg in profiel instellingen',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Meest gestelde vragen',
+    'description' => 'Dit gebied is alleen in het Engels voor nu, en de inhoud is zwaar gebaseerd op content van <1>onze Discord server</1>. Sommige linkjes kunnen niet werken zoals verwacht ten zij je een lid ervan bent.',
   ],
   'usefulLinks' => [
     'lead' => 'Dit is mogelijk ook handig:',
