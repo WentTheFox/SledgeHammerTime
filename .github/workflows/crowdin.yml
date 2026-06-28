@@ -1,0 +1,31 @@
+name: Crowdin Sync
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  synchronize-with-crowdin:
+    name: Synchronize with Crowdin
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: crowdin/github-action@52aa776766211d83d975df51f3b9c53c2f8ba35f # v2.16.3
+        with:
+          upload_sources: true
+          download_translations: true
+          localization_branch_name: i18n_main
+          create_pull_request: true
+          pull_request_title: New Crowdin updates
+          pull_request_base_branch_name: main
+          commit_message: New translations %original_file_name% (%language%)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_API_KEY }}
