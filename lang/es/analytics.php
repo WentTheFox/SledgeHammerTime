@@ -2,7 +2,7 @@
 
 return [
   'heading' => 'Análisis de Vista de Página',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
+  'description' => 'Esta página muestra métricas básicas (almacenadas y presentadas de forma anónima) sobre el total de visitas a la aplicación en los últimos :days días.',
   'collectionMethod' => 'Los datos se recopilan en el lado del servidor, basándose en las respuestas enviadas a un conjunto limitado de páginas. Las vistas de las páginas se registran individualmente, pero se agregan diariamente por un proceso en segundo plano.',
   'lastUpdated' => 'La información en esta página se almacena en caché durante un corto período de tiempo para reducir la carga del servidor. Los datos que ves fueron actualizados por última vez <1/>.',
   'charts' => [
