@@ -1,39 +1,39 @@
 <?php
 
 return [
-  'howTo' => 'اختر تاريخ، وانسخ الختم الزمني الذي تريده من صف :syntaxColName، ثم الصقه في أي مكان في رسالة شات. ستكون النتيجة هي ختم زمني يتغير بشكل تلقائي حسب توقيت كل مستخدم.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'تاريخ',
-      'time' => 'الوقت',
-      'dateAndTime' => 'التاريخ و الوقت',
-      'timezone' => 'المنطقة الزمنية',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'اسم المنطقة',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'الانتقال إلى الشهر الحالي',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'تعيين إلى الوقت الحالي',
-      'lock' => 'منع تعديل الختم الزمني عن طريق الـ url',
-      'unlock' => 'تفعيل تعديل الختم الزمني',
-      'previousYear' => 'السنة الماضية',
-      'previousMonth' => 'الشهر الماضي',
-      'previousDecade' => 'العقد الماضي',
-      'nextMonth' => 'الشهر القادم',
-      'nextYear' => 'السنة القادمة',
-      'nextDecade' => 'العقد القادم',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'صيغة الدردشة',
-    'resultColumn' => 'مثال على النتيجة',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,22 +45,22 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'قد تعجبك هذه الخدمات أيضا:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'سيرفر HammerTime الرسمي',
-      'p' => 'ناقش الموقع وجرب الصيغة وقدِّم اقتراحات',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'تطبيق HammerTime',
-      'p' => 'قم بعمل أختام زمنية من داخل ديسكورد باستخدام أوامر السلاش (slash commands)',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'صانع الكلام <1>الملوّن</1> لريبان',
-      'p' => 'تطبيق بسيط يقوم بعمل رسائل ملونة لديسكورد عن طريق رموز ألوان ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",

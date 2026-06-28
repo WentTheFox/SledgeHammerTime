@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Selecione onde você gostaria de adicionar o bot",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Adicionar aos Meus Apps",
-    "description" => "Utilize o bot em qualquer lugar!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Adicionar ao servidor",
-    "description" => "Personalize seu servidor adicionando o bot",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

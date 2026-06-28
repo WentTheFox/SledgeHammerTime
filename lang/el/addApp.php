@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Επιλέξτε πού θα θέλατε να προσθέσετε την εφαρμογή",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Προσθήκη στις Εφαρμογές μου",
-    "description" => "Χρησιμοποίησε αυτή την εφαρμογή παντού!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Προσθήκη στον διακομιστή",
-    "description" => "Προσαρμόστε το διακομιστή σας προσθέτοντας αυτή την εφαρμογή",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

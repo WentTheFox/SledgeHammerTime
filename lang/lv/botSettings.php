@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Laika josla',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

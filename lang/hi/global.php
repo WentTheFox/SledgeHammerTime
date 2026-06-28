@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'डिस्कॉर्ड चैट संदेशों के लिए टाइमस्टैम्प संकेतक उत्पन्न करें।',
-  'changeLanguage' => 'भाषा बदलें',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "यहाँ देखने के लिए कुछ नहीं है।",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,28 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'अनुवाद अधूरे हैं',
-  'contributeTranslations' => 'योगदान दें',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'क्लिपबोर्ड पर कॉपी करें',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'जावास्क्रिप्ट आवश्यक है',
-    'body' => "आपका ब्राउज़र या तो जावास्क्रिप्ट का समर्थन नहीं करता है या यह वर्तमान में अक्षम है। कुछ ब्राउज़र सुरक्षा कारणों से डिफ़ॉल्ट रूप से जावास्क्रिप्ट को अक्षम कर देते हैं, लेकिन इस एप्लिकेशन के लिए यह आवश्यक है। कृपया इसे सक्षम करें और पृष्ठ को ताज़ा करें, या किसी भिन्न ब्राउज़र का उपयोग करें।",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
-    'botSettings' => 'ऐप सेटिंग्स',
+    'botSettings' => 'App Settings',
     'profile' => 'Profile',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'इनपुट सेटिंग',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'अलग इनपुट',
-        'description' => "दिनांक और समय के लिए संयुक्त इनपुट के बजाय दो अलग-अलग इनपुट प्रदर्शित करें (जो कुछ ब्राउज़रों में समर्थित नहीं है)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'विवरण',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'क्रेडिटस',
-      'developedBy' => 'विकसितकर्ता <1></1>',
-      'using' => 'उपयोगिता <1> </1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => '<1></1> द्वारा अनुवाद',
-      'openSourceSoftware' => 'खुला स्त्रोत सॉफ़्टवेयर',
-      'viewSourceCode' => 'स्रोत कोड देखें',
-      'notAffiliated' => 'यह प्रोजेक्ट डिस्कॉर्ड से संबंधित नहीं है',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

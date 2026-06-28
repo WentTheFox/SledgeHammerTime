@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Valitse päivämäärä, kopioi haluamasi aikaleima :syntaxColName -sarakkeeseen ja liitä se mihin tahansa chat-viestin kohtaan. Tuloksena on dynaaminen aikaleima, joka näkyy eri tavalla jokaiselle oman aikavyöhykkeensä perusteella.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Päivämäärä',
-      'time' => 'Aika',
-      'dateAndTime' => 'Päivämäärä ja aika',
-      'timezone' => 'Aikavyöhyke',
-      'naturalLanguageInput' => '@time syöte',
-      'modeOffset' => 'Täydellinen offset',
-      'modeZoneName' => 'Alueen nimi',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Siirry kuluvaan kuukauteen',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Aseta nykyiseen aikaan',
-      'lock' => 'Lukitse aikaleima URL',
-      'unlock' => 'Avaa aikaleima',
-      'previousYear' => 'Edellinen vuosi',
-      'previousMonth' => 'Edellinen kuukausi',
-      'previousDecade' => 'Edellinen vuosikymmen',
-      'nextMonth' => 'Seuraava kuukausi',
-      'nextYear' => 'Ensi vuonna',
-      'nextDecade' => 'Seuraava vuosikymmen',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Ei voitu jäsentää luonnollisen kielen syötettä'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Chat-syntaksi',
-    'resultColumn' => 'Esimerkki tuloksesta',
-    'editFormats' => 'Mukauta muotoja',
-    'resetFormats' => 'Palauta oletusarvot',
-    'hideFormat' => 'Piilota tämä muoto',
-    'showFormat' => 'Näytä tämä muoto',
-    'unhideInProfile' => 'Poista piilotus profiilin asetuksista',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Usein kysytyt kysymykset',
-    'description' => 'Tämä osio on vain englanniksi toistaiseksi, ja se pohjautuu vahvasti tietoon <1>Discord-palvelimeltamme</1>. Jotkut linkit eivät saata toimia odotetusti ellet ole jäsen.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Saatat myös löytää nämä hyödyllisenä:',
+    'lead' => 'You may also find these useful:',
     'server' => [
       'header' => 'Official HammerTime Server',
-      'p' => 'Keskustele verkkosivustosta, testaa syntaksia ja ehdota ominaisuuksia',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'HammerTime-sovellus',
-      'p' => 'Luo aikaleimoja Discordissa kauttaviivakomennoilla',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime:n vanha sivu',
-      'p' => 'Projektin vanha sivu, saatavilla toistaiseksi',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebanen <1>Värillinen</1> Tekstigeneraattori',
-      'p' => 'Yksinkertainen sovellus joka luo värillisiä Discord viestejä käyttäen ANSI-värijärjestelmää',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Yhteisön viikottainen aliarvostetun kilpapelin isännöinti inspiroi tämän projektin tekemisen",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Tiesitkö, että HammerTime ei ole ainoa työkalu aikaleimojen tekemiseen?',
-        'p2' => 'Saatat haluta katsoa nämä muut Discord-aikaleimojen tekijät löytääksesi parhaan juuri sinulle:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Yksinkertainen ja nopea aikaleimojen tekijä 3venticiltä',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Luonnollista kieltä käyttävä Discord-aikaleimojen tekijä dabricilta',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Ilmainen Discord-aikaleimojen tekijä joka tukee paikallisia aikavyöhykkeitä Sellframe Ltd.:ltä.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord-aikaleimojen tekijä ja aikamuunnin DiscordTimestamp.orgilta',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Tee Discordin markdown-aikaleimoja Tunksin Sesh-ajatusbotin avulla',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

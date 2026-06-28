@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Choisissez une date, copiez l\'horodatage désiré de la colonne :syntaxColName puis collez-le où vous le souhaitez dans votre message. Le résultat sera un horodatage dynamique qui s\'affichera différemment pour les gens suivant leur fuseau horaire.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
       'date' => 'Date',
-      'time' => 'Heure',
-      'dateAndTime' => 'Date et heure',
-      'timezone' => 'Fuseau horaire',
-      'naturalLanguageInput' => 'Saisie @time',
-      'modeOffset' => 'Décalage absolu',
-      'modeZoneName' => 'Nom du fuseau horaire',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Aller au mois en cours',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Régler a l\'heure actuelle',
-      'lock' => 'Bloquer l\'horodatage via l\'URL',
-      'unlock' => 'Débloquer l\'horodatage',
-      'previousYear' => 'Année précédente',
-      'previousMonth' => 'Mois précédent',
-      'previousDecade' => 'Décennie précédente',
-      'nextMonth' => 'Mois suivant',
-      'nextYear' => 'Année suivante',
-      'nextDecade' => 'Décennie suivante',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Impossible d\'analyser les données en langage naturel'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Syntaxe du chat',
-    'resultColumn' => 'Exemple du résultat',
-    'editFormats' => 'Personnaliser les formats',
-    'resetFormats' => 'Rétablir les valeurs par défaut',
-    'hideFormat' => 'Masquer ce format',
-    'showFormat' => 'Afficher ce format',
-    'unhideInProfile' => 'Démasquer dans les paramètres du profil',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Foire aux questions',
-    'description' => 'Cette section est exclusivement en anglais pour le moment, et elle est fortement basée sur le contenu de <1>notre serveur Discord</1>. Certains liens peuvent ne pas fonctionner correctement si vous n\'êtes pas membre.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Cela pourrait vous être utile :',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Le serveur officiel de HammerTime',
-      'p' => 'Discutez du site, testez la syntaxe et suggérez de nouvelles fonctionnalités',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'App HammerTime',
-      'p' => 'Générer des horodatages à l\'aide de commandes slash depuis Discord',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Ancien site web de HammerTime',
-      'p' => 'L\'ancien site du projet, toujours accessible sauf changement',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Le générateur de texte <1>coloré</1> de Rebane',
-      'p' => 'Une app simple qui crée des messages Discord colorés grâce aux codes couleur ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "La communauté organisant des défis hebdomadaires pour un jeu de course méconnu qui a inspiré la création de ce projet",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Saviez-vous que HammerTime n\'est pas le seul outil pour générer des horodatages ?',
-        'p2' => 'Vous voudrez peut-être essayer ces autres générateurs d\'horodatages Discord pour trouver celui qui vous convient le mieux :',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Un générateur simple et rapide d\'horodatages par 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Générateur d\'horodatages Discord en langage naturel par dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Générateur gratuit d\'horodatages Discord avec prise en charge de fuseaux horaires locaux par Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Générateur d\'horodatages Discord et convertisseur de temps par DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Créez des horodatages markdown Discord depuis l\'écosystème du bot de planification Sesh par Tunks',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

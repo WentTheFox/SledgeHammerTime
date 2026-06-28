@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Izvēlies datumu, nokopē vēlamo laika zīmogu no :syntaxColName kolonnas un ievieto to jebkurā čata ziņā. Rezultāts būs dinamisks laika zīmogs, kas izskatīsies atšķirīgi visiem, atkarībā no viņu pašu laika joslas.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Datums',
-      'time' => 'Laiks',
-      'dateAndTime' => 'Datums un laiks',
-      'timezone' => 'Laika josla',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Iestatīt uz pašreizējo laiku',
-      'lock' => 'Noslēgt laika zīmogu caur URL',
-      'unlock' => 'Atslēgt laika zīmogu',
-      'previousYear' => 'Iepriekšējais gads',
-      'previousMonth' => 'Iepriekšējais mēnesis',
-      'previousDecade' => 'Iepriekšējā dekāde',
-      'nextMonth' => 'Nākamais mēnesis',
-      'nextYear' => 'Nākamais gads',
-      'nextDecade' => 'Nākamā dekāde',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Čata sintakses',
-    'resultColumn' => 'Rezultāta piemērs',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,22 +45,22 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Jūs varat arī atrast šos noderīgus:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Oficiālais HammerTime serveris',
-      'p' => 'Apspriest tīmekļa vietni, pārbaudīt sintaksu un ieteikt iespējas',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'HammerTime lietotne',
-      'p' => 'Ģenerēt laika zīmogus no Discord izmantojot slīpkomandas',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Krāsainais</1> teksta ģenerators',
-      'p' => 'Vienkārša lietotne, kas izveido krāsainus Discord ziņojumus, izmantojot ANSI krāsu kodus',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",

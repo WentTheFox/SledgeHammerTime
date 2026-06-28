@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Generer tidsstempel indikatorer for Discord chat meldinger',
-  'changeLanguage' => 'Endre språk',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Ingenting å se her.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -16,7 +16,7 @@ return [
     ],
   ],
   "maintenanceMode" => [
-    "heading" => "Vedlikehold Modus",
+    "heading" => "Maintenance Mode",
     "content" => [
       'pleaseWait' => "The application is currently being updated, please try again in a few seconds.",
       'joinSupportServer' => "If the issue persists for more than a few minutes, please join the Discord support server and let us know.",
@@ -26,28 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'Oversettelsene er ufullstendige',
-  'contributeTranslations' => 'Bidra',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Kopier til utklippstavlen',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript er nødvendig',
-    'body' => "Nettleseren din støtter enten ikke JavaScript, eller så er det for øyeblikket deaktivert. Noen nettlesere deaktiverer JavaScript som standard av sikkerhetsgrunner, men det er nødvendig for denne applikasjonen. Aktiver det og oppdater siden, eller bruk en annen nettleser.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Profil',
+    'profile' => 'Profile',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Inndata innstillinger',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Separat inndata',
-        'description' => "Vis to forskjellige inndata for dato og klokkeslett i stedet for en kombinert (det støttes ikke i noen nettlesere)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -95,10 +95,10 @@ return [
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
         'accurate' => 'Your system clock is accurate.',
-        'potentiallyWrong' => 'Systemklokken din kan være feil.',
-        'value' => 'Forskjellen mellom din lokale tid og servertid er :offset.',
+        'potentiallyWrong' => 'Your system clock might be wrong.',
+        'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'Detaljer',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -110,26 +110,26 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => 'Lokale innstillinger',
+      'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Takk til',
-      'developedBy' => 'Utviklet av <1></1>',
-      'using' => 'Bruker <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Oversettelser av <1></1>',
-      'openSourceSoftware' => 'Åpen kildekode-programvare',
-      'viewSourceCode' => 'Vis kildekode',
-      'notAffiliated' => 'Dette prosjektet er ikke tilknyttet Discord.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Mørkt',
-      'light' => 'Lyst',
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
       'system' => 'Use System Theme',
     ],
   ],

@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'Paramètre de l\'application',
-  'description' => 'Vous pouvez voir ci-dessous vos paramètres actuels dans l\'application HammerTime pour chaque compte lié.',
-  'learnMore' => 'Vous n\'êtes pas sûr de ce qu\'est l\'application ou vous êtes curieux de savoir ce qu\'elle peut faire ? Visitez le lien <1>Discord App</1> pour en savoir plus.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Paramètres avancés',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Défaut',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Fuseau horaire',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Réponse avec aperçu seulement lors de l\'utilisation de l\'option de formatage',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Colonnes',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Éphémère',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'En-tête',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Aperçu du format en gras',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Option par défaut ":hourOptionName" pour la commande /:atCommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Option par défaut ":minuteOptionName" pour la commande /:atCommandName',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Option par défaut ":secondOptionName" pour la commande /:atCommandName',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Autoriser la collecte de données télémétriques',
-      'explanation' => 'Ceci est entièrement optionnel et n\'a aucun effet sur votre capacité à utiliser le robot. Consultez la page <1/> pour plus de détails.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Option par défaut ":hourOptionName" pour la commande /:at12CommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Vos paramètres ont été sauvegardés avec succès.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

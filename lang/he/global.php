@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'צרו timestamps בשביל צ\'אטים בדיסקורד',
-  'changeLanguage' => 'החליפו שפה',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "אין שום דברים לראות פה.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,28 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'התרגומים לא מלאים',
-  'contributeTranslations' => 'עזור בתרגום',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'העתיקו ללוח',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'ג\'אווהסקריפט נדרש כאן',
-    'body' => "הדפדפן שלכם ככל הנראה לא תומך בג'אווהסקריפט או שהוא חוסם אותו. כמה מהדפדפנים באופן אוטומטי חוסמים ג'אווהסקריפט מטעמי אבטחה, אבל זה חשוב בשביל האתר הזה. בבקשה הפעילו את הג'אווהסקריפט ותרעננו את הדף הזה, או שתחליפו את הדפדפן שלכם באחד אחר שכן תומך.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
-    'botSettings' => 'הגדרות אפליקציה',
+    'botSettings' => 'App Settings',
     'profile' => 'Profile',
-    'legal' => 'מידע משפטי',
+    'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'הגדרות הקלט',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'קלט נפרד',
-        'description' => "הצגה של שני קלטים שונים של תאריך וזמן במקום שילוב של שניהם (אפשרות שלא נתמכת בכמה מהדפדפנים)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -93,12 +93,12 @@ return [
     'timeSync' => [
       'title' => 'Time Synchronization',
       'status' => [
-        'syncing' => 'השעון שלך מתחיל סנכרון עם השרת שלנו, נא לחכות.',
-        'accurate' => 'שעות המערכת שלך הוא נכון.',
+        'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
+        'accurate' => 'Your system clock is accurate.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'ההבדל בין הזמן של השרת ושלך הוא :offset.',
+        'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'פרטים',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'קרדיטים',
-      'developedBy' => 'פותח על ידי <1></1>',
-      'using' => 'משתמש ב: <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'תורגם על ידי: <1></1>',
-      'openSourceSoftware' => 'תוכנת קוד-פתוח',
-      'viewSourceCode' => 'צפו בקוד האתר',
-      'notAffiliated' => 'הפרויקט הזה הוא לא בשיתוף עם דיסקורד.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

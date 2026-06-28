@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'منطقه زمانی',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

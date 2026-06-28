@@ -1,88 +1,88 @@
 <?php
 
 return [
-  'howTo' => 'Escolha uma data, copie o timestamp desejado da coluna da :syntaxColName, e cole em qualquer lugar em uma mensagem. O resultado será um timestamp dinâmico que mostra diferentes datas e horários para todos com base no seu próprio fuso horário.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Data',
-      'time' => 'Horário',
-      'dateAndTime' => 'Data e hora',
-      'timezone' => 'Fuso horário',
-      'naturalLanguageInput' => '@time campo',
-      'modeOffset' => 'Diferença absoluta',
-      'modeZoneName' => 'Nome da Zona',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Ir para o mês atual',
-      'contextRange' => '<0/>-<2/>',
+      'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Definir para hora atual',
-      'lock' => 'Trancar timestamp via URL',
-      'unlock' => 'Destrancar timestamp',
-      'previousYear' => 'Ano anterior',
-      'previousMonth' => 'Mês anterior',
-      'previousDecade' => 'Década anterior',
-      'nextMonth' => 'Próximo mês',
-      'nextYear' => 'Próximo ano',
-      'nextDecade' => 'Próxima década',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Não foi possível analisar a entrada em linguagem natural'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Sintaxe do chat',
-    'resultColumn' => 'Exemplo do resultado',
-    'editFormats' => 'Personalizar formatos',
-    'resetFormats' => 'Redefinir padrões',
-    'hideFormat' => 'Ocultar este formato',
-    'showFormat' => 'Mostrar este formato',
-    'unhideInProfile' => 'Reexibir nas configurações de perfil',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Preguntas frequentes',
+    'title' => 'Frequently Asked Questions',
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Você também pode achar isto útil:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Servidor Oficial do HammerTime',
-      'p' => 'Discuta sobre o site, teste a sintaxe e sugira funções',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Gere timestamps dentro do Discord usando slash commands',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Site antigo do "Hammer" "Time"',
-      'p' => 'O antigo site do projeto, ainda disponível até segunda ordem',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Gerador de Texto <1>Colorido</1> do Rebane',
-      'p' => 'Um aplicativo simples que cria mensagens coloridas no Discord usando o código de cores ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "A comunidade apresentando desafios semanais para um jogo de corrida subestimado que inspirou a criação deste projeto",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Você sabia que HammerTime não é a única ferramenta para gerar timestamps?',
-        'p2' => 'Você pode querer conferir estes outros geradores de timestamp do Discord para encontrar um que funcione melhor para você:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Um gerador simples e rápido de timestamp por 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Gerador de timestamp de linguagem natural do Discord por dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Gerador gratuito de timestamp do Discord com suporte para fuso horário local por Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Gerador e conversor de tempo para o timestamp do Discord por DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
         'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',

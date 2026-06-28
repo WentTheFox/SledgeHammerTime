@@ -1,31 +1,31 @@
 <?php
 
 return [
-  'title' => 'Můj účet',
-  'intro' => 'Tato stránka vám umožňuje spravovat informace o vašem účtu týkající se přímo tohoto webu. Pokud hledáte, kde změnit výchozí nastavení a další nastavení pro naši aplikaci na Discordu, navštivte stránku <1>Nastavení aplikace</1>.',
+  'title' => 'Profile',
+  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Informace účtu',
-    'description' => "Aktualizujte informace vašeho účtu.",
-    'displayName' => 'Zobrazované jméno',
-    'hiddenFormats' => 'Formáty skryté z tabulky pro výběr',
-    'saveSuccess' => 'Váš profil byl úspěšně aktualizován.',
+    'heading' => 'Profile Information',
+    'description' => "Update your account's profile information.",
+    'displayName' => 'Display Name',
+    'hiddenFormats' => 'Formats hidden from picker table',
+    'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'Propojené účty',
-    'description' => 'Se svým účtem HammerTime můžete propojit několik účtů a všechny je spravovat na jednom místě. Základní informace o uživateli zobrazované zde se automaticky aktualizují pokaždé, když načtete tuto stránku, maximálně jednou za hodinu.',
-    'discord' => 'Discord účty',
-    'crowdin' => 'Crowdin účty',
-    'noConnectedAccounts' => 'V současné době nemáte propojené žádné účty',
+    'heading' => 'Connected Accounts',
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'discord' => 'Discord Accounts',
+    'crowdin' => 'Crowdin Accounts',
+    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
-      'heading' => 'Propojení dalších účtů',
-      'description' => 'Použitím tlačítek níže můžete propojit další účty se svým stávajícím účtem HammerTime.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
-        'description' => 'Pokud se změnil váš avatar nebo zobrazované jméno, tuto funkci můžete rovněž použít k aktualizaci těchto informací pro jakýkoli z již propojených Discord účtů.',
-        'authorize' => 'Autorizovat Discord účet',
+        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
+        'authorize' => 'Authorize Discord account',
       ],
       'crowdin' => [
         'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Autorizovat Crowdin účet',
+        'authorize' => 'Authorize Crowdin account',
       ],
     ],
   ],
@@ -74,12 +74,12 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'Smazání účtu',
-    'description' => 'Po smazání vašeho účtu budou všechny jeho údaje a související obsah trvale odstraněny. Před smazáním účtu si prosím stáhněte veškerá data nebo informace, které si přejete ponechat.',
-    'deleteButton' => 'Smazat účet',
+    'heading' => 'Account Deletion',
+    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'deleteButton' => 'Delete Account',
     'confirmDialog' => [
-      'header' => 'Opravdu chcete svůj účet smazat?',
-      'body' => 'Po smazání vašeho účtu budou všechny jeho údaje a související obsah trvale odstraněny.',
+      'header' => 'Are you sure you want to delete your account?',
+      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
     ],
   ],
 ];

@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Velg hvor du vil legge til appen",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Legg til i Mine apper",
-    "description" => "Bruk denne appen overalt!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Legg til på server",
-    "description" => "Legg til appen for å tilpasse serveren din",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

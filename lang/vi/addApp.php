@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Bạn muốn thêm ứng dụng vào đâu?",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Thêm vào Ứng Dụng Của Tôi",
-    "description" => "Dùng ứng dụng này ở mọi nơi!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Thêm vào Máy Chủ",
-    "description" => "Tùy chỉnh máy chủ của bạn bằng cách thêm ứng dụng này",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

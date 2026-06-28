@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'title' => 'الملف الشخصي',
+  'title' => 'Profile',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'معلومات الملف الشخصي',
-    'description' => "تحديث معلومات الملف الشخصي لحسابك.",
-    'displayName' => 'اسم العرض',
+    'heading' => 'Profile Information',
+    'description' => "Update your account's profile information.",
+    'displayName' => 'Display Name',
     'hiddenFormats' => 'Formats hidden from picker table',
-    'saveSuccess' => 'تم تحديث ملفك الشخصي بنجاح.',
+    'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'الحسابات المتصلة',
+    'heading' => 'Connected Accounts',
     'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
@@ -74,12 +74,12 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'حذف الحساب',
-    'description' => 'بمجرد حذف حسابك، سيتم حذف جميع موارده وبياناته بشكل دائم. قبل حذف حسابك، يرجى تنزيل أي بيانات أو معلومات ترغب في الاحتفاظ بها.',
-    'deleteButton' => 'حذف الحساب',
+    'heading' => 'Account Deletion',
+    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'deleteButton' => 'Delete Account',
     'confirmDialog' => [
-      'header' => 'هل أنت متأكد أنك تريد حذف حسابك؟',
-      'body' => 'بمجرد حذف حسابك، سيتم حذف جميع موارده وبياناته نهائيا.',
+      'header' => 'Are you sure you want to delete your account?',
+      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
     ],
   ],
 ];

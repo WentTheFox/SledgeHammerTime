@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Избери дата и копирай желаната времева марка от :syntaxColName колона, след това го постави в което и да е съобщение. Резултатът ще бъде интерактивна времева марка която се показва различно за всеки в зависимост от тяхната часова зона.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Дата',
-      'time' => 'Час',
-      'dateAndTime' => 'Дата и час',
-      'timezone' => 'Часова зона',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,13 +17,13 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Задади за дадено час',
-      'lock' => 'Заключи времева мярка чрез URL адрес',
-      'unlock' => 'Отключи времева мярка',
-      'previousYear' => 'Предишна година',
-      'previousMonth' => 'Предишен месец',
-      'previousDecade' => 'Предишно десетилетие',
-      'nextMonth' => 'Следващ месец',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
       'nextYear' => 'Next year',
       'nextDecade' => 'Next decade',
     ],
@@ -32,8 +32,8 @@ return [
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Синтаксис на чата',
-    'resultColumn' => 'Образец на резултата',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,22 +45,22 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Може да намериш тези неща полезни:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Официален HammerTime Дискорд Сървър',
-      'p' => 'Дискусирай уебсайта, тествай синтаксиса и предлагай функции',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Генерира времеви мерки в Discord с използването на "slash" команди',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Цветен</1> Текст Генератор',
-      'p' => 'Прост сайт, който ти помага да създаваш цветни Дискорд съобщения използвайки ANSI код за цветове',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",

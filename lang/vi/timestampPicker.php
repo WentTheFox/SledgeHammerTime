@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Lựa chọn một thời điểm, sao chép định dạng thời gian theo nhu cầu từ cột :syntaxColName, và gắn định dạng này vào bất cứ đâu trong tin nhắn. Kết quả thu được sẽ là một con dấu thời gian tự động cập nhật dựa trên múi giờ của từng người dùng.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Ngày tháng năm',
-      'time' => 'Giờ phút giây',
-      'dateAndTime' => 'Ngày giờ',
-      'timezone' => 'Múi giờ',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Đặt về thời điểm hiện tại',
-      'lock' => 'Cố định thời gian sử dụng đường dẫn URL',
-      'unlock' => 'Bỏ cố định thời gian',
-      'previousYear' => 'Năm trước',
-      'previousMonth' => 'Tháng trước',
-      'previousDecade' => 'Thập kỷ trước',
-      'nextMonth' => 'Tháng sau',
-      'nextYear' => 'Năm sau',
-      'nextDecade' => 'Thập kỷ sau',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Định dạng tin nhắn',
-    'resultColumn' => 'Kết quả ví dụ',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Những đường dẫn dưới đây có thể có ích đối với bạn:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Server chính thức của HammerTime',
-      'p' => 'Thảo luận về trang web, thử nghiệm định dạng và góp ý thêm các tính năng mới',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Ứng dụng HammerTime',
-      'p' => 'Tạo lập định dạng thời gian tự động ngay trong Discord bằng các câu lệnh sử dụng gạch chéo',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Trình tạo lập Tin nhắn <1>Sắc màu</1> của Rebane',
-      'p' => 'Một ứng dụng đơn giản để tạo ra những tin nhắn đầy màu sắc trên Discord sử dụng mã màu ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Cộng đồng tổ chức các thử thách hàng tuần cho một trò chơi đua xe ít được biết đến, trò chơi này đã truyền cảm hứng cho việc tạo ra dự án này",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

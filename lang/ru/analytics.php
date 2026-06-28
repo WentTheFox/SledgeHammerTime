@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Аналитика просмотров страниц',
-  'description' => 'Эта страница содержит базовую аналитику (сохраняемую, и отображаемую без каких-либо личных данных) по общему количеству просмотров страниц в приложении за последние :days дней.',
-  'collectionMethod' => 'Данные собираются на стороне сервера, основанного на ответах отправленных определённому набору страниц. Просмотры страниц записаны индивидуально, но собраны ежедневно фоновым процессом.',
-  'lastUpdated' => 'Информация на этой странице кэшируется на короткий период времени, чтобы снизить нагрузку на сервер. Данные, которые Вы видите, последний раз обновлялись <1/>.',
+  'heading' => 'Page View Analytics',
+  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => 'Общие ежедневные просмотры страниц',
-    'breakdown' => 'Разбивка отображения страниц',
-    'byPage' => 'По страницам',
-    'byLanguage' => 'По языкам',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Неизвестный',
+    'unknown' => 'Unknown',
   ],
 ];

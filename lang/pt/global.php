@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Gerar indicadores de timestamp para mensagens de chat Discord',
-  'changeLanguage' => 'Mudar idioma',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
-    "heading" => "Página não encontrada",
-    "content" => "Nada para visualizar aqui.",
+    "heading" => "Page Not Found",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,18 +26,18 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'As traduções estão incompletas',
-  'contributeTranslations' => 'Contribuir',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Copiar para a área de transferência',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript é necessário',
-    'body' => "O seu browser ou não suporta JavaScript, ou está atualmente desativado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para esta aplicação. Por favor, ative-o e atualize a página, ou utilize um navegador diferente.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -47,7 +47,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Configurações de Entrada',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Entradas separadas',
-        'description' => "Mostra dois inputs diferentes para data e hora em vez de um combinado (que não é suportado em alguns browsers)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'Detalhes',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Créditos',
-      'developedBy' => 'Desenvolvido por <1></1>',
-      'using' => 'A utilizar <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Tradução por <1></1>',
-      'openSourceSoftware' => 'Programa com código aberto',
-      'viewSourceCode' => 'Ver código fonte',
-      'notAffiliated' => 'Este projeto não é afiliado ao Discord.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Pilih tarikh, salin cap masa yang diingini dari lajur :syntaxColName, kemudian tampal di mana-mana sahaja dalam mesej sembang. Hasilnya ialah cap masa dinamik yang dipaparkan secara berlainan untuk semua orang berdasarkan zon waktu masing-masing.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Tarikh',
-      'time' => 'Masa',
-      'dateAndTime' => 'Tarikh dan masa',
-      'timezone' => 'Zon waktu',
-      'naturalLanguageInput' => 'Input @time',
-      'modeOffset' => 'Ofset Mutlak',
-      'modeZoneName' => 'Nama Zon',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Lompat ke bulan semasa',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Tetapkan ke masa semasa',
-      'lock' => 'Kunci cap masa melalui URL',
-      'unlock' => 'Buka kunci cap masa',
-      'previousYear' => 'Tahun sebelumnya',
-      'previousMonth' => 'Bulan sebelumnya',
-      'previousDecade' => 'Dekad lepas',
-      'nextMonth' => 'Bulan seterusnya',
-      'nextYear' => 'Tahun seterusnya',
-      'nextDecade' => 'Dekad hadapan',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Tidak mampu menghuraikan input bahasa tabii'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Sintaks sembang',
-    'resultColumn' => 'Contoh hasilnya',
-    'editFormats' => 'Sesuaikan format',
-    'resetFormats' => 'Tetapkan semula kepada asal',
-    'hideFormat' => 'Sembunyikan format ini',
-    'showFormat' => 'Tunjukkan format ini',
-    'unhideInProfile' => 'Nyahsembunyi dalam tetapan profil',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Soalan Lazim',
-    'description' => 'Bahagian ini hanya dalam bahasa Inggeris buat masa ini, dan ia banyak berdasarkan kandungan daripada <1>pelayan Discord kami</1>. Sesetengah pautan mungkin tidak berfungsi seperti dijangka melainkan anda menyertainya.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Ini mungkin berguna untuk anda:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Pelayan Rasmi HammerTime',
-      'p' => 'Bincang mengenai laman sesawang, uji sintaks dan cadangkan ciri-ciri',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Apl HammerTime',
-      'p' => 'Jana cap masa di dalam Discord sendiri menggunakan perintah palang',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Laman Sesawang Lama HammerTime',
-      'p' => 'Laman sesawang projek yang lama, masih tersedia sehingga notis selanjutnya',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Penjana Tulisan <1>Berwarna</1> Rebane',
-      'p' => 'Aplikasi ringkas yang menjana mesej Discord berwarna menggunakan kod warna ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Komuniti yang mengehos cabaran mingguan bagi permainan perlumbaan yang kurang diketahui yang menginspirasikan penciptaan projek ini",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Tahukah anda bahawa HammerTime bukanlah satu-satunya alat untuk menjana cap masa?',
-        'p2' => 'Mungkin anda ingin lihat penjana cap masa Discord yang lain ini untuk mencari yang mana paling sesuai untuk anda:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Penjana cap masa ringkas dan pantas oleh 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Penjana cap masa Discord bahasa tabii oleh dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Penjana cap masa Discord percuma dengan sokongan zon waktu tempatan oleh Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Penjana cap masa Discord dan penukar masa oleh DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Cipta cap masa markdown Discord dari dalam ekosistem bot penjadualan Sesh oleh Tunks',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

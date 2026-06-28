@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Seleccioneu on voleu afegir l'aplicació",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Afegeix a Les meves aplicacions",
-    "description" => "Utilitzeu aquesta aplicació a tot arreu!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Afegeix al servidor",
-    "description" => "Personalitza el teu servidor afegint aquesta aplicació",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

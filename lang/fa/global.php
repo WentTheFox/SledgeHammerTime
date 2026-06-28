@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'ساخت مهرزمانی شاخص ها برای پیام های دیسکورد',
-  'changeLanguage' => 'تغییر زبان',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "اینچا چیزی برای دیدن نیست.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -33,11 +33,11 @@ return [
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'رونوشت در حافطه موقت',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript لازم است',
-    'body' => "مرورگر شما یا از JavaScript پشتیبانی نمی کند یا در حال حاضر غیرفعال است. برخی از مرورگرها به دلایل امنیتی JavaScript را به طور پیش فرض غیرفعال می کنند، اما برای این برنامه ضروری است. لطفاً آن را فعال کنید و صفحه را بازخوانی کنید یا از مرورگر دیگری استفاده کنید.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -47,7 +47,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'تنظیمات ورودی',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'ورودی های جداگانه',
-        'description' => "نمایش دو ورودی مختلف برای تاریخ و زمان به جای ورودی ترکیبی (که در برخی مرورگرها پشتیبانی نمی شود)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'جزئیات',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -123,9 +123,9 @@ return [
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
       'translatedBy' => 'Translations by <1></1>',
-      'openSourceSoftware' => 'نرم‌افزار با کد های آزاد',
-      'viewSourceCode' => 'مشاهده کد منبع',
-      'notAffiliated' => 'این پروژه با دیسکورد وابسته نیست.',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

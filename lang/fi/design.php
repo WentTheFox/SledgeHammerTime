@@ -1,5 +1,5 @@
 <?php
 
 return [
-  'title' => 'Muotoilun kieli',
+  'title' => 'Design Language',
 ];

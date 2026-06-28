@@ -1,39 +1,39 @@
 <?php
 
 return [
-  'howTo' => '選擇一個日期，從 :syntaxColName 列複製所需的時間戳，並將其貼上到聊天訊息的任何位置。 結果將是一個動態時間戳，每個人都會根據他們的時區以不同的方式顯示。',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => '日期',
-      'time' => '時間',
-      'dateAndTime' => '日期和時間',
-      'timezone' => '時區',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
-      'modeOffset' => '絕對位移',
-      'modeZoneName' => '區域名稱',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => '跳至目前月份',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => '設定為目前時間',
-      'lock' => '通過 url 鎖定時間戳。',
-      'unlock' => '解鎖時間戳',
-      'previousYear' => '去年',
-      'previousMonth' => '上個月',
-      'previousDecade' => '前十年',
-      'nextMonth' => '下個月',
-      'nextYear' => '明年',
-      'nextDecade' => '下一個十年',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => '聊天語法',
-    'resultColumn' => '結果範例',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => '您可能也會發現這些資訊很有用：',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => '官方 HammerTime 服務器',
-      'p' => '討論網站、測試語法並建議功能',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'HammerTime 機器人',
-      'p' => '在 Discord 中使用斜線指令生成時間戳記',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime 測試版網站',
+      'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane 的<1>彩色</1>文字產生器',
-      'p' => '使用 ANSI 顏色代碼建立彩色 Discord 訊息的簡單應用程式',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "這個專案的靈感來源，是一個社群為一款被低估的賽車遊戲每週舉辦挑戰賽",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

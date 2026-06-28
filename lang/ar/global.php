@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'إنشاء مؤشرات الطابع الزمني لرسائل دردشة ديسكورد',
-  'changeLanguage' => 'تغيير اللغة',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "لا يوجد شيء هنا.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,29 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'الترجمة غير مكتملة',
-  'contributeTranslations' => 'المشاركة في الترجمة',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'نسخ إلى الحافظة',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'جافا سكريبت ضرورية',
-    'body' => "متصفحك لا يدعم جافا سكريبت أو الخاصية غير مفعّلة، بعض المتصفحات تمنع جافا سكريبت لأسباب أمنية ولكنها ضرورية لهذا التطبيق.
-من فضلك قم بتفعيلها ثم أعد فتح الصفحة أو استخدم متصفح آخر.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'الملف الشخصي',
+    'profile' => 'Profile',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'خصائص الإدخال',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -62,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'الإدخال المنفصل',
-        'description' => "عرض إدخال التاريخ والزمن بشكل منفصل بدلا من دمجهما (لا يدعمه بعض المتصفحات)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -99,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'تفاصيل',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -114,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'المساهمون في العمل',
-      'developedBy' => 'طوّره <1></1>',
-      'using' => 'باستخدام <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'ترجمة <1></1>',
-      'openSourceSoftware' => 'الموقع مفتوح المصدر',
-      'viewSourceCode' => 'عرض الكود المصدري',
-      'notAffiliated' => 'هذا المشروع غير مرتبط بديسكورد.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

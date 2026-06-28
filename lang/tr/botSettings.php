@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'Uygulama Ayarları',
-  'description' => 'Aşağıda, HammerTime Uygulaması\'na bağlı her bir hesabınız için mevcut ayarlarınızı görebilirsiniz.',
-  'learnMore' => 'Uygulamanın ne olduğunu veya neler yapabildiğini merak ediyorsanız, daha fazla bilgi için <1>Discord Uygulaması</1> bağlantısını ziyaret edebilirsiniz.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Gelişmiş ayarlar',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Varsayılan',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Zaman dilimi',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => 'Biçim',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Biçim seçeneği kullanıldığında yalnızca önizleme olarak yanıtla',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Sütunlar',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Geçici',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Başlık',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Biçim önizlemesini kalın yap',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => '/:atCommandName komutu için varsayılan ":hourOptionName" seçeneği',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => '/:atCommandName komutu için varsayılan ":minuteOptionName" seçeneği',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => '/:atCommandName komutu için varsayılan ":secondOptionName" seçeneği',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Telemetri toplanmasına izin ver',
-      'explanation' => 'Bu tamamen isteğe bağlı olup botu kullanmanızı hiçbir şekilde etkilemez. Detaylar için <1/> sayfasına göz atabilirsiniz.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => '/:at12CommandName komutu için varsayılan ":hourOptionName" seçeneği',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Ayarlarınız başarıyla kaydedildi.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

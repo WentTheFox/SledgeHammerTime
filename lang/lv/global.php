@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Izveidot laika zīmogu rādītājus Discord čata ziņojumiem',
-  'changeLanguage' => 'Mainīt valodu',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Šeit nav ko redzēt.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,18 +26,18 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'Tulkojumi ir nepilnīgi',
-  'contributeTranslations' => 'Atbalsti',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Kopēt uz starpliktuvi',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScripts ir nepieciešams',
-    'body' => "Jūsu pārlūkprogramma vai nu neatbalsta JavaScript, vai arī tas pašlaik ir atspējots. Dažās pārlūkprogrammās JavaScript ir atspējots pēc noklusējuma drošības apsvērumu dēļ, taču šajā lietojumprogrammā tas ir nepieciešams. Lūdzu, iespējojiet to un atsvaidziniet lapu vai izmantojiet citu pārlūkprogrammu.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -47,7 +47,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Ievades iestatījumi',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Atsevišķas ievades',
-        'description' => "Parādīt divus atšķirīgus ievades laukus datumam un laikam, nevis vienu kombinētu (kas dažās pārlūkprogrammās netiek atbalstīts)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'Sīkāka informācija',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Pateicība',
-      'developedBy' => 'Izstrādājis <1></1>',
-      'using' => 'Izmantojot <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Tulkojumi <1></1>',
-      'openSourceSoftware' => 'Atklātā pirmkoda programmatūra',
-      'viewSourceCode' => 'Skatīt pirmkodu',
-      'notAffiliated' => 'Šis projekts nav saistīts ar Discord.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

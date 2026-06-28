@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Дицкорд чат мэссэжэд цагийн үзэлтүүд бүтээ',
-  'changeLanguage' => 'Хэлээ өөрчил',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Энд юу ч харагдахгүй.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,18 +26,18 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'Очуулгууд бүрэн биш',
-  'contributeTranslations' => 'Хувь нэмэр оруулсан',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Түр санах ой рүү татах',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'ЖаваСкрипт хэрэгтэй',
-    'body' => "Таны бровсэр ЖаваСкриптийг бологдоггүй, эсвэл одоо унтраачихсан байгаа. Зарим бровсэрүүд ЖаваСкриптийг аюулгүй байдалийн талаар унтраачихсан байдаг, тэгэхдээ энэ аппликатионд хэрэгтэй. Өөр бровсэр ашигла, пажээ рэфрэш хий эсвэл тэрийгээ асаа, гуйж байна.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -47,7 +47,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Сэттингс хий',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Оролтуудыг тусдаа болго',
-        'description' => "Өдөр ба цагийн нийлүүлсэн оролтуудийг, хоёр өөр оролтоор тавих. (зарим бровсэрд болдоггүй)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -113,19 +113,19 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Кредитс',
-      'developedBy' => '<1></1> аар бүтээгджээ',
-      'using' => '<1></1> ийг ашилган хийгджээ',
-      'fontAwesomeFree' => 'Фонт Авсом Фрий',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
+      'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Орчуулга нь <1></1> аар хийгджээ',
-      'openSourceSoftware' => 'Нээлттэй эхийн програмын хангамж',
-      'viewSourceCode' => 'Эх сурвалжийн кодыг харах',
-      'notAffiliated' => 'Энэ прожект Дискордтай хамааралгүй.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

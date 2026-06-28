@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Επιλέξτε μια ημερομηνία, αντιγράψτε την επιθυμητή χρονοσήμανση από την στήλη :syntaxColName, και στη συνέχεια επικολλήστε την σε οποιοδήποτε μήνυμα συνομιλίας. Το αποτέλεσμα θα είναι μια δυναμική χρονοσήμανση που εμφανίζεται διαφορετικά για τον καθένα με βάση τη δική του ζώνη ώρας.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Ημερομηνία',
-      'time' => 'Ώρα',
-      'dateAndTime' => 'Ημερομηνία και ώρα',
-      'timezone' => 'Ζώνη ώρας',
-      'naturalLanguageInput' => '@time πεδίο',
-      'modeOffset' => 'Απόλυτη Μετατόπιση',
-      'modeZoneName' => 'Όνομα Ζώνης ώρας',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Μετάβαση στον τρέχοντα μήνα',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Ορισμός τρέχουσας ώρας',
-      'lock' => 'Κλείδωμα χρονοσήμανσης μέσω URL',
-      'unlock' => 'Ξεκλείδωμα χρονοσήμανσης',
-      'previousYear' => 'Προηγούμενο έτος',
-      'previousMonth' => 'Προηγούμενος μήνας',
-      'previousDecade' => 'Προηγούμενη δεκαετία',
-      'nextMonth' => 'Επόμενος μήνας',
-      'nextYear' => 'Επόμενο έτος',
-      'nextDecade' => 'Επόμενη δεκαετία',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Αδυναμία ανάλυσης εισαγωγής φυσικής γλώσσας'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Σύνταξη συνομιλίας',
-    'resultColumn' => 'Παράδειγμα αποτελέσματος',
-    'editFormats' => 'Προσαρμογή δομής πίνακα',
-    'resetFormats' => 'Επαναφορά προεπιλογών πίνακα',
-    'hideFormat' => 'Απόκρυψη',
-    'showFormat' => 'Εμφάνιση',
-    'unhideInProfile' => 'Αποκάλυψη στις ρυθμίσεις προφίλ',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Συχνές Ερωτήσεις',
-    'description' => 'Αυτή η ενότητα είναι μόνο στα Αγγλικά προς το παρόν και βασίζεται σε μεγάλο βαθμό στο περιεχόμενο <1>του διακομιστή Discord</1>. Ορισμένοι σύνδεσμοι ενδέχεται να μην λειτουργούν όπως αναμένεται, εκτός αν είστε μέλος.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Μπορεί επίσης να σας φανούν χρήσιμα:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Επίσημος Σέρβερ HammerTime',
-      'p' => 'Συζητήστε για τον ιστότοπο, δοκιμάστε τις εντολές και προτείνετε χαρακτηριστικά',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Εφαρμογή HammerTime',
-      'p' => 'Δημιουργία χρονοσημάνσεων μέσα από το Discord χρησιμοποιώντας εντολές slash',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Beta Ιστοσελίδα',
-      'p' => 'Η παλιά ιστοσελίδα του project, ακόμα διαθέσιμη μέχρι την επόμενη ειδοποίηση',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Δημιουργία <1>Χρωματιστού</1> κειμένου Rebane',
-      'p' => 'Μια απλή εφαρμογή που δημιουργεί πολύχρωμα μηνύματα Discord χρησιμοποιώντας χρωματικούς κώδικες ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Η κοινότητα που φιλοξενεί εβδομαδιαίες προκλήσεις για ένα υποτιμημένο παιχνίδι αγώνων που ενέπνευσε τη δημιουργία αυτού του προγράμματος",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Γνωρίζατε ότι το HammerTime δεν είναι το μόνο εργαλείο για τη δημιουργία χρονοσημάνσεων;',
-        'p2' => 'Ίσως να θέλετε να ελέγξετε αυτές τις άλλες γεννήτριες χρονοσημάνσεων Discord για να βρείτε αυτή που λειτουργεί καλύτερα για εσάς:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Μια απλή και γρήγορη γεννήτρια χρονοσημάνσεων από 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Γεννήτρια χρονοσφραγίδων φυσικής γλώσσας Discord από dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Δωρεάν γεννήτρια χρονοσφραγίδων Discord με υποστήριξη τοπικής ζώνης ώρας από Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Γεννήτρια χρονοσήμανσης Discord και μετατροπέας χρόνου από DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Δημιουργήστε χρονοσημάνσεις Discord από το οικοσύστημα του Sesh bot χρονοδρομολόγησης από Tunks',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

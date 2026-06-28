@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Ανάλυση προβολών σελίδας',
+  'heading' => 'Page View Analytics',
   'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
-  'collectionMethod' => 'Τα δεδομένα συλλέγονται από την πλευρά του διακομιστή, με βάση τις απαντήσεις που αποστέλλονται σε ένα περιορισμένο σύνολο σελίδων. Οι προβολές σελίδων καταγράφονται μεμονωμένα, αλλά συγκεντρώνονται καθημερινά από μια διεργασία στο παρασκήνιο.',
-  'lastUpdated' => 'Οι πληροφορίες σε αυτή τη σελίδα αποθηκεύονται στην προσωρινή μνήμη για σύντομο χρονικό διάστημα για να μειωθεί ο φόρτος του διακομιστή. Τα δεδομένα που βλέπετε ενημερώθηκαν τελευταία φορά <1/>.',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => 'Ημερήσιες Συνολικές Προβολές Σελίδας',
-    'breakdown' => 'Ανάλυση Προβολών Σελίδας',
-    'byPage' => 'Κατά Σελίδες',
-    'byLanguage' => 'Κατά Γλώσσα',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Άγνωστο',
+    'unknown' => 'Unknown',
   ],
 ];

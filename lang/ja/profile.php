@@ -1,31 +1,31 @@
 <?php
 
 return [
-  'title' => 'プロフィール',
-  'intro' => 'プロフィールページでは、当ウェブサイトに関連するアカウント情報を管理できます。Discordアプリのデフォルト設定やその他の設定を変更する場所をお探しの場合は、<1>アプリ設定</1>ページをご覧ください。',
+  'title' => 'Profile',
+  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'プロフィール情報',
-    'description' => "プロフィール情報を変更する。",
-    'displayName' => '表示名',
-    'hiddenFormats' => '選択テーブルから非表示のフォーマット',
-    'saveSuccess' => 'プロフィールが正常に更新されました。',
+    'heading' => 'Profile Information',
+    'description' => "Update your account's profile information.",
+    'displayName' => 'Display Name',
+    'hiddenFormats' => 'Formats hidden from picker table',
+    'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'アカウント連携',
-    'description' => '複数のアカウントをHammerTimeアカウントに連携させ、一箇所で管理できます。ここに表示される基本ユーザー情報は、このページを読み込む際に最大1時間に1回自動更新されます。',
-    'discord' => 'Discordアカウント',
-    'crowdin' => 'Crowdinアカウント',
-    'noConnectedAccounts' => '現在、接続されているアカウントはありません',
+    'heading' => 'Connected Accounts',
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
+    'discord' => 'Discord Accounts',
+    'crowdin' => 'Crowdin Accounts',
+    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
-      'heading' => '追加アカウントをリンクする',
-      'description' => '以下のボタンを使用して、現在のHammerTimeアカウントに追加のアカウントを接続してください。',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
-        'description' => 'プロフィール画像や表示名が変更された場合、既に連携済みのDiscordアカウントについても、この方法で情報を更新できます。',
-        'authorize' => 'Discordアカウントを認証する',
+        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
+        'authorize' => 'Authorize Discord account',
       ],
       'crowdin' => [
         'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Crowdinアカウントを認証する',
+        'authorize' => 'Authorize Crowdin account',
       ],
     ],
   ],
@@ -74,12 +74,12 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'アカウント削除',
-    'description' => 'アカウントを削除すると、そのアカウントに関連するすべてのリソースとデータが完全に削除されます。アカウントを削除する前に、保存したいデータや情報は必ずダウンロードしてください。',
-    'deleteButton' => 'アカウントを削除する',
+    'heading' => 'Account Deletion',
+    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'deleteButton' => 'Delete Account',
     'confirmDialog' => [
-      'header' => 'アカウントを削除してもよろしいですか？',
-      'body' => 'アカウントが削除されると、そのアカウントに関連するすべてのリソースとデータは永久に削除されます。',
+      'header' => 'Are you sure you want to delete your account?',
+      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
     ],
   ],
 ];

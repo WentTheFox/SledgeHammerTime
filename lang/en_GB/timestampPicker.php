@@ -59,8 +59,8 @@ return [
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>Coloured</1> Text Generator',
-      'p' => 'A simple app that creates coloured Discord messages using ANSI colour codes',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",

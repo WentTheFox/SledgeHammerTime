@@ -1,43 +1,43 @@
 <?php
 
 return [
-  'title' => 'إعدادات التطبيق',
+  'title' => 'App Settings',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
     'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'افتراضي',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'المنطقة الزمنية',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => 'تنسيق',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'المعاينة-فقط الرد عند استخدام خيار التنسيق',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'أعمدة',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'سريع الزوال',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'رأس',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'تنسيق المعاينة بخط عريض',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'الخيار الافتراضي ":hourOptionName" للأمر /:atCommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'خيار ":minuteOptionName" الافتراضي للأمر /:atCommandName',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'الخيار الافتراضي ":secondOptionName" لـ /:atcommandName الأمر',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
       'displayName' => 'Allow Telemetry collection',
@@ -47,5 +47,5 @@ return [
       'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'تم حفظ إعداداتك بنجاح.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

@@ -1,69 +1,69 @@
 <?php
 
 return [
-  'howTo' => 'Kies een datum, kopieer de gewenste tijdsaanduiding van de :syntaxColName kolom en plak deze dan ergens in een chatbericht. Het resultaat zal een dynamische tijdsaanduiding zijn die voor iedereen anders wordt weergegeven, gebaseerd op hun eigen tijdzone.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Datum',
-      'time' => 'Tijd',
-      'dateAndTime' => 'Datum en tijd',
-      'timezone' => 'Tijdzone',
-      'naturalLanguageInput' => '@time invoer',
-      'modeOffset' => 'Absoluut tijdsverschil',
-      'modeZoneName' => 'Tijdzone Naam',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Ga naar huidige maand',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Zet naar huidige tijd',
-      'lock' => 'Tijdsaanduiding vergrendelen via de URL',
-      'unlock' => 'Tijdsaanduiding ontgrendelen',
-      'previousYear' => 'Vorig jaar',
-      'previousMonth' => 'Vorige maand',
-      'previousDecade' => 'Vorige decennium',
-      'nextMonth' => 'Volgende maand',
-      'nextYear' => 'Volgend jaar',
-      'nextDecade' => 'Volgende decennium',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Natuurlijke taalinvoer kon niet worden verwerkt'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Chat syntaxis',
-    'resultColumn' => 'Voorbeeld resultaat',
-    'editFormats' => 'Pas de indeling aan',
-    'resetFormats' => 'Herstel naar standaard',
-    'hideFormat' => 'Verberg deze indeling',
-    'showFormat' => 'Laat deze indeling zien',
-    'unhideInProfile' => 'Verberg in profiel instellingen',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Meest gestelde vragen',
-    'description' => 'Dit gebied is alleen in het Engels voor nu, en de inhoud is zwaar gebaseerd op content van <1>onze Discord server</1>. Sommige linkjes kunnen niet werken zoals verwacht ten zij je een lid ervan bent.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Dit is mogelijk ook handig:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Officiële HammerTime server',
-      'p' => 'Bespreek de website, test de syntaxis en stel nieuwe functies voor',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Genereer tijdstempels in Discord door middel van slash-opdrachten',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Oude Website',
-      'p' => 'De oude website van dit project. Beschikbaar tot anders wordt vermeld',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane\'s <1>gekleurde</1> tekst generator',
-      'p' => 'Een eenvoudige app die gekleurde Discord-berichten maakt met behulp van ANSI-kleurcodes',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "De community die wekelijkse uitdagingen organiseert voor een ondergewaardeerde race-game die de inspiratie vormde voor dit project",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

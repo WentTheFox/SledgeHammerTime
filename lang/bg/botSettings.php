@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Часова зона',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

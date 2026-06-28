@@ -1,31 +1,31 @@
 <?php
 
 return [
-  'title' => 'Profiel',
-  'intro' => 'De profielpagina laat u toe om uw accountinformatie te beheren die specifiek betrekking heeft op de website. Als u op zoek bent naar waar u de standaardinstellingen en andere instellingen voor de Discordapp kunt wijzigen, ga naar de pagina voor <1> App instellingen <1>.',
+  'title' => 'Profile',
+  'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
-    'heading' => 'Profiel Informatie',
-    'description' => "Werk uw accounts profielinformatie bij.",
-    'displayName' => 'Weergavenaam',
-    'hiddenFormats' => 'Verberg formaten',
-    'saveSuccess' => 'Uw profiel is succesvol bijgewerkt.',
+    'heading' => 'Profile Information',
+    'description' => "Update your account's profile information.",
+    'displayName' => 'Display Name',
+    'hiddenFormats' => 'Formats hidden from picker table',
+    'saveSuccess' => 'Your profile has been updated successfully.',
   ],
   'accounts' => [
-    'heading' => 'Gekoppelde accounts',
-    'description' => 'Je kunt meerdere accounts koppelen aan je HammerTime account om ze allemaal op één plek te kunnen beheren. De hier getoonde gebruikersinformatie wordt bij het laden van deze pagina hoogstens één keer per uur automatisch bijgewerkt.',
+    'heading' => 'Connected Accounts',
+    'description' => 'You can link multiple accounts to your HammerTime account to be able to manage them in one place. The basic user information displayed here is automatically updated at most once an hour when you load this page.',
     'discord' => 'Discord Accounts',
     'crowdin' => 'Crowdin Accounts',
-    'noConnectedAccounts' => 'Er zijn op het moment geen accounts verbonden',
+    'noConnectedAccounts' => 'You do not have any accounts connected at the moment',
     'linkAdditional' => [
-      'heading' => 'Extra accounts koppelen',
-      'description' => 'Gebruik de onderstaande knoppen om extra accounts aan je huidige HammerTime-account te koppelen.',
+      'heading' => 'Link Additional Accounts',
+      'description' => 'Use the buttons below to connect additional accounts to your current HammerTime account.',
       'discord' => [
-        'description' => 'Als je profielfoto of naam veranderd is, kun je deze ook gebruiken om die informatie bij te werken voor een al gelinkte Discord-account.',
-        'authorize' => 'Discord account autoriseren',
+        'description' => 'If your profile picture or display name changed, you can also use this to update that information for any Discord account which is already linked.',
+        'authorize' => 'Authorize Discord account',
       ],
       'crowdin' => [
         'description' => 'If you are a translator for the project, linking your Crowdin account lets you customize how your name appears in the translation credits, and also serves as an extra level of verification that these accounts belong to you in case you join the project\'s Discord server.',
-        'authorize' => 'Crowdin account autoriseren',
+        'authorize' => 'Authorize Crowdin account',
       ],
     ],
   ],
@@ -74,12 +74,12 @@ return [
     ],
   ],
   'deletion' => [
-    'heading' => 'Account verwijderen',
-    'description' => 'Zodra je account wordt verwijderd, worden al je gegevens permanent verwijderd. Download voordat je je account verwijdert eerst de gegevens die je wil bewaren.',
-    'deleteButton' => 'Account verwijderen',
+    'heading' => 'Account Deletion',
+    'description' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'deleteButton' => 'Delete Account',
     'confirmDialog' => [
-      'header' => 'Weet je zeker dat je je account wilt verwijderen?',
-      'body' => 'Zodra je account is verwijderd, worden alle gegevens permanent verwijderd.',
+      'header' => 'Are you sure you want to delete your account?',
+      'body' => 'Once your account is deleted, all of its resources and data will be permanently deleted.',
     ],
   ],
 ];

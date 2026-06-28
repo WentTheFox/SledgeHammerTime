@@ -1,39 +1,39 @@
 <?php
 
 return [
-  'howTo' => 'Alegeți o dată, copiați marca temporală dorită din coloana :syntaxColName, apoi lipiți-o oriunde într-un mesaj de chat. Rezultatul va fi o marcă temporală dinamică care se afișează diferit pentru fiecare utilizator, în funcție de fusul orar propriu.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Data',
-      'time' => 'Timpu',
-      'dateAndTime' => 'Data și timpu',
-      'timezone' => 'Fus orar',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Offset absolut',
-      'modeZoneName' => 'Numele zonei',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Salt la luna curentă',
-      'contextRange' => '<0/>-<2/>',
+      'jumpToToday' => 'Jump to current month',
+      'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Setat la ora curentă',
-      'lock' => 'Blocare timestamp prin URL',
-      'unlock' => 'Deblocare timestamp',
-      'previousYear' => 'Anul precedent',
-      'previousMonth' => 'Luna precedentă',
-      'previousDecade' => 'Deceniul precedent',
-      'nextMonth' => 'Luna viitoare',
-      'nextYear' => 'Anul următor',
-      'nextDecade' => 'Următorul deceniu',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Sintaxa chat-ului',
-    'resultColumn' => 'Exemplu de rezultat',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'S-ar putea să vă fie utile și acestea:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Server oficial HammerTime',
-      'p' => 'Discutați site-ul web, testați sintaxa și sugerați caracteristici',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Aplicația HammerTime',
-      'p' => 'Generați timestamp-uri din cadrul Discord folosind comenzi slash',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Vechiul site web HammerTime',
+      'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Generatorul de text <1>colorat</1> al lui Rebane',
-      'p' => 'O aplicație simplă care creează mesaje Discord colorate folosind coduri de culoare ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Comunitatea care organizează provocări săptămânale pentru un joc de curse subestimat care a inspirat crearea acestui proiect",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

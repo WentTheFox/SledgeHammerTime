@@ -1,16 +1,16 @@
 <?php
 
 return [
-  'title' => 'App innstillinger',
+  'title' => 'App Settings',
   'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Usikker på hva appen er eller nysgjerrig på hva den kan gjøre? Besøk <1>Discord-appen</1> for å lære mer.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Avanserte innstillinger',
+    'toggleText' => 'Advanced settings',
   ],
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Tidssone',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

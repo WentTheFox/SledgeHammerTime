@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Цагийн бүс',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

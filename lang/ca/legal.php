@@ -31,7 +31,7 @@ return [
     'cookies' => [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
-      'disable' => 'Usem "cookies" per retenir informacio. Podeu indicar al vostre navegador que rebutgi totes les cookies o que indiqui quan s\'envia una cookie. Tanmateix, si no accepteu les cookies, és possible que no pugueu utilitzar algunes parts del nostre lloc web.',
+      'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
       'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
     ],
     'security' => [
@@ -56,6 +56,6 @@ return [
   ],
   'contact' => [
     'heading' => 'Contact Us',
-    'whereToContact' => 'Si tens alguna pregunta sobre aquest document o vols preguntar per la per l\'eliminació d\'algun PII que tenim contacta amb nosaltres via <1> del bot de Dicord</1> o fent servi algun mètode llistat a la <3>web del desenvolupador</3>.',
+    'whereToContact' => 'If you have any questions about these Documents or want to ask for the removal of any PII we store please contact us via <1>the Bot\'s Discord server</1> or using any of the methods listed on the <3>Developer\'s website</3>.',
   ],
 ];

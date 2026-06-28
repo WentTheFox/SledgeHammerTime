@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Genera marques de temps per a missatges de Discord',
-  'changeLanguage' => 'Canvia l\'idioma',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "No hi ha res a veure ací.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,28 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'Traducció incompleta',
-  'contributeTranslations' => 'Contribuïu',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Copia al porta-retalls',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'No s\'ha trobat JavaScript',
-    'body' => "El vostre navegador no és compatible amb JavaScript o està desactivat. Alguns navegadors desactiven JavaScript per defecte per motius de seguretat, però és necessari per a aquesta aplicació. Per favor, activeu-la i refresqueu la pàgina, o utilitzeu un navegador diferent.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
-    'profile' => 'Perfil',
-    'legal' => 'Informacio legal',
+    'profile' => 'Profile',
+    'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Configuració d\'entrada',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Entrades separades',
-        'description' => "Mostra dues entrades diferents per a la data i l'hora en vegada d'una combinada (cosa que no és compatible amb alguns navegadors)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -91,14 +91,14 @@ return [
       'advancedSettings' => 'Advanced input settings',
     ],
     'timeSync' => [
-      'title' => 'Sincronització Del Temps',
+      'title' => 'Time Synchronization',
       'status' => [
         'syncing' => 'Your system clock is currently being synchronized with our servers, please wait.',
-        'accurate' => 'El teu rellotge es exacte.',
+        'accurate' => 'Your system clock is accurate.',
         'potentiallyWrong' => 'Your system clock might be wrong.',
-        'value' => 'La diferència entra al temps local i el temps del servidor es :offset.',
+        'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'Detalls',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,24 +113,24 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Crèdits',
-      'developedBy' => 'Desenvolupat per <1></1>',
-      'using' => 'Utilitzant <1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Traducció per <1></1>',
-      'openSourceSoftware' => 'Programari de codi obert',
-      'viewSourceCode' => 'Vore codi font',
-      'notAffiliated' => 'Aquest projecte no està afiliat amb Discord.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Tema fosc',
-      'light' => 'Tema clar',
-      'system' => 'Utilitzeu el tema del sistema',
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
+      'system' => 'Use System Theme',
     ],
   ],
   'designEditor' => [

@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Välj ett datum, kopiera det önskade formatet från kolumnen :syntaxColName, klistra sedan in det någonstans i ett meddelande. Resultatet är dynamiskt och visar olika tid och datum för varje person baserat på deras tidszon.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Datum',
-      'time' => 'Tid',
-      'dateAndTime' => 'Datum och tid',
-      'timezone' => 'Tidszon',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Återställ till aktuell tid',
-      'lock' => 'Lås tidsstämpel via URL',
-      'unlock' => 'Lås upp tidsstämpel',
-      'previousYear' => 'Föregående år',
-      'previousMonth' => 'Föregående månad',
-      'previousDecade' => 'Föregående årtionde',
-      'nextMonth' => 'Nästa månad',
-      'nextYear' => 'Nästa år',
-      'nextDecade' => 'Nästa årtionde',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Syntax',
-    'resultColumn' => 'Resultat',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Du kanske även gillar dessa:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Officiell HammerTime-server',
-      'p' => 'Diskutera webbsidan, testa syntax och föreslå programfunktioner',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'HammerTime-app',
-      'p' => 'Generera tidsstämplar direkt i Discord med hjälp av snedstreckskommandon',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebanes <1>färgade</1> textgenerator',
-      'p' => 'En simpel app som skapar färgade Discord-meddelanden med ANSI-färgkoder',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Gemenskapen som presenterar utmaningar varje vecka för ett underskattat racing spel som inspirerade skapelsen av detta projekt",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

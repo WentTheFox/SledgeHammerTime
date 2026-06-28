@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'एक तारीख चुनें, :syntaxColName कॉलम से इच्छित टाइमस्टैम्प कॉपी करें, फिर इसे चैट संदेश में कहीं भी पेस्ट करें। परिणाम एक गतिशील टाइमस्टैम्प होगा जो सभी के लिए उनके समय क्षेत्र के आधार पर अलग-अलग प्रदर्शित होगा।',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'दिनांक',
-      'time' => 'समय',
-      'dateAndTime' => 'तारीख और समय',
-      'timezone' => 'टाइम जोन या समय मंडल',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'वर्तमान समय पर सेट करें',
-      'lock' => 'यूआरएल के माध्यम से टाइमस्टैम्प लॉक करें',
-      'unlock' => 'टाइमस्टैम्प अनलॉक करें',
-      'previousYear' => 'पिछले वर्ष',
-      'previousMonth' => 'पिछले महीने',
-      'previousDecade' => 'पिछले दशक',
-      'nextMonth' => 'अगले महीने',
-      'nextYear' => 'अगले वर्ष',
-      'nextDecade' => 'अगले दशक',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'चैट वाक्य - विन्यास (सिंटैक्स)',
-    'resultColumn' => 'उदाहरण परिणाम',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,22 +45,22 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'आपको ये भी उपयोगी लग सकते हैं:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'आधिकारिक (ऑफिशियल) हैमरटाइम सर्वर',
-      'p' => 'वेबसाइट पर चर्चा करें, वाक्य - विन्यास (सिंटैक्स) का परीक्षण करें और सुविधाओं का सुझाव दें',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'हैमरटाइम ऐप',
-      'p' => 'स्लैश कमांड का उपयोग करके डिस्कॉर्ड में से टाइमस्टैम्प उत्पन्न करें',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
       'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'रेबेन का <1>रंगीन</1> टेक्स्ट जेनरेटर',
-      'p' => 'एक सरल ऐप जो एएनएसआई रंग कोड का उपयोग करके रंगीन डिस्कॉर्ड संदेश बनाता है',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
       "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",

@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => '程式設定',
-  'description' => '以下您可以在 HammerTime App 中看到每個連接帳戶的目前設定。',
-  'learnMore' => '不確定該應用程式是什麼或好奇它能做什麼？請造訪<1>Discord App</1>連結瞭解更多資訊。',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => '進階設定',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => '預設',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => '時區',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => '格式',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
       'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => '欄位',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => '短暫的',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => '標題',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => '預覽格式為粗體',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => '「/:atCommandName 指令的預設「:hourOptionName」選項」',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => '「/:atCommandName 指令的預設「:minuteOptionName」選項」',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => '/:atCommandName 指令的預設「:secondOptionName」選項',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => '允許遙測資料收集',
-      'explanation' => '這完全是可選的，不會影響您使用機器人的能力。詳情請參閱<1/> 頁面。',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => '/:at12CommandName 指令的預設「:hourOptionName」選項',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => '您的設定已成功變更。',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

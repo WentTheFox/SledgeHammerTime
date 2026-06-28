@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Хаана ашиглахыг сонгонуу",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Миний апп руу оруулах",
-    "description" => "Энэ аппыг хаана ч ашиглa!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Сэрвэр лүү оруулах",
-    "description" => "Энэ аппыг оруулж өөрийн сэрвэрээ өөрчлөх",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

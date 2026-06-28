@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'App-Einstellungen',
-  'description' => 'Unten siehst du deine aktuellen Einstellungen in der HammerTime App für jedes verbundene Konto.',
-  'learnMore' => 'Nicht sicher, was die App macht oder was sie tun kann? Besuche den <1>Discord App</1> Link um mehr zu erfahren.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Erweiterte Einstellungen',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Standard',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Zeitzone',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Antwort nur in der Vorschau bei Verwendung der Formatierungsoption',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Spalten',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Kurzlebig',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Kopfzeile',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Vorschau als fett formatieren',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Standard ":hourOptionName" Option für /:atCommandName Befehl',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Standard ":minuteOptionName" Option für /:atCommandName Befehl',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Standard ":secondOptionName" Option für /:atCommandName Befehl',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Telemetrieerfassung zulassen',
-      'explanation' => 'Dies ist völlig optional und hat keine Auswirkung auf deine Fähigkeit, den Bot zu verwenden. Details findest du auf der <1/> Seite.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Standard ":hourOptionName" Option für /:at12CommandName Befehl',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Deine Einstellungen wurden erfolgreich gespeichert.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

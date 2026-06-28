@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'App Beálítások',
-  'description' => 'Alább láthatod a jelenlegi beállításaidat a HammerTime App-ban, minden összekapcsolt fiókodhoz.',
-  'learnMore' => 'Nem tudod, mi ez az app, vagy kíváncsi vagy mit tud? Látogasd meg a <1>Discord App</1> linket további információért.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Haladó beállítások',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Alapértelmezett',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Időzóna',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => 'Formátum',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Csak előnézet a válaszban a formátum opció használatakor',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Oszlopok',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Ideiglenes',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Fejléc',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Előnézet formázása félkövéren',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Alapértelmezett ":hourOptionName" paraméter az /:atCommandName parancshoz',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Alapértelmezett ":minuteOptionName" paraméter az /:atCommandName parancshoz',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Alapértelmezett ":secondOptionName" paraméter az /:atCommandName parancshoz',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Telemetria gyűjtésének engedélyezése',
-      'explanation' => 'Ez teljesen opcionális, és nincs hatással arra, hogy tudod-e használni az appot. További információ itt: <1/>.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Alapértelmezett ":hourOptionName" paraméter az /:at12CommandName parancshoz',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'A beállításaid sikeresen mentéstre kerültek.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

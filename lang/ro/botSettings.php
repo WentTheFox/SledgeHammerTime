@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'Setări aplicație',
-  'description' => 'Mai jos puteți vedea setările curente din aplicația HammerTime pentru fiecare cont conectat.',
-  'learnMore' => 'Nu știi ce este aplicația sau ești curios să afli ce poate face? Accesează linkul <1>Aplicația Discord</1> pentru a afla mai multe.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Setări avansate',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Implicit',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Fus orar',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => 'Formatul',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Răspuns numai pentru previzualizare atunci când se utilizează opțiunea de formatare',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Coloane',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Efemer',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Antet',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Format previzualizare ca bold',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Opțiunea implicită „:hourOptionName” pentru comanda /:atCommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Opțiunea implicită „:minuteOptionName” pentru comanda /:atCommandName',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Opțiunea implicită „:secondOptionName” pentru comanda /:atCommandName',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Permiteți colectarea telemetriei',
-      'explanation' => 'Acest lucru este complet opțional și nu are niciun efect asupra capacității de a folosi bot-ul. Vezi pagina <1/> pentru detalii.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Opțiunea implicită „:hourOptionName” pentru comanda /:at12CommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Setările dvs. au fost salvate cu succes.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

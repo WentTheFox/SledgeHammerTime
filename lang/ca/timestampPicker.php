@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Trieu una data, copieu la marca de temps desitjada de la columna :syntaxColName i apegueu-la al missatge. El resultat serà una marca de temps dinàmica que es mostra diferent depenent del fus horari de la persona.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Data',
-      'time' => 'Hora',
-      'dateAndTime' => 'Data i hora',
-      'timezone' => 'Fus horari',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Ajusta a l\'hora actual',
-      'lock' => 'Blocar marca de temps a l\'adreça',
-      'unlock' => 'Desbloca la marca de temps',
-      'previousYear' => 'Any anterior',
-      'previousMonth' => 'Mes anterior',
-      'previousDecade' => 'Dècada anterior',
-      'nextMonth' => 'Mes següent',
-      'nextYear' => 'Any següent',
-      'nextDecade' => 'Pròxima dècada',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Sintaxi al xat',
-    'resultColumn' => 'Exemple',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'També podeu trobar útil:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Servidor oficial de HammerTime',
-      'p' => 'Comenteu la pàgina, experimenteu amb la sintaxi i suggeriu característiques',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generar marques temporals des de dins Discord utilitzant comandes de barra',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Web Antiga',
-      'p' => 'La versió antiga del projecte, esta disponible, fins futures noticies',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Generador de text de <1>colors</1> de Rebane',
-      'p' => 'Una aplicació senzilla que crea missatges de Discord acolorits mitjançant codis de colors ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "La comunitat que organitza reptes setmanals per a un joc de curses infravalorat que va inspirar la creació d'aquest projecte",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

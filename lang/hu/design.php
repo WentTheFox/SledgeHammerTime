@@ -1,5 +1,5 @@
 <?php
 
 return [
-  'title' => 'Arculatterv',
+  'title' => 'Design Language',
 ];

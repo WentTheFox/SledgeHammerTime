@@ -1,39 +1,39 @@
 <?php
 
 return [
-  'howTo' => 'Vyberte datum, zkopírujte požadované časové razítko ze sloupce :syntaxColName a vložte ho kamkoli do zprávy v chatu. Výsledkem bude dynamické časové razítko, které se každému zobrazí podle jeho časového pásma.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Datum',
-      'time' => 'Čas',
-      'dateAndTime' => 'Datum a čas',
-      'timezone' => 'Časové pásmo',
-      'naturalLanguageInput' => 'Vstup pro @time',
-      'modeOffset' => 'Absolutní posun',
-      'modeZoneName' => 'Časové pásmo',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Přejít na aktuální měsíc',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Nastavit na aktuální čas',
-      'lock' => 'Uzamknout časové razítko pomocí URL',
-      'unlock' => 'Odemknout časové razítko',
-      'previousYear' => 'Předchozí rok',
-      'previousMonth' => 'Předchozí měsíc',
-      'previousDecade' => 'Předchozí desetiletí',
-      'nextMonth' => 'Následující měsíc',
-      'nextYear' => 'Následující rok',
-      'nextDecade' => 'Příští desetiletí',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Nepodařilo se zpracovat vstup v přirozené řeči'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Zápis v chatu',
-    'resultColumn' => 'Ukázkový výstup',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',
@@ -45,25 +45,25 @@ return [
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Užitečné pro vás mohou být také tyto:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Oficální server HammerTime',
-      'p' => 'Diskutujte o webu, otestujte si zápis a navrhujte funkce',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Aplikace HammerTime',
-      'p' => 'Generujte časová razítka přímo na Discordu pomocí lomítkových příkazů',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Starý web HammerTime',
-      'p' => 'Původní web projektu, který je stále dostupný až do odvolání',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Generátor <1>barevného</1> textu od vývojáře Rebane',
-      'p' => 'Jednoduchá aplikace, která vytváří barevné zprávy Discord pomocí barevných kódů ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Komunita pořádající týdenní výzvy pro nedoceněnou závodní hru, která inspirovala vznik tohoto projektu",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [

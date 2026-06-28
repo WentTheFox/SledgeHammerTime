@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Horzono',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

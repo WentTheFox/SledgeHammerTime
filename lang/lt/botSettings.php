@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Laiko juosta',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',

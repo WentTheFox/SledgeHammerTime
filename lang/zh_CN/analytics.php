@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => '页面浏览分析',
+  'heading' => 'Page View Analytics',
   'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
-  'collectionMethod' => '数据在服务器端收集，基于发送给特定一组页面的响应。页面浏览量会被逐条记录，随后由后台进程按日进行汇总。',
-  'lastUpdated' => '为减少服务器负载，本页面上的信息会在短期内缓存。您所看到的数据最后更新于<1/> 。',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => '每日页面总浏览量',
-    'breakdown' => '访问量构成分析',
-    'byPage' => '按页面分类',
-    'byLanguage' => '按语言分类',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => '未知',
+    'unknown' => 'Unknown',
   ],
 ];

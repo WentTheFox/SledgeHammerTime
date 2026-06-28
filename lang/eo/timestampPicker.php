@@ -1,13 +1,13 @@
 <?php
 
 return [
-  'howTo' => 'Elektu daton, kopiu la bezonatan tempindikon de la :syntaxColName kolono, tiam algluu tion ie ajn en babilmesaĝon. La rezulto estos dinamika tempindiko kiu montras malsame por ĉiuj laŭ la propran horzonon.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Dato',
-      'time' => 'Horo',
-      'dateAndTime' => 'Dato kaj horo',
-      'timezone' => 'Horzono',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
       'naturalLanguageInput' => '@time input',
       'modeOffset' => 'Absolute Offset',
       'modeZoneName' => 'Zone Name',
@@ -17,23 +17,23 @@ return [
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Agordi al nuna tempo',
-      'lock' => 'Ŝlosi tempindikon per URL',
-      'unlock' => 'Malŝlosi tempindikon',
-      'previousYear' => 'Antaŭa jaro',
-      'previousMonth' => 'Antaŭa monato',
-      'previousDecade' => 'Antaŭa jardeko',
-      'nextMonth' => 'Venonta monato',
-      'nextYear' => 'Venonta jaro',
-      'nextDecade' => 'Venonta jardeko',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
       'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Babilsintakso',
-    'resultColumn' => 'Ekzempla rezulto',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
     'editFormats' => 'Customize formats',
     'resetFormats' => 'Reset to defaults',
     'hideFormat' => 'Hide this format',

@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'アプリ設定',
-  'description' => 'HammerTimeアプリでは、接続済みアカウントごとの現在の設定を以下で確認できます。',
-  'learnMore' => 'アプリの内容、またはどんなことができるのか気になりますか？詳細については<1>こちら</1>をご覧ください。',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => '詳細設定',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => '初期説明',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'タイムゾーン',
+      'displayName' => 'Timezone',
     ],
     'format' => [
-      'displayName' => '形式',
+      'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'フォーマットオプション使用時はプレビューのみでの返信',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'コラム',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => '一時的',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => '見出し',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'プレビューを太字で表示',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => '/:atCommandName コマンドの初期説明の:hourOptionName オプション',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => '/:atCommandName コマンドの初期説明の ":minuteOptionName" オプション',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => '/:atCommandName コマンドの初期説明の ":secondOptionName" オプション',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'テレメトリの収集を許可する',
-      'explanation' => 'これは完全に任意であり、ボットの性能には影響しません。詳細は<1/>ページを参照してください。',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => '/:at12CommandName コマンドの初期説明の ":hourOptionName" オプション',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => '設定が正常に保存されました。',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

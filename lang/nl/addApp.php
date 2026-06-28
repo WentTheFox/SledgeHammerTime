@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Selecteer waar u de app wilt toevoegen",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Toevoegen aan mijn apps",
-    "description" => "Gebruik deze app overal!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Toevoegen aan server",
-    "description" => "Pas je server aan door deze app toe te voegen",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

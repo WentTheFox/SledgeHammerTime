@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'เลือกวันที่ จากนั้นคัดลอกเวลาที่ต้องการจากคอลัมน์ :syntaxColName แล้ววางที่ใดก็ได้ในข้อความแชท ผลลัพธ์จะเป็นไทม์สแตมป์แบบไดนามิกที่จะแสดงแตกต่างกันสำหรับแต่ละคนตามโซนเวลาของพวกเขาเอง',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'วันที่',
-      'time' => 'เวลา',
-      'dateAndTime' => 'วันและเวลา',
-      'timezone' => 'เขตเวลา',
-      'naturalLanguageInput' => 'ช่องป้อน @time',
-      'modeOffset' => 'ส่วนต่างโซนเวลาแบบกำหนดเอง',
-      'modeZoneName' => 'ชื่อเขตเวลา',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'ไปที่เดือนปัจจุบัน',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'ตั้งค่าเป็นเวลาปัจจุบัน',
-      'lock' => 'ล็อคเวลาโดยใช้ URL',
-      'unlock' => 'ปลดล็อควันเวลา',
-      'previousYear' => 'ปีที่แล้ว',
-      'previousMonth' => 'เดือนที่แล้ว',
-      'previousDecade' => 'ทศวรรษก่อนหน้า',
-      'nextMonth' => 'เดือนถัดไป',
-      'nextYear' => 'ปีหน้า',
-      'nextDecade' => 'ทศวรรษต่อไป',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'ไม่สามารถวิเคราะห์ภาษาธรรมชาตินี้ได้'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'ไวยากรณ์ของแชท',
-    'resultColumn' => 'ตัวอย่างผลลัพธ์',
-    'editFormats' => 'ปรับแต่งรูปแบบเวลา',
-    'resetFormats' => 'ตั้งค่ากลับเป็นค่าเริ่มต้น',
-    'hideFormat' => 'ซ่อนรูปแบบเวลานี้',
-    'showFormat' => 'แสดงรูปแบบเวลานี้',
-    'unhideInProfile' => 'ยกเลิกการซ่อนรูปแบบเวลานี้ในการตั้งค่าโปรไฟล์',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'คำถามที่พบบ่อย',
-    'description' => 'ส่วนข้อความนี้จะใช้ภาษาอังกฤษเท่านั้นในตอนนี้ และอิงจากเนื้อหา<1>ในเซิร์ฟเวอร์ Discord ของเรา</1>เป็นอย่างมาก บางลิงก์อาจไม่ทำงานตามที่คาดหวังหากคุณไม่ใช่สมาชิกของเซิร์ฟเวอร์',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'คุณอาจจะพบว่าสิ่งพวกนี้มีประโยชน์สำหรับคุณ',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'เซิร์ฟเวอร์ HammerTime อย่างเป็นทางการ',
-      'p' => 'พูดคุยเกี่ยวกับเว็บไซต์ ทดสอบโค้ด หรือ แนะนำฟีเจอร์ใหม่ๆ',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'แอปพลิเคชัน HammerTime',
-      'p' => 'สร้างการประทับเวลาภายใน Discord โดยใช้คำสั่งสแลช',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'เว็บไซต์ HammerTime เวอร์ชันเก่า',
-      'p' => 'เว็บไซต์เวอร์ชันเก่าของโปรเจ็กต์ ซึ่งจะยังคงเปิดให้ใช้งานจนกว่าจะมีการแจ้งให้ทราบ',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane <1>สีสันต่างๆ</1> ตัวสร้างข้อความ',
-      'p' => 'แอปแบบง่าย ๆ ที่ใช้สร้างข้อความสีสำหรับ Discord โดยอาศัย รหัสสี ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "ชุมชนที่จัดกิจกรรม ท้าทายประจำสัปดาห์ สำหรับเกมแข่งรถที่ไม่ได้รับความนิยมมากนัก แต่เป็นแรงบันดาลใจในการสร้างโปรเจ็กต์นี้",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'คุณรู้หรือไม่ว่า HammerTime ไม่ใช่เครื่องมือเดียวที่ใช้สร้างประทับเวลา',
-        'p2' => 'คุณอาจจะต้องการดูตัวสร้างประทับเวลา Discord เพื่อหาสิ่งที่เหมาะสมกับคุณมากที่สุด',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'เครื่องสร้างเวลาประทับที่ง่ายและรวดเร็วโดย 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'ตัวสร้างประทับเวลา Discord ด้วยภาษาธรรมชาติ โดย dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'เครื่องมือสร้างเวลา Discord ฟรีพร้อมรองรับเขตเวลาท้องถิ่น โดย Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'เครื่องมือสร้างประทับเวลา Discord และตัวแปลงเวลาโดย DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'สร้างตัวประทับเวลาใน Discord markdown ในระบบจัดตารางเวลาของบอท Sesh โดย Tunks',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

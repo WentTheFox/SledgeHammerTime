@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => 'Generirajte indikatore vremenske oznake za Discord chat poruke',
-  'changeLanguage' => 'Promjeni jezik',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "Ovdje se nema što vidjeti.",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,18 +26,18 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => 'Prijevodi su nepotpuni',
-  'contributeTranslations' => 'Doprinos',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => 'Kopirajte u međuspremnik',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript je neophodan',
-    'body' => "Vaš preglednik ili ne podržava JavaScript ili je trenutno onemogućen. Neki preglednici onemogućuju JavaScript prema zadanim postavkama iz sigurnosnih razloga, ali to je neophodno za ovu aplikaciju. Omogućite ga i osvježite stranicu ili upotrijebite drugi preglednik.",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
     'botSettings' => 'App Settings',
@@ -47,7 +47,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Postavke unosa',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => 'Odvojeni ulazi',
-        'description' => "Prikaži dva različita unosa za datum i vrijeme umjesto kombiniranog (što nije podržano u nekim preglednicima)",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => 'pojedinosti',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -113,7 +113,7 @@ return [
       'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => 'Zasluge',
+      'title' => 'Credits',
       'developedBy' => 'Developed by <1></1>',
       'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
@@ -122,10 +122,10 @@ return [
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => 'Prijevodi <1></1>',
-      'openSourceSoftware' => 'Softver otvorenog koda',
-      'viewSourceCode' => 'Pogledaj izvorni kod',
-      'notAffiliated' => 'Ovaj projekt nije povezan s Discordom.',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

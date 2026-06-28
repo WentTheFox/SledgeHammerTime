@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'Tetapan Apl',
-  'description' => 'Di bawah ini anda boleh lihat tetapan semasa anda dalam Apl HammerTime bagi setiap akaun yang tersambung.',
-  'learnMore' => 'Tidak pasti apakah aplikasi tersebut atau ingin tahu apa yang boleh dilakukannya? Lawati pautan <1>Apl Discord</1> untuk mengetahui lebih lanjut.',
+  'title' => 'App Settings',
+  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Tetapan lanjutan',
+    'toggleText' => 'Advanced settings',
   ],
-  'defaultOption' => 'Lalai',
+  'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Zon waktu',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Balasan pratonton-sahaja apabila menggunakan pilihan format',
+      'displayName' => 'Preview-only reply when using format option',
     ],
     'columns' => [
-      'displayName' => 'Lajur',
+      'displayName' => 'Columns',
     ],
     'ephemeral' => [
-      'displayName' => 'Fana',
+      'displayName' => 'Ephemeral',
     ],
     'header' => [
-      'displayName' => 'Pengepala',
+      'displayName' => 'Header',
     ],
     'boldPreview' => [
-      'displayName' => 'Pratonton format ditebalkan',
+      'displayName' => 'Format preview as bold',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Pilihan ":hourOptionName" lalai untuk perintah /:atCommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Pilihan ":minuteOptionName" lalai untuk perintah /:atCommandName',
+      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Pilihan ":secondOptionName" lalai untuk perintah /:atCommandName',
+      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
     ],
     'telemetry' => [
-      'displayName' => 'Benarkan pengumpulan Telemetri',
-      'explanation' => 'Ini suatu pilihan semata-mata dan tiada kesan pada kebolehan anda untuk menggunakan bot. Sila lihat halaman <1/> untuk maklumat lanjut.',
+      'displayName' => 'Allow Telemetry collection',
+      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Pilihan ":hourOptionName" lalai untuk perintah /:at12CommandName',
+      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
     ],
   ],
-  'saveSuccess' => 'Tetapan anda telah berjaya disimpan.',
+  'saveSuccess' => 'Your settings have been saved successfully.',
 ];

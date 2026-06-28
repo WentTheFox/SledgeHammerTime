@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "Izvēlieties kur vēlaties pievienot lietotni",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "Pievienot My Apps",
-    "description" => "Izmantojiet šo lietotni visur!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "Pievienot serverim",
-    "description" => "Personalizējiet savu serveri, pievienojot šo lietotni",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

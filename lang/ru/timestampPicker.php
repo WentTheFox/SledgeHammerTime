@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Выберите дату и время, скопируйте желаемый формат из столбца :syntaxColName, и вставьте в своё сообщение в Discord. В результате вы получите динамическую метку времени, которая будет отображаться по-разному для каждого пользователя в зависимости от его часового пояса.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Дата',
-      'time' => 'Время',
-      'dateAndTime' => 'Дата и время',
-      'timezone' => 'Часовой пояс',
-      'naturalLanguageInput' => 'Ввод @time',
-      'modeOffset' => 'Смещение времени',
-      'modeZoneName' => 'Название зоны',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Перейти к текущему месяцу',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Задать текущее время',
-      'lock' => 'Заблокировать отметку времени через URL',
-      'unlock' => 'Разблокировать отметку времени',
-      'previousYear' => 'Предыдущий год',
-      'previousMonth' => 'Предыдущий месяц',
-      'previousDecade' => 'Предыдущее десятилетие',
-      'nextMonth' => 'Следующий месяц',
-      'nextYear' => 'Следующий год',
-      'nextDecade' => 'Следующее десятилетие',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Не удалось распознать ввод естественного языка'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Синтаксис в чате',
-    'resultColumn' => 'Пример',
-    'editFormats' => 'Настроить форматы',
-    'resetFormats' => 'Сбросить до настроек по умолчанию',
-    'hideFormat' => 'Скрыть этот формат',
-    'showFormat' => 'Показывать этот формат',
-    'unhideInProfile' => 'Показывать в настройках профиля',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Часто Задаваемые Вопросы (FAQ)',
-    'description' => 'Этот раздел пока что доступен только на английском языке и сильно основан на содержании <1>нашего Discord сервера</1>. Некоторые ссылки могут не работать, если вы не являетесь участником.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Возможно вы заинтересуетесь этим:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Официальный сервер HammerTime',
-      'p' => 'Обсуждайте сайт, проверяйте синтаксис и предлагайте функции',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'Приложение HammerTime',
-      'p' => 'Создавайте временные метки в Discord с помощью слэш-команд',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Старая версия HammerTime',
-      'p' => 'Старая версия сайта, всё ещё доступна до последующего уведомления',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Генератор <1>цветного</1> текста Rebane',
-      'p' => 'Простое приложение, которое создает цветные сообщения Discord, используя цветовые коды ANSI',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Сообщество, организующее еженедельные испытания для малоизвестной гоночной игры, ставшей источником вдохновения для этого проекта",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Вы знали, что HammerTime – не единственный инструмент для создания меток времени?',
-        'p2' => 'Вы можете ознакомиться с другими генераторами меток времени Discord и найти такой, который подходит Вам больше всего:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Простой и быстрый генератор меток времени от 3ventic',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Генератор меток времени Discord на естественном языке от dabric',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Бесплатный генератор временных меток Discord с поддержкой локальных часовых поясов от Sellframe Ltd.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Генератор временных меток Discord и преобразователь времени от DiscordTimestamp.org',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Создавайте метки времени Discord с помощью бота Sesh от Tunks',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

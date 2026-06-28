@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Bir tarih seçin, ":syntaxColName" sütunundan istediğiniz zaman damgasını kopyalayın ve ardından bunu mesajın herhangi bir yerine yapıştırın. Sonuç, herkes için kendi saat dilimine göre farklı görüntülenen dinamik bir zaman damgası olacaktır.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Tarih',
-      'time' => 'Zaman',
-      'dateAndTime' => 'Tarih ve zaman',
-      'timezone' => 'Zaman dilimi',
-      'naturalLanguageInput' => '@time girişi',
-      'modeOffset' => 'Mutlak Ofset',
-      'modeZoneName' => 'Bölge Adı',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Geçerli aya git',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Geçerli zamana ayarla',
-      'lock' => 'URL aracılığıyla zaman damgasını kilitle',
-      'unlock' => 'Zaman damgasının kilidini aç',
-      'previousYear' => 'Geçen yıl',
-      'previousMonth' => 'Geçen ay',
-      'previousDecade' => 'Geçmiş on yıl',
-      'nextMonth' => 'Sonraki ay',
-      'nextYear' => 'Gelecek yıl',
-      'nextDecade' => 'Gelecek on yıl',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Doğal dil girişi çözümlenemedi'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Sohbet Görünümü',
-    'resultColumn' => 'Örnek sonuç',
-    'editFormats' => 'Biçimleri özelleştir',
-    'resetFormats' => 'Varsayılanlara sıfırla',
-    'hideFormat' => 'Bu biçimi gizle',
-    'showFormat' => 'Bu biçimi göster',
-    'unhideInProfile' => 'Profil ayarlarında gizliliği kaldır',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Sıkça Sorulan Sorular',
-    'description' => 'Bu bölüm şimdilik yalnızca İngilizcedir ve büyük ölçüde <1>Discord sunucumuzdaki</1> içeriklere dayanmaktadır. Üye olmadığınız sürece bazı bağlantılar beklendiği gibi çalışmayabilir.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Bunları da faydalı bulabilirsiniz:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Resmi HammerTime Sunucusu',
-      'p' => 'Siteyi tartışın, zaman damgalarını test edin ve özellikler önerin',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
-      'header' => 'HammerTime Uygulaması',
-      'p' => 'Slash komutlarını kullanarak Discord üzerinden zaman damgaları oluşturun',
+      'header' => 'HammerTime App',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'Eski HammerTime Sitesi',
-      'p' => 'Projenin, bir sonraki duyuruya kadar hâlâ yayında olan eski sitesi',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane\'in <1>Renkli</1> Metin Oluşturucusu',
-      'p' => 'ANSI renk kodlarını kullanarak renkli Discord mesajları oluşturan basit bir uygulama',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Bu projenin oluşturulmasına ilham veren, yeterince takdir edilmemiş bir yarış oyunu için haftalık meydan okumalara ev sahipliği yapan topluluk",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Zaman damgası oluşturmak için HammerTime\'ın tek araç olmadığını biliyor muydunuz?',
-        'p2' => 'Size en uygun olanı bulmak için bu diğer Discord zaman damgası oluşturucularına göz atmak isteyebilirsiniz:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => '3ventic tarafından geliştirilen basit ve hızlı bir zaman damgası oluşturucu',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'dabric tarafından geliştirilen doğal dil Discord zaman damgası oluşturucu',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Sellframe Ltd. tarafından geliştirilen, yerel saat dilimi destekli ücretsiz Discord zaman damgası oluşturucu',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'DiscordTimestamp.org tarafından geliştirilen Discord zaman damgası oluşturucu ve zaman dönüştürücü',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Tunks tarafından geliştirilen Sesh planlama botu ekosistemi içerisinden Discord markdown zaman damgaları oluşturun',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

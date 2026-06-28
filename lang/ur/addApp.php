@@ -1,13 +1,13 @@
 <?php
 
 return [
-  "title" => "چنیں کہ آپ ایپ کہاں شامل کرنا چاہتے ہیں",
+  "title" => "Select where you would like to add the app",
   "user" => [
-    "title" => "میری ایپس میں شامل کریں",
-    "description" => "اس ایپ کو ہر جگہ استعمال کریں!",
+    "title" => "Add to My Apps",
+    "description" => "Use this app everywhere!",
   ],
   "guild" => [
-    "title" => "سرور میں شامل کریں",
-    "description" => "اس ایپ کو شامل کر کے اپنے سرور کو خود سے ترتیب دیں",
+    "title" => "Add to Server",
+    "description" => "Customize your server by adding this app",
   ],
 ];

@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Analisi Visualizzazioni Pagina',
+  'heading' => 'Page View Analytics',
   'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
-  'collectionMethod' => 'I dati vengono raccolti lato server, in base alle risposte inviate a un insieme limitato di pagine. Le visualizzazioni delle pagine vengono registrate individualmente, ma aggregate quotidianamente da un processo in background.',
-  'lastUpdated' => 'Le informazioni di questa pagina vengono memorizzate nella cache per un breve periodo per ridurre il carico del server. I dati che vedi sono stati aggiornati l\'ultima volta <1/>.',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => 'Visualizzazioni Pagina Totali Giornaliere',
-    'breakdown' => 'Ripartizione Visualizzazioni Pagina',
-    'byPage' => 'Per Pagine',
-    'byLanguage' => 'Per Lingua',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Sconosciuto',
+    'unknown' => 'Unknown',
   ],
 ];

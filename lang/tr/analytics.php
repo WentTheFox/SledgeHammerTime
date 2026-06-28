@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Sayfa Görüntüleme Analitiği',
+  'heading' => 'Page View Analytics',
   'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
-  'collectionMethod' => 'Veriler, sınırlı sayıdaki sayfaya gönderilen yanıtlara dayanarak sunucu tarafında toplanır. Sayfa görüntülemeleri bireysel olarak kaydedilir, ancak bir arka plan işlemi tarafından günlük olarak birleştirilir.',
-  'lastUpdated' => 'Sunucu yükünü azaltmak amacıyla, bu sayfadaki bilgiler kısa süreliğine önbelleğe alınmaktadır. Gördüğünüz veriler en son <1/> güncellendi.',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => 'Günlük Toplam Sayfa Görüntüleme',
-    'breakdown' => 'Sayfa Görüntüleme Dağılımı',
-    'byPage' => 'Sayfalara Göre',
-    'byLanguage' => 'Dile Göre',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Bilinmeyen',
+    'unknown' => 'Unknown',
   ],
 ];

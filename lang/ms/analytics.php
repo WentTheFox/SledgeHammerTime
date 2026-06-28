@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'heading' => 'Analitik Halaman Dilihat',
-  'description' => 'Halaman ini mengandungi analitik asas (yang disimpan dan dipaparkan tanpa sebarang perincian kenal pasti peribadi) untuk agregat jumlah halaman dilihat keseluruhannya di apl merentasi :days hari yang lepas.',
-  'collectionMethod' => 'Data ini dikumpul di sisi pelayan, berdasarkan tindak balas yang dihantar ke set halaman yang terhad. Halaman dilihat direkod secara individu tetapi teragregat secara harian oleh proses latar belakang.',
-  'lastUpdated' => 'Maklumat di halaman ini disimpan ke cache bagi tempoh yang singkat untuk mengurangkan muatan pelayan. Data yang anda lihat dikemaskinikan buat kali terakhir pada <1/>.',
+  'heading' => 'Page View Analytics',
+  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
+  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
+  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
   'charts' => [
-    'dailyTotal' => 'Jumlah Harian Halaman Dilihat',
-    'breakdown' => 'Pecahan Halaman Dilihat',
-    'byPage' => 'Mengikut Halaman',
-    'byLanguage' => 'Mengikut Bahasa',
+    'dailyTotal' => 'Daily Total Page Views',
+    'breakdown' => 'Page Views Breakdown',
+    'byPage' => 'By Pages',
+    'byLanguage' => 'By Language',
   ],
   'values' => [
-    'unknown' => 'Tidak diketahui',
+    'unknown' => 'Unknown',
   ],
 ];

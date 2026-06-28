@@ -1,91 +1,91 @@
 <?php
 
 return [
-  'howTo' => 'Válassz egy dátumot, másold ki a kívánt jelölőt a :syntaxColName oszlopból, majd másold be bárhova egy üzenetbe. Az eredmény egy dinamikus időbélyeg lesz, ami mindenkinek máshogy fog megjelenni a saját időzónájuktól függően.',
+  'howTo' => 'Pick a date, copy the desired timestamp from the :syntaxColName column, then paste it anywhere in a chat message. The result will be a dynamic timestamp that displays differently for everyone based on their own timezone.',
   'picker' => [
     'label' => [
-      'date' => 'Dátum',
-      'time' => 'Idő',
-      'dateAndTime' => 'Dátum és idő',
-      'timezone' => 'Időzóna',
-      'naturalLanguageInput' => '@time bevitel',
-      'modeOffset' => 'Abszolút Eltolás',
-      'modeZoneName' => 'Zóna Név',
+      'date' => 'Date',
+      'time' => 'Time',
+      'dateAndTime' => 'Date and time',
+      'timezone' => 'Timezone',
+      'naturalLanguageInput' => '@time input',
+      'modeOffset' => 'Absolute Offset',
+      'modeZoneName' => 'Zone Name',
     ],
     'button' => [
-      'jumpToToday' => 'Ugrás az aktuális hónapra',
+      'jumpToToday' => 'Jump to current month',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
-      'setToCurrent' => 'Aktuális idő beállítása',
-      'lock' => 'Időbélyeg rögzítése URL-el',
-      'unlock' => 'Időbélyeg feloldása',
-      'previousYear' => 'Előző év',
-      'previousMonth' => 'Előző hónap',
-      'previousDecade' => 'Előző évtized',
-      'nextMonth' => 'Következő hónap',
-      'nextYear' => 'Következő év',
-      'nextDecade' => 'Következő évtized',
+      'setToCurrent' => 'Set to current time',
+      'lock' => 'Lock timestamp via URL',
+      'unlock' => 'Unlock timestamp',
+      'previousYear' => 'Previous year',
+      'previousMonth' => 'Previous month',
+      'previousDecade' => 'Previous decade',
+      'nextMonth' => 'Next month',
+      'nextYear' => 'Next year',
+      'nextDecade' => 'Next decade',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Nem értelmezhető a természetes nyelvi bevitel'
+      'naturalLanguageParseError' => 'Could not parse natural language input'
     ]
   ],
   'table' => [
-    'syntaxColumn' => 'Üzenet formája',
-    'resultColumn' => 'Példa megjelenés',
-    'editFormats' => 'Formátumok testreszabása',
-    'resetFormats' => 'Alaphelyzetbe állítás',
-    'hideFormat' => 'Formátum elrejtése',
-    'showFormat' => 'Formátum megjelenítése',
-    'unhideInProfile' => 'Megjelenítés a profilbeállításokban',
+    'syntaxColumn' => 'Chat syntax',
+    'resultColumn' => 'Example result',
+    'editFormats' => 'Customize formats',
+    'resetFormats' => 'Reset to defaults',
+    'hideFormat' => 'Hide this format',
+    'showFormat' => 'Show this format',
+    'unhideInProfile' => 'Unhide in profile settings',
   ],
   'faq' => [
-    'title' => 'Gyakran Ismételt Kérdések',
-    'description' => 'Ez a rész egyelőre csak angol nyelven érhető el, és nagyrészt <1>a Discord szerverünk</1> tartalmán alapul. Egyes linkek lehet, hogy nen működnek, csak ha tagja vagy.',
+    'title' => 'Frequently Asked Questions',
+    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
-    'lead' => 'Ezeket is hasznosnak találhatod:',
+    'lead' => 'You may also find these useful:',
     'server' => [
-      'header' => 'Hivatalos HammerTime Szerver',
-      'p' => 'Csevegj a weboldalról, próbáld ki a kódokat és javasolj funkciókat',
+      'header' => 'Official HammerTime Server',
+      'p' => 'Discuss the website, test the syntax and suggest features',
     ],
     'bot' => [
       'header' => 'HammerTime App',
-      'p' => 'Generálj időbélyegeket slash parancsok használatával',
+      'p' => 'Generate timestamps from within Discord using slash commands',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Régi Weboldal',
-      'p' => 'A projekt régi weboldala, amely további értesítésig még mindig elérhető',
+      'header' => 'HammerTime Old Website',
+      'p' => 'The old website of the project, still available until further notice',
     ],
     'textColor' => [
-      'header' => 'Rebane <1>Színezett</1> Szöveg Generálója',
-      'p' => 'Egy egyszerű oldal, ami ANSI színkódokkal színezett Discord üzeneteket készít',
+      'header' => 'Rebane\'s <1>Colored</1> Text Generator',
+      'p' => 'A simple app that creates colored Discord messages using ANSI color codes',
     ],
     "subreddit" => [
-      "p" => "Egy alulértékelt autóversenyzős játék közössége, mely heti kihívások házigazdája, és a projekt létrejöttét ihlette",
+      "p" => "The community hosting weekly challenges for an underrated racing game that inspired the creation of this project",
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Tudtad, hogy a HammerTime nem az egyetlen eszköz időbélyegek generálására?',
-        'p2' => 'Érdemes megnézned ezeket a más Discord időbélyeg generátorokat, hogy megtaláld a számodra legmegfelelőbbet:',
+        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
+        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'Egy egyszerű és gyors időbélyeg generátor 3ventic által',
+        'p' => 'A simple and fast timestamp generator by 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Természetes nyelvű Discord időbélyeg generátor dabric által',
+        'p' => 'Natural language Discord timestamp generator by dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Ingyenes Discord időbélyeggenerátor helyi időzóna-támogatással a Sellframe Ltd. által.',
+        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord időbélyeg generátor és idő átalakító a DiscordTimestamp.org segítségével',
+        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Discord markdown időbélyegzők létrehozása a Sesh ütemező bot ökoszisztémájából Tunks által',
+        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
       ],
     ],
   ],

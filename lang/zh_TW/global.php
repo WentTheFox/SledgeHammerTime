@@ -1,11 +1,11 @@
 <?php
 
 return [
-  'seoDescription' => '為 Discord 聊天訊息生成時間戳指示符',
-  'changeLanguage' => '改變語言',
+  'seoDescription' => 'Generate timestamp indicators for Discord chat messages',
+  'changeLanguage' => 'Change language',
   "notFound" => [
     "heading" => "Page Not Found",
-    "content" => "這沒東西看",
+    "content" => "Nothing to see here.",
     "suggestions" => [
       "heading" => "Looking for something?",
       "description" => "Here are some pages that might help:",
@@ -26,28 +26,28 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
   ],
-  'incompleteTranslations' => '未完整翻譯',
-  'contributeTranslations' => '參與貢獻',
+  'incompleteTranslations' => 'Translations are incomplete',
+  'contributeTranslations' => 'Contribute',
   'timezoneBadge' => [
     'currently' => 'Observed currently',
     'atPickedDate' => 'Observed at picked time',
     'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
   ],
-  'copyToClipboard' => '複製到剪貼簿',
+  'copyToClipboard' => 'Copy to clipboard',
   'copiedToClipboard' => 'Copied to clipboard!',
   'jsDisabled' => [
-    'title' => 'JavaScript 是必需的',
-    'body' => "您的瀏覽器不支援 JavaScript 或目前已停用。出於安全考量，有些瀏覽器預設會停用 JavaScript，但對於這個應用程式來說，啟用 JavaScript 是必要的。請啟用 JavaScript 並重新整理頁面，或使用其他瀏覽器。",
+    'title' => 'JavaScript is necessary',
+    'body' => "Your browser either does not support JavaScript or it's currently disabled. Some browsers disable JavaScript by default for security reasons, but it's necessary for this application. Please enable it and refresh the page, or use a different browser.",
   ],
   'nav' => [
-    'botSettings' => '程式設定',
+    'botSettings' => 'App Settings',
     'profile' => 'Profile',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => '輸入設定',
+      'title' => 'Input settings',
       'naturalLanguageInput' => [
         'label' => '@time input field',
         'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
@@ -61,8 +61,8 @@ return [
         'description' => "Replace the browser default time input with a custom one. This is especially useful if you have trouble selecting the time on mobile browsers.",
       ],
       'separateInputs' => [
-        'label' => '單獨輸入',
-        'description' => "顯示兩個不同的日期和時間輸入而不是組合一個（某些瀏覽器不支持）",
+        'label' => 'Separate inputs',
+        'description' => "Display two different inputs for date and time instead of a combined one (which is not supported in some browsers)",
       ],
       'flatUi' => [
         'label' => 'Flatten interface',
@@ -98,7 +98,7 @@ return [
         'potentiallyWrong' => 'Your system clock might be wrong.',
         'value' => 'The difference between the local and server time is :offset.',
       ],
-      'details' => '細節',
+      'details' => 'Details',
       'syncButtonLabel' => 'Synchronize',
       'roundTripDuration' => 'Round-trip duration',
       't0' => 'The client\'s timestamp of the request transmission',
@@ -110,26 +110,26 @@ return [
       'networkOffsetCell' => 'Detected Offset (via Network)',
     ],
     'localSettings' => [
-      'title' => '本機設定',
+      'title' => 'Local Settings',
     ],
     'credits' => [
-      'title' => '製作群',
-      'developedBy' => '開發者：<1></1>',
-      'using' => '引用工具：<1></1>',
+      'title' => 'Credits',
+      'developedBy' => 'Developed by <1></1>',
+      'using' => 'Using <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',
       'vueJs' => 'Vue.js',
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
-      'translatedBy' => '翻譯者：<1></1>',
-      'openSourceSoftware' => '開源軟件',
-      'viewSourceCode' => '檢視原始碼',
-      'notAffiliated' => '該專案不隸屬於 Discord',
+      'translatedBy' => 'Translations by <1></1>',
+      'openSourceSoftware' => 'Open-source software',
+      'viewSourceCode' => 'View source code',
+      'notAffiliated' => 'This project is not affiliated with Discord.',
     ],
     'themeButton' => [
-      'dark' => '深色主題',
-      'light' => '淺色主題',
+      'dark' => 'Dark Theme',
+      'light' => 'Light Theme',
       'system' => 'Use System Theme',
     ],
   ],

@@ -10,7 +10,7 @@ return [
   'defaultOption' => 'Default',
   'fields' => [
     'timezone' => [
-      'displayName' => 'Fus horari',
+      'displayName' => 'Timezone',
     ],
     'format' => [
       'displayName' => 'Format',
