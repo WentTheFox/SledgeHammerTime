@@ -97,6 +97,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Rohan](https://crowdin.com/profile/SirRohan)
   - [Senna](https://crowdin.com/profile/Poseidon281)
   - [SixieP](https://crowdin.com/profile/SixieP)
+  - [TheSatanicFlame](https://crowdin.com/profile/TheSatanicFlame)
 - Esperanto
   - [Rémi Simonnin](https://crowdin.com/profile/remsoff)
   - [Stela Verd](https://crowdin.com/profile/Verdstela)
@@ -142,6 +143,8 @@ English and Hungarian translations have been included, so no translators will be
   - [TakeOffToLand](https://crowdin.com/profile/TakeOffToLand)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
+  - [Tluxxa](https://crowdin.com/profile/Tluxxa)
+  - [WennLenn](https://crowdin.com/profile/WennLenn)
 - 🇬🇷 Greek
   - [Belle Bernice](https://crowdin.com/profile/BelleBernice)
   - [dx4](https://crowdin.com/profile/dx4)
@@ -177,6 +180,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ちあたん](https://crowdin.com/profile/chiatan1006)
   - [ゆううゆ](https://crowdin.com/profile/yuuuyu)
 - 🇰🇷 Korean
+  - [@v1sion](https://crowdin.com/profile/YHS-Sec)
   - [Appie](https://crowdin.com/profile/Appie_0)
   - [AwayFrom-Keyboard](https://crowdin.com/profile/AwayFrom-Keyboard)
   - [Bin](https://crowdin.com/profile/cheesepickle12345678)
@@ -272,6 +276,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Feor](https://crowdin.com/profile/EL0nMusk)
   - [ff rgg](https://crowdin.com/profile/rggff246)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
+  - [Guw1a](https://crowdin.com/profile/maxim2010kor)
   - [JudDayLum Official](https://crowdin.com/profile/JudDayLum)
   - [JudeDM](https://crowdin.com/profile/JudeDM)
   - [Livonski Homak](https://crowdin.com/profile/homaklivonski)
@@ -317,6 +322,7 @@ English and Hungarian translations have been included, so no translators will be
   - [vAdrien](https://crowdin.com/profile/vAdrien)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
+  - [zubzerozD](https://crowdin.com/profile/zubzerozD)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
   - [Liggliluff](https://github.com/Liggliluff)
