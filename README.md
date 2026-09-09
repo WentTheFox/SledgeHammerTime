@@ -67,6 +67,7 @@ English and Hungarian translations have been included, so no translators will be
   - [煇煇](https://crowdin.com/profile/huihuila)
   - [神風神鵝 エホバ神魔狼](https://crowdin.com/profile/lalauya1122)
 - 🇭🇷 Croatian
+  - [Almost Sapro](https://crowdin.com/profile/notsapro)
   - [net-tech-](https://crowdin.com/profile/net-tech-)
   - [tovhov](https://crowdin.com/profile/tovhov)
   - [Volvone](https://github.com/volvone)
@@ -336,6 +337,7 @@ English and Hungarian translations have been included, so no translators will be
   - [zubzerozD](https://crowdin.com/profile/zubzerozD)
 - 🇸🇪 Swedish
   - [joll05](https://crowdin.com/profile/joll05)
+  - [Kristoffer Minya](https://crowdin.com/profile/phenonymous)
   - [Liggliluff](https://github.com/Liggliluff)
   - [Ludwig Lannebro](https://crowdin.com/profile/lannebroludwig)
   - [Luna A](https://crowdin.com/profile/LumiKitten)
@@ -360,6 +362,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Mykhailo Yaremenko](https://crowdin.com/profile/WhiteBear60)
   - [O5](https://crowdin.com/profile/O5)
   - [Sheva She](https://crowdin.com/profile/Sheva09)
+  - [Артем](https://crowdin.com/profile/artenovis9020)
   - [Кухарчук Ярослав](https://crowdin.com/profile/Gamer_Yaroslaw)
   - [Сергій Коваленко](https://crowdin.com/profile/Serhii0659)
 - 🇵🇰 Urdu (Pakistan)
