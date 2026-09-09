@@ -28,53 +28,53 @@ Language -> Discord role ID map (fill in as roles are created; a language with n
 here has no role yet — post the comment without a mention prefix for it, don't guess or
 invent an ID):
 
-| Crowdin language | Discord role ID |
-|---|---|
-| ar | |
-| bg | |
-| ca | |
-| cs | |
-| da | |
-| de | |
-| el | |
-| en-GB | |
-| eo | |
-| es-ES | |
-| fa | |
-| fi | |
-| fr | |
-| he | |
-| hi | |
-| hr | |
-| hu | |
-| id | |
-| it | |
-| ja | |
-| ko | |
-| lt | |
-| lv | |
-| mn | |
-| ms | |
-| nb | |
-| nl | |
-| pl | |
-| pt-BR | |
-| pt-PT | |
-| ro | |
-| ru | |
-| sr-CS | |
-| sv-SE | |
-| th | |
-| tr | |
-| uk | |
-| ur-PK | |
-| vi | |
-| zh-CN | |
-| zh-TW | |
+| Discord role name | Crowdin language | Discord role ID |
+|:--|---|---|
+| Language: Arabic | ar | 952289154274840607 |
+| Language: Bulgarian | bg | 952289523059027979 |
+| Language: Catalan | ca | 994733283508240414 |
+| Language: Chinese (Simplified) | zh-CN | 976791611755364392 |
+| Language: Chinese (Traditional) | zh-TW | 1011550226416406568 |
+| Language: Croatian | hr | 1084224980872605776 |
+| Language: Czech | cs | 1070464855825461388 |
+| Language: Danish | da | 1094291074421366814 |
+| Language: Dutch | nl | 952289191507689502 |
+| Language: Esperanto | eo | 1400058047262625864 |
+| Language: Finnish | fi | 1317678997521432596 |
+| Language: French | fr | 952288987400241182 |
+| Language: German | de | 952289094971568171 |
+| Language: Greek | el | 966955619275907134 |
+| Language: Hebrew | he | 974624357173313586 |
+| Language: Hindi | hi | 1130667387943927931 |
+| Language: Indonesian | id | 971666264504295434 |
+| Language: Italian | it | 952289316862824469 |
+| Language: Japanese | ja | 960925152135241819 |
+| Language: Korean | ko | 964878976361304095 |
+| Language: Latvian | lv | 1068944004982509638 |
+| Language: Lithuanian | lt | 974828519743963176 |
+| Language: Malay | ms | 952289226626588703 |
+| Language: Mongolian | mn | 1312754985599242271 |
+| Language: Norwegian | nb | 1259673403103772835 |
+| Language: Persian | fa | 1012306611215290378 |
+| Language: Polish | pl | 952288402974343218 |
+| Language: Portuguese | pt-PT | 952287873179213834 |
+| Language: Portuguese, Brazilian | pt-BR | 952287873179213834 |
+| Language: Romanian | ro | 1047281657822068868 |
+| Language: Russian | ru | 952289023559340102 |
+| Language: Serbian | sr-CS | 1074463710824902657 |
+| Language: Spanish | es-ES | 952289277151182868 |
+| Language: Swedish | sv-SE | 952289467459321876 |
+| Language: Thai | th | 1035510756424286318 |
+| Language: Turkish | tr | 952289575961767947 |
+| Language: Ukrainian | uk | 1009799316820467752 |
+| Language: Urdu | ur-PK | 1091347676118908978 |
+| Language: Vietnamese | vi | 1164505805475819560 |
 
-(this list is the project's target languages as of 2026-09-09 — if a language is added or
+This list is the project's target languages as of 2026-09-09 — if a language is added or
 removed from the Crowdin project later, this table will drift; re-check against
-`get_project_progress` if a run reports an unfamiliar language code.)
+`get_project_progress` if a run reports an unfamiliar language code.
+
+Note: The `hu` and `en-GB` locales do not have translators as they are included with the project and nobody should be tagged for them. If there is any issue with either of these translations, flag it to the developer running this skill. 
 
 When posting a flagged-string comment in step 5, if the target language has a row in this
 table, prefix the comment text with `<@&ROLE_ID> ` before the explanation. Do not do this
@@ -220,6 +220,26 @@ executing, and do it in two independently-confirmable batches:
 
 Never approve a string that failed any check, even if the user only asked to "approve
 what's ready."
+
+## 6. Offer to trigger the Crowdin sync workflow
+
+If any approvals happened in step 5, ask the user whether they want to trigger the
+`.github/workflows/crowdin.yml` GitHub Actions workflow now (`workflow_dispatch`) to pull
+the newly-approved translations into a PR against `main`. This is a repo-visible action
+(runs CI, opens/updates a PR) — always confirm before running it, never trigger it
+automatically just because approvals happened.
+
+If confirmed, run:
+```
+gh workflow run crowdin.yml
+```
+Then report the run — `gh run list --workflow=crowdin.yml --limit 1` to get its URL/status,
+since `workflow_dispatch` doesn't return one directly. The workflow uploads sources,
+downloads translations, and opens/updates a PR from `i18n_main` into `main` titled "New
+Crowdin updates" — mention that to the user rather than assuming they remember what it does.
+
+If no approvals happened this run (e.g. the whole run was report-only, or everything was
+already approved), skip this step — there's nothing new for the workflow to pick up.
 
 ## Known API details (learned from testing 2026-09-09, project 750053)
 
