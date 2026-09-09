@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Wist u dat HammerTime niet de enige tool is voor het genereren van tijdstempels?',
+        'p2' => 'Misschien wilt u deze andere Discord-tijdstempel generatoren eens bekijken om er een te vinden die het beste bij u past:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Een eenvoudige en snelle tijdstempelgenerator van 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Generator voor Discord-tijstempels op basis van natuurlijke taal, door dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Gratis Discord-tijdstempelgenerator met ondersteuning voor lokale tijdzones, aangeboden door Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Discord-tijdstempelgenerator en tijdconverter van DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Maak Discord markdown tijdstempels aan vanuit het Sesh-ecosysteem van planningsbots van Tunks',
       ],
     ],
   ],
