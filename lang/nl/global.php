@@ -74,7 +74,7 @@ return [
       ],
       'hourCycle' => [
         'label' => 'Tijdnotatie',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'description' => 'Wijzig de manier hoe tijd is weergegeven in de gehele app, inclusief het tijdinvoer veld en voorbeeld resultaten.',
         'options' => [
           'default' => 'Taal standaard',
           'h12' => '12-uurs',

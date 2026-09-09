@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'title' => 'Profile',
+  'title' => 'Профіль',
   'intro' => 'The profile page allows you to manage your account information specifically related to the website. If you are looking for where to change defaults and other settings for the Discord app, visit the <1>App Settings</1> page.',
   'information' => [
     'heading' => 'Profile Information',
@@ -66,7 +66,7 @@ return [
     'deleteOverrideConfirm' => 'Are you sure you want to remove your translation credit override? Your entry will revert to the default information from Crowdin.',
     'approvedValues' => [
       'displayName' => 'Name',
-      'avatarProvider' => 'Avatar provider',
+      'avatarProvider' => 'Аватар з',
       'avatarId' => 'Avatar ID',
       'url' => 'Profile URL',
       'visible' => 'Visible',
