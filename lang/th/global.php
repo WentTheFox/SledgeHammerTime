@@ -73,8 +73,8 @@ return [
         'description' => 'แสดงหัวข้อกลุ่มแบบติด (เช่น อเมริกา, ยุโรป) ในเมนูแบบเลื่อนลงสำหรับเลือกเขตเวลา',
       ],
       'hourCycle' => [
-        'label' => 'Time format',
-        'description' => 'Change how time is displayed across the app, including the custom time input and previews.',
+        'label' => 'รูปแบบเวลา',
+        'description' => 'ปรับเปลี่ยนรูปแบบการแสดงเวลาในแอปทั้งหมด รวมถึงส่วนการป้อนเวลาแบบกำหนดเองและส่วนแสดงตัวอย่าง',
         'options' => [
           'default' => 'ตามภาษาที่กำหนดไว้',
           'h12' => '12 ชั่วโมง',
