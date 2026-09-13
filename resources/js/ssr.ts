@@ -43,5 +43,15 @@ createServer(
       },
     });
   },
-  { cluster: import.meta.env.VITE_INERTIA_CLUSTER === 'true' },
+  {
+    cluster: import.meta.env.VITE_INERTIA_CLUSTER === 'true',
+    // Defaults to the package's own default (13714) when unset, matching
+    // production. Lets a second worktree of this same app on the same
+    // host (e.g. a beta/staging copy) run its own SSR server without
+    // colliding on the port — see VITE_INERTIA_SSR_PORT in that
+    // worktree's .env. Laravel's own INERTIA_SSR_URL config controls
+    // only where Laravel calls OUT to render, not what port this
+    // process itself binds — the two must be kept in sync by hand.
+    ...(import.meta.env.VITE_INERTIA_SSR_PORT ? { port: Number(import.meta.env.VITE_INERTIA_SSR_PORT) } : {}),
+  },
 );
