@@ -13,6 +13,7 @@
 
 use App\Console\Commands\CalculateTelemetryUsage;
 use App\Console\Commands\CompressPageViews;
+use App\Console\Commands\CompressWebhookDeliveries;
 use App\Console\Commands\UpdateBotCommandOptionTotalUses;
 use App\Console\Commands\UpdateBotCommandTotalExecutions;
 use App\Console\Commands\UpdateDiscordBotListCommands;
@@ -26,3 +27,4 @@ Schedule::command(UpdateBotCommandTotalExecutions::class)->hourly();
 Schedule::command(UpdateBotCommandOptionTotalUses::class)->hourly();
 Schedule::command(CalculateTelemetryUsage::class)->hourly();
 Schedule::command(CompressPageViews::class)->daily();
+Schedule::command(CompressWebhookDeliveries::class)->daily();

@@ -7,7 +7,7 @@ use App\Enums\ReviewDecision;
 use App\Http\Middleware\CachePageResponse;
 use App\Http\Requests\BotLoginRequest;
 use App\Http\Requests\ReviewTranslationCreditOverrideProposal;
-use App\Http\Requests\SaveShardStatsRequest;
+use App\Http\Requests\SaveWebhookDeliveryRequest;
 use App\Http\Requests\TelemetryRequest;
 use App\Http\Requests\UpdateBotCommandsRequest;
 use App\Http\Requests\UpdateBotTimezonesRequest;
@@ -15,7 +15,6 @@ use App\Http\Requests\UpdateFaqEntriesRequest;
 use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
-use App\Models\BotShard;
 use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\FaqEntry;
@@ -23,6 +22,7 @@ use App\Models\Settings;
 use App\Models\TranslationCreditOverride;
 use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
+use App\Models\WebhookDelivery;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
 use App\Services\Discord\DiscordUserService;
@@ -82,20 +82,17 @@ class BotApiController extends Controller {
     return response()->json($mergedSettings);
   }
 
-  function updateShardStats(SaveShardStatsRequest $request):JsonResponse {
+  function storeWebhookDelivery(SaveWebhookDeliveryRequest $request):JsonResponse {
     $requestData = $request->validated();
 
-    $shard = BotShard::updateOrCreate([
-      'id' => $requestData['id'],
-    ], [
-      'id' => $requestData['id'],
-      'server_count' => $requestData['server_count'],
-      'member_count' => $requestData['member_count'],
-      'started_at' => $requestData['started_at'],
+    WebhookDelivery::create([
+      'occurred_at' => $requestData['occurred_at'],
+      'error_count' => $requestData['status_code'] >= 400 ? 1 : 0,
+      'avg_duration_ms' => $requestData['duration_ms'],
+      'p95_duration_ms' => $requestData['duration_ms'],
     ]);
-    $shard->touch();
 
-    return response()->json($shard);
+    return response()->json(['success' => true]);
   }
 
   function updateBotCommands(UpdateBotCommandsRequest $request):JsonResponse {

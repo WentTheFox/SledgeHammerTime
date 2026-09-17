@@ -58,7 +58,7 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');
-  Route::get('/shards', [BotInfoController::class, 'shards'])->name('app.shards');
+  Route::get('/webhook-delivery-stats', [BotInfoController::class, 'webhookDeliveryStats'])->name('app.webhookDeliveryStats');
   Route::get('/translation-progress/{locale}', [TranslationProgressController::class, 'progress'])->name('app.translationProgress');
 });
 

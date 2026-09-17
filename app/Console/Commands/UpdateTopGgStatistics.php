@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\BotShard;
+use App\Services\Discord\DiscordApiService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Psr\Http\Message\ResponseInterface;
@@ -22,6 +22,10 @@ class UpdateTopGgStatistics extends Command {
    */
   protected $description = 'Update bot statistics on the Top.gg tracking service';
 
+  public function __construct(protected DiscordApiService $discordApiService) {
+    parent::__construct();
+  }
+
   /**
    * Execute the console command.
    */
@@ -34,8 +38,7 @@ class UpdateTopGgStatistics extends Command {
     }
 
     $statsData = [
-      'server_count' => (int)BotShard::sum('server_count'),
-      'shard_count' => BotShard::count(),
+      'server_count' => $this->discordApiService->getApproximateGuildCount(),
     ];
     $this->info("Updating Top.gg bot stats…\n".var_export($statsData, return: true));
 

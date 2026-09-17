@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Az alkalmazás megtalálható a Discord App Discovery oldalán, amelyet itt nézhetsz meg:',
   'appDiscoveryCta' => 'Megtekintés az App Discovery-n',
   'shareableLink' => 'Az alábbi linket is megoszthatod másokkal, amivel bármilyen zavaró tényező nélkül hozzá tudják adni az appot:',
-  'shardStats' => [
-    'title' => 'Shard Statisztikák',
-    'description' => 'Miután egy app elér egy bizonyos számú szervert, ahol telepítve van, a Discord kötelezővé teszi a shard-olás használatát, ami lényegében azt jelenti, hogy a parancsok feldolgozása több különálló folyamat között lesz elosztva.',
-    'boxesDescription' => 'Alább néhány téglalap látható, amelyek az alkalmazás által jelenleg használt shard-okat képviselik. Szélességük arányos azzal, hogy az adott shard hány szerverhez van hozzárendelve az összesből (:totalServerCount). Rámutatás után további információk jelennek meg az adott shardról.',
-    'shardId' => 'Shard Szám',
-    'assignedServers' => 'Hozzárendelt Szerverek',
-    'startupTime' => 'Indítás Ideje',
-    'lastUpdateTime' => 'Utóljára Frissítve',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Válaszidők',
+    'description' => 'Az app a Discord HTTP Interactions végpontja mögött fut, ami azt jelenti, hogy minden választ egy szigorú időkereten belül kell visszaküldenie. Alább látható, hogy milyen gyorsan válaszolt, és milyen arányban hibázott az elmúlt :hours órában.',
+    'noData' => 'Még nincs rögzített adat a válaszidőkről.',
+    'latencyChartTitle' => 'Válaszidő',
+    'latencyAvgLabel' => 'Átlag',
+    'latencyP95Label' => '95. percentilis',
+    'errorRateChartTitle' => 'Hibaarány',
+    'errorRateLabel' => 'Hibaarány',
   ],
   'commandsReference' => [
     'title' => 'Parancsok Listája',
