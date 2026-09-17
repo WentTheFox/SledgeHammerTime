@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class SaveShardStatsRequest extends ConsoleUserFormRequest {
+class SaveWebhookDeliveryRequest extends ConsoleUserFormRequest {
   /**
    * Get the validation rules that apply to the request.
    *
@@ -12,10 +12,9 @@ class SaveShardStatsRequest extends ConsoleUserFormRequest {
    */
   public function rules():array {
     return [
-      'id' => 'required|integer|min:0',
-      'server_count' => 'required|integer|min:0',
-      'member_count' => 'present|nullable|integer|min:0',
-      'started_at' => 'required|date',
+      'status_code' => 'required|integer|min:100|max:599',
+      'duration_ms' => 'required|integer|min:0',
+      'occurred_at' => 'required|date',
     ];
   }
 }

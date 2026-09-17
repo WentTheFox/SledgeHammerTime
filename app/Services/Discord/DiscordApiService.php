@@ -24,4 +24,15 @@ class DiscordApiService {
 
     return GetUserResponse::fromResponse($response);
   }
+
+  /**
+   * The app's approximate server count, as reported by Discord itself. Used instead of a
+   * bot-pushed shard stats table so it stays correct regardless of how the bot is deployed
+   * (webhook mode has no gateway/shard connection to count guilds from locally).
+   */
+  public function getApproximateGuildCount():int {
+    $response = $this->createPendingRequest()->get('/applications/@me')->throw();
+
+    return (int)$response->json('approximate_guild_count');
+  }
 }

@@ -1,0 +1,15 @@
+.webhook-delivery-stats {
+  text-align: center;
+
+  .webhook-delivery-stats-chart-container {
+    position: relative;
+    max-width: 100%;
+    height: 30vh;
+    overflow: hidden;
+  }
+
+  .webhook-delivery-stats-loading {
+    display: flex;
+    justify-content: center;
+  }
+}

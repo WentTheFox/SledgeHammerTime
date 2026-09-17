@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::middleware('console-user')->group(function () {
     Route::post('/login-link/{discordUserId}/{locale}', [BotApiController::class, 'loginLink']);
     Route::get('/settings/{discordUserId}', [BotApiController::class, 'settings']);
-    Route::post('/shard-statistics', [BotApiController::class, 'updateShardStats']);
+    Route::post('/webhook-deliveries', [BotApiController::class, 'storeWebhookDelivery']);
     Route::put('/bot-commands', [BotApiController::class, 'updateBotCommands']);
     Route::put('/bot-timezones', [BotApiController::class, 'updateBotTimezones']);
     Route::post('/command-telemetry', [BotApiController::class, 'commandTelemetry']);
