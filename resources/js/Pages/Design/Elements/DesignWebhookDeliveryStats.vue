@@ -10,12 +10,15 @@ const generatePoints = (): WebhookDeliveryStatsPoint[] => {
   const now = Date.now();
   return Array.from({ length: windowHours }, (_, i) => {
     const requestCount = Math.round(20 + Math.random() * 80);
+    // Occasional outlier to exercise the response-time chart's cap/clamp-and-mark behavior.
+    const hasOutlier = Math.random() < 0.05;
     return {
       bucket: new Date(now - (windowHours - 1 - i) * 60 * 60 * 1000).toISOString(),
       requestCount,
       errorRate: Math.random() * 0.05,
-      avgDurationMs: Math.round(120 + Math.random() * 80),
-      p95DurationMs: Math.round(250 + Math.random() * 200),
+      avgDurationMs: hasOutlier ? Math.round(7000 + Math.random() * 5000) : Math.round(120 + Math.random() * 80),
+      medianDurationMs: Math.round(100 + Math.random() * 60),
+      p95DurationMs: hasOutlier ? Math.round(9000 + Math.random() * 5000) : Math.round(250 + Math.random() * 200),
     };
   });
 };

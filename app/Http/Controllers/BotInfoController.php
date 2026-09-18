@@ -40,7 +40,7 @@ class BotInfoController extends Controller {
   private const int WEBHOOK_DELIVERY_STATS_BUCKET_MINUTES = 5;
 
   /**
-   * @return array<array{bucket: string, requestCount: int, errorRate: float, avgDurationMs: ?float, p95DurationMs: ?float}>
+   * @return array<array{bucket: string, requestCount: int, errorRate: float, avgDurationMs: ?float, medianDurationMs: ?float, p95DurationMs: ?float}>
    */
   private function collectWebhookDeliveryStats(): array {
     $startTime = Carbon::now('UTC')->subHours(self::WEBHOOK_DELIVERY_STATS_WINDOW_HOURS - 1)->startOfHour();
@@ -60,9 +60,13 @@ class BotInfoController extends Controller {
         DB::raw('sum(request_count) as request_count'),
         DB::raw('sum(error_count) as error_count'),
         DB::raw('sum(avg_duration_ms * request_count) / sum(request_count) as avg_duration_ms'),
-        // Each row is either a single request (avg = p95 = its own duration) or an
-        // already-compressed bucket (one row, so this trivially returns its stored
-        // p95) - see app:compress-webhook-deliveries for why that holds.
+        // Each row is either a single request (median = p95 = its own duration) or an
+        // already-compressed bucket (one row, so this trivially returns its stored average
+        // for both) - see app:compress-webhook-deliveries for why that holds. Median is a
+        // deliberately better "typical" indicator than the (request-count-weighted) average
+        // above: a single huge outlier request drags the average toward it but barely moves
+        // the median at all.
+        DB::raw('percentile_cont(0.5) within group (order by avg_duration_ms) as median_duration_ms'),
         DB::raw('percentile_cont(0.95) within group (order by avg_duration_ms) as p95_duration_ms'),
       )
       ->groupBy('bucket')
@@ -88,12 +92,13 @@ class BotInfoController extends Controller {
       $row = $rowsByBucket->get($key);
 
       $results[] = $row === null
-        ? ['bucket' => $key, 'requestCount' => 0, 'errorRate' => 0, 'avgDurationMs' => null, 'p95DurationMs' => null]
+        ? ['bucket' => $key, 'requestCount' => 0, 'errorRate' => 0, 'avgDurationMs' => null, 'medianDurationMs' => null, 'p95DurationMs' => null]
         : [
           'bucket' => $key,
           'requestCount' => (int)$row->request_count,
           'errorRate' => (int)$row->request_count > 0 ? round($row->error_count / $row->request_count, 4) : 0,
           'avgDurationMs' => round((float)$row->avg_duration_ms, 1),
+          'medianDurationMs' => round((float)$row->median_duration_ms, 1),
           'p95DurationMs' => round((float)$row->p95_duration_ms, 1),
         ];
 
