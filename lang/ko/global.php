@@ -69,7 +69,7 @@ return [
         'description' => "입력 창과 버튼의 그림자와 높이 효과 비활성화",
       ],
       'timezoneStickyHeaders' => [
-        'label' => 'Timezone group headers',
+        'label' => '시간대 그룹 머리글',
         'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
       ],
       'hourCycle' => [
@@ -102,10 +102,10 @@ return [
       'details' => '세부',
       'syncButtonLabel' => '동기화',
       'roundTripDuration' => '왕복 시간',
-      't0' => 'The client\'s timestamp of the request transmission',
-      't1' => 'The server\'s timestamp of the request reception',
-      't2' => 'The server\'s timestamp of the response transmission',
-      't3' => 'The client\'s timestamp of the response reception',
+      't0' => '요청이 전송된 시점의 클라이언트 타임스탬프',
+      't1' => '요청을 수신한 시점의 서버 타임스탬프',
+      't2' => '응답이 전송된 시점의 서버 타임스탬프',
+      't3' => '응답을 수신한 시점의 클라이언트 타임스탬프',
       'timestampValue' => ':value 초',
       'offsetAmount' => ':offset ms',
       'networkOffsetCell' => '감지된 차감 (네트워크)',

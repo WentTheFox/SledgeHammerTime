@@ -2,49 +2,49 @@
 
 return [
   'title' => '앱 설정',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
-  'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
+  'description' => '아래에서 연결된 각 계정의 HammerTime 앱 현재 설정을 확인할 수 있습니다.',
+  'learnMore' => '앱이 무엇인지 잘 모르겠거나 어떤 기능을 하는지 궁금하신가요? 자세히 알아보려면 <1>디스코드 앱</1> 링크를 방문하세요.',
   'advancedSettings' => [
     'toggleText' => '고급 설정',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => '기본값',
   'fields' => [
     'timezone' => [
       'displayName' => '시간대',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => '형식',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => '형식 옵션 사용 시 미리보기 전용 응답',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => '열',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => '임시',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => '헤더',
     ],
     'boldPreview' => [
       'displayName' => '미리 보기를 굵은 글씨로',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => '​/:atCommandName 명령어의 기본 ":hourOptionName" 옵션',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => '​/:atCommandName 명령어의 기본 ":minuteOptionName" 옵션',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => '​/:atCommandName 명령어의 기본 ":secondOptionName" 옵션',
     ],
     'telemetry' => [
       'displayName' => 'Telemetry 허용',
       'explanation' => '이 옵션은 선택적입니다. 세부 사항은 <1/> 페이지를 보십시오.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => '​/:at12CommandName 명령어의 기본 ":hourOptionName" 옵션',
     ],
   ],
   'saveSuccess' => '설정이 정상적으로 저장되었습니다.',
