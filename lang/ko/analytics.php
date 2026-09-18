@@ -1,15 +1,15 @@
 <?php
 
 return [
-  'heading' => 'Page View Analytics',
-  'description' => 'This page contains basic analytics (both stored and displayed without any personally identifiable details) for aggregate total page views in the app over the last :days days.',
-  'collectionMethod' => 'The data is collected on the server side, based on responses sent to a limited set of pages. The page views are recorded individually but aggregated daily by a background process.',
-  'lastUpdated' => 'The information on this page is cached for a short period to reduce server load. The data you see was last updated <1/>.',
+  'heading' => '페이지 조회 분석',
+  'description' => '이 페이지에는 지난 :days 일 동안 앱을 통한 총 페이지 조회수에 대한 기본 분석 정보(개인 식별 정보가 포함되지 않은 상태로 저장 및 표시됨)가 포함되어 있습니다.',
+  'collectionMethod' => '데이터는 제한된 일부 페이지에 대한 응답을 기반으로 서버 측에서 수집됩니다. 페이지 조회수는 개별적으로 기록되지만, 백그라운드 프로세스에 의해 일 단위로 집계됩니다.',
+  'lastUpdated' => '이 페이지의 정보는 서버 부하를 줄이기 위해 짧은 기간 동안 캐시됩니다. 표시된 데이터는 <1/>에 마지막으로 업데이트되었습니다.',
   'charts' => [
-    'dailyTotal' => 'Daily Total Page Views',
-    'breakdown' => 'Page Views Breakdown',
-    'byPage' => 'By Pages',
-    'byLanguage' => 'By Language',
+    'dailyTotal' => '일일 총 페이지 조회수',
+    'breakdown' => '페이지 조회수 세부 내역',
+    'byPage' => '페이지별',
+    'byLanguage' => '언어에 따라',
   ],
   'values' => [
     'unknown' => '알 수 없음',
