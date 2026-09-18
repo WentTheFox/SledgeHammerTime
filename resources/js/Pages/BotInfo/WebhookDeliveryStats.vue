@@ -36,7 +36,14 @@ export interface WebhookDeliveryStatsPoint {
   // (rather than omitted) so the x-axis stays evenly spaced in real time; see
   // BotInfoController::collectWebhookDeliveryStats.
   avgDurationMs: number | null;
+  medianDurationMs: number | null;
   p95DurationMs: number | null;
+}
+
+// Chart.js dataset objects accept arbitrary extra properties, but its types don't know
+// about ours - used to stash each capped series' real (uncapped) values for the tooltip.
+interface RawDataDataset {
+  rawData?: (number | null)[];
 }
 
 const props = defineProps<{
@@ -63,31 +70,47 @@ const labels = computed(() => (props.stats ?? []).map((point) => labelFormatter.
 // Validated against the light (#fcfcfb) and dark (#1a1a19) chart surfaces with
 // scripts/validate_palette.js from the dataviz skill - keep both hexes together if either changes.
 const avgColor = computed(() => theme?.isLightTheme ? '#2a78d6' : '#3987e5');
+const medianColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
 const p95Color = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
 const errorColor = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
 const limitColor = computed(() => theme?.isLightTheme ? '#999' : '#888');
-const meanColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
 
 // Discord requires an initial interaction response within 3 seconds, or the
 // interaction token is invalidated and the reply fails outright.
 const discordResponseLimitMs = 3000;
-const latencyMaxY = computed(() => Math.max(
-  discordResponseLimitMs,
-  ...(props.stats ?? []).flatMap((point) => [point.avgDurationMs, point.p95DurationMs]).filter((value) => value !== null),
+
+// A single outlier request (e.g. a genuine multi-second timeout) otherwise stretches the
+// whole y-axis so far that every normal data point flatlines near zero. Points over this
+// get their line clamped to the cap and marked with a triangle instead of being allowed to
+// blow the scale out - see buildCappedSeries().
+const latencyCapMs = 6000;
+
+const latencyMaxY = computed(() => Math.min(
+  latencyCapMs,
+  Math.max(
+    discordResponseLimitMs,
+    ...(props.stats ?? [])
+      .flatMap((point) => [point.avgDurationMs, point.medianDurationMs, point.p95DurationMs])
+      .filter((value) => value !== null),
+  ),
 ));
 
-// Weighted by each bucket's own request count, not a plain average-of-averages, so
-// buckets with more requests count proportionally more toward the overall mean. Empty
-// buckets (null avgDurationMs, 0 requests) contribute nothing either way.
-const latencyMeanMs = computed(() => {
-  const points = (props.stats ?? []).filter((point) => point.avgDurationMs !== null);
-  const totalRequests = points.reduce((sum, point) => sum + point.requestCount, 0);
-  if (totalRequests === 0) {
-    return 0;
-  }
-  const weightedSum = points.reduce((sum, point) => sum + (point.avgDurationMs ?? 0) * point.requestCount, 0);
-  return weightedSum / totalRequests;
-});
+/**
+ * Clamps a series' values to latencyCapMs for plotting (so the line is drawn AT the cap,
+ * not silently dropped off-canvas), while marking clamped points with a visible triangle
+ * and keeping the real, uncapped values around for the tooltip to read back.
+ */
+function buildCappedSeries(rawValues: (number | null)[]) {
+  const isOverCap = rawValues.map((value) => value !== null && value > latencyCapMs);
+
+  return {
+    data: rawValues.map((value) => value === null ? null : Math.min(value, latencyCapMs)),
+    rawData: rawValues,
+    pointRadius: isOverCap.map((over) => over ? 5 : 0),
+    pointHoverRadius: isOverCap.map((over) => over ? 7 : 0),
+    pointStyle: isOverCap.map((over) => over ? 'triangle' : 'circle'),
+  };
+}
 
 const labelsColor = computed(() => theme?.isLightTheme ? '#333' : '#eee');
 const ticksColor = computed(() => theme?.isLightTheme ? '#666' : '#ccc');
@@ -101,32 +124,26 @@ const latencyChartData = computed(() => ({
       borderColor: avgColor.value,
       backgroundColor: avgColor.value,
       borderWidth: 2,
-      pointRadius: 0,
-      pointHoverRadius: 0,
       tension: 0.2,
-      data: (props.stats ?? []).map((point) => point.avgDurationMs),
+      ...buildCappedSeries((props.stats ?? []).map((point) => point.avgDurationMs)),
+    },
+    {
+      // Robust to outliers where average isn't - a single huge spike drags the average
+      // toward it but barely moves the median, so this is a better "typical" indicator.
+      label: wTrans('botInfo.webhookDeliveryStats.latencyMedianLabel').value,
+      borderColor: medianColor.value,
+      backgroundColor: medianColor.value,
+      borderWidth: 2,
+      tension: 0.2,
+      ...buildCappedSeries((props.stats ?? []).map((point) => point.medianDurationMs)),
     },
     {
       label: wTrans('botInfo.webhookDeliveryStats.latencyP95Label').value,
       borderColor: p95Color.value,
       backgroundColor: p95Color.value,
       borderWidth: 2,
-      pointRadius: 0,
-      pointHoverRadius: 0,
       tension: 0.2,
-      data: (props.stats ?? []).map((point) => point.p95DurationMs),
-    },
-    {
-      label: wTrans('botInfo.webhookDeliveryStats.latencyMeanLabel').value,
-      borderColor: meanColor.value,
-      backgroundColor: meanColor.value,
-      borderWidth: 1,
-      borderDash: [2, 2],
-      pointRadius: 0,
-      pointHoverRadius: 0,
-      pointHitRadius: 0,
-      tension: 0,
-      data: labels.value.map(() => latencyMeanMs.value),
+      ...buildCappedSeries((props.stats ?? []).map((point) => point.p95DurationMs)),
     },
     {
       label: wTrans('botInfo.webhookDeliveryStats.latencyLimitLabel').value,
@@ -204,11 +221,16 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
     tooltip: {
       mode: 'index',
       intersect: false,
-      // Empty 5-minute buckets carry a null avg/p95 (see WebhookDeliveryStatsPoint) - filter
-      // those out rather than showing a misleading "0 ms" for a bucket with no data at all.
+      // Empty 5-minute buckets carry a null avg/median/p95 (see WebhookDeliveryStatsPoint) -
+      // filter those out rather than showing a misleading "0 ms" for a bucket with no data.
       filter: (item) => item.parsed.y !== null,
       callbacks: {
-        label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)} ms`,
+        label: (item) => {
+          // Points over latencyCapMs are plotted clamped (see buildCappedSeries) so the
+          // line doesn't fly off the chart - show the real value here, not the clamped one.
+          const rawValue = (item.dataset as RawDataDataset).rawData?.[item.dataIndex];
+          return `${item.dataset.label}: ${numberFormatter.value.format(rawValue ?? item.parsed.y ?? 0)} ms`;
+        },
       },
     },
   },

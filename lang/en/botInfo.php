@@ -16,7 +16,7 @@ return [
     'latencyChartTitle' => 'Response time',
     'latencyAvgLabel' => 'Average',
     'latencyP95Label' => '95th percentile',
-    'latencyMeanLabel' => 'Mean',
+    'latencyMedianLabel' => 'Median',
     'latencyLimitLabel' => 'Discord response limit',
     'errorRateChartTitle' => 'Error rate',
     'errorRateLabel' => 'Error rate',
