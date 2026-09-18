@@ -125,6 +125,9 @@ const latencyChartData = computed(() => ({
       backgroundColor: avgColor.value,
       borderWidth: 2,
       tension: 0.2,
+      // Buckets with no requests have no average (null) - connect across them so the
+      // overall trend stays readable instead of breaking into stubs on quiet stretches.
+      spanGaps: true,
       ...buildCappedSeries((props.stats ?? []).map((point) => point.avgDurationMs)),
     },
     {
