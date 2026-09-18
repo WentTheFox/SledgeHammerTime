@@ -9,11 +9,11 @@ import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { DEVELOPER_NAME, DEVELOPER_URL } from '@/utils/app';
+import { DEVELOPER_NAME } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
 import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
 defineProps<{
   lastUpdated: DateTimeLibraryValue | undefined;
@@ -22,6 +22,7 @@ defineProps<{
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
+const developerUrl = computed(() => pageProps?.value.developerUrl ?? '');
 </script>
 
 <template>
@@ -49,7 +50,7 @@ const routeParams = useRouteParams(route, pageProps);
       <p>
         <HtTranslate i18n-key="legal.privacy.operator">
           <template #0>
-            <HtExternalLink :href="DEVELOPER_URL">
+            <HtExternalLink :href="developerUrl">
               {{ DEVELOPER_NAME }}
             </HtExternalLink>
           </template>

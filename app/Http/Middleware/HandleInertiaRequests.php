@@ -76,6 +76,9 @@ class HandleInertiaRequests extends Middleware {
    *   },
    *   ziggy: callable(): array<mixed>,
    *   crowdinData: callable(): array<mixed>,
+   *   developerUrl: string,
+   *   developerContactUrl: string,
+   *   developerAvatarUrl: string,
    * }
    */
   public static function getGlobalSharedArray(Request $request):array {
@@ -90,6 +93,12 @@ class HandleInertiaRequests extends Middleware {
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
       'crowdinData' => fn() => self::isStaticCachedRoute($request) ? null : app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
+      // Single source of truth is config('services.developer.*') - developerContactUrl is
+      // also used directly (not via this shared-props path, which needs a built Inertia
+      // page) by the plain-Blade maintenance view in Handler::render().
+      'developerUrl' => Config::get('services.developer.url'),
+      'developerContactUrl' => Config::get('services.developer.contact_url'),
+      'developerAvatarUrl' => Config::get('services.developer.avatar_url'),
     ];
   }
 }

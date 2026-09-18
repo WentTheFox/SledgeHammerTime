@@ -2,7 +2,6 @@
 
 namespace App\Exceptions;
 
-use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Inertia\Inertia;
 use Throwable;
@@ -32,10 +31,18 @@ class Handler extends ExceptionHandler {
     $response = parent::render($request, $e);
     $status = $response->getStatusCode();
     if ($status === 503 && !$request->expectsJson()){
-      return Inertia::render('Errors/MaintenanceMode', [
-        ...HandleInertiaRequests::getGlobalSharedArray($request),
+      // Deliberately not an Inertia::render() here: that would need the Vite manifest to
+      // resolve the page's JS/CSS, which is briefly missing while a deploy's `pnpm run
+      // build` step empties and rewrites public/build - exactly the window this response
+      // needs to cover. This view is plain Blade with everything inlined so it renders
+      // regardless of build state.
+      return response()->view('errors.maintenance', [
         'discordUrl' => config('services.discord.invite_url'),
-      ])->toResponse($request)->setStatusCode($status);
+        // Same config('services.developer.contact_url') value the rest of the app gets via
+        // the developerContactUrl Inertia shared prop (HandleInertiaRequests) - this view
+        // reads the config directly since it can't rely on a built Inertia page existing.
+        'developerContactUrl' => config('services.developer.contact_url'),
+      ], $status);
     }
 
     if ($request->expectsJson()){
