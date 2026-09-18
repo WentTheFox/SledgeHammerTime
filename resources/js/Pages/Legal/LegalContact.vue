@@ -6,14 +6,14 @@ import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { DEVELOPER_CONTACT_URL } from '@/utils/app';
 import { LegalSectionIds } from '@/utils/legal';
 import { safeRoute } from '@/utils/safe-route';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
+const developerContactUrl = computed(() => pageProps?.value.developerContactUrl ?? '');
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const routeParams = useRouteParams(route, pageProps);
             </HtExternalLink>
           </template>
           <template #3="slotProps">
-            <HtExternalLink :href="DEVELOPER_CONTACT_URL">
+            <HtExternalLink :href="developerContactUrl">
               {{ slotProps.text }}
             </HtExternalLink>
           </template>

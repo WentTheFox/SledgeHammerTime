@@ -25,4 +25,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
   };
   crowdinData?: LocaleReportData;
   ziggy?: Config;
+  developerUrl: string;
+  developerContactUrl: string;
+  developerAvatarUrl: string;
 };

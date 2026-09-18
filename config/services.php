@@ -75,4 +75,13 @@ return [
     'host' => env('SENTRY_HOST'),
     'project_ids' => array_filter(explode(',', env('SENTRY_PROJECT_IDS', ''))),
   ],
+
+  // Shared with the frontend via the developerUrl/developerContactUrl/developerAvatarUrl
+  // Inertia props (HandleInertiaRequests::getGlobalSharedArray) - single source of truth
+  // for both.
+  'developer' => [
+    'url' => env('DEVELOPER_URL', 'https://went.tf'),
+    'contact_url' => env('DEVELOPER_CONTACT_URL', 'https://went.tf/#contact'),
+    'avatar_url' => env('DEVELOPER_AVATAR_URL', 'https://gravatar.com/avatar/f341ebe7cfc73b35ff4ec66897b5c30d?size=64'),
+  ],
 ];
