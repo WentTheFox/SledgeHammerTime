@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Aplikasi ini dapat ditemukan di halaman Penemuan Aplikasi Discord, yang dapat Anda lihat di sini:',
   'appDiscoveryCta' => 'Lihat di Penemuan Aplikasi',
   'shareableLink' => 'Anda juga dapat membagikan tautan di bawah ini kepada orang lain sehingga mereka dapat menambahkan aplikasi tanpa gangguan tambahan:',
-  'shardStats' => [
-    'title' => 'Statistik Shard',
-    'description' => 'Setelah sebuah aplikasi mencapai jumlah server tertentu tempat aplikasi tersebut diinstal, Discord mewajibkan aplikasi untuk menggunakan sharding, yang pada dasarnya berarti membagi penanganan interaksi di antara beberapa proses.',
-    'boxesDescription' => 'Di bawah ini Anda dapat melihat beberapa persegi panjang yang mewakili semua shard yang saat ini digunakan oleh aplikasi. Lebarnya sebanding dengan jumlah server yang ditugaskan ke shard tertentu dari total (:totalServerCount). Arahkan kursor ke salah satu persegi panjang untuk melihat informasi lebih lanjut tentang shard tersebut.',
-    'shardId' => 'ID Shard',
-    'assignedServers' => 'Server yang Ditugaskan',
-    'startupTime' => 'Waktu Mulai',
-    'lastUpdateTime' => 'Terakhir Diperbarui',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Referensi Perintah',

@@ -9,16 +9,15 @@ return [
   'appDiscoveryLead' => 'คุณสามารถพบแอปนี้ได้ที่หน้า App Discovery ของ Discord ซึ่งคุณสามารถตรวจสอบได้ที่นี่:',
   'appDiscoveryCta' => 'ดูบน App Discovery',
   'shareableLink' => 'คุณยังสามารถแชร์ลิงก์ด้านล่างกับผู้อื่นได้ ซึ่งจะทำให้พวกเขาเพิ่มแอปได้โดยไม่มีสิ่งรบกวนเพิ่มเติม:',
-  'shardStats' => [
-    'title' => 'สถิติชาร์ด',
-    'description' => 'เมื่อแอปมีจำนวนเซิร์ฟเวอร์ที่ติดตั้งถึงระดับหนึ่ง Discord จะกำหนดให้ต้องใช้ระบบ Sharding ซึ่งหมายถึงการ แบ่งการประมวลผลการโต้ตอบออกเป็นหลายกระบวนการเพื่อกระจายภาระการทำงานและเพิ่มประสิทธิภาพของบอท',
-    'boxesDescription' => 'ด้านล่างนี้คุณจะเห็นสี่เหลี่ยมหลายรูป ซึ่งแสดงถึง shard ทั้งหมดที่แอปพลิเคชันกำลังใช้งานอยู่
-ความกว้างของแต่ละสี่เหลี่ยม แสดงตามสัดส่วนของจำนวนเซิร์ฟเวอร์ ที่ shard นั้นรับผิดชอบจากจำนวนทั้งหมด (:จำนวนรวมเซิฟเวอร์)
-เลื่อนเมาส์ไปวางบนสี่เหลี่ยมใด ๆ เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับ shard นั้น',
-    'shardId' => 'ID ชาร์ด',
-    'assignedServers' => 'เซิร์ฟเวอร์ที่ได้รับมอบหมาย',
-    'startupTime' => 'เวลาเริ่มต้น',
-    'lastUpdateTime' => 'อัปเดตล่าสุด',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'คำสั่งอ้างอิง',
