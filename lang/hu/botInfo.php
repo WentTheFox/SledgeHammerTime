@@ -19,7 +19,6 @@ return [
     'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
     'healthChartTitle' => 'Alkalmazás állapota',
-    'errorRateLabel' => 'Hibaarány',
     'successRateLabel' => 'Sikerességi arány',
   ],
   'commandsReference' => [

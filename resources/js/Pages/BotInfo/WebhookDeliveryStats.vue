@@ -7,6 +7,7 @@ import {
   CategoryScale,
   Chart as ChartJS,
   type ChartOptions,
+  type ScriptableContext,
   Legend,
   LinearScale,
   LineElement,
@@ -168,12 +169,38 @@ const latencyChartData = computed(() => ({
   ],
 }));
 
+// Vertical gradient pinned to the y-axis values (not the line's own extent), so the same
+// success rate is always the same color: full success color from 100% down to
+// gradientGoodUntilPercent, blending to the error color by gradientBadFromPercent. Real
+// success rates sit in a narrow band near the top, so spreading this over the whole 0-100 axis
+// would leave the line green even at a 50% success rate.
+const gradientGoodUntilPercent = 98;
+const gradientBadFromPercent = 80;
+
+function successLineColor(context: ScriptableContext<'line'>): string | CanvasGradient {
+  const { chart } = context;
+  const { ctx, chartArea, scales } = chart;
+  // Not laid out yet (first render pass, legend swatch) - nothing to build a gradient against.
+  if (!chartArea || !scales.y) return successColor.value;
+
+  const top = scales.y.getPixelForValue(100);
+  const bottom = scales.y.getPixelForValue(0);
+  const offsetFor = (percent: number) => Math.min(1, Math.max(0, (100 - percent) / 100));
+
+  const gradient = ctx.createLinearGradient(0, top, 0, bottom);
+  gradient.addColorStop(0, successColor.value);
+  gradient.addColorStop(offsetFor(gradientGoodUntilPercent), successColor.value);
+  gradient.addColorStop(offsetFor(gradientBadFromPercent), errorColor.value);
+  gradient.addColorStop(1, errorColor.value);
+  return gradient;
+}
+
 const healthChartData = computed(() => ({
   labels: labels.value,
   datasets: [
     {
       label: wTrans('botInfo.webhookDeliveryStats.successRateLabel').value,
-      borderColor: successColor.value,
+      borderColor: successLineColor,
       backgroundColor: successColor.value,
       borderWidth: 2,
       pointRadius: 0,
@@ -185,16 +212,6 @@ const healthChartData = computed(() => ({
       data: (props.stats ?? []).map((point) => point.requestCount > 0
         ? Math.round((1 - point.errorRate) * 1000) / 10
         : null),
-    },
-    {
-      label: wTrans('botInfo.webhookDeliveryStats.errorRateLabel').value,
-      borderColor: errorColor.value,
-      backgroundColor: errorColor.value,
-      borderWidth: 2,
-      pointRadius: 0,
-      pointHoverRadius: 0,
-      tension: 0.2,
-      data: (props.stats ?? []).map((point) => Math.round(point.errorRate * 1000) / 10),
     },
   ],
 }));
