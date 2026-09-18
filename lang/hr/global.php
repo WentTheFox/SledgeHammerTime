@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Stranica će se automatski ažurirati <1/>',
     'reloadButton' => 'Ažuriraj ručno',
     "supportServerButton" => "Podrška",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Prijevodi su nepotpuni',
   'contributeTranslations' => 'Doprinos',

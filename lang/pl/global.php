@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Strona automatycznie się odświeży <1/>',
     'reloadButton' => 'Odśwież ręcznie',
     "supportServerButton" => "Serwer pomocy technicznej",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Tłumaczenia są niekompletne',
   'contributeTranslations' => 'Wspomóż',

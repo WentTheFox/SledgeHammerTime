@@ -25,6 +25,7 @@ return [
     'autoReload' => '페이지가 자동으로 다시 새로고침됩니다. <1/>',
     'reloadButton' => '수동으로 새로고침',
     "supportServerButton" => "지원 서버",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => '번역 미완료',
   'contributeTranslations' => '기여하기',

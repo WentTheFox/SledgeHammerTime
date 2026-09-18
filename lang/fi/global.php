@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Tämä sivu päivittyy automaattisesti <1/>',
     'reloadButton' => 'Päivitä manuaalisesti',
     "supportServerButton" => "Palvelin",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
   'contributeTranslations' => 'Avusta',
