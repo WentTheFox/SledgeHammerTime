@@ -176,6 +176,17 @@
       var progressInterval = null;
       var updating = false;
 
+      // Intl.RelativeTimeFormat gives a fully localized "in N seconds" phrase natively (no
+      // date-fns available here - see the Vite-manifest comment above) - same composition
+      // the app's own relative-timestamp display (TimestampPreview.vue's fromNow()) uses,
+      // just without the library behind it.
+      var relativeTimeFormatter = null;
+      try {
+        relativeTimeFormatter = new Intl.RelativeTimeFormat(document.documentElement.lang, { numeric: 'auto' });
+      } catch (e) {
+        relativeTimeFormatter = null;
+      }
+
       function clearProgressInterval() {
         if (progressInterval !== null) {
           clearInterval(progressInterval);
@@ -189,7 +200,9 @@
           return;
         }
         var remainingSeconds = Math.max(0, Math.ceil((nextExecutionAt - Date.now()) / 1000));
-        nextReloadTimeEl.textContent = remainingSeconds + 's';
+        nextReloadTimeEl.textContent = relativeTimeFormatter
+          ? relativeTimeFormatter.format(remainingSeconds, 'second')
+          : '(' + remainingSeconds + 's)';
       }
 
       function attemptReload() {
