@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Halaman ini akan dimuat semula secara automatiknya <1/>',
     'reloadButton' => 'Muat semula secara manual',
     "supportServerButton" => "Pelayan Sokongan",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Terjemahan masih belum lengkap',
   'contributeTranslations' => 'Sumbang',

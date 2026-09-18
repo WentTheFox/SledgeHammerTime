@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Страницата ще се презареди автоматично <1/>',
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Преводът е недовършен',
   'contributeTranslations' => 'Допринасяне',

@@ -25,6 +25,7 @@ return [
     'autoReload' => 'The page will reload automatically <1/>',
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Cộng đồng hỗ trợ",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
   'contributeTranslations' => 'Đóng góp',

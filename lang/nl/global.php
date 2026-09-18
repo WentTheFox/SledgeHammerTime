@@ -25,6 +25,7 @@ return [
     'autoReload' => 'De pagina wordt automatisch herladen <1/>',
     'reloadButton' => 'Handmatig herladen',
     "supportServerButton" => "Support Server",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
