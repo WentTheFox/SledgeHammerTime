@@ -9,6 +9,12 @@ use Illuminate\Foundation\Queue\Queueable;
 class RecordWebhookDelivery implements ShouldQueue {
   use Queueable;
 
+  /**
+   * Total attempts (1 initial + 2 retries) - same reasoning as RecordPageView::$tries:
+   * covers a transient infra blip without a code fix, and this only ever writes a stats row.
+   */
+  public int $tries = 3;
+
   public function __construct(
     protected string $occurredAt,
     protected int $statusCode,
