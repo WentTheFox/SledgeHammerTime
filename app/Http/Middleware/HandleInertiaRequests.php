@@ -46,7 +46,18 @@ class HandleInertiaRequests extends Middleware {
     ];
     $shared['ziggy'] = fn() => [
       ...new Ziggy(url: config('app.url'))->toArray(),
-      'location' => $request->url(),
+      // ziggy-js's `location` override (used in place of `window.location`, which doesn't
+      // exist during SSR) is typed as {host?, pathname?, search?} - NOT a URL string. A bare
+      // string here means every property access (`location.pathname` etc.) silently reads
+      // undefined, so Ziggy falls through to its window.location fallback, which is also
+      // absent under Node SSR. Net effect: route().current() returns undefined for every
+      // route on every SSR'd page, and any URL built from "the current route" (e.g. the
+      // language switcher's links) silently falls back to the home route instead.
+      'location' => [
+        'host' => $request->getHttpHost(),
+        'pathname' => $request->getPathInfo(),
+        'search' => $request->getQueryString() ? '?'.$request->getQueryString() : '',
+      ],
     ];
 
     return $shared;
