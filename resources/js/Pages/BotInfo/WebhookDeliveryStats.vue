@@ -32,8 +32,11 @@ export interface WebhookDeliveryStatsPoint {
   bucket: string;
   requestCount: number;
   errorRate: number;
-  avgDurationMs: number;
-  p95DurationMs: number;
+  // null for a 5-minute bucket with no requests - kept as an explicit gap in the grid
+  // (rather than omitted) so the x-axis stays evenly spaced in real time; see
+  // BotInfoController::collectWebhookDeliveryStats.
+  avgDurationMs: number | null;
+  p95DurationMs: number | null;
 }
 
 const props = defineProps<{
@@ -70,18 +73,19 @@ const meanColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
 const discordResponseLimitMs = 3000;
 const latencyMaxY = computed(() => Math.max(
   discordResponseLimitMs,
-  ...(props.stats ?? []).flatMap((point) => [point.avgDurationMs, point.p95DurationMs]),
+  ...(props.stats ?? []).flatMap((point) => [point.avgDurationMs, point.p95DurationMs]).filter((value) => value !== null),
 ));
 
 // Weighted by each bucket's own request count, not a plain average-of-averages, so
-// buckets with more requests count proportionally more toward the overall mean.
+// buckets with more requests count proportionally more toward the overall mean. Empty
+// buckets (null avgDurationMs, 0 requests) contribute nothing either way.
 const latencyMeanMs = computed(() => {
-  const points = props.stats ?? [];
+  const points = (props.stats ?? []).filter((point) => point.avgDurationMs !== null);
   const totalRequests = points.reduce((sum, point) => sum + point.requestCount, 0);
   if (totalRequests === 0) {
     return 0;
   }
-  const weightedSum = points.reduce((sum, point) => sum + point.avgDurationMs * point.requestCount, 0);
+  const weightedSum = points.reduce((sum, point) => sum + (point.avgDurationMs ?? 0) * point.requestCount, 0);
   return weightedSum / totalRequests;
 });
 
@@ -97,8 +101,8 @@ const latencyChartData = computed(() => ({
       borderColor: avgColor.value,
       backgroundColor: avgColor.value,
       borderWidth: 2,
-      pointRadius: 3,
-      pointHoverRadius: 5,
+      pointRadius: 0,
+      pointHoverRadius: 0,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.avgDurationMs),
     },
@@ -107,8 +111,8 @@ const latencyChartData = computed(() => ({
       borderColor: p95Color.value,
       backgroundColor: p95Color.value,
       borderWidth: 2,
-      pointRadius: 3,
-      pointHoverRadius: 5,
+      pointRadius: 0,
+      pointHoverRadius: 0,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.p95DurationMs),
     },
@@ -147,8 +151,8 @@ const errorRateChartData = computed(() => ({
       borderColor: errorColor.value,
       backgroundColor: errorColor.value,
       borderWidth: 2,
-      pointRadius: 3,
-      pointHoverRadius: 5,
+      pointRadius: 0,
+      pointHoverRadius: 0,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => Math.round(point.errorRate * 1000) / 10),
     },
@@ -200,6 +204,9 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
     tooltip: {
       mode: 'index',
       intersect: false,
+      // Empty 5-minute buckets carry a null avg/p95 (see WebhookDeliveryStatsPoint) - filter
+      // those out rather than showing a misleading "0 ms" for a bucket with no data at all.
+      filter: (item) => item.parsed.y !== null,
       callbacks: {
         label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)} ms`,
       },
@@ -209,6 +216,10 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
 
 const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
   ...baseChartOptions.value,
+  interaction: {
+    mode: 'index',
+    intersect: false,
+  },
   scales: {
     ...baseChartOptions.value.scales,
     y: {
@@ -224,6 +235,8 @@ const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
   plugins: {
     ...baseChartOptions.value.plugins,
     tooltip: {
+      mode: 'index',
+      intersect: false,
       callbacks: {
         label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)}%`,
       },
