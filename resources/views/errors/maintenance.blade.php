@@ -140,10 +140,7 @@
     @if($discordUrl)
       <p>{{ __('global.maintenanceMode.content.joinSupportServer') }}</p>
     @else
-      <p>
-        {{ __('global.maintenanceMode.content.contactDeveloper') }}
-        <a href="{{ $developerContactUrl }}">{{ $developerContactUrl }}</a>
-      </p>
+      <p>{{ __('global.maintenanceMode.content.contactDeveloper') }}</p>
     @endif
 
     <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
@@ -154,6 +151,8 @@
     <div class="actions">
       @if($discordUrl)
         <a class="btn btn-primary" href="{{ $discordUrl }}">{{ __('global.maintenanceMode.supportServerButton') }}</a>
+      @else
+        <a class="btn btn-primary" href="{{ $developerContactUrl }}">{{ __('global.maintenanceMode.contactDeveloperButton') }}</a>
       @endif
       <button class="btn" id="reload-btn" type="button">{{ __('global.maintenanceMode.reloadButton') }}</button>
     </div>
