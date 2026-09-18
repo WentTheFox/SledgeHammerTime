@@ -19,7 +19,7 @@ use Inertia\Response as InertiaResponse;
 
 class BotInfoController extends Controller {
   private const string WEBHOOK_DELIVERY_STATS_CACHE_KEY = 'webhook-delivery-stats-v1';
-  private const int WEBHOOK_DELIVERY_STATS_WINDOW_HOURS = 24;
+  private const int WEBHOOK_DELIVERY_STATS_WINDOW_HOURS = 12;
 
   public function index(): InertiaResponse {
     return Inertia::render('BotInfo/IndexComponent', [
