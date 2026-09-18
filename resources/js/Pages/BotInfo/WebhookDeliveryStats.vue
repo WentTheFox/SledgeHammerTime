@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { themeInject } from '@/injection-keys';
+import { useNumberFormatter } from '@/composables/useNumberFormatter';
+import { currentLanguageInject, localSettingsInject, themeInject } from '@/injection-keys';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtLoadingIndicator from '@/Reusable/HtLoadingIndicator.vue';
 import {
@@ -41,9 +42,20 @@ const props = defineProps<{
 }>();
 
 const theme = inject(themeInject);
+const currentLanguage = inject(currentLanguageInject);
+const localSettings = inject(localSettingsInject);
+const numberFormatter = useNumberFormatter();
 
-const labelFormatter = new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
-const labels = computed(() => (props.stats ?? []).map((point) => labelFormatter.format(new Date(point.bucket))));
+const labelFormatter = computed(() => new Intl.DateTimeFormat(currentLanguage?.value.locale, {
+  day: 'numeric',
+  month: 'short',
+  hour: '2-digit',
+  minute: '2-digit',
+  // Only pin h12/h24 when the user picked one explicitly - otherwise let the locale's own
+  // convention decide, same as the rest of the app's date/time formatting.
+  ...(localSettings?.hourCycle ? { hourCycle: localSettings.hourCycle } : {}),
+}));
+const labels = computed(() => (props.stats ?? []).map((point) => labelFormatter.value.format(new Date(point.bucket))));
 
 // Validated against the light (#fcfcfb) and dark (#1a1a19) chart surfaces with
 // scripts/validate_palette.js from the dataviz skill - keep both hexes together if either changes.
@@ -154,7 +166,7 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
       max: latencyMaxY.value,
       ticks: {
         color: ticksColor.value,
-        callback: (value) => `${value} ms`,
+        callback: (value) => `${numberFormatter.value.format(Number(value))} ms`,
       },
     },
   },
@@ -164,7 +176,7 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
       mode: 'index',
       intersect: false,
       callbacks: {
-        label: (item) => `${item.dataset.label}: ${item.formattedValue} ms`,
+        label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)} ms`,
       },
     },
   },
@@ -180,7 +192,7 @@ const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
       max: 100,
       ticks: {
         color: ticksColor.value,
-        callback: (value) => `${value}%`,
+        callback: (value) => `${numberFormatter.value.format(Number(value))}%`,
       },
     },
   },
@@ -188,7 +200,7 @@ const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
     ...baseChartOptions.value.plugins,
     tooltip: {
       callbacks: {
-        label: (item) => `${item.dataset.label}: ${item.formattedValue}%`,
+        label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)}%`,
       },
     },
   },

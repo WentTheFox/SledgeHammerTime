@@ -12,6 +12,7 @@ use App\Http\Requests\TelemetryRequest;
 use App\Http\Requests\UpdateBotCommandsRequest;
 use App\Http\Requests\UpdateBotTimezonesRequest;
 use App\Http\Requests\UpdateFaqEntriesRequest;
+use App\Jobs\RecordWebhookDelivery;
 use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
@@ -22,7 +23,6 @@ use App\Models\Settings;
 use App\Models\TranslationCreditOverride;
 use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
-use App\Models\WebhookDelivery;
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\Crowdin\ImportCrowdinTranslatorsService;
 use App\Services\Discord\DiscordUserService;
@@ -85,12 +85,11 @@ class BotApiController extends Controller {
   function storeWebhookDelivery(SaveWebhookDeliveryRequest $request):JsonResponse {
     $requestData = $request->validated();
 
-    WebhookDelivery::create([
-      'occurred_at' => $requestData['occurred_at'],
-      'error_count' => $requestData['status_code'] >= 400 ? 1 : 0,
-      'avg_duration_ms' => $requestData['duration_ms'],
-      'p95_duration_ms' => $requestData['duration_ms'],
-    ]);
+    RecordWebhookDelivery::dispatch(
+      $requestData['occurred_at'],
+      $requestData['status_code'],
+      $requestData['duration_ms'],
+    );
 
     return response()->json(['success' => true]);
   }

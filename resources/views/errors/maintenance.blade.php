@@ -16,10 +16,17 @@
       --bg: #fcfcfb;
       --fg: #1a1a19;
       --muted: #666;
-      --accent: #eb6834;
+      /* Same blurple as the app's primary buttons/links (see
+         --ht-color-button-primary-bg-dark and --ht-color-content-link-light in
+         resources/css/design/_common.scss) - used here for text/links/progress since
+         the pale light-theme button bg (#c0c5fa) doesn't have enough contrast on its own. */
+      --accent: #5865f2;
       --card-bg: #ffffff;
       --card-border: rgba(0, 0, 0, 0.1);
       --track-bg: rgba(0, 0, 0, 0.1);
+      --button-bg: #c0c5fa;
+      --button-border: #979ef0;
+      --button-color: #000;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -27,10 +34,12 @@
         --bg: #1a1a19;
         --fg: #fcfcfb;
         --muted: #ccc;
-        --accent: #d95926;
         --card-bg: #262625;
         --card-border: rgba(255, 255, 255, 0.1);
         --track-bg: rgba(255, 255, 255, 0.1);
+        --button-bg: #5865f2;
+        --button-border: #3443e3;
+        --button-color: #fff;
       }
     }
 
@@ -118,9 +127,9 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
+      background: var(--button-bg);
+      border-color: var(--button-border);
+      color: var(--button-color);
     }
   </style>
 </head>
