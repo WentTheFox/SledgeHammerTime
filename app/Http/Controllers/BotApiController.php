@@ -15,6 +15,7 @@ use App\Http\Requests\UpdateFaqEntriesRequest;
 use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
+use App\Models\BotCommandTranslation;
 use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\FaqEntry;
@@ -34,6 +35,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class BotApiController extends Controller {
   public function __construct(
@@ -98,41 +100,30 @@ class BotApiController extends Controller {
   function updateBotCommands(UpdateBotCommandsRequest $request):JsonResponse {
     $requestData = $request->validated();
 
-    $commands = [];
-    foreach ($requestData as $commandData){
-      /**
-       * @var BotCommand $command
-       */
-      $command = BotCommand::updateOrCreate([
-        'name' => $commandData['name'],
-      ], [
-        'id' => $commandData['id'],
-        'name' => $commandData['name'],
-        'description' => $commandData['description'],
-        'type' => $commandData['type'],
-      ]);
-      if (!empty($commandData['name_localizations'])){
-        foreach ($commandData['name_localizations'] as $locale => $value){
-          $this->saveLocalizations(
-            command: $command,
-            locale: $locale,
-            field: 'name',
-            value: $value
-          );
-        }
-      }
-      if (!empty($commandData['description_localizations'])){
-        foreach ($commandData['description_localizations'] as $locale => $value){
-          $this->saveLocalizations(
-            command: $command,
-            locale: $locale,
-            field: 'description',
-            value: $value
-          );
-        }
-      }
-      if (!empty($commandData['options'])){
-        foreach ($commandData['options'] as $order => $optionData){
+    $commands = DB::transaction(function () use ($requestData) {
+      $commands = [];
+      foreach ($requestData as $commandData){
+        /**
+         * @var BotCommand $command
+         */
+        $command = BotCommand::updateOrCreate([
+          'name' => $commandData['name'],
+        ], [
+          'id' => $commandData['id'],
+          'name' => $commandData['name'],
+          'description' => $commandData['description'],
+          'type' => $commandData['type'],
+        ]);
+
+        // Collected across the whole command (including its options/choices) and
+        // synced against the DB in one pass at the end - doing this per-locale as
+        // we used to (~40 languages x several fields x every option/choice) made
+        // this endpoint the slowest step of every bot deploy (30s-2min).
+        $pendingTranslations = [];
+        $this->collectLocalizations($pendingTranslations, $commandData['name_localizations'] ?? [], 'name');
+        $this->collectLocalizations($pendingTranslations, $commandData['description_localizations'] ?? [], 'description');
+
+        foreach ($commandData['options'] ?? [] as $order => $optionData){
           /**
            * @var BotCommandOption $option
            */
@@ -150,34 +141,18 @@ class BotApiController extends Controller {
             'max_length' => $optionData['max_length'] ?? null,
             'order' => $order,
           ]);
-          if (!empty($optionData['name_localizations'])){
-            foreach ($optionData['name_localizations'] as $locale => $value){
-              $this->saveLocalizations(
-                command: $command,
-                locale: $locale,
-                field: 'name',
-                value: $value,
-                optionId: $option->id
-              );
-            }
-          }
-          if (!empty($optionData['description_localizations'])){
-            foreach ($optionData['description_localizations'] as $locale => $value){
-              $this->saveLocalizations(
-                command: $command,
-                locale: $locale,
-                field: 'description',
-                value: $value,
-                optionId: $option->id
-              );
-            }
-          }
+          $this->collectLocalizations($pendingTranslations, $optionData['name_localizations'] ?? [], 'name', $option->id);
+          $this->collectLocalizations($pendingTranslations, $optionData['description_localizations'] ?? [], 'description', $option->id);
 
           if ($option->deleted_at !== null){
             $option->deleted_at = null;
             $option->save();
           }
 
+          // Cleans up a stale row left behind under the same name with a now-outdated
+          // type (updateOrCreate's match key is name+type, so a type change creates a
+          // new row rather than updating the old one in place) - scoped to this
+          // option's own name, not a general "remove options missing from this sync".
           $command->options()
             ->where('name', $option->name)
             ->whereNot('id', $option->id)
@@ -187,55 +162,100 @@ class BotApiController extends Controller {
             case DiscordBotCommandOptionType::STRING->value:
             case DiscordBotCommandOptionType::NUMBER->value:
             case DiscordBotCommandOptionType::INTEGER->value:
-              if (!empty($optionData['choices'])){
-                foreach ($optionData['choices'] as $choiceData){
-                  /**
-                   * @var BotCommandOptionChoice $choice
-                   */
-                  $choice = $option->choices()->updateOrCreate([
-                    'value' => json_encode($choiceData['value']),
-                  ], [
-                    'value' => $choiceData['value'],
-                    'name' => $choiceData['name'],
-                  ]);
-                  if (!empty($choiceData['name_localizations'])){
-                    foreach ($choiceData['name_localizations'] as $locale => $value){
-                      $this->saveLocalizations(
-                        command: $command,
-                        locale: $locale,
-                        field: 'name',
-                        value: $value,
-                        optionId: $option->id,
-                        choiceId: $choice->id,
-                      );
-                    }
-                  }
-                }
+              foreach ($optionData['choices'] ?? [] as $choiceData){
+                /**
+                 * @var BotCommandOptionChoice $choice
+                 */
+                $choice = $option->choices()->updateOrCreate([
+                  'value' => json_encode($choiceData['value']),
+                ], [
+                  'value' => $choiceData['value'],
+                  'name' => $choiceData['name'],
+                ]);
+                $this->collectLocalizations($pendingTranslations, $choiceData['name_localizations'] ?? [], 'name', $option->id, $choice->id);
               }
             break;
           }
         }
+
+        $this->syncLocalizations($command->id, $pendingTranslations);
+
+        $commands[] = $command;
       }
-      $commands[] = $command;
-    }
+
+      return $commands;
+    });
 
     CachePageResponse::forgetPage('botinfo');
 
     return response()->json($commands);
   }
 
-  protected function saveLocalizations(BotCommand $command, string $locale, string $field, string $value, ?string $optionId = null, ?string $choiceId = null):void {
-    $queryBy = [
-      'command_id' => $command->id,
-      'option_id' => $optionId,
-      'choice_id' => $choiceId,
-      'locale' => $locale,
-      'field' => $field,
-    ];
-    $command->translations()->updateOrCreate($queryBy, array_merge(
-      $queryBy,
-      ['value' => $value]
-    ));
+  /**
+   * @param array<array{locale: string, field: string, value: string, option_id: ?string, choice_id: ?string}> $pending
+   * @param array<string, string> $localizations
+   */
+  private function collectLocalizations(array &$pending, array $localizations, string $field, ?string $optionId = null, ?string $choiceId = null):void {
+    foreach ($localizations as $locale => $value){
+      $pending[] = [
+        'locale' => $locale,
+        'field' => $field,
+        'value' => $value,
+        'option_id' => $optionId,
+        'choice_id' => $choiceId,
+      ];
+    }
+  }
+
+  /**
+   * Syncs every collected (command|option|choice, locale, field) -> value pair for a single
+   * command against bot_command_translations in three queries total (one SELECT to preload
+   * what's already there, one bulk INSERT for anything new, and one UPDATE per row whose value
+   * actually changed - skipping the vast majority that are already correct and need nothing),
+   * instead of a SELECT+INSERT/UPDATE round trip per individual translation.
+   *
+   * @param array<array{locale: string, field: string, value: string, option_id: ?string, choice_id: ?string}> $pending
+   */
+  private function syncLocalizations(string $commandId, array $pending):void {
+    if (empty($pending)){
+      return;
+    }
+
+    $keyFor = fn(?string $optionId, ?string $choiceId, string $locale, string $field) => implode('|', [$optionId, $choiceId, $locale, $field]);
+
+    $existingByKey = BotCommandTranslation::where('command_id', $commandId)->get()
+      ->keyBy(fn(BotCommandTranslation $t) => $keyFor($t->option_id, $t->choice_id, $t->locale, $t->field));
+
+    $inserts = [];
+    foreach ($pending as $row){
+      $key = $keyFor($row['option_id'], $row['choice_id'], $row['locale'], $row['field']);
+      /**
+       * @var BotCommandTranslation|null $existing
+       */
+      $existing = $existingByKey->get($key);
+
+      if ($existing){
+        if ($existing->value !== $row['value']){
+          $existing->value = $row['value'];
+          $existing->save();
+        }
+      }
+      else {
+        $inserts[] = [
+          'id' => (string)Str::uuid(),
+          'command_id' => $commandId,
+          'option_id' => $row['option_id'],
+          'choice_id' => $row['choice_id'],
+          'locale' => $row['locale'],
+          'field' => $row['field'],
+          'value' => $row['value'],
+        ];
+      }
+    }
+
+    if (!empty($inserts)){
+      BotCommandTranslation::insert($inserts);
+    }
   }
 
   protected function updateBotTimezones(UpdateBotTimezonesRequest $request):Response {
