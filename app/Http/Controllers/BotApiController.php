@@ -15,7 +15,6 @@ use App\Http\Requests\UpdateFaqEntriesRequest;
 use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
-use App\Models\BotCommandTranslation;
 use App\Models\BotTimezone;
 use App\Models\DiscordUser;
 use App\Models\FaqEntry;
@@ -35,7 +34,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
 
 class BotApiController extends Controller {
   public function __construct(
@@ -209,10 +207,18 @@ class BotApiController extends Controller {
 
   /**
    * Syncs every collected (command|option|choice, locale, field) -> value pair for a single
-   * command against bot_command_translations in three queries total (one SELECT to preload
-   * what's already there, one bulk INSERT for anything new, and one UPDATE per row whose value
-   * actually changed - skipping the vast majority that are already correct and need nothing),
-   * instead of a SELECT+INSERT/UPDATE round trip per individual translation.
+   * command against bot_command_translations in one upsert, relying on the
+   * bot_command_translations_natural_key unique constraint (command_id, option_id, choice_id,
+   * locale, field) instead of an application-side preload-then-insert/update.
+   *
+   * That constraint is also what makes this safe under concurrent requests: the old
+   * preload-then-decide approach let two overlapping syncs (e.g. a bot deploy client retrying
+   * this endpoint after a timeout while the first, slow, request was still running) each decide
+   * a row didn't exist yet and both insert it - an upsert against a real unique constraint can't
+   * do that, since a conflicting concurrent insert either waits and then updates, or updates in
+   * place. This also drops the preload SELECT entirely, which was the other major contributor
+   * to this endpoint OOMing on its default 128M memory_limit for commands with a lot of
+   * accumulated (largely duplicate) rows.
    *
    * @param array<array{locale: string, field: string, value: string, option_id: ?string, choice_id: ?string}> $pending
    */
@@ -221,41 +227,20 @@ class BotApiController extends Controller {
       return;
     }
 
-    $keyFor = fn(?string $optionId, ?string $choiceId, string $locale, string $field) => implode('|', [$optionId, $choiceId, $locale, $field]);
+    $rows = array_map(fn(array $row) => [
+      'command_id' => $commandId,
+      'option_id' => $row['option_id'],
+      'choice_id' => $row['choice_id'],
+      'locale' => $row['locale'],
+      'field' => $row['field'],
+      'value' => $row['value'],
+    ], $pending);
 
-    $existingByKey = BotCommandTranslation::where('command_id', $commandId)->get()
-      ->keyBy(fn(BotCommandTranslation $t) => $keyFor($t->option_id, $t->choice_id, $t->locale, $t->field));
-
-    $inserts = [];
-    foreach ($pending as $row){
-      $key = $keyFor($row['option_id'], $row['choice_id'], $row['locale'], $row['field']);
-      /**
-       * @var BotCommandTranslation|null $existing
-       */
-      $existing = $existingByKey->get($key);
-
-      if ($existing){
-        if ($existing->value !== $row['value']){
-          $existing->value = $row['value'];
-          $existing->save();
-        }
-      }
-      else {
-        $inserts[] = [
-          'id' => (string)Str::uuid(),
-          'command_id' => $commandId,
-          'option_id' => $row['option_id'],
-          'choice_id' => $row['choice_id'],
-          'locale' => $row['locale'],
-          'field' => $row['field'],
-          'value' => $row['value'],
-        ];
-      }
-    }
-
-    if (!empty($inserts)){
-      BotCommandTranslation::insert($inserts);
-    }
+    DB::table('bot_command_translations')->upsert(
+      $rows,
+      ['command_id', 'option_id', 'choice_id', 'locale', 'field'],
+      ['value'],
+    );
   }
 
   protected function updateBotTimezones(UpdateBotTimezonesRequest $request):Response {
