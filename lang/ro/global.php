@@ -25,6 +25,7 @@ return [
     'autoReload' => 'The page will reload automatically <1/>',
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Server de suport",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Traducerile sunt incomplete',
   'contributeTranslations' => 'Contribuie',

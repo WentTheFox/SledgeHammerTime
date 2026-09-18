@@ -25,6 +25,7 @@ return [
     'autoReload' => 'หน้านี้จะโหลดใหม่โดยอัตโนมัติ <1/>',
     'reloadButton' => 'โหลดใหม่หน้าเพจนี้ด้วยตนเอง',
     "supportServerButton" => "เซิร์ฟเวอร์สนับสนุน",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
   'contributeTranslations' => 'สนับสนุน',
