@@ -10,6 +10,8 @@ class TelemetryUsage extends Model {
   use HasUiInfo;
 
   protected $table = 'telemetry_usage';
+  public $incrementing = false;
+  protected $keyType = 'string';
 
   protected $fillable = [
     'source_id',
