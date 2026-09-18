@@ -83,7 +83,7 @@ const discordResponseLimitMs = 3000;
 // whole y-axis so far that every normal data point flatlines near zero. Points over this
 // get their line clamped to the cap and marked with a triangle instead of being allowed to
 // blow the scale out - see buildCappedSeries().
-const latencyCapMs = 6000;
+const latencyCapMs = 3500;
 
 const latencyMaxY = computed(() => Math.min(
   latencyCapMs,
