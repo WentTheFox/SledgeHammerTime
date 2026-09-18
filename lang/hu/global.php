@@ -25,7 +25,7 @@ return [
     'autoReload' => 'Az oldal <1/> automatikusan újra fog tölteni',
     'reloadButton' => 'Kézi újratöltés',
     "supportServerButton" => "Támogatási Szerver",
-    "contactDeveloperButton" => "Contact Developer",
+    "contactDeveloperButton" => "Kapcsolatfelvétel a fejlesztővel",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
