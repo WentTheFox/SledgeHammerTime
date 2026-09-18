@@ -20,7 +20,7 @@ return [
     'latencyLimitLabel' => 'Discord válasz időkeret',
     'healthChartTitle' => 'Alkalmazás állapota',
     'errorRateLabel' => 'Hibaarány',
-    'successRateLabel' => 'Sikeres',
+    'successRateLabel' => 'Sikerességi arány',
   ],
   'commandsReference' => [
     'title' => 'Parancsok Listája',
