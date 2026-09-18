@@ -19,7 +19,6 @@ return [
     'latencyMedianLabel' => 'Median',
     'latencyLimitLabel' => 'Discord response limit',
     'healthChartTitle' => 'App health',
-    'errorRateLabel' => 'Error rate',
     'successRateLabel' => 'Success rate',
   ],
   'commandsReference' => [
