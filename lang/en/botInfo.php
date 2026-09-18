@@ -20,7 +20,7 @@ return [
     'latencyLimitLabel' => 'Discord response limit',
     'healthChartTitle' => 'App health',
     'errorRateLabel' => 'Error rate',
-    'successRateLabel' => 'Successful',
+    'successRateLabel' => 'Success rate',
   ],
   'commandsReference' => [
     'title' => 'Commands Reference',
