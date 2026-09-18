@@ -18,8 +18,8 @@ return [
     'latencyP95Label' => '95 процентиль',
     'latencyMedianLabel' => 'Median',
     'latencyLimitLabel' => 'Лимит ответов Discord',
-    'errorRateChartTitle' => 'Частота ошибок',
-    'errorRateLabel' => 'Частота ошибок',
+    'healthChartTitle' => 'App health',
+    'successRateLabel' => 'Success rate',
   ],
   'commandsReference' => [
     'title' => 'Примеры команд',
