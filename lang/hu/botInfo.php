@@ -18,8 +18,8 @@ return [
     'latencyP95Label' => 'Legroszabb 5%',
     'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
-    'healthChartTitle' => 'Alkalmazás állapota',
-    'successRateLabel' => 'Sikerességi arány',
+    'healthChartTitle' => 'App health',
+    'successRateLabel' => 'Success rate',
   ],
   'commandsReference' => [
     'title' => 'Parancsok Listája',
