@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Aplikasi ini boleh dijumpai di halaman Direktori Apl di Discord, yang anda boleh lihat di sini:',
   'appDiscoveryCta' => 'Lihat di Direktori Apl',
   'shareableLink' => 'Anda juga boleh kongsikan pautan di bawah dengan orang lain yang membolehkan mereka menambah aplikasi tersebut tanpa gangguan tambahan:',
-  'shardStats' => [
-    'title' => 'Statistik Syard',
-    'description' => 'Setelah suatu aplikasi melepasi jumlah tertentu pelayan di mana ia dipasangkan, Discord memerlukan aplikasi untuk menggunakan fungsi syard, yang secara dasarnya bermakna memisahkan pengendalian interaksi antara beberapa proses.',
-    'boxesDescription' => 'Di bawah ini anda boleh lihat beberapa segi empat yang mewakili kesemua syard yang digunakan oleh aplikasi ini ketika ini. Lebarnya berkadar pada jumlah pelayan yang sesuatu syard ditugaskan berbanding jumlah keseluruhan (:totalServerCount). Lalukan tetikus di atas salah satunya untuk melihat maklumat lanjut mengenai syard tersebut.',
-    'shardId' => 'ID Syard',
-    'assignedServers' => 'Pelayan Ditugaskan',
-    'startupTime' => 'Masa Permulaan',
-    'lastUpdateTime' => 'Kemas Kini Terakhir',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Rujukan Perintah',

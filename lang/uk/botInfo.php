@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Цей додаток можна знайти на сторінці "App Discovery" у Discord, яку можна переглянути тут:',
   'appDiscoveryCta' => 'View on App Discovery',
   'shareableLink' => 'Ви також можете поділитися з іншими наведеним нижче посиланням, що дозволить їм встановити додаток без зайвих відволікань:',
-  'shardStats' => [
-    'title' => 'Shard Statistics',
-    'description' => 'Після того як додаток досягає певної кількості серверів, на яких він встановлений, Discord вимагає від додатків використовувати шардінг, що, по суті, означає розподіл обробки взаємодій між декількома процесами.',
-    'boxesDescription' => 'Нижче ви можете побачити кілька прямокутників, що позначають усі шарди, які наразі використовуються додатком. Їхня ширина пропорційна кількості серверів, до яких приписаний конкретний шард, від загальної кількості (:totalServerCount). Наведіть курсор на будь-який із них, щоб переглянути додаткову інформацію про цей шард.',
-    'shardId' => 'ID шарду',
-    'assignedServers' => 'Призначені сервери',
-    'startupTime' => 'Час запуску',
-    'lastUpdateTime' => 'Востаннє оновлено',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Довідник команд',

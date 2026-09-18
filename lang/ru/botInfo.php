@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Приложение можно найти на странице Каталога Приложений Discord, которую вы можете посмотреть здесь:',
   'appDiscoveryCta' => 'Просмотр в Каталоге Приложений',
   'shareableLink' => 'Вы также можете поделиться ссылкой ниже с другими пользователями, что позволит им добавить приложение без каких-либо дополнительных проблем:',
-  'shardStats' => [
-    'title' => 'Статистика Шардов',
-    'description' => 'После того как приложение достигнет определённого количества серверов, на которых оно установлено, Дискорд требует от приложений использования шардинга, что по сути означает разделение обработки взаимодействий между несколькими процессами.',
-    'boxesDescription' => 'Ниже Вы можете увидеть несколько прямоугольников, представляющих все ноды, используемые приложением в данный момент. Их ширина пропорциональна количеству серверов, к которым приписан данный шард из общего числа (:totalServerCount). Наведите курсор на любой из них, чтобы увидеть дополнительную информацию об этой ноде.',
-    'shardId' => 'ID Шарда',
-    'assignedServers' => 'Заданные сервера',
-    'startupTime' => 'Время запуска',
-    'lastUpdateTime' => 'Последний раз обновлено',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Примеры команд',

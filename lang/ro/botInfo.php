@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Aplicația poate fi găsită pe pagina Discord\'s App Discovery, pe care o puteți verifica aici:',
   'appDiscoveryCta' => 'Vizualizare în App Discovery',
   'shareableLink' => 'De asemenea, puteți partaja linkul de mai jos cu alte persoane, care le va permite să adauge aplicația fără alte distrageri:',
-  'shardStats' => [
-    'title' => 'Statistici Shard',
-    'description' => 'După ce o aplicație ajunge la un anumit număr de servere pe care este instalată, Discord impune aplicațiilor să utilizeze sharding, ceea ce înseamnă, în esență, împărțirea gestionării interacțiunilor între mai multe procese.',
-    'boxesDescription' => 'Mai jos puteți vedea câteva dreptunghiuri care reprezintă toate fragmentele utilizate în prezent de aplicație. Lățimea lor este proporțională cu numărul de servere la care este alocat un anumit fragment din total (:totalServerCount). Treceți cu mouse-ul peste oricare dintre ele pentru a vedea mai multe informații despre fragment.',
-    'shardId' => 'Shard ID',
-    'assignedServers' => 'Servere alocate',
-    'startupTime' => 'Timp de pornire',
-    'lastUpdateTime' => 'Ultima actualizare',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Comenzi de referință',
