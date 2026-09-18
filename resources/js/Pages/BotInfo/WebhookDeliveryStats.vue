@@ -63,7 +63,8 @@ const latencyChartData = computed(() => ({
       borderColor: avgColor.value,
       backgroundColor: avgColor.value,
       borderWidth: 2,
-      pointRadius: 0,
+      pointRadius: 3,
+      pointHoverRadius: 5,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.avgDurationMs),
     },
@@ -72,7 +73,8 @@ const latencyChartData = computed(() => ({
       borderColor: p95Color.value,
       backgroundColor: p95Color.value,
       borderWidth: 2,
-      pointRadius: 0,
+      pointRadius: 3,
+      pointHoverRadius: 5,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.p95DurationMs),
     },
@@ -87,7 +89,8 @@ const errorRateChartData = computed(() => ({
       borderColor: errorColor.value,
       backgroundColor: errorColor.value,
       borderWidth: 2,
-      pointRadius: 0,
+      pointRadius: 3,
+      pointHoverRadius: 5,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => Math.round(point.errorRate * 1000) / 10),
     },
@@ -119,6 +122,16 @@ const baseChartOptions = computed<ChartOptions<'line'>>(() => ({
 
 const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
   ...baseChartOptions.value,
+  scales: {
+    ...baseChartOptions.value.scales,
+    y: {
+      ...baseChartOptions.value.scales?.y,
+      ticks: {
+        color: ticksColor.value,
+        callback: (value) => `${value} ms`,
+      },
+    },
+  },
   plugins: {
     ...baseChartOptions.value.plugins,
     tooltip: {
@@ -135,6 +148,8 @@ const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
     ...baseChartOptions.value.scales,
     y: {
       ...baseChartOptions.value.scales?.y,
+      min: 0,
+      max: 100,
       ticks: {
         color: ticksColor.value,
         callback: (value) => `${value}%`,
