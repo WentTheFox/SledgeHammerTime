@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Η σελίδα θα ανανεωθεί αυτόματα <1/>',
     'reloadButton' => 'Χειροκίνητη επαναφόρτωση',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',

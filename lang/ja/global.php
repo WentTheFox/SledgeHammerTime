@@ -25,6 +25,7 @@ return [
     'autoReload' => 'このページは<1/>に自動的に再読み込みされます',
     'reloadButton' => '手動で再読み込み',
     "supportServerButton" => "サポートサーバー",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => '翻訳は未完成です',
   'contributeTranslations' => '貢献',

@@ -16,7 +16,7 @@ return [
     'latencyChartTitle' => 'Válaszidő',
     'latencyAvgLabel' => 'Átlag',
     'latencyP95Label' => 'Legroszabb 5%',
-    'latencyMedianLabel' => 'Median',
+    'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
     'errorRateChartTitle' => 'Hibaarány',
     'errorRateLabel' => 'Hibaarány',

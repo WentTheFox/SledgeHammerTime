@@ -25,6 +25,7 @@ return [
     'autoReload' => '页面将在 <1/> 秒后自动重新加载',
     'reloadButton' => '手动重新加载',
     "supportServerButton" => "支持服务器",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => '翻译内容不完整',
   'contributeTranslations' => '参与贡献',

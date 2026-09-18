@@ -25,6 +25,7 @@ return [
     'autoReload' => '頁面將自動重新載入 <1/>',
     'reloadButton' => '手動重新加載',
     "supportServerButton" => "支援伺服器",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => '翻譯內容不完整',
   'contributeTranslations' => '貢獻',

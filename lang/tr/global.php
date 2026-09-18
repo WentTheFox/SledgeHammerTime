@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Sayfa otomatik olarak <1/> yeniden yüklenecek',
     'reloadButton' => 'Manuel olarak yeniden yükle',
     "supportServerButton" => "Destek Sunucusu",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
   'contributeTranslations' => 'Katkıda Bulun',

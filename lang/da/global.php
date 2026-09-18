@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Siden genindlæses automatisk <1/>',
     'reloadButton' => 'Genindlæs manuelt',
     "supportServerButton" => "Supportserver",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Oversættelserne er ufuldstændige',
   'contributeTranslations' => 'Bidrage',

@@ -25,6 +25,7 @@ return [
     'autoReload' => 'Страница обновится автоматически <1/>',
     'reloadButton' => 'Перезагрузить вручную',
     "supportServerButton" => "Сервер поддержки",
+    "contactDeveloperButton" => "Contact Developer",
   ],
   'incompleteTranslations' => 'Перевод не завершен',
   'contributeTranslations' => 'Внести свой вклад',
