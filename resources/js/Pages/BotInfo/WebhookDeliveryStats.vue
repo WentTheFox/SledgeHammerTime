@@ -72,7 +72,13 @@ const labels = computed(() => (props.stats ?? []).map((point) => labelFormatter.
 const avgColor = computed(() => theme?.isLightTheme ? '#2a78d6' : '#3987e5');
 const medianColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
 const p95Color = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
-const errorColor = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
+const goodColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
+const badColor = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
+// In Chinese (and Japanese) markets red is the "good/up" color and green is "bad/down" -
+// the opposite of the western convention - so swap which one means success in those locales.
+const flipGoodBadColors = computed(() => /^(zh|ja)(-|$)/i.test(String(currentLanguage?.value.locale ?? '')));
+const successColor = computed(() => flipGoodBadColors.value ? badColor.value : goodColor.value);
+const errorColor = computed(() => flipGoodBadColors.value ? goodColor.value : badColor.value);
 const limitColor = computed(() => theme?.isLightTheme ? '#999' : '#888');
 
 // Discord requires an initial interaction response within 3 seconds, or the
@@ -162,9 +168,24 @@ const latencyChartData = computed(() => ({
   ],
 }));
 
-const errorRateChartData = computed(() => ({
+const healthChartData = computed(() => ({
   labels: labels.value,
   datasets: [
+    {
+      label: wTrans('botInfo.webhookDeliveryStats.successRateLabel').value,
+      borderColor: successColor.value,
+      backgroundColor: successColor.value,
+      borderWidth: 2,
+      pointRadius: 0,
+      pointHoverRadius: 0,
+      tension: 0.2,
+      // Buckets with no requests have no success rate (100% of nothing is meaningless), so
+      // they're left null and bridged instead of plotted as a perfect score or a total failure.
+      spanGaps: true,
+      data: (props.stats ?? []).map((point) => point.requestCount > 0
+        ? Math.round((1 - point.errorRate) * 1000) / 10
+        : null),
+    },
     {
       label: wTrans('botInfo.webhookDeliveryStats.errorRateLabel').value,
       borderColor: errorColor.value,
@@ -241,7 +262,7 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
   },
 }));
 
-const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
+const healthChartOptions = computed<ChartOptions<'line'>>(() => ({
   ...baseChartOptions.value,
   interaction: {
     mode: 'index',
@@ -264,6 +285,7 @@ const errorRateChartOptions = computed<ChartOptions<'line'>>(() => ({
     tooltip: {
       mode: 'index',
       intersect: false,
+      filter: (item) => item.parsed.y !== null,
       callbacks: {
         label: (item) => `${item.dataset.label}: ${numberFormatter.value.format(item.parsed.y ?? 0)}%`,
       },
@@ -309,7 +331,7 @@ const hasData = computed(() => (props.stats ?? []).length > 0);
       </div>
 
       <div class="webhook-delivery-stats-chart-panel">
-        <h3>{{ $t('botInfo.webhookDeliveryStats.errorRateChartTitle') }}</h3>
+        <h3>{{ $t('botInfo.webhookDeliveryStats.healthChartTitle') }}</h3>
         <div class="webhook-delivery-stats-chart-container">
           <div
             v-if="stats === null"
@@ -325,8 +347,8 @@ const hasData = computed(() => (props.stats ?? []).length > 0);
           </p>
           <Line
             v-else
-            :data="errorRateChartData"
-            :options="errorRateChartOptions"
+            :data="healthChartData"
+            :options="healthChartOptions"
           />
         </div>
       </div>

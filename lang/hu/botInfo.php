@@ -18,8 +18,9 @@ return [
     'latencyP95Label' => 'Legroszabb 5%',
     'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
-    'errorRateChartTitle' => 'Hibaarány',
+    'healthChartTitle' => 'Alkalmazás állapota',
     'errorRateLabel' => 'Hibaarány',
+    'successRateLabel' => 'Sikeres',
   ],
   'commandsReference' => [
     'title' => 'Parancsok Listája',

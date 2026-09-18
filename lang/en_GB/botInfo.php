@@ -18,8 +18,9 @@ return [
     'latencyP95Label' => '95th percentile',
     'latencyMedianLabel' => 'Median',
     'latencyLimitLabel' => 'Discord response limit',
-    'errorRateChartTitle' => 'Error rate',
+    'healthChartTitle' => 'App health',
     'errorRateLabel' => 'Error rate',
+    'successRateLabel' => 'Successful',
   ],
   'commandsReference' => [
     'title' => 'Commands Reference',
