@@ -1,4 +1,25 @@
+@use "../design";
+
 .webhook-delivery-stats {
+  .webhook-delivery-stats-charts {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+
+    @include design.screen-above('xl') {
+      flex-flow: row nowrap;
+    }
+  }
+
+  .webhook-delivery-stats-chart-panel {
+    flex: 1 1 100%;
+    min-width: 0;
+
+    @include design.screen-above('xl') {
+      flex-basis: calc(50% - .5rem);
+    }
+  }
+
   .webhook-delivery-stats-chart-container {
     position: relative;
     max-width: 100%;
@@ -6,8 +27,10 @@
     overflow: hidden;
   }
 
-  .webhook-delivery-stats-loading {
+  .webhook-delivery-stats-placeholder {
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 }
