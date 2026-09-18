@@ -164,36 +164,52 @@ const hasData = computed(() => (props.stats ?? []).length > 0);
       {{ $t('botInfo.webhookDeliveryStats.description', { hours: String(windowHours) }) }}
     </p>
 
-    <div
-      v-if="stats === null"
-      class="webhook-delivery-stats-loading"
-    >
-      <HtLoadingIndicator />
-    </div>
-    <p
-      v-else-if="!hasData"
-      class="webhook-delivery-stats-no-data"
-    >
-      {{ $t('botInfo.webhookDeliveryStats.noData') }}
-    </p>
-    <template v-else>
-      <h3>{{ $t('botInfo.webhookDeliveryStats.latencyChartTitle') }}</h3>
-      <div class="webhook-delivery-stats-chart-container">
-        <Line
-          :data="latencyChartData"
-          :options="latencyChartOptions"
-        />
+    <div class="webhook-delivery-stats-charts">
+      <div class="webhook-delivery-stats-chart-panel">
+        <h3>{{ $t('botInfo.webhookDeliveryStats.latencyChartTitle') }}</h3>
+        <div class="webhook-delivery-stats-chart-container">
+          <div
+            v-if="stats === null"
+            class="webhook-delivery-stats-placeholder"
+          >
+            <HtLoadingIndicator />
+          </div>
+          <p
+            v-else-if="!hasData"
+            class="webhook-delivery-stats-placeholder webhook-delivery-stats-no-data"
+          >
+            {{ $t('botInfo.webhookDeliveryStats.noData') }}
+          </p>
+          <Line
+            v-else
+            :data="latencyChartData"
+            :options="latencyChartOptions"
+          />
+        </div>
       </div>
 
-      <h3 class="mt-3">
-        {{ $t('botInfo.webhookDeliveryStats.errorRateChartTitle') }}
-      </h3>
-      <div class="webhook-delivery-stats-chart-container">
-        <Line
-          :data="errorRateChartData"
-          :options="errorRateChartOptions"
-        />
+      <div class="webhook-delivery-stats-chart-panel">
+        <h3>{{ $t('botInfo.webhookDeliveryStats.errorRateChartTitle') }}</h3>
+        <div class="webhook-delivery-stats-chart-container">
+          <div
+            v-if="stats === null"
+            class="webhook-delivery-stats-placeholder"
+          >
+            <HtLoadingIndicator />
+          </div>
+          <p
+            v-else-if="!hasData"
+            class="webhook-delivery-stats-placeholder webhook-delivery-stats-no-data"
+          >
+            {{ $t('botInfo.webhookDeliveryStats.noData') }}
+          </p>
+          <Line
+            v-else
+            :data="errorRateChartData"
+            :options="errorRateChartOptions"
+          />
+        </div>
       </div>
-    </template>
+    </div>
   </HtCard>
 </template>
