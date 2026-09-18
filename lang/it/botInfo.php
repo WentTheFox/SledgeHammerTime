@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'L\'app può essere trovata sulla pagina Discord App Discovery che puoi consultare qui:',
   'appDiscoveryCta' => 'Visualizza su App Discovery',
   'shareableLink' => 'È inoltre possibile condividere il link qui sotto con altri che permetterà loro di aggiungere l\'app senza ulteriori distrazioni:',
-  'shardStats' => [
-    'title' => 'Statistiche Frammenti',
-    'description' => 'Dopo che un\'app raggiunge un certo numero di server in cui è installata, Discord richiede che le app utilizzino lo sharding, che significa essenzialmente suddividere la gestione delle interazioni tra più processi.',
-    'boxesDescription' => 'Qui sotto puoi vedere alcuni rettangoli che rappresentano tutti i frammenti attualmente utilizzati dall\'applicazione. La loro larghezza è proporzionale al numero di server a cui viene assegnato un dato frammento sul totale (:totalServerCount). Passa sopra uno di loro per vedere più informazioni sul frammento.',
-    'shardId' => 'ID frammento',
-    'assignedServers' => 'Server Assegnati',
-    'startupTime' => 'Tempo di Avvio',
-    'lastUpdateTime' => 'Ultimo Aggiornamento',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Riferimento Comandi',

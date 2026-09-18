@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => '该应用可在 Discord 的“应用发现”页面找到，你可以在这里查看：',
   'appDiscoveryCta' => '在应用探索中查看',
   'shareableLink' => '您也可以将下面的链接分享给他人，让他们直接添加此应用，而不会受到任何其他干扰：',
-  'shardStats' => [
-    'title' => '分片统计',
-    'description' => '当应用安装到的服务器达到一定数量后，Discord 要求应用使用分片，这本质上是将交互处理拆分到多个进程中。',
-    'boxesDescription' => '下方您可以看到一些代表应用程序当前使用的所有分片的矩形。它们的宽度与特定分片分配到的服务器数量占总数 (:totalServerCount) 的比例成正比。将鼠标悬停在其中任何一个矩形上即可查看有关该分片的更多信息。',
-    'shardId' => '分片 ID',
-    'assignedServers' => '被分配的服务器',
-    'startupTime' => '启动时间',
-    'lastUpdateTime' => '最新更新',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => '命令参考',

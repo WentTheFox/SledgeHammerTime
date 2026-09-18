@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'De app is te vinden op de Appgids pagina van Discord:',
   'appDiscoveryCta' => 'Bekijk in de Appgids',
   'shareableLink' => 'Je kan ook onderstaande link met anderen delen om de app zonder omwegen toe te voegen:',
-  'shardStats' => [
-    'title' => 'Shard statistieken',
-    'description' => 'Nadat een app een bepaald aantal servers heeft bereikt waarop hij is geïnstalleerd, vereist Discord dat apps sharding gebruiken, wat betekent dat de afhandeling van interacties over meerdere processen wordt opgesplitst.',
-    'boxesDescription' => 'Hieronder staan rechthoeken. Elke rechthoek is één shard. De breedte van een shard is proportioneel aan het aantal server dat op die shard zit. In totaal zijn er :totalServerCount servers. Hover met je muis over een rechthoek voor meer informatie over een shard.',
-    'shardId' => 'Shard ID',
-    'assignedServers' => 'Aantal servers',
-    'startupTime' => 'Gestart',
-    'lastUpdateTime' => 'Laatst bijgewerkt',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Commands naslagwerk',

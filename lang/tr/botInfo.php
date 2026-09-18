@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Uygulamayı, buradan göz atabileceğiniz Discord Uygulama Dizini sayfasında bulabilirsiniz:',
   'appDiscoveryCta' => 'Uygulama Dizininde Görüntüle',
   'shareableLink' => 'Ayrıca, başkalarının uygulamayı herhangi bir ek dikkat dağıtıcı unsur olmadan eklemesini sağlayan aşağıdaki bağlantıyı paylaşabilirsiniz:',
-  'shardStats' => [
-    'title' => 'Shard İstatistikleri',
-    'description' => 'Bir uygulama yüklü olduğu sunucu sayısı bakımından belirli bir seviyeye ulaştıktan sonra Discord, uygulamaların sharding kullanmasını zorunlu kılar; bu da esasen etkileşimleri işleme sürecinin birden fazla işlem (process) arasında bölünmesi anlamına gelir.',
-    'boxesDescription' => 'Aşağıda, uygulamanın şu anda kullandığı tüm shard\'ları temsil eden dikdörtgenleri görebilirsiniz. Bu dikdörtgenlerin genişliği, toplam (:totalServerCount) sunucu arasından ilgili shard\'a atanan sunucu sayısıyla orantılıdır. Shard hakkında daha fazla bilgi görmek için fare imlecini herhangi birinin üzerine getirin.',
-    'shardId' => 'Shard ID',
-    'assignedServers' => 'Atanmış Sunucular',
-    'startupTime' => 'Başlangıç Zamanı',
-    'lastUpdateTime' => 'Son Güncellenme',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Komut Kılavuzu',
