@@ -228,11 +228,13 @@
         executionTimeout = setTimeout(function () {
           clearProgressInterval();
           progressBar.style.width = '100%';
+          setUpdating(true);
           attemptReload().then(function (ok) {
             if (ok) {
               location.reload();
               return;
             }
+            setUpdating(false);
             scheduleNext();
           });
         }, delay);
