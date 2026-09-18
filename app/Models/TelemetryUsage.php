@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use App\Traits\HasUiInfo;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class TelemetryUsage extends Model {
-  use HasUiInfo;
+  use HasUiInfo, HasUuids;
 
   protected $table = 'telemetry_usage';
-  public $incrementing = false;
-  protected $keyType = 'string';
 
   protected $fillable = [
     'source_id',
