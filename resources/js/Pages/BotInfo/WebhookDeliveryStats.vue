@@ -50,6 +50,15 @@ const labels = computed(() => (props.stats ?? []).map((point) => labelFormatter.
 const avgColor = computed(() => theme?.isLightTheme ? '#2a78d6' : '#3987e5');
 const p95Color = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
 const errorColor = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
+const limitColor = computed(() => theme?.isLightTheme ? '#999' : '#888');
+
+// Discord requires an initial interaction response within 3 seconds, or the
+// interaction token is invalidated and the reply fails outright.
+const discordResponseLimitMs = 3000;
+const latencyMaxY = computed(() => Math.max(
+  discordResponseLimitMs,
+  ...(props.stats ?? []).flatMap((point) => [point.avgDurationMs, point.p95DurationMs]),
+));
 
 const labelsColor = computed(() => theme?.isLightTheme ? '#333' : '#eee');
 const ticksColor = computed(() => theme?.isLightTheme ? '#666' : '#ccc');
@@ -77,6 +86,18 @@ const latencyChartData = computed(() => ({
       pointHoverRadius: 5,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.p95DurationMs),
+    },
+    {
+      label: wTrans('botInfo.webhookDeliveryStats.latencyLimitLabel').value,
+      borderColor: limitColor.value,
+      backgroundColor: limitColor.value,
+      borderWidth: 1,
+      borderDash: [6, 4],
+      pointRadius: 0,
+      pointHoverRadius: 0,
+      pointHitRadius: 0,
+      tension: 0,
+      data: labels.value.map(() => discordResponseLimitMs),
     },
   ],
 }));
@@ -122,10 +143,15 @@ const baseChartOptions = computed<ChartOptions<'line'>>(() => ({
 
 const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
   ...baseChartOptions.value,
+  interaction: {
+    mode: 'index',
+    intersect: false,
+  },
   scales: {
     ...baseChartOptions.value.scales,
     y: {
       ...baseChartOptions.value.scales?.y,
+      max: latencyMaxY.value,
       ticks: {
         color: ticksColor.value,
         callback: (value) => `${value} ms`,
@@ -135,6 +161,8 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
   plugins: {
     ...baseChartOptions.value.plugins,
     tooltip: {
+      mode: 'index',
+      intersect: false,
       callbacks: {
         label: (item) => `${item.dataset.label}: ${item.formattedValue} ms`,
       },
