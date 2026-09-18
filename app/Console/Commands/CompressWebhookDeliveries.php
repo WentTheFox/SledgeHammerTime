@@ -20,39 +20,47 @@ class CompressWebhookDeliveries extends Command {
    *
    * @var string
    */
-  protected $description = 'Collapse individually logged webhook_deliveries rows for fully-elapsed hours into one summary row per hour';
+  protected $description = 'Collapse individually logged webhook_deliveries rows for fully-elapsed 5-minute buckets into one summary row per bucket';
+
+  private const string BUCKET_WIDTH = '5 minutes';
 
   /**
    * Execute the console command.
    */
   public function handle():int {
-    // Never touch the current hour - it's still receiving individual rows.
-    $cutoff = now('UTC')->startOfHour();
+    // Never touch the current bucket - it's still receiving individual rows.
+    $now = now('UTC');
+    $cutoff = $now->copy()->startOfMinute()->subMinutes($now->minute % 5);
 
-    $hourBuckets = DB::table('webhook_deliveries')
-      ->where('occurred_at', '<', $cutoff)
+    $buckets = DB::table('webhook_deliveries')
+      // A Carbon value bound directly here gets formatted without a UTC offset by the
+      // query grammar, so Postgres reinterprets it using the DB session's own timezone
+      // (config('app.timezone'), Europe/Budapest - not UTC) instead of taking it as UTC -
+      // silently shifting every comparison in this command by that timezone's offset. See
+      // WebhookDelivery::$dateFormat for the same failure mode on the model's own column.
+      ->where('occurred_at', '<', self::formatUtc($cutoff))
       ->where('request_count', 1)
-      ->select(DB::raw("date_trunc('hour', occurred_at) as bucket"))
+      ->select(DB::raw("date_bin('".self::BUCKET_WIDTH."', occurred_at, timestamptz '2000-01-01') as bucket"))
       ->distinct()
       ->orderBy('bucket')
       ->pluck('bucket');
 
-    foreach ($hourBuckets as $bucket){
-      $this->compressHour(Carbon::parse($bucket, 'UTC'));
+    foreach ($buckets as $bucket){
+      $this->compressBucket(Carbon::parse($bucket, 'UTC'));
     }
 
     return 0;
   }
 
   /**
-   * Compress all individually logged rows for a single hour into one summary row.
+   * Compress all individually logged rows for a single 5-minute bucket into one summary row.
    */
-  protected function compressHour(Carbon $hourStart):void {
-    $hourEnd = $hourStart->copy()->addHour();
+  protected function compressBucket(Carbon $bucketStart):void {
+    $bucketEnd = $bucketStart->copy()->addMinutes(5);
 
     $query = DB::table('webhook_deliveries')
-      ->where('occurred_at', '>=', $hourStart)
-      ->where('occurred_at', '<', $hourEnd)
+      ->where('occurred_at', '>=', self::formatUtc($bucketStart))
+      ->where('occurred_at', '<', self::formatUtc($bucketEnd))
       ->where('request_count', 1);
 
     $stats = $query->clone()->select(
@@ -66,11 +74,11 @@ class CompressWebhookDeliveries extends Command {
       return;
     }
 
-    DB::transaction(function () use ($query, $stats, $hourStart) {
+    DB::transaction(function () use ($query, $stats, $bucketStart) {
       $query->delete();
 
       WebhookDelivery::create([
-        'occurred_at' => $hourStart,
+        'occurred_at' => $bucketStart,
         'request_count' => $stats->request_count,
         'error_count' => $stats->error_count,
         'avg_duration_ms' => round((float)$stats->avg_duration_ms, 2),
@@ -78,6 +86,14 @@ class CompressWebhookDeliveries extends Command {
       ]);
     });
 
-    $this->info("Compressed webhook deliveries for {$hourStart->toIso8601String()}: {$stats->request_count} requests");
+    $this->info("Compressed webhook deliveries for {$bucketStart->toIso8601String()}: {$stats->request_count} requests");
+  }
+
+  /**
+   * Format a Carbon instance with an explicit UTC offset for use as a query binding - see
+   * the comment in handle() for why a bare Carbon object here would be misinterpreted.
+   */
+  private static function formatUtc(Carbon $value):string {
+    return $value->format('Y-m-d H:i:sP');
   }
 }

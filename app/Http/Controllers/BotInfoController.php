@@ -44,14 +44,21 @@ class BotInfoController extends Controller {
     $startTime = Carbon::now('UTC')->subHours(self::WEBHOOK_DELIVERY_STATS_WINDOW_HOURS - 1)->startOfHour();
 
     return DB::table('webhook_deliveries')
-      ->where('occurred_at', '>=', $startTime)
+      // A bare Carbon value binds without a UTC offset, so Postgres reinterprets it using
+      // the DB session's own timezone (config('app.timezone'), not UTC) instead of taking
+      // it as UTC - silently shrinking the window by that timezone's offset. See
+      // WebhookDelivery::$dateFormat / app:compress-webhook-deliveries for the same bug.
+      ->where('occurred_at', '>=', $startTime->format('Y-m-d H:i:sP'))
       ->select(
-        DB::raw("date_trunc('hour', occurred_at) as bucket"),
+        // Fixed epoch origin so bucket boundaries land on the same wall-clock 5-minute
+        // marks (:00, :05, :10, ...) regardless of window start - must match the bucket
+        // width app:compress-webhook-deliveries collapses raw rows into (see that command).
+        DB::raw("date_bin('5 minutes', occurred_at, timestamptz '2000-01-01') as bucket"),
         DB::raw('sum(request_count) as request_count'),
         DB::raw('sum(error_count) as error_count'),
         DB::raw('sum(avg_duration_ms * request_count) / sum(request_count) as avg_duration_ms'),
         // Each row is either a single request (avg = p95 = its own duration) or an
-        // already-compressed hour (one row, so this trivially returns its stored
+        // already-compressed bucket (one row, so this trivially returns its stored
         // p95) - see app:compress-webhook-deliveries for why that holds.
         DB::raw('percentile_cont(0.95) within group (order by avg_duration_ms) as p95_duration_ms'),
       )

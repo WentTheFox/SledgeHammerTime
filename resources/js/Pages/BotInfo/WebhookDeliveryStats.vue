@@ -63,6 +63,7 @@ const avgColor = computed(() => theme?.isLightTheme ? '#2a78d6' : '#3987e5');
 const p95Color = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
 const errorColor = computed(() => theme?.isLightTheme ? '#eb6834' : '#d95926');
 const limitColor = computed(() => theme?.isLightTheme ? '#999' : '#888');
+const meanColor = computed(() => theme?.isLightTheme ? '#2e8b57' : '#4fbf74');
 
 // Discord requires an initial interaction response within 3 seconds, or the
 // interaction token is invalidated and the reply fails outright.
@@ -71,6 +72,18 @@ const latencyMaxY = computed(() => Math.max(
   discordResponseLimitMs,
   ...(props.stats ?? []).flatMap((point) => [point.avgDurationMs, point.p95DurationMs]),
 ));
+
+// Weighted by each bucket's own request count, not a plain average-of-averages, so
+// buckets with more requests count proportionally more toward the overall mean.
+const latencyMeanMs = computed(() => {
+  const points = props.stats ?? [];
+  const totalRequests = points.reduce((sum, point) => sum + point.requestCount, 0);
+  if (totalRequests === 0) {
+    return 0;
+  }
+  const weightedSum = points.reduce((sum, point) => sum + point.avgDurationMs * point.requestCount, 0);
+  return weightedSum / totalRequests;
+});
 
 const labelsColor = computed(() => theme?.isLightTheme ? '#333' : '#eee');
 const ticksColor = computed(() => theme?.isLightTheme ? '#666' : '#ccc');
@@ -98,6 +111,18 @@ const latencyChartData = computed(() => ({
       pointHoverRadius: 5,
       tension: 0.2,
       data: (props.stats ?? []).map((point) => point.p95DurationMs),
+    },
+    {
+      label: wTrans('botInfo.webhookDeliveryStats.latencyMeanLabel').value,
+      borderColor: meanColor.value,
+      backgroundColor: meanColor.value,
+      borderWidth: 1,
+      borderDash: [2, 2],
+      pointRadius: 0,
+      pointHoverRadius: 0,
+      pointHitRadius: 0,
+      tension: 0,
+      data: labels.value.map(() => latencyMeanMs.value),
     },
     {
       label: wTrans('botInfo.webhookDeliveryStats.latencyLimitLabel').value,
