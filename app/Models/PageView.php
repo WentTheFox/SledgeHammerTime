@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 class PageView extends Model {
+  use HasUuids;
+
   public $timestamps = false;
-  public $incrementing = false;
-  protected $keyType = 'string';
 
   protected $fillable = [
     'route_name',

@@ -8,6 +8,7 @@ use App\Enums\SettingNames;
 use App\Enums\TimestampMessageColumns;
 use App\Rules\ValidTimezone;
 use Exception;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,8 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property SettingNames $name
  */
 class Settings extends Model {
-  public $incrementing = false;
-  protected $keyType = 'string';
+  use HasUuids;
 
   protected $fillable = [
     'setting',

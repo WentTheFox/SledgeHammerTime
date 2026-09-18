@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids as HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 class WebhookDelivery extends Model {
+  use HasUuids;
+
   public $timestamps = false;
-  public $incrementing = false;
-  protected $keyType = 'string';
 
   // Without an explicit offset here, Eloquent serializes occurred_at as a bare
   // "Y-m-d H:i:s" string for the INSERT/UPDATE parameter, and Postgres then
