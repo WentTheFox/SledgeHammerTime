@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Apin voit löytää Discordin App-hakemisto sivulla, jonka voit tarkistaa täällä:',
   'appDiscoveryCta' => 'Näytä App-hakemistossa',
   'shareableLink' => 'Voit myös jaa alhaalta löytyvän linkin joka antaa heidän lisätä apin ilman mitään häiriötekijöitä:',
-  'shardStats' => [
-    'title' => 'Shard-tilastot',
-    'description' => 'Kun appi saavuttaa tietyn määrän palvelimia joissa se on asennettu, Discord vaatii apin käyttämään shardingia, joka tarkoittaa vuorovaikutusten käsittelyä monen prosessin välillä.',
-    'boxesDescription' => 'Alla voit nähdä suorakulmioita jotka edustavat kaikkia shardeja mitä appi käyttää. Niiden leveys on suhteessa numeroon palvelimia joille tietty shardi on määrätty kaikista (:totalServerCount). Vie hiiri minkä vain päälle näkeväksesi lisätietoja shardista.',
-    'shardId' => 'Shard ID',
-    'assignedServers' => 'Määrätyt palvelimet',
-    'startupTime' => 'Käynnistysaika',
-    'lastUpdateTime' => 'Viimeksi päivitetty',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Komentojen viite',

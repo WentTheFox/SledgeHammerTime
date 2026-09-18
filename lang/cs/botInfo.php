@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Tuto aplikaci najdete na Discordu v adresáři aplikací, kterou si můžete prohlédnout zde:',
   'appDiscoveryCta' => 'Zobrazit v adresáři aplikací',
   'shareableLink' => 'Sdílejte s ostatními odkaz níže, díky němuž budou moci aplikaci přidat bez zbytečných rozptýlení:',
-  'shardStats' => [
-    'title' => 'Statistiky rozštěpení databáze',
-    'description' => 'Po dosažení určitého počtu serverů, kde je aplikace nainstalována, začne Discord vyžadovat, aby aplikace používaly rozštěpení databáze, což v podstatě znamená rozdělení zpracování interakcí na více procesů.',
-    'boxesDescription' => 'Níže můžete vidět několik obdélníčků představujících všechny střepy, které aplikace aktuálně používá. Jejich šířka je úměrná počtu serverů, které jsou přiřazeny danému střepu z celkového počtu (:totalServerCount). Najetím myši na kterýkoli z nich zobrazíte další informace o střepu.',
-    'shardId' => 'ID střepu',
-    'assignedServers' => 'Přiřazené servery',
-    'startupTime' => 'Čas spuštění',
-    'lastUpdateTime' => 'Naposledy aktualizován',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Přehled příkazů',

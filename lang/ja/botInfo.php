@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'このアプリはDiscordのアプリ発見ページで見つけることができます。こちらから確認できます：',
   'appDiscoveryCta' => 'App Discovery で表示',
   'shareableLink' => '以下のリンクを他の人と共有することもできます。これにより、追加の手間なくアプリを追加できます：',
-  'shardStats' => [
-    'title' => 'シャード統計',
-    'description' => 'アプリがインストールされるサーバー数が一定数に達すると、Discordはアプリにシャーディングの使用を要求します。これは本質的に、複数のプロセス間で相互作用の処理を分割することを意味します。',
-    'boxesDescription' => '以下に、アプリケーションが現在使用しているすべてのシャードを表す長方形が表示されています。各長方形の幅は、そのシャードが割り当てられているサーバー数を総サーバー数（:totalServerCount）で割った値に比例しています。いずれかの長方形にカーソルを合わせると、そのシャードの詳細情報が表示されます。',
-    'shardId' => 'シャードID',
-    'assignedServers' => '割り当てられたサーバー',
-    'startupTime' => '起動時間',
-    'lastUpdateTime' => '最終更新',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'コマンド参照',

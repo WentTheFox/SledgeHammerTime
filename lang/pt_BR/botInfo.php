@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'O aplicativo pode ser encontrado na página Descoberta de Aplicativos do Discord, disponível aqui:',
   'appDiscoveryCta' => 'Visualizar na Descoberta de Aplicativos',
   'shareableLink' => 'Você também pode compartilhar o link abaixo com outros usuários, possibilitando adicionar o aplicativo sem restrições adicionais:',
-  'shardStats' => [
-    'title' => 'Estatísticas do Fragmento',
-    'description' => 'Depois que um aplicativo atinge um determinado número de servidores nos quais está instalado, o Discord exige que os aplicativos utilizem a fragmentação, o que significa, essencialmente, distribuir o processamento das interações entre vários processos.',
-    'boxesDescription' => 'Abaixo você pode ver alguns retângulos representando todos os fragmentos usados atualmente pelo aplicativo. A largura deles é proporcional ao número de servidores que um dado fragmento é atribuído a partir do total (:totalServerCount). Passe o mouse por qualquer um deles para ver mais informações sobre o fragmento.',
-    'shardId' => 'ID do fragmento',
-    'assignedServers' => 'Servidores designados',
-    'startupTime' => 'Horário de inicialização',
-    'lastUpdateTime' => 'Última Atualização',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Referência de Comandos',

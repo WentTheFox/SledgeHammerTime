@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'L\'appli peut être trouvée sur la page Découverte d\'Applications de Discord, que vous pouvez consulter ici :',
   'appDiscoveryCta' => 'Voir sur Découverte d\'Applications',
   'shareableLink' => 'Vous pouvez aussi partager le lien ci-dessous avec d\'autres personnes pour qu\'ils puissent ajouter l\'appli sans aucune autre distraction :',
-  'shardStats' => [
-    'title' => 'Statistiques sur les Shards',
-    'description' => 'Après qu\'une application soit installée sur un certain nombre de serveurs, Discord exige l\'utilisation du Sharding, qui consiste essentiellement à répartir le traitement des interactions entre plusieurs processus.',
-    'boxesDescription' => 'Vous pouvez voir ci-dessous plusieurs rectangles représentant toutes les Shards actuellement utilisées par l\'application. Leurs largeurs sont proportionnelles au nombre de serveurs auxquels une Shard est assignée sur un total de (:totalServerCount). Survolez n\'importe lequel pour voir plus d\'informations sur la Shard.',
-    'shardId' => 'ID de la partition',
-    'assignedServers' => 'Serveurs assignés',
-    'startupTime' => 'Heure de démarrage',
-    'lastUpdateTime' => 'Dernière mise à jour',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Liste des commandes',

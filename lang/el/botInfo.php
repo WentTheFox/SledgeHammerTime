@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Η εφαρμογή μπορεί να βρεθεί στη σελίδα Ανακάλυψη Εφαρμογών του Discord, την οποία μπορείτε να δείτε εδώ:',
   'appDiscoveryCta' => 'Προβολή στην Ανακάλυψη Εφαρμογών',
   'shareableLink' => 'Μπορείτε επίσης να μοιραστείτε τον παρακάτω σύνδεσμο με άλλους που θα τους επιτρέψει να προσθέσουν την εφαρμογή χωρίς επιπλέον περισπασμούς:',
-  'shardStats' => [
-    'title' => 'Στατιστικά Shard',
-    'description' => 'Αφού μια εφαρμογή φτάσει έναν ορισμένο αριθμό διακομιστών στους οποίους είναι εγκατεστημένη, το Discord απαιτεί από τις εφαρμογές να χρησιμοποιούν sharding, το οποίο ουσιαστικά σημαίνει τον διαχωρισμό του χειρισμού των αλληλεπιδράσεων μεταξύ πολλαπλών διεργασιών.',
-    'boxesDescription' => 'Παρακάτω μπορείτε να δείτε μερικά ορθογώνια που αντιπροσωπεύουν όλα τα shards που χρησιμοποιούνται επί του παρόντος από την εφαρμογή. Το πλάτος τους είναι ανάλογο με τον αριθμό των διακομιστών στους οποίους έχει ανατεθεί ένα συγκεκριμένο shard από το σύνολο (:totalServerCount). Περάστε με το ποντίκι πάνω από οποιοδήποτε από αυτά για να δείτε περισσότερες πληροφορίες σχετικά με το shard.',
-    'shardId' => 'Shard ID',
-    'assignedServers' => 'Ανατεθειμένοι Διακομιστές',
-    'startupTime' => 'Χρόνος Εκκίνησης',
-    'lastUpdateTime' => 'Τελευταία Ενημέρωση',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Αναφορά Εντολών',

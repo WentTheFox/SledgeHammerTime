@@ -9,14 +9,15 @@ return [
   'appDiscoveryLead' => 'Aplikację można znaleźć na stronie Discord App Discovery, którą można sprawdzić tutaj:',
   'appDiscoveryCta' => 'Zobacz w App Discovery',
   'shareableLink' => 'Możesz również podzielić się poniższym linkiem z innymi osobami, co pozwoli im dodać aplikację bez żadnych dodatkowych przeszkód:',
-  'shardStats' => [
-    'title' => 'Statystyki shardów',
-    'description' => 'Gdy aplikacja osiągnie określoną liczbę serwerów, na których jest zainstalowana, Discord wymaga, aby aplikacje korzystały z shardingu, co zasadniczo oznacza podzielenie obsługi interakcji między wiele procesów.',
-    'boxesDescription' => 'Poniżej możesz zobaczyć prostokąty reprezentujące wszystkie shardy aktualnie używane przez aplikację. Ich szerokość jest proporcjonalna do liczby serwerów, do których przypisano dany shard (:totalServerCount). Najedź na jeden z nich, aby zobaczyć więcej informacji na temat shardu.',
-    'shardId' => 'ID Shardu',
-    'assignedServers' => 'Przypisane serwery',
-    'startupTime' => 'Czas uruchomienia',
-    'lastUpdateTime' => 'Ostatnia aktualizacja',
+  'webhookDeliveryStats' => [
+    'title' => 'Webhook Delivery Times',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'noData' => 'No delivery data has been recorded yet.',
+    'latencyChartTitle' => 'Response time',
+    'latencyAvgLabel' => 'Average',
+    'latencyP95Label' => '95th percentile',
+    'errorRateChartTitle' => 'Error rate',
+    'errorRateLabel' => 'Error rate',
   ],
   'commandsReference' => [
     'title' => 'Odwołania komend',
