@@ -104,7 +104,9 @@ function buildCappedSeries(rawValues: (number | null)[]) {
   const isOverCap = rawValues.map((value) => value !== null && value > latencyCapMs);
 
   return {
-    data: rawValues.map((value) => value === null ? null : Math.min(value, latencyCapMs)),
+    // Empty buckets have no value (null); plot them at 0 so the line drops to the floor on
+    // quiet stretches instead of breaking. rawData keeps the null for the tooltip.
+    data: rawValues.map((value) => value === null ? 0 : Math.min(value, latencyCapMs)),
     rawData: rawValues,
     pointRadius: isOverCap.map((over) => over ? 5 : 0),
     pointHoverRadius: isOverCap.map((over) => over ? 7 : 0),
@@ -125,9 +127,6 @@ const latencyChartData = computed(() => ({
       backgroundColor: avgColor.value,
       borderWidth: 2,
       tension: 0.2,
-      // Buckets with no requests have no average (null) - connect across them so the
-      // overall trend stays readable instead of breaking into stubs on quiet stretches.
-      spanGaps: true,
       ...buildCappedSeries((props.stats ?? []).map((point) => point.avgDurationMs)),
     },
     {
@@ -224,9 +223,12 @@ const latencyChartOptions = computed<ChartOptions<'line'>>(() => ({
     tooltip: {
       mode: 'index',
       intersect: false,
-      // Empty 5-minute buckets carry a null avg/median/p95 (see WebhookDeliveryStatsPoint) -
-      // filter those out rather than showing a misleading "0 ms" for a bucket with no data.
-      filter: (item) => item.parsed.y !== null,
+      // Empty 5-minute buckets carry a null avg/median/p95 (see WebhookDeliveryStatsPoint) and
+      // are plotted at 0 - hide them from the tooltip rather than showing a misleading "0 ms".
+      filter: (item) => {
+        const rawData = (item.dataset as RawDataDataset).rawData;
+        return !rawData || rawData[item.dataIndex] !== null;
+      },
       callbacks: {
         label: (item) => {
           // Points over latencyCapMs are plotted clamped (see buildCappedSeries) so the
