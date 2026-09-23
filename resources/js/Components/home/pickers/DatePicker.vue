@@ -81,7 +81,10 @@ defineExpose<DatePickerApi>({
 </script>
 
 <template>
-  <HtPopup ref="popup-el">
+  <HtPopup
+    ref="popup-el"
+    data-testid="date-picker-popup"
+  >
     <form
       ref="form-el"
       @submit.prevent="selectAndClose"

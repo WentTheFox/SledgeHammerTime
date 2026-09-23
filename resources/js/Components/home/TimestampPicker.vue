@@ -86,6 +86,7 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :icon-start="faClockRotateLeft"
           :icon-only="true"
           size="input"
+          data-testid="set-current-time-button"
           @click="ts.setCurrentTime"
         />
         <template #content>
@@ -98,8 +99,10 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :icon-start="faLockOpen"
           :icon-only="true"
           :href="ts.unlockedTimestampUrl.value"
-          size-="input"
-          @click.prevent="ts.unlock"
+          :replace="true"
+          size="input"
+          data-testid="unlock-button"
+          @click="ts.unlock"
         />
         <template #content>
           {{ $t('timestampPicker.picker.tooltip.unlock') }}
@@ -111,8 +114,9 @@ const displayCustomCombinedInput = computed(() => Boolean(settings?.customDateIn
           :icon-start="faLock"
           :icon-only="true"
           :href="ts.lockedTimestampUrl.value"
+          :replace="true"
           size="input"
-          @click.prevent="ts.lock"
+          data-testid="lock-button"
         />
         <template #content>
           {{ $t('timestampPicker.picker.tooltip.lock') }}

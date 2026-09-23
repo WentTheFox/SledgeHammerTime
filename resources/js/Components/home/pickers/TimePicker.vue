@@ -69,6 +69,7 @@ defineExpose<TimePickerPopupApi>({
 <template>
   <HtPopup
     ref="popup-el"
+    data-testid="time-picker-popup"
     @close="closeTimePicker"
     @open="openTimePicker"
   >

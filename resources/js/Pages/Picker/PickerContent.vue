@@ -14,7 +14,6 @@ import {
 } from '@/injection-keys';
 import { TimezoneSelection, TimeZoneSelectionType } from '@/model/timezone-selection';
 import { convertTimeZoneSelectionToString, normalizeTimeString } from '@/utils/time';
-import { router } from '@inertiajs/vue3';
 import { computed, inject, nextTick, onMounted, provide, readonly, Ref, ref } from 'vue';
 
 const props = defineProps<{
@@ -104,12 +103,11 @@ const setCurrentTime = () => {
   changeDateString(newDateString);
   changeTimeString(newTimeString);
 };
-const lock = () => {
-  router.get(lockedTimestampUrl.value, undefined, { replace: true });
-};
+/**
+ * Keeps the locked date & time for after the unlock link navigates away
+ */
 const unlock = () => {
   backupLastTime([dateString.value, timeString.value]);
-  router.get(unlockedTimestampUrl.value, undefined, { replace: true });
 };
 const backupSessionStorageKey = 'lockedDateTime';
 const backupLastTime = (value: [string, string]) => {
@@ -145,7 +143,6 @@ provide(timestampInject, {
   changeTimezone,
   setCurrentTime,
   unlock,
-  lock,
 });
 
 const handleTimeSync = async () => {

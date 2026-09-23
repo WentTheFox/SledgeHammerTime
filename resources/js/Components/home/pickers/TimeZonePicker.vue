@@ -107,6 +107,7 @@ defineExpose<TimeZonePickerApi>({
   <HtPopup
     ref="popup-el"
     :allow-overflow="true"
+    data-testid="timezone-picker-popup"
   >
     <form
       ref="form-el"

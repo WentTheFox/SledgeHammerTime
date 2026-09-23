@@ -194,6 +194,7 @@ const hasLocalCustomizations = computed(
                 :icon-only="true"
                 color="primary"
                 :pressed="editMode"
+                data-testid="timestamp-table-edit-button"
                 @click="editMode = !editMode"
               />
               <template #content>
@@ -207,6 +208,7 @@ const hasLocalCustomizations = computed(
                 color="warning"
                 :pressed="!hasLocalCustomizations"
                 :disabled="!hasLocalCustomizations"
+                data-testid="timestamp-table-reset-button"
                 @click="resetLocalSettings"
               />
               <template #content>
@@ -221,6 +223,7 @@ const hasLocalCustomizations = computed(
       <TimestampTableRow
         v-for="row in tableRows"
         :key="row.key"
+        :data-testid="`timestamp-row-${row.key}`"
         :icon="row.iconProp"
         :ts="currentTimestamp"
         :unix-ts="unixTs"
