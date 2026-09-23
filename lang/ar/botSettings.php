@@ -37,7 +37,7 @@ return [
       'displayName' => 'خيار ":minuteOptionName" الافتراضي للأمر /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'الخيار الافتراضي ":secondOptionName" لـ /:atcommandName الأمر',
+      'displayName' => 'خيار ":secondOptionName" الافتراضي للأمر /:atCommandName',
     ],
     'telemetry' => [
       'displayName' => 'Allow Telemetry collection',

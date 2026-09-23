@@ -25,7 +25,7 @@ return [
     'autoReload' => 'La page s\'actualisera automatiquement <1/>',
     'reloadButton' => 'Actualisation manuelle',
     "supportServerButton" => "Serveur de Support",
-    "contactDeveloperButton" => "Contact Developer",
+    "contactDeveloperButton" => "Contacter le développeur",
   ],
   'incompleteTranslations' => 'La traduction est incomplète',
   'contributeTranslations' => 'Contribuer',
@@ -34,7 +34,7 @@ return [
     'atPickedDate' => 'Observé à l\'heure choisie',
     'currentlyAndAtPickedDate' => 'Observé actuellement & à l\'heure choisie',
   ],
-  'copyToClipboard' => 'Copier dans le presse papier',
+  'copyToClipboard' => 'Copier dans le presse-papier',
   'copiedToClipboard' => 'Copié dans le presse-papiers !',
   'jsDisabled' => [
     'title' => 'JavaScript est nécessaire',
@@ -48,7 +48,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Paramètres d\'entrée',
+      'title' => 'Paramètres de saisie',
       'naturalLanguageInput' => [
         'label' => 'Champ de saisie @time',
         'description' => 'Permettre de manipuler l\'horodatage sélectionné en langage naturel (par exemple, "dans 5 heures") via une entrée supplémentaire en texte libre. Similaire à la nouvelle balise @time de Discord. Seul un nombre limité de langues est pris en charge.',
@@ -115,7 +115,7 @@ return [
     ],
     'credits' => [
       'title' => 'Crédits',
-      'developedBy' => 'Développeur <1></1>',
+      'developedBy' => 'Développé par <1></1>',
       'using' => 'Avec <1></1>',
       'fontAwesomeFree' => 'Font Awesome Free',
       'laravel' => 'Laravel',

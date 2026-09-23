@@ -9,7 +9,7 @@ return [
     "suggestions" => [
       "heading" => "찾으시는게 있으신가요?",
       "description" => "도움이 될 만한 몇 가지 페이지입니다:",
-      "picker" => "Timestamp 선택기",
+      "picker" => "타임스탬프 선택기",
       "botInfoDescription" => "Discord 봇 및 사용 가능한 명령어에 대한 정보",
       "discordCta" => "무언가 빠진 것이 있다고 생각되시나요? 디스코드 서버에 가입하여 알려주세요.",
       "discordButton" => "디스코드 서버 참여하기",
@@ -100,7 +100,7 @@ return [
         'potentiallyWrong' => '시스템 시간이 틀릴 수 있습니다.',
         'value' => '현재 지역 시간과 서버 시간 사이의 차이는 :offset입니다.',
       ],
-      'details' => '세부',
+      'details' => '세부사항',
       'syncButtonLabel' => '동기화',
       'roundTripDuration' => '왕복 시간',
       't0' => '요청이 전송된 시점의 클라이언트 타임스탬프',

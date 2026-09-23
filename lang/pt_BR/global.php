@@ -18,8 +18,8 @@ return [
   "maintenanceMode" => [
     "heading" => "Modo de Manutenção",
     "content" => [
-      'pleaseWait' => "O aplicativo está sendo atualizado. Tente novamente em alguns segundos.",
-      'joinSupportServer' => "Se o problema persistir por mais de alguns minutos, por favor entre no servidor do Discord e nos informe.",
+      'pleaseWait' => "O aplicativo está sendo atualizado no momento. Tente novamente em alguns segundos.",
+      'joinSupportServer' => "Se o problema persistir por mais de alguns minutos, por favor entre no servidor de suporte do Discord e nos informe.",
       'contactDeveloper' => "Se o problema persistir por mais de alguns minutos, entre em contato com o desenvolvedor e informe-o.",
     ],
     'autoReload' => 'A página irá recarregar automaticamente <1/>',
@@ -38,10 +38,10 @@ return [
   'copiedToClipboard' => 'Copiado para a área de transferência!',
   'jsDisabled' => [
     'title' => 'JavaScript é necessário',
-    'body' => "Seu navegador ou não suporta JavaScript, ou atualmente está desabilitado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para este aplicativo. Ative e atualize a página, ou use um navegador diferente.",
+    'body' => "Seu navegador não suporta JavaScript ou está atualmente desabilitado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para este aplicativo. Ative-o e atualize a página, ou use um navegador diferente.",
   ],
   'nav' => [
-    'botSettings' => 'Configurações do Bot',
+    'botSettings' => 'Configurações do Aplicativo',
     'profile' => 'Perfil',
     'legal' => 'Informações legais',
     'analytics' => 'Analíticas',
@@ -97,7 +97,7 @@ return [
         'syncing' => 'O seu relógio do sistema atualmente está sincronizando com nossos servidores, por favor aguarde.',
         'accurate' => 'O relógio do sistema está atualizado.',
         'potentiallyWrong' => 'O relógio do seu sistema pode estar errado.',
-        'value' => 'A diferença entre o horário local e do servidor é:',
+        'value' => 'The difference between the local and server time is :offset.',
       ],
       'details' => 'Detalhes',
       'syncButtonLabel' => 'Sincronizar',
@@ -106,7 +106,7 @@ return [
       't1' => 'O timestamp do servidor no pedido de recepção',
       't2' => 'O timestamp do servidor na transmissão de resposta',
       't3' => 'O timestamp do servidor na recepção de resposta',
-      'timestampValue' => ':valor s',
+      'timestampValue' => ':value s',
       'offsetAmount' => ':offset ms',
       'networkOffsetCell' => 'Deslocamento Detectado (via Rede)',
     ],

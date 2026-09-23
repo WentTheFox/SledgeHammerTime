@@ -47,5 +47,5 @@ return [
       'displayName' => 'Alapértelmezett ":hourOptionName" paraméter az /:at12CommandName parancshoz',
     ],
   ],
-  'saveSuccess' => 'A beállításaid sikeresen mentéstre kerültek.',
+  'saveSuccess' => 'A beállításaid sikeresen mentésre kerültek.',
 ];
