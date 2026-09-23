@@ -21,12 +21,17 @@ type ConditionalLinkButtonProps = {
   external?: false,
   method?: Method,
   as?: 'button',
+  /**
+   * Replace the current history entry instead of adding a new one
+   */
+  replace?: boolean,
   targetBlank?: undefined,
 } | {
   // eslint-disable-next-line -- Conditional type confuses the rule
   external: true,
   as?: undefined,
   method?: undefined,
+  replace?: undefined,
   targetBlank?: boolean,
 };
 
@@ -42,6 +47,7 @@ const props = withDefaults(defineProps<CommonLinkButtonProps & ConditionalLinkBu
   iconEnd: undefined,
   external: false,
   method: undefined,
+  replace: false,
   targetBlank: undefined,
   size: undefined,
 });
@@ -72,6 +78,7 @@ const buttonClasses = computed(() => getButtonClasses(props));
     :href="href"
     :method="method"
     :as="as"
+    :replace="replace"
   >
     <HtButtonContent
       :loading="loading"

@@ -23,7 +23,6 @@ export const timestampInject = Symbol('timestamp') as InjectionKey<{
   changeDateTimeString: (value: string) => void,
   changeTimezone: (value: TimezoneSelection) => void,
   setCurrentTime: () => void,
-  lock: () => void,
   unlock: () => void,
 }>;
 

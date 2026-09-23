@@ -245,16 +245,22 @@ const stopMovementTracking = () => {
       break;
   }
 };
-const stopMouseMovementTracking = () => {
+const removeMouseListeners = () => {
   document.body.removeEventListener('mousemove', onMousemove);
   document.body.removeEventListener('mouseup', stopMouseMovementTracking);
   document.body.removeEventListener('contextmenu', stopMouseMovementTracking);
+};
+const removeTouchListeners = () => {
+  document.body.removeEventListener('touchmove', onTouchmove);
+  document.body.removeEventListener('touchend', stopTouchMovementTracking);
+  document.body.removeEventListener('touchcancel', stopTouchMovementTracking);
+};
+const stopMouseMovementTracking = () => {
+  removeMouseListeners();
   stopMovementTracking();
 };
 const stopTouchMovementTracking = () => {
-  document.body.removeEventListener('mousemove', onMousemove);
-  document.body.removeEventListener('mouseup', stopMouseMovementTracking);
-  document.body.removeEventListener('contextmenu', stopMouseMovementTracking);
+  removeTouchListeners();
   stopMovementTracking();
 };
 
@@ -271,7 +277,10 @@ defineExpose({
 });
 
 onUnmounted(() => {
-  stopMouseMovementTracking();
+  // Only clean up here, stopping the tracking would advance the dial or select the value (e.g. when the popup is closed)
+  removeMouseListeners();
+  removeTouchListeners();
+  window.removeEventListener('blur', stopMouseMovementTracking);
   if (mousemoveAnimationFrameRequest) {
     window.cancelAnimationFrame(mousemoveAnimationFrameRequest);
   }
