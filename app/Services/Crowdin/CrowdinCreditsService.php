@@ -176,7 +176,7 @@ class CrowdinCreditsService {
   }
 
   /**
-   * @return array{users: array<string, mixed>, languages: array<string, mixed>}
+   * @return array{users: array<int, mixed>, languages: array<string, mixed>}
    */
   private function buildIndexedReportData():array {
     $translators = $this->getTranslators();
