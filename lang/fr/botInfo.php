@@ -10,7 +10,7 @@ return [
   'appDiscoveryCta' => 'Voir sur Découverte d\'Applications',
   'shareableLink' => 'Vous pouvez aussi partager le lien ci-dessous avec d\'autres personnes pour qu\'ils puissent ajouter l\'appli sans aucune autre distraction :',
   'webhookDeliveryStats' => [
-    'title' => 'Webhook Delivery Times',
+    'title' => 'Délai de livraison du Webhook',
     'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
     'noData' => 'No delivery data has been recorded yet.',
     'latencyChartTitle' => 'Response time',

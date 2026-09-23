@@ -4,7 +4,7 @@ return [
   'title' => 'Profiel',
   'intro' => 'De profielpagina laat u toe om uw accountinformatie te beheren die specifiek betrekking heeft op de website. Als u op zoek bent naar waar u de standaardinstellingen en andere instellingen voor de Discordapp kunt wijzigen, ga naar de pagina voor <1> App instellingen <1>.',
   'information' => [
-    'heading' => 'Profiel Informatie',
+    'heading' => 'Profielinformatie',
     'description' => "Werk uw accounts profielinformatie bij.",
     'displayName' => 'Weergavenaam',
     'hiddenFormats' => 'Verberg formaten',
