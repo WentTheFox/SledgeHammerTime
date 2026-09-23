@@ -97,7 +97,7 @@ return [
         'syncing' => 'O relógio do seu sistema está atualmente sendo sincronizado com nossos servidores, por favor aguarde.',
         'accurate' => 'O relógio do seu sistema está correto.',
         'potentiallyWrong' => 'O relógio do seu sistema pode estar errado.',
-        'value' => 'A diferença entre a hora local e a hora do servidor é: offset.',
+        'value' => 'The difference between the local and server time is :offset.',
       ],
       'details' => 'Detalhes',
       'syncButtonLabel' => 'Sincronizar',

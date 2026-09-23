@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'seoDescription' => 'Genereer tijdsaanduidingen voor Discord chatberichten',
+  'seoDescription' => 'Genereer tijdstempels voor Discord chatberichten',
   'changeLanguage' => 'Wijzig taal',
   "notFound" => [
     "heading" => "Pagina Niet Gevonden",
@@ -19,7 +19,7 @@ return [
     "heading" => "Onderhoudsmodus",
     "content" => [
       'pleaseWait' => "De applicatie wordt momenteel bijgewerkt, probeer het over een paar seconden opnieuw.",
-      'joinSupportServer' => "Als het probleem langer dan een paar minuten aanhoudt, laat het ons dan weten in de supportserver op Discord.",
+      'joinSupportServer' => "Als het probleem langer dan een paar minuten aanhoudt, laat het ons dan weten in de support server op Discord.",
       'contactDeveloper' => "Als het probleem langer dan een paar minuten aanhoudt, neem dan contact op met de ontwikkelaar.",
     ],
     'autoReload' => 'De pagina wordt automatisch herladen <1/>',
@@ -48,7 +48,7 @@ return [
   ],
   'sidebar' => [
     'inputSettings' => [
-      'title' => 'Input instellingen',
+      'title' => 'Invoerinstellingen',
       'naturalLanguageInput' => [
         'label' => '@time invoerveld',
         'description' => 'Maak het mogelijk om de geselecteerde tijdstempel te manipuleren met natuurlijke taal (bijv. "over 5 uur") via een extra vrije tekstinvoer. Vergelijkbaar met de nieuwe Discord @time tag. Slechts een beperkt aantal talen wordt ondersteund.',

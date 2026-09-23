@@ -3,7 +3,7 @@
 return [
   'title' => 'Ustawienia aplikacji',
   'description' => 'Poniżej można zobaczyć bieżące ustawienia w aplikacji HammerTime dla każdego połączonego konta.',
-  'learnMore' => 'Jeśli nie jesteś pewien, czym jest aplikacja lub ciekawy co potrafi?? Odwiedź <1>Discord</1> aby dowiedzieć się więcej.',
+  'learnMore' => 'Nie jesteś pewien, czym jest aplikacja lub ciekawy co potrafi? Odwiedź <1>Discord</1> aby dowiedzieć się więcej.',
   'advancedSettings' => [
     'toggleText' => 'Ustawienia zaawansowane',
   ],

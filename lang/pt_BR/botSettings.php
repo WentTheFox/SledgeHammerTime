@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'title' => 'Configurações do Bot',
+  'title' => 'Configurações do Aplicativo',
   'description' => 'Abaixo você consegue ver suas as configurações atuais do HammerTime App para cada conta conectada.',
   'learnMore' => 'Não sabe para que serve o aplicativo ou está curioso para saber o que ele faz? Acesse o link disponível no nosso  <1>Discord</1>  para saber mais.',
   'advancedSettings' => [
