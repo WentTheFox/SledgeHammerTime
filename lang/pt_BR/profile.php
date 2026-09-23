@@ -14,7 +14,7 @@ return [
     'heading' => 'Contas Conectadas',
     'description' => 'Você pode vincular várias contas à sua conta HammerTime para poder gerenciá-las em um só lugar. As informações básicas de usuário exibidas aqui são atualizadas automaticamente no máximo uma vez por hora ao carregar esta página.',
     'discord' => 'Contas do Discord',
-    'crowdin' => 'Contas do CrowdIn',
+    'crowdin' => 'Contas do Crowdin',
     'noConnectedAccounts' => 'Você não tem nenhuma conta conectada no momento',
     'linkAdditional' => [
       'heading' => 'Conectar outras contas',
@@ -25,7 +25,7 @@ return [
       ],
       'crowdin' => [
         'description' => 'Se você é um tradutor do projeto, vincular sua conta do CrowdIn eventualmente permitirá que você customize como o seu nome aparece nos créditos de tradução, além de servir como um nível a mais de verificação de que estas contas pertencem a você, caso entre no servidor do Discord do projeto.',
-        'authorize' => 'Autorizar conta do CrowdIn',
+        'authorize' => 'Autorizar conta do Crowdin',
       ],
     ],
   ],
