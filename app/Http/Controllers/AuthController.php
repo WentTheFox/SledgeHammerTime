@@ -10,6 +10,7 @@ use App\Models\DiscordUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Contracts\Provider as ProviderContract;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
+use RuntimeException;
 use SocialiteProviders\Discord\Provider;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -31,6 +33,28 @@ class AuthController extends Controller {
     $callback_path = Auth::check() ? 'callback-auth' : 'callback';
 
     return "$baseUrl/oauth/$callback_path/$provider";
+  }
+
+  /**
+   * Runs $callback, re-throwing any database error without its query bindings. The upserts below
+   * write OAuth access/refresh tokens, and a QueryException's message embeds the full SQL with every
+   * bound value - so any failure there (a read-only DB role, a constraint violation, ...) would
+   * otherwise put live tokens straight into laravel.log and anywhere else exceptions get reported.
+   * The original exception is deliberately not chained as `previous` either, since the logger
+   * prints previous exceptions' messages too; only the first line of the driver's error is kept,
+   * as Postgres' DETAIL lines can quote column values as well.
+   *
+   * @template T
+   * @param callable(): T $callback
+   * @return T
+   */
+  private static function withoutLoggingQueryBindings(callable $callback):mixed {
+    try {
+      return $callback();
+    } catch (QueryException $e) {
+      $driverError = strtok($e->errorInfo[2] ?? '', "\n") ?: 'unknown error';
+      throw new RuntimeException("Failed to save login data (SQLSTATE {$e->getCode()}: $driverError), query: {$e->getSql()}");
+    }
   }
 
   private static function createSocialiteDriver(string $provider):ProviderContract {
@@ -122,7 +146,7 @@ class AuthController extends Controller {
     /**
      * @var DiscordUser $result
      */
-    $result = DiscordUser::updateOrCreate([
+    $result = self::withoutLoggingQueryBindings(fn() => DiscordUser::updateOrCreate([
       'id' => $data->getId(),
     ], [
       'id' => $data->getId(),
@@ -134,7 +158,7 @@ class AuthController extends Controller {
       'refresh_token' => $data->refreshToken,
       'scopes' => $data->accessTokenResponseBody['scope'],
       'token_expires' => (new Carbon())->add('seconds', $data->expiresIn),
-    ]);
+    ]));
 
     return $result;
   }
@@ -142,7 +166,7 @@ class AuthController extends Controller {
   protected function updateOrCreateCrowdinUser(SocialiteUser $data, User $user): CrowdinUser {
     $username = $data->getName();
     $fullName = $data->getNickname();
-    return CrowdinUser::updateOrCreate([
+    return self::withoutLoggingQueryBindings(fn() => CrowdinUser::updateOrCreate([
       'id' => $data->getId(),
     ], [
       'id' => $data->getId(),
@@ -154,7 +178,7 @@ class AuthController extends Controller {
       'scopes' => $data->accessTokenResponseBody['scope'] ?? null,
       'token_expires' => (new Carbon())->add('seconds', $data->expiresIn),
       'user_id' => $user->id,
-    ]);
+    ]));
   }
 
   public function login(Request $request):RedirectResponse {
@@ -192,8 +216,8 @@ class AuthController extends Controller {
     $locale = $request->route('locale');
     $data = $request->validated();
 
-    $user = null;
-    DB::transaction(function () use ($discordUserId, $data, &$user) {
+    /** @var ?User $user */
+    $user = self::withoutLoggingQueryBindings(fn() => DB::transaction(function () use ($discordUserId, $data) {
       $discordUser = DiscordUser::updateOrCreate(['id' => $discordUserId], $data);
 
       /** @var ?User $user */
@@ -204,7 +228,9 @@ class AuthController extends Controller {
         ]);
         $discordUser->update(['user_id' => $user->id]);
       }
-    });
+
+      return $user;
+    }));
 
     if (!$user){
       return response(status: 500);
