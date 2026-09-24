@@ -45,7 +45,7 @@ return [
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'Adres e-mail',
-    'gravatarDescription' => 'Gravatar pozwala na używanie tego samego zdjęcia profilowego na wszystkich stronach, które go obsługują. Twój adres e-mail zostanie zapisany szyfrowaniem MD5.',
+    'gravatarDescription' => '<1>Gravatar</1> pozwala na używanie tego samego zdjęcia profilowego na wszystkich stronach, które go obsługują. Twój adres e-mail zostanie zapisany szyfrowaniem MD5.',
     'avatarAccount' => 'Konto',
     'url' => 'Link',
     'visibility' => 'Widoczność',

@@ -1,15 +1,15 @@
 <?php
 
 return [
-  'howTo' => '날짜를 고르고, :syntaxColName 리스트에서 원하는 형식의 타임스탬프를 복사하여, 메시지에 그대로 붙여 넣으세요. 시간대에 따라, 모두에게 다르게 보이는 동적 타임스탬프가 될 것입니다.',
+  'howTo' => '날짜를 고르고, :syntaxColName 목록에서 원하는 형식의 타임스탬프를 복사하여, 메시지에 그대로 붙여 넣으세요. 시간대에 따라, 모두에게 다르게 보이는 동적 타임스탬프로 표시됩니다.',
   'picker' => [
     'label' => [
       'date' => '날짜',
       'time' => '시간',
       'dateAndTime' => '일시',
       'timezone' => '시간대',
-      'naturalLanguageInput' => '@time input',
-      'modeOffset' => '시간대 차감',
+      'naturalLanguageInput' => '@time 입력',
+      'modeOffset' => '절대 오프셋',
       'modeZoneName' => '시간대 이름',
     ],
     'button' => [
@@ -19,8 +19,8 @@ return [
     'tooltip' => [
       'setToCurrent' => '현재 시간으로 설정',
       'lock' => 'URL로 타임스탬프 잠그기',
-      'unlock' => '타임스탬프 잠금 풀기',
-      'previousYear' => '전년',
+      'unlock' => '타임스탬프 잠금 해제',
+      'previousYear' => '작년',
       'previousMonth' => '저번 달',
       'previousDecade' => '이전 10년',
       'nextMonth' => '다음 달',
@@ -28,7 +28,7 @@ return [
       'nextDecade' => '다음 10년',
     ],
     'validation' => [
-      'naturalLanguageParseError' => '입력된 시간 분석 실패'
+      'naturalLanguageParseError' => '자연어 입력 분석 실패'
     ]
   ],
   'table' => [
@@ -38,7 +38,7 @@ return [
     'resetFormats' => '설정 초기화',
     'hideFormat' => '이 형식 숨기기',
     'showFormat' => '이 형식 표시',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'unhideInProfile' => '프로필 설정에서 숨김 해제',
   ],
   'faq' => [
     'title' => '자주 묻는 질문',
@@ -48,15 +48,15 @@ return [
     'lead' => '유용할 수도 있는 링크들',
     'server' => [
       'header' => '공식 HammerTime 서버',
-      'p' => '웹사이트에 대한 토론, 타임스탬프의 테스트, 기능의 요청을 하실 수 있습니다.',
+      'p' => '웹사이트에 대한 토론, 타임스탬프 테스트, 기능 요청 등',
     ],
     'bot' => [
       'header' => 'HammerTime 앱',
-      'p' => '슬래시 명령어를 사용하여 Discord 내에서 타임스탬프를 생성하세요.',
+      'p' => '슬래시 명령어로 Discord 내에서 타임스탬프 생성',
     ],
     'oldSite' => [
       'header' => 'HammerTime 이전 사이트',
-      'p' => '프로젝트의 이전 사이트 버전은 공지 전까지 이용 가능합니다',
+      'p' => '프로젝트의 이전 사이트 버전이며, 공지 전까지 이용 가능',
     ],
     'textColor' => [
       'header' => 'Rebane님의 <1>컬러</1> 텍스트 생성기',

@@ -3,11 +3,11 @@
 return [
   'translations' => [
     'title' => '번역된 콘텐츠',
-    'text' => 'This project contains translations by volunteer translators and other members of the community. These translations are provided for users\' convenience, and may not always be fully up-to-date. In all matters, the <1>original language version</1> of this page is considered effective.',
+    'text' => '본 프로젝트는 자원봉사 번역가 및 커뮤니티의 구성원들이 작성한 번역본을 포함합니다. 이러한 번역본은 사용자의 편의를 위해 제공되며, 항상 최신 상태가 아닐 수 있습니다. 모든 사항에 있어, 본 페이지의 <1>영어 원본</1>을 최종본으로 간주합니다.',
   ],
   'lastUpdated' => '마지막 업데이트: <1/>',
   'privacy' => [
-    'heading' => 'Privacy Policy',
+    'heading' => '개인정보 보호정책',
     'operator' => '<0/> ("us", "we", "our", or "Developer") operates the HammerTime website (the "Site"), and HammerTimeBot (the "Bot", or "App"), collectively the HammerTime Project (the "Project"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Project ("you", "User", or collectively "Users").',
     'notAffiliated' => 'Although the "HammerTime" name ("Project Name") is derived from the former name "Hammer & Chisel" of Discord, Inc. ("Discord")<1/> the Project is not affiliated in any way, shape, or form, with Discord, nor M.C. Hammer, whose song<3/> features this phrase prominently. The Developer holds no trademark or copyright over the Project Name.',
     'infoCollection' => [
