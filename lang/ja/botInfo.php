@@ -13,7 +13,7 @@ return [
     'title' => 'Webhook Delivery Times',
     'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
     'noData' => 'No delivery data has been recorded yet.',
-    'latencyChartTitle' => 'Response time',
+    'latencyChartTitle' => '応答時間',
     'latencyAvgLabel' => 'Average',
     'latencyP95Label' => '95th percentile',
     'latencyMedianLabel' => 'Median',

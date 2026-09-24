@@ -17,7 +17,7 @@ return [
     'latencyAvgLabel' => 'Keskimääräinen',
     'latencyP95Label' => '95. persentiili',
     'latencyMedianLabel' => 'Mediaani',
-    'latencyLimitLabel' => 'Discord response limit',
+    'latencyLimitLabel' => 'Discordin vastausaikarajoitus',
     'healthChartTitle' => 'Apin kunto',
     'successRateLabel' => 'Onnistumisprosentti',
   ],

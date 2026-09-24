@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'También puedes compartir el enlace de abajo con otros, lo que les permitirá agregar la aplicación sin distracciones adicionales:',
   'webhookDeliveryStats' => [
     'title' => 'Tiempos de entrega de webhooks',
-    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'description' => 'La aplicación opera detrás del punto de conexión de interacciones HTTP de Discord, lo que significa que cada respuesta debe enviarse dentro de un plazo estricto. A continuación se muestra la velocidad de respuesta y la frecuencia de los fallos durante las últimas :hours horas.',
     'noData' => 'Aún no se han registrado datos de entrega.',
     'latencyChartTitle' => 'Tiempo de respuesta',
     'latencyAvgLabel' => 'Promedio',
