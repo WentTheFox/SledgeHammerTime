@@ -112,4 +112,17 @@ return [
 
   'password_timeout' => 10800,
 
+  /*
+  |--------------------------------------------------------------------------
+  | Login
+  |--------------------------------------------------------------------------
+  |
+  | When false, none of the login/OAuth routes are registered and the UI hides
+  | its login links. Meant for deployments whose database role is read-only
+  | (e.g. beta), where logging in can only ever fail on its first write.
+  |
+  */
+
+  'login_enabled' => (bool)env('AUTH_LOGIN_ENABLED', true),
+
 ];

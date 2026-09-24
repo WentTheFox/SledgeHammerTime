@@ -9,7 +9,7 @@ import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { safeRoute } from '@/utils/safe-route';
+import { MISSING_ROUTE_HREF, safeRoute } from '@/utils/safe-route';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLink, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -22,6 +22,7 @@ const page = inject(pagePropsInject);
 const userInfo = computed(() => page?.value?.auth?.user);
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
+const loginRoute = computed(() => safeRoute('login', route, { routeParams: routeParams.value }));
 
 
 defineProps<{ discordAppId: string }>();
@@ -61,11 +62,11 @@ defineProps<{ discordAppId: string }>();
         </template>
       </HtTranslate>
       <HtTranslate
-        v-else
+        v-else-if="loginRoute !== MISSING_ROUTE_HREF"
         i18n-key="botInfo.customizeSettingsGuest"
       >
         <template #1="slotProps">
-          <a :href="safeRoute('login', route, {routeParams})">
+          <a :href="loginRoute">
             {{ slotProps.text }}
           </a>
         </template>

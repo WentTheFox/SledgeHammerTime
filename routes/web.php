@@ -30,19 +30,26 @@ use Illuminate\Support\Facades\Route;
 
 $languages = config('languages');
 $uiLocaleValues = array_keys($languages['ui_locale_map']);
+// When disabled, every route that starts or completes a login is left unregistered (so it 404s),
+// and the frontend's safeRoute() sees them as missing and hides the links pointing at them
+$loginEnabled = config('auth.login_enabled');
 
-Route::middleware('guest')->group(function () {
-  Route::get('login', [AuthController::class, 'login']);
+if ($loginEnabled){
+  Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthController::class, 'login']);
 
-  Route::get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
-});
+    Route::get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
+  });
+}
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () use ($loginEnabled) {
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
   Route::put('/settings/{discordUserId}', [BotSettingsController::class, 'set'])->name('settings.set');
   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-  Route::get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
+  if ($loginEnabled){
+    Route::get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
+  }
 
   Route::middleware('translator')->group(function () {
     Route::put('/credit-overrides/{crowdinUser}/{languageCode}', [CreditOverrideController::class, 'upsert'])->name('credit-overrides.upsert')->where('languageCode', '[a-zA-Z0-9-]+');
@@ -67,19 +74,25 @@ Route::get('/status', [StaticController::class, 'status'])->name('status');
 Route::get('/discord', [RedirectController::class, 'discord']);
 Route::get('/bot-login', [NotFoundController::class, 'notFound']);
 Route::get('/bot-login/{discordUserId}', [NotFoundController::class, 'notFound']);
-Route::get('/bot-login/{discordUserId}/{locale}', [AuthController::class, 'botLogin'])->name('botLogin');
+if ($loginEnabled){
+  Route::get('/bot-login/{discordUserId}/{locale}', [AuthController::class, 'botLogin'])->name('botLogin');
+}
 Route::get('/', [HomeController::class, 'localeRedirect'])->name('root');
 Route::get('/{locale}', [HomeController::class, 'index'])->whereIn('locale', $uiLocaleValues)->name('home')->middleware(CachePageResponse::class . ':picker');
 Route::get('/{locale}/discord', [RedirectController::class, 'discord'])->whereIn('locale', $uiLocaleValues)->name('discord');
-Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect'])->whereIn('locale', $uiLocaleValues)->name('oauthRedirect');
+if ($loginEnabled){
+  Route::get('/{locale}/oauth/redirect/{provider}', [AuthController::class, 'redirect'])->whereIn('locale', $uiLocaleValues)->name('oauthRedirect');
+}
 
-$defineRoutes = function (bool $inLocaleGroup) {
+$defineRoutes = function (bool $inLocaleGroup) use ($loginEnabled) {
   $settingsRoute = Route::middleware('auth')->get('/settings', [BotSettingsController::class, 'edit']);
   $profileEditRoute = Route::middleware('auth')->get('/profile', [ProfileController::class, 'edit']);
   $addBotRedirectRoute = Route::get('/add-bot/{installType}', [RedirectController::class, 'addBotLink']);
   $designRoute = Route::get('/design', [StaticController::class, 'design']);
   $legalRoute = Route::get('/legal', [StaticController::class, 'legal'])->middleware(CachePageResponse::class . ':legal');
-  $loginRoute = Route::get('/login', [AuthController::class, 'login']);
+  if ($loginEnabled){
+    $loginRoute = Route::get('/login', [AuthController::class, 'login']);
+  }
   $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index'])->middleware(CachePageResponse::class . ':botinfo');
   $analyticsEnabled = config('analytics.enabled');
   if ($analyticsEnabled){
@@ -87,14 +100,18 @@ $defineRoutes = function (bool $inLocaleGroup) {
   }
   Route::get('/add-bot', [StaticController::class, 'addBot'])->name($inLocaleGroup ? 'addBot' : 'addBotNoLocale');
 
-  Route::middleware('guest')->get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
-  Route::middleware('auth')->get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
+  if ($loginEnabled){
+    Route::middleware('guest')->get('/oauth/callback/{provider}', [AuthController::class, 'callbackGuest']);
+    Route::middleware('auth')->get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
+  }
 
   if ($inLocaleGroup){
     if (isset($analyticsRoute)){
       $analyticsRoute->name('analytics');
     }
-    $loginRoute->name('login');
+    if (isset($loginRoute)){
+      $loginRoute->name('login');
+    }
     $settingsRoute->name('settings');
     $profileEditRoute->name('profile.edit');
     $addBotRedirectRoute->name('addBotRedirect');
