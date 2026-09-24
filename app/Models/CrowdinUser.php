@@ -28,6 +28,25 @@ class CrowdinUser extends Model implements AvatarUrlProvider, ProfileUrlProvider
     'updated_at',
   ];
 
+  /**
+   * OAuth tokens never leave the model - see the casts below.
+   *
+   * @var list<string>
+   */
+  protected $hidden = [
+    'access_token',
+    'refresh_token',
+  ];
+
+  /**
+   * Encrypted with APP_KEY at rest, so a leaked row/dump/log of a failed query never exposes a
+   * usable token - rotating APP_KEY requires listing the old key in APP_PREVIOUS_KEYS
+   */
+  protected $casts = [
+    'access_token' => 'encrypted',
+    'refresh_token' => 'encrypted',
+  ];
+
   function mapToUiInfo():array {
     return [
       'id' => $this->id,

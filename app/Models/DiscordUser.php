@@ -29,9 +29,23 @@ class DiscordUser extends Model implements AvatarUrlProvider {
     'updated_at',
   ];
 
+  /**
+   * OAuth tokens never leave the model - see the casts below.
+   *
+   * @var list<string>
+   */
+  protected $hidden = [
+    'access_token',
+    'refresh_token',
+  ];
+
   protected $casts = [
     // Since this is a bigint JS might lose precision if it's left as a number
     'id' => 'string',
+    // Encrypted with APP_KEY at rest, so a leaked row/dump/log of a failed query never exposes a
+    // usable token - rotating APP_KEY requires listing the old key in APP_PREVIOUS_KEYS
+    'access_token' => 'encrypted',
+    'refresh_token' => 'encrypted',
   ];
 
   /**
