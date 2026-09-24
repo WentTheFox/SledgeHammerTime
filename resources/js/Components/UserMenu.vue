@@ -32,6 +32,9 @@ const routeParams = useRouteParams(route, pageProps);
 const analyticsRoute = computed(() => safeRoute('analytics', route, {
   routeParams: routeParams.value,
 }));
+const loginRoute = computed(() => safeRoute('login', route, {
+  routeParams: routeParams.value,
+}));
 </script>
 
 <template>
@@ -113,9 +116,9 @@ const analyticsRoute = computed(() => safeRoute('analytics', route, {
       </template>
     </Tippy>
     <HtLinkButton
-      v-else
+      v-else-if="loginRoute !== MISSING_ROUTE_HREF"
       color="primary"
-      :href="safeRoute('login', route, {routeParams})"
+      :href="loginRoute"
       :external="true"
       :target-blank="false"
       :loading="userInfoLoading"

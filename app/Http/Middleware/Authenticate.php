@@ -11,6 +11,11 @@ class Authenticate extends Middleware {
    * Get the path the user should be redirected to when they are not authenticated.
    */
   protected function redirectTo(Request $request):?string {
-    return $request->expectsJson() ? null : route('login', ['locale' => App::getLocale()]);
+    if ($request->expectsJson()){
+      return null;
+    }
+
+    // The login route isn't registered at all when login is disabled - see config('auth.login_enabled')
+    return route(config('auth.login_enabled') ? 'login' : 'home', ['locale' => App::getLocale()]);
   }
 }
