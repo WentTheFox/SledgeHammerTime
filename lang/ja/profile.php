@@ -45,7 +45,7 @@ return [
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'メールアドレス',
-    'gravatarDescription' => '<1>Gravater</1>を使用すると、Gravaterに対応している複数のウェブサイト間で一つのアバターを共用できます。メールアドレスはMD5ハッシュで保存されます。',
+    'gravatarDescription' => '<1>Gravatar</1>を使用すると、Gravatarに対応している複数のウェブサイト間で一つのアバターを共用できます。メールアドレスはMD5ハッシュで保存されます。',
     'avatarAccount' => 'アカウント',
     'url' => 'リンク先',
     'visibility' => '表示・非表示',
