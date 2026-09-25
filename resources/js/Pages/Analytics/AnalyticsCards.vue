@@ -20,7 +20,7 @@ import {
 import { wTrans } from 'laravel-vue-i18n';
 import { computed, inject, ref } from 'vue';
 import { Bar, Doughnut } from 'vue-chartjs';
-import { useRoute } from 'ziggy-js';
+import { useRoute } from '@/composables/useRoute';
 
 ChartJS.register(
   Title,

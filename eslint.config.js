@@ -12,6 +12,14 @@ export default tseslint.config(
     files: ['**/*.{ts,tsx,mts,cts,vue}'],
     rules: {
       'no-undef': 'off',
+      '@typescript-eslint/no-restricted-imports': ['error', {
+        paths: [{
+          name: 'ziggy-js',
+          importNames: ['useRoute', 'route'],
+          allowTypeImports: true,
+          message: 'Use @/composables/useRoute instead; ziggy-js reads `document` and breaks SSR.',
+        }],
+      }],
     },
   },
   {
