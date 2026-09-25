@@ -38,7 +38,7 @@ return [
       'displayName' => 'ค่าเริ่มต้น ":minuteOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'ค่าเริ่มต้น ":secondOptionName" สำหรับคำสั่ง /:atCommandName',
     ],
     'telemetry' => [
       'displayName' => 'อนุญาตให้เก็บข้อมูลการใช้งาน',

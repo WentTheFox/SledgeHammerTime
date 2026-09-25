@@ -16,10 +16,10 @@ return [
     'latencyChartTitle' => 'Время ответа',
     'latencyAvgLabel' => 'Среднее',
     'latencyP95Label' => '95 процентиль',
-    'latencyMedianLabel' => 'Median',
+    'latencyMedianLabel' => 'Медиана',
     'latencyLimitLabel' => 'Лимит ответов Discord',
-    'healthChartTitle' => 'App health',
-    'successRateLabel' => 'Success rate',
+    'healthChartTitle' => 'Состояние приложения',
+    'successRateLabel' => 'Коэффициент успеха',
   ],
   'commandsReference' => [
     'title' => 'Примеры команд',
