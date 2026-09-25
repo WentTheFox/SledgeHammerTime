@@ -9,7 +9,7 @@ return [
       'dateAndTime' => '日付と時刻',
       'timezone' => 'タイムゾーン',
       'naturalLanguageInput' => '@time 入力',
-      'modeOffset' => '協定世界時',
+      'modeOffset' => '協定世界時との時差',
       'modeZoneName' => 'ゾーンネーム',
     ],
     'button' => [

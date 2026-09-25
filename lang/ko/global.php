@@ -7,12 +7,12 @@ return [
     "heading" => "페이지를 찾을 수 없습니다",
     "content" => "표시할 콘텐츠가 없습니다.",
     "suggestions" => [
-      "heading" => "찾으시는게 있으신가요?",
-      "description" => "도움이 될 만한 몇 가지 페이지입니다:",
+      "heading" => "뭔가를 찾고 계시나요?",
+      "description" => "도움이 될 수 있는 페이지를 소개합니다.",
       "picker" => "타임스탬프 선택기",
       "botInfoDescription" => "Discord 봇 및 사용 가능한 명령어에 대한 정보",
-      "discordCta" => "무언가 빠진 것이 있다고 생각되시나요? 디스코드 서버에 가입하여 알려주세요.",
-      "discordButton" => "디스코드 서버 참여하기",
+      "discordCta" => "무언가 빠진 게 있다고 생각하시나요? Discord 서버에 참가하여 알려주세요.",
+      "discordButton" => "Discord 서버 참가하기",
     ],
   ],
   "maintenanceMode" => [
@@ -20,10 +20,10 @@ return [
     "content" => [
       'pleaseWait' => "현재 업데이트가 진행 중입니다. 잠시 후에 다시 시도해 주세요.",
       'joinSupportServer' => "문제가 몇 분간 계속된다면, Discord 지원 서버에 참가 후 문의해 주세요.",
-      'contactDeveloper' => "문제가 수 분 동안 계속 된다면, 개발자에게 연락하여 문제를 알려주세요.",
+      'contactDeveloper' => "문제가 몇 분간 계속된다면, 개발자에게 연락하여 문제를 알려 주세요.",
     ],
-    'autoReload' => '페이지가 자동으로 다시 새로고침됩니다. <1/>',
-    'reloadButton' => '수동으로 새로고침',
+    'autoReload' => '페이지가 <1/> 자동으로 새로고침됩니다.',
+    'reloadButton' => '직접 새로고침',
     "supportServerButton" => "지원 서버",
     "contactDeveloperButton" => "개발자 연락",
   ],
@@ -31,8 +31,8 @@ return [
   'contributeTranslations' => '기여하기',
   'timezoneBadge' => [
     'currently' => '현재 기준',
-    'atPickedDate' => '지정된 시점 기준',
-    'currentlyAndAtPickedDate' => '현재 및 지정된 시점 기준',
+    'atPickedDate' => '지정 시간 기준',
+    'currentlyAndAtPickedDate' => '현재 및 지정 시간 기준',
   ],
   'copyToClipboard' => '클립보드에 복사',
   'copiedToClipboard' => '클립보드 복사 완료!',
@@ -44,14 +44,14 @@ return [
     'botSettings' => '앱 설정',
     'profile' => '프로필',
     'legal' => '법률 정보',
-    'analytics' => '분석',
+    'analytics' => '통계',
   ],
   'sidebar' => [
     'inputSettings' => [
       'title' => '입력 설정',
       'naturalLanguageInput' => [
         'label' => '@time 입력란',
-        'description' => '선택한 타임스탬프를 자유 텍스트 입력을 통해 자연어(예: "5시간 후")로 수정할 수 있습니다. Discord의 @time 태그와 비슷합니다. 이 기능은 몇몇 언어에서만 지원합니다.',
+        'description' => '선택한 타임스탬프를 자유 텍스트 입력을 통해 자연어(예: \'5시간 후\')로 수정할 수 있습니다. Discord의 @time 태그와 비슷합니다. 이 기능은 몇몇 언어에서만 지원합니다.',
       ],
       'customDateInput' => [
         'label' => '커스텀 날짜 입력',
@@ -70,23 +70,23 @@ return [
         'description' => "입력 창과 버튼의 그림자 및 높이 효과를 비활성화합니다",
       ],
       'timezoneStickyHeaders' => [
-        'label' => '시간대 그룹 머리글',
+        'label' => '시간대 그룹 헤더',
         'description' => '시간대 선택 드롭다운 메뉴에 고정 그룹 헤더(예: America, Europe)를 표시합니다.',
       ],
       'hourCycle' => [
         'label' => '시간 형식',
-        'description' => '사용자 지정 시간 입력 및 미리 보기 등을 포함하여 앱 전체에서 시간이 표시되는 방식을 변경합니다.',
+        'description' => '커스텀 시간 입력 및 미리보기 등을 포함하여, 앱 전체에서 시간이 표시되는 방식을 변경합니다.',
         'options' => [
-          'default' => '기본 언어',
-          'h12' => '12시간',
-          'h24' => '24시간',
+          'default' => '언어 기본값',
+          'h12' => '12시간제',
+          'h24' => '24시간제',
         ],
       ],
       'firstDayOfWeek' => [
-        'label' => '일주일의 첫날',
+        'label' => '한 주의 시작 요일',
         'description' => '커스텀 입력 창에서의 일주일의 시작 요일을 변경합니다.',
         'options' => [
-          'default' => '기본 언어',
+          'default' => '언어 기본값',
         ],
       ],
       'advancedSettings' => '고급 입력 설정',

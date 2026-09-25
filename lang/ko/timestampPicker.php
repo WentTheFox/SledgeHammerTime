@@ -42,7 +42,7 @@ return [
   ],
   'faq' => [
     'title' => '자주 묻는 질문',
-    'description' => '이 섹션은 현재 영어로만 제공되며, 주로 <1>Discord 서버의</1> 콘텐츠를 기반으로 합니다. 회원이 아닌 경우 일부 링크가 정상적으로 작동하지 않을 수 있습니다.',
+    'description' => '이 구간은 현재 영어로만 제공되며, 주로 <1>Discord 서버 내</1> 콘텐츠를 기반으로 합니다. 서버 멤버가 아닌 경우 일부 링크가 정상적으로 작동하지 않을 수 있습니다.',
   ],
   'usefulLinks' => [
     'lead' => '유용할 수도 있는 링크들',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => '타임스탬프를 생성하는 유일한 도구가 HammerTime이 아니라는 사실을 알고 계셨나요?',
-        'p2' => '다른 Discord 타임스탬프 생성기를 확인하여 당신에게 가장 적합한 것을 찾을 수 있습니다:',
+        'p1' => 'HammerTime이 타임스탬프를 생성하는 유일한 도구가 아니라는 사실을 알고 계셨나요?',
+        'p2' => '아래의 다른 Discord 타임스탬프 생성기를 확인해 보세요.',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => '간단하고 빠른 타임스탬프 생성기(3ventic)',
+        'p' => '3ventic님 제작 간단하고 빠른 타임스탬프 생성기',
       ],
       'dabric' => [
         'header' => '',
-        'p' => '자연어 디스코드 타임스탬프 생성기(dabric)',
+        'p' => 'dabric님 제작 자연어 Discord 타임스탬프 생성기',
       ],
       'discordtimestampCom' => [
-        'p' => '현지 시간대 지원 무료 디스코드 타임스탬프 생성기(Sellframe Ltd.)',
+        'p' => 'Sellframe Ltd. 제작, 현지 시간대를 지원하는 무료 Discord 타임스탬프 생성기',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord 타임스탬프 생성기 및 시간 변환기(DiscordTimestamp.org)',
+        'p' => 'DiscordTimestamp.org 제공 Discord 타임스탬프 생성기 및 시간 변환기',
       ],
       'sesh' => [
-        'p' => 'Tunks의 Sesh 스케줄 봇 생태계 내에서 Discord 마크다운 타임스탬프 생성하기',
+        'p' => 'Tunks 제공 Sesh 스케줄 봇 환경 내에서 Discord 마크다운 타임스탬프 생성',
       ],
     ],
   ],
