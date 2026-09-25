@@ -46,6 +46,14 @@ class AnalyticsTest extends TestCase {
       'date' => Carbon::now('UTC')->subDays(1)->toDateString(),
     ]);
 
+    PageView::forceCreate([
+      'route_name' => 'legal',
+      'locale' => 'fr',
+      'amount' => 50,
+      'date' => Carbon::now('UTC')->subDays(1)->toDateString(),
+      'is_crawler' => true,
+    ]);
+
     $response = $this->actingAs($user)->get('/en/analytics');
 
     $response->assertStatus(200);
@@ -58,8 +66,11 @@ class AnalyticsTest extends TestCase {
 
     $data = $response->viewData('page')['props'];
 
-    $this->assertCount(2, $data['dailyTotals']);
-    $this->assertCount(2, $data['routeBreakdown']);
-    $this->assertCount(2, $data['localeBreakdown']);
+    // Crawler views are reported as separate rows so the UI can toggle them
+    $this->assertCount(3, $data['dailyTotals']);
+    $this->assertCount(3, $data['routeBreakdown']);
+    $this->assertCount(3, $data['localeBreakdown']);
+    $this->assertContains(['route' => 'legal', 'crawler' => true, 'total' => 50], $data['routeBreakdown']);
+    $this->assertContains(['route' => 'legal', 'crawler' => false, 'total' => 5], $data['routeBreakdown']);
   }
 }

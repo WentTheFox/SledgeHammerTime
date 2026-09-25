@@ -12,7 +12,7 @@ use JsonException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AnalyticsController extends Controller {
-  private const string CACHE_KEY = 'analytics-page-data-v1';
+  private const string CACHE_KEY = 'analytics-page-data-v2';
 
   public function index(): Response {
     if (config('analytics.enabled') !== true){
@@ -45,9 +45,9 @@ class AnalyticsController extends Controller {
    * @return array{
    *   lastUpdated: non-falsy-string,
    *   windowDays: int,
-   *   dailyTotals: array{date: non-falsy-string, route: string, total: int},
-   *   routeBreakdown: array{route: string|null, total: int},
-   *   localeBreakdown: array{locale: string|null, total: int},
+   *   dailyTotals: array{date: non-falsy-string, route: string, crawler: bool, total: int},
+   *   routeBreakdown: array{route: string|null, crawler: bool, total: int},
+   *   localeBreakdown: array{locale: string|null, crawler: bool, total: int},
    * }
    */
   private function collectPageData():array {
@@ -56,41 +56,44 @@ class AnalyticsController extends Controller {
 
     // 1. Daily totals for Stacked Bar Chart (grouped by date and route)
     $dailyTotals = DB::query()->where('date', '>=', $startDate->toDateString())
-      ->select('date', 'route_name', DB::raw('SUM(amount) as total'))
+      ->select('date', 'route_name', 'is_crawler', DB::raw('SUM(amount) as total'))
       ->from('page_views')
-      ->groupBy('date', 'route_name')
+      ->groupBy('date', 'route_name', 'is_crawler')
       ->orderBy('date')
       ->orderByDesc('total')
       ->get()
       ->map(fn($item) => [
         'date' => $item->date,
         'route' => $item->route_name,
+        'crawler' => (bool)$item->is_crawler,
         'total' => (int)$item->total,
       ])
       ->toArray();
 
     // 2. Breakdown by Route for Donut Chart
     $routeBreakdown = DB::query()->where('date', '>=', $startDate->toDateString())
-      ->select('route_name', DB::raw('SUM(amount) as total'))
+      ->select('route_name', 'is_crawler', DB::raw('SUM(amount) as total'))
       ->from('page_views')
-      ->groupBy('route_name')
+      ->groupBy('route_name', 'is_crawler')
       ->orderByDesc('total')
       ->get()
       ->map(fn($item) => [
         'route' => $item->route_name ?? null,
+        'crawler' => (bool)$item->is_crawler,
         'total' => (int)$item->total,
       ])
       ->toArray();
 
     // 3. Breakdown by Locale for Donut Chart
     $localeBreakdown = DB::query()->where('date', '>=', $startDate->toDateString())
-      ->select('locale', DB::raw('SUM(amount) as total'))
+      ->select('locale', 'is_crawler', DB::raw('SUM(amount) as total'))
       ->from('page_views')
-      ->groupBy('locale')
+      ->groupBy('locale', 'is_crawler')
       ->orderByDesc('total')
       ->get()
       ->map(fn($item) => [
         'locale' => $item->locale ?? null,
+        'crawler' => (bool)$item->is_crawler,
         'total' => (int)$item->total,
       ])
       ->toArray();

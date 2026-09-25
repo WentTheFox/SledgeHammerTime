@@ -13,6 +13,7 @@
     "ext-redis": "*",
     "guzzlehttp/guzzle": "^7.2",
     "inertiajs/inertia-laravel": "^3.0",
+    "jaybizzle/crawler-detect": "^1.4",
     "laravel-lang/common": "^6.7.1",
     "laravel-lang/native-locale-names": "^2.6.0",
     "laravel/framework": "^13.0",

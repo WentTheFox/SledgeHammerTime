@@ -6,6 +6,7 @@ use App\Jobs\RecordPageView;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Jaybizzle\CrawlerDetect\Fixtures\Headers;
 use Symfony\Component\HttpFoundation\Response;
 
 class TrackPageViews {
@@ -35,7 +36,9 @@ class TrackPageViews {
       $routeName = $request->route()?->getName();
       if (array_key_exists($routeName, self::TRACKED_ROUTES)){
         $isLocalized = self::TRACKED_ROUTES[$routeName];
-        RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null);
+        // Only forward the headers crawler detection looks at, so cookies etc. stay out of the queue
+        $uaHeaders = array_intersect_key($request->server->all(), array_flip((new Headers())->getAll()));
+        RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null, $uaHeaders);
       }
     }
 

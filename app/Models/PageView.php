@@ -15,5 +15,10 @@ class PageView extends Model {
     'locale',
     'amount',
     'date',
+    'is_crawler',
+  ];
+
+  protected $casts = [
+    'is_crawler' => 'boolean',
   ];
 }

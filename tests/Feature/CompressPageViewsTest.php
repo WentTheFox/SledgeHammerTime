@@ -121,4 +121,17 @@ class CompressPageViewsTest extends TestCase {
     // Jan 16th should NOT be compressed
     $this->assertEquals(1, PageView::where('date', '2026-01-16')->count());
   }
+
+  public function test_it_keeps_crawler_page_views_separate_when_compressing() {
+    PageView::forceCreate(['route_name' => 'legal', 'locale' => 'en', 'amount' => 2, 'date' => '2026-01-15']);
+    PageView::forceCreate(['route_name' => 'legal', 'locale' => 'en', 'amount' => 3, 'date' => '2026-01-15']);
+    PageView::forceCreate(['route_name' => 'legal', 'locale' => 'en', 'amount' => 7, 'date' => '2026-01-15', 'is_crawler' => true]);
+
+    $this->artisan('app:compress-page-views 2026-01-15')
+      ->expectsOutput('Compressed page views for 2026-01-15. Total amount: 12')
+      ->assertExitCode(0);
+
+    $this->assertEquals(5, PageView::where('date', '2026-01-15')->where('is_crawler', false)->sole()->amount);
+    $this->assertEquals(7, PageView::where('date', '2026-01-15')->where('is_crawler', true)->sole()->amount);
+  }
 }

@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\PageView;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class RecordPageView implements ShouldQueue
 {
@@ -19,8 +20,10 @@ class RecordPageView implements ShouldQueue
 
   /**
    * Create a new job instance.
+   *
+   * @param array<string, string> $uaHeaders User agent related server variables (HTTP_USER_AGENT, etc.)
    */
-  public function __construct(protected ?string $routeName, protected ?string $locale)
+  public function __construct(protected ?string $routeName, protected ?string $locale, protected array $uaHeaders = [])
   {
   }
 
@@ -32,6 +35,8 @@ class RecordPageView implements ShouldQueue
     $record = new PageView();
     $record->route_name = $this->routeName;
     $record->locale = $this->locale;
+    // Jobs queued before this property existed deserialize without it
+    $record->is_crawler = (new CrawlerDetect($this->uaHeaders ?? []))->isCrawler();
     $record->date = now('UTC')->toDateString();
     $record->save();
   }

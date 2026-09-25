@@ -69,12 +69,13 @@ class CompressPageViews extends Command {
 
     $query = PageView::where('date', $targetDateString);
 
-    /** @var \Illuminate\Support\Collection<int, object{locale: ?string, route_name: string, total_amount: int}> $stats */
+    /** @var \Illuminate\Support\Collection<int, object{locale: ?string, route_name: string, is_crawler: bool, total_amount: int}> $stats */
     $stats = PageView::where('date', $targetDateString)
-      ->select('locale', 'route_name', DB::raw('SUM(amount) as total_amount'))
-      ->groupBy('locale', 'route_name')
+      ->select('locale', 'route_name', 'is_crawler', DB::raw('SUM(amount) as total_amount'))
+      ->groupBy('locale', 'route_name', 'is_crawler')
       ->orderBy('route_name')
       ->orderBy('locale')
+      ->orderBy('is_crawler')
       ->get();
 
     if ($stats->isNotEmpty()){
@@ -85,6 +86,7 @@ class CompressPageViews extends Command {
           PageView::forceCreate([
             'route_name' => $stat->route_name,
             'locale' => $stat->locale,
+            'is_crawler' => $stat->is_crawler,
             'amount' => $stat->total_amount,
             'date' => $targetDateString,
           ]);
@@ -97,7 +99,8 @@ class CompressPageViews extends Command {
       foreach ($stats as $stat){
         $locale = $stat->locale ?? 'N/A';
         $route = $stat->route_name ?? 'N/A';
-        $this->line("- {$route} ({$locale}): {$stat->total_amount}");
+        $crawler = $stat->is_crawler ? ' [crawler]' : '';
+        $this->line("- {$route} ({$locale}){$crawler}: {$stat->total_amount}");
       }
     }
     else {

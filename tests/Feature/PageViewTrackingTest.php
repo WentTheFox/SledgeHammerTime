@@ -32,4 +32,32 @@ class PageViewTrackingTest extends TestCase
       'date' => now('UTC')->toDateString(),
     ]);
   }
+
+  public function test_it_flags_page_views_from_crawlers()
+  {
+    $this->withHeader('User-Agent', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)')
+      ->get('/en/legal');
+
+    $this->assertDatabaseHas('page_views', [
+      'route_name' => 'legal',
+      'locale' => 'en',
+      'is_crawler' => true,
+    ]);
+  }
+
+  public function test_it_does_not_flag_page_views_from_browsers()
+  {
+    $this->withHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0')
+      ->get('/en/legal');
+
+    $this->assertDatabaseHas('page_views', [
+      'route_name' => 'legal',
+      'locale' => 'en',
+      'is_crawler' => false,
+    ]);
+    $this->assertDatabaseMissing('page_views', [
+      'route_name' => 'legal',
+      'is_crawler' => true,
+    ]);
+  }
 }
