@@ -35,8 +35,7 @@ class RecordPageView implements ShouldQueue
     $record = new PageView();
     $record->route_name = $this->routeName;
     $record->locale = $this->locale;
-    // Jobs queued before this property existed deserialize without it
-    $record->is_crawler = (new CrawlerDetect($this->uaHeaders ?? []))->isCrawler();
+    $record->is_crawler = (new CrawlerDetect($this->uaHeaders))->isCrawler();
     $record->date = now('UTC')->toDateString();
     $record->save();
   }
