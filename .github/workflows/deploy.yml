@@ -1,0 +1,165 @@
+# Copy this file to .github/workflows/deploy.yml in your app's own repo
+# (GitHub only ever looks for workflows inside the repo they belong to,
+# so unlike deploy.conf this can't live centrally — this template is the
+# shared source, copied per app same as deploy.conf.example).
+#
+# Gives you a button-triggered "Deploy" in GitHub's Actions tab WITHOUT a
+# self-hosted runner and without any secret stored in GitHub Actions:
+#
+#   1. A job on an ordinary GitHub-hosted runner creates a GitHub
+#      Deployment for the commit you ran it on, with task "git-deploy" —
+#      one per environment ticked in the Run workflow dialog.
+#   2. GitHub delivers a signed `deployment` webhook to the server's
+#      git-deploy-webhook listener (see README.md's "Triggering deploys
+#      from GitHub" for the one-time server + repo webhook setup).
+#   3. The server fetches that commit from GitHub, checks it's really on
+#      the deploy branch, and pushes it into the app's bare repo — the
+#      same post-receive hook + deploy.conf as `git push deploy main`.
+#   4. The server reports progress back as deployment statuses, with the
+#      deploy's output linked as log_url; the step below tails that log
+#      into this run, and fails the run if the deploy failed.
+#
+# The runner here never touches the server and holds nothing but this
+# repo's own short-lived GITHUB_TOKEN — nothing to steal, nothing to lock
+# down beyond who can click the button (repo write access).
+#
+# workflow_dispatch only, never on push — deploying briefly takes the
+# app down during deploy_build/deploy_restart, so it should always be a
+# deliberate, in-the-moment decision, never automatic off a merge. (The
+# server doesn't care what created the deployment, so this is enforced
+# here, by only ever creating git-deploy deployments from this workflow.)
+
+name: Deploy
+
+# One checkbox per environment this repo deploys to. Each name must match
+# GITHUB_ENVIRONMENT in the deploy.env of the bare repo it should land in
+# (a deploy.env without one counts as "production"). Most apps only have
+# production; one that also deploys a second worktree of the same repo
+# (e.g. a beta copy) adds a checkbox for it here AND lists it in
+# ENVIRONMENTS below, which also sets the order they deploy in.
+on:
+  workflow_dispatch:
+    inputs:
+      production:
+        description: Deploy to production
+        type: boolean
+        default: true
+      beta:
+        description: Deploy to beta
+        type: boolean
+        default: false
+
+# Only one Deploy run of THIS app at a time — a second click while one is
+# still running waits for it rather than racing it. (The server also
+# serializes deploys per bare repo, this just keeps the Actions view tidy.)
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      environments: ${{ steps.pick.outputs.environments }}
+    steps:
+      - name: Pick the ticked environments
+        id: pick
+        env:
+          # Every environment with a checkbox above, in deploy order.
+          # Production first: beta shares production's database and never
+          # migrates itself (SKIP_MIGRATE), so it should only ever start on
+          # a schema production has already migrated.
+          ENVIRONMENTS: production beta
+          INPUTS: ${{ toJSON(github.event.inputs) }}
+        run: |
+          picked=()
+          for env in $ENVIRONMENTS; do
+            value=$(jq -r --arg e "$env" 'if has($e) then .[$e] | tostring else "missing" end' <<< "$INPUTS")
+            case "$value" in
+              true) picked+=("$env") ;;
+              false) ;;
+              *) echo "::error::ENVIRONMENTS lists \"$env\" but there's no checkbox input for it"; exit 1 ;;
+            esac
+          done
+          if [ ${#picked[@]} -eq 0 ]; then
+            echo "::error::Nothing to do: tick at least one environment."
+            exit 1
+          fi
+          json=$(printf '%s\n' "${picked[@]}" | jq -Rnc '[inputs]')
+          echo "Deploying to: ${picked[*]}"
+          echo "environments=$json" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: plan
+    name: deploy (${{ matrix.environment }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # One environment at a time, in ENVIRONMENTS order (two builds of the
+    # same app on one server at once would just compete for it), and stop
+    # at the first failure instead of carrying on to the next environment.
+    strategy:
+      matrix:
+        environment: ${{ fromJSON(needs.plan.outputs.environments) }}
+      max-parallel: 1
+      fail-fast: true
+    # Optional approval gate: point this at an environment with required
+    # reviewers (Settings -> Environments) to require someone's approval
+    # before the deployment is created. Use a DIFFERENT name from the
+    # deployment environment above (e.g. "deploy-approval"): GitHub
+    # auto-creates its own Actions-managed deployment for whatever this
+    # names, which the server ignores (wrong task) but which would
+    # otherwise show up as a misleading instant "success" next to the
+    # real one.
+    # environment: deploy-approval
+    steps:
+      - name: Create deployment
+        id: create
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          id=$(jq -n --arg ref "$GITHUB_SHA" --arg env "$ENVIRONMENT" \
+                 '{ref: $ref, environment: $env, task: "git-deploy",
+                   auto_merge: false, required_contexts: [],
+                   description: "git-deploy-toolkit"}' \
+               | gh api "repos/$GITHUB_REPOSITORY/deployments" --input - --jq .id)
+          echo "Created deployment $id for $GITHUB_SHA ($ENVIRONMENT)"
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for the server (and show its log)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOYMENT_ID: ${{ steps.create.outputs.id }}
+        run: |
+          offset=0 waited=0 state="" log_url=""
+          while :; do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/deployments/$DEPLOYMENT_ID/statuses?per_page=1" \
+                       --jq '.[0] // {} | [.state // "", .log_url // "", .description // ""] | @tsv')
+            IFS=$'\t' read -r state log_url description <<< "$status"
+
+            if [ -n "$log_url" ]; then
+              # Print whatever's new since last time. 206 = new bytes,
+              # 416 = nothing new yet, 200 = server ignored the range.
+              code=$(curl -sS -o chunk -w '%{http_code}' -H "Range: bytes=$offset-" "$log_url" || echo 000)
+              case "$code" in
+                206) cat chunk; offset=$((offset + $(stat -c %s chunk))) ;;
+                200) tail -c "+$((offset + 1))" chunk; offset=$(stat -c %s chunk) ;;
+              esac
+            fi
+
+            case "$state" in
+              success) echo "::notice::$description"; exit 0 ;;
+              failure|error) echo "::error::$description"; exit 1 ;;
+            esac
+
+            if [ -z "$state" ] && [ "$waited" -ge 60 ]; then
+              echo "::error::The server never acknowledged deployment $DEPLOYMENT_ID. Check the repo's webhook (Settings -> Webhooks -> Recent Deliveries) and journalctl -t git-deploy-webhook on the server. Without GIT_DEPLOY_GITHUB_TOKEN set there, it can't report back at all."
+              exit 1
+            fi
+            sleep 3
+            waited=$((waited + 3))
+          done
