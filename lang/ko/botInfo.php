@@ -2,7 +2,7 @@
 
 return [
   'heading' => 'Discord 앱',
-  'description' => 'HammerTime앱은 Discord UI를 사용하여 이용하기 쉬운 타임스탬프를 제공합니다.',
+  'description' => 'HammerTime 앱을 사용하여, 슬래시 명령어 및 컨텍스트 메뉴 명령어를 통해 Discord UI 내에서 복사하기 쉬운 타임스탬프 코드를 얻을 수 있습니다.',
   'customizeSettingsGuest' => 'Some of its functionality can also be customized by <1>logging in</1>, then visiting the <3>App Settings</3> page (also available by clicking your username in the sidebar).',
   'customizeSettingsAuthenticated' => 'Some of its functionality can also be customized by visiting the <1>App Settings</1> page (also available by clicking your username in the sidebar).',
   'addAppLead' => 'Add the app to your server or your account and use it whenever you need a timestamp but don\'t feel like opening the browser.',
@@ -30,7 +30,7 @@ return [
       2 => 'user context menu command',
       3 => 'message context menu command',
     ],
-    'totalExecutions' => '지금까지 사용 된 횟수 (기록 시작 이후)',
+    'totalExecutions' => '총 실행 횟수 (집계 시작 이후)',
     'shortDescription' => 'Short Description',
     'commandOptions' => 'Options',
     'requiredOption' => 'Required',
@@ -49,7 +49,7 @@ return [
       10 => 'Number',
       11 => 'Attachment',
     ],
-    'totalUses' => '지금까지 사용 된 횟수 (기록 시작 이후)',
+    'totalUses' => '총 사용 횟수 (집계 시작 이후)',
     'values' => 'Values',
     'valuesBetween' => '<0/> ~ <2/>',
     'minValue' => '최소 값',
@@ -59,7 +59,7 @@ return [
     'minLength' => 'Minimum length',
     'maxLength' => 'Maximum length',
     'choices' => 'Possible values:',
-    'usageGraphNoData' => '최근 사용된 적이 없습니다',
+    'usageGraphNoData' => '최근 사용 데이터 없음',
     'additionalDescription' => [
       'commands' => [
         'in' => 'You must specify at least one time component to change',

@@ -51,7 +51,7 @@ return [
       'title' => 'הגדרות הקלט',
       'naturalLanguageInput' => [
         'label' => 'שדה הזנת @time',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'description' => 'אפשר לשנות את חותמת הזמן שנבחרה באמצעות שפה טבעית (למשל; "בעוד 5 שעות") באמצעות שדה הזנת טקסט חופשי נוסף. בדומה לתגית @time החדשה ב-Discord. נתמכות רק מספר מצומצם של שפות.',
       ],
       'customDateInput' => [
         'label' => 'הזנת תאריך מותאם אישית',
