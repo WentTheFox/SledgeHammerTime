@@ -1,14 +1,14 @@
 <?php
 
 return [
-  'heading' => 'Discord sovellus',
-  'description' => 'HammerTime appi antaa sinun saada helposti kopioitavan ajankohtaleima koodin Discordin käyttöliittymästä käyttämällä kauttaviiva ja kontekstivalikon komentoja.',
+  'heading' => 'Discord-sovellus',
+  'description' => 'HammerTime-appi antaa sinulle helposti kopioitavan aikaleimakoodin Discordin käyttöliittymästä käyttämällä kauttaviiva ja kontekstivalikon komentoja.',
   'customizeSettingsGuest' => 'Osia sen toiminnalisuudesta voi muokata <1>kirjautumalla sisään</1>, sitten vierailemalla <3>sovelluksen asetuksissa</3> (myös käytettävissä napsauttamalla käyttäjätunnustasi sivupalkissa).',
-  'customizeSettingsAuthenticated' => 'Osaa sen toiminnalisuudesta voi myös muokata vierailemalla <1>apin asetukset</1> sivulla (myös käytettävissä napsauttamalla käyttäjänimeäsi sivupalkissa).',
-  'addAppLead' => 'Lisää appi palvelimellesi tai käyttäjällesi kun haluat ajankohtaleiman mutta et halua avata selainta.',
+  'customizeSettingsAuthenticated' => 'Osia sen toiminnalisuudesta voi myös muokata vierailemalla <1>apin asetukset</1> sivulla (myös käytettävissä napsauttamalla käyttäjänimeäsi sivupalkissa).',
+  'addAppLead' => 'Lisää appi palvelimellesi tai käyttäjällesi kun haluat aikaleiman mutta et halua avata selainta.',
   'appDiscoveryLead' => 'Apin voit löytää Discordin App-hakemisto sivulla, jonka voit tarkistaa täällä:',
   'appDiscoveryCta' => 'Näytä App-hakemistossa',
-  'shareableLink' => 'Voit myös jaa alhaalta löytyvän linkin joka antaa heidän lisätä apin ilman mitään häiriötekijöitä:',
+  'shareableLink' => 'Voit myös jakaa alhaalta löytyvän linkin joka antaa heidän lisätä apin ilman mitään häiriötekijöitä:',
   'webhookDeliveryStats' => [
     'title' => 'Webhook-toimitusajat',
     'description' => 'Appi toimii Discordin HTTP-interaktiopäätepisteen kautta, joka tarkoittaa että jokainen vastaus on lähetettävä takaisin tiukassa aikarajassa. Alla näkyy kuinka nopeasti appi on vastannut, ja kuinka usein vastaukset ovat epäonnistuneet, viimeisen :hours tunnin sisään.',
