@@ -60,4 +60,20 @@ class PageViewTrackingTest extends TestCase
       'is_crawler' => true,
     ]);
   }
+
+  public function test_it_does_not_flag_status_page_views_from_monitors()
+  {
+    $this->withHeader('User-Agent', 'got (https://github.com/sindresorhus/got)')
+      ->get('/status');
+
+    $this->assertDatabaseHas('page_views', [
+      'route_name' => 'status',
+      'locale' => null,
+      'is_crawler' => false,
+    ]);
+    $this->assertDatabaseMissing('page_views', [
+      'route_name' => 'status',
+      'is_crawler' => true,
+    ]);
+  }
 }

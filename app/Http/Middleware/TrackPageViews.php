@@ -26,6 +26,14 @@ class TrackPageViews {
   ];
 
   /**
+   * Technical routes polled by monitoring tools, which are already filtered out as such on the analytics page,
+   * so they should not also be hidden as crawler traffic
+   */
+  protected const CRAWLER_EXEMPT_ROUTES = [
+    'status' => true,
+  ];
+
+  /**
    * Handle an incoming request.
    *
    * @param Closure(Request): (Response) $next
@@ -37,7 +45,9 @@ class TrackPageViews {
       if (array_key_exists($routeName, self::TRACKED_ROUTES)){
         $isLocalized = self::TRACKED_ROUTES[$routeName];
         // Only forward the headers crawler detection looks at, so cookies etc. stay out of the queue
-        $uaHeaders = array_intersect_key($request->server->all(), array_flip((new Headers())->getAll()));
+        $uaHeaders = isset(self::CRAWLER_EXEMPT_ROUTES[$routeName])
+          ? []
+          : array_intersect_key($request->server->all(), array_flip((new Headers())->getAll()));
         RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null, $uaHeaders);
       }
     }
