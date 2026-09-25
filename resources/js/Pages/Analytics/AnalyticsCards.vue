@@ -35,16 +35,19 @@ ChartJS.register(
 export interface DailyTotalItem {
   date: string;
   route: string | null;
+  crawler: boolean;
   total: number;
 }
 
 export interface RouteBreakdownItem {
   route: string | null;
+  crawler: boolean;
   total: number;
 }
 
 export interface LocaleBreakdownItem {
   locale: string | null;
+  crawler: boolean;
   total: number;
 }
 
@@ -68,6 +71,7 @@ const TECHNICAL_ROUTES = new Set<string | null>(['status']);
 
 const skipNull = ref(true);
 const skipTechnicalRoutes = ref(true);
+const skipCrawlers = ref(true);
 
 const theme = inject(themeInject);
 const devMode = inject(devModeInject);
@@ -79,13 +83,31 @@ const nativeLocaleNames = useNativeLocaleNames();
 const getRouteLabel = (r: string | null) => r ? route(r, { locale: 'en' }, false).replace(/^(\/)en\/?|\?locale=en$/, '$1') : unknownLabel.value;
 const getLocaleLabel = (l: string | null) => (l && l in nativeLocaleNames ? `${nativeLocaleNames[l]} (${l})` : l) ?? unknownLabel.value;
 
+const isRowVisible = (r: { crawler: boolean }) => !(skipCrawlers.value && r.crawler);
+
+/**
+ * Rows come split by crawler flag, so the same key can appear twice - merge them into one total
+ */
+const mergeRows = <T extends { crawler: boolean; total: number }>(rows: T[], getKey: (row: T) => string | null): T[] => {
+  const merged = rows.reduce((acc, row) => {
+    if (isRowVisible(row)) {
+      const key = getKey(row);
+      const existing = acc.get(key);
+      acc.set(key, existing ? { ...existing, total: existing.total + row.total } : { ...row });
+    }
+    return acc;
+  }, new Map<string | null, T>());
+  return [...merged.values()].sort((a, b) => b.total - a.total);
+};
+
 const dataIndex = computed(() => props.dailyTotals.reduce((acc, d) => {
-  const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route);
+  const skip = skipTechnicalRoutes.value && TECHNICAL_ROUTES.has(d.route) || !isRowVisible(d);
   if (!skip) {
     if (!(d.date in acc.dailyTotals)) {
       acc.dailyTotals[d.date] = {};
     }
-    acc.dailyTotals[d.date][String(d.route)] = d;
+    const existing = acc.dailyTotals[d.date][String(d.route)];
+    acc.dailyTotals[d.date][String(d.route)] = existing ? { ...existing, total: existing.total + d.total } : d;
     acc.routes.add(d.route);
     acc.dates.add(d.date);
   }
@@ -127,7 +149,7 @@ const generatePalette = (count: number, isLight: boolean) => {
   return colors;
 };
 
-const filteredRouteBreakdown = computed(() => props.routeBreakdown.filter(r => (skipTechnicalRoutes.value && r.route !== null ? !TECHNICAL_ROUTES.has(r.route) : true) && r.route !== null || !skipNull.value));
+const filteredRouteBreakdown = computed(() => mergeRows(props.routeBreakdown, r => r.route).filter(r => (skipTechnicalRoutes.value && r.route !== null ? !TECHNICAL_ROUTES.has(r.route) : true) && r.route !== null || !skipNull.value));
 
 const routeChartData = computed(() => {
   return ({
@@ -142,7 +164,7 @@ const routeChartData = computed(() => {
   });
 });
 
-const filteredLocaleBreakdown = computed(() => props.localeBreakdown.filter(l => l.locale !== null || !skipNull.value));
+const filteredLocaleBreakdown = computed(() => mergeRows(props.localeBreakdown, l => l.locale).filter(l => l.locale !== null || !skipNull.value));
 
 const localeChartData = computed(() => ({
   labels: filteredLocaleBreakdown.value.map((l) => l.locale ?? unknownLabel.value),
@@ -270,6 +292,13 @@ const byLocaleChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
       id="skip-technical-routes"
       v-model="skipTechnicalRoutes"
       label="Skip technical routes"
+      class="mb-2"
+    />
+    <HtFormCheckboxModelled
+      v-if="devMode"
+      id="skip-crawlers"
+      v-model="skipCrawlers"
+      label="Hide crawlers"
       class="mb-2"
     />
   </HtCard>
