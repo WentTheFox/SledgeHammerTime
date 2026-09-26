@@ -11,7 +11,7 @@ class ClearPageCache extends Command {
   protected $description = 'Clear the cached full-page HTML responses for all cacheable pages across all supported locales';
 
   public function handle(): int {
-    $pages = ['picker', 'botinfo'];
+    $pages = ['picker', 'botinfo', 'legal'];
     $localeCount = count(Config::get('languages.ui_locale_map', []));
 
     foreach ($pages as $page) {

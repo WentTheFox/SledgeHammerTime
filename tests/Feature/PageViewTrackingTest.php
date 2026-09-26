@@ -61,6 +61,18 @@ class PageViewTrackingTest extends TestCase
     ]);
   }
 
+  public function test_it_flags_page_views_from_outdated_browsers()
+  {
+    $this->withHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36')
+      ->get('/en/legal');
+
+    $this->assertDatabaseHas('page_views', [
+      'route_name' => 'legal',
+      'locale' => 'en',
+      'is_crawler' => true,
+    ]);
+  }
+
   public function test_it_does_not_flag_status_page_views_from_monitors()
   {
     $this->withHeader('User-Agent', 'got (https://github.com/sindresorhus/got)')
