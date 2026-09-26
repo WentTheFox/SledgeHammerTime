@@ -121,6 +121,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Arthur LUCAS](https://crowdin.com/profile/ablasters1)
   - [Biscotte](https://crowdin.com/profile/Ilovelinux68)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
+  - [Hugo Castino](https://crowdin.com/profile/HugoCastino)
   - [HumainAbsurde](https://crowdin.com/profile/humain)
   - [ImTheSpyke](https://crowdin.com/profile/ImTheSpyke)
   - [Kyaz](https://crowdin.com/profile/09kyaz)
