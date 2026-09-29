@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\Services\Discord\DiscordApiService;
 use Illuminate\Console\Command;
+use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
-use Psr\Http\Message\ResponseInterface;
+use Illuminate\Support\Facades\Log;
 
 class UpdateDiscordBotListStatistics extends Command {
   /**
@@ -49,25 +51,33 @@ class UpdateDiscordBotListStatistics extends Command {
     $this->info("Updating DiscordBotList bot stats…\n".var_export($statsData, return: true));
 
     $endpoint = sprintf("/bots/%s/stats", config('services.discord-bot-list.bot_id'));
-    /**
-     * @var ResponseInterface $result
-     */
     $result = Http::asJson()
       ->baseUrl(config('services.discord-bot-list.base_url'))
       ->withHeaders([
         'Authorization' => $token,
       ])
+      ->timeout(15)
+      ->retry(
+        3,
+        2000,
+        fn(\Throwable $e) => $e instanceof ConnectionException
+          || ($e instanceof RequestException && ($e->response->status() === 429 || $e->response->serverError())),
+        throw: false,
+      )
       ->post($endpoint, $statsData);
 
-    $statusCode = $result->getStatusCode();
+    $statusCode = $result->status();
     if ($statusCode !== 200){
-      $this->fail(implode("\n", [
+      $message = implode("\n", [
         "Failed to update bot stats on DiscordBotList, got HTTP $statusCode",
         "Response headers:",
-        var_export($result->getHeaders(), return: true),
+        var_export($result->headers(), return: true),
         "Response body:",
-        $result->getBody(),
-      ]));
+        $result->body(),
+      ]);
+      // The scheduler discards console output, so record the failure in the log
+      Log::error($message);
+      $this->fail($message);
     }
 
     $this->info('Bot stats on DiscordBotList updated successfully');
