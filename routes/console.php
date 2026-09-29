@@ -22,9 +22,16 @@ use App\Console\Commands\UpdateTopGgStatistics;
 
 Schedule::command('horizon:snapshot')->everyFiveMinutes();
 
-Schedule::command(UpdateTopGgStatistics::class)->hourly();
-Schedule::command(UpdateDiscordBotListStatistics::class)->hourly();
-Schedule::command(UpdateDiscordBotListCommands::class)->daily();
+// Bot list reporting only runs where the tokens are configured (i.e. not on beta)
+Schedule::command(UpdateTopGgStatistics::class)
+  ->hourly()
+  ->when(fn() => !empty(config('services.top-gg.token')));
+Schedule::command(UpdateDiscordBotListStatistics::class)
+  ->hourly()
+  ->when(fn() => !empty(config('services.discord-bot-list.token')) && !empty(config('services.discord-bot-list.bot_id')));
+Schedule::command(UpdateDiscordBotListCommands::class)
+  ->daily()
+  ->when(fn() => !empty(config('services.discord-bot-list.token')) && !empty(config('services.discord-bot-list.bot_id')));
 Schedule::command(UpdateBotCommandTotalExecutions::class)->hourly();
 Schedule::command(UpdateBotCommandOptionTotalUses::class)->hourly();
 Schedule::command(CalculateTelemetryUsage::class)->hourly();
