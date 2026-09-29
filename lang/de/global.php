@@ -25,7 +25,7 @@ return [
     'autoReload' => 'Die Seite wird automatisch neu geladen <1/>',
     'reloadButton' => 'Manuell neu laden',
     "supportServerButton" => "Support-Server",
-    "contactDeveloperButton" => "Contact Developer",
+    "contactDeveloperButton" => "Entwickler kontaktieren",
   ],
   'incompleteTranslations' => 'Übersetzungen sind unvollständig',
   'contributeTranslations' => 'Beitragen',
