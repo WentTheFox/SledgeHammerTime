@@ -150,6 +150,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Leo](https://crowdin.com/profile/35klxo)
   - [lukas koeppe](https://crowdin.com/profile/Lukas_k)
   - [Martin Plewa](https://crowdin.com/profile/Nitram4392)
+  - [Steallight](https://crowdin.com/profile/Steallight)
   - [TakeOffToLand](https://crowdin.com/profile/TakeOffToLand)
   - [The Robot](https://crowdin.com/profile/therobot)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
