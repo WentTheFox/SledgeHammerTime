@@ -1,0 +1,45 @@
+# Log retention for git-deploy-toolkit (installed on each deploy; see its
+# docs/logrotate.md). One file serves every worktree of this repo
+# (production and beta): @WORKTREE@ expands per deploy.
+#
+# Retention follows the site's privacy policy (lang/en/legal.php):
+#   - Log Data (IP address, browser, pages visited, timestamps): "kept for up
+#     to 14 days and discarded afterwards"
+#   - Command-execution records: "up to 30 days" (kept to 14 here as well:
+#     the Application Log may hold both kinds of data, so the shorter limit
+#     applies to it)
+# With `daily`, `rotate 13` keeps at most today's file plus 13 rotated ones,
+# so nothing is older than 14 days. `maxage 14` is a second, independent cap.
+#
+# storage/logs is group-writable (deploy user : www-data, setgid), so logrotate
+# refuses these files unless told which user to rotate as: `su www-data
+# www-data`.
+
+@WORKTREE@/storage/logs/nginx-access.log
+@WORKTREE@/storage/logs/nginx-error.log
+@WORKTREE@/storage/logs/laravel.log {
+	su www-data www-data
+	daily
+	rotate 13
+	maxage 14
+	missingok
+	notifempty
+	compress
+	delaycompress
+	copytruncate
+}
+
+# pm2 SSR process output, written into this worktree by deploy.conf's
+# `pm2 start ... --output/--error` and owned by the deploy user.
+@WORKTREE@/logs/pm2-ssr-out.log
+@WORKTREE@/logs/pm2-ssr-error.log {
+	su chisel chisel
+	daily
+	rotate 13
+	maxage 14
+	missingok
+	notifempty
+	compress
+	delaycompress
+	copytruncate
+}

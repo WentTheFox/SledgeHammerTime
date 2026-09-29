@@ -28,3 +28,6 @@ _ide_helper*.php
 lang/php_*.json
 crowdin_report*.json5
 /coverage/
+
+# pm2 logs written by the SSR process (see deploy.conf / deploy.logrotate)
+/logs/
