@@ -1,0 +1,19 @@
+# Scheduled jobs for git-deploy-toolkit: installed as /etc/cron.d/git-deploy-sledgehammertime on each deploy and run
+# by cron. It used to be a line in the deploy user's crontab on the server, where nothing in the repo recorded it.
+# See deploy.conf for the rest of the deploy setup.
+#
+# The Laravel scheduler needs exactly one trigger, once a minute; what runs when is in routes/console.php, which is
+# versioned.
+#
+# One deploy.cron serves both worktrees of this repo, so the section below is scoped to the production app only:
+# beta shares the code but points at production's database with a read-only role, and a scheduler there would run
+# the statistics and compression commands against production data from the wrong checkout. The beta target
+# therefore installs nothing ("cron":"none" in its deploy.jsonl). Keep new jobs under an `@apps` line too, because
+# the default scope is every target.
+#
+# Run as the deploy user, as before: storage/ is owned by it with group write for www-data.
+MAILTO=""
+PATH=/usr/local/bin:/usr/bin:/bin
+
+@apps sledgehammertime
+* * * * * chisel cd @WORKTREE@ && php artisan schedule:run >> /dev/null 2>&1
