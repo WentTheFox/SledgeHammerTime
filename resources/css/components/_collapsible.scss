@@ -10,7 +10,7 @@
   margin: 0;
 
   &.animate {
-    transition: height, margin;
+    transition: min-height, height, margin;
     transition-duration: .2s;
     transition-timing-function: linear;
   }

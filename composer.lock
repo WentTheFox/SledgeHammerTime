@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "f16eb513c7b6220aea27d8ece20a3934",
+  "content-hash": "4442eea5a72ba73cae03bb10ddb74fa5",
   "packages": [
     {
       "name": "archtechx/enums",
@@ -9276,6 +9276,65 @@
         }
       ],
       "time": "2026-04-26T05:33:54+00:00"
+    },
+    {
+      "name": "wentthefox/services_libravatar",
+      "version": "v1.0.5",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/WentTheFox/Services_Libravatar.git",
+        "reference": "1c3ecbc9eb9fa7843421a27f45625e2e4cc1f2a8"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/WentTheFox/Services_Libravatar/zipball/1c3ecbc9eb9fa7843421a27f45625e2e4cc1f2a8",
+        "reference": "1c3ecbc9eb9fa7843421a27f45625e2e4cc1f2a8",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.4"
+      },
+      "require-dev": {
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^7 || ^8"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "PEAR\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "include-path": [
+        "./"
+      ],
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Melissa Draper",
+          "email": "melissa@meldraweb.com",
+          "role": "Lead"
+        },
+        {
+          "name": "Christian Weiske",
+          "email": "cweiske@php.net",
+          "role": "Developer"
+        },
+        {
+          "name": "WentTheFox",
+          "email": "mail@went.tf",
+          "role": "Developer"
+        }
+      ],
+      "description": "API interfacing class for libravatar.org",
+      "homepage": "http://github.com/WentTheFox/Services_Libravatar",
+      "support": {
+        "issues": "http://github.com/WentTheFox/Services_Libravatar/issues",
+        "source": "http://github.com/WentTheFox/Services_Libravatar"
+      },
+      "time": "2026-10-05T05:26:17+00:00"
     },
     {
       "name": "zonuexe/http-accept-language",

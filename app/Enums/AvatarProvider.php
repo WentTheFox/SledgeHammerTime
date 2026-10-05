@@ -5,6 +5,7 @@ namespace App\Enums;
 enum AvatarProvider: string {
   case DISCORD = 'discord';
   case GRAVATAR = 'gravatar';
+  case LIBRAVATAR = 'libravatar';
   case CROWDIN = 'crowdin';
 
   /**

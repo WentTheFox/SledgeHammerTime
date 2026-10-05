@@ -50,7 +50,8 @@ class AvatarResolverService {
       case AvatarProvider::CROWDIN:
         return $this->validateCrowdinId($authUser, $id);
       case AvatarProvider::GRAVATAR:
-        return $this->validateGravatarHash($id);
+      case AvatarProvider::LIBRAVATAR:
+        return $this->validateAvatarHash($id, $provider);
       default:
         return 'Unknown avatar provider.';
     }
@@ -96,18 +97,22 @@ class AvatarResolverService {
       AvatarProvider::DISCORD => DiscordUser::find($id)?->getAvatarUrl(),
       AvatarProvider::CROWDIN => CrowdinUser::find($id)?->getAvatarUrl(),
       AvatarProvider::GRAVATAR => (new GravatarUser($id))->getAvatarUrl(),
+      AvatarProvider::LIBRAVATAR => (new LibravatarUser($id))->getAvatarUrl(),
     };
   }
 
-  protected function validateGravatarHash(string $hash):string|AvatarUrlProvider {
+  protected function validateAvatarHash(string $hash, AvatarProvider $provider):string|AvatarUrlProvider {
     if (Str::length($hash) !== 32){
-      return 'Gravatar hash must be a 32-character MD5 string.';
+      return "Provider {$provider->value} hash must be a 32-character MD5 string.";
     }
 
     if (!ctype_xdigit($hash)){
-      return 'Gravatar hash must contain only hexadecimal characters.';
+      return "Provider {$provider->value} hash must contain only hexadecimal characters.";
     }
 
+    if ($provider === AvatarProvider::LIBRAVATAR) {
+      return new LibravatarUser($hash);
+    }
     return new GravatarUser($hash);
   }
 
