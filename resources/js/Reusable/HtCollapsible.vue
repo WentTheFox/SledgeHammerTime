@@ -86,7 +86,7 @@ defineExpose(api);
   <div
     ref="collapsibleRef"
     :class="['collapsible', { visible: visible, 'limited-height': !!maxHeight, animate }, props.class]"
-    :style="`height: ${effectiveHeight}px`"
+    :style="`min-height: ${visible ? effectiveHeight : 0}px`"
     :inert="!visible"
   >
     <div class="collapsible-inner">

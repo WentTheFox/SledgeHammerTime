@@ -10,7 +10,7 @@ import HtFormControl from '@/Reusable/HtFormControl.vue';
 import HtFormRadio from '@/Reusable/HtFormRadio.vue';
 import HtInput from '@/Reusable/HtInput.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import { AVATAR_PROVIDERS, AvatarProviderName, gravatarEmailToHash } from '@/utils/avatarUri';
+import { AVATAR_PROVIDERS, avatarEmailToHash, AvatarProviderName } from '@/utils/avatarUri';
 import { ComboboxOption } from '@/utils/combobox';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import { faAt, faRotateLeft, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -33,20 +33,20 @@ const props = defineProps<{
 const selectedProvider = ref<AvatarProviderName | null>(null);
 const selectedAccountId = ref<string | null>(null);
 // Retained hash: set from existing URI on init, or computed from email input
-const gravatarHash = ref<string | undefined>(undefined);
-const gravatarEmail = ref('');
+const avatarHash = ref<string | undefined>(undefined);
+const avatarEmail = ref('');
 
 function initFromParts(provider: string | null, id: string | null) {
-  if (provider === 'gravatar') {
-    selectedProvider.value = 'gravatar';
-    gravatarHash.value = id ?? undefined;
+  if (provider === 'gravatar' || provider === 'libravatar') {
+    selectedProvider.value = provider;
+    avatarHash.value = id ?? undefined;
     selectedAccountId.value = null;
-    gravatarEmail.value = '';
+    avatarEmail.value = '';
   } else {
     selectedProvider.value = AVATAR_PROVIDERS.find(v => v === provider) ?? (props.defaultCrowdinId ? 'crowdin' : null);
     selectedAccountId.value = id ?? props.defaultCrowdinId ?? null;
-    gravatarHash.value = undefined;
-    gravatarEmail.value = '';
+    avatarHash.value = undefined;
+    avatarEmail.value = '';
   }
 }
 
@@ -54,7 +54,9 @@ initFromParts(providerModel.value, idModel.value);
 
 const computedId = computed((): string | null => {
   if (!selectedProvider.value) return null;
-  if (selectedProvider.value === 'gravatar') return gravatarHash.value ?? null;
+  if (selectedProvider.value === 'gravatar' || selectedProvider.value === 'libravatar') {
+    return avatarHash.value ?? null;
+  }
   return selectedAccountId.value;
 });
 
@@ -71,10 +73,10 @@ watch([providerModel, idModel], ([newProvider, newId]) => {
   }
 });
 
-watch(gravatarEmail, (email) => {
+watch(avatarEmail, (email) => {
   const trimmed = email.trim();
   if (trimmed) {
-    gravatarHash.value = gravatarEmailToHash(trimmed);
+    avatarHash.value = avatarEmailToHash(trimmed);
   }
 });
 
@@ -122,6 +124,7 @@ const avatarUrlMap = computed((): Record<AvatarProviderName, Record<string, stri
   discord: props.discordUsers.reduce((acc, u) => ({ ...acc, [u.id]: u.avatarUrl }), {}),
   crowdin: props.crowdinUsers.reduce((acc, u) => ({ ...acc, [u.id]: u.avatarUrl }), {}),
   gravatar: null,
+  libravatar: null,
 }));
 
 const providedAvatarUrlMap = computed((): Record<string, string> => {
@@ -138,7 +141,7 @@ provide(avatarUrlMapInject, providedAvatarUrlMap);
     :label-icon="faCircleUser"
   >
     <HtFormRadio
-      v-for="provider in (['discord', 'gravatar', 'crowdin'] as AvatarProviderName[])"
+      v-for="provider in (['discord', 'gravatar', 'libravatar', 'crowdin'] as AvatarProviderName[])"
       :id="`avatar-provider-${translatorId}-${provider}`"
       :key="provider"
       :name="`avatar-provider-${translatorId}`"
@@ -151,27 +154,40 @@ provide(avatarUrlMapInject, providedAvatarUrlMap);
   </HtFormControl>
 
   <HtFormControl
-    v-if="selectedProvider === 'gravatar'"
+    v-if="selectedProvider === 'gravatar' || selectedProvider === 'libravatar'"
     :id="`avatar-email-${translatorId}`"
     :label="$t('profile.creditOverrides.gravatarEmail')"
     :label-icon="faAt"
     :full-width="true"
   >
     <HtInput
-      v-model="gravatarEmail"
+      v-model="avatarEmail"
       type="text"
       inputmode="email"
       class="mt-1"
-      :placeholder="gravatarHash"
+      :placeholder="avatarHash"
       :disabled="disabled"
       :full-width="true"
     />
     <template #message>
       <FormMessage type="description">
         <template #message>
-          <HtTranslate i18n-key="profile.creditOverrides.gravatarDescription">
+          <HtTranslate
+            v-if="selectedProvider === 'gravatar'"
+            i18n-key="profile.creditOverrides.gravatarDescription"
+          >
             <template #1="slotProps">
               <HtExternalLink href="https://gravatar.com/">
+                {{ slotProps.text }}
+              </HtExternalLink>
+            </template>
+          </HtTranslate>
+          <HtTranslate
+            v-if="selectedProvider === 'libravatar'"
+            i18n-key="profile.creditOverrides.libravatarDescription"
+          >
+            <template #1="slotProps">
+              <HtExternalLink href="https://libravatar.org/">
                 {{ slotProps.text }}
               </HtExternalLink>
             </template>

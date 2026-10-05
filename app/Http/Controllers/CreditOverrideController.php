@@ -40,6 +40,7 @@ class CreditOverrideController extends Controller {
     }
 
     $validated = $request->validated();
+
     $existingOverride = $this->findOverride($crowdinUser->id, $languageCode);
 
     if ($this->doesSubmittedMatchOverride($validated, $existingOverride)){
@@ -268,49 +269,51 @@ class CreditOverrideController extends Controller {
 
     $contentStr = implode("\n", $content);
 
-    $result = Http::asJson()->post("$webhookUrl?with_components=true", [
-      'flags' => 1 << 15,
+    $component = [
+      'type' => DiscordComponentType::CONTAINER->value,
       'components' => [
         [
-          'type' => DiscordComponentType::CONTAINER->value,
+          'type' => DiscordComponentType::TEXT_DISPLAY->value,
+          'content' => <<<MD
+          User: [$name](<$profileUrl>)
+          Language: $languageCode
+          $contentStr
+          MD,
+        ],
+        ...($mediaGallery ? [$mediaGallery] : []),
+        [
+          'type' => DiscordComponentType::SEPARATOR->value,
+          'divider' => true,
+          'spacing' => 2,
+        ],
+        [
+          'type' => DiscordComponentType::TEXT_DISPLAY->value,
+          'content' => $reviewInstructions,
+        ],
+        [
+          'type' => DiscordComponentType::ACTION_ROW->value,
           'components' => [
             [
-              'type' => DiscordComponentType::TEXT_DISPLAY->value,
-              'content' => <<<MD
-              User: [$name](<$profileUrl>)
-              Language: $languageCode
-              $contentStr
-              MD,
-            ],
-            ...($mediaGallery ? [$mediaGallery] : []),
-            [
-              'type' => DiscordComponentType::SEPARATOR->value,
-              'divider' => true,
-              'spacing' => 2,
+              'type' => DiscordComponentType::BUTTON->value,
+              'custom_id' => "approve-proposal:{$proposal->id}",
+              'label' => 'Approve',
+              'style' => DiscordButtonStyle::SUCCESS->value,
             ],
             [
-              'type' => DiscordComponentType::TEXT_DISPLAY->value,
-              'content' => $reviewInstructions,
-            ],
-            [
-              'type' => DiscordComponentType::ACTION_ROW->value,
-              'components' => [
-                [
-                  'type' => DiscordComponentType::BUTTON->value,
-                  'custom_id' => "approve-proposal:{$proposal->id}",
-                  'label' => 'Approve',
-                  'style' => DiscordButtonStyle::SUCCESS->value,
-                ],
-                [
-                  'type' => DiscordComponentType::BUTTON->value,
-                  'custom_id' => "reject-proposal:{$proposal->id}",
-                  'label' => 'Reject',
-                  'style' => DiscordButtonStyle::DANGER->value,
-                ],
-              ],
+              'type' => DiscordComponentType::BUTTON->value,
+              'custom_id' => "reject-proposal:{$proposal->id}",
+              'label' => 'Reject',
+              'style' => DiscordButtonStyle::DANGER->value,
             ],
           ],
         ],
+      ],
+    ];
+
+    $result = Http::asJson()->post("$webhookUrl?with_components=true", [
+      'flags' => 1 << 15,
+      'components' => [
+        $component
       ],
     ]);
     if (!$result->successful()){
