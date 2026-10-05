@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα και αριθμούς.',
     'any_of'                 => 'Το πεδίο :attribute δεν είναι έγκυρο.',
     'array'                  => 'Το πεδίο :attribute πρέπει να είναι ένας πίνακας.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'Το :attribute πρέπει να περιέχει μόνο αλφαριθμητικούς χαρακτήρες και σύμβολα ενός byte.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Το πεδίο :attribute πρέπει να είναι μία ημερομηνία πριν από :date.',
     'before_or_equal'        => 'Το πεδίο :attribute πρέπει να είναι μία ημερομηνία ίδια ή πριν από :date.',
     'between'                => [

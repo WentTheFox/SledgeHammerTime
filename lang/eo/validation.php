@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'La :attribute devas enhavi nur literojn kaj ciferojn.',
     'any_of'                 => 'La :attribute kampo estas nevalida.',
     'array'                  => 'La :attribute devas esti tabelo.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'La :attribute-kampo devas enhavi nur unubajtajn alfanombrajn signojn kaj simbolojn.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'La :attribute devas esti dato antaŭ :date.',
     'before_or_equal'        => 'La :attribute devas esti dato antaŭ aŭ egala al :date.',
     'between'                => [

@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Le champ :attribute doit contenir uniquement des chiffres et des lettres.',
     'any_of'                 => 'Le champ :attribute est invalide.',
     'array'                  => 'Le champ :attribute doit être un tableau.',
+    'array_keys'             => 'Le champ :attribute ne doit contenir que les clés suivantes : :values.',
     'ascii'                  => 'Le champ :attribute ne doit contenir que des caractères alphanumériques et des symboles codés sur un octet.',
+    'base64'                 => 'Le champ :attribute doit être une chaîne Base64 valide.',
     'before'                 => 'Le champ :attribute doit être une date antérieure au :date.',
     'before_or_equal'        => 'Le champ :attribute doit être une date antérieure ou égale au :date.',
     'between'                => [
@@ -42,7 +44,7 @@ return [
     'doesnt_end_with'        => 'Le champ :attribute ne doit pas finir avec une des valeurs suivantes : :values.',
     'doesnt_start_with'      => 'Le champ :attribute ne doit pas commencer avec une des valeurs suivantes : :values.',
     'email'                  => 'Le champ :attribute doit être une adresse e-mail valide.',
-    'encoding'               => 'The :attribute field must be encoded in :encoding.',
+    'encoding'               => 'Le champ :attribute doit être encodé en :encoding.',
     'ends_with'              => 'Le champ :attribute doit se terminer par une des valeurs suivantes : :values',
     'enum'                   => 'Le champ :attribute sélectionné est invalide.',
     'exists'                 => 'Le champ :attribute sélectionné est invalide.',
@@ -155,7 +157,7 @@ return [
     'uploaded'               => 'Le fichier du champ :attribute n\'a pu être téléversé.',
     'uppercase'              => 'Le champ :attribute doit être en majuscules.',
     'url'                    => 'Le format de l\'URL de :attribute n\'est pas valide.',
-    'uuid'                   => 'Le champ :attribute doit être un UUID valide',
+    'uuid'                   => 'Le champ :attribute doit être un UUID valide.',
     'attributes'             => [
         'address'                  => 'adresse',
         'affiliate_url'            => 'URL d\'affiliation',

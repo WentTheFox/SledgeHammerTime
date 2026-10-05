@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'O campo :attribute deverá conter apenas letras e números .',
     'any_of'                 => 'O campo :attribute é inválido.',
     'array'                  => 'O campo :attribute deverá conter uma coleção de elementos.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'O :attribute deve conter apenas caracteres alfanuméricos de byte único e símbolos.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'O campo :attribute deverá conter uma data anterior a :date.',
     'before_or_equal'        => 'O campo :attribute deverá conter uma data anterior ou igual a :date.',
     'between'                => [

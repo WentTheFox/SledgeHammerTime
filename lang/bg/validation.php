@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Полето :attribute трябва да съдържа само букви и цифри.',
     'any_of'                 => ':attribute -те поле са невалидни.',
     'array'                  => 'Полето :attribute трябва да бъде масив.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute-те трябва да съдържат само еднобайтови буквено-цифрови знаци и символи.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Полето :attribute трябва да бъде дата преди :date.',
     'before_or_equal'        => 'Полето :attribute трябва да бъде дата преди или равна на :date.',
     'between'                => [

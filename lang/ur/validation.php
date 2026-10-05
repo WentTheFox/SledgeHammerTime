@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute میں صرف حروفِ تہجی و اعداد شامل ہو سکتے ہیں۔',
     'any_of'                 => ':attribute فیلڈ غلط ہے۔',
     'array'                  => ':Attribute لازماً کسی رینج پر مشتمل ہو۔',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute میں صرف سنگل بائٹ حروف عددی حروف اور علامتیں ہونی چاہئیں۔',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute لازماً :date سے پہلے کی کوئی تاریخ ہو۔',
     'before_or_equal'        => 'اس :attribute ہونا ضروری ہے ایک تاریخ سے پہلے یا اس کے برابر :date.',
     'between'                => [

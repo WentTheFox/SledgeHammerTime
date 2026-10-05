@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute může obsahovat pouze písmena a číslice.',
     'any_of'                 => ':attribute pole je neplatné.',
     'array'                  => ':Attribute musí být pole.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'Číslo :attribute musí obsahovat pouze jednobajtové alfanumerické znaky a symboly.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute musí být datum před :date.',
     'before_or_equal'        => 'Datum :attribute musí být před nebo rovno :date.',
     'between'                => [

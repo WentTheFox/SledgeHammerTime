@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute får endast innehålla bokstäver och siffror.',
     'any_of'                 => 'Det :attribute fältet är ogiltigt.',
     'array'                  => ':Attribute måste vara en array.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute:an får bara innehålla enbyte alfanumeriska tecken och symboler.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute måste vara ett datum innan :date.',
     'before_or_equal'        => ':Attribute måste vara ett datum före eller samma dag som :date.',
     'between'                => [

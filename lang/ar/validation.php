@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'يجب أن يحتوي حقل :attribute على حروفٍ وأرقامٍ فقط.',
     'any_of'                 => 'الحقل :attribute غير صالح.',
     'array'                  => 'يجب أن يكون حقل :attribute ًمصفوفة.',
+    'array_keys'             => 'يجب أن يحتوي الحقل :attribute على المفاتيح التالية فقط: :values.',
     'ascii'                  => 'يجب أن يحتوي الحقل :attribute فقط على أحرف أبجدية رقمية أحادية البايت ورموز.',
+    'base64'                 => 'يجب أن يكون الحقل :attribute عبارة عن سلسلة Base64 صالحة.',
     'before'                 => 'يجب على حقل :attribute أن يكون تاريخًا سابقًا للتاريخ :date.',
     'before_or_equal'        => 'حقل :attribute يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ :date.',
     'between'                => [
@@ -42,7 +44,7 @@ return [
     'doesnt_end_with'        => 'الحقل :attribute يجب ألّا ينتهي بأحد القيم التالية: :values.',
     'doesnt_start_with'      => 'الحقل :attribute يجب ألّا يبدأ بأحد القيم التالية: :values.',
     'email'                  => 'يجب أن يكون حقل :attribute عنوان بريد إلكتروني صحيح البُنية.',
-    'encoding'               => 'The :attribute field must be encoded in :encoding.',
+    'encoding'               => 'يجب أن يكون الحقل :attribute مشفرًا بـ :encoding.',
     'ends_with'              => 'يجب أن ينتهي حقل :attribute بأحد القيم التالية: :values',
     'enum'                   => 'قيمة حقل :attribute غير موجودة في قائمة القيم المسموح بها.',
     'exists'                 => 'قيمة الحقل :attribute غير موجودة.',

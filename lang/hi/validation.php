@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute में केवल अक्षर और संख्याएं हो सकती हैं ।',
     'any_of'                 => ':attribute क्षेत्र अमान्य है।',
     'array'                  => ':Attribute एक सरणी होनी चाहिए ।',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute में केवल सिंगल-बाइट अल्फ़ान्यूमेरिक वर्ण और प्रतीक होने चाहिए।',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute, :date से पहले की एक तारीख होनी चाहिए ।',
     'before_or_equal'        => ':Attribute, :date इससे पहले या उसके बराबर की तारीख होनी चाहिए ।',
     'between'                => [

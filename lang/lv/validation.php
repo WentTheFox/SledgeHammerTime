@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute var tikai saturēt burtus un numurus.',
     'any_of'                 => ':attribute lauks nav derīgs.',
     'array'                  => ':Attribute ir jābūt sakārtotam.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute drīkst saturēt tikai viena baita burtciparu rakstzīmes un simbolus.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute ir jābūt ar datumu pirms :date.',
     'before_or_equal'        => ':Attribute ir jābūt ar datumu pirms vai vienādu ar :date.',
     'between'                => [

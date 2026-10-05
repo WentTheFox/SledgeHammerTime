@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Câmpul :attribute poate conține doar litere și numere.',
     'any_of'                 => 'Câmpul :attribute este nevalid.',
     'array'                  => 'Câmpul :attribute trebuie să fie un array.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute trebuie să conțină doar caractere și simboluri alfanumerice pe un singur octet.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Câmpul :attribute trebuie să fie o dată înainte de :date.',
     'before_or_equal'        => 'Câmpul :attribute trebuie să fie o dată înainte sau egală cu :date.',
     'between'                => [
