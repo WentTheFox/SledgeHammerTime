@@ -255,6 +255,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [Erik](https://crowdin.com/profile/eriktradutor)
+  - [jessePKMNbr](https://crowdin.com/profile/jessePKMN)
   - [Marcos](https://crowdin.com/profile/marcos.pqueirozz)
   - [Samir Simoes](https://crowdin.com/profile/Kazenca)
   - [Tiago](https://crowdin.com/profile/DemiCool)
