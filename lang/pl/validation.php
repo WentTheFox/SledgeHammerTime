@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Pole :attribute może zawierać jedynie litery i cyfry.',
     'any_of'                 => 'Pole :attribute ma nieprawidłową wartość.',
     'array'                  => 'Pole :attribute musi być tablicą.',
+    'array_keys'             => 'Pole :attribute może zawierać tylko następujące klucze: :values.',
     'ascii'                  => 'Pole :attribute może zawierać tylko jednobajtowe znaki alfanumeryczne i symbole.',
+    'base64'                 => 'Pole :attribute musi być prawidłowym ciągiem znaków Base64.',
     'before'                 => 'Pole :attribute musi być datą wcześniejszą od :date.',
     'before_or_equal'        => 'Pole :attribute musi być datą nie późniejszą niż :date.',
     'between'                => [
@@ -42,7 +44,7 @@ return [
     'doesnt_end_with'        => 'Pole :attribute nie może kończyć się jedną z następujących wartości: :values.',
     'doesnt_start_with'      => 'Pole :attribute nie może zaczynać się od jednego z następujących wartości: :values.',
     'email'                  => 'Pole :attribute nie jest poprawnym adresem e-mail.',
-    'encoding'               => 'The :attribute field must be encoded in :encoding.',
+    'encoding'               => 'Pole :attribute musi być zakodowane w formacie :encoding.',
     'ends_with'              => 'Pole :attribute musi kończyć się jedną z następujących wartości: :values.',
     'enum'                   => 'Pole :attribute ma niepoprawną wartość.',
     'exists'                 => 'Zaznaczone pole :attribute jest nieprawidłowe.',

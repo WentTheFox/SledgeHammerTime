@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute mag alleen letters en nummers bevatten.',
     'any_of'                 => 'Het veld :attribute is ongeldig.',
     'array'                  => ':Attribute moet geselecteerde elementen bevatten.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'De :attribute mag alleen alfanumerieke tekens en symbolen van één byte bevatten.',
+    'base64'                 => ':Attribute moet een geldige Base64-string zijn.',
     'before'                 => ':Attribute moet een datum vóór :date zijn.',
     'before_or_equal'        => ':Attribute moet een datum vóór of gelijk aan :date zijn.',
     'between'                => [
@@ -42,7 +44,7 @@ return [
     'doesnt_end_with'        => ':Attribute mag niet eindigen met één van de volgende waarden: :values.',
     'doesnt_start_with'      => ':Attribute mag niet beginnen met één van de volgende waarden: :values.',
     'email'                  => ':Attribute is geen geldig e-mailadres.',
-    'encoding'               => 'The :attribute field must be encoded in :encoding.',
+    'encoding'               => ':Attribute moet gecodeerd zijn in :encoding.',
     'ends_with'              => ':Attribute moet met één van de volgende waarden eindigen: :values.',
     'enum'                   => 'Gekozen :attribute is ongeldig.',
     'exists'                 => ':Attribute bestaat niet.',

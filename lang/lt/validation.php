@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Laukas :attribute gali turėti tik raides ir skaičius.',
     'any_of'                 => ':attribute laukų neteisingas.',
     'array'                  => 'Laukas :attribute turi būti masyvas.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute turi būti tik vieno baito raidiniai ir skaitmeniniai simboliai ir simboliai.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Laukas :attribute turi būti data prieš :date.',
     'before_or_equal'        => 'Lauko :attribute reikšmė privalo būti data lygi arba ankstesnė negu :date.',
     'between'                => [

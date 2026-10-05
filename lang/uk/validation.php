@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Поле :attribute має містити лише літери та цифри.',
     'any_of'                 => 'Поле :attribute є недійсним.',
     'array'                  => 'Поле :attribute має бути масивом.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'Поле :attribute має містити лише однобайтові буквено-цифрові знаки та символи.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Поле :attribute має містити дату не пізніше :date.',
     'before_or_equal'        => 'Поле :attribute має містити дату не пізніше, або дорівнюватися :date.',
     'between'                => [

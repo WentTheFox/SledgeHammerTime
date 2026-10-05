@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Trường :attribute chỉ có thể chứa chữ cái và số.',
     'any_of'                 => 'Trường :attribute không hợp lệ.',
     'array'                  => 'Trường :attribute phải là dạng mảng.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'Trường :attribute chỉ được chứa các ký tự chữ số và ký hiệu một byte.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Trường :attribute phải là một ngày trước ngày :date.',
     'before_or_equal'        => 'Trường :attribute phải là thời gian bắt đầu trước hoặc đúng bằng :date.',
     'between'                => [

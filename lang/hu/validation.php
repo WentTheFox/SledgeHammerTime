@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'A(z) :attribute kizárólag betűket és számokat tartalmazhat!',
     'any_of'                 => 'A :attribute mező érvénytelen.',
     'array'                  => 'A(z) :attribute egy tömb kell, hogy legyen!',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'A :attribute csak egybájtos alfanumerikus karaktereket és szimbólumokat tartalmazhat.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'A(z) :attribute :date előtti dátum kell, hogy legyen!',
     'before_or_equal'        => 'A(z) :attribute nem lehet későbbi dátum, mint :date!',
     'between'                => [

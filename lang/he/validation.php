@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'שדה :attribute יכול להכיל אותיות ומספרים בלבד.',
     'any_of'                 => 'שדה :attribute אינו חוקי.',
     'array'                  => 'שדה :attribute חייב להיות מערך.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'ה-:attribute חייב להכיל רק תווים וסמלים אלפאנומריים של בייט בודד.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'שדה :attribute חייב להיות תאריך לפני :date.',
     'before_or_equal'        => 'שדה :attribute חייב להיות תאריך מוקדם או שווה ל :date.',
     'between'                => [

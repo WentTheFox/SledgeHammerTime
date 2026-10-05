@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':attribute புலத்தில் எழுத்துக்கள் மற்றும் எண்கள் மட்டுமே இருக்க வேண்டும்.',
     'any_of'                 => ':attribute புலம் தவறானது.',
     'array'                  => ':attribute புலம் ஒரு வரிசையாக இருக்க வேண்டும்.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':attribute புலத்தில் ஒற்றை-பைட் அலகெண்குறிகள் மற்றும் குறியீடுகள் மட்டுமே இருக்க வேண்டும்.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':attribute புலம் :date க்கு முன்பான தேதியாக இருக்க வேண்டும்.',
     'before_or_equal'        => ':attribute புலம் :date க்கு முன்பு அல்லது அதற்கு சமமான தேதியாக இருக்க வேண்டும்.',
     'between'                => [

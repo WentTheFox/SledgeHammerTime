@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute باید فقط حروف الفبا و اعداد باشد.',
     'any_of'                 => 'فیلد :attribute معتبر نیست.',
     'array'                  => ':Attribute باید آرایه باشد.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute تنها میتواند شامل کاراکترها و نمادهای الفبایی تک بایتی باشد.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute باید تاریخی قبل از :date باشد.',
     'before_or_equal'        => ':Attribute باید تاریخی قبل از :date، یا مطابق با آن باشد.',
     'between'                => [

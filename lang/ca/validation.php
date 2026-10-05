@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute només pot contenir lletres i números.',
     'any_of'                 => 'El camp :attribute no és vàlid.',
     'array'                  => ':Attribute ha de ser una matriu.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'El :attribute només ha de contenir caràcters i símbols alfanumèrics d\'un sol byte.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute ha de ser una data anterior a :date.',
     'before_or_equal'        => ':Attribute ha de ser una data anterior o igual a :date.',
     'between'                => [

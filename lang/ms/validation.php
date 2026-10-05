@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute boleh mengandungi huruf dan nombor.',
     'any_of'                 => 'Bidang :attribute tidak sah.',
     'array'                  => ':Attribute mesti jujukan.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute mesti hanya mengandungi aksara dan simbol alfanumerik bait tunggal.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute mesti tarikh sebelum :date.',
     'before_or_equal'        => ':Attribute mesti tarikh sebelum atau sama dengan :date.',
     'between'                => [

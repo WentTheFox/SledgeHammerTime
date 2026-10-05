@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Kenttä :attribute voi sisältää vain kirjaimia ja numeroita.',
     'any_of'                 => ':attribute -kenttä on virheellinen.',
     'array'                  => 'Kenttä :attribute tulee olla taulukko.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute saa sisältää vain yksitavuisia aakkosnumeerisia merkkejä ja symboleja.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Kentän :attribute päiväyksen tulee olla ennen :date.',
     'before_or_equal'        => 'Kentän :attribute päiväyksen tulee olla sama tai ennen kuin :date.',
     'between'                => [

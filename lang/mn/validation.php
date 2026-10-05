@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute талбарт латин үсэг болон тоо оруулах боломжтой.',
     'any_of'                 => ':attribute талбар буруу байна.',
     'array'                  => ':Attribute талбар массив байх шаардлагатай.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute нь зөвхөн нэг байт үсэг, тоон тэмдэгтүүдийг агуулсан байх ёстой.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute талбарт :date-с өмнөх огноо оруулна уу.',
     'before_or_equal'        => ':Attribute талбарт :date эсвэл түүнээс өмнөх огноо оруулна уу.',
     'between'                => [

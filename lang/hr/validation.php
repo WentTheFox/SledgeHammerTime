@@ -13,7 +13,9 @@ return [
     'alpha_num'              => 'Polje :attribute smije sadržavati samo slova i brojeve.',
     'any_of'                 => 'Polje :attribute nije valjano.',
     'array'                  => 'Polje :attribute mora biti niz.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => 'Polje :attribute smije sadržavati samo slova, brojeve i simbole veličine jednog bajta.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => 'Polje :attribute mora biti datum prije :date.',
     'before_or_equal'        => 'Polje :attribute mora biti datum manji ili jednak :date.',
     'between'                => [

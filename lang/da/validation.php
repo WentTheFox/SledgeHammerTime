@@ -13,7 +13,9 @@ return [
     'alpha_num'              => ':Attribute må kun bestå af bogstaver og tal.',
     'any_of'                 => 'Feltet :attribute er ugyldigt.',
     'array'                  => ':Attribute skal være et array.',
+    'array_keys'             => 'The :attribute field must only contain the following keys: :values.',
     'ascii'                  => ':Attribute må kun indeholde single-byte alfanumeriske tegn og symboler.',
+    'base64'                 => 'The :attribute field must be a valid Base64 string.',
     'before'                 => ':Attribute skal være en dato før :date.',
     'before_or_equal'        => ':Attribute skal være en dato før eller lig med :date.',
     'between'                => [
