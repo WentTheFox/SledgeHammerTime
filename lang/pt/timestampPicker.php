@@ -9,11 +9,11 @@ return [
       'dateAndTime' => 'Data e horário',
       'timezone' => 'Fuso Horário',
       'naturalLanguageInput' => '@time input',
-      'modeOffset' => 'Absolute Offset',
-      'modeZoneName' => 'Zone Name',
+      'modeOffset' => 'Offset absoluto',
+      'modeZoneName' => 'Nome da Área',
     ],
     'button' => [
-      'jumpToToday' => 'Jump to current month',
+      'jumpToToday' => 'Ir para o mês atual',
       'contextRange' => '<0/>–<2/>',
     ],
     'tooltip' => [
@@ -28,21 +28,21 @@ return [
       'nextDecade' => 'Próxima década',
     ],
     'validation' => [
-      'naturalLanguageParseError' => 'Could not parse natural language input'
+      'naturalLanguageParseError' => 'Não foi possível analisar a entrada em linguagem natural'
     ]
   ],
   'table' => [
     'syntaxColumn' => 'Sintaxe de bate-papo',
     'resultColumn' => 'Resultado do exemplo',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Personalizar formatos',
+    'resetFormats' => 'Redefinir as definições padrão',
+    'hideFormat' => 'Ocultar este formato',
+    'showFormat' => 'Mostrar este formato',
+    'unhideInProfile' => 'Mostrar nas definições do perfil',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Perguntas mais frequentes',
+    'description' => 'Por enquanto, esta secção está disponível apenas em inglês e baseia-se em grande parte no conteúdo do <1>nosso servidor do Discord</1>. Alguns links poderão não funcionar como esperado, a menos que seja membro.',
   ],
   'usefulLinks' => [
     'lead' => 'Você também pode achar úteis esses:',
@@ -55,8 +55,8 @@ return [
       'p' => 'Gerar timestamps a partir de dentro do Discord usando comandos slash',
     ],
     'oldSite' => [
-      'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'header' => 'Versão antiga',
+      'p' => 'O antigo site do projeto, que continua disponível até nova ordem',
     ],
     'textColor' => [
       'header' => 'Gerador de Texto <1>Colorido</1> de Rebane',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Sabia que o HammerTime não é a única ferramenta para gerar carimbos de data e hora?',
+        'p2' => 'Talvez queira dar uma vista de olhos nestes outros geradores de carimbos de data e hora para o Discord, para encontrar aquele que melhor se adequa às suas necessidades:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Um gerador de carimbos de data e hora simples e rápido da 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Gerador de carimbos de data e hora no Discord com linguagem natural, da autoria de dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Gerador gratuito de carimbos de data e hora para o Discord, com suporte ao fuso horário local, da Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Gerador de carimbos de data/hora e conversor de hora para o Discord, da DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Criar carimbos de data e hora no formato Markdown do Discord a partir do ecossistema de ‘bots’ de agendamento Sesh, da Tunks',
       ],
     ],
   ],
