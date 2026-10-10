@@ -11,7 +11,7 @@
     "php": "^8.5",
     "ext-pdo": "*",
     "ext-redis": "*",
-    "guzzlehttp/guzzle": "^7.2",
+    "guzzlehttp/guzzle": "^8.2",
     "inertiajs/inertia-laravel": "^3.0",
     "jaybizzle/crawler-detect": "^1.4",
     "laravel-lang/common": "^6.7.1",
