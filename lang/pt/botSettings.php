@@ -7,45 +7,45 @@ return [
   'advancedSettings' => [
     'toggleText' => 'Configurações avançadas',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'Padrão',
   'fields' => [
     'timezone' => [
       'displayName' => 'Fuso Horário',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Formato',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Somente a pré-visualização da resposta ao usar a opção de formato',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Colunas',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Efêmero',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Cabeçalho',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Formatar visualização como negrito',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção predefinida «:hourOptionName» para o comando /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção predefinida «:minuteOptionName» para o comando /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Opção predefinida «:secondOptionName» para o comando /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Permitir a coleta de dados de telemetria',
+      'explanation' => 'Isto é totalmente opcional e não afeta a sua capacidade de utilizar o bot. Consulte a página <1/> para obter mais detalhes.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Opção predefinida «:hourOptionName» para o comando /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Suas configurações foram salvas com sucesso',
 ];
