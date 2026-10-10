@@ -15,7 +15,7 @@ return [
     'noData' => 'Es wurden noch keine Lieferdaten erfasst.',
     'latencyChartTitle' => 'Antwortzeit',
     'latencyAvgLabel' => 'Durchschnitt',
-    'latencyP95Label' => '95th percentile',
+    'latencyP95Label' => '95. Perzentil',
     'latencyMedianLabel' => 'Median',
     'latencyLimitLabel' => 'Discord Antwortlimit',
     'healthChartTitle' => 'App-Status',
