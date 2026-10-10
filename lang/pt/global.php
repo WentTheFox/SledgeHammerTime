@@ -25,7 +25,7 @@ return [
     'autoReload' => 'A página irá recarregar automaticamente <1/>',
     'reloadButton' => 'Recarregar manualmente',
     "supportServerButton" => "Servidor de Suporte",
-    "contactDeveloperButton" => "Contact Developer",
+    "contactDeveloperButton" => "Contacte o programador",
   ],
   'incompleteTranslations' => 'As traduções estão incompletas',
   'contributeTranslations' => 'Contribuir',
@@ -129,7 +129,7 @@ return [
       'notAffiliated' => 'Este projeto não é afiliado ao Discord.',
     ],
     'themeButton' => [
-      'dark' => 'Dark Theme',
+      'dark' => 'Tema Escuro',
       'light' => 'Tema Claro',
       'system' => 'Utilizar o tema do sistema',
     ],
