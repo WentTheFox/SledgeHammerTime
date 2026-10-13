@@ -53,5 +53,9 @@ createServer(
     // only where Laravel calls OUT to render, not what port this
     // process itself binds — the two must be kept in sync by hand.
     ...(import.meta.env.VITE_INERTIA_SSR_PORT ? { port: Number(import.meta.env.VITE_INERTIA_SSR_PORT) } : {}),
+    // Loopback unless VITE_INERTIA_SSR_HOST says otherwise. The package's own default is 0.0.0.0, which put
+    // the render endpoint on the public interface, while Laravel only ever calls it on 127.0.0.1
+    // (INERTIA_SSR_URL). Like the port, this is read when the bundle is built.
+    host: import.meta.env.VITE_INERTIA_SSR_HOST || '127.0.0.1',
   },
 );
