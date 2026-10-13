@@ -235,6 +235,7 @@ English and Hungarian translations have been included, so no translators will be
   - [770skiyt](https://crowdin.com/profile/770skiyt)
   - [A O](https://crowdin.com/profile/TendoHydro)
   - [Aenrot Guile](https://crowdin.com/profile/aenriot)
+  - [Aleksandra](https://crowdin.com/profile/Alexyy05)
   - [AlpacaMan](https://crowdin.com/profile/Alpaca_Man)
   - [Bartek Koszutowski](https://crowdin.com/profile/koszutowski.bartek)
   - [kaczuszki są najlepsze!](https://crowdin.com/profile/ToMacMa)
