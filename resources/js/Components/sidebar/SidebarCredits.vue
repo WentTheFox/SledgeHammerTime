@@ -16,6 +16,7 @@ import {
   faBan,
   faCode,
   faFileContract,
+  faHeartPulse,
   faInfo,
   faLanguage,
   faUser,
@@ -27,6 +28,7 @@ import { computed, inject } from 'vue';
 const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
+const statusPageUrl = computed(() => pageProps?.value.app?.statusPageUrl ?? null);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 
@@ -149,6 +151,18 @@ const translationCredits = computed(() => {
         class="me-1"
       />
       {{ $t('global.sidebar.credits.notAffiliated') }}
+    </p>
+    <p
+      v-if="statusPageUrl"
+      class="mb-3"
+    >
+      <HtExternalLink :href="statusPageUrl">
+        <FontAwesomeIcon
+          :icon="faHeartPulse"
+          class="me-1"
+        />
+        {{ $t('global.sidebar.credits.status') }}
+      </HtExternalLink>
     </p>
     <p>
       <Link :href="safeRoute('legal', route, {routeParams})">

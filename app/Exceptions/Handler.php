@@ -42,6 +42,7 @@ class Handler extends ExceptionHandler {
         // the developerContactUrl Inertia shared prop (HandleInertiaRequests) - this view
         // reads the config directly since it can't rely on a built Inertia page existing.
         'developerContactUrl' => config('services.developer.contact_url'),
+        'statusPageUrl' => config('app.status_page_url'),
       ], $status);
     }
 
