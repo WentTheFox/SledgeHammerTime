@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Server podpory",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Překlad není úplný',
   'contributeTranslations' => 'Přispět',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Otevřený software',
       'viewSourceCode' => 'Zobrazit zdrojový kód',
       'notAffiliated' => 'Tento projekt není nijak přidružen k společnosti Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Tmavý motiv',

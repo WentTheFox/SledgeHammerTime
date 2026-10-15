@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Очуулгууд бүрэн биш',
   'contributeTranslations' => 'Хувь нэмэр оруулсан',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Нээлттэй эхийн програмын хангамж',
       'viewSourceCode' => 'Эх сурвалжийн кодыг харах',
       'notAffiliated' => 'Энэ прожект Дискордтай хамааралгүй.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

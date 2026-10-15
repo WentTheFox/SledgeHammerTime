@@ -26,6 +26,7 @@ return [
     'reloadButton' => '手動重新加載',
     "supportServerButton" => "支援伺服器",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => '翻譯內容不完整',
   'contributeTranslations' => '貢獻',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => '開源軟體',
       'viewSourceCode' => '檢視原始碼',
       'notAffiliated' => '本專案與 Discord 並無任何關聯。',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => '深色主題',
