@@ -198,6 +198,9 @@ return [
 
   'console_user_uuid' => env('APP_CONSOLE_USER_UUID'),
 
+  // Public status page link shown in the sidebar; set to an empty value to hide it
+  'status_page_url' => env('APP_STATUS_PAGE_URL', 'https://status.hammertime.cyou'),
+
   'page_cache' => [
     'enabled' => env('APP_PAGE_CACHE_ENABLED', false),
     'version' => env('APP_PAGE_CACHE_VERSION', 0),

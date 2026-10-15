@@ -154,6 +154,9 @@
       @else
         <a class="btn btn-primary" href="{{ $developerContactUrl }}">{{ __('global.maintenanceMode.contactDeveloperButton') }}</a>
       @endif
+      @if($statusPageUrl)
+        <a class="btn" href="{{ $statusPageUrl }}" target="_blank" rel="noopener noreferrer">{{ __('global.maintenanceMode.statusPageButton') }}</a>
+      @endif
       <button class="btn" id="reload-btn" type="button">{{ __('global.maintenanceMode.reloadButton') }}</button>
     </div>
   </main>
