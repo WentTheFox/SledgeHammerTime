@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Manuel olarak yeniden yükle',
     "supportServerButton" => "Destek Sunucusu",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Çeviriler tamamlanmadı',
   'contributeTranslations' => 'Katkıda Bulun',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Açık kaynak kodlu yazılım',
       'viewSourceCode' => 'Kaynak kodunu görüntüle',
       'notAffiliated' => 'Bu proje Discord ile bağlantılı değildir.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Koyu Tema',

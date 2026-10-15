@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'טען מחדש באופן ידני',
     "supportServerButton" => "שרת תמיכה",
     "contactDeveloperButton" => "צור קשר עם המפתח",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'התרגומים לא מלאים',
   'contributeTranslations' => 'עזור בתרגום',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'תוכנת קוד-פתוח',
       'viewSourceCode' => 'צפו בקוד האתר',
       'notAffiliated' => 'הפרויקט הזה הוא לא בשיתוף עם דיסקורד.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

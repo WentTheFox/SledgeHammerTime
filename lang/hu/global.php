@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Kézi újratöltés',
     "supportServerButton" => "Támogatási Szerver",
     "contactDeveloperButton" => "Kapcsolatfelvétel a fejlesztővel",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Nyílt forráskódú szoftver',
       'viewSourceCode' => 'Forráskód megtekintése',
       'notAffiliated' => 'A projektnek semmilyen kapcsolata nincs a Discord-al.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Sötét Téma',

@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Ažuriraj ručno',
     "supportServerButton" => "Podrška",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Prijevodi su nepotpuni',
   'contributeTranslations' => 'Doprinos',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Softver otvorenog koda',
       'viewSourceCode' => 'Pogledaj izvorni kod',
       'notAffiliated' => 'Ovaj projekt nije povezan s Discordom.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
