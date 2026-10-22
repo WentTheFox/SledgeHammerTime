@@ -16,4 +16,4 @@ MAILTO=""
 PATH=/usr/local/bin:/usr/bin:/bin
 
 @apps sledgehammertime
-* * * * * chisel cd @WORKTREE@ && php artisan schedule:run >> /dev/null 2>&1
+* * * * * deploy cd @WORKTREE@ && php artisan schedule:run >> /dev/null 2>&1
