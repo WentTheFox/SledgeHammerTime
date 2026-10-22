@@ -13,7 +13,7 @@ concurrency:
 jobs:
   update-i18n-credits:
     name: 'Update i18n credits'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
