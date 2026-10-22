@@ -1,6 +1,6 @@
 [Unit]
 Description=Laravel Horizon Queue Worker
-After=network.target
+After=network.target valkey-server.service postgresql.service
 
 [Service]
 # The user and group that should run Horizon
