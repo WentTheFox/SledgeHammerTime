@@ -29,7 +29,8 @@ class CommandTelemetryService {
     return [
       // Counts every source, so a command's run count is the same wherever it is shown
       'executionNumber' => $command->telemetryExecutions()->count(),
-      'privacyPolicyUrl' => URL::route('legal', ['locale' => $locale]).'#telemetry-statistics',
+      // From APP_URL rather than the address this request came in on: the API service reaches this app on a loopback address
+      'privacyPolicyUrl' => rtrim((string)config('app.url'), '/').URL::route('legal', ['locale' => $locale], false).'#telemetry-statistics',
       'commandName' => $command->name,
       'commandId' => (string)$command->id,
     ];
