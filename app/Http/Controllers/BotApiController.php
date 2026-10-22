@@ -6,7 +6,7 @@ use App\Enums\DiscordBotCommandOptionType;
 use App\Enums\ReviewDecision;
 use App\Enums\TelemetrySource;
 use App\Http\Middleware\CachePageResponse;
-use App\Http\Requests\BotLoginRequest;
+use App\Http\Requests\CreateBotLoginLinkRequest;
 use App\Http\Requests\ReviewTranslationCreditOverrideProposal;
 use App\Http\Requests\SaveWebhookDeliveryRequest;
 use App\Http\Requests\TelemetryRequest;
@@ -54,7 +54,7 @@ class BotApiController extends Controller {
     return response()->json($user?->mapToUiInfo());
   }
 
-  function loginLink(BotLoginRequest $request):JsonResponse {
+  function loginLink(CreateBotLoginLinkRequest $request):JsonResponse {
     $data = $request->validated();
 
     $expiresAt = now()->addMinutes(5);
