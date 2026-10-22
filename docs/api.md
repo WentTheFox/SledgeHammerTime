@@ -55,6 +55,10 @@ service reaches them through the `/internal` endpoints below. Nothing else may c
 
 1. Deploy this app first. Its migrations add a nullable column and a defaulted one, so they follow the expand-only
    rule in `zero-downtime-deploy.md`.
+   The same release also repairs id sequences that are behind their table (`PostgresSequences`, run by a migration):
+   production's `personal_access_tokens` was restored with ids of its own, so creating any token failed with a duplicate
+   key. It only moves a sequence forward, does nothing where they are fine, and skips (and logs) whatever it can not
+   repair, so it can not hold up a deploy.
 2. Only then deploy the API service, which calls these endpoints. During the short read-only window key validation and
    settings reads keep working, settings changes and telemetry get `503` + `Retry-After`, which the API service passes on
    to its clients (and skips telemetry for).
