@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
  * requests/workers and does not need the database (which is the thing being migrated).
  */
 class ReadOnlyMode {
-  public const RETRY_AFTER_SECONDS = 30;
+  public const RETRY_AFTER_SECONDS = 5;
 
   public static function path():string {
     return storage_path('framework/readonly');
