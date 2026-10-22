@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Muat ulang secara manual',
     "supportServerButton" => "Server Dukungan",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Terjemahannya belum lengkap',
   'contributeTranslations' => 'Kontribusi',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Perangkat lunak sumber terbuka',
       'viewSourceCode' => 'Lihat kode sumber',
       'notAffiliated' => 'Proyek ini tidak berafiliasi dengan Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Tema Gelap',

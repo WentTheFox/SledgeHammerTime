@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Översättningarna är ofullständiga',
   'contributeTranslations' => 'Bidra',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Öppen källkod',
       'viewSourceCode' => 'Se källkoden',
       'notAffiliated' => 'Detta projekt är inte kopplat till Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

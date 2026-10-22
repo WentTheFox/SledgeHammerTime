@@ -26,6 +26,7 @@ return [
     'reloadButton' => '手動で再読み込み',
     "supportServerButton" => "サポートサーバー",
     "contactDeveloperButton" => "開発者に連絡する",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => '翻訳は未完成です',
   'contributeTranslations' => '貢献',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'オープンソース',
       'viewSourceCode' => 'ソースコードを見る',
       'notAffiliated' => 'このサイトとDiscordは関係していません。',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'ダークモード',

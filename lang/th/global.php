@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'โหลดใหม่หน้าเพจนี้ด้วยตนเอง',
     "supportServerButton" => "เซิร์ฟเวอร์สนับสนุน",
     "contactDeveloperButton" => "ติดต่อผู้พัฒนา",
+    "statusPageButton" => "หน้าแสดงสถานะแอพพลิเคชั่น",
   ],
   'incompleteTranslations' => 'ภาษานี้ยังมีการแปลภาษาไม่สมบูรณ์',
   'contributeTranslations' => 'สนับสนุน',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'ซอฟต์แวร์แบบโอเพ่นซอร์ส',
       'viewSourceCode' => 'ดูรหัสต้นฉบับ',
       'notAffiliated' => 'เว็บไซต์ไม่ได้สร้างหรือเกี่ยวข้องกับ Discord แต่อย่างใด',
+      'status' => 'สถานะบริการ',
     ],
     'themeButton' => [
       'dark' => 'ธีมมืด',
