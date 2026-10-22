@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use App\Services\ApiKeys\ApiKeyService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Uid\Uuid;
@@ -13,7 +14,7 @@ class BotTokenGenerate extends Command {
    *
    * @var string
    */
-  protected $signature = 'bot-token:generate';
+  protected $signature = 'bot-token:generate {--service : Create the key the bot presents to the API server instead, which can only run commands on behalf of any Discord account}';
 
   /**
    * The console command description.
@@ -45,7 +46,9 @@ class BotTokenGenerate extends Command {
     }
     $consoleUser = User::firstOrCreate(['id' => $consoleUserId], ['name' => 'Console']);
     $this->info("Generating token for user $consoleUser->name with ID $consoleUser->id");
-    $token = $consoleUser->createToken('Bot token');
+    $token = $this->option('service')
+      ? app(ApiKeyService::class)->createServiceKey($consoleUser)
+      : $consoleUser->createToken('Bot token');
 
     $this->info("Your API token is: <comment>{$token->plainTextToken}</comment>");
   }
