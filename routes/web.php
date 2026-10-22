@@ -48,7 +48,8 @@ Route::middleware('auth')->group(function () use ($loginEnabled) {
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
   Route::put('/settings/{discordUserId}', [BotSettingsController::class, 'set'])->name('settings.set');
   Route::post('/api-keys', [ApiKeyController::class, 'store'])->name('api-keys.store');
-  Route::delete('/api-keys/{tokenId}', [ApiKeyController::class, 'destroy'])->name('api-keys.destroy')->whereNumber('tokenId');
+  Route::post('/api-keys/{tokenId}/rotate', [ApiKeyController::class, 'rotate'])->name('api-keys.rotate')->whereNumber('tokenId');
+  Route::delete('/api-keys/{tokenId}',[ApiKeyController::class, 'destroy'])->name('api-keys.destroy')->whereNumber('tokenId');
   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
   if ($loginEnabled){
     Route::get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
