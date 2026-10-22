@@ -33,7 +33,7 @@
 # `pm2 start ... --output/--error` (in storage/logs, which releases share) and owned by the deploy user.
 @WORKTREE@/storage/logs/pm2-ssr-out.log
 @WORKTREE@/storage/logs/pm2-ssr-error.log {
-	su chisel chisel
+	su deploy deploy
 	daily
 	rotate 13
 	maxage 14
