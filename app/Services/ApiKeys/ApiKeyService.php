@@ -44,18 +44,39 @@ class ApiKeyService {
     }
 
     return DB::transaction(function () use ($user, $discordUser, $name, $scopes, $expiresAt) {
-      $previousPrefix = config('sanctum.token_prefix');
-      config(['sanctum.token_prefix' => self::TOKEN_PREFIX]);
-      try {
-        $newToken = $user->createToken($name, $scopes, $expiresAt);
-      }
-      finally {
-        config(['sanctum.token_prefix' => $previousPrefix]);
-      }
+      $newToken = $this->createToken($user, $name, $scopes, $expiresAt);
       $newToken->accessToken->forceFill(['discord_user_id' => $discordUser->id])->save();
 
       return $newToken;
     });
+  }
+
+  /**
+   * The key the bot presents to the API server, with which it acts on behalf of whichever Discord account it names.
+   * It can only run commands, never change settings.
+   *
+   * @throws AuthorizationException When the user is not the console user
+   */
+  public function createServiceKey(User $consoleUser):NewAccessToken {
+    if ($consoleUser->id !== config('app.console_user_uuid')){
+      throw new AuthorizationException('Only the console user can have a service key.');
+    }
+
+    return $this->createToken($consoleUser, 'Bot service key', [ApiKeyScope::ACT_AS_DISCORD_USER]);
+  }
+
+  /**
+   * @param list<string> $abilities
+   */
+  private function createToken(User $user, string $name, array $abilities, ?CarbonInterface $expiresAt = null):NewAccessToken {
+    $previousPrefix = config('sanctum.token_prefix');
+    config(['sanctum.token_prefix' => self::TOKEN_PREFIX]);
+    try {
+      return $user->createToken($name, $abilities, $expiresAt);
+    }
+    finally {
+      config(['sanctum.token_prefix' => $previousPrefix]);
+    }
   }
 
   /**
