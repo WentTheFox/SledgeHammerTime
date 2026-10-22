@@ -17,6 +17,17 @@ jobs:
     env:
       CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
       CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
+    services:
+      # The bot settings are cached in Redis (DiscordUserService), which the settings, API key and login tests go through
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
