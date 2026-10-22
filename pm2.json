@@ -2,13 +2,11 @@
   "apps": [
     {
       "name": "SledgeHammerTime:SSR",
-      "script": "artisan",
-      "args": ["inertia:start-ssr"],
-      "instances": 1,
+      "script": "bootstrap/ssr/ssr.js",
+      "exec_mode": "cluster",
+      "instances": 2,
       "cron_restart": "0 0 * * *",
-      "wait_ready": true,
       "autorestart": true,
-      "interpreter": "php",
       "watch": false,
       "time": true
     }
