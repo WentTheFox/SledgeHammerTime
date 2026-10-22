@@ -35,10 +35,16 @@ class InternalApiTest extends TestCase {
     return $this->withToken(self::SECRET)->withHeader('Accept', 'application/json');
   }
 
-  public function test_it_rejects_requests_without_the_shared_secret():void {
-    $this->postJson('/internal/keys/validate', ['token' => 'x'])->assertUnauthorized();
-    $this->withToken('wrong-secret')->postJson('/internal/keys/validate', ['token' => 'x'])->assertUnauthorized();
-    $this->withToken('wrong-secret')->getJson('/internal/settings/1')->assertUnauthorized();
+  public function test_it_rejects_requests_without_the_shared_secret_in_a_way_that_is_not_a_bad_key():void {
+    // 403, because the API service reads a 401 from the key endpoint as "unknown key"
+    $this->postJson('/internal/keys/validate', ['token' => 'x'])->assertForbidden();
+    $this->withToken('wrong-secret')->postJson('/internal/keys/validate', ['token' => 'x'])->assertForbidden();
+    $this->withToken('wrong-secret')->getJson('/internal/settings/1')->assertForbidden();
+  }
+
+  public function test_a_wrong_secret_and_an_unknown_key_can_be_told_apart():void {
+    $this->withToken('wrong-secret')->postJson('/internal/keys/validate', ['token' => 'x'])->assertStatus(403);
+    $this->internal()->postJson('/internal/keys/validate', ['token' => 'x'])->assertStatus(401);
   }
 
   public function test_it_refuses_to_run_without_a_configured_secret():void {

@@ -23,7 +23,7 @@ service reaches them through the `/internal` endpoints below. Nothing else may c
 
 | Endpoint | Purpose |
 | --- | --- |
-| `POST /internal/keys/validate` `{token}` | The account and scopes of a key, 401 if it is not valid. Exempt from the read-only window since it only reads. |
+| `POST /internal/keys/validate` `{token}` | The account and scopes of a key, 401 if it is not valid (a wrong or missing secret is 403, so the two can be told apart). Exempt from the read-only window since it only reads. |
 | `GET /internal/settings/{discordUserId}` | The settings with defaults, the same as what the bot reads. |
 | `PATCH /internal/settings/{discordUserId}` | Changes only the given settings, `null` resets one. Same rules as the settings page. |
 | `POST /internal/command-telemetry` | Records a run by command name with its source (`discord-bot`, `api`, `mcp`). |
@@ -46,7 +46,7 @@ service reaches them through the `/internal` endpoints below. Nothing else may c
 
   Enable with `nginx -t && systemctl reload nginx`, then check from outside with `curl -i https://<host>/internal/settings/1`,
   which must be a 404 from nginx, and from the server with `curl -i http://127.0.0.1:8088/internal/settings/1`, which must be a
-  401 from the app (no secret). Links in the telemetry note are built from `APP_URL`, so the loopback address never ends
+  403 from the app (no secret). Links in the telemetry note are built from `APP_URL`, so the loopback address never ends
   up in front of users.
 - The beta copy shares production's database through a read-only role. Leave `INTERNAL_API_SECRET` unset there, so
   its internal endpoints stay unusable.
