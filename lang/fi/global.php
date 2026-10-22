@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Päivitä manuaalisesti',
     "supportServerButton" => "Palvelin",
     "contactDeveloperButton" => "Ota yhteyttä kehittäjään",
+    "statusPageButton" => "Tilasivu",
   ],
   'incompleteTranslations' => 'Käännökset eivät ole täydellisiä',
   'contributeTranslations' => 'Avusta',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'avoimen lähdekoodin ohjelmisto',
       'viewSourceCode' => 'Vilkaise lähdekoodia',
       'notAffiliated' => 'Tämä projekti ei ole sidoksissa Discordin kanssa.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Tumma teema',

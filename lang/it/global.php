@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Ricarica manualmente',
     "supportServerButton" => "Server di Supporto",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Le traduzioni sono incomplete',
   'contributeTranslations' => 'Contribuisci',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Software open source',
       'viewSourceCode' => 'Visualizza codice sorgente',
       'notAffiliated' => 'Questo progetto non è affiliato con Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Tema Scuro',

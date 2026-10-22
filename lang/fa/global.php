@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Translations are incomplete',
   'contributeTranslations' => 'Contribute',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'نرم‌افزار با کد های آزاد',
       'viewSourceCode' => 'مشاهده کد منبع',
       'notAffiliated' => 'این پروژه با دیسکورد وابسته نیست.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

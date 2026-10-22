@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Tulkojumi ir nepilnīgi',
   'contributeTranslations' => 'Atbalsti',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Atklātā pirmkoda programmatūra',
       'viewSourceCode' => 'Skatīt pirmkodu',
       'notAffiliated' => 'Šis projekts nav saistīts ar Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',
