@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\BlockWritesInReadOnlyMode;
 use App\Http\Middleware\ConsoleUserMiddleware;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LanguageDetector;
@@ -45,6 +46,7 @@ class Kernel extends HttpKernel {
     TrustProxies::class,
     HandleCors::class,
     PreventRequestsDuringMaintenance::class,
+    BlockWritesInReadOnlyMode::class,
     ValidatePostSize::class,
     TrimStrings::class,
     ConvertEmptyStringsToNull::class,
