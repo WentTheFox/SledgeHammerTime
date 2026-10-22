@@ -36,42 +36,18 @@ service reaches them through the `/internal` endpoints below. Nothing else may c
 - `/internal` must not be reachable from the internet, and the API service calls it from the same machine. Behind
   Cloudflare an `allow` on an address is fragile (the public hostname loops out through Cloudflare and back), so the
   public site does not serve `/internal` at all and the API service uses a loopback-only listener of its own
-  (`LARAVEL_URL=http://127.0.0.1:8088` in its `.env.api`). The nginx config is not part of this repository, this is
-  what goes into it:
+  (`LARAVEL_URL=http://127.0.0.1:8088` in its `.env.api`). The nginx config is not deployed from this repository,
+  the files are in `docs/nginx/`:
 
-  ```nginx
-  # In the public vhost (hammertime.cyou), before `location /`
-  location ^~ /internal/ {
-      return 404;
-  }
-  ```
+  | File | Goes to | |
+  | --- | --- | --- |
+  | `sledgehammertime-internal.conf` | `/etc/nginx/sites-available/`, symlinked into `sites-enabled/` | The loopback listener, its own vhost |
+  | `block-internal.conf` | `/etc/nginx/snippets/` | `include snippets/block-internal.conf;` in the public vhost, next to `block-multipart.conf` |
 
-  ```nginx
-  # A new file in sites-enabled: the API service's way in, to this machine only, and only to /internal
-  server {
-      listen 127.0.0.1:8088;
-      server_name _;
-      root /var/www/SledgeHammerTime/public;
-      error_log /var/www/SledgeHammerTime/storage/logs/nginx-error.log;
-
-      location ^~ /internal/ {
-          try_files $uri /index.php?$query_string;
-      }
-      location = /index.php {
-          include fastcgi_params;
-          fastcgi_pass unix:/var/run/php/php8.5-fpm.sock;
-          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-          fastcgi_read_timeout 15;
-      }
-      location / {
-          return 404;
-      }
-  }
-  ```
-
-  Check from outside with `curl -i https://<host>/internal/settings/1`, which must be a 404 from nginx, and from the
-  server with `curl -i http://127.0.0.1:8088/internal/settings/1`, which must be a 401 from the app (no secret).
-  Links in the telemetry note are built from `APP_URL`, so the loopback address never ends up in front of users.
+  Enable with `nginx -t && systemctl reload nginx`, then check from outside with `curl -i https://<host>/internal/settings/1`,
+  which must be a 404 from nginx, and from the server with `curl -i http://127.0.0.1:8088/internal/settings/1`, which must be a
+  401 from the app (no secret). Links in the telemetry note are built from `APP_URL`, so the loopback address never ends
+  up in front of users.
 - The beta copy shares production's database through a read-only role. Leave `INTERNAL_API_SECRET` unset there, so
   its internal endpoints stay unusable.
 
