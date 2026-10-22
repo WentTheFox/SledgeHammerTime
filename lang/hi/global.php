@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'अनुवाद अधूरे हैं',
   'contributeTranslations' => 'योगदान दें',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'खुला स्त्रोत सॉफ़्टवेयर',
       'viewSourceCode' => 'स्रोत कोड देखें',
       'notAffiliated' => 'यह प्रोजेक्ट डिस्कॉर्ड से संबंधित नहीं है',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

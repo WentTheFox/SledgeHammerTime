@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Cộng đồng hỗ trợ",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Các bản dịch chưa được hoàn thiện',
   'contributeTranslations' => 'Đóng góp',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Phần mềm mã nguồn mở',
       'viewSourceCode' => 'Xem mã nguồn',
       'notAffiliated' => 'Dự án này không liên kết với Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Giao diện Tối',

@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Сервер підтримки",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Переклади неповні',
   'contributeTranslations' => 'Зробити внесок',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Програмне забезпечення з відкритим кодом',
       'viewSourceCode' => 'Переглянути початковий код',
       'notAffiliated' => 'Цей проєкт не пов’язаний з Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

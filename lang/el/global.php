@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Χειροκίνητη επαναφόρτωση',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Λογισμικό ανοικτού κώδικα',
       'viewSourceCode' => 'Προβολή πηγαίου κώδικα',
       'notAffiliated' => 'Αυτό το πρότζεκτ δεν σχετίζεται με το Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Σκοτεινή λειτουργία',

@@ -26,6 +26,7 @@ return [
     'reloadButton' => '직접 새로고침',
     "supportServerButton" => "지원 서버",
     "contactDeveloperButton" => "개발자 연락",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => '번역 미완료',
   'contributeTranslations' => '기여하기',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => '오픈 소스 소프트웨어',
       'viewSourceCode' => '소스 코드 보기',
       'notAffiliated' => '이 프로젝트는 Discord와 관련이 없습니다.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => '다크 모드',

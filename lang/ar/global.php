@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'الترجمة غير مكتملة',
   'contributeTranslations' => 'المشاركة في الترجمة',
@@ -128,6 +129,7 @@ return [
       'openSourceSoftware' => 'الموقع مفتوح المصدر',
       'viewSourceCode' => 'عرض الكود المصدري',
       'notAffiliated' => 'هذا المشروع غير مرتبط بديسكورد.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

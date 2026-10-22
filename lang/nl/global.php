@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Handmatig herladen',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Open-source software',
       'viewSourceCode' => 'Bekijk de source code',
       'notAffiliated' => 'Dit project is niet geassocieerd met Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Donker Thema',

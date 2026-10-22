@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Support Server",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Преводът е недовършен',
   'contributeTranslations' => 'Допринасяне',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Софтуер с отворен код',
       'viewSourceCode' => 'Виж програмния код',
       'notAffiliated' => 'Този проект не е свързан с Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

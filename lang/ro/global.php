@@ -26,6 +26,7 @@ return [
     'reloadButton' => 'Reload manually',
     "supportServerButton" => "Server de suport",
     "contactDeveloperButton" => "Contact Developer",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'Traducerile sunt incomplete',
   'contributeTranslations' => 'Contribuie',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'Software cu sursă deschisă',
       'viewSourceCode' => 'Vezi codul sursă',
       'notAffiliated' => 'Acest proiect nu este afiliat cu Discord.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Temă întunecată',

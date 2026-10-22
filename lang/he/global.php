@@ -26,13 +26,14 @@ return [
     'reloadButton' => 'טען מחדש באופן ידני',
     "supportServerButton" => "שרת תמיכה",
     "contactDeveloperButton" => "צור קשר עם המפתח",
+    "statusPageButton" => "Status Page",
   ],
   'incompleteTranslations' => 'התרגומים לא מלאים',
   'contributeTranslations' => 'עזור בתרגום',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'נצפה כרגע',
+    'atPickedDate' => 'נצפה בשעה שנקבעה',
+    'currentlyAndAtPickedDate' => 'נצפה כעת ובזמן שנבחר',
   ],
   'copyToClipboard' => 'העתיקו ללוח',
   'copiedToClipboard' => 'הועתק ללוח!',
@@ -51,7 +52,7 @@ return [
       'title' => 'הגדרות הקלט',
       'naturalLanguageInput' => [
         'label' => 'שדה הזנת @time',
-        'description' => 'Allow manipulating the selected timestamp with natural language (e.g. “in 5 hours”) via an additional free-text input. Similar to the new Discord @time tag. Only a limited number of languages are supported.',
+        'description' => 'אפשר לשנות את חותמת הזמן שנבחרה באמצעות שפה טבעית (למשל; "בעוד 5 שעות") באמצעות שדה הזנת טקסט חופשי נוסף. בדומה לתגית @time החדשה ב-Discord. נתמכות רק מספר מצומצם של שפות.',
       ],
       'customDateInput' => [
         'label' => 'הזנת תאריך מותאם אישית',
@@ -127,6 +128,7 @@ return [
       'openSourceSoftware' => 'תוכנת קוד-פתוח',
       'viewSourceCode' => 'צפו בקוד האתר',
       'notAffiliated' => 'הפרויקט הזה הוא לא בשיתוף עם דיסקורד.',
+      'status' => 'Service status',
     ],
     'themeButton' => [
       'dark' => 'Dark Theme',

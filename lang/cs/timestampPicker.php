@@ -34,15 +34,15 @@ return [
   'table' => [
     'syntaxColumn' => 'Zápis v chatu',
     'resultColumn' => 'Ukázkový výstup',
-    'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'editFormats' => 'Přizpůsobit formáty',
+    'resetFormats' => 'Obnovit výchozí nastavení',
+    'hideFormat' => 'Skrýt tento formát',
+    'showFormat' => 'Zobrazit tento formát',
+    'unhideInProfile' => 'Odkryjte v nastavení profilu',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
-    'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
+    'title' => 'Často kladené dotazy',
+    'description' => 'Tato sekce je prozatím k dispozici pouze v angličtině a do značné míry vychází z obsahu <1>našeho Discord serveru</1>. Některé odkazy nemusí fungovat tak, jak by měly, pokud nejste členem.',
   ],
   'usefulLinks' => [
     'lead' => 'Užitečné pro vás mohou být také tyto:',
@@ -67,25 +67,25 @@ return [
     ],
     'competitors' => [
       'lead' => [
-        'p1' => 'Did you know that HammerTime is not the only tool for generating timestamps?',
-        'p2' => 'You may want to check out these other Discord timestamp generators to find one that works best for you:',
+        'p1' => 'Věděli jste, že HammerTime není jediný nástroj pro generování časových razítek?',
+        'p2' => 'Můžete si prohlédnout i tyto další generátory časových razítek pro Discord a najít ten, který vám vyhovuje nejlépe:',
       ],
       '3vfi' => [
         'header' => '',
-        'p' => 'A simple and fast timestamp generator by 3ventic',
+        'p' => 'Jednoduchý a rychlý generátor časových razítek od 3ventic',
       ],
       'dabric' => [
         'header' => '',
-        'p' => 'Natural language Discord timestamp generator by dabric',
+        'p' => 'Generátor časových razítek pro Discord v přirozeném jazyce od dabric',
       ],
       'discordtimestampCom' => [
-        'p' => 'Free Discord timestamp generator with local timezone support by Sellframe Ltd.',
+        'p' => 'Bezplatný generátor časových razítek pro Discord s podporou místního časového pásma od společnosti Sellframe Ltd.',
       ],
       'discordtimestampOrg' => [
-        'p' => 'Discord timestamp generator and time converter by DiscordTimestamp.org',
+        'p' => 'Generátor časových razítek pro Discord a převodník času od DiscordTimestamp.org',
       ],
       'sesh' => [
-        'p' => 'Create Discord markdown timestamps from within the Sesh scheduling bot ecosystem by Tunks',
+        'p' => 'Vytvářejte časová razítka ve formátu Markdown pro Discord přímo v rámci ekosystému plánovacích botů Sesh od Tunks',
       ],
     ],
   ],
