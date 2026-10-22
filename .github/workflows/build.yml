@@ -13,7 +13,7 @@ concurrency:
 jobs:
   lint-and-test:
     name: 'Building, Linting and Tests'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
       CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
