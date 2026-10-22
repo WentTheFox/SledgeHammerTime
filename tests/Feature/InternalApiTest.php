@@ -225,6 +225,17 @@ class InternalApiTest extends TestCase {
     $this->assertSame(0, $command->options()->where('name', 'minute')->first()->telemetryUses()->count());
   }
 
+  public function test_the_privacy_policy_link_is_the_public_address_whatever_address_the_request_used():void {
+    $this->createBotCommand();
+    config(['app.url' => 'https://hammertime.example']);
+
+    // The API service reaches this app on a loopback address
+    $response = $this->withServerVariables(['HTTP_HOST' => '127.0.0.1:8088'])->internal()
+      ->postJson('/internal/command-telemetry', ['commandName' => 'testcmd', 'locale' => 'en', 'source' => 'api']);
+
+    $this->assertSame('https://hammertime.example/en/legal#telemetry-statistics', $response->json('privacyPolicyUrl'));
+  }
+
   public function test_it_rejects_telemetry_for_unknown_commands_and_sources():void {
     $this->createBotCommand();
 
