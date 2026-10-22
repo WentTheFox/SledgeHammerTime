@@ -1,6 +1,8 @@
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { PageProps } from '@/types';
 import { getAppName } from '@/utils/app';
+import { withReadOnlyRetry } from '@/utils/read-only-retry';
+import { xhrHttpClient } from '@inertiajs/core';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { i18nVue } from 'laravel-vue-i18n';
@@ -16,6 +18,8 @@ const langJsonPaths = Object.keys(langJsonImporters);
 const findLangJsonPath = (lang: string) => langJsonPaths.find(path => path.endsWith(`lang/php_${lang.replace(/^php_/, '')}.json`));
 
 createInertiaApp({
+  // Writes rejected while a deploy has the site read-only (503 + Retry-After) are sent again once it is over
+  http: withReadOnlyRetry(xhrHttpClient),
   title: (title) => title ? `${title} - ${appName}` : appName,
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {

@@ -33,6 +33,12 @@ Server requirements (all exercised in the local end-to-end run below):
   (`bot-login/*`, `oauth/callback*`) → 503.
 - `TrackPageViews` skips recording while the flag is set (it writes the newest schema's columns).
 - When adding a GET route that writes to the DB, add it to `WRITING_GET_PATTERNS`.
+- `Retry-After` is `ReadOnlyMode::RETRY_AFTER_SECONDS` (5 s, a deploy's window is 5-8 s).
+- Frontend: `resources/js/utils/read-only-retry.ts` wraps Inertia's HTTP client (`createInertiaApp({ http })` in
+  `app.ts`). A 503 that carries `Retry-After` is sent again after that wait (at least 1 s, at most 10 s, plus up to 1 s
+  jitter), up to 3 times, so a form just stays "processing" until the window is over. Safe for writes because the
+  server refuses them before any handler runs. After the retries the error reaches Inertia as before (dialog).
+  Covered by `read-only-retry.test.ts` and `tests/Browser/ReadOnlyRetryTest.php`.
 
 ## Rules for migrations
 
