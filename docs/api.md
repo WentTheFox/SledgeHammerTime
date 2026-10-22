@@ -33,21 +33,45 @@ service reaches them through the `/internal` endpoints below. Nothing else may c
 - `INTERNAL_API_SECRET` in `.env` (see `.env.example`), the same value the API service has. Generate one with
   `openssl rand -hex 32`. Without it every internal endpoint answers 500. In a zero-downtime setup `.env` is shared
   between releases, so it only has to be set once.
-- Restrict `/internal` in nginx so only the API service can reach it. The secret is checked either way, this is a
-  second lock. The nginx config is not part of this repository:
+- `/internal` must not be reachable from the internet, and the API service calls it from the same machine. Behind
+  Cloudflare an `allow` on an address is fragile (the public hostname loops out through Cloudflare and back), so the
+  public site does not serve `/internal` at all and the API service uses a loopback-only listener of its own
+  (`LARAVEL_URL=http://127.0.0.1:8088` in its `.env.api`). The nginx config is not part of this repository, this is
+  what goes into it:
 
   ```nginx
+  # In the public vhost (hammertime.cyou), before `location /`
   location ^~ /internal/ {
-      allow 127.0.0.1;
-      deny all;
-      try_files $uri /index.php?$query_string;
+      return 404;
   }
   ```
 
-  This is a template, adapt it to the real server block. `try_files` sends the request on to `/index.php`, where your
-  existing PHP `location` handles it like any other route, so nothing from that block has to be repeated here. Change
-  `allow` if the API service runs on another host, and check with `curl -i https://<host>/internal/settings/1` from
-  outside: it must be refused by nginx (403), not answer 401 from the app.
+  ```nginx
+  # A new file in sites-enabled: the API service's way in, to this machine only, and only to /internal
+  server {
+      listen 127.0.0.1:8088;
+      server_name _;
+      root /var/www/SledgeHammerTime/public;
+      error_log /var/www/SledgeHammerTime/storage/logs/nginx-error.log;
+
+      location ^~ /internal/ {
+          try_files $uri /index.php?$query_string;
+      }
+      location = /index.php {
+          include fastcgi_params;
+          fastcgi_pass unix:/var/run/php/php8.5-fpm.sock;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          fastcgi_read_timeout 15;
+      }
+      location / {
+          return 404;
+      }
+  }
+  ```
+
+  Check from outside with `curl -i https://<host>/internal/settings/1`, which must be a 404 from nginx, and from the
+  server with `curl -i http://127.0.0.1:8088/internal/settings/1`, which must be a 401 from the app (no secret).
+  Links in the telemetry note are built from `APP_URL`, so the loopback address never ends up in front of users.
 - The beta copy shares production's database through a read-only role. Leave `INTERNAL_API_SECRET` unset there, so
   its internal endpoints stay unusable.
 
