@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\BlockWritesInReadOnlyMode;
 use App\Http\Middleware\ConsoleUserMiddleware;
+use App\Http\Middleware\InternalServiceMiddleware;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LanguageDetector;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
@@ -97,6 +98,7 @@ class Kernel extends HttpKernel {
     'throttle' => ThrottleRequests::class,
     'verified' => EnsureEmailIsVerified::class,
     'console-user' => ConsoleUserMiddleware::class,
+    'internal-service' => InternalServiceMiddleware::class,
     'translator' => TranslatorMiddleware::class,
   ];
 }

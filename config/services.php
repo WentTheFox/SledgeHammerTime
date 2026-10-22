@@ -84,4 +84,9 @@ return [
     'contact_url' => env('DEVELOPER_CONTACT_URL', 'https://went.tf/#contact'),
     'avatar_url' => env('DEVELOPER_AVATAR_URL', 'https://gravatar.com/avatar/f341ebe7cfc73b35ff4ec66897b5c30d?size=64'),
   ],
+
+  // Shared secret of the /internal endpoints, which only the API server (packages/api in HammerTimeBot) may call
+  'internal_api' => [
+    'secret' => env('INTERNAL_API_SECRET'),
+  ],
 ];

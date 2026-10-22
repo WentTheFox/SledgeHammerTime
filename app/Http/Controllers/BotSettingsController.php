@@ -15,7 +15,6 @@ use App\Services\Discord\DiscordUserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response as InertiaResponse;
@@ -44,36 +43,7 @@ class BotSettingsController extends Controller {
     $discordUserId = $request->route('discordUserId');
     $discordUser = DiscordUser::findOrFail($discordUserId);
 
-    /** @var Settings[] $currentSettings */
-    $currentSettings = $discordUser->settings()->get();
-    DB::transaction(function () use ($discordUser, $data, $currentSettings) {
-      foreach ($currentSettings as $setting){
-        $shouldDelete = !isset($data[$setting->setting]);
-        /** @var Settings $setting */
-        if (!$shouldDelete && Settings::shouldDeleteIfMatchingDefault($setting->setting, $data[$setting->setting])){
-          $shouldDelete = true;
-          unset($data[$setting->setting]);
-        }
-        if ($shouldDelete){
-          $setting->delete();
-        }
-        else {
-          $setting->value = $data[$setting->setting];
-          $setting->save();
-        }
-        unset($data[$setting->setting]);
-      }
-
-      $newSettingData = [];
-      foreach ($data as $settingName => $value){
-        if (Settings::shouldDeleteIfMatchingDefault($settingName, $value))
-          continue;
-        $newSettingData[] = ['setting' => $settingName, 'value' => $value];
-      }
-      $discordUser->settings()->createMany($newSettingData);
-    });
-
-    $this->discordUserService->clearSettingsCache($discordUser);
+    $this->discordUserService->replaceSettings($discordUser, $data);
 
     return Redirect::route('settings', ['locale' => App::getLocale()]);
   }
