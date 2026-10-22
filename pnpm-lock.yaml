@@ -91,8 +91,8 @@ importers:
         specifier: ^4.1.7
         version: 4.1.7(vitest@4.1.7)
       '@vue/language-server':
-        specifier: ^3.3.1
-        version: 3.3.1(typescript@6.0.3)
+        specifier: ^3.3.11
+        version: 3.3.11(typescript@6.0.3)
       '@vue/server-renderer':
         specifier: ^3.5.34
         version: 3.5.34(vue@3.5.34(typescript@6.0.3))
@@ -1122,17 +1122,20 @@ packages:
   '@vue/language-core@3.3.1':
     resolution: {integrity: sha512-NP8g6V7x81NVOXbLupUvYY6i6LqUkjkVowe2epRedmpgaFCOdjgWHE/rQBvEJ4r7koAYODIjGeBWEdt6n7jYXQ==}
 
+  '@vue/language-core@3.3.11':
+    resolution: {integrity: sha512-QJmpliwAVpC/OxubIByPAhNzsQPRc8/gxlN2qnVzVfIMjMDz/9RnXRFoetjz5yEgXVXyp4LqhXq3V53PjmNzFw==}
+
   '@vue/language-plugin-pug@3.2.9':
     resolution: {integrity: sha512-EaRtg3/1TQo9D20nBex1G3NtWElJbSgiiisZe6TwiNKpSCRwFmmvuAkz+AfMmsQc53si3zbkApU8RF0o6ULQag==}
 
-  '@vue/language-server@3.3.1':
-    resolution: {integrity: sha512-xvWUuMvbfNkEd+Jdux0+vD1b8jV5kBT+CQHsYWZvUg4rQHsPMr88L5/Gm1yg9kJ5688pnoZfuO/ZK+57PpEt0Q==}
+  '@vue/language-server@3.3.11':
+    resolution: {integrity: sha512-5QvJ3bkUTyuRE7R4l0R+6Xl7Cq7INd95Hxm6bz3J0k9v+TjwKJKlnVeaW9X0fxTVrkcVBpSIKLQpAMlIOXeI9w==}
     hasBin: true
     peerDependencies:
       typescript: '*'
 
-  '@vue/language-service@3.3.1':
-    resolution: {integrity: sha512-JJaS3FX7c5oTJLS1IBauk7SHtU1M0PcokIv2FbfaZf0c0PTOakPgWrGhq7QTl1BDWWy1NLBlvjf1Dc3CmYwd8g==}
+  '@vue/language-service@3.3.11':
+    resolution: {integrity: sha512-Y1PXr3nY315T5Eb05bBuxpf+IoPAe0JiGuUX2quFgRflnNViue4Z+wQo+yY6g4VrvEQhPhPT0dr/jKmGNtzIxQ==}
 
   '@vue/reactivity@3.5.34':
     resolution: {integrity: sha512-y9XDjCEuBp+98k+UL5dbYkh57AHU4o6cxZedOPXw3bmrZZYLQsVHguGurq7hVrPCSrQtrnz1f9dssyFr+dMXfQ==}
@@ -1151,8 +1154,8 @@ packages:
   '@vue/shared@3.5.34':
     resolution: {integrity: sha512-24uqU4OIiX29ryC3MeWid/Xf2fa2EFRUVLb77nRhk+UrTVrh/XiGtFAFmJBAtBRbjwNdsPRP+jj/OL27Eg1NDA==}
 
-  '@vue/typescript-plugin@3.3.1':
-    resolution: {integrity: sha512-j0OIAS1N420DOl77b7yO15yHY8v+M2fHi4ZoAm5CSPqsgev63/Gtx2jsnC88JR1blLWAfDzhVWfKw8xWKNG0pw==}
+  '@vue/typescript-plugin@3.3.11':
+    resolution: {integrity: sha512-sTfyjuZuAClToH59lcBxNMWF+Ede6IBUiYEZI1MgL3Bf9sWV15mtv9P2dfL+4moSQjRf+17O7HX+a8JQdXhLYA==}
 
   '@vueuse/core@15.0.0':
     resolution: {integrity: sha512-Zv67h5mrk7YHDJsRObx+DXaCBz6RKBUpxqLesJ+3xZNPG6yuQs7ja7kg3veFrrouYLWAqydQ7CwGEbLVxB43Ng==}
@@ -2483,8 +2486,8 @@ packages:
       chart.js: ^4.1.1
       vue: ^3.0.0-0 || ^2.7.0
 
-  vue-component-meta@3.3.1:
-    resolution: {integrity: sha512-XoU/EXBmbMyeorbGOblhtU9h8QiDZDt3HZgYS2/eyrthJaToIkBHyn2ssjdgvPIdBWnPyqopFWaIjR9APwGppw==}
+  vue-component-meta@3.3.11:
+    resolution: {integrity: sha512-fskQZaIFOifwB4x+/J24795yvezOJ1TKaqn97/4PHybyvXpDNdcKn3oTcPrw6HnNoZWe343A+TiCFOcFv1/SuQ==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -3365,6 +3368,16 @@ snapshots:
       path-browserify: 1.0.1
       picomatch: 4.0.4
 
+  '@vue/language-core@3.3.11':
+    dependencies:
+      '@volar/language-core': 2.4.28
+      '@vue/compiler-dom': 3.5.34
+      '@vue/shared': 3.5.34
+      alien-signals: 3.2.1
+      muggle-string: 0.4.1
+      path-browserify: 1.0.1
+      picomatch: 4.0.4
+
   '@vue/language-plugin-pug@3.2.9':
     dependencies:
       '@volar/source-map': 2.4.28
@@ -3373,19 +3386,19 @@ snapshots:
       pug-parser: 6.0.0
       vscode-languageserver-textdocument: 1.0.12
 
-  '@vue/language-server@3.3.1(typescript@6.0.3)':
+  '@vue/language-server@3.3.11(typescript@6.0.3)':
     dependencies:
       '@volar/language-server': 2.4.28(typescript@6.0.3)
-      '@vue/language-core': 3.3.1
-      '@vue/language-service': 3.3.1(typescript@6.0.3)
-      '@vue/typescript-plugin': 3.3.1(typescript@6.0.3)
+      '@vue/language-core': 3.3.11
+      '@vue/language-service': 3.3.11(typescript@6.0.3)
+      '@vue/typescript-plugin': 3.3.11(typescript@6.0.3)
       typescript: 6.0.3
       vscode-uri: 3.1.0
 
-  '@vue/language-service@3.3.1(typescript@6.0.3)':
+  '@vue/language-service@3.3.11(typescript@6.0.3)':
     dependencies:
       '@volar/language-service': 2.4.28(typescript@6.0.3)
-      '@vue/language-core': 3.3.1
+      '@vue/language-core': 3.3.11
       '@vue/shared': 3.5.34
       path-browserify: 1.0.1
       volar-service-css: 0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))
@@ -3424,13 +3437,13 @@ snapshots:
 
   '@vue/shared@3.5.34': {}
 
-  '@vue/typescript-plugin@3.3.1(typescript@6.0.3)':
+  '@vue/typescript-plugin@3.3.11(typescript@6.0.3)':
     dependencies:
       '@volar/typescript': 2.4.28(typescript@6.0.3)
-      '@vue/language-core': 3.3.1
+      '@vue/language-core': 3.3.11
       '@vue/shared': 3.5.34
       path-browserify: 1.0.1
-      vue-component-meta: 3.3.1(typescript@6.0.3)
+      vue-component-meta: 3.3.11(typescript@6.0.3)
     transitivePeerDependencies:
       - typescript
 
@@ -4500,7 +4513,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.6:
     dependencies:
-      semver: 7.8.1
+      semver: 7.8.5
 
   typescript-eslint@8.59.4(eslint@10.4.0(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
@@ -4635,7 +4648,7 @@ snapshots:
   volar-service-typescript@0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))(typescript@6.0.3):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.8.1
+      semver: 7.8.5
       typescript-auto-import-cache: 0.3.6
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
@@ -4690,10 +4703,10 @@ snapshots:
       chart.js: 4.5.1
       vue: 3.5.34(typescript@6.0.3)
 
-  vue-component-meta@3.3.1(typescript@6.0.3):
+  vue-component-meta@3.3.11(typescript@6.0.3):
     dependencies:
       '@volar/typescript': 2.4.28(typescript@6.0.3)
-      '@vue/language-core': 3.3.1
+      '@vue/language-core': 3.3.11
       path-browserify: 1.0.1
     optionalDependencies:
       typescript: 6.0.3
