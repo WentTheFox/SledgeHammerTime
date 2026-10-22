@@ -30,9 +30,9 @@
 }
 
 # pm2 SSR process output, written into this worktree by deploy.conf's
-# `pm2 start ... --output/--error` and owned by the deploy user.
-@WORKTREE@/logs/pm2-ssr-out.log
-@WORKTREE@/logs/pm2-ssr-error.log {
+# `pm2 start ... --output/--error` (in storage/logs, which releases share) and owned by the deploy user.
+@WORKTREE@/storage/logs/pm2-ssr-out.log
+@WORKTREE@/storage/logs/pm2-ssr-error.log {
 	su chisel chisel
 	daily
 	rotate 13
