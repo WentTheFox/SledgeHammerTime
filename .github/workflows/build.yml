@@ -19,6 +19,9 @@ jobs:
       CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The deploy-window test diffs database/migrations against the base branch
+          fetch-depth: 0
 
       - run: git config --global --add safe.directory /app
 
@@ -96,6 +99,11 @@ jobs:
 
       - name: Run unit and feature tests
         run: php artisan test --filter="Unit|Feature"
+
+      - name: Run deploy-window tests (new code on the previous release's schema)
+        run: php artisan test --group=deploy-window
+        env:
+          DEPLOY_BASE_REF: origin/${{ github.base_ref || 'main' }}
 
       - name: Run browser tests (in Firefox)
         run: php artisan test --filter="Browser" --browser firefox -vvv

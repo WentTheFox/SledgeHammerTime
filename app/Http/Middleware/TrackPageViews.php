@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Jobs\RecordPageView;
+use App\Support\ReadOnlyMode;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -40,7 +41,8 @@ class TrackPageViews {
    */
   public function handle(Request $request, Closure $next):Response {
     $response = $next($request);
-    if (config('analytics.enabled') === true && $request->method() === 'GET'){
+    // Tracking inserts into page_views, which may not match the schema yet while read-only
+    if (config('analytics.enabled') === true && $request->method() === 'GET' && !ReadOnlyMode::isActive()){
       $routeName = $request->route()?->getName();
       if (array_key_exists($routeName, self::TRACKED_ROUTES)){
         $isLocalized = self::TRACKED_ROUTES[$routeName];
