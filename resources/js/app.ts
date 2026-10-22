@@ -49,7 +49,7 @@ createInertiaApp({
           if (typeof result !== 'object' || result === null || !('default' in result)) {
             throw new Error(`Missing default export in json for lang ${lang}`);
           }
-          return result;
+          return result as { default: Record<string, string> };
         },
         onLoad: () => {
           if (mountAC.signal.aborted)

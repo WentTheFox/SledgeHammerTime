@@ -37,7 +37,7 @@ createServer(
               if (typeof result !== 'object' || result === null || !('default' in result)) {
                 throw new Error(`Missing default export in json for lang ${lang}`);
               }
-              return result.default;
+              return result.default as Record<string, string>;
             },
           });
       },
