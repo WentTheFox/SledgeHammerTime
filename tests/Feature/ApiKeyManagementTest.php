@@ -82,6 +82,17 @@ class ApiKeyManagementTest extends TestCase {
     $this->actingAs($user)->get($this->profileUri())->assertInertia(fn(Assert $page) => $page->missingFlash('newApiKey'));
   }
 
+  public function test_it_redirects_to_the_profile_in_the_url_locale_so_the_key_survives_to_the_page():void {
+    $user = $this->createUser();
+    $discordUser = $this->createDiscordUser($user);
+
+    // en-GB is the locale in the URL, en_GB the one the app runs in, and a redirect to the latter is redirected again
+    $response = $this->actingAs($user)->withSession(['app_locale' => 'en_GB'])->post('/api-keys', $this->validPayload($discordUser->id));
+
+    $response->assertRedirect(route('profile.edit', ['locale' => 'en-GB']));
+    $this->assertNotSame(302, $this->actingAs($user)->get($response->headers->get('Location'))->getStatusCode(), 'No second redirect');
+  }
+
   public function test_it_rotates_a_key_into_a_new_one_with_the_same_settings():void {
     $user = $this->createUser();
     $discordUser = $this->createDiscordUser($user);
