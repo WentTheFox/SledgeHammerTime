@@ -17,8 +17,11 @@ ExecStop=/usr/bin/php artisan horizon:terminate
 Restart=always
 RestartSec=3
 
-# Ensure environment variables from .env are available
-EnvironmentFile="/var/www/SledgeHammerTime/.env"
+# No EnvironmentFile=: Laravel reads .env itself from WorkingDirectory. systemd
+# would parse it differently (no ${VAR} interpolation) and real environment
+# variables beat dotenv, so Horizon would see a literal "${APP_NAME}". (The
+# quoted path this unit used to have was silently ignored: "path is not
+# absolute".)
 
 [Install]
 WantedBy=multi-user.target
