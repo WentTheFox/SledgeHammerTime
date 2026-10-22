@@ -30,6 +30,15 @@ class BotSettingsUpdate extends FormRequest {
    * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
    */
   public function rules():array {
+    return self::settingRules();
+  }
+
+  /**
+   * The rules for the values of the settings, shared with the API
+   *
+   * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+   */
+  public static function settingRules():array {
     return [
       SettingNames::TIMEZONE->value => ['nullable', 'string', new ValidTimezone()],
       SettingNames::FORMAT->value => ['nullable', 'string', new DiscordTimestampFormatOption()],

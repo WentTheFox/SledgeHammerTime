@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Jobs\RefreshCrowdinUserInfo;
 use App\Jobs\RefreshDiscordUserInfo;
+use App\Models\PersonalAccessToken;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
 use SocialiteProviders\Crowdin\Provider as CrowdinProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -22,6 +24,8 @@ class AppServiceProvider extends ServiceProvider {
    */
   public function boot():void {
     $this->bootCrowdinSocialite();
+
+    Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
 
     RateLimiter::for(RefreshDiscordUserInfo::RATE_LIMIT_KEY, function (RefreshDiscordUserInfo $job) {
       return Limit::perHour(1)->by($job->discordUserId);

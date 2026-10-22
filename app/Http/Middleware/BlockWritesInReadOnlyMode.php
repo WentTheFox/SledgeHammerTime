@@ -20,6 +20,13 @@ class BlockWritesInReadOnlyMode {
   ];
 
   /**
+   * Non-GET routes that only read, so they keep working in the window
+   */
+  protected const READING_POST_PATTERNS = [
+    'internal/keys/validate',
+  ];
+
+  /**
    * @param Closure(Request): (Response) $next
    */
   public function handle(Request $request, Closure $next):Response {
@@ -40,6 +47,9 @@ class BlockWritesInReadOnlyMode {
   }
 
   private function isWrite(Request $request):bool {
+    if ($request->is(...self::READING_POST_PATTERNS)){
+      return false;
+    }
     if (!$request->isMethodSafe()){
       return true;
     }

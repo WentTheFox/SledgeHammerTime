@@ -7,6 +7,7 @@ namespace App\Services\Discord;
 use App\Models\DiscordUser;
 use App\Models\Settings;
 use Illuminate\Container\Attributes\Singleton;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use JsonException;
 
@@ -54,6 +55,69 @@ class DiscordUserService {
       $s->setting => $s->value,
     ], []);
     return $settings;
+  }
+
+  /**
+   * The settings the bot (and the API) act on: what the account customised on top of the defaults.
+   * An account the bot has never seen has no customisations.
+   *
+   * @return array<string, mixed>
+   * @throws JsonException
+   */
+  public function getSettingsWithDefaults(string|int $discordUserId):array {
+    $discordUser = DiscordUser::find($discordUserId);
+
+    return Settings::mergeWithDefaults($discordUser ? $this->getSettingsRecord($discordUser) : []);
+  }
+
+  /**
+   * Makes the stored settings exactly $data: a setting that is not in it (or is null) goes back to its default.
+   *
+   * @param array<string, mixed> $data
+   */
+  public function replaceSettings(DiscordUser $discordUser, array $data):void {
+    /** @var Settings[] $currentSettings */
+    $currentSettings = $discordUser->settings()->get();
+    DB::transaction(function () use ($discordUser, $data, $currentSettings) {
+      foreach ($currentSettings as $setting){
+        $shouldDelete = !isset($data[$setting->setting]);
+        /** @var Settings $setting */
+        if (!$shouldDelete && Settings::shouldDeleteIfMatchingDefault($setting->setting, $data[$setting->setting])){
+          $shouldDelete = true;
+          unset($data[$setting->setting]);
+        }
+        if ($shouldDelete){
+          $setting->delete();
+        }
+        else {
+          $setting->value = $data[$setting->setting];
+          $setting->save();
+        }
+        unset($data[$setting->setting]);
+      }
+
+      $newSettingData = [];
+      foreach ($data as $settingName => $value){
+        if (Settings::shouldDeleteIfMatchingDefault($settingName, $value))
+          continue;
+        $newSettingData[] = ['setting' => $settingName, 'value' => $value];
+      }
+      $discordUser->settings()->createMany($newSettingData);
+    });
+
+    $this->clearSettingsCache($discordUser);
+  }
+
+  /**
+   * Changes only the given settings, a null value resets one to its default.
+   *
+   * @param array<string, mixed> $patch
+   * @throws JsonException
+   */
+  public function patchSettings(DiscordUser $discordUser, array $patch):void {
+    $settings = array_merge($this->getSettingsRecord($discordUser, cache: false), $patch);
+
+    $this->replaceSettings($discordUser, array_filter($settings, static fn($value) => $value !== null));
   }
 
   public function refreshUserInfo(string $discordUserId):DiscordUser {

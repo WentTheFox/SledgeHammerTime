@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\DiscordBotCommandOptionType;
 use App\Enums\ReviewDecision;
+use App\Enums\TelemetrySource;
 use App\Http\Middleware\CachePageResponse;
 use App\Http\Requests\BotLoginRequest;
 use App\Http\Requests\ReviewTranslationCreditOverrideProposal;
@@ -28,6 +29,7 @@ use App\Services\Crowdin\ImportCrowdinTranslatorsService;
 use App\Services\Discord\DiscordUserService;
 use App\Services\Discord\GetUserResponse;
 use App\Services\DiscordMarkdownService;
+use App\Services\Telemetry\CommandTelemetryService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -41,6 +43,7 @@ class BotApiController extends Controller {
     protected ImportCrowdinTranslatorsService $importTranslatorsService,
     protected CrowdinCreditsService $crowdinCreditsService,
     protected DiscordMarkdownService $discordMarkdownService,
+    protected CommandTelemetryService $commandTelemetryService,
   ) {
   }
 
@@ -68,18 +71,7 @@ class BotApiController extends Controller {
   }
 
   function settings(Request $request):JsonResponse {
-    $discordUserId = $request->route('discordUserId');
-    /**
-     * @var DiscordUser|null $discordUser
-     */
-    $discordUser = DiscordUser::find($discordUserId);
-    $settings = [];
-    if ($discordUser){
-      $settings = $this->discordUserService->getSettingsRecord($discordUser);
-    }
-    $mergedSettings = Settings::mergeWithDefaults($settings);
-
-    return response()->json($mergedSettings);
+    return response()->json($this->discordUserService->getSettingsWithDefaults($request->route('discordUserId')));
   }
 
   function storeWebhookDelivery(SaveWebhookDeliveryRequest $request):JsonResponse {
@@ -257,28 +249,16 @@ class BotApiController extends Controller {
     $data = $request->validated();
 
     $command = BotCommand::find($data['commandId']);
-    if ($command){
-      $command->telemetryExecutions()->create();
+    if (!$command){
+      return response()->json(['message' => 'Unknown command'], 404);
     }
 
-    foreach ($data['options'] as $optionData){
-      /**
-       * @var BotCommandOption|null $option
-       */
-      $option = $command->options()->where('name', $optionData['name'])->whereNull('deleted_at')->first();
-      if ($option){
-        $option->telemetryUses()->create();
-      }
-    }
-
-    $executionNumber = $command->telemetryExecutions()->count();
-
-    return response()->json([
-      'executionNumber' => $executionNumber,
-      'privacyPolicyUrl' => Url::route('legal', ['locale' => $data['locale']]).'#telemetry-statistics',
-      'commandName' => $command->name,
-      'commandId' => (string)$command->id,
-    ]);
+    return response()->json($this->commandTelemetryService->record(
+      $command,
+      array_column($data['options'] ?? [], 'name'),
+      TelemetrySource::DISCORD_BOT,
+      $data['locale'],
+    ));
   }
 
   public function importCrowdinTranslators(Request $request):JsonResponse {
