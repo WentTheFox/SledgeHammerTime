@@ -25,6 +25,11 @@ class ApiKeyService {
   public const string TOKEN_PREFIX = 'htk_';
 
   /**
+   * Per user, so keys can not be created without limit
+   */
+  public const int MAX_KEYS_PER_USER = 25;
+
+  /**
    * @param list<string> $scopes Values of {@see ApiKeyScope}
    *
    * @throws AuthorizationException When the Discord account is not linked to the user

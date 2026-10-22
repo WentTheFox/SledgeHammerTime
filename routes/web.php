@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotInfoController;
 use App\Http\Controllers\BotSettingsController;
@@ -46,6 +47,8 @@ Route::middleware('auth')->group(function () use ($loginEnabled) {
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
   Route::put('/settings/{discordUserId}', [BotSettingsController::class, 'set'])->name('settings.set');
+  Route::post('/api-keys', [ApiKeyController::class, 'store'])->name('api-keys.store');
+  Route::delete('/api-keys/{tokenId}', [ApiKeyController::class, 'destroy'])->name('api-keys.destroy')->whereNumber('tokenId');
   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
   if ($loginEnabled){
     Route::get('/oauth/callback-auth/{provider}', [AuthController::class, 'callbackAuthenticated']);
