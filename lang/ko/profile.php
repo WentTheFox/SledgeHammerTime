@@ -63,6 +63,8 @@ return [
       'neverUsed' => 'Never used',
       'expiresAt' => 'Expires',
       'expired' => 'Expired',
+      'rotate' => 'Rotate',
+      'rotateConfirm' => 'Rotate ":name"? You get a new key with the same settings, and the current one stops working immediately.',
       'revoke' => 'Revoke',
       'revokeConfirm' => 'Revoke ":name"? Programs using it will stop working immediately.',
     ],
