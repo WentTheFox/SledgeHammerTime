@@ -32,7 +32,7 @@ return [
   ],
   'apiKeys' => [
     'heading' => 'API Keys',
-    'description' => 'API keys let programs, and AI assistants through the MCP server, generate timestamps and change the bot settings of one of your linked Discord accounts. They follow that account\'s settings, the same way the bot commands do.',
+    'description' => 'API keys let programs and the MCP server generate timestamps and change the bot settings of one of your linked Discord accounts. They follow that account\'s settings, the same way the bot commands do.',
     'none' => 'You have not created any API keys yet.',
     'limitReached' => 'You can have at most :max API keys, revoke one to create another.',
     'newKey' => [
