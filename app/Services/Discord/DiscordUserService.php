@@ -36,7 +36,7 @@ class DiscordUserService {
 
     $settings = $this->getSettingsRecordUncached($discordUser);
     if ($cache){
-      Redis::set($cacheKey, json_encode($settings, JSON_THROW_ON_ERROR), 'EX', self::SETTINGS_CACHE_DURATION_SECONDS);
+      Redis::setex($cacheKey, self::SETTINGS_CACHE_DURATION_SECONDS, json_encode($settings, JSON_THROW_ON_ERROR));
     }
 
     return $settings;

@@ -13,7 +13,7 @@ concurrency:
 jobs:
   lint-and-test:
     name: 'Building, Linting and Tests'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
       CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
@@ -23,7 +23,7 @@ jobs:
       - run: git config --global --add safe.directory /app
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
         with:
           php-version: 8.5
           extensions: bcmath intl pcntl pdo_pgsql
@@ -43,7 +43,7 @@ jobs:
           version: 11
 
       - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           cache: 'pnpm'
