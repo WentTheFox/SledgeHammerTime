@@ -38,7 +38,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^10.4.0",
     "eslint-plugin-vue": "^10.11.1",
-    "js-cookie": "^3.0.7",
+    "js-cookie": "^3.0.8",
     "laravel-vite-plugin": "^3.1.0",
     "laravel-vue-i18n": "^2.8.0",
     "lightningcss": "^1.32.0",
