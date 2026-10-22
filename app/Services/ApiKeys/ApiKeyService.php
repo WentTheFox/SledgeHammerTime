@@ -87,6 +87,35 @@ class ApiKeyService {
     return $user->tokens()->whereNotNull('discord_user_id')->latest()->get();
   }
 
+  /**
+   * Replaces a key with a new one that has the same name, account and permissions and the same lifespan, counted from
+   * now. The old key stops working at once, so a leaked key can be swapped without setting everything up again.
+   *
+   * @return NewAccessToken|null Null when the user has no such key, or its account is no longer linked to them
+   */
+  public function rotate(User $user, string|int $tokenId):?NewAccessToken {
+    return DB::transaction(function () use ($user, $tokenId) {
+      /** @var PersonalAccessToken|null $old */
+      $old = $user->tokens()->whereKey($tokenId)->whereNotNull('discord_user_id')->lockForUpdate()->first();
+      $discordUser = $old ? $user->discordUsers()->whereKey($old->discord_user_id)->first() : null;
+      if (!$old || !$discordUser){
+        return null;
+      }
+
+      $lifespan = $old->expires_at ? $old->created_at->diffInSeconds($old->expires_at) : null;
+      $newToken = $this->create(
+        $user,
+        $discordUser,
+        $old->name,
+        array_values(array_intersect($old->abilities ?? [], ApiKeyScope::values())),
+        $lifespan === null ? null : now()->addSeconds((int)abs($lifespan)),
+      );
+      $old->delete();
+
+      return $newToken;
+    });
+  }
+
   public function revoke(User $user, string|int $tokenId):bool {
     return $user->tokens()->whereKey($tokenId)->whereNotNull('discord_user_id')->delete() > 0;
   }

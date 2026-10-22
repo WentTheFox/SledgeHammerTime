@@ -13,9 +13,9 @@ import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSelect from '@/Reusable/HtFormSelect.vue';
 import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
-import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useForm, usePage } from '@inertiajs/vue3';
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 
 export interface ApiKeyInfo {
   id: string;
@@ -54,6 +54,17 @@ const newKey = computed<NewApiKey | null>(() => {
   return typeof flashed?.token === 'string' ? flashed as NewApiKey : null;
 });
 
+const newKeyAlert = useTemplateRef<HTMLElement>('new-key-alert');
+
+// The key is shown by the form, and the page keeps its scroll position, so bring it into view
+watch(newKey, async (value) => {
+  if (!value) {
+    return;
+  }
+  await nextTick();
+  newKeyAlert.value?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+});
+
 const form = useForm({
   name: '',
   discord_user_id: props.discordUsers[0]?.id ?? '',
@@ -86,16 +97,21 @@ const formatDate = (iso: string) => iso.slice(0, 10);
 
 const isExpired = (key: ApiKeyInfo) => key.expiresAt !== null && new Date(key.expiresAt).getTime() <= Date.now();
 
-const revokeForm = useForm({});
-const confirmingRevokeId = ref<string | null>(null);
+const actionForm = useForm({});
+const confirming = ref<{ id: string; action: 'rotate' | 'revoke' } | null>(null);
 
-const revoke = (key: ApiKeyInfo) => {
-  revokeForm.delete(route('api-keys.destroy', { tokenId: key.id }), {
+const runAction = (key: ApiKeyInfo, action: 'rotate' | 'revoke') => {
+  const options = {
     preserveScroll: true,
     onFinish: () => {
-      confirmingRevokeId.value = null;
+      confirming.value = null;
     },
-  });
+  };
+  if (action === 'rotate') {
+    actionForm.post(route('api-keys.rotate', { tokenId: key.id }), options);
+  } else {
+    actionForm.delete(route('api-keys.destroy', { tokenId: key.id }), options);
+  }
 };
 
 const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.length < props.maxKeys);
@@ -110,23 +126,6 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
     <p class="mt-1 mb-3">
       {{ $t('profile.apiKeys.description') }}
     </p>
-
-    <HtAlert
-      v-if="newKey"
-      type="warning"
-      :closable="false"
-      class="mb-3"
-    >
-      <template #title>
-        {{ $t('profile.apiKeys.newKey.heading', { name: newKey.name }) }}
-      </template>
-      <template #text>
-        <p class="mb-2">
-          {{ $t('profile.apiKeys.newKey.warning') }}
-        </p>
-        <HtCopyableText :data="newKey.token" />
-      </template>
-    </HtAlert>
 
     <p
       v-if="apiKeys.length === 0"
@@ -170,31 +169,39 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
           </template>
         </div>
         <div class="mt-1">
-          <HtButton
-            v-if="confirmingRevokeId !== key.id"
-            color="danger"
-            :icon-start="faTrash"
-            @click="confirmingRevokeId = key.id"
-          >
-            {{ $t('profile.apiKeys.list.revoke') }}
-          </HtButton>
+          <template v-if="confirming?.id !== key.id">
+            <HtButton
+              class="me-3"
+              :icon-start="faArrowsRotate"
+              @click="confirming = { id: key.id, action: 'rotate' }"
+            >
+              {{ $t('profile.apiKeys.list.rotate') }}
+            </HtButton>
+            <HtButton
+              color="danger"
+              :icon-start="faTrash"
+              @click="confirming = { id: key.id, action: 'revoke' }"
+            >
+              {{ $t('profile.apiKeys.list.revoke') }}
+            </HtButton>
+          </template>
           <template v-else>
             <p class="mb-2">
-              {{ $t('profile.apiKeys.list.revokeConfirm', { name: key.name }) }}
+              {{ $t(`profile.apiKeys.list.${confirming.action}Confirm`, { name: key.name }) }}
             </p>
             <HtButton
               class="me-3"
               :icon-start="faTimes"
-              @click="confirmingRevokeId = null"
+              @click="confirming = null"
             >
               {{ $t('actions.cancel') }}
             </HtButton>
             <HtButton
-              color="danger"
-              :disabled="revokeForm.processing"
-              :aria-busy="revokeForm.processing ? 'true' : undefined"
-              :icon-start="faTrash"
-              @click="revoke(key)"
+              :color="confirming.action === 'revoke' ? 'danger' : undefined"
+              :disabled="actionForm.processing"
+              :aria-busy="actionForm.processing ? 'true' : undefined"
+              :icon-start="confirming.action === 'revoke' ? faTrash : faArrowsRotate"
+              @click="runAction(key, confirming.action)"
             >
               {{ $t('actions.confirm') }}
             </HtButton>
@@ -202,6 +209,27 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
         </div>
       </li>
     </ul>
+
+    <div
+      v-if="newKey"
+      ref="new-key-alert"
+    >
+      <HtAlert
+        type="warning"
+        :closable="false"
+        class="mb-3"
+      >
+        <template #title>
+          {{ $t('profile.apiKeys.newKey.heading', { name: newKey.name }) }}
+        </template>
+        <template #text>
+          <p class="mb-2">
+            {{ $t('profile.apiKeys.newKey.warning') }}
+          </p>
+          <HtCopyableText :data="newKey.token" />
+        </template>
+      </HtAlert>
+    </div>
 
     <form
       v-if="canCreate"
@@ -234,13 +262,13 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
         </HtFormControl>
 
         <HtFormControl
-          v-if="discordUsers.length > 1"
           id="api-key-account"
           :label="$t('profile.apiKeys.create.account')"
         >
           <HtFormSelect
             v-model="form.discord_user_id"
             name="discord_user_id"
+            :disabled="discordUsers.length < 2"
           >
             <option
               v-for="user of discordUsers"

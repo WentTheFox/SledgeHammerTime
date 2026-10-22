@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Laravel\Sanctum\NewAccessToken;
 
 /**
  * Lets a user manage the keys that give programs access to the public API and the MCP server
@@ -29,6 +30,17 @@ class ApiKeyController extends Controller {
       isset($data['expires_in_days']) ? now()->addDays((int)$data['expires_in_days']) : null,
     );
 
+    return $this->showNewKey($newToken);
+  }
+
+  public function rotate(Request $request, string $tokenId):RedirectResponse {
+    $newToken = $this->apiKeyService->rotate($request->user(), $tokenId);
+    abort_if($newToken === null, 404);
+
+    return $this->showNewKey($newToken);
+  }
+
+  private function showNewKey(NewAccessToken $newToken):RedirectResponse {
     // Flashed, not a prop: this is the only time the key is shown and it must not end up in the browser history
     Inertia::flash('newApiKey', [
       'id' => (string)$newToken->accessToken->getKey(),

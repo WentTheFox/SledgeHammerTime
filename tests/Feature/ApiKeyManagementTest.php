@@ -82,6 +82,49 @@ class ApiKeyManagementTest extends TestCase {
     $this->actingAs($user)->get($this->profileUri())->assertInertia(fn(Assert $page) => $page->missingFlash('newApiKey'));
   }
 
+  public function test_it_rotates_a_key_into_a_new_one_with_the_same_settings():void {
+    $user = $this->createUser();
+    $discordUser = $this->createDiscordUser($user);
+    $service = app(ApiKeyService::class);
+    $old = $service->create($user, $discordUser, 'Rotating', [ApiKeyScope::SETTINGS_READ->value], now()->addDays(30));
+    $oldPlain = $old->plainTextToken;
+
+    $this->actingAs($user)->post("/api-keys/{$old->accessToken->getKey()}/rotate")->assertRedirect($this->profileUri());
+
+    $new = PersonalAccessToken::where('name', 'Rotating')->sole();
+    $this->assertNotEquals($old->accessToken->getKey(), $new->getKey());
+    $this->assertSame((string)$discordUser->id, $new->discord_user_id);
+    $this->assertSame([ApiKeyScope::SETTINGS_READ->value], $new->abilities);
+    $this->assertTrue($new->expires_at->between(now()->addDays(29), now()->addDays(31)));
+    $this->assertNull($service->validate($oldPlain), 'The old key stops working at once');
+
+    $response = $this->actingAs($user)->get($this->profileUri());
+    $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
+    $this->assertNotNull($service->validate($this->pageData($response)['flash']['newApiKey']['token']));
+  }
+
+  public function test_a_key_without_an_expiry_stays_that_way_when_rotated():void {
+    $user = $this->createUser();
+    $discordUser = $this->createDiscordUser($user);
+    $old = app(ApiKeyService::class)->create($user, $discordUser, 'Forever', [ApiKeyScope::SETTINGS_READ->value]);
+
+    $this->actingAs($user)->post("/api-keys/{$old->accessToken->getKey()}/rotate")->assertRedirect();
+
+    $this->assertNull(PersonalAccessToken::where('name', 'Forever')->sole()->expires_at);
+  }
+
+  public function test_it_will_not_rotate_the_key_of_someone_else_or_one_without_a_linked_account():void {
+    $user = $this->createUser();
+    $other = $this->createUser('Other');
+    $otherKey = app(ApiKeyService::class)->create($other, $this->createDiscordUser($other), 'Not mine', [ApiKeyScope::SETTINGS_READ->value]);
+    $plainToken = $user->createToken('Not an API key');
+
+    $this->actingAs($user)->post("/api-keys/{$otherKey->accessToken->getKey()}/rotate")->assertNotFound();
+    $this->actingAs($user)->post("/api-keys/{$plainToken->accessToken->getKey()}/rotate")->assertNotFound();
+    $this->assertNotNull(app(ApiKeyService::class)->validate($otherKey->plainTextToken));
+    $this->assertSame(1, PersonalAccessToken::where('name', 'Not mine')->count());
+  }
+
   public function test_a_key_without_an_expiry_never_expires():void {
     $user = $this->createUser();
     $discordUser = $this->createDiscordUser($user);
