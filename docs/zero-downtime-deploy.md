@@ -68,3 +68,15 @@ symlink and the flag file, while release A (previous schema) was replaced by B (
 Notes: `git push` itself exits 0 when the hook fails, so read `deploy.jsonl` (or the log) for the result.
 After a rollback the flag stays on; remove `storage/framework/readonly` (or run `app:readonly off` from a release
 that has the command) once the schema is known good.
+
+## Beta (real server)
+
+Beta was converted with `git-deploy-releases-init betasledgehammertime .env storage setup/deploy-config.sh` and
+deployed through the GitHub workflow while the monitor polled https://beta.hammertime.cyou: 3,218 reads over the
+conversion and two deploys, none failed. Beta shares production's database through a read-only role and never
+migrates, so the migration window itself is only covered by the local run.
+
+- `pm2 start` has no exec-mode flag; `--instances 2` is what makes the SSR run in cluster mode. A bad flag fails the
+  deploy after the old process was deleted, leaving the site without SSR (pages fall back to client rendering).
+- A deploy that fails after the swap leaves the read-only flag on; the next successful deploy lowers it.
+- The SSR logs live in `storage/logs` (shared), not in the release.
