@@ -20,7 +20,8 @@ class ConsoleUserMiddleware {
 
     $user = $request->user();
     if (empty($user) || $user->id !== $expectedUserId){
-      return response()->json(['message' => "User ID {$user->id} not authorized (must be $expectedUserId)."], 401);
+      // Not who is expected: that is nothing to tell whoever got here with a token of their own
+      return response()->json(['message' => 'This token is not allowed to do that.'], 401);
     }
 
     return $next($request);
