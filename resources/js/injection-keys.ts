@@ -127,6 +127,10 @@ export interface BotInfoUsageFetchOptions {
 export interface BotInfoUsageData {
   date: string;
   value: number;
+  /**
+   * Where the usage came from, the bot when missing (what was recorded before there were sources, and the design page's data)
+   */
+  source?: string;
 }
 
 export type UsageDataFetchFunction = (options: BotInfoUsageFetchOptions) => Promise<BotInfoUsageData[]>;

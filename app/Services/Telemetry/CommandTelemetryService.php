@@ -23,7 +23,7 @@ class CommandTelemetryService {
 
     foreach ($optionNames as $optionName){
       $option = $command->options()->where('name', $optionName)->whereNull('deleted_at')->first();
-      $option?->telemetryUses()->create();
+      $option?->telemetryUses()->create(['source' => $source->value]);
     }
 
     return [

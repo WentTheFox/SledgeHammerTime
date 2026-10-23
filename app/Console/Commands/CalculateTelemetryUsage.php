@@ -40,19 +40,21 @@ class CalculateTelemetryUsage extends Command {
             DISTINCT((ce.created_at AT TIME ZONE 'UTC')::date) AS date,
             COUNT(ce.id) AS value,
             ce.bot_command_id::varchar as source_id,
-            :sourceCommand AS source_type
+            :sourceCommand AS source_type,
+            ce.source AS source
         FROM telemetry_command_executions ce
         WHERE ce.created_at >= NOW() - INTERVAL '$cutoff DAY'
-        GROUP BY date, source_id
+        GROUP BY date, source_id, ce.source
         UNION ALL
         SELECT
             DISTINCT((cou.created_at AT TIME ZONE 'UTC')::date) AS date,
             COUNT(cou.id) AS value,
             cou.bot_command_option_id::varchar as source_id,
-            :sourceOption AS source_type
+            :sourceOption AS source_type,
+            cou.source AS source
         FROM telemetry_command_option_uses cou
         WHERE cou.created_at >= NOW() - INTERVAL '$cutoff DAY'
-        GROUP BY date, source_id
+        GROUP BY date, source_id, cou.source
       SQL
         , [':sourceCommand' => $sourceCommand, ':sourceOption' => $sourceOption]);
 

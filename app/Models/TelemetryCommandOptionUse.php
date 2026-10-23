@@ -13,6 +13,7 @@ class TelemetryCommandOptionUse extends Model {
 
   protected $fillable = [
     'bot_command_option_id',
+    'source',
   ];
 
   /**

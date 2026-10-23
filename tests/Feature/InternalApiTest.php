@@ -228,6 +228,8 @@ class InternalApiTest extends TestCase {
     $this->assertStringEndsWith('#telemetry-statistics', $response->json('privacyPolicyUrl'));
     $this->assertSame(['discord-bot', 'api'], $command->telemetryExecutions()->orderBy('created_at')->pluck('source')->all());
     $this->assertSame(1, $command->options()->where('name', 'hour')->first()->telemetryUses()->count());
+    // The options used are recorded with where the run came from too, the numbers stay shared
+    $this->assertSame(['api'], $command->options()->where('name', 'hour')->first()->telemetryUses()->pluck('source')->all());
     $this->assertSame(0, $command->options()->where('name', 'minute')->first()->telemetryUses()->count());
   }
 
