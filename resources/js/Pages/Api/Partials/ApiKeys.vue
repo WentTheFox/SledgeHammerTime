@@ -5,6 +5,8 @@ import { useRoute } from '@/composables/useRoute';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtButton from '@/Reusable/HtButton.vue';
+import HtAccordion from '@/Reusable/HtAccordion.vue';
+import HtAccordionItem from '@/Reusable/HtAccordionItem.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
@@ -13,7 +15,8 @@ import HtFormControlGroup from '@/Reusable/HtFormControlGroup.vue';
 import HtFormSelect from '@/Reusable/HtFormSelect.vue';
 import HtFormSubmitButton from '@/Reusable/HtFormSubmitButton.vue';
 import HtInput from '@/Reusable/HtInput.vue';
-import { faArrowsRotate, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faPlus, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { useForm, usePage } from '@inertiajs/vue3';
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 
@@ -56,11 +59,19 @@ const newKey = computed<NewApiKey | null>(() => {
 
 const newKeyAlert = useTemplateRef<HTMLElement>('new-key-alert');
 
-// The key is shown by the form, and the page keeps its scroll position, so bring it into view
+const CREATE_ID = 'create';
+const keyItemId = (id: string) => `key-${id}`;
+
+// With no keys yet the only thing to do here is to create one
+const openItems = ref<string[]>(props.apiKeys.length === 0 ? [CREATE_ID] : []);
+
+// The key is shown above the list, and the page keeps its scroll position, so bring it into view. The new key's item opens
+// in place of the form, as that is the one the visitor was looking at.
 watch(newKey, async (value) => {
   if (!value) {
     return;
   }
+  openItems.value = [keyItemId(value.id)];
   await nextTick();
   newKeyAlert.value?.scrollIntoView({ block: 'center', behavior: 'smooth' });
 });
@@ -127,29 +138,51 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
       {{ $t('profile.apiKeys.description') }}
     </p>
 
+    <div
+      v-if="newKey"
+      ref="new-key-alert"
+    >
+      <HtAlert
+        type="warning"
+        :closable="false"
+        class="mb-3"
+      >
+        <template #title>
+          {{ $t('profile.apiKeys.newKey.heading', { name: newKey.name }) }}
+        </template>
+        <template #text>
+          <p class="mb-2">
+            {{ $t('profile.apiKeys.newKey.warning') }}
+          </p>
+          <HtCopyableText :data="newKey.token" />
+        </template>
+      </HtAlert>
+    </div>
+
     <p
       v-if="apiKeys.length === 0"
       class="mb-3"
     >
       {{ $t('profile.apiKeys.none') }}
     </p>
-    <ul
-      v-else
-      class="api-keys mb-3"
+
+    <HtAccordion
+      v-model:open="openItems"
+      class="api-keys"
     >
-      <li
+      <HtAccordionItem
         v-for="key of apiKeys"
+        :id="keyItemId(key.id)"
         :key="key.id"
-        class="api-key mb-3"
       >
-        <div>
-          <strong>{{ key.name }}</strong>
+        <template #header>
+          <strong class="api-key-name">{{ key.name }}</strong>
           <HtBadge
             v-for="scope of key.scopes"
             :key="scope"
             class="ms-1"
           >
-            {{ $t(`profile.apiKeys.scopes.${scope}`) }}
+            <code>{{ scope }}</code>
           </HtBadge>
           <HtBadge
             v-if="isExpired(key)"
@@ -158,7 +191,8 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
           >
             {{ $t('profile.apiKeys.list.expired') }}
           </HtBadge>
-        </div>
+        </template>
+
         <div>
           {{ $t('profile.apiKeys.list.actsAs') }}: {{ accountName(key.discordUserId) }}
           · {{ $t('profile.apiKeys.list.createdAt') }}: {{ formatDate(key.createdAt) }}
@@ -168,10 +202,11 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
             · {{ $t('profile.apiKeys.list.expiresAt') }}: {{ formatDate(key.expiresAt) }}
           </template>
         </div>
-        <div class="mt-1">
+        <div>
           <template v-if="confirming?.id !== key.id">
             <HtButton
               class="me-3"
+              color="warning"
               :icon-start="faArrowsRotate"
               @click="confirming = { id: key.id, action: 'rotate' }"
             >
@@ -197,7 +232,7 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
               {{ $t('actions.cancel') }}
             </HtButton>
             <HtButton
-              :color="confirming.action === 'revoke' ? 'danger' : undefined"
+              :color="confirming.action === 'revoke' ? 'danger' : 'warning'"
               :disabled="actionForm.processing"
               :aria-busy="actionForm.processing ? 'true' : undefined"
               :icon-start="confirming.action === 'revoke' ? faTrash : faArrowsRotate"
@@ -207,150 +242,140 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
             </HtButton>
           </template>
         </div>
-      </li>
-    </ul>
+      </HtAccordionItem>
 
-    <div
-      v-if="newKey"
-      ref="new-key-alert"
-    >
-      <HtAlert
-        type="warning"
-        :closable="false"
-        class="mb-3"
+      <HtAccordionItem
+        v-if="canCreate"
+        :id="CREATE_ID"
       >
-        <template #title>
-          {{ $t('profile.apiKeys.newKey.heading', { name: newKey.name }) }}
-        </template>
-        <template #text>
-          <p class="mb-2">
-            {{ $t('profile.apiKeys.newKey.warning') }}
-          </p>
-          <HtCopyableText :data="newKey.token" />
-        </template>
-      </HtAlert>
-    </div>
-
-    <form
-      v-if="canCreate"
-      @submit.prevent="submit"
-    >
-      <h3 class="mb-2">
-        {{ $t('profile.apiKeys.create.heading') }}
-      </h3>
-      <HtFormControlGroup :vertical="true">
-        <HtFormControl
-          id="api-key-name"
-          :label="$t('profile.apiKeys.create.name')"
-        >
-          <HtInput
-            v-model="form.name"
-            type="text"
-            class="mt-1"
-            required
-            maxlength="64"
-            autocomplete="off"
-            :placeholder="$t('profile.apiKeys.create.namePlaceholder')"
+        <template #header>
+          <FontAwesomeIcon
+            :icon="faPlus"
+            class="me-2"
           />
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.name"
-            />
-          </template>
-        </HtFormControl>
+          {{ $t('profile.apiKeys.create.heading') }}
+        </template>
 
-        <HtFormControl
-          id="api-key-account"
-          :label="$t('profile.apiKeys.create.account')"
-        >
-          <HtFormSelect
-            v-model="form.discord_user_id"
-            name="discord_user_id"
-            :disabled="discordUsers.length < 2"
-          >
-            <option
-              v-for="user of discordUsers"
-              :key="user.id"
-              :value="user.id"
+        <form @submit.prevent="submit">
+          <HtFormControlGroup :vertical="true">
+            <HtFormControl
+              id="api-key-name"
+              :label="$t('profile.apiKeys.create.name')"
             >
-              {{ user.name }}
-            </option>
-          </HtFormSelect>
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.discord_user_id"
-            />
-          </template>
-        </HtFormControl>
+              <HtInput
+                v-model="form.name"
+                type="text"
+                class="mt-1"
+                required
+                maxlength="64"
+                autocomplete="off"
+                :placeholder="$t('profile.apiKeys.create.namePlaceholder')"
+              />
+              <template #message>
+                <FormMessage
+                  type="error"
+                  class="mt-2"
+                  :message="form.errors.name"
+                />
+              </template>
+            </HtFormControl>
 
-        <HtFormControl
-          id="api-key-scopes"
-          :label="$t('profile.apiKeys.create.scopes')"
-        >
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.scopes ?? form.errors['scopes.0']"
-            />
-          </template>
-        </HtFormControl>
-        <HtFormCheckboxControlled
-          v-for="scope of scopes"
-          :id="`api-key-scope-${scope}`"
-          :key="scope"
-          :checked="form.scopes.includes(scope)"
-          name="scopes[]"
-          :value="scope"
-          @change="handleScopeChange"
-        >
-          <template #label>
-            {{ $t(`profile.apiKeys.scopes.${scope}`) }}
-          </template>
-        </HtFormCheckboxControlled>
-
-        <HtFormControl
-          id="api-key-expiry"
-          :label="$t('profile.apiKeys.create.expiry')"
-        >
-          <HtFormSelect
-            v-model="form.expires_in_days"
-            name="expires_in_days"
-          >
-            <option
-              v-for="days of EXPIRY_DAYS"
-              :key="days"
-              :value="days"
+            <HtFormControl
+              id="api-key-account"
+              :label="$t('profile.apiKeys.create.account')"
             >
-              {{ $t('profile.apiKeys.create.expiresInDays', { days: String(days) }) }}
-            </option>
-            <option :value="null">
-              {{ $t('profile.apiKeys.create.neverExpires') }}
-            </option>
-          </HtFormSelect>
-          <template #message>
-            <FormMessage
-              type="error"
-              class="mt-2"
-              :message="form.errors.expires_in_days"
-            />
-          </template>
-        </HtFormControl>
-      </HtFormControlGroup>
+              <HtFormSelect
+                v-model="form.discord_user_id"
+                name="discord_user_id"
+                :disabled="discordUsers.length < 2"
+              >
+                <option
+                  v-for="user of discordUsers"
+                  :key="user.id"
+                  :value="user.id"
+                >
+                  {{ user.name }}
+                </option>
+              </HtFormSelect>
+              <template #message>
+                <FormMessage
+                  type="error"
+                  class="mt-2"
+                  :message="form.errors.discord_user_id"
+                />
+              </template>
+            </HtFormControl>
 
-      <HtFormSubmitButton
-        id="create-api-key"
-        :form="form"
-        :save-text="$t('profile.apiKeys.create.submit')"
-        :success-text="$t('profile.apiKeys.create.submit')"
-      />
-    </form>
+            <HtFormControl
+              id="api-key-scopes"
+              :label="$t('profile.apiKeys.create.scopes')"
+            >
+              <template #message>
+                <FormMessage
+                  type="error"
+                  class="mt-2"
+                  :message="form.errors.scopes ?? form.errors['scopes.0']"
+                />
+              </template>
+            </HtFormControl>
+            <HtFormCheckboxControlled
+              v-for="scope of scopes"
+              :id="`api-key-scope-${scope}`"
+              :key="scope"
+              :checked="form.scopes.includes(scope)"
+              name="scopes[]"
+              :value="scope"
+              @change="handleScopeChange"
+            >
+              <template #label>
+                {{ $t(`profile.apiKeys.scopes.${scope}`) }}
+                <HtBadge class="ms-1">
+                  <code>{{ scope }}</code>
+                </HtBadge>
+              </template>
+            </HtFormCheckboxControlled>
+
+            <HtFormControl
+              id="api-key-expiry"
+              :label="$t('profile.apiKeys.create.expiry')"
+            >
+              <HtFormSelect
+                v-model="form.expires_in_days"
+                name="expires_in_days"
+              >
+                <option
+                  v-for="days of EXPIRY_DAYS"
+                  :key="days"
+                  :value="days"
+                >
+                  {{ $t('profile.apiKeys.create.expiresInDays', { days: String(days) }) }}
+                </option>
+                <option :value="null">
+                  {{ $t('profile.apiKeys.create.neverExpires') }}
+                </option>
+              </HtFormSelect>
+              <template #message>
+                <FormMessage
+                  type="error"
+                  class="mt-2"
+                  :message="form.errors.expires_in_days"
+                />
+              </template>
+            </HtFormControl>
+          </HtFormControlGroup>
+
+          <HtFormSubmitButton
+            id="create-api-key"
+            :form="form"
+            :save-text="$t('profile.apiKeys.create.submit')"
+            :success-text="$t('profile.apiKeys.create.submit')"
+          />
+        </form>
+      </HtAccordionItem>
+    </HtAccordion>
+
     <FormMessage
-      v-else-if="apiKeys.length >= maxKeys"
+      v-if="!canCreate && apiKeys.length >= maxKeys"
       type="error"
       :message="$t('profile.apiKeys.limitReached', { max: String(maxKeys) })"
     />
