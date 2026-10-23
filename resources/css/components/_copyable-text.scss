@@ -24,5 +24,7 @@
 
   .copyable-text-data {
     user-select: all;
+    // The wrapper stretches it to the height of the button, so center the text instead of leaving it at the top
+    align-items: center;
   }
 }
