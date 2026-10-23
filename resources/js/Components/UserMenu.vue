@@ -12,7 +12,10 @@ import {
   faCaretDown,
   faCaretUp,
   faChartColumn,
+  faCompass,
   faHammer,
+  faPlug,
+  faRobot,
   faUser,
   faUserGear,
 } from '@fortawesome/free-solid-svg-icons';
@@ -32,6 +35,9 @@ const routeParams = useRouteParams(route, pageProps);
 const analyticsRoute = computed(() => safeRoute('analytics', route, {
   routeParams: routeParams.value,
 }));
+const botInfoRoute = computed(() => safeRoute('botInfo', route, {
+  routeParams: routeParams.value,
+}));
 const loginRoute = computed(() => safeRoute('login', route, {
   routeParams: routeParams.value,
 }));
@@ -40,55 +46,45 @@ const loginRoute = computed(() => safeRoute('login', route, {
 <template>
   <div class="user-menu">
     <Tippy
-      v-if="userInfo"
       :interactive="true"
       trigger="click"
       :arrow="false"
     >
       <template #default="{ state, hide, show }">
         <HtButton
-          color="primary"
-          :icon-start="faUser"
+          :color="userInfo ? 'primary' : undefined"
+          :icon-start="userInfo ? faUser : faCompass"
           :icon-end="state.isVisible ? faCaretDown : faCaretUp"
           :pressed="state.isVisible"
           @click="state.isVisible ? hide : show"
         >
-          {{ userInfo.name }}
+          {{ userInfo ? userInfo.name : $t('global.nav.menu') }}
         </HtButton>
       </template>
       <template #content="{ hide }">
-        <nav
-          v-if="userInfo"
-          class="nav"
-        >
+        <nav class="nav">
           <Link
-            :href="safeRoute('settings', route, {routeParams})"
-            :class="['nav-link', { current: route().current() === 'settings'}]"
+            :href="botInfoRoute"
+            :class="['nav-link', { current: route().current() === 'botInfo'}]"
+            @click.passive="hide"
           >
             <FontAwesomeIcon
-              :icon="faHammer"
+              :icon="faRobot"
+              :fixed-width="true"
             />
-            <span>{{ $t('global.nav.botSettings') }}</span>
+            <span>{{ $t('botInfo.heading') }}</span>
           </Link>
           <Link
-            :href="safeRoute('profile.edit', route, {routeParams})"
-            :class="['nav-link', { current: route().current() === 'profile.edit'}]"
+            :href="safeRoute('api', route, {routeParams})"
+            :class="['nav-link', { current: route().current() === 'api'}]"
+            @click.passive="hide"
           >
             <FontAwesomeIcon
-              :icon="faUserGear"
+              :icon="faPlug"
+              :fixed-width="true"
             />
-            <span>{{ $t('global.nav.profile') }}</span>
+            <span>{{ $t('global.nav.api') }}</span>
           </Link>
-          <HtExternalLink
-            v-if="userInfo.horizonAccess"
-            :href="safeRoute('horizon.index', route, {routeParams : { view: 'dashboard' }})"
-            class="nav-link"
-          >
-            <FontAwesomeIcon
-              :icon="faBusinessTime"
-            />
-            <span>Horizon Dashboard</span>
-          </HtExternalLink>
           <Link
             v-if="analyticsRoute !== MISSING_ROUTE_HREF"
             :href="analyticsRoute"
@@ -97,26 +93,64 @@ const loginRoute = computed(() => safeRoute('login', route, {
           >
             <FontAwesomeIcon
               :icon="faChartColumn"
+              :fixed-width="true"
             />
             <span>{{ $t('global.nav.analytics') }}</span>
           </Link>
-          <Link
-            :href="safeRoute('logout', route, {routeParams})"
-            method="post"
-            as="button"
-            class="nav-link"
-            @click.passive="hide"
-          >
-            <FontAwesomeIcon
-              :icon="faArrowRightFromBracket"
-            />
-            <span>{{ $t('actions.log_out') }}</span>
-          </Link>
+          <template v-if="userInfo">
+            <hr class="nav-divider">
+            <Link
+              :href="safeRoute('settings', route, {routeParams})"
+              :class="['nav-link', { current: route().current() === 'settings'}]"
+              @click.passive="hide"
+            >
+              <FontAwesomeIcon
+                :icon="faHammer"
+                :fixed-width="true"
+              />
+              <span>{{ $t('global.nav.botSettings') }}</span>
+            </Link>
+            <Link
+              :href="safeRoute('profile.edit', route, {routeParams})"
+              :class="['nav-link', { current: route().current() === 'profile.edit'}]"
+              @click.passive="hide"
+            >
+              <FontAwesomeIcon
+                :icon="faUserGear"
+                :fixed-width="true"
+              />
+              <span>{{ $t('global.nav.profile') }}</span>
+            </Link>
+            <HtExternalLink
+              v-if="userInfo.horizonAccess"
+              :href="safeRoute('horizon.index', route, {routeParams : { view: 'dashboard' }})"
+              class="nav-link"
+            >
+              <FontAwesomeIcon
+                :icon="faBusinessTime"
+                :fixed-width="true"
+              />
+              <span>Horizon Dashboard</span>
+            </HtExternalLink>
+            <Link
+              :href="safeRoute('logout', route, {routeParams})"
+              method="post"
+              as="button"
+              class="nav-link"
+              @click.passive="hide"
+            >
+              <FontAwesomeIcon
+                :icon="faArrowRightFromBracket"
+                :fixed-width="true"
+              />
+              <span>{{ $t('actions.log_out') }}</span>
+            </Link>
+          </template>
         </nav>
       </template>
     </Tippy>
     <HtLinkButton
-      v-else-if="loginRoute !== MISSING_ROUTE_HREF"
+      v-if="!userInfo && loginRoute !== MISSING_ROUTE_HREF"
       color="primary"
       :href="loginRoute"
       :external="true"
