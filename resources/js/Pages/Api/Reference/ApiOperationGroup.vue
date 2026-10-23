@@ -1,31 +1,20 @@
 <script setup lang="ts">
 import ApiOperationInfo from '@/Pages/Api/Reference/ApiOperationInfo.vue';
+import HtAccordion from '@/Reusable/HtAccordion.vue';
 import { ListedOperation, OpenApiDocument } from '@/utils/openapi';
-import { ref } from 'vue';
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   doc: OpenApiDocument;
   tag: string;
   description: string | undefined;
   operations: ListedOperation[];
   /**
-   * Whether opening an endpoint leaves the ones that are open as they are. Without it opening one closes the others, like the FAQ.
+   * Whether several endpoints can be open at once
    */
   multiple?: boolean;
 }>(), {
   multiple: false,
 });
-
-const openKeys = ref<Set<string>>(new Set());
-const toggle = (key: string) => {
-  const next = new Set(props.multiple ? openKeys.value : []);
-  if (openKeys.value.has(key)) {
-    next.delete(key);
-  } else {
-    next.add(key);
-  }
-  openKeys.value = next;
-};
 </script>
 
 <template>
@@ -37,7 +26,7 @@ const toggle = (key: string) => {
     >
       {{ description }}
     </p>
-    <div class="api-operations">
+    <HtAccordion :multiple="multiple">
       <ApiOperationInfo
         v-for="entry of operations"
         :key="`${entry.method} ${entry.path}`"
@@ -45,9 +34,7 @@ const toggle = (key: string) => {
         :method="entry.method"
         :path="entry.path"
         :operation="entry.operation"
-        :open="openKeys.has(`${entry.method} ${entry.path}`)"
-        @toggle="toggle(`${entry.method} ${entry.path}`)"
       />
-    </div>
+    </HtAccordion>
   </section>
 </template>

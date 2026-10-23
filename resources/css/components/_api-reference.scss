@@ -4,40 +4,16 @@
   text-transform: capitalize;
 }
 
-.api-operations {
-  display: flex;
-  flex-flow: column;
-  // Flex items default to being as wide as their content, which would let a wide code block stretch the page
-  min-width: 0;
-
-  > * {
-    min-width: 0;
-  }
-}
-
 .api-operation {
-  .api-operation-toggle {
-    .api-operation-path {
-      margin-inline: .5em .75em;
-      @include design.monospace-font;
+  .accordion-item-toggle {
+    .api-endpoint {
+      margin-inline-end: .75em;
     }
 
     .api-operation-summary {
       opacity: .75;
       font-size: .9em;
       text-align: start;
-    }
-  }
-
-  .api-operation-body {
-    min-width: 0;
-    padding: design.app-value('faq-body-padding');
-    line-height: design.app-value('faq-body-line-height');
-
-    @include design.content-link-style;
-
-    > :not(:last-child) {
-      margin-bottom: design.app-value('card-spacing');
     }
   }
 
@@ -160,4 +136,16 @@
   .token-string { color: design.app-color('code-syntax-string'); }
   .token-number { color: design.app-color('code-syntax-number'); }
   .token-punctuation { color: design.app-color('code-syntax-punctuation'); }
+}
+
+// A method and a path, which stay together on one line wherever they are used
+.api-endpoint {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  white-space: nowrap;
+
+  .api-endpoint-path {
+    @include design.monospace-font;
+  }
 }

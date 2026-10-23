@@ -1,0 +1,24 @@
+@use "../design";
+
+.accordion {
+  display: flex;
+  flex-flow: column;
+  // Flex items are as wide as their content by default, which would let a wide code block stretch the page
+  min-width: 0;
+
+  > .accordion-item {
+    min-width: 0;
+  }
+
+  .accordion-item-body {
+    min-width: 0;
+    padding: design.app-value('faq-body-padding');
+    line-height: design.app-value('faq-body-line-height');
+
+    @include design.content-link-style;
+
+    > :not(:last-child) {
+      margin-bottom: design.app-value('card-spacing');
+    }
+  }
+}

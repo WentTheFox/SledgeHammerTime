@@ -36,7 +36,10 @@ defineProps<{
     />
     <ApiKeysLogin v-else />
 
-    <ApiUsage :api-url="apiUrl" />
+    <ApiUsage
+      :api-url="apiUrl"
+      :scopes="apiKeyScopes"
+    />
 
     <ApiReference
       :spec="openApi"

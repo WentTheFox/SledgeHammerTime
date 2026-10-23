@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import ApiEndpoint from '@/Pages/Api/ApiEndpoint.vue';
 import ApiJsonExample from '@/Pages/Api/Reference/ApiJsonExample.vue';
+import HtAccordionItem from '@/Reusable/HtAccordionItem.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtBadgeGroup from '@/Reusable/HtBadgeGroup.vue';
-import HtButton from '@/Reusable/HtButton.vue';
-import HtCollapsible from '@/Reusable/HtCollapsible.vue';
 import { BadgeColor } from '@/utils/badges';
 import { HttpMethod, jsonSchemaOf, OpenApiDocument, OpenApiOperation } from '@/utils/openapi';
-import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { computed } from 'vue';
 
 const props = defineProps<{
@@ -14,20 +13,7 @@ const props = defineProps<{
   method: HttpMethod;
   path: string;
   operation: OpenApiOperation;
-  open: boolean;
 }>();
-
-defineEmits<{
-  (e: 'toggle'): void;
-}>();
-
-const methodColors: Record<HttpMethod, BadgeColor> = {
-  get: 'green',
-  post: 'blue',
-  put: 'yellow',
-  patch: 'yellow',
-  delete: 'red',
-};
 
 const requestSchema = computed(() => jsonSchemaOf(props.operation.requestBody));
 
@@ -42,74 +28,62 @@ const needsKey = computed(() => (props.operation.security?.length ?? 0) > 0);
 </script>
 
 <template>
-  <div class="api-operation">
-    <HtButton
-      class="api-operation-toggle"
-      :full-width="true"
-      :allow-overflow="true"
-      justify="start"
-      :aria-expanded="open"
-      :pressed="open"
-      :icon-start="open ? faCaretDown : faCaretRight"
-      @click="$emit('toggle')"
-    >
-      <HtBadge :color="methodColors[method]">
-        {{ method.toUpperCase() }}
-      </HtBadge>
-      <span class="api-operation-path">{{ path }}</span>
+  <HtAccordionItem
+    :id="`${method} ${path}`"
+    class="api-operation"
+  >
+    <template #header>
+      <ApiEndpoint
+        :method="method"
+        :path="path"
+      />
       <span class="api-operation-summary">{{ operation.summary }}</span>
-    </HtButton>
-    <HtCollapsible
-      :visible="open"
-      class="mt-0"
-    >
-      <div class="api-operation-body">
-        <p v-if="operation.description">
-          {{ operation.description }}
-        </p>
+    </template>
 
-        <HtBadgeGroup>
-          <HtBadge
-            v-if="operation['x-required-scope']"
-            color="purple"
-            :prefix="$t('api.reference.permission')"
-          >
-            {{ $t(`profile.apiKeys.scopes.${operation['x-required-scope']}`) }}
-          </HtBadge>
-          <HtBadge
-            v-else
-            color="muted"
-          >
-            {{ needsKey ? $t('api.reference.anyKey') : $t('api.reference.noKey') }}
-          </HtBadge>
-        </HtBadgeGroup>
+    <p v-if="operation.description">
+      {{ operation.description }}
+    </p>
 
-        <template v-if="requestSchema">
-          <h5>{{ $t('api.reference.requestBody') }}</h5>
-          <ApiJsonExample
-            :doc="doc"
-            :schema="requestSchema"
-          />
-        </template>
+    <HtBadgeGroup>
+      <HtBadge
+        v-if="operation['x-required-scope']"
+        color="purple"
+        :prefix="$t('api.reference.permission')"
+      >
+        <code>{{ operation['x-required-scope'] }}</code>
+      </HtBadge>
+      <HtBadge
+        v-else
+        color="muted"
+      >
+        {{ needsKey ? $t('api.reference.anyKey') : $t('api.reference.noKey') }}
+      </HtBadge>
+    </HtBadgeGroup>
 
-        <h5>{{ $t('api.reference.responses') }}</h5>
-        <ul class="api-responses">
-          <li
-            v-for="response of responses"
-            :key="response.status"
-          >
-            <HtBadge :color="response.color">
-              {{ response.status }}
-            </HtBadge>
-            {{ response.description }}
-            <ApiJsonExample
-              v-if="response.status.startsWith('2') && response.schema"
-              :doc="doc"
-              :schema="response.schema"
-            />
-          </li>
-        </ul>
-      </div>
-    </HtCollapsible>
-  </div>
+    <template v-if="requestSchema">
+      <h5>{{ $t('api.reference.requestBody') }}</h5>
+      <ApiJsonExample
+        :doc="doc"
+        :schema="requestSchema"
+      />
+    </template>
+
+    <h5>{{ $t('api.reference.responses') }}</h5>
+    <ul class="api-responses">
+      <li
+        v-for="response of responses"
+        :key="response.status"
+      >
+        <HtBadge :color="response.color">
+          {{ response.status }}
+        </HtBadge>
+        {{ response.description }}
+        <ApiJsonExample
+          v-if="response.status.startsWith('2') && response.schema"
+          :doc="doc"
+          :schema="response.schema"
+        />
+      </li>
+    </ul>
+  </HtAccordionItem>
 </template>
