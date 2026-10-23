@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Nilai yang boleh digunakan:',
     'usageGraphNoData' => 'Tiada data penggunaan baru-baru ini dijumpai',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Anda mesti menyatakan sekurang-kurangnya satu komponen masa untuk diubah',

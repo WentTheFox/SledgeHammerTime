@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Mahdolliset arvot:',
     'usageGraphNoData' => 'Viimeaikaisia käyttötietoja ei löytynyt',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Sinun on määriteltävä vähintään yksi muutettava aika komponentti',

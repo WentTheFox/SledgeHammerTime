@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Lungime maximă',
     'choices' => 'Valori posibile:',
     'usageGraphNoData' => 'Nu s-au găsit date recente privind utilizarea',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Trebuie să specificați cel puțin o componentă de timp pentru a modifica',

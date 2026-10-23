@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Valores posibles:',
     'usageGraphNoData' => 'No se encontraron datos de uso recientes',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Debes especificar al menos un componente de tiempo para cambiar',

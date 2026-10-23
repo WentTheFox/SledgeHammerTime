@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Olası değerler:',
     'usageGraphNoData' => 'Son zamanlara ait kullanım verisi yok',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Değiştirmek için en az bir zaman bileşeni belirtmelisiniz',

@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => '可能的值：',
     'usageGraphNoData' => '未找到近期使用資料',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => '您必須指定至少一個要變更的時間組件',

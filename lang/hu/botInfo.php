@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum hossz',
     'choices' => 'Lehetséges értékek:',
     'usageGraphNoData' => 'Nem találhatóak friss használati adatok',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Legalább egy módosítandó időegység megadása kötelező',
