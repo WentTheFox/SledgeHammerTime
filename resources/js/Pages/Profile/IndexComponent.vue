@@ -2,7 +2,6 @@
 import { CrowdinUserInfoProps } from '@/Components/CrowdinUserInfo.vue';
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import Layout from '@/Layouts/DefaultLayout.vue';
-import ApiKeys, { ApiKeyInfo } from '@/Pages/Profile/Partials/ApiKeys.vue';
 import ConnectedAccounts from '@/Pages/Profile/Partials/ConnectedAccounts.vue';
 import LinkAdditionalAccounts from '@/Pages/Profile/Partials/LinkAdditionalAccounts.vue';
 import ProfileInfoCard from '@/Pages/Profile/Partials/ProfileInfoCard.vue';
@@ -15,9 +14,6 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 const props = defineProps<{
   discordUsers: DiscordUserInfoProps[];
   crowdinUsers: CrowdinUserInfoProps[];
-  apiKeys: ApiKeyInfo[];
-  apiKeyScopes: string[];
-  maxApiKeys: number;
 }>();
 
 const latestCrowdinUsers = ref<CrowdinUserInfoProps[] | null>(null);
@@ -45,13 +41,6 @@ const effectiveCrowdinUsers = computed(() => latestCrowdinUsers.value ?? props.c
     />
 
     <LinkAdditionalAccounts />
-
-    <ApiKeys
-      :api-keys="apiKeys"
-      :scopes="apiKeyScopes"
-      :max-keys="maxApiKeys"
-      :discord-users="discordUsers"
-    />
 
     <DeleteUserForm />
   </Layout>

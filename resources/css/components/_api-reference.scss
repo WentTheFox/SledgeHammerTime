@@ -1,0 +1,163 @@
+@use "../design";
+
+.api-reference-group > h3 {
+  text-transform: capitalize;
+}
+
+.api-operations {
+  display: flex;
+  flex-flow: column;
+  // Flex items default to being as wide as their content, which would let a wide code block stretch the page
+  min-width: 0;
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.api-operation {
+  .api-operation-toggle {
+    .api-operation-path {
+      margin-inline: .5em .75em;
+      @include design.monospace-font;
+    }
+
+    .api-operation-summary {
+      opacity: .75;
+      font-size: .9em;
+      text-align: start;
+    }
+  }
+
+  .api-operation-body {
+    min-width: 0;
+    padding: design.app-value('faq-body-padding');
+    line-height: design.app-value('faq-body-line-height');
+
+    @include design.content-link-style;
+
+    > :not(:last-child) {
+      margin-bottom: design.app-value('card-spacing');
+    }
+  }
+
+  .api-responses {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li:not(:last-child) {
+      margin-bottom: design.app-value('card-spacing');
+    }
+  }
+
+  .api-choices {
+    display: flex;
+    flex-flow: row wrap;
+    gap: .25em 1em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    code {
+      margin-inline-end: .35em;
+    }
+  }
+}
+
+// A JSON body with what each property is next to its line
+.api-json-example {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: design.app-value('card-spacing');
+
+  .api-json {
+    display: grid;
+    // Long values wrap inside the left column, so the annotations always have room next to them
+    grid-template-columns: fit-content(55%) minmax(0, 1fr);
+    column-gap: 2em;
+    overflow-x: auto;
+    padding: design.app-value('code-padding-horizontal');
+    border-radius: design.app-value('code-border-radius');
+    color: design.app-color('code-color');
+    background-color: design.app-color('code-bg');
+    border: design.app-value('code-border') solid design.app-color('code-border');
+    line-height: design.app-value('code-line-height');
+
+    // Narrow: each annotation goes under its line, and nothing wraps, the block scrolls sideways instead
+    @include design.screen-below('md') {
+      grid-template-columns: max-content;
+    }
+  }
+
+  .api-json-row {
+    display: contents;
+  }
+
+  .api-json-line {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    @include design.screen-below('md') {
+      white-space: pre;
+      overflow-wrap: normal;
+    }
+
+    background: none;
+    border: 0;
+    padding-block: 0;
+
+    @include design.monospace-font;
+  }
+
+  .api-json-annotation {
+    font-size: .85em;
+    opacity: .85;
+    align-self: start;
+    // One line, however long the description is, the tooltip has all of it
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include design.screen-below('md') {
+      padding-inline-start: 2ch;
+      margin-bottom: .25em;
+      overflow: visible;
+      text-overflow: clip;
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+
+  .api-json-type {
+    color: design.app-color('code-syntax-flag');
+    margin-inline-end: .5em;
+    @include design.monospace-font;
+  }
+
+  .api-json-optional {
+    margin-inline-end: .5em;
+    font-style: italic;
+    opacity: .75;
+  }
+
+  .api-json-choices {
+    margin-inline: .5em;
+    @include design.monospace-font;
+    opacity: .85;
+  }
+
+  .api-json-copy {
+    position: absolute;
+    top: .25rem;
+    inset-inline-end: .25rem;
+  }
+
+  .token-key { color: design.app-color('code-syntax-key'); }
+  .token-string { color: design.app-color('code-syntax-string'); }
+  .token-number { color: design.app-color('code-syntax-number'); }
+  .token-punctuation { color: design.app-color('code-syntax-punctuation'); }
+}

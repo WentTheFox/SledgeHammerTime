@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ApiInfoController;
 use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BotInfoController;
@@ -98,6 +99,7 @@ $defineRoutes = function (bool $inLocaleGroup) use ($loginEnabled) {
     $loginRoute = Route::get('/login', [AuthController::class, 'login']);
   }
   $botInfoRoute = Route::get('/app', [BotInfoController::class, 'index'])->middleware(CachePageResponse::class . ':botinfo');
+  $apiInfoRoute = Route::get('/api', [ApiInfoController::class, 'index']);
   $analyticsEnabled = config('analytics.enabled');
   if ($analyticsEnabled){
     $analyticsRoute = Route::get('/analytics', [AnalyticsController::class, 'index']);
@@ -122,6 +124,7 @@ $defineRoutes = function (bool $inLocaleGroup) use ($loginEnabled) {
     $designRoute->name('design');
     $legalRoute->name('legal');
     $botInfoRoute->name('botInfo');
+    $apiInfoRoute->name('api');
   }
 };
 Route::prefix('/{locale}')->group(function () use ($defineRoutes) {
