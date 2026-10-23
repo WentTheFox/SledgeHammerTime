@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import PageIcon from '@/Components/PageIcon.vue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
 import { useNativeLocaleNames } from '@/composables/useNativeLocaleNames';
 import { dateTimeLibraryInject, devModeInject, themeInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtCard from '@/Reusable/HtCard.vue';
+import { PageName } from '@/utils/pages';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import {
@@ -259,7 +261,13 @@ const byLocaleChartOptions = computed<ChartOptions<'doughnut'>>(() => ({
 <template>
   <HtCard>
     <template #header>
-      <h1>{{ $t('analytics.heading') }}</h1>
+      <h1>
+        <PageIcon
+          :page="PageName.Analytics"
+          class="me-1"
+        />
+        {{ $t('analytics.heading') }}
+      </h1>
     </template>
     <p class="mb-2">
       {{ $t('analytics.description', { days: String(windowDays) }) }}
