@@ -13,6 +13,8 @@ class PublicApiSpecTest extends TestCase {
 
   protected function setUp():void {
     parent::setUp();
+    // Not what .env says, which differs between machines (CI uses the example file), the faked address has to be the one asked for
+    config(['services.public_api.url' => 'https://api.hammertime.cyou']);
     Cache::forget('public-api-openapi');
     Cache::forget('public-api-openapi-failed');
   }
