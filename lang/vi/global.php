@@ -42,8 +42,10 @@ return [
     'body' => "Trình duyệt của bạn có thể không hỗ trợ JavaScript hoặc chức năng này đã bị tắt. Một số trình duyệt mặc định vô hiệu hóa JavaScript vì lý do bảo mật, nhưng nó cần thiết cho hoạt động của ứng dụng chúng tôi. Vui lòng bật JavaScript và tải lại trang, hoặc sử dụng một trình duyệt khác.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Cài đặt ứng dụng',
     'profile' => 'Hồ sơ cá nhân',
+    'api' => 'API',
     'legal' => 'Thông tin pháp lý',
     'analytics' => 'Analytics',
   ],

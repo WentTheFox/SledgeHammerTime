@@ -42,8 +42,10 @@ return [
     'body' => "مرورگر شما یا از JavaScript پشتیبانی نمی کند یا در حال حاضر غیرفعال است. برخی از مرورگرها به دلایل امنیتی JavaScript را به طور پیش فرض غیرفعال می کنند، اما برای این برنامه ضروری است. لطفاً آن را فعال کنید و صفحه را بازخوانی کنید یا از مرورگر دیگری استفاده کنید.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],
