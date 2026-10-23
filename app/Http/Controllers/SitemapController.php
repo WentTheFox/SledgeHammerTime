@@ -28,6 +28,11 @@ class SitemapController extends Controller {
           'priority' => '0.8',
         ];
         $urls[] = [
+          'loc' => route('api', ['locale' => $locale]),
+          'changefreq' => 'monthly',
+          'priority' => '0.6',
+        ];
+        $urls[] = [
           'loc' => route('addBot', ['locale' => $locale]),
           'changefreq' => 'monthly',
           'priority' => '0.7',

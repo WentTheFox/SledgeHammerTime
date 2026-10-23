@@ -1,0 +1,55 @@
+@use "../design";
+
+.api-code-sample {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0 0 1rem;
+
+  pre {
+    margin: 0;
+    max-width: 100%;
+    padding: design.app-value('code-padding-horizontal');
+    overflow-x: auto;
+    border-radius: design.app-value('code-border-radius');
+    color: design.app-color('code-color');
+    background-color: design.app-color('code-bg');
+    border: design.app-value('code-border') solid design.app-color('code-border');
+    line-height: design.app-value('code-line-height');
+
+    @include design.monospace-font;
+  }
+
+  .api-code-sample-copy {
+    position: absolute;
+    top: 0.25rem;
+    inset-inline-end: 0.25rem;
+  }
+}
+
+.api-code-sample {
+  .token-command {
+    color: design.app-color('code-syntax-command');
+    font-weight: bold;
+  }
+
+  .token-flag {
+    color: design.app-color('code-syntax-flag');
+  }
+
+  .token-string {
+    color: design.app-color('code-syntax-string');
+  }
+
+  .token-number {
+    color: design.app-color('code-syntax-number');
+  }
+
+  .token-key {
+    color: design.app-color('code-syntax-key');
+  }
+
+  .token-punctuation {
+    color: design.app-color('code-syntax-punctuation');
+  }
+}

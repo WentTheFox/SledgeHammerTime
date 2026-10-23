@@ -48,23 +48,23 @@ class ApiKeyController extends Controller {
       'token' => $newToken->plainTextToken,
     ]);
 
-    return $this->backToProfile();
+    return $this->backToApiPage();
   }
 
   public function destroy(Request $request, string $tokenId):RedirectResponse {
     abort_unless($this->apiKeyService->revoke($request->user(), $tokenId), 404);
 
-    return $this->backToProfile();
+    return $this->backToApiPage();
   }
 
   /**
-   * Straight to the final URL: the app locale (en_GB) is not the one in the URL (en-GB), and a redirect to the app
+   * Back to the API page, straight to the final URL: the app locale (en_GB) is not the one in the URL (en-GB), and a redirect to the app
    * locale gets redirected again, which uses up the flashed key before the page that shows it is rendered.
    */
-  private function backToProfile():RedirectResponse {
+  private function backToApiPage():RedirectResponse {
     $appLocale = App::getLocale();
     $urlLocale = array_search($appLocale, config('languages.ui_locale_map'), true);
 
-    return Redirect::route('profile.edit', ['locale' => $urlLocale === false ? $appLocale : $urlLocale]);
+    return Redirect::route('api', ['locale' => $urlLocale === false ? $appLocale : $urlLocale]);
   }
 }

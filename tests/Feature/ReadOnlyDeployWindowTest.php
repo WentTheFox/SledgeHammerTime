@@ -54,6 +54,7 @@ class ReadOnlyDeployWindowTest extends TestCase {
       'design' => ['/en/design'],
       'add bot' => ['/en/add-bot'],
       'bot info' => ['/en/app'],
+      'api' => ['/en/api'],
       'status' => ['/status'],
       'sitemap' => ['/sitemap.xml'],
       'ntp' => ['/frontend/ntp'],

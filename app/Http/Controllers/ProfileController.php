@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\ApiKeyScope;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Jobs\RefreshCrowdinUserInfo;
 use App\Jobs\RefreshDiscordUserInfo;
 use App\Models\CrowdinUser;
 use App\Models\DiscordUser;
 use App\Models\Translator;
-use App\Models\PersonalAccessToken;
 use App\Models\User;
-use App\Services\ApiKeys\ApiKeyService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -21,26 +18,14 @@ use Inertia\Inertia;
 use Inertia\Response;
 
 class ProfileController extends Controller {
-  public function __construct(protected ApiKeyService $apiKeyService) { }
-
   /**
    * Display the user's profile form.
    */
   public function edit(Request $request):Response {
     $discordUsers = [];
     $crowdinUsers = [];
-    $apiKeys = [];
     $authUser = Auth::user();
     if ($authUser){
-      $apiKeys = $this->apiKeyService->listFor($authUser)->map(fn(PersonalAccessToken $key) => [
-        'id' => (string)$key->getKey(),
-        'name' => $key->name,
-        'discordUserId' => $key->discord_user_id,
-        'scopes' => $key->abilities,
-        'createdAt' => $key->created_at,
-        'lastUsedAt' => $key->last_used_at,
-        'expiresAt' => $key->expires_at,
-      ])->values();
       $discordUsers = $authUser->discordUsers()->get()->map(function (DiscordUser $du) {
         $result = $du->mapToUiInfo();
         if ($du->updated_at->addHours(1)->isPast()){
@@ -56,9 +41,6 @@ class ProfileController extends Controller {
     return Inertia::render('Profile/IndexComponent', [
       'discordUsers' => $discordUsers,
       'crowdinUsers' => $crowdinUsers,
-      'apiKeys' => $apiKeys,
-      'apiKeyScopes' => ApiKeyScope::values(),
-      'maxApiKeys' => ApiKeyService::MAX_KEYS_PER_USER,
     ]);
   }
 

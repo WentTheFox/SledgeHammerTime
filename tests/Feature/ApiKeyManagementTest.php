@@ -17,7 +17,7 @@ class ApiKeyManagementTest extends TestCase {
 
   protected function setUp():void {
     parent::setUp();
-    // The profile page refreshes the info of Discord accounts that look stale, which must not reach Discord from a test
+    // Pages that list Discord accounts can refresh the ones that look stale, which must not reach Discord from a test
     Queue::fake();
   }
 
@@ -50,8 +50,17 @@ class ApiKeyManagementTest extends TestCase {
     return json_decode($matches[1], true, flags: JSON_THROW_ON_ERROR);
   }
 
-  private function profileUri():string {
-    return route('profile.edit', ['locale' => 'en']);
+  private function apiPageUri():string {
+    return route('api', ['locale' => 'en']);
+  }
+
+  public function test_the_api_page_is_public_and_lists_no_keys_for_guests():void {
+    $this->get($this->apiPageUri())->assertOk()->assertInertia(fn(Assert $page) => $page
+      ->component('Api/IndexComponent')
+      ->where('apiUrl', 'https://api.hammertime.cyou')
+      ->where('authenticated', false)
+      ->where('apiKeys', [])
+      ->where('discordUsers', []));
   }
 
   public function test_guests_can_not_manage_keys():void {
@@ -64,7 +73,7 @@ class ApiKeyManagementTest extends TestCase {
     $user = $this->createUser();
     $discordUser = $this->createDiscordUser($user);
 
-    $this->actingAs($user)->post('/api-keys', $this->validPayload($discordUser->id))->assertRedirect($this->profileUri());
+    $this->actingAs($user)->post('/api-keys', $this->validPayload($discordUser->id))->assertRedirect($this->apiPageUri());
 
     $key = PersonalAccessToken::where('name', 'My script')->firstOrFail();
     $this->assertSame((string)$discordUser->id, $key->discord_user_id);
@@ -72,24 +81,24 @@ class ApiKeyManagementTest extends TestCase {
     $this->assertTrue($key->expires_at->between(now()->addDays(29), now()->addDays(31)));
 
     // The only time the plaintext key is shown, and it is a working key
-    $response = $this->actingAs($user)->get($this->profileUri());
+    $response = $this->actingAs($user)->get($this->apiPageUri());
     $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'My script')->hasFlash('newApiKey.token'));
     $token = $this->pageData($response)['flash']['newApiKey']['token'];
     $this->assertMatchesRegularExpression('/^\d+\|htk_/', $token);
     $this->assertNotNull(app(ApiKeyService::class)->validate($token));
     $this->assertNotSame($token, $key->token, 'Only a hash is stored');
 
-    $this->actingAs($user)->get($this->profileUri())->assertInertia(fn(Assert $page) => $page->missingFlash('newApiKey'));
+    $this->actingAs($user)->get($this->apiPageUri())->assertInertia(fn(Assert $page) => $page->missingFlash('newApiKey'));
   }
 
-  public function test_it_redirects_to_the_profile_in_the_url_locale_so_the_key_survives_to_the_page():void {
+  public function test_it_redirects_to_the_api_page_in_the_url_locale_so_the_key_survives_to_the_page():void {
     $user = $this->createUser();
     $discordUser = $this->createDiscordUser($user);
 
     // en-GB is the locale in the URL, en_GB the one the app runs in, and a redirect to the latter is redirected again
     $response = $this->actingAs($user)->withSession(['app_locale' => 'en_GB'])->post('/api-keys', $this->validPayload($discordUser->id));
 
-    $response->assertRedirect(route('profile.edit', ['locale' => 'en-GB']));
+    $response->assertRedirect(route('api', ['locale' => 'en-GB']));
     $this->assertNotSame(302, $this->actingAs($user)->get($response->headers->get('Location'))->getStatusCode(), 'No second redirect');
   }
 
@@ -100,7 +109,7 @@ class ApiKeyManagementTest extends TestCase {
     $old = $service->create($user, $discordUser, 'Rotating', [ApiKeyScope::SETTINGS_READ->value], now()->addDays(30));
     $oldPlain = $old->plainTextToken;
 
-    $this->actingAs($user)->post("/api-keys/{$old->accessToken->getKey()}/rotate")->assertRedirect($this->profileUri());
+    $this->actingAs($user)->post("/api-keys/{$old->accessToken->getKey()}/rotate")->assertRedirect($this->apiPageUri());
 
     $new = PersonalAccessToken::where('name', 'Rotating')->sole();
     $this->assertNotEquals($old->accessToken->getKey(), $new->getKey());
@@ -109,7 +118,7 @@ class ApiKeyManagementTest extends TestCase {
     $this->assertTrue($new->expires_at->between(now()->addDays(29), now()->addDays(31)));
     $this->assertNull($service->validate($oldPlain), 'The old key stops working at once');
 
-    $response = $this->actingAs($user)->get($this->profileUri());
+    $response = $this->actingAs($user)->get($this->apiPageUri());
     $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
     $this->assertNotNull($service->validate($this->pageData($response)['flash']['newApiKey']['token']));
   }
@@ -189,7 +198,7 @@ class ApiKeyManagementTest extends TestCase {
     $other = $this->createUser('Other');
     app(ApiKeyService::class)->create($other, $this->createDiscordUser($other), 'Not mine', [ApiKeyScope::SETTINGS_READ->value]);
 
-    $this->actingAs($user)->get($this->profileUri())->assertInertia(fn(Assert $page) => $page
+    $this->actingAs($user)->get($this->apiPageUri())->assertInertia(fn(Assert $page) => $page
       ->has('apiKeys', 1)
       ->where('apiKeys.0.id', (string)$key->accessToken->getKey())
       ->where('apiKeys.0.name', 'Listed')
@@ -206,7 +215,7 @@ class ApiKeyManagementTest extends TestCase {
     $user = $this->createUser();
     $key = app(ApiKeyService::class)->create($user, $this->createDiscordUser($user), 'Doomed', [ApiKeyScope::SETTINGS_READ->value]);
 
-    $this->actingAs($user)->delete('/api-keys/'.$key->accessToken->getKey())->assertRedirect($this->profileUri());
+    $this->actingAs($user)->delete('/api-keys/'.$key->accessToken->getKey())->assertRedirect($this->apiPageUri());
 
     $this->assertNull(app(ApiKeyService::class)->validate($key->plainTextToken));
     $this->assertSame(0, $user->tokens()->count());

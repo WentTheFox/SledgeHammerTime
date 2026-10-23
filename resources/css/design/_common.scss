@@ -413,6 +413,30 @@ $color-map: (
     light: #D4D3D9,
     dark: #373846,
   ),
+  code-syntax-command: (
+    light: #7A3E9D,
+    dark: #C792EA,
+  ),
+  code-syntax-flag: (
+    light: #1B6B93,
+    dark: #82AAFF,
+  ),
+  code-syntax-string: (
+    light: #2E7D32,
+    dark: #C3E88D,
+  ),
+  code-syntax-number: (
+    light: #B25000,
+    dark: #F78C6C,
+  ),
+  code-syntax-key: (
+    light: #1B6B93,
+    dark: #89DDFF,
+  ),
+  code-syntax-punctuation: (
+    light: #6B6D78,
+    dark: #8A8CA0,
+  ),
   content-link: (
     light: color.adjust($_base-blue, $lightness: -10%),
     dark: color.adjust($_base-blue, $lightness: 10%),
