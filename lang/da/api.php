@@ -19,6 +19,20 @@ return [
     'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
     'statistics' => 'Runs are counted like bot commands, and the reply says which run it was, unless you turned statistics off in your app settings.',
   ],
+  'permissions' => [
+    'heading' => 'Permissions',
+    'description' => 'A key has the permissions it was created with, and the rest of this page refers to them by these codes.',
+    'me' => 'Every key can call <1/>, whatever its permissions, to find out which ones it has.',
+    'columns' => [
+      'permission' => 'Permission',
+      'allows' => 'Allows',
+    ],
+    'scopes' => [
+      'timestamps:create' => 'Generating timestamps with the timestamp endpoints and MCP tools, as the Discord account the key acts as.',
+      'settings:read' => 'Reading the bot settings of that account.',
+      'settings:write' => 'Changing the bot settings of that account, only the fields that are sent.',
+    ],
+  ],
   'reference' => [
     'heading' => 'Endpoint reference',
     'description' => 'Every endpoint with the fields it takes and the responses it gives. This is read from the OpenAPI specification of the API server, so it always matches the version that is running.',

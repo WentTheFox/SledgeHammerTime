@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Возможные значения',
     'usageGraphNoData' => 'Последние данные об использовании не были найдены',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Вы должны указать хотя бы один временной компонент для изменения',

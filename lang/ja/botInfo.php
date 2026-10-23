@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => '有効な値：',
     'usageGraphNoData' => '最近の使用データが見つかりませんでした',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => '変更するには、少なくとも1つの時間要素を指定する必要があります',

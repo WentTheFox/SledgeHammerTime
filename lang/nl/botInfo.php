@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Mogelijke waarden:',
     'usageGraphNoData' => 'Geen recente gebruiksgegevens gevonden',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Je moet minstens één tijdonderdeel specificeren om het te veranderen',
