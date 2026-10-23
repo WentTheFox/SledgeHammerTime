@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import PageIcon from '@/Components/PageIcon.vue';
+import { PageName } from '@/utils/pages';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject } from '@/injection-keys';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { safeRoute } from '@/utils/safe-route';
-import { faUserGear } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
 
@@ -19,8 +19,8 @@ const routeParams = useRouteParams(route, pageProps);
   <HtCard>
     <template #header>
       <h1>
-        <FontAwesomeIcon
-          :icon="faUserGear"
+        <PageIcon
+          :page="PageName.Profile"
           class="me-1"
         />
         {{ $t('profile.title') }}

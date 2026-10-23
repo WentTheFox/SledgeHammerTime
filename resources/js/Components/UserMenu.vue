@@ -1,23 +1,20 @@
 <script setup lang="ts">
+import PageIcon from '@/Components/PageIcon.vue';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { pagePropsInject, userInfoInject, userInfoLoadingInject } from '@/injection-keys';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
+import { PageName } from '@/utils/pages';
 import { MISSING_ROUTE_HREF, safeRoute } from '@/utils/safe-route';
 import {
   faArrowRightFromBracket,
   faBusinessTime,
   faCaretDown,
   faCaretUp,
-  faChartColumn,
   faCompass,
-  faHammer,
-  faPlug,
-  faRobot,
   faUser,
-  faUserGear,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Link } from '@inertiajs/vue3';
@@ -32,10 +29,10 @@ const userInfoLoading = inject(userInfoLoadingInject);
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 
-const analyticsRoute = computed(() => safeRoute('analytics', route, {
+const analyticsRoute = computed(() => safeRoute(PageName.Analytics, route, {
   routeParams: routeParams.value,
 }));
-const botInfoRoute = computed(() => safeRoute('botInfo', route, {
+const botInfoRoute = computed(() => safeRoute(PageName.BotInfo, route, {
   routeParams: routeParams.value,
 }));
 const loginRoute = computed(() => safeRoute('login', route, {
@@ -65,22 +62,22 @@ const loginRoute = computed(() => safeRoute('login', route, {
         <nav class="nav">
           <Link
             :href="botInfoRoute"
-            :class="['nav-link', { current: route().current() === 'botInfo'}]"
+            :class="['nav-link', { current: route().current() === PageName.BotInfo}]"
             @click.passive="hide"
           >
-            <FontAwesomeIcon
-              :icon="faRobot"
+            <PageIcon
+              :page="PageName.BotInfo"
               :fixed-width="true"
             />
             <span>{{ $t('botInfo.heading') }}</span>
           </Link>
           <Link
-            :href="safeRoute('api', route, {routeParams})"
-            :class="['nav-link', { current: route().current() === 'api'}]"
+            :href="safeRoute(PageName.Api, route, {routeParams})"
+            :class="['nav-link', { current: route().current() === PageName.Api}]"
             @click.passive="hide"
           >
-            <FontAwesomeIcon
-              :icon="faPlug"
+            <PageIcon
+              :page="PageName.Api"
               :fixed-width="true"
             />
             <span>{{ $t('global.nav.api') }}</span>
@@ -88,11 +85,11 @@ const loginRoute = computed(() => safeRoute('login', route, {
           <Link
             v-if="analyticsRoute !== MISSING_ROUTE_HREF"
             :href="analyticsRoute"
-            :class="['nav-link', { current: route().current() === 'analytics'}]"
+            :class="['nav-link', { current: route().current() === PageName.Analytics}]"
             @click.passive="hide"
           >
-            <FontAwesomeIcon
-              :icon="faChartColumn"
+            <PageIcon
+              :page="PageName.Analytics"
               :fixed-width="true"
             />
             <span>{{ $t('global.nav.analytics') }}</span>
@@ -100,23 +97,23 @@ const loginRoute = computed(() => safeRoute('login', route, {
           <template v-if="userInfo">
             <hr class="nav-divider">
             <Link
-              :href="safeRoute('settings', route, {routeParams})"
-              :class="['nav-link', { current: route().current() === 'settings'}]"
+              :href="safeRoute(PageName.Settings, route, {routeParams})"
+              :class="['nav-link', { current: route().current() === PageName.Settings}]"
               @click.passive="hide"
             >
-              <FontAwesomeIcon
-                :icon="faHammer"
+              <PageIcon
+                :page="PageName.Settings"
                 :fixed-width="true"
               />
               <span>{{ $t('global.nav.botSettings') }}</span>
             </Link>
             <Link
-              :href="safeRoute('profile.edit', route, {routeParams})"
-              :class="['nav-link', { current: route().current() === 'profile.edit'}]"
+              :href="safeRoute(PageName.Profile, route, {routeParams})"
+              :class="['nav-link', { current: route().current() === PageName.Profile}]"
               @click.passive="hide"
             >
-              <FontAwesomeIcon
-                :icon="faUserGear"
+              <PageIcon
+                :page="PageName.Profile"
                 :fixed-width="true"
               />
               <span>{{ $t('global.nav.profile') }}</span>

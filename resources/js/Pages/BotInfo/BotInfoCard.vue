@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PageIcon from '@/Components/PageIcon.vue';
+import { PageName } from '@/utils/pages';
 
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
@@ -11,8 +13,7 @@ import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { MISSING_ROUTE_HREF, safeRoute } from '@/utils/safe-route';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLink, faRobot } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import usefulLinksBot from '@img/useful-links/bot.png';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
@@ -36,8 +37,8 @@ defineProps<{ discordAppId: string }>();
         :src="usefulLinksBot"
       />
       <h1>
-        <FontAwesomeIcon
-          :icon="faRobot"
+        <PageIcon
+          :page="PageName.BotInfo"
           class="me-1"
         />
         {{ $t('botInfo.heading') }}
