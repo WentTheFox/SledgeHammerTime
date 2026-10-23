@@ -42,8 +42,10 @@ return [
     'body' => "Vaš preglednik ili ne podržava JavaScript ili je trenutno onemogućen. Neki preglednici onemogućuju JavaScript prema zadanim postavkama iz sigurnosnih razloga, ali to je neophodno za ovu aplikaciju. Omogućite ga i osvježite stranicu ili upotrijebite drugi preglednik.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Postavke aplikacije',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Pravne Informacije',
     'analytics' => 'Analitika',
   ],

@@ -42,8 +42,10 @@ return [
     'body' => "Browserul dvs. fie nu acceptă JavaScript, fie este dezactivat în prezent. Unele browsere dezactivează JavaScript în mod implicit din motive de securitate, dar este necesar pentru această aplicație. Vă rugăm să îl activați și să reîncărcați pagina sau să folosiți un alt browser.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Setări aplicație',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Informații legale',
     'analytics' => 'Analytics',
   ],

@@ -42,8 +42,10 @@ return [
     'body' => "Votre navigateur ne prend pas en charge JavaScript ou il est actuellement désactivé. Certains navigateurs désactivent JavaScript par défaut pour des raisons de sécurité, mais il est nécessaire pour cette application. Veuillez l'activer et rafraîchir la page, ou utiliser un autre navigateur.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Paramètres de l\'application',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Mentions légales',
     'analytics' => 'Statistiques',
   ],

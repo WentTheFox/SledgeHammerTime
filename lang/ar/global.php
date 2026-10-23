@@ -43,8 +43,10 @@ return [
 من فضلك قم بتفعيلها ثم أعد فتح الصفحة أو استخدم متصفح آخر.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'الملف الشخصي',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

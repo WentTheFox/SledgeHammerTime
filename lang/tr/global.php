@@ -42,8 +42,10 @@ return [
     'body' => "Tarayıcınız JavaScript'i desteklemiyor veya şu anda devre dışı. Bazı tarayıcılar güvenlik için JavaScript'i devre dışı bırakır, ancak bu siteyi kullanabilmek için JavaScript'i etkinleştirmeniz gerekmekte. Lütfen etkinleştirin ve sayfayı yenileyin veya farklı bir tarayıcı kullanın.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Uygulama Ayarları',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Yasal Bilgiler',
     'analytics' => 'Analitikler',
   ],
