@@ -98,6 +98,8 @@ class Kernel extends HttpKernel {
     'throttle' => ThrottleRequests::class,
     'verified' => EnsureEmailIsVerified::class,
     'console-user' => ConsoleUserMiddleware::class,
+    // Sanctum's: the token has to have (one of) the ability, a token with * has them all
+    'ability' => \Laravel\Sanctum\Http\Middleware\CheckForAnyAbility::class,
     'internal-service' => InternalServiceMiddleware::class,
     'translator' => TranslatorMiddleware::class,
   ];
