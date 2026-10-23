@@ -42,8 +42,10 @@ return [
     'body' => "Din webbläsare stödjer inte JavaScript eller så är det inaktiverat för tillfället. Vissa webbläsare inaktiverar JavaScript som standard för säkerhetsskäl, men det är nödvändigt för den här applikationen. Aktivera det och uppdatera sidan, eller använd en annan webbläsare.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

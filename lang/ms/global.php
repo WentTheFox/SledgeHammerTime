@@ -42,8 +42,10 @@ return [
     'body' => "Pelayar anda sama ada tidak menyokong JavaScript ataupun ia dinyahdayakan ketika ini. Sesetengah pelayar menyahdayakan JavaScript secara lalainya atas sebab keselamatan, tetapi ia diperlukan untuk aplikasi ini. Sila mendayakannya dan segar semula halaman, atau guna pelayar yang lain.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Tetapan Apl',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Maklumat Undang-Undang',
     'analytics' => 'Analitik',
   ],

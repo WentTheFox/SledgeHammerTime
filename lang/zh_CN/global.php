@@ -42,8 +42,10 @@ return [
     'body' => "您的浏览器不支持 JavaScript 或当前已禁用了该功能。部分浏览器出于安全考虑会默认禁用 JavaScript，但本应用需启用 JavaScript 才能正常运行。请启用后刷新页面，或更换其他浏览器。",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App 设置',
     'profile' => '个人资料',
+    'api' => 'API',
     'legal' => '法律信息',
     'analytics' => '统计数据',
   ],

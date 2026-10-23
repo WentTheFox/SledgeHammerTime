@@ -42,8 +42,10 @@ return [
     'body' => "Twoja przeglądarka nie wspiera JavaScript lub jest on aktualnie wyłączony. Niektóre przeglądarki domyślnie wyłączają JavaScripta ze względów bezpieczeństwa, lecz jest on wymagany dla tej aplikacji. Proszę go włączyć i odświeżyć stronę lub użyć innej przeglądarki.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Ustawienia aplikacji',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Informacje prawne',
     'analytics' => 'Analityka',
   ],

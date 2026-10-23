@@ -42,8 +42,10 @@ return [
     'body' => "Su navegador no soporta JavaScript o está actualmente deshabilitado. Algunos navegadores deshabilitan JavaScript por defecto por razones de seguridad, pero es necesario para esta aplicación. Por favor, actívelo y actualice la página o utilice un navegador diferente.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Ajustes de aplicación',
     'profile' => 'Perfil',
+    'api' => 'API',
     'legal' => 'Información legal',
     'analytics' => 'Analíticas',
   ],

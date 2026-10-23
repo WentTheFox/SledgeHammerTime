@@ -42,8 +42,10 @@ return [
     'body' => "Browser Anda tidak mendukung JavaScript atau sedang dinonaktifkan. Beberapa browser menonaktifkan JavaScript secara bawaan untuk alasan keamanan, tetapi itu diperlukan untuk aplikasi ini. Harap aktifkan dan segarkan halaman, atau gunakan browser lain.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Pengaturan Aplikasi',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Informasi Legal',
     'analytics' => 'Analisis',
   ],

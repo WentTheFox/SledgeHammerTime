@@ -42,8 +42,10 @@ return [
     'body' => "El vostre navegador no és compatible amb JavaScript o està desactivat. Alguns navegadors desactiven JavaScript per defecte per motius de seguretat, però és necessari per a aquesta aplicació. Per favor, activeu-la i refresqueu la pàgina, o utilitzeu un navegador diferent.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Configuració de l\'aplicació',
     'profile' => 'Perfil',
+    'api' => 'API',
     'legal' => 'Informacio legal',
     'analytics' => 'Anàlisi',
   ],

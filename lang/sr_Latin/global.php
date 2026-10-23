@@ -42,8 +42,10 @@ return [
     'body' => "Vaš internet pretraživač ne podržava JavaScript ili ga je onemogućio. Neki internet pretraživači podrazumevano onemogućavaju JavaScript iz bezbednosnih razloga, ali on je neophodan za ovu aplikaciju. Omogućite ga i osvežite stranicu ili koristite drugi internet pretraživač.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

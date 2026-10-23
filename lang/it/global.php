@@ -42,8 +42,10 @@ return [
     'body' => "Il tuo browser non supporta JavaScript o è attualmente disabilitato. Alcuni browser disabilitano JavaScript per motivi di sicurezza, ma è necessario per questa applicazione. Si prega di abilitare e aggiornare la pagina, o utilizzare un browser differente.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Impostazioni App',
     'profile' => 'Profilo',
+    'api' => 'API',
     'legal' => 'Informazioni legali',
     'analytics' => 'Telemetria',
   ],

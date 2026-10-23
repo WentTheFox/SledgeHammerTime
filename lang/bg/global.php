@@ -42,8 +42,10 @@ return [
     'body' => "Вашият браузър не поддържа JavaScript или сте го изключили. Някой браузъри изключват JavaScript по подразбиране по съображения за сигурност, но е необходим за този сайт. Моля включете и опреснете или използвайте друг браузър.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

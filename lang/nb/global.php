@@ -42,8 +42,10 @@ return [
     'body' => "Nettleseren din støtter enten ikke JavaScript, eller så er det for øyeblikket deaktivert. Noen nettlesere deaktiverer JavaScript som standard av sikkerhetsgrunner, men det er nødvendig for denne applikasjonen. Aktiver det og oppdater siden, eller bruk en annen nettleser.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

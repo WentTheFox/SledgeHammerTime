@@ -42,8 +42,10 @@ return [
     'body' => "Dein Browser unterstützt entweder kein JavaScript oder es ist derzeit deaktiviert. In einigen Browsern ist JavaScript aus Sicherheitsgründen standardmäßig deaktiviert, aber für diese Anwendung ist es notwendig. Bitte aktivieren es und aktualisiere die Seite, oder verwende einen anderen Browser.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App-Einstellungen',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Rechtliche Informationen',
     'analytics' => 'Analytik',
   ],

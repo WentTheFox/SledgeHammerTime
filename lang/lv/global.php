@@ -42,8 +42,10 @@ return [
     'body' => "Jūsu pārlūkprogramma vai nu neatbalsta JavaScript, vai arī tas pašlaik ir atspējots. Dažās pārlūkprogrammās JavaScript ir atspējots pēc noklusējuma drošības apsvērumu dēļ, taču šajā lietojumprogrammā tas ir nepieciešams. Lūdzu, iespējojiet to un atsvaidziniet lapu vai izmantojiet citu pārlūkprogrammu.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

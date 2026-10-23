@@ -42,8 +42,10 @@ return [
     'body' => "Tavo naršyklė nepalaiko JavaScript arba jis išjungtas. Saugumo sumetimais kai kuriose naršyklėse JavaScript yra išjungtas pagal nutylėjimą, tačiau šioje puslapyje jis yra būtinas. Įjunk jį ir atnaujink puslapį arba naudok kitą naršyklę.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

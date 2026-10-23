@@ -42,8 +42,10 @@ return [
     'body' => "O seu browser ou não suporta JavaScript, ou está atualmente desativado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para esta aplicação. Por favor, ative-o e atualize a página, ou utilize um navegador diferente.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'Configurações do Aplicativo',
     'profile' => 'Perfil',
+    'api' => 'API',
     'legal' => 'Informações Legais',
     'analytics' => 'Estatísticas',
   ],

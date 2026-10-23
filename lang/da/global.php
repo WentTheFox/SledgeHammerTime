@@ -42,8 +42,10 @@ return [
     'body' => "Din browser understøtter enten ikke JavaScript, eller også er det deaktiveret i øjeblikket. Nogle browsere deaktiverer JavaScript som standard af sikkerhedsmæssige årsager, men det er nødvendigt for denne applikation. Aktivér det, og opdater siden, eller brug en anden browser.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App indstillinger',
     'profile' => 'Profil',
+    'api' => 'API',
     'legal' => 'Juridisk information',
     'analytics' => 'Analyse',
   ],

@@ -42,8 +42,10 @@ return [
     'body' => "Via retumilo aŭ ne subtenas JavaScript aŭ tio nuntempe estas malaktiva. Kelkaj retumiloj malaktivigas JavaScript-on defaŭlte pro kialoj sekurecaj, sed ĝi estas bezonata por ĉi tiu aplikaĵo. Bonvolu aktivigi ĝin kaj aktualigu la retpaĝon, aŭ uzu alian retumilon.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App Settings',
     'profile' => 'Profile',
+    'api' => 'API',
     'legal' => 'Legal Information',
     'analytics' => 'Analytics',
   ],

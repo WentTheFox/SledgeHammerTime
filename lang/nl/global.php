@@ -42,8 +42,10 @@ return [
     'body' => "Uw browser ondersteunt JavaScript niet of het is momenteel uitgeschakeld. Sommige browsers deactiveren JavaScript standaard om veiligheidsredenen, maar het is noodzakelijk voor de werking van deze webapplicatie. Activeer JavaScript en ververs de pagina of gebruik een andere browser.",
   ],
   'nav' => [
+    'menu' => 'Menu',
     'botSettings' => 'App-instellingen',
     'profile' => 'Profiel',
+    'api' => 'API',
     'legal' => 'Juridische informatie',
     'analytics' => 'Statistieken',
   ],
