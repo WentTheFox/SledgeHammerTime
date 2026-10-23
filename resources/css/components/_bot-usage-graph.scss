@@ -64,11 +64,20 @@
 
   .bot-usage-graph-line-fill {
     background-color: design.app-color('bot-usage-graph-line-color');
+    // Where there is more than one source they are stacked, each as tall as its share of the day
+    flex-shrink: 0;
     width: 100%;
     height: calc((var(--value) / var(--highest-value)) * 100%);
     min-height: design.app-value('bot-usage-graph-line-min-width');
     box-sizing: border-box;
   }
+}
+
+.bot-usage-graph-tooltip-usage,
+.bot-usage-graph-tooltip-sources,
+.bot-usage-graph-tooltip-date {
+  // Hovering along the graph must not end up selecting the text of the tooltip that follows the cursor
+  user-select: none;
 }
 
 .bot-usage-graph-tooltip-usage {
@@ -79,4 +88,65 @@
 .bot-usage-graph-tooltip-date {
   font-size: design.app-value('bot-usage-graph-tooltip-date-font-size');
   text-align: center;
+}
+
+// The colors of the sources, in the graph, its legend and its tooltip. The bot keeps the color the graph always had.
+.bot-usage-graph-line-fill,
+.bot-usage-graph-source-swatch {
+  &.source-api {
+    background-color: design.app-color('bot-usage-graph-source-api');
+  }
+
+  &.source-mcp {
+    background-color: design.app-color('bot-usage-graph-source-mcp');
+  }
+}
+
+.bot-usage-graph-source-swatch {
+  display: inline-block;
+  width: .75em;
+  height: .75em;
+  border-radius: .15em;
+  margin-inline-end: .25em;
+  background-color: design.app-color('bot-usage-graph-line-color');
+}
+
+.bot-usage-graph-sources {
+  user-select: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: .25em 1em;
+  justify-content: center;
+  list-style: none;
+  padding: .25rem 0 0;
+  margin: 0;
+  font-size: .75em;
+}
+
+.bot-usage-graph-tooltip-sources {
+  font-size: .75rem;
+  padding: .25rem 0;
+}
+
+// A source in the legend is a switch: struck through and dimmed while it is off
+.bot-usage-graph-source {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &.off {
+    text-decoration: line-through;
+    opacity: .55;
+
+    .bot-usage-graph-source-swatch {
+      filter: grayscale(1);
+    }
+  }
 }

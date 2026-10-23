@@ -15,6 +15,7 @@ class TelemetryUsage extends Model {
   protected $fillable = [
     'source_id',
     'source_type',
+    'source',
     'date',
     'value',
   ];
@@ -30,6 +31,7 @@ class TelemetryUsage extends Model {
     return [
       'date' => $this->date,
       'value' => $this->value,
+      'source' => $this->source,
     ];
   }
 }
