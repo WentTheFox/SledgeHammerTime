@@ -6,6 +6,8 @@ use App\Enums\ApiKeyScope;
 use App\Models\PersonalAccessToken;
 use App\Services\ApiKeys\ApiKeyService;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Testing\TestResponse;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -19,6 +21,12 @@ class ApiKeyManagementTest extends TestCase {
     parent::setUp();
     // Pages that list Discord accounts can refresh the ones that look stale, which must not reach Discord from a test
     Queue::fake();
+    // The API page asks the API server for its OpenAPI document. Nothing in these tests is about that, and the address
+    // comes from .env, which differs between machines.
+    config(['services.public_api.url' => 'https://api.hammertime.cyou']);
+    Http::fake(['https://api.hammertime.cyou/*' => Http::response('', 503)]);
+    Cache::forget('public-api-openapi');
+    Cache::forget('public-api-openapi-failed');
   }
 
   protected function tearDown():void {
