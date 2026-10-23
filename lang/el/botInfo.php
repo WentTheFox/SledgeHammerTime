@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Μέγιστο μήκος',
     'choices' => 'Πιθανές τιμές:',
     'usageGraphNoData' => 'Δεν βρέθηκαν πρόσφατα δεδομένα χρήσης',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Πρέπει να καθορίσετε τουλάχιστον ένα χρονικό στοιχείο για αλλαγή',

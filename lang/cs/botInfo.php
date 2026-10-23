@@ -60,6 +60,11 @@ return [
     'maxLength' => 'Maximum length',
     'choices' => 'Možné návratové hodnoty:',
     'usageGraphNoData' => 'Nebyly nalezeny žádné nedávné údaje o používání',
+    'usageSources' => [
+      'discord-bot' => 'Discord app',
+      'api' => 'API',
+      'mcp' => 'MCP',
+    ],
     'additionalDescription' => [
       'commands' => [
         'in' => 'Musíte zadat alespoň jednu časovou jednotku, kterou chcete změnit',
