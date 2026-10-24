@@ -39,8 +39,8 @@ class StoreApiKeyRequest extends FormRequest {
   public function after():array {
     return [
       function (Validator $validator) {
-        if ($this->user()->tokens()->whereNotNull('discord_user_id')->count() >= ApiKeyService::MAX_KEYS_PER_USER){
-          $validator->errors()->add('name', __('profile.apiKeys.limitReached', ['max' => ApiKeyService::MAX_KEYS_PER_USER]));
+        if ($this->user()->tokens()->whereNotNull('discord_user_id')->count() >= ApiKeyService::MAX_KEYS_PER_DISCORD_USER){
+          $validator->errors()->add('name', __('profile.apiKeys.limitReached', ['max' => ApiKeyService::MAX_KEYS_PER_DISCORD_USER]));
         }
       },
     ];

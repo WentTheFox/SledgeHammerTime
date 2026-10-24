@@ -90,7 +90,7 @@ class ApiKeyManagementTest extends TestCase {
 
     // The only time the plaintext key is shown, and it is a working key
     $response = $this->actingAs($user)->get($this->apiPageUri());
-    $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'My script')->hasFlash('newApiKey.token'));
+    $response::assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'My script')->hasFlash('newApiKey.token'));
     $token = $this->pageData($response)['flash']['newApiKey']['token'];
     $this->assertMatchesRegularExpression('/^\d+\|htk_/', $token);
     $this->assertNotNull(app(ApiKeyService::class)->validate($token));
@@ -127,7 +127,7 @@ class ApiKeyManagementTest extends TestCase {
     $this->assertNull($service->validate($oldPlain), 'The old key stops working at once');
 
     $response = $this->actingAs($user)->get($this->apiPageUri());
-    $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
+    $response::assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
     $this->assertNotNull($service->validate($this->pageData($response)['flash']['newApiKey']['token']));
   }
 
@@ -190,12 +190,12 @@ class ApiKeyManagementTest extends TestCase {
     $user = $this->createUser();
     $discordUser = $this->createDiscordUser($user);
     $service = app(ApiKeyService::class);
-    for ($i = 0; $i < ApiKeyService::MAX_KEYS_PER_USER; $i++){
+    for ($i = 0; $i < ApiKeyService::MAX_KEYS_PER_DISCORD_USER; $i++){
       $service->create($user, $discordUser, "Key $i", [ApiKeyScope::SETTINGS_READ->value]);
     }
 
     $this->actingAs($user)->post('/api-keys', $this->validPayload($discordUser->id))->assertSessionHasErrors('name');
-    $this->assertSame(ApiKeyService::MAX_KEYS_PER_USER, $user->tokens()->count());
+    $this->assertSame(ApiKeyService::MAX_KEYS_PER_DISCORD_USER, $user->tokens()->count());
   }
 
   public function test_it_lists_only_the_api_keys_of_the_user_without_any_secret():void {
@@ -215,7 +215,7 @@ class ApiKeyManagementTest extends TestCase {
       ->has('apiKeys.0.createdAt')
       ->missing('apiKeys.0.token')
       ->where('apiKeyScopes', ApiKeyScope::values())
-      ->where('maxApiKeys', ApiKeyService::MAX_KEYS_PER_USER)
+      ->where('maxApiKeys', ApiKeyService::MAX_KEYS_PER_DISCORD_USER)
     );
   }
 
