@@ -71,6 +71,9 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');
   Route::get('/webhook-delivery-stats', [BotInfoController::class, 'webhookDeliveryStats'])->name('app.webhookDeliveryStats');
+  if (config('analytics.enabled')){
+    Route::get('/analytics', [AnalyticsController::class, 'data'])->name('app.analytics');
+  }
   Route::get('/translation-progress/{locale}', [TranslationProgressController::class, 'progress'])->name('app.translationProgress');
 });
 
@@ -102,7 +105,9 @@ $defineRoutes = function (bool $inLocaleGroup) use ($loginEnabled) {
   $apiInfoRoute = Route::get('/api', [ApiInfoController::class, 'index']);
   $analyticsEnabled = config('analytics.enabled');
   if ($analyticsEnabled){
-    $analyticsRoute = Route::get('/analytics', [AnalyticsController::class, 'index']);
+    // Same lifetime as the page data cache in AnalyticsController (analytics.cache_ttl_minutes), so a hit here never serves older data than that cache would.
+    $analyticsRoute = Route::get('/analytics', [AnalyticsController::class, 'index'])
+      ->middleware(CachePageResponse::class . ':analytics,' . (int)config('analytics.cache_ttl_minutes') * 60);
   }
   Route::get('/add-bot', [StaticController::class, 'addBot'])->name($inLocaleGroup ? 'addBot' : 'addBotNoLocale');
 

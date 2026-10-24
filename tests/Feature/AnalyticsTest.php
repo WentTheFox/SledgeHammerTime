@@ -54,17 +54,21 @@ class AnalyticsTest extends TestCase {
       'is_crawler' => true,
     ]);
 
-    $response = $this->actingAs($user)->get('/en/analytics');
-
-    $response->assertStatus(200);
-    $response->assertInertia(fn(AssertableInertia $page) => $page
+    // The page itself is cached HTML, so the data comes from the frontend endpoint
+    $page = $this->actingAs($user)->get('/en/analytics');
+    $page->assertStatus(200);
+    $page->assertInertia(fn(AssertableInertia $inertia) => $inertia
       ->component('Analytics/IndexComponent')
-      ->has('dailyTotals')
-      ->has('routeBreakdown')
-      ->has('localeBreakdown')
+      ->missing('dailyTotals')
+      ->missing('routeBreakdown')
+      ->missing('localeBreakdown')
     );
 
-    $data = $response->viewData('page')['props'];
+    $response = $this->actingAs($user)->getJson('/frontend/analytics');
+    $response->assertStatus(200);
+    $response->assertJsonStructure(['lastUpdated', 'windowDays', 'dailyTotals', 'routeBreakdown', 'localeBreakdown']);
+
+    $data = $response->json();
 
     // Crawler views are reported as separate rows so the UI can toggle them
     $this->assertCount(3, $data['dailyTotals']);
