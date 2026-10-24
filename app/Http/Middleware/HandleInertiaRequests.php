@@ -22,7 +22,7 @@ class HandleInertiaRequests extends Middleware {
    *
    * @var string[]
    */
-  protected static array $staticCachedRoutes = ['home', 'botInfo'];
+  protected static array $staticCachedRoutes = ['home', 'botInfo', 'legal', 'analytics'];
 
   /**
    * Determine the current asset version.
