@@ -27,7 +27,7 @@ class ApiKeyService {
   /**
    * Per user, so keys can not be created without limit
    */
-  public const int MAX_KEYS_PER_DISCORD_USER = 3;
+  public const int MAX_KEYS_PER_DISCORD_USER = 10;
 
   /**
    * @param list<string> $scopes Values of {@see ApiKeyScope}
