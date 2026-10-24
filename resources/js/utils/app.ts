@@ -69,3 +69,16 @@ export const randomlyGenerateCommandUsageData = (totalCount: number): BotInfoUsa
   }
   return results;
 };
+
+/**
+ * The bot's usage plus an API source that starts a month in and an MCP source that only picked up in the last weeks
+ */
+export const randomlyGenerateMixedSourceUsageData = (): BotInfoUsageData[] => {
+  const botData = randomlyGenerateCommandUsageData(Math.round(10e3 + Math.random() * 5e3));
+  return botData.flatMap(({ date, value }, index) => {
+    const rows: BotInfoUsageData[] = [{ date, value, source: 'discord-bot' }];
+    if (index > 30) rows.push({ date, value: Math.round(value * Math.random() * 0.3), source: 'api' });
+    if (index > 70) rows.push({ date, value: Math.round(value * Math.random() * 0.15), source: 'mcp' });
+    return rows;
+  });
+};

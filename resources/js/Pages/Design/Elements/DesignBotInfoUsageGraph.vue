@@ -2,13 +2,14 @@
 import { usageDataFetcherInject, UsageDataFetchFunction } from '@/injection-keys';
 import BotInfoUsageGraph from '@/Pages/BotInfo/BotInfoUsageGraph.vue';
 import HtTable from '@/Reusable/HtTable.vue';
-import { randomlyGenerateCommandUsageData } from '@/utils/app';
+import { randomlyGenerateCommandUsageData, randomlyGenerateMixedSourceUsageData } from '@/utils/app';
 import { provide } from 'vue';
 
 enum MockCommandIds {
   NO_DATA = 'no-data',
   TOO_OLD_DATA = 'too-old-data',
   INFINITE_LOADING = 'infinite-loading',
+  MIXED_SOURCE = 'mixed-source',
 }
 
 const usageDataGenerator: UsageDataFetchFunction = (options) => {
@@ -19,6 +20,8 @@ const usageDataGenerator: UsageDataFetchFunction = (options) => {
       return Promise.resolve([{ date: '1970-01-01', value: 1 }]);
     case MockCommandIds.INFINITE_LOADING:
       return new Promise(() => undefined);
+    case MockCommandIds.MIXED_SOURCE:
+      return Promise.resolve(randomlyGenerateMixedSourceUsageData());
   }
 
   const totalCount = Math.round(10e3 + Math.random() * 5e3);
@@ -61,6 +64,15 @@ provide(usageDataFetcherInject, usageDataGenerator);
         <td>
           <BotInfoUsageGraph
             :id="MockCommandIds.INFINITE_LOADING"
+            type="command"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>Mixed source data</th>
+        <td>
+          <BotInfoUsageGraph
+            :id="MockCommandIds.MIXED_SOURCE"
             type="command"
           />
         </td>
