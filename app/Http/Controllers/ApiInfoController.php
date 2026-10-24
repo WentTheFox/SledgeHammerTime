@@ -37,7 +37,7 @@ class ApiInfoController extends Controller {
       ])->values() : [],
       'discordUsers' => $user ? $user->discordUsers()->get()->map(fn(DiscordUser $du) => $du->mapToUiInfo())->values() : [],
       'apiKeyScopes' => ApiKeyScope::values(),
-      'maxApiKeys' => ApiKeyService::MAX_KEYS_PER_USER,
+      'maxApiKeys' => ApiKeyService::MAX_KEYS_PER_DISCORD_USER,
     ]);
   }
 }
