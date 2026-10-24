@@ -90,7 +90,7 @@ class ApiKeyManagementTest extends TestCase {
 
     // The only time the plaintext key is shown, and it is a working key
     $response = $this->actingAs($user)->get($this->apiPageUri());
-    $response::assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'My script')->hasFlash('newApiKey.token'));
+    $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'My script')->hasFlash('newApiKey.token'));
     $token = $this->pageData($response)['flash']['newApiKey']['token'];
     $this->assertMatchesRegularExpression('/^\d+\|htk_/', $token);
     $this->assertNotNull(app(ApiKeyService::class)->validate($token));
@@ -127,7 +127,7 @@ class ApiKeyManagementTest extends TestCase {
     $this->assertNull($service->validate($oldPlain), 'The old key stops working at once');
 
     $response = $this->actingAs($user)->get($this->apiPageUri());
-    $response::assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
+    $response->assertInertia(fn(Assert $page) => $page->hasFlash('newApiKey.name', 'Rotating'));
     $this->assertNotNull($service->validate($this->pageData($response)['flash']['newApiKey']['token']));
   }
 
