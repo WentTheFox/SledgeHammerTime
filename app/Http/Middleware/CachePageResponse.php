@@ -78,7 +78,10 @@ class CachePageResponse {
     ];
   }
 
-  public function handle(Request $request, Closure $next, string $page): Response {
+  /**
+   * @param string|null $ttlSeconds Overrides the default cache lifetime, for pages whose data goes stale sooner than a day.
+   */
+  public function handle(Request $request, Closure $next, string $page, ?string $ttlSeconds = null): Response {
     if (!Config::get('app.page_cache.enabled')) {
       return $next($request);
     }
@@ -140,7 +143,7 @@ class CachePageResponse {
       Cache::put($cacheKey, [
         'html' => $response->getContent(),
         'last_modified' => $lastModified,
-      ], self::CACHE_TTL_SECONDS);
+      ], $ttlSeconds !== null ? (int)$ttlSeconds : self::CACHE_TTL_SECONDS);
 
       foreach ($this->cacheHeaders($lastModified) as $name => $value) {
         $response->headers->set($name, $value);

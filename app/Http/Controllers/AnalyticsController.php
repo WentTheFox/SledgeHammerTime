@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DateInterval;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -19,7 +20,20 @@ class AnalyticsController extends Controller {
       throw new NotFoundHttpException();
     }
 
-    return Inertia::render('Analytics/IndexComponent', $this->getCachedPageData());
+    // The page HTML is cached per locale (CachePageResponse), so it carries no data -
+    // the component loads it from data() instead.
+    return Inertia::render('Analytics/IndexComponent');
+  }
+
+  /**
+   * @throws JsonException
+   */
+  public function data(): JsonResponse {
+    if (config('analytics.enabled') !== true){
+      throw new NotFoundHttpException();
+    }
+
+    return response()->json($this->getCachedPageData());
   }
 
   /**
