@@ -22,7 +22,7 @@ defineProps<{
 </script>
 
 <template>
-  <Head :title="$t('api.title')" />
+  <Head :title="$t('api.heading')" />
 
   <Layout>
     <ApiOverview />
