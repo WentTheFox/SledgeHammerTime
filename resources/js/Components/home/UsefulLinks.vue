@@ -3,33 +3,39 @@ import UsefulLinkItem from '@/Components/home/UsefulLinkItem.vue';
 import UsefulLinksCard from '@/Components/home/UsefulLinksCard.vue';
 import { currentLanguageInject } from '@/injection-keys';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
-import discordTimestampGeneratorComDark from '@img/screenshots/dark/discordtimestampgeneratorcom.png';
+import discordTimestampGeneratorComDark
+  from '@img/screenshots/dark/discordtimestampgeneratorcom.png';
 import discordTimestampOrgDark from '@img/screenshots/dark/discordtimestamporg.png';
 import discordTimestampsComDark from '@img/screenshots/dark/discordtimestampscom.png';
 import usefulLinksOldsiteDark from '@img/screenshots/dark/oldhammertimecyou.png';
 import r3vfiDark from '@img/screenshots/dark/r3vfi-discord-timestamps.png';
-import usefulLinksTextcolorDark from '@img/screenshots/dark/rebane2001com-discord-colored-text-generator.png';
+import usefulLinksTextcolorDark
+  from '@img/screenshots/dark/rebane2001com-discord-colored-text-generator.png';
 import seshFyiDark from '@img/screenshots/dark/seshfyi-timestamp.png';
 import dabricDark from '@img/screenshots/dark/timestampdabricxyz.png';
 import timestampToolsDark from '@img/screenshots/dark/timestamptools-tools-discord-timestamp.png';
-import discordTimestampComDark from '@img/screenshots/dark/webarchiveorg-web-https-discordtimestamp-com.png';
+import discordTimestampComDark
+  from '@img/screenshots/dark/webarchiveorg-web-https-discordtimestamp-com.png';
 import discordUtilsDark from '@img/screenshots/dark/wwwdiscordutilscom-timestamps.png';
-import discordTimestampGeneratorComLight from '@img/screenshots/light/discordtimestampgeneratorcom.png';
+import discordTimestampGeneratorComLight
+  from '@img/screenshots/light/discordtimestampgeneratorcom.png';
 import discordTimestampOrgLight from '@img/screenshots/light/discordtimestamporg.png';
 import discordTimestampsComLight from '@img/screenshots/light/discordtimestampscom.png';
 import usefulLinksOldsiteLight from '@img/screenshots/light/oldhammertimecyou.png';
 import r3vfiLight from '@img/screenshots/light/r3vfi-discord-timestamps.png';
-import usefulLinksTextcolorLight from '@img/screenshots/light/rebane2001com-discord-colored-text-generator.png';
+import usefulLinksTextcolorLight
+  from '@img/screenshots/light/rebane2001com-discord-colored-text-generator.png';
 import seshFyiLight from '@img/screenshots/light/seshfyi-timestamp.png';
 import dabricLight from '@img/screenshots/light/timestampdabricxyz.png';
 import timestampToolsLight from '@img/screenshots/light/timestamptools-tools-discord-timestamp.png';
-import discordTimestampComLight from '@img/screenshots/light/webarchiveorg-web-https-discordtimestamp-com.png';
+import discordTimestampComLight
+  from '@img/screenshots/light/webarchiveorg-web-https-discordtimestamp-com.png';
 import discordUtilsLight from '@img/screenshots/light/wwwdiscordutilscom-timestamps.png';
 import usefulLinksBotDark from '@img/useful-links/dark/bot.png';
-import usefulLinksBotLight from '@img/useful-links/light/bot.png';
 import usefulLinksServerDark from '@img/useful-links/dark/server.png';
-import usefulLinksServerLight from '@img/useful-links/light/server.png';
 import usefulLinksSubredditDark from '@img/useful-links/dark/subreddit.png';
+import usefulLinksBotLight from '@img/useful-links/light/bot.png';
+import usefulLinksServerLight from '@img/useful-links/light/server.png';
 import usefulLinksSubredditLight from '@img/useful-links/light/subreddit.png';
 import { inject } from 'vue';
 
