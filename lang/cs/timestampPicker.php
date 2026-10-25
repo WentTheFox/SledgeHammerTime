@@ -70,23 +70,6 @@ return [
         'p1' => 'Věděli jste, že HammerTime není jediný nástroj pro generování časových razítek?',
         'p2' => 'Můžete si prohlédnout i tyto další generátory časových razítek pro Discord a najít ten, který vám vyhovuje nejlépe:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Jednoduchý a rychlý generátor časových razítek od 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Generátor časových razítek pro Discord v přirozeném jazyce od dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Bezplatný generátor časových razítek pro Discord s podporou místního časového pásma od společnosti Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Generátor časových razítek pro Discord a převodník času od DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Vytvářejte časová razítka ve formátu Markdown pro Discord přímo v rámci ekosystému plánovacích botů Sesh od Tunks',
-      ],
     ],
   ],
 ];

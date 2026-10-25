@@ -70,23 +70,6 @@ return [
         'p1' => 'Tahukah anda bahawa HammerTime bukanlah satu-satunya alat untuk menjana cap masa?',
         'p2' => 'Mungkin anda ingin lihat penjana cap masa Discord yang lain ini untuk mencari yang mana paling sesuai untuk anda:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Penjana cap masa ringkas dan pantas oleh 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Penjana cap masa Discord bahasa tabii oleh dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Penjana cap masa Discord percuma dengan sokongan zon waktu tempatan oleh Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Penjana cap masa Discord dan penukar masa oleh DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Cipta cap masa markdown Discord dari dalam ekosistem bot penjadualan Sesh oleh Tunks',
-      ],
     ],
   ],
 ];

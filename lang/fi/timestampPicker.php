@@ -70,23 +70,6 @@ return [
         'p1' => 'Tiesitkö, että HammerTime ei ole ainoa työkalu aikaleimojen tekemiseen?',
         'p2' => 'Saatat haluta katsoa nämä muut Discord-aikaleimojen tekijät löytääksesi parhaan juuri sinulle:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Yksinkertainen ja nopea aikaleimojen tekijä 3venticiltä',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Luonnollista kieltä käyttävä Discord-aikaleimojen tekijä dabricilta',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Ilmainen Discord-aikaleimojen tekijä joka tukee paikallisia aikavyöhykkeitä Sellframe Ltd.:ltä.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Discord-aikaleimojen tekijä ja aikamuunnin DiscordTimestamp.orgilta',
-      ],
-      'sesh' => [
-        'p' => 'Tee Discordin markdown-aikaleimoja Tunksin Sesh-ajatusbotin avulla',
-      ],
     ],
   ],
 ];
