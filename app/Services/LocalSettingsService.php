@@ -38,7 +38,7 @@ class LocalSettingsService {
   public static function resolveLocalSettingsString(?Request $request = null):?string {
     $settingsCookie = $request?->cookie(config('app.settings_cookie_name'));
     if ($settingsCookie === null){
-      $pageData = app(SsrState::class)?->page ?? [];
+      $pageData = app(SsrState::class)->page;
       $settingsCookie = Arr::get($pageData, 'props.app.settingsCookie');
     }
 
