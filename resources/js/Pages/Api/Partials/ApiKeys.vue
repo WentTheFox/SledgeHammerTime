@@ -2,11 +2,11 @@
 import { DiscordUserInfoProps } from '@/Components/DiscordUserInfo.vue';
 import FormMessage from '@/Components/FormMessage.vue';
 import { useRoute } from '@/composables/useRoute';
+import HtAccordion from '@/Reusable/HtAccordion.vue';
+import HtAccordionItem from '@/Reusable/HtAccordionItem.vue';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtBadge from '@/Reusable/HtBadge.vue';
 import HtButton from '@/Reusable/HtButton.vue';
-import HtAccordion from '@/Reusable/HtAccordion.vue';
-import HtAccordionItem from '@/Reusable/HtAccordionItem.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtFormCheckboxControlled from '@/Reusable/HtFormCheckboxControlled.vue';
@@ -100,8 +100,8 @@ const handleScopeChange = (e: Event) => {
     ? [...form.scopes, target.value]
     : form.scopes.filter(scope => scope !== target.value);
 };
-
-const accountName = (discordUserId: string) => props.discordUsers.find(user => user.id === discordUserId)?.name ?? discordUserId;
+const discordUsersIndex = computed(() => props.discordUsers.reduce((a,c) => ({ ...a, [c.id]: c }), {} as Record<DiscordUserInfoProps['id'], DiscordUserInfoProps>));
+const accountName = (discordUserId: string) => discordUsersIndex.value[discordUserId]?.name ?? discordUserId;
 
 // A plain UTC date, so what the server rendered is exactly what the browser shows
 const formatDate = (iso: string) => iso.slice(0, 10);
@@ -194,13 +194,14 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
         </template>
 
         <div>
-          {{ $t('profile.apiKeys.list.actsAs') }}: {{ accountName(key.discordUserId) }}
-          · {{ $t('profile.apiKeys.list.createdAt') }}: {{ formatDate(key.createdAt) }}
-          · {{ $t('profile.apiKeys.list.lastUsedAt') }}:
-          {{ key.lastUsedAt ? formatDate(key.lastUsedAt) : $t('profile.apiKeys.list.neverUsed') }}
-          <template v-if="key.expiresAt">
-            · {{ $t('profile.apiKeys.list.expiresAt') }}: {{ formatDate(key.expiresAt) }}
-          </template>
+          <ul>
+            <li>{{ $t('profile.apiKeys.list.actsAs', { accountName: accountName(key.discordUserId) }) }}</li>
+            <li>{{ $t('profile.apiKeys.list.createdAt', { createdAt: formatDate(key.createdAt) }) }}</li>
+            <li>{{ $t('profile.apiKeys.list.lastUsedAt', { lastUsedAt: key.lastUsedAt ? formatDate(key.lastUsedAt) : $t('profile.apiKeys.list.neverUsed') }) }}</li>
+            <li v-if="key.expiresAt">
+              {{ $t('profile.apiKeys.list.expiresAt', { expiresAt: formatDate(key.expiresAt) }) }}
+            </li>
+          </ul>
         </div>
         <div>
           <template v-if="confirming?.id !== key.id">
@@ -232,11 +233,12 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
               {{ $t('actions.cancel') }}
             </HtButton>
             <HtButton
-              :color="confirming.action === 'revoke' ? 'danger' : 'warning'"
+              v-if="confirming?.action"
+              :color="confirming?.action === 'revoke' ? 'danger' : 'warning'"
               :disabled="actionForm.processing"
               :aria-busy="actionForm.processing ? 'true' : undefined"
-              :icon-start="confirming.action === 'revoke' ? faTrash : faArrowsRotate"
-              @click="runAction(key, confirming.action)"
+              :icon-start="confirming?.action === 'revoke' ? faTrash : faArrowsRotate"
+              @click="runAction(key, confirming?.action)"
             >
               {{ $t('actions.confirm') }}
             </HtButton>
