@@ -70,23 +70,6 @@ return [
         'p1' => 'Czy wiesz, że HammerTime nie jest jedynym narzędziem do generowania znaczników czasu?',
         'p2' => 'Warto sprawdzić inne generatory znaczników czasu Discord, aby znaleźć taki, który będzie dla Ciebie najlepszy:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Prosty i szybki generator znaczników czasu firmy 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Generator znaczników czasu Discord w języku naturalnym autorstwa dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Darmowy generator znaczników czasu Discord z obsługą lokalnej strefy czasowej przez Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Generator znaczników czasu Discord i konwerter czasu DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Tworzenie znaczników czasu Discord z poziomu ekosystemu bota planującego Sesh firmy Tunks',
-      ],
     ],
   ],
 ];
