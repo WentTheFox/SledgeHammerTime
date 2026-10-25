@@ -39,7 +39,12 @@ class LocalSettingsService {
     $settingsCookie = $request?->cookie(config('app.settings_cookie_name'));
     if ($settingsCookie === null){
       $pageData = app(SsrState::class)->page;
-      $settingsCookie = Arr::get($pageData, 'props.app.settingsCookie');
+      $theme = Arr::get($pageData, 'props.app.theme');
+      $lightThemeValue = null;
+      if ($theme !== null) {
+        $lightThemeValue = $theme === 'light' ? 'true' : 'false';
+      }
+      $settingsCookie = json_encode(['light-theme' => $lightThemeValue]);
     }
 
     return is_string($settingsCookie) ? $settingsCookie : null;

@@ -103,7 +103,7 @@ class HandleInertiaRequests extends Middleware {
         'supportedLanguages' => config('languages.supported_locales'),
         'crowdinProjectId' => config('services.crowdin.project_identifier'),
         'statusPageUrl' => config('app.status_page_url') ?: null,
-        'settingsCookie' => LocalSettingsService::resolveLocalSettingsString($request),
+        'theme' => LocalSettingsService::resolveTheme($request),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
       'crowdinData' => fn() => self::isStaticCachedRoute($request) ? null : app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
