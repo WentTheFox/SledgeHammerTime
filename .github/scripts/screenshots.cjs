@@ -29,30 +29,37 @@ const toFileName = (url) => {
   ];
   const viewport = { width: 1920, height: 1080 };
 
-  fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch();
-  const context = await browser.newContext({ viewport, userAgent: process.env.USER_AGENT });
   let failures = 0;
 
-  for (const url of urls) {
-    const page = await context.newPage();
-    try {
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 });
-      const file = path.join(outputDir, toFileName(url));
-      await page.screenshot({
-        path: file,
-        fullPage: false,
-        style:
-          // Hide Web Archive header
-          '#wm-ipp-base{display:none!important}'
-      });
-      console.log(`✔ ${url} -> ${file}`);
-    } catch (e) {
-      failures++;
-      console.error(`✘ ${url}: ${e.message}`);
-    } finally {
-      await page.close();
+  // One subfolder per color scheme, sites that support prefers-color-scheme render differently in each
+  for (const colorScheme of ['light', 'dark']) {
+    const schemeDir = path.join(outputDir, colorScheme);
+    fs.mkdirSync(schemeDir, { recursive: true });
+    const context = await browser.newContext({ viewport, colorScheme, userAgent: process.env.USER_AGENT });
+
+    for (const url of urls) {
+      const page = await context.newPage();
+      try {
+        await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 });
+        const file = path.join(schemeDir, toFileName(url));
+        await page.screenshot({
+          path: file,
+          fullPage: false,
+          style:
+            // Hide Web Archive header
+            '#wm-ipp-base{display:none!important}'
+        });
+        console.log(`✔ [${colorScheme}] ${url} -> ${file}`);
+      } catch (e) {
+        failures++;
+        console.error(`✘ [${colorScheme}] ${url}: ${e.message}`);
+      } finally {
+        await page.close();
+      }
     }
+
+    await context.close();
   }
 
   await browser.close();

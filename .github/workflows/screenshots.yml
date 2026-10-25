@@ -62,7 +62,7 @@ jobs:
       - name: Resize screenshots
         run: |
           sudo apt-get install -y --no-install-recommends imagemagick
-          mogrify -resize '604x340!' "$OUTPUT_DIR"/*.png
+          mogrify -resize '604x340!' "$OUTPUT_DIR"/*/*.png
 
       - name: Push screenshots to branch
         env:
