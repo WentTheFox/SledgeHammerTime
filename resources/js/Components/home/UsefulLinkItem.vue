@@ -11,6 +11,8 @@ import { computed, inject } from 'vue';
 const props = defineProps<{
   href: string;
   image: string;
+  // Shown instead of `image` when the dark theme is active
+  darkImage?: string;
   name?: string;
   desc?: string;
   isLocal?: boolean;
@@ -47,6 +49,13 @@ const displayName = computed(() => {
         <div class="card-top-half">
           <HtOptimizedImage
             :src="image"
+            :class="darkImage ? 'theme-light-image' : undefined"
+            alt=""
+          />
+          <HtOptimizedImage
+            v-if="darkImage"
+            :src="darkImage"
+            class="theme-dark-image"
             alt=""
           />
         </div>
