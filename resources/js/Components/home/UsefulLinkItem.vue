@@ -15,6 +15,7 @@ const props = defineProps<{
   desc?: string;
   isLocal?: boolean;
   allowReferrer?: boolean;
+  smallSize?: boolean;
 }>();
 
 const route = useRoute();
@@ -25,12 +26,16 @@ const displayName = computed(() => {
   }
 
   const url = new URL(props.href);
-  return (url.hostname + url.pathname).replace(/\/+$/, '');
+  return (url.hostname + url.pathname)
+    // Remove trailing slashes
+    .replace(/\/+$/, '')
+    // Add word-break opportunities
+    .replace(/([./-]|discord|time|stamp)/g, '$1\u200b');
 });
 </script>
 
 <template>
-  <div class="useful-link">
+  <div :class="['useful-link', { 'small-size': smallSize }]">
     <component
       :is="isLocal ? Link : 'a'"
       :href="isLocal ? route(href, { locale: currentLanguage?.locale ?? FALLBACK_LANGUAGE }) : href"
@@ -51,7 +56,10 @@ const displayName = computed(() => {
             <slot name="name">{{ displayName }}</slot>
           </span>
 
-          <span class="link-desc">
+          <span
+            v-if="desc"
+            class="link-desc"
+          >
             <slot name="desc">{{ desc }}</slot>
           </span>
         </div>

@@ -3,6 +3,7 @@ import { useSlots } from 'vue';
 
 const props = defineProps<{
   class?: string;
+  halfSize?: boolean;
   id?: string;
 }>();
 
@@ -12,7 +13,7 @@ const slots = useSlots();
 <template>
   <article
     :id="id"
-    :class="['card', props.class]"
+    :class="['card', { 'half-size': halfSize }, props.class]"
   >
     <header
       v-if="slots.header"

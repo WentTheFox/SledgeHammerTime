@@ -27,6 +27,10 @@
     margin-top: design.app-value('useful-link-spacing');
     margin-bottom: design.app-value('useful-link-spacing');
 
+    &.small-size {
+      max-width: design.app-value('useful-link-max-width-small-size');
+    }
+
     .link-wrap {
       border-radius: design.app-value('useful-link-border-radius');
       text-decoration: none !important;
@@ -76,10 +80,10 @@
         justify-content: center;
         align-items: center;
         padding: design.app-value('useful-link-spacing');
+        gap: design.app-value('useful-link-spacing');
       }
 
       .link-name {
-        margin-bottom: design.app-value('useful-link-spacing');
         font-weight: bold;
         text-decoration: underline;
       }
