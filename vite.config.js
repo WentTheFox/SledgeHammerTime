@@ -73,13 +73,13 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '~@picocss': resolve(__dirname, 'node_modules/@picocss'),
-        '~the-new-css-reset': resolve(__dirname, 'node_modules/the-new-css-reset'),
-        '~@fortawesome': resolve(__dirname, 'node_modules/@fortawesome'),
-        '~tippy.js': resolve(__dirname, 'node_modules/tippy.js'),
-        '@img': resolve(__dirname, 'resources/img'),
-        '@public': resolve(__dirname, 'public'),
-        '@': resolve(__dirname, 'resources/js'),
+        '~@picocss': resolve(import.meta.dirname, 'node_modules/@picocss'),
+        '~the-new-css-reset': resolve(import.meta.dirname, 'node_modules/the-new-css-reset'),
+        '~@fortawesome': resolve(import.meta.dirname, 'node_modules/@fortawesome'),
+        '~tippy.js': resolve(import.meta.dirname, 'node_modules/tippy.js'),
+        '@img': resolve(import.meta.dirname, 'resources/img'),
+        '@public': resolve(import.meta.dirname, 'public'),
+        '@': resolve(import.meta.dirname, 'resources/js'),
       },
     },
     plugins: [

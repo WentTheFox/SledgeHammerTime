@@ -76,28 +76,28 @@ const currentLanguage = inject(currentLanguageInject);
     </template>
 
     <UsefulLinkItem
-      :desc="$t('timestampPicker.usefulLinks.competitors.3vfi.p')"
       href="https://r.3v.fi/discord-timestamps/"
       :image="r3vfi"
       :allow-referrer="true"
+      :small-size="true"
     />
     <UsefulLinkItem
-      :desc="$t('timestampPicker.usefulLinks.competitors.dabric.p')"
       href="https://timestamp.dabric.xyz/"
       :image="dabric"
       :allow-referrer="true"
+      :small-size="true"
     />
     <UsefulLinkItem
-      :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.p')"
       href="https://discordtimestamp.com/"
       :image="discordTimestampCom"
       :allow-referrer="true"
+      :small-size="true"
     />
     <UsefulLinkItem
-      :desc="$t('timestampPicker.usefulLinks.competitors.sesh.p')"
       href="https://sesh.fyi/timestamp/"
       :image="seshFyi"
       :allow-referrer="true"
+      :small-size="true"
     />
   </UsefulLinksCard>
 </template>
