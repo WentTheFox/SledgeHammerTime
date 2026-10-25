@@ -2,7 +2,7 @@
 
 return [
   'heading' => 'API Access',
-  'description' => 'Generate timestamps and change your bot settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
+  'description' => 'Generate timestamps and change your app settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
   'overview' => [
     'baseUrl' => 'Base URL',
     'reference' => 'Interactive reference',
@@ -16,7 +16,7 @@ return [
     'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
     'example' => 'This returns the timestamp for 18:30 today in your saved time zone. The key in the examples is made up, use your own:',
     'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
-    'statistics' => 'Runs are counted like bot commands, and the reply says which run it was, unless you turned statistics off in your app settings.',
+    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned statistics off in your app settings.',
   ],
   'permissions' => [
     'heading' => 'Permissions',
@@ -28,8 +28,8 @@ return [
     ],
     'scopes' => [
       'timestamps:create' => 'Generating timestamps with the timestamp endpoints and MCP tools, as the Discord account the key acts as.',
-      'settings:read' => 'Reading the bot settings of that account.',
-      'settings:write' => 'Changing the bot settings of that account, only the fields that are sent.',
+      'settings:read' => 'Reading the app settings of that account.',
+      'settings:write' => 'Changing the app settings of that account, only the fields that are sent.',
     ],
   ],
   'reference' => [
