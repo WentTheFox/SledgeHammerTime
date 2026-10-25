@@ -103,7 +103,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   } = useLocalBooleanSetting(
     settingSource,
     'hide-how-to',
-    falseByDefault,
+    nullByDefault,
   );
   const {
     value: hourCycle,

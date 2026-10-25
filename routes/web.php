@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () use ($loginEnabled) {
 // Vue frontend API
 Route::prefix('/frontend')->group(function () {
   Route::get('/app-usage', [BotInfoController::class, 'usage'])->name('app.usage');
+  Route::get('/local-settings', [LocalSettingsController::class, 'get'])->name('app.getLocalSettings');
   Route::post('/local-settings', [LocalSettingsController::class, 'persist'])->name('app.persistLocalSettings');
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
