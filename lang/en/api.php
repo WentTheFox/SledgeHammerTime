@@ -16,7 +16,7 @@ return [
     'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
     'example' => 'This returns the timestamp for 18:30 today in your saved time zone. The key in the examples is made up, use your own:',
     'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
-    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned statistics off in your app settings.',
+    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned telemetry off in your app settings.',
   ],
   'permissions' => [
     'heading' => 'Permissions',
