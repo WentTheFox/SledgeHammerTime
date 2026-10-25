@@ -70,23 +70,6 @@ return [
         'p1' => 'HammarTime以外のタイムスタンプ生成ツールはご存知ですか？',
         'p2' => '以下のDiscordのタイムスタンプ生成ツールから、最適なものを探してみてください：',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'シンプルで高速なタイムスタンプ生成ツール（開発：3ventic）',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => '自然言語形式のDiscordタイムスタンプ生成ツール（開発：dabric）',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'ローカルのタイムゾーンに対応した無料のDiscordタイムスタンプ生成ツール（開発：Sellframe Ltd）',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Discordのタイムスタンプ生成・時刻変換ツール（開発：DiscordTimestamp.org）',
-      ],
-      'sesh' => [
-        'p' => '日程調整ボットSeshと同開発元のタイムスタンプ生成ツール（開発：Tunks）',
-      ],
     ],
   ],
 ];

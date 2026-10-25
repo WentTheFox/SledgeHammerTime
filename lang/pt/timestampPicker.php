@@ -70,23 +70,6 @@ return [
         'p1' => 'Sabia que o HammerTime não é a única ferramenta para gerar carimbos de data e hora?',
         'p2' => 'Talvez queira dar uma vista de olhos nestes outros geradores de carimbos de data e hora para o Discord, para encontrar aquele que melhor se adequa às suas necessidades:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Um gerador de carimbos de data e hora simples e rápido da 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Gerador de carimbos de data e hora no Discord com linguagem natural, da autoria de dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Gerador gratuito de carimbos de data e hora para o Discord, com suporte ao fuso horário local, da Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Gerador de carimbos de data/hora e conversor de hora para o Discord, da DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Criar carimbos de data e hora no formato Markdown do Discord a partir do ecossistema de ‘bots’ de agendamento Sesh, da Tunks',
-      ],
     ],
   ],
 ];

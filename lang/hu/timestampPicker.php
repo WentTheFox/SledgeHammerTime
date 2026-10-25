@@ -70,23 +70,6 @@ return [
         'p1' => 'Tudtad, hogy a HammerTime nem az egyetlen eszköz időbélyegek generálására?',
         'p2' => 'Érdemes megnézned ezeket a más Discord időbélyeg generátorokat, hogy megtaláld a számodra legmegfelelőbbet:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Egy egyszerű és gyors időbélyeg generátor 3ventic által',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Természetes nyelvű Discord időbélyeg generátor dabric által',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Ingyenes Discord időbélyeggenerátor helyi időzóna-támogatással a Sellframe Ltd. által.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Discord időbélyeg generátor és idő átalakító a DiscordTimestamp.org segítségével',
-      ],
-      'sesh' => [
-        'p' => 'Discord markdown időbélyegzők létrehozása a Sesh ütemező bot ökoszisztémájából Tunks által',
-      ],
     ],
   ],
 ];

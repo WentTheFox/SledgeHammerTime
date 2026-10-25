@@ -70,23 +70,6 @@ return [
         'p1' => 'HammerTime이 타임스탬프를 생성하는 유일한 도구가 아니라는 사실을 알고 계셨나요?',
         'p2' => '아래의 다른 Discord 타임스탬프 생성기를 확인해 보세요.',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => '3ventic님 제작 간단하고 빠른 타임스탬프 생성기',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'dabric님 제작 자연어 Discord 타임스탬프 생성기',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Sellframe Ltd. 제작, 현지 시간대를 지원하는 무료 Discord 타임스탬프 생성기',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'DiscordTimestamp.org 제공 Discord 타임스탬프 생성기 및 시간 변환기',
-      ],
-      'sesh' => [
-        'p' => 'Tunks 제공 Sesh 스케줄 봇 환경 내에서 Discord 마크다운 타임스탬프 생성',
-      ],
     ],
   ],
 ];

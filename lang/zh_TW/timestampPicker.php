@@ -70,23 +70,6 @@ return [
         'p1' => '您知道 HammerTime 不是產生時間戳記的唯一工具嗎？',
         'p2' => '您不妨參考以下其他 Discord 時間戳記產生器，找出最適合您的那一個：',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => '由 3ventic 開發的簡易且快速的時間戳記產生器',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => '由 dabric 開發的自然語言 Discord 時間戳記產生器',
-      ],
-      'discordtimestampCom' => [
-        'p' => '由 Sellframe Ltd. 提供的免費 Discord 時間戳記產生器，支援本地時區。',
-      ],
-      'discordtimestampOrg' => [
-        'p' => '由 DiscordTimestamp.org 提供的 Discord 時間戳記產生器與時間轉換器',
-      ],
-      'sesh' => [
-        'p' => '透過 Tunks 開發的 Sesh 排程機器人生態系統，在系統內部建立 Discord Markdown 時間戳記',
-      ],
     ],
   ],
 ];

@@ -70,23 +70,6 @@ return [
         'p1' => 'Saviez-vous que HammerTime n\'est pas le seul outil pour générer des horodatages ?',
         'p2' => 'Vous voudrez peut-être essayer ces autres générateurs d\'horodatages Discord pour trouver celui qui vous convient le mieux :',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Un générateur simple et rapide d\'horodatages par 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Générateur d\'horodatages Discord en langage naturel par dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Générateur gratuit d\'horodatages Discord avec prise en charge de fuseaux horaires locaux par Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Générateur d\'horodatages Discord et convertisseur de temps par DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Créez des horodatages markdown Discord depuis l\'écosystème du bot de planification Sesh par Tunks',
-      ],
     ],
   ],
 ];
