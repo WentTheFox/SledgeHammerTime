@@ -19,10 +19,10 @@ return [
     'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
     'healthChartTitle' => 'App állapota',
-    'successRateLabel' => 'Success rate',
+    'successRateLabel' => 'Sikerességi arány',
   ],
   'commandsReference' => [
-    'title' => 'Parancsok Listája',
+    'title' => 'Parancsok listája',
     'description' => 'Lentebb találsz egy listát az összes parancsról és a paramétereikről. Ez az oldal jelenleg a parancs futtatása közben a Discord felületen látható leírásokkal azonos, de a jövőben további információval és példákkal bővülhet.',
     'commandType' => 'Típus',
     'commandTypeNames' => [
