@@ -18,11 +18,10 @@ const toFileName = (url) => {
     'https://sesh.fyi/timestamp/',
     'https://discord-timestamps.com/',
     'https://r.3v.fi/discord-timestamps/',
-    'https://discordtimestamp.com/',
+    'https://web.archive.org/web/https://discordtimestamp.com/',
     'https://timestamp.tools/tools/discord-timestamp',
     'https://www.discordutils.com/timestamps',
     'https://discordtimestampgenerator.com/',
-    'https://codeconvey.com/en/tools/discord-timestamp-generator',
     'https://discord-timestamp.org/',
   ];
   const viewport = { width: 1920, height: 1080 };
@@ -37,7 +36,12 @@ const toFileName = (url) => {
     try {
       await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 });
       const file = path.join(outputDir, toFileName(url));
-      await page.screenshot({ path: file, fullPage: false });
+      await page.screenshot({
+        path: file,
+        fullPage: false,
+        // Hide Web Archive header
+        style: '#wm-ipp-base{display:none!important}'
+      });
       console.log(`✔ ${url} -> ${file}`);
     } catch (e) {
       failures++;
