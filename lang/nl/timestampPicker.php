@@ -70,23 +70,6 @@ return [
         'p1' => 'Wist u dat HammerTime niet de enige tool is voor het genereren van tijdstempels?',
         'p2' => 'Misschien wilt u deze andere Discord-tijdstempel generatoren eens bekijken om er een te vinden die het beste bij u past:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Een eenvoudige en snelle tijdstempelgenerator van 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Generator voor Discord-tijstempels op basis van natuurlijke taal, door dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Gratis Discord-tijdstempelgenerator met ondersteuning voor lokale tijdzones, aangeboden door Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Discord-tijdstempelgenerator en tijdconverter van DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Maak Discord markdown tijdstempels aan vanuit het Sesh-ecosysteem van planningsbots van Tunks',
-      ],
     ],
   ],
 ];

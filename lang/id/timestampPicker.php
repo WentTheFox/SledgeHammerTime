@@ -70,23 +70,6 @@ return [
         'p1' => 'Tahukah Anda bahwa HammerTime bukanlah satu-satunya alat untuk menghasilkan stempel waktu?',
         'p2' => 'Anda mungkin ingin melihat generator stempel waktu Discord lainnya untuk menemukan yang paling sesuai untuk Anda.',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Generator stempel waktu sederhana dan cepat dari 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Generator stempel waktu Discord bahasa alami oleh dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Generator stempel waktu Discord gratis dengan dukungan zona waktu lokal oleh Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Generator stempel waktu dan konverter waktu Discord oleh DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Buat stempel waktu markdown Discord dari dalam ekosistem bot penjadwalan Sesh oleh Tunks.',
-      ],
     ],
   ],
 ];
