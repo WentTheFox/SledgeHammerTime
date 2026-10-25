@@ -3,26 +3,19 @@ import TimestampTable from '@/Components/home/table/TimestampTable.vue';
 import TimestampPicker from '@/Components/home/TimestampPicker.vue';
 import { useLocale } from '@/composables/useLocale';
 import { useUiLocale } from '@/composables/useUiLocale';
-import { dateTimeLibraryInject, pagePropsInject } from '@/injection-keys';
+import { localSettingsInject, pagePropsInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
-import Cookies from 'js-cookie';
 import { wTrans } from 'laravel-vue-i18n';
-import { computed, inject, onMounted, ref } from 'vue';
+import { computed, inject } from 'vue';
 
-const dtl = inject(dateTimeLibraryInject);
 const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
-const showHowTo = ref(false);
-const howToCookieName = 'how-to-dismiss';
-const howToCookieValue = 'how-to-dismiss';
+const settings = inject(localSettingsInject);
 
 const handleHowToClose = () => {
-  Cookies.set(howToCookieName, howToCookieValue, {
-    expires: dtl?.value.now().addYears(2).toDate(),
-  });
-  showHowTo.value = false;
+  settings?.setHowTo(false);
 };
 
 const syntaxColName = computed(() => {
@@ -34,14 +27,11 @@ const syntaxColName = computed(() => {
   return originalText.value;
 });
 
-onMounted(() => {
-  showHowTo.value = Cookies.get(howToCookieName) !== howToCookieValue;
-});
 </script>
 
 <template>
   <HtAlert
-    v-if="showHowTo"
+    v-if="!settings?.hideHowTo"
     type="info"
     @close="handleHowToClose"
   >

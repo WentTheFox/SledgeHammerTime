@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\LocalSettingsService;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -13,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
 
-  public static function cacheKey(string $page, string $locale): string {
+  public static function cacheKey(string $page, string $locale, string $theme): string {
     $version = Config::get('app.page_cache.version', 0);
-    return "page-html-{$page}-{$locale}-v$version";
+    return "page-html-{$page}-{$locale}-{$theme}-v$version";
   }
 
   /**
@@ -24,7 +25,9 @@ class CachePageResponse {
    */
   public static function forgetPage(string $page): void {
     foreach (Config::get('languages.ui_locale_map', []) as $locale) {
-      Cache::forget(static::cacheKey($page, $locale));
+      foreach(LocalSettingsService::THEMES as $theme) {
+        Cache::forget(static::cacheKey($page, $locale, $theme));
+      }
     }
   }
 
@@ -100,7 +103,8 @@ class CachePageResponse {
     }
 
     $locale = App::getLocale();
-    $cacheKey = static::cacheKey($page, $locale);
+    $theme = LocalSettingsService::resolveTheme($request);
+    $cacheKey = static::cacheKey($page, $locale, $theme);
 
     /** @var array{html: string, last_modified: int}|string|null $cached */
     $cached = Cache::get($cacheKey);

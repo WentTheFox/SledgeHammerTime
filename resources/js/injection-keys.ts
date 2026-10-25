@@ -56,6 +56,7 @@ export interface LocalSettingsValue {
   readonly sidebarOnRight: boolean | null;
   readonly sidebarOpen: boolean | null;
   readonly isLightTheme: boolean | null;
+  readonly hideHowTo: boolean | null;
   readonly hourCycle: HourCycle | null;
   readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
   readonly timezoneStickyHeaders: boolean | null;
@@ -74,6 +75,7 @@ export interface LocalSettingsValue {
   readonly setHourCycle: (e: Event) => void;
   readonly setFirstDayOfWeek: (e: Event) => void;
   readonly toggleTimezoneStickyHeaders: (e: Event) => void;
+  readonly setHowTo: (value: boolean) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

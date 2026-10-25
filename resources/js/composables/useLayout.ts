@@ -79,7 +79,7 @@ export const useLayout = (layoutProps: LayoutProps) => {
   );
 
   const chrono = useChrono(currentLanguage);
-  const localSettings = useLocalSettings(currentLanguage, chrono);
+  const localSettings = useLocalSettings(currentLanguage, chrono, pagePropsRef);
   const localSettingsValue = readonly(localSettings);
   provide(localSettingsInject, localSettingsValue);
   provide(themeInject, readonly(useTheme(localSettingsValue)));
