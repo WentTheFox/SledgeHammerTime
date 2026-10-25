@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import PageIcon from '@/Components/PageIcon.vue';
-import { PageName } from '@/utils/pages';
 
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
@@ -11,10 +10,12 @@ import HtCopyableText from '@/Reusable/HtCopyableText.vue';
 import HtLinkButton from '@/Reusable/HtLinkButton.vue';
 import HtOptimizedImage from '@/Reusable/HtOptimizedImage.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { PageName } from '@/utils/pages';
 import { MISSING_ROUTE_HREF, safeRoute } from '@/utils/safe-route';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-import usefulLinksBot from '@img/useful-links/bot.png';
+import usefulLinksBotDark from '@img/useful-links/dark/bot.png';
+import usefulLinksBotLight from '@img/useful-links/light/bot.png';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
 
@@ -33,8 +34,12 @@ defineProps<{ discordAppId: string }>();
   <HtCard class="bot-info">
     <template #header>
       <HtOptimizedImage
-        class="bot-info-image"
-        :src="usefulLinksBot"
+        class="bot-info-image theme-dark-image"
+        :src="usefulLinksBotDark"
+      />
+      <HtOptimizedImage
+        class="bot-info-image theme-light-image"
+        :src="usefulLinksBotLight"
       />
       <h1>
         <PageIcon

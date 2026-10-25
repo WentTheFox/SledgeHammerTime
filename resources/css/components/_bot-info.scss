@@ -4,6 +4,10 @@
   @include design.content-link-style;
 }
 
+.bot-info {
+  @include design.themed-images;
+}
+
 .bot-info-image {
   max-width: 300px;
   border-radius: .5em;
