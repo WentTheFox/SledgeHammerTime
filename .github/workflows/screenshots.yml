@@ -58,9 +58,11 @@ jobs:
         env:
           USER_AGENT: 'Mozilla/5.0 (compatible; ScreenshotsWorkflow; +${{ github.server_url }}/${{ github.repository }}; run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
 
-      # ImageMagick is preinstalled on the runner image; "!" ignores the aspect ratio so the size is exact
+      # "!" ignores the aspect ratio so the size is exact
       - name: Resize screenshots
-        run: mogrify -resize '604x340!' "$OUTPUT_DIR"/*.png
+        run: |
+          sudo apt-get install -y --no-install-recommends imagemagick
+          mogrify -resize '604x340!' "$OUTPUT_DIR"/*.png
 
       - name: Push screenshots to branch
         env:
