@@ -7,16 +7,20 @@ import { localSettingsInject, pagePropsInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import { wTrans } from 'laravel-vue-i18n';
-import { computed, inject } from 'vue';
+import { computed, inject, onMounted, ref } from 'vue';
 
 const pageProps = inject(pagePropsInject);
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
 const settings = inject(localSettingsInject);
+const mounted = ref(false);
 
 const handleHowToClose = () => {
   settings?.setHideHowTo(true);
 };
+
+// The setting defaults to null when unset and would display the alert element during SSR without this
+const showHowTo = computed(() => settings?.hideHowTo === null ? mounted.value : !settings?.hideHowTo);
 
 const syntaxColName = computed(() => {
   const originalText = wTrans('timestampPicker.table.syntaxColumn');
@@ -27,11 +31,14 @@ const syntaxColName = computed(() => {
   return originalText.value;
 });
 
+onMounted(() => {
+  mounted.value = true;
+})
 </script>
 
 <template>
   <HtAlert
-    v-if="!settings?.hideHowTo"
+    v-if="showHowTo"
     type="info"
     @close="handleHowToClose"
   >
