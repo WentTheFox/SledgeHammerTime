@@ -1,84 +1,91 @@
 import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
+import { InitialValueFn, useLocalBooleanSetting } from '@/composables/useLocalBooleanSetting';
 import { CurrentLanguageData } from '@/injection-keys';
 import { isValidMessageTimestampFormat } from '@/model/message-timestamp-format';
 import type { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
 
-const splitPrefKey = 'split-input';
-const flatUiPrefKey = 'flat-ui';
-const nlpPrefKey = 'nlp-input';
-const customDatePrefKey = 'custom-date-input';
-const customTimePrefKey = 'custom-time-input';
-const sidebarPrefKey = 'sidebar-right';
-const sidebarOpenPrefKey = 'sidebar-open';
-const lightThemePrefKey = 'light-theme';
 const hourCyclePrefKey = 'hour-cycle';
 const firstDayOfWeekPrefKey = 'first-day-of-week';
 const timezoneStickyHeadersPrefKey = 'timezone-sticky-headers';
 const localHiddenFormatsPrefKey = 'local-hidden-formats';
 const localFormatOrderPrefKey = 'local-format-order';
 
-const trueByDefault = (storedPref: string | null): boolean => storedPref !== 'false';
-const falseByDefault = (storedPref: string | null): boolean => storedPref === 'true';
-const nullByDefault = (storedPref: string | null): boolean | null =>
-  storedPref === null ? null : storedPref === 'true';
+const trueByDefault: InitialValueFn = (storedPref) => ({ result: storedPref !== 'false' });
+const falseByDefault: InitialValueFn = (storedPref) => ({ result: storedPref === 'true' });
+const nullByDefault: InitialValueFn = (storedPref) =>
+  ({ result: storedPref === null ? null : storedPref === 'true' });
 
 export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono | null>>) => {
-  const naturalLanguageInputEnabled = ref<boolean | null>(null);
-  const customDateInputEnabled = ref<boolean | null>(null);
-  const customTimeInputEnabled = ref<boolean | null>(null);
-  const combinedInputsEnabled = ref<boolean | null>(null);
-  const flatUiEnabled = ref<boolean | null>(null);
-  const sidebarOnRight = ref<boolean | null>(null);
-  const sidebarOpen = ref<boolean | null>(null);
-  const isLightTheme = ref<boolean | null>(null);
+  const naturalLanguageInputAvailable = computed(() => Boolean(chrono.value));
+  const setInitialCombinedInput: InitialValueFn = (storedPref: string | null) => {
+    const storedLegacyPref = localStorage.getItem('split-input');
+    if (storedLegacyPref !== null) {
+      return { result: storedLegacyPref !== 'true', save: true };
+    }
+    if (storedPref !== null) {
+      return { result: storedPref === 'true' };
+    }
+
+    // Feature detection for datetime-local input
+    const testInput = document.createElement('input');
+    testInput.setAttribute('type', 'datetime-local');
+    const testValue = '1)';
+    testInput.value = testValue;
+    return { result: testInput.value !== testValue, save: true };
+  };
+
+  const {
+    value: flatUiEnabled,
+    toggleByCheckboxEvent: toggleFlatUi,
+  } = useLocalBooleanSetting('flat-ui', falseByDefault);
+  const {
+    value: naturalLanguageInputEnabled,
+    toggleByCheckboxEvent: toggleNaturalLanguageInput,
+  } = useLocalBooleanSetting(
+    'nlp-input',
+    falseByDefault,
+    v => Boolean(v) && naturalLanguageInputAvailable.value,
+  );
+  const {
+    value: combinedInputsEnabled,
+    toggleByCheckboxEventInverted: toggleSeparateInputs,
+  } = useLocalBooleanSetting('combined-inputs', setInitialCombinedInput);
+  const {
+    value: customDateInputEnabled,
+    toggleByCheckboxEvent: toggleCustomDateInput,
+  } = useLocalBooleanSetting('custom-date-input', trueByDefault);
+  const {
+    value: customTimeInputEnabled,
+    toggleByCheckboxEvent: toggleCustomTimeInput,
+  } = useLocalBooleanSetting('custom-time-input', trueByDefault);
+  const {
+    value: sidebarOnRight,
+    rawValue: rawSidebarOnRight,
+    toggle: toggleSidebarOnRight,
+  } = useLocalBooleanSetting(
+    'sidebar-right',
+    falseByDefault,
+    v => currentLanguage?.value.languageConfig?.rtl ? !v : v,
+  );
+  const { value: sidebarOpen, setValue: setSidebarOpen } = useLocalBooleanSetting(
+    'sidebar-open',
+    nullByDefault,
+  );
+  const { value: isLightTheme, setValue: setLightTheme } = useLocalBooleanSetting(
+    'light-theme',
+    nullByDefault,
+  );
+  const { value: timezoneStickyHeaders, toggleByCheckboxEvent: toggleTimezoneStickyHeaders } = useLocalBooleanSetting(
+    timezoneStickyHeadersPrefKey,
+    trueByDefault,
+  );
   const hourCycle = ref<HourCycle | null>(null);
   const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
-  const timezoneStickyHeaders = ref<boolean | null>(null);
   const localHiddenFormats = ref<string[]>([]);
   const localFormatOrder = ref<string[]>([]);
 
-  const effectiveSidebarOnRight = computed(() => (
-    currentLanguage?.value.languageConfig?.rtl ? !sidebarOnRight.value : sidebarOnRight.value
-  ));
-  const naturalLanguageInputAvailable = computed(() => Boolean(chrono.value));
-  const effectiveNaturalLanguageInputEnabled = computed(() => (
-    Boolean(naturalLanguageInputEnabled.value) && naturalLanguageInputAvailable.value
-  ));
-
-  watch(naturalLanguageInputEnabled, (newValue) => {
-    localStorage.setItem(nlpPrefKey, newValue ? 'true' : 'false');
-  });
-  watch(customDateInputEnabled, (newValue) => {
-    localStorage.setItem(customDatePrefKey, newValue ? 'true' : 'false');
-  });
-  watch(customTimeInputEnabled, (newValue) => {
-    localStorage.setItem(customTimePrefKey, newValue ? 'true' : 'false');
-  });
-  watch(combinedInputsEnabled, (newValue) => {
-    localStorage.setItem(splitPrefKey, newValue ? 'false' : 'true');
-  });
-  watch(flatUiEnabled, (newValue) => {
-    localStorage.setItem(flatUiPrefKey, newValue ? 'true' : 'false');
-  });
-  watch(sidebarOnRight, (newValue) => {
-    localStorage.setItem(sidebarPrefKey, newValue ? 'true' : 'false');
-  });
-  watch(sidebarOpen, (newValue) => {
-    if (newValue === null) {
-      localStorage.removeItem(sidebarOpenPrefKey);
-      return;
-    }
-    localStorage.setItem(sidebarOpenPrefKey, newValue ? 'true' : 'false');
-  });
-  watch(isLightTheme, (newValue) => {
-    if (newValue === null) {
-      localStorage.removeItem(lightThemePrefKey);
-      return;
-    }
-    localStorage.setItem(lightThemePrefKey, newValue ? 'true' : 'false');
-  });
   watch(hourCycle, (newValue) => {
     if (newValue === null) {
       localStorage.removeItem(hourCyclePrefKey);
@@ -93,9 +100,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     }
     localStorage.setItem(firstDayOfWeekPrefKey, newValue.toString());
   });
-  watch(timezoneStickyHeaders, (newValue) => {
-    localStorage.setItem(timezoneStickyHeadersPrefKey, newValue ? 'true' : 'false');
-  });
   watch(localHiddenFormats, (newValue) => {
     localStorage.setItem(localHiddenFormatsPrefKey, JSON.stringify(newValue));
   }, { deep: true });
@@ -103,55 +107,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     localStorage.setItem(localFormatOrderPrefKey, JSON.stringify(newValue));
   }, { deep: true });
 
-  const setInitialCombinedInput = () => {
-    const storedPref = localStorage.getItem(splitPrefKey);
-    if (storedPref !== null) {
-      combinedInputsEnabled.value = storedPref !== 'true';
-      return;
-    }
-
-    // Feature detection for datetime-local input
-    const testInput = document.createElement('input');
-    testInput.setAttribute('type', 'datetime-local');
-    const testValue = '1)';
-    testInput.value = testValue;
-    combinedInputsEnabled.value = testInput.value !== testValue;
-  };
-  const setInitialFlatUi = () => {
-    const storedPref = localStorage.getItem(flatUiPrefKey);
-    // Disable flat UI by default
-    flatUiEnabled.value = falseByDefault(storedPref);
-  };
-  const setInitialNaturalLanguageInput = () => {
-    const storedPref = localStorage.getItem(nlpPrefKey);
-    // Disable NLP input by default
-    naturalLanguageInputEnabled.value = falseByDefault(storedPref);
-  };
-  const setInitialCustomDateInput = () => {
-    const storedPref = localStorage.getItem(customDatePrefKey);
-    // Enable custom date input by default
-    customDateInputEnabled.value = trueByDefault(storedPref);
-  };
-  const setInitialCustomTimeInput = () => {
-    const storedPref = localStorage.getItem(customTimePrefKey);
-    // Enable custom time input by default
-    customTimeInputEnabled.value = trueByDefault(storedPref);
-  };
-  const setInitialSidebarOnRight = () => {
-    const storedPref = localStorage.getItem(sidebarPrefKey);
-    // The sidebar is on the left by default
-    sidebarOnRight.value = falseByDefault(storedPref);
-  };
-  const setInitialSidebarOpen = () => {
-    const storedPref = localStorage.getItem(sidebarOpenPrefKey);
-    // The sidebar is shown on desktop by default
-    sidebarOpen.value = nullByDefault(storedPref);
-  };
-  const setInitialLightTheme = () => {
-    const storedPref = localStorage.getItem(lightThemePrefKey);
-    // The feature is unset by default
-    isLightTheme.value = nullByDefault(storedPref);
-  };
   const setInitialHourCycle = () => {
     const storedPref = localStorage.getItem(hourCyclePrefKey);
     if (isValidHourCycle(storedPref)) {
@@ -167,11 +122,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       }
     }
   };
-  const setInitialTimezoneStickyHeaders = () => {
-    const storedPref = localStorage.getItem(timezoneStickyHeadersPrefKey);
-    // Enable timezone sticky headers by default
-    timezoneStickyHeaders.value = trueByDefault(storedPref);
-  };
   const setInitialLocalHiddenFormats = () => {
     const raw = localStorage.getItem(localHiddenFormatsPrefKey);
     if (!raw) return;
@@ -182,7 +132,8 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
           (v): v is string => isValidMessageTimestampFormat(v) || v === 'unix',
         );
       }
-    } catch { /* ignore malformed data */ }
+    } catch { /* ignore malformed data */
+    }
   };
   const setInitialLocalFormatOrder = () => {
     const raw = localStorage.getItem(localFormatOrderPrefKey);
@@ -194,72 +145,40 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
           (v): v is string => isValidMessageTimestampFormat(v) || v === 'unix',
         );
       }
-    } catch { /* ignore malformed data */ }
+    } catch { /* ignore malformed data */
+    }
   };
 
   onMounted(() => {
-    setInitialFlatUi();
-    setInitialNaturalLanguageInput();
-    setInitialCombinedInput();
-    setInitialCustomDateInput();
-    setInitialCustomTimeInput();
-    setInitialSidebarOnRight();
-    setInitialSidebarOpen();
-    setInitialLightTheme();
     setInitialHourCycle();
     setInitialFirstDayOfWeek();
-    setInitialTimezoneStickyHeaders();
     setInitialLocalHiddenFormats();
     setInitialLocalFormatOrder();
   });
 
   return {
-    naturalLanguageInputEnabled: effectiveNaturalLanguageInputEnabled,
-    naturalLanguageInputAvailable,
-    customDateInputEnabled,
-    customTimeInputEnabled,
-    combinedInputsEnabled,
+    naturalLanguageInputEnabled,
+    toggleNaturalLanguageInput,
     flatUiEnabled,
-    sidebarOnRight: effectiveSidebarOnRight,
-    rawSidebarOnRight: sidebarOnRight,
+    toggleFlatUi,
+    combinedInputsEnabled,
+    toggleSeparateInputs,
+    customDateInputEnabled,
+    toggleCustomDateInput,
+    customTimeInputEnabled,
+    toggleCustomTimeInput,
+    sidebarOnRight,
+    rawSidebarOnRight,
+    toggleSidebarOnRight,
     sidebarOpen,
+    setSidebarOpen,
     isLightTheme,
+    setLightTheme,
+    timezoneStickyHeaders,
+    toggleTimezoneStickyHeaders,
+    naturalLanguageInputAvailable,
     hourCycle,
     firstDayOfWeek,
-    toggleNaturalLanguageInput(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      naturalLanguageInputEnabled.value = e.target.checked;
-    },
-    toggleCustomDateInput(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      customDateInputEnabled.value = e.target.checked;
-    },
-    toggleCustomTimeInput(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      customTimeInputEnabled.value = e.target.checked;
-    },
-    toggleSeparateInputs(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      combinedInputsEnabled.value = !e.target.checked;
-    },
-    toggleFlatUi(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-
-      flatUiEnabled.value = e.target.checked;
-    },
-    toggleSidebarOnRight() {
-      sidebarOnRight.value = !sidebarOnRight.value;
-    },
-    setSidebarOpen(value: boolean) {
-      sidebarOpen.value = value;
-    },
-    setLightTheme(isLight: boolean | null) {
-      isLightTheme.value = isLight;
-    },
     setHourCycle(e: Event) {
       if (!(e.target instanceof HTMLSelectElement)) return;
 
@@ -273,11 +192,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
       firstDayOfWeek.value = !isNaN(parsed) && parsed >= 0 && parsed <= 6
         ? parsed as DateTimeLibraryWeekday
         : null;
-    },
-    timezoneStickyHeaders,
-    toggleTimezoneStickyHeaders(e: Event) {
-      if (!(e.target instanceof HTMLInputElement)) return;
-      timezoneStickyHeaders.value = e.target.checked;
     },
     localHiddenFormats,
     localFormatOrder,
