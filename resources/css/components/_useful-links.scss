@@ -72,32 +72,7 @@
           border-radius: design.app-value('card-border-radius');
         }
 
-        // Same theme detection as the color variables: explicit data-theme wins, otherwise the system preference
-        .theme-dark-image {
-          display: none;
-        }
-
-        @media (prefers-color-scheme: dark) {
-          :root:not([data-theme="light"]) & {
-            img.theme-light-image {
-              display: none;
-            }
-
-            img.theme-dark-image {
-              display: revert;
-            }
-          }
-        }
-
-        :root[data-theme="dark"] & {
-          img.theme-light-image {
-            display: none;
-          }
-
-          img.theme-dark-image {
-            display: revert;
-          }
-        }
+        @include design.themed-images;
       }
 
       .card-bottom-half {

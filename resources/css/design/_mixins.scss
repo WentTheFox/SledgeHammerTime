@@ -263,3 +263,32 @@
     @content;
   }
 }
+
+@mixin themed-images {
+  // Same theme detection as the color variables: explicit data-theme wins, otherwise the system preference
+  img.theme-dark-image {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) & {
+      img.theme-light-image {
+        display: none;
+      }
+
+      img.theme-dark-image {
+        display: revert;
+      }
+    }
+  }
+
+  :root[data-theme="dark"] & {
+    img.theme-light-image {
+      display: none;
+    }
+
+    img.theme-dark-image {
+      display: revert;
+    }
+  }
+}
