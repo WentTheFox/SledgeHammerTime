@@ -18,7 +18,7 @@ return [
     'latencyP95Label' => 'Legroszabb 5%',
     'latencyMedianLabel' => 'Medián',
     'latencyLimitLabel' => 'Discord válasz időkeret',
-    'healthChartTitle' => 'App health',
+    'healthChartTitle' => 'App állapota',
     'successRateLabel' => 'Success rate',
   ],
   'commandsReference' => [

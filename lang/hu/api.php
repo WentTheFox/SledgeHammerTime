@@ -1,9 +1,8 @@
 <?php
 
 return [
-  'title' => 'API',
-  'heading' => 'API',
-  'description' => 'Generate timestamps and change your bot settings from your own programs. Every endpoint matches a bot command, and requests follow the settings of the Discord account the key was created for.',
+  'heading' => 'API Access',
+  'description' => 'Időbélyegek létrehozása és az alkalmazás beállításainak módosítása a saját programjaidból. Minden végpont egy app parancshoz tartozik, és a kérések a kulcs létrehozásakor megadott Discord fiók beállításait követik.',
   'overview' => [
     'baseUrl' => 'Base URL',
     'reference' => 'Interactive reference',
@@ -17,7 +16,7 @@ return [
     'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
     'example' => 'This returns the timestamp for 18:30 today in your saved time zone. The key in the examples is made up, use your own:',
     'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
-    'statistics' => 'Runs are counted like bot commands, and the reply says which run it was, unless you turned statistics off in your app settings.',
+    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned telemetry off in your app settings.',
   ],
   'permissions' => [
     'heading' => 'Permissions',
@@ -28,9 +27,9 @@ return [
       'allows' => 'Allows',
     ],
     'scopes' => [
-      'timestamps:create' => 'Generating timestamps with the timestamp endpoints and MCP tools, as the Discord account the key acts as.',
-      'settings:read' => 'Reading the bot settings of that account.',
-      'settings:write' => 'Changing the bot settings of that account, only the fields that are sent.',
+      'timestamps:create' => 'Időbélyegek létrehozása az időbélyeg-végpontok és az MCP tool-ok segítségével, a kulcs által képviselt Discord-fiók használatával.',
+      'settings:read' => 'Reading the app settings of that account.',
+      'settings:write' => 'Changing the app settings of that account, only the fields that are sent.',
     ],
   ],
   'reference' => [
@@ -48,11 +47,11 @@ return [
     'nullable' => 'Can be null',
   ],
   'mcp' => [
-    'heading' => 'Using the MCP server',
-    'description' => 'The MCP server uses the Streamable HTTP transport and the same keys. It offers one tool per command plus settings, and only the tools your key\'s permissions allow.',
-    'url' => 'Server URL',
-    'placeholderKey' => 'The key in the examples below is made up, it will not work. Replace it with one of your own keys.',
-    'claudeCode' => 'Add it to Claude Code with:',
-    'otherClients' => 'Other clients take a similar configuration, with the URL and an Authorization header:',
+    'heading' => 'Az MCP-kiszolgáló használata',
+    'description' => 'Az MCP-kiszolgáló a Streamable HTTP-átviteli protokollt és ugyanazokat a kulcsokat használja. Parancsonként egy tool-t és a beállításokat kínálja, és kizárólag azokat a tool-okat, amelyekre a kulcsod jogosultságai kiterjednek.',
+    'url' => 'Kiszolgáló webcíme',
+    'placeholderKey' => 'Az alábbi példákban szereplő kulcs kitalált, nem fog működni. Cseréld ki a saját kulcsodra!',
+    'claudeCode' => 'A következő paranccsal tudod hozzáadni a Claude Code-hoz:',
+    'otherClients' => 'Más kliensek hasonló konfigurációt alkalmaznak, az URL-címmel és egy Authorization header-rel:',
   ],
 ];
