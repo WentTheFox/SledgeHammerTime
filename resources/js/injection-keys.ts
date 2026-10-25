@@ -75,7 +75,7 @@ export interface LocalSettingsValue {
   readonly setHourCycle: (e: Event) => void;
   readonly setFirstDayOfWeek: (e: Event) => void;
   readonly toggleTimezoneStickyHeaders: (e: Event) => void;
-  readonly setHowTo: (value: boolean) => void;
+  readonly setHideHowTo: (value: boolean) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

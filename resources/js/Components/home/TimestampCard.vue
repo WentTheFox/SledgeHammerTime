@@ -15,7 +15,7 @@ const uiLocale = useUiLocale(pageProps, locale);
 const settings = inject(localSettingsInject);
 
 const handleHowToClose = () => {
-  settings?.setHowTo(false);
+  settings?.setHideHowTo(true);
 };
 
 const syntaxColName = computed(() => {
