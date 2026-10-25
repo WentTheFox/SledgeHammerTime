@@ -70,23 +70,6 @@ return [
         'p1' => 'Sapevi che HammerTime non è l\'unico strumento per generare timestamp?',
         'p2' => 'Può dare un\'occhiata a questi altri generatori di timestamp Discord per trovare quello che funziona meglio per lei:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => 'Un generatore di timestamp semplice e veloce di 3ventic',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'Generatore timestamp di Discord in linguaggio naturale, di dabric',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Generatore gratuito di timestamp di Discord con supporto del fuso orario locale, di Sellframe Ltd.',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'Generatore di timestamp Discord e convertitore di tempo di DiscordTimestamp.org',
-      ],
-      'sesh' => [
-        'p' => 'Crea timestamp di markdown Discord dall\'ecosistema del bot di pianificazione Sesh da Tunks',
-      ],
     ],
   ],
 ];

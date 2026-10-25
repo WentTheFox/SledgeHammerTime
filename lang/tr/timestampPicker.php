@@ -70,23 +70,6 @@ return [
         'p1' => 'Zaman damgası oluşturmak için HammerTime\'ın tek araç olmadığını biliyor muydunuz?',
         'p2' => 'Size en uygun olanı bulmak için bu diğer Discord zaman damgası oluşturucularına göz atmak isteyebilirsiniz:',
       ],
-      '3vfi' => [
-        'header' => '',
-        'p' => '3ventic tarafından geliştirilen basit ve hızlı bir zaman damgası oluşturucu',
-      ],
-      'dabric' => [
-        'header' => '',
-        'p' => 'dabric tarafından geliştirilen doğal dil Discord zaman damgası oluşturucu',
-      ],
-      'discordtimestampCom' => [
-        'p' => 'Sellframe Ltd. tarafından geliştirilen, yerel saat dilimi destekli ücretsiz Discord zaman damgası oluşturucu',
-      ],
-      'discordtimestampOrg' => [
-        'p' => 'DiscordTimestamp.org tarafından geliştirilen Discord zaman damgası oluşturucu ve zaman dönüştürücü',
-      ],
-      'sesh' => [
-        'p' => 'Tunks tarafından geliştirilen Sesh planlama botu ekosistemi içerisinden Discord markdown zaman damgaları oluşturun',
-      ],
     ],
   ],
 ];
