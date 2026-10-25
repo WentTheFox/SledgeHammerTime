@@ -5,13 +5,18 @@ import { currentLanguageInject } from '@/injection-keys';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import usefulLinksBot from '@img/useful-links/bot.png';
 import dabric from '@img/useful-links/dabric.png';
-import discordTimestampCom from '@img/useful-links/discordTimestampCom.png';
-import usefulLinksOldsite from '@img/useful-links/oldsite.png';
-import r3vfi from '@img/useful-links/r3vfi.png';
 import usefulLinksServer from '@img/useful-links/server.png';
-import seshFyi from '@img/useful-links/seshFyi.png';
-import usefulLinksSubreddit from '@img/useful-links/subreddit.png';
-import usefulLinksTextcolor from '@img/useful-links/textcolor.png';
+import discordTimestampGeneratorCom from '@img/screenshots/discordtimestampgeneratorcom.png';
+import discordTimestampOrg from '@img/screenshots/discordtimestamporg.png';
+import discordTimestampsCom from '@img/screenshots/discordtimestampscom.png';
+import usefulLinksOldsite from '@img/screenshots/oldhammertimecyou.png';
+import r3vfi from '@img/screenshots/r3vfi-discord-timestamps.png';
+import usefulLinksTextcolor from '@img/screenshots/rebane2001com-discord-colored-text-generator.png';
+import seshFyi from '@img/screenshots/seshfyi-timestamp.png';
+import timestampTools from '@img/screenshots/timestamptools-tools-discord-timestamp.png';
+import discordTimestampCom from '@img/screenshots/webarchiveorg-web-https-discordtimestamp-com.png';
+import discordUtils from '@img/screenshots/wwwdiscordutilscom-timestamps.png';
+import usefulLinksSubreddit from '@img/screenshots/wwwredditcom-r-SplitSecond.png';
 import { inject } from 'vue';
 
 const currentLanguage = inject(currentLanguageInject);
@@ -96,6 +101,36 @@ const currentLanguage = inject(currentLanguageInject);
     <UsefulLinkItem
       href="https://sesh.fyi/timestamp/"
       :image="seshFyi"
+      :allow-referrer="true"
+      :small-size="true"
+    />
+    <UsefulLinkItem
+      href="https://discord-timestamps.com/"
+      :image="discordTimestampsCom"
+      :allow-referrer="true"
+      :small-size="true"
+    />
+    <UsefulLinkItem
+      href="https://timestamp.tools/tools/discord-timestamp"
+      :image="timestampTools"
+      :allow-referrer="true"
+      :small-size="true"
+    />
+    <UsefulLinkItem
+      href="https://www.discordutils.com/timestamps"
+      :image="discordUtils"
+      :allow-referrer="true"
+      :small-size="true"
+    />
+    <UsefulLinkItem
+      href="https://discordtimestampgenerator.com/"
+      :image="discordTimestampGeneratorCom"
+      :allow-referrer="true"
+      :small-size="true"
+    />
+    <UsefulLinkItem
+      href="https://discord-timestamp.org/"
+      :image="discordTimestampOrg"
       :allow-referrer="true"
       :small-size="true"
     />
