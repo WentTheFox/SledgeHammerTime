@@ -31,7 +31,7 @@ const toFileName = (url) => {
 
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch();
-  const context = await browser.newContext({ viewport });
+  const context = await browser.newContext({ viewport, userAgent: process.env.USER_AGENT });
   let failures = 0;
 
   for (const url of urls) {

@@ -55,6 +55,8 @@ jobs:
 
       - name: Take screenshots
         run: node .github/scripts/screenshots.cjs
+        env:
+          USER_AGENT: 'Mozilla/5.0 (compatible; ScreenshotsWorkflow; +${{ github.server_url }}/${{ github.repository }}; run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
 
       - name: Push screenshots to branch
         env:
