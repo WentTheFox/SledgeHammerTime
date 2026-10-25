@@ -36,7 +36,7 @@ class LocalSettingsController extends Controller {
       ));
     }
 
-    $cookieValue = json_encode($data, JSON_THROW_ON_ERROR | JSON_BIGINT_AS_STRING, 2);
+    $cookieValue = json_encode($data, JSON_THROW_ON_ERROR, 2);
 
     return response($cookieValue)->withCookie(cookie(
       name: config('app.settings_cookie_name'),
