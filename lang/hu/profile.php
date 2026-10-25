@@ -31,9 +31,9 @@ return [
   ],
   'apiKeys' => [
     'heading' => 'API Keys',
-    'description' => 'API keys let programs generate timestamps and change the bot settings of one of your linked Discord accounts. They follow that account\'s settings, the same way the bot commands do.',
+    'description' => 'Az API-kulcsok segítségével a programok időbélyegeket generálhatnak, és módosíthatják az egyik összekapcsolt Discord-fiókod app beállításait. Ezek az adott fiók beállításait követik, ugyanúgy, mint az app parancsai.',
     'none' => 'You have not created any API keys yet.',
-    'limitReached' => 'You can have at most :max API keys, revoke one to create another.',
+    'limitReached' => 'Legfeljebb :max API-kulcsod lehet. Vonj vissza egyet, ha létre szeretnél hozni egy másikat.',
     'newKey' => [
       'heading' => 'Your new API key ":name"',
       'warning' => 'Copy it now, it will not be shown again. Anyone with this key can act as the Discord account it was created for, within the permissions you gave it.',
@@ -51,8 +51,8 @@ return [
     ],
     'scopes' => [
       'timestamps:create' => 'Generate timestamps',
-      'settings:read' => 'Read the bot settings',
-      'settings:write' => 'Change the bot settings',
+      'settings:read' => 'Az app beállításainak megtekintése',
+      'settings:write' => 'Az app beállításainak módosítása',
     ],
     'list' => [
       'actsAs' => 'Acts as: :accountName',
@@ -63,8 +63,8 @@ return [
       'expired' => 'Expired',
       'rotate' => 'Rotate',
       'rotateConfirm' => 'Rotate ":name"? You get a new key with the same settings, and the current one stops working immediately.',
-      'revoke' => 'Revoke',
-      'revokeConfirm' => 'Revoke ":name"? Programs using it will stop working immediately.',
+      'revoke' => 'Visszavonás',
+      'revokeConfirm' => 'Visszavoinod a(z) „:name” kulcsot? Az ezt használó programok működésére azonnal hatással lesz.',
     ],
   ],
   'creditOverrides' => [
