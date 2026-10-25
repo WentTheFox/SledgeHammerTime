@@ -1,8 +1,7 @@
 <?php
 
 return [
-  'title' => 'API',
-  'heading' => 'API',
+  'heading' => 'API Access',
   'description' => 'Generate timestamps and change your bot settings from your own programs. Every endpoint matches a bot command, and requests follow the settings of the Discord account the key was created for.',
   'overview' => [
     'baseUrl' => 'Base URL',
