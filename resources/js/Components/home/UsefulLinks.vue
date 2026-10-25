@@ -6,7 +6,6 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import usefulLinksBot from '@img/useful-links/bot.png';
 import dabric from '@img/useful-links/dabric.png';
 import discordTimestampCom from '@img/useful-links/discordTimestampCom.png';
-import discordTimestampOrg from '@img/useful-links/discordTimestampOrg.png';
 import usefulLinksOldsite from '@img/useful-links/oldsite.png';
 import r3vfi from '@img/useful-links/r3vfi.png';
 import usefulLinksServer from '@img/useful-links/server.png';
@@ -92,12 +91,6 @@ const currentLanguage = inject(currentLanguageInject);
       :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampCom.p')"
       href="https://discordtimestamp.com/"
       :image="discordTimestampCom"
-      :allow-referrer="true"
-    />
-    <UsefulLinkItem
-      :desc="$t('timestampPicker.usefulLinks.competitors.discordtimestampOrg.p')"
-      href="https://discordtimestamp.org/"
-      :image="discordTimestampOrg"
       :allow-referrer="true"
     />
     <UsefulLinkItem
