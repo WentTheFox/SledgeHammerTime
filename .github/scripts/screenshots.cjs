@@ -13,7 +13,7 @@ const toFileName = (url) => {
 };
 
 (async () => {
-  const outputDir = 'resources/img/screenshots';
+  const outputDir = process.env.OUTPUT_DIR;
   const urls = [
     'https://sesh.fyi/timestamp/',
     'https://discord-timestamps.com/',

@@ -6,6 +6,7 @@ on:
 env:
   PLAYWRIGHT_VERSION: 1.64.0
   BRANCH: update-useful-link-screenshots
+  OUTPUT_DIR: resources/img/screenshots
 
 jobs:
   screenshots:
