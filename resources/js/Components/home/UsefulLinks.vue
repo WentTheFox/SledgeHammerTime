@@ -6,6 +6,7 @@ import HtTranslate from '@/Reusable/HtTranslate.vue';
 import usefulLinksBot from '@img/useful-links/bot.png';
 import dabric from '@img/useful-links/dabric.png';
 import usefulLinksServer from '@img/useful-links/server.png';
+import usefulLinksSubreddit from '@img/useful-links/subreddit.png';
 import discordTimestampGeneratorCom from '@img/screenshots/discordtimestampgeneratorcom.png';
 import discordTimestampOrg from '@img/screenshots/discordtimestamporg.png';
 import discordTimestampsCom from '@img/screenshots/discordtimestampscom.png';
@@ -16,7 +17,6 @@ import seshFyi from '@img/screenshots/seshfyi-timestamp.png';
 import timestampTools from '@img/screenshots/timestamptools-tools-discord-timestamp.png';
 import discordTimestampCom from '@img/screenshots/webarchiveorg-web-https-discordtimestamp-com.png';
 import discordUtils from '@img/screenshots/wwwdiscordutilscom-timestamps.png';
-import usefulLinksSubreddit from '@img/screenshots/wwwredditcom-r-SplitSecond.png';
 import { inject } from 'vue';
 
 const currentLanguage = inject(currentLanguageInject);

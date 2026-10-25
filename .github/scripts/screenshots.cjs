@@ -17,7 +17,6 @@ const toFileName = (url) => {
   const urls = [
     'https://old.hammertime.cyou/',
     'https://rebane2001.com/discord-colored-text-generator/',
-    'https://www.reddit.com/r/SplitSecond/',
     'https://sesh.fyi/timestamp/',
     'https://discord-timestamps.com/',
     'https://r.3v.fi/discord-timestamps/',
@@ -45,9 +44,7 @@ const toFileName = (url) => {
         fullPage: false,
         style:
           // Hide Web Archive header
-          '#wm-ipp-base{display:none!important}' +
-          // Blur reddit posts
-          'article[data-post-id]{filter:blur(10px)}'
+          '#wm-ipp-base{display:none!important}'
       });
       console.log(`✔ ${url} -> ${file}`);
     } catch (e) {
