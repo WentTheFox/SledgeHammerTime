@@ -99,7 +99,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   );
   const {
     value: hideHowTo,
-    setValue: setHowTo,
+    setValue: setHideHowTo,
   } = useLocalBooleanSetting(
     settingSource,
     'hide-how-to',
@@ -198,7 +198,7 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     timezoneStickyHeaders,
     toggleTimezoneStickyHeaders,
     hideHowTo,
-    setHowTo,
+    setHideHowTo,
     naturalLanguageInputAvailable,
     hourCycle,
     setHourCycle,
