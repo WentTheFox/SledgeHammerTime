@@ -40,7 +40,8 @@
 }
 
 .form-control-checkbox {
-  display: block;
+  display: flex;
+  gap: design.app-value('form-control-spacing');
 
   .form-checkbox-input-wrap {
     position: relative;
@@ -50,7 +51,7 @@
     border: design.app-value('form-checkbox-border') solid design.app-color('input-field-border-color');
     background-color: design.app-color('input-field-bg');
     border-radius: design.app-value('form-checkbox-border-radius');
-    vertical-align: text-top;
+    align-self: center;
 
     input {
       border-radius: inherit;
@@ -63,13 +64,6 @@
       &:focus-visible {
         outline: design.app-value('focus-outline') solid design.app-color('input-field-focus-border-color');
       }
-    }
-
-    @include design.if-ltr {
-      margin-right: design.app-value('form-control-spacing');
-    }
-    @include design.if-rtl {
-      margin-left: design.app-value('form-control-spacing');
     }
 
     .form-checkbox-check-icon,
