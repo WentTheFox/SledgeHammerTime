@@ -96,6 +96,18 @@ class CachePageResponse {
       return $next($request);
     }
 
+    // Bypass caching for requests with GET parameters that meaningfully change page content
+    if ($page === 'picker') {
+      $tQueryParam = $request->query('t');
+      if ($tQueryParam !== null) {
+        return $next($request);
+      }
+      $tzQueryParam = $request->query('tz');
+      if ($tzQueryParam !== null) {
+        return $next($request);
+      }
+    }
+
     // Inertia SPA navigations send X-Inertia header - serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
