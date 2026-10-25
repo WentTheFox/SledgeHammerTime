@@ -15,6 +15,9 @@ const toFileName = (url) => {
 (async () => {
   const outputDir = process.env.OUTPUT_DIR;
   const urls = [
+    'https://old.hammertime.cyou/',
+    'https://rebane2001.com/discord-colored-text-generator/',
+    'https://www.reddit.com/r/SplitSecond/',
     'https://sesh.fyi/timestamp/',
     'https://discord-timestamps.com/',
     'https://r.3v.fi/discord-timestamps/',
@@ -39,8 +42,11 @@ const toFileName = (url) => {
       await page.screenshot({
         path: file,
         fullPage: false,
-        // Hide Web Archive header
-        style: '#wm-ipp-base{display:none!important}'
+        style:
+          // Hide Web Archive header
+          '#wm-ipp-base{display:none!important}' +
+          // Blur reddit posts
+          'article[data-post-id]{filter:blur(10px)}'
       });
       console.log(`✔ ${url} -> ${file}`);
     } catch (e) {
