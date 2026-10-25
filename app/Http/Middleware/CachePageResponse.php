@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
 
-  public static function cacheKey(string $page, string $locale, string $theme): string {
+  public static function cacheKey(string $page, string $locale, ?string $theme): string {
     $version = Config::get('app.page_cache.version', 0);
     return "page-html-{$page}-{$locale}-{$theme}-v$version";
   }

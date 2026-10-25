@@ -14,6 +14,11 @@ use Throwable;
 class LocalSettingsService {
   public const THEMES = [null, 'light', 'dark'];
 
+  /**
+   * @param Request|null $request
+   *
+   * @return array<string, string|null>
+   */
   public static function resolveLocalSettings(?Request $request = null):array {
     $settingsString = self::resolveLocalSettingsString($request);
     if (is_string($settingsString)){
@@ -30,7 +35,7 @@ class LocalSettingsService {
     return [];
   }
 
-  public static function resolveLocalSettingsString(?Request $request = null, bool $asString = false):?string {
+  public static function resolveLocalSettingsString(?Request $request = null):?string {
     $settingsCookie = $request?->cookie(config('app.settings_cookie_name'));
     if ($settingsCookie === null){
       $pageData = app(SsrState::class)?->page ?? [];
