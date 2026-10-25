@@ -26,6 +26,7 @@ const toFileName = (url) => {
     'https://www.discordutils.com/timestamps',
     'https://discordtimestampgenerator.com/',
     'https://discord-timestamp.org/',
+    'https://timestamp.dabric.xyz/',
   ];
   const viewport = { width: 1920, height: 1080 };
 
