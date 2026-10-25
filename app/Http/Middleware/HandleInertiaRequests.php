@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use App\Services\Crowdin\CrowdinCreditsService;
+use App\Services\LocalSettingsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -99,19 +99,20 @@ class HandleInertiaRequests extends Middleware {
         'name' => config('app.name'),
         'locale' => App::getLocale(),
         'fallbackLocale' => config('app.fallback_locale'),
-        'languages' => array_flip(Config::get('languages.ui_locale_map')),
-        'supportedLanguages' => Config::get('languages.supported_locales'),
-        'crowdinProjectId' => Config::get('services.crowdin.project_identifier'),
-        'statusPageUrl' => Config::get('app.status_page_url') ?: null,
+        'languages' => array_flip(config('languages.ui_locale_map')),
+        'supportedLanguages' => config('languages.supported_locales'),
+        'crowdinProjectId' => config('services.crowdin.project_identifier'),
+        'statusPageUrl' => config('app.status_page_url') ?: null,
+        'settingsCookie' => LocalSettingsService::resolveLocalSettingsString($request),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
       'crowdinData' => fn() => self::isStaticCachedRoute($request) ? null : app(CrowdinCreditsService::class)->getLocaleData(App::getLocale()),
       // Single source of truth is config('services.developer.*') - developerContactUrl is
       // also used directly (not via this shared-props path, which needs a built Inertia
       // page) by the plain-Blade maintenance view in Handler::render().
-      'developerUrl' => Config::get('services.developer.url'),
-      'developerContactUrl' => Config::get('services.developer.contact_url'),
-      'developerAvatarUrl' => Config::get('services.developer.avatar_url'),
+      'developerUrl' => config('services.developer.url'),
+      'developerContactUrl' => config('services.developer.contact_url'),
+      'developerAvatarUrl' => config('services.developer.avatar_url'),
     ];
   }
 }

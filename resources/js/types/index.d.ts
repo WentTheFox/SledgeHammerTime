@@ -20,6 +20,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     supportedLanguages: AvailableLanguage[];
     crowdinProjectId: string;
     statusPageUrl: string | null;
+    settingsCookie: string | null;
   }
   auth: {
     user: User | null;

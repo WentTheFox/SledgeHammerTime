@@ -1,29 +1,19 @@
-import { computed, onMounted, ref, watch } from 'vue';
+import { useLocalSetting } from '@/composables/useLocalSetting';
+import { LocalSettingSource } from '@/model/local-setting-source';
 
-export type InitialValueFn = (storedPref: string | null) => { result: boolean | null, save?: boolean };
+export type InitialBooleanValueFn = (storedPref: string | null) => {
+  result: boolean | null,
+  save?: boolean
+};
 
-export const useLocalBooleanSetting = (prefKey: string, initialValueFn: InitialValueFn, calculateEffectiveValue?: ((refValue: boolean | null) => boolean | null)) => {
-  const settingRef = ref<boolean | null>(null);
-
-  const effectiveValue = computed(() => (
-    calculateEffectiveValue ? calculateEffectiveValue(settingRef.value) : settingRef.value
-  ));
-
-  const setInitialValue = () => {
-    const storedPref = localStorage.getItem(prefKey);
-    const { result, save } = initialValueFn(storedPref);
-    settingRef.value = result;
-    if (save) {
-      persistValue(result);
-    }
-  };
-  const persistValue = (newValue: boolean|null) => {
-    if (newValue === null) {
-      localStorage.removeItem(prefKey);
-      return;
-    }
-    localStorage.setItem(prefKey, newValue ? 'true' : 'false');
-  };
+export const useLocalBooleanSetting = (source: LocalSettingSource, prefKey: string, initialValueFn: InitialBooleanValueFn, calculateEffectiveValue?: ((refValue: boolean | null) => boolean | null)) => {
+  const { value, rawValue, setValue } = useLocalSetting({
+    prefKey,
+    initialValueFn,
+    calculateEffectiveValue,
+    valueValidator: v => typeof v === 'boolean',
+    source,
+  });
 
   const toggleByCheckboxEvent = ({ e, uncheckedMeansTrue }: {
     e: Event,
@@ -31,25 +21,15 @@ export const useLocalBooleanSetting = (prefKey: string, initialValueFn: InitialV
   }) => {
     if (!(e.target instanceof HTMLInputElement)) return;
 
-    settingRef.value = uncheckedMeansTrue ? !e.target.checked : e.target.checked;
+    setValue(uncheckedMeansTrue ? !e.target.checked : e.target.checked);
   };
 
-  // Set initial value on mount to prevent SSR hydration mismatch
-  onMounted(setInitialValue);
-
-  // Persistence
-  watch(settingRef, (newValue) => {
-    persistValue(newValue);
-  });
-
   return {
-    value: effectiveValue,
-    rawValue: settingRef,
+    value,
+    rawValue,
+    setValue,
     toggle() {
-      settingRef.value = !settingRef.value;
-    },
-    setValue(newValue: boolean | null) {
-      settingRef.value = newValue;
+      setValue(!rawValue.value);
     },
     toggleByCheckboxEvent(e: Event) {
       toggleByCheckboxEvent({ e, uncheckedMeansTrue: false });

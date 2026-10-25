@@ -1,25 +1,33 @@
-import { HourCycle, isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
+import { CookieLocalSettingSource } from '@/classes/CookieLocalSettingSource';
+import { isValidHourCycle } from '@/classes/DateTimeLibraryLocale';
 import { DateTimeLibraryWeekday } from '@/classes/DateTimeLibraryValue';
-import { InitialValueFn, useLocalBooleanSetting } from '@/composables/useLocalBooleanSetting';
+import { LocalStorageLocalSettingSource } from '@/classes/LocalStorageLocalSettingSource';
+import {
+  InitialBooleanValueFn,
+  useLocalBooleanSetting,
+} from '@/composables/useLocalBooleanSetting';
+import { useLocalSelectSetting } from '@/composables/useLocalSelectSetting';
 import { CurrentLanguageData } from '@/injection-keys';
 import { isValidMessageTimestampFormat } from '@/model/message-timestamp-format';
+import { PageProps } from '@/types';
 import type { Chrono } from 'chrono-node';
 import { computed, DeepReadonly, onMounted, Ref, ref, watch } from 'vue';
 
 const hourCyclePrefKey = 'hour-cycle';
 const firstDayOfWeekPrefKey = 'first-day-of-week';
-const timezoneStickyHeadersPrefKey = 'timezone-sticky-headers';
 const localHiddenFormatsPrefKey = 'local-hidden-formats';
 const localFormatOrderPrefKey = 'local-format-order';
 
-const trueByDefault: InitialValueFn = (storedPref) => ({ result: storedPref !== 'false' });
-const falseByDefault: InitialValueFn = (storedPref) => ({ result: storedPref === 'true' });
-const nullByDefault: InitialValueFn = (storedPref) =>
+const trueByDefault: InitialBooleanValueFn = (storedPref) => ({ result: storedPref !== 'false' });
+const falseByDefault: InitialBooleanValueFn = (storedPref) => ({ result: storedPref === 'true' });
+const nullByDefault: InitialBooleanValueFn = (storedPref) =>
   ({ result: storedPref === null ? null : storedPref === 'true' });
 
-export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono | null>>) => {
+export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | undefined, chrono: DeepReadonly<Ref<Chrono | null>>, pagePropsRef: Ref<PageProps>) => {
+  const localStorageSettingSource = new LocalStorageLocalSettingSource();
+  const settingSource = new CookieLocalSettingSource(pagePropsRef, localStorageSettingSource);
   const naturalLanguageInputAvailable = computed(() => Boolean(chrono.value));
-  const setInitialCombinedInput: InitialValueFn = (storedPref: string | null) => {
+  const setInitialCombinedInput: InitialBooleanValueFn = (storedPref: string | null) => {
     const storedLegacyPref = localStorage.getItem('split-input');
     if (storedLegacyPref !== null) {
       return { result: storedLegacyPref !== 'true', save: true };
@@ -39,11 +47,12 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const {
     value: flatUiEnabled,
     toggleByCheckboxEvent: toggleFlatUi,
-  } = useLocalBooleanSetting('flat-ui', falseByDefault);
+  } = useLocalBooleanSetting(settingSource, 'flat-ui', falseByDefault);
   const {
     value: naturalLanguageInputEnabled,
     toggleByCheckboxEvent: toggleNaturalLanguageInput,
   } = useLocalBooleanSetting(
+    settingSource,
     'nlp-input',
     falseByDefault,
     v => Boolean(v) && naturalLanguageInputAvailable.value,
@@ -51,48 +60,67 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   const {
     value: combinedInputsEnabled,
     toggleByCheckboxEventInverted: toggleSeparateInputs,
-  } = useLocalBooleanSetting('combined-inputs', setInitialCombinedInput);
+  } = useLocalBooleanSetting(settingSource, 'combined-inputs', setInitialCombinedInput);
   const {
     value: customDateInputEnabled,
     toggleByCheckboxEvent: toggleCustomDateInput,
-  } = useLocalBooleanSetting('custom-date-input', trueByDefault);
+  } = useLocalBooleanSetting(settingSource, 'custom-date-input', trueByDefault);
   const {
     value: customTimeInputEnabled,
     toggleByCheckboxEvent: toggleCustomTimeInput,
-  } = useLocalBooleanSetting('custom-time-input', trueByDefault);
+  } = useLocalBooleanSetting(settingSource, 'custom-time-input', trueByDefault);
   const {
     value: sidebarOnRight,
     rawValue: rawSidebarOnRight,
     toggle: toggleSidebarOnRight,
   } = useLocalBooleanSetting(
+    settingSource,
     'sidebar-right',
     falseByDefault,
     v => currentLanguage?.value.languageConfig?.rtl ? !v : v,
   );
   const { value: sidebarOpen, setValue: setSidebarOpen } = useLocalBooleanSetting(
+    settingSource,
     'sidebar-open',
     nullByDefault,
   );
   const { value: isLightTheme, setValue: setLightTheme } = useLocalBooleanSetting(
+    settingSource,
     'light-theme',
     nullByDefault,
   );
-  const { value: timezoneStickyHeaders, toggleByCheckboxEvent: toggleTimezoneStickyHeaders } = useLocalBooleanSetting(
-    timezoneStickyHeadersPrefKey,
+  const {
+    value: timezoneStickyHeaders,
+    toggleByCheckboxEvent: toggleTimezoneStickyHeaders,
+  } = useLocalBooleanSetting(
+    settingSource,
+    'timezone-sticky-headers',
     trueByDefault,
   );
-  const hourCycle = ref<HourCycle | null>(null);
+  const {
+    value: hideHowTo,
+    setValue: setHowTo,
+  } = useLocalBooleanSetting(
+    settingSource,
+    'hide-how-to',
+    falseByDefault,
+  );
+  const {
+    value: hourCycle,
+    setValueBySelectEvent: setHourCycle,
+  } = useLocalSelectSetting(
+    settingSource,
+    hourCyclePrefKey,
+    v => {
+      const isValid = isValidHourCycle(v);
+      return ({ result: isValid ? v : null, save: !isValid });
+    },
+    isValidHourCycle,
+  );
   const firstDayOfWeek = ref<DateTimeLibraryWeekday | null>(null);
   const localHiddenFormats = ref<string[]>([]);
   const localFormatOrder = ref<string[]>([]);
 
-  watch(hourCycle, (newValue) => {
-    if (newValue === null) {
-      localStorage.removeItem(hourCyclePrefKey);
-      return;
-    }
-    localStorage.setItem(hourCyclePrefKey, newValue);
-  });
   watch(firstDayOfWeek, (newValue) => {
     if (newValue === null) {
       localStorage.removeItem(firstDayOfWeekPrefKey);
@@ -107,12 +135,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     localStorage.setItem(localFormatOrderPrefKey, JSON.stringify(newValue));
   }, { deep: true });
 
-  const setInitialHourCycle = () => {
-    const storedPref = localStorage.getItem(hourCyclePrefKey);
-    if (isValidHourCycle(storedPref)) {
-      hourCycle.value = storedPref as HourCycle;
-    }
-  };
   const setInitialFirstDayOfWeek = () => {
     const storedPref = localStorage.getItem(firstDayOfWeekPrefKey);
     if (storedPref !== null) {
@@ -150,7 +172,6 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
   };
 
   onMounted(() => {
-    setInitialHourCycle();
     setInitialFirstDayOfWeek();
     setInitialLocalHiddenFormats();
     setInitialLocalFormatOrder();
@@ -176,14 +197,12 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     setLightTheme,
     timezoneStickyHeaders,
     toggleTimezoneStickyHeaders,
+    hideHowTo,
+    setHowTo,
     naturalLanguageInputAvailable,
     hourCycle,
+    setHourCycle,
     firstDayOfWeek,
-    setHourCycle(e: Event) {
-      if (!(e.target instanceof HTMLSelectElement)) return;
-
-      hourCycle.value = isValidHourCycle(e.target.value) ? e.target.value : null;
-    },
     setFirstDayOfWeek(e: Event) {
       if (!(e.target instanceof HTMLSelectElement)) return;
 

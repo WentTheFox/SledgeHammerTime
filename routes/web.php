@@ -8,6 +8,7 @@ use App\Http\Controllers\BotInfoController;
 use App\Http\Controllers\BotSettingsController;
 use App\Http\Controllers\CreditOverrideController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocalSettingsController;
 use App\Http\Controllers\LocalUserInfoController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\ProfileController;
@@ -67,6 +68,7 @@ Route::middleware('auth')->group(function () use ($loginEnabled) {
 // Vue frontend API
 Route::prefix('/frontend')->group(function () {
   Route::get('/app-usage', [BotInfoController::class, 'usage'])->name('app.usage');
+  Route::post('/local-settings', [LocalSettingsController::class, 'persist'])->name('app.persistLocalSettings');
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');

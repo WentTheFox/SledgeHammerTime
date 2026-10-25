@@ -1,5 +1,21 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr">
+@php
+  use App\Services\LocalSettingsService;
+  use Inertia\Ssr\SsrState;
+
+  $theme = null;
+  try {
+    $theme = LocalSettingsService::resolveTheme();
+  } catch (Throwable $e) {
+    \Illuminate\Support\Facades\Log::warning('Failed to resolve theme from session cookie server-side', [
+      'error' => $e,
+    ]);
+  }
+@endphp
+  <!DOCTYPE html>
+<html
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+  dir="ltr"
+  @if($theme !== null)style="color-scheme: {{$theme}};" data-theme="{{ $theme }}"@endif>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,6 +76,6 @@
   @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
 </head>
 <body class="no-anim">
-  <x-inertia::app />
+<x-inertia::app />
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 return [
 
@@ -167,7 +168,7 @@ return [
     App\Providers\AuthServiceProvider::class,
     // App\Providers\BroadcastServiceProvider::class,
     App\Providers\EventServiceProvider::class,
-        App\Providers\HorizonServiceProvider::class,
+    App\Providers\HorizonServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
     SocialiteProviders\Manager\ServiceProvider::class,
   ])->toArray(),
@@ -205,4 +206,9 @@ return [
     'enabled' => env('APP_PAGE_CACHE_ENABLED', false),
     'version' => env('APP_PAGE_CACHE_VERSION', 0),
   ],
+
+  'settings_cookie_name' => env(
+    'SETTINGS_COOKIE_NAME',
+    Str::slug(env('APP_NAME', 'laravel'), '_').'_settings'
+  ),
 ];
