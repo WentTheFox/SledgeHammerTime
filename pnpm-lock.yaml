@@ -129,8 +129,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))
       laravel-vue-i18n:
-        specifier: ^2.9.0
-        version: 2.9.0(typescript@6.0.3)
+        specifier: npm:@wentthefox-forks/laravel-vue-i18n@^2.9.1
+        version: '@wentthefox-forks/laravel-vue-i18n@2.9.1(typescript@6.0.3)'
       lightningcss:
         specifier: ^1.33.0
         version: 1.33.0
@@ -1162,6 +1162,9 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@wentthefox-forks/laravel-vue-i18n@2.9.1':
+    resolution: {integrity: sha512-wGDyNJK5Ia2GUG7DcgFT2MGltevFqgVchMIwgONaU41e1xsZ5krKuXOrhcPKut2oybKQIRtfTnrkdKtnhr44Zw==}
+
   '@wentthefox-forks/vite-plugin-imagemin@2.2.2':
     resolution: {integrity: sha512-B5TotGiQy4cWrWsBmc+2BF1rQGYUvXiEf07/tOxg3UMywRdQ8abmwNNpVff/oRym6SySPZLrHYZwxxELTlHnvA==}
     engines: {node: '>=18.0.0'}
@@ -1776,9 +1779,6 @@ packages:
     peerDependenciesMeta:
       fontaine:
         optional: true
-
-  laravel-vue-i18n@2.9.0:
-    resolution: {integrity: sha512-rt1JnXITQx85UCy2kxWdaBpgqSmZg+RNDcWC2l96zfrEPI/xGknD1CoYr9GPAHqtl4/XosK5t4Rt4J9kd/VzdQ==}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -3439,6 +3439,13 @@ snapshots:
     dependencies:
       vue: 3.5.43(typescript@6.0.3)
 
+  '@wentthefox-forks/laravel-vue-i18n@2.9.1(typescript@6.0.3)':
+    dependencies:
+      php-parser: 3.7.0
+      vue: 3.5.43(typescript@6.0.3)
+    transitivePeerDependencies:
+      - typescript
+
   '@wentthefox-forks/vite-plugin-imagemin@2.2.2(supports-color@10.2.2)(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))':
     dependencies:
       chalk: 5.6.2
@@ -4061,13 +4068,6 @@ snapshots:
       tinyglobby: 0.2.17
       vite: 8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15)
       vite-plugin-full-reload: 1.2.0
-
-  laravel-vue-i18n@2.9.0(typescript@6.0.3):
-    dependencies:
-      php-parser: 3.7.0
-      vue: 3.5.43(typescript@6.0.3)
-    transitivePeerDependencies:
-      - typescript
 
   levn@0.4.1:
     dependencies:
