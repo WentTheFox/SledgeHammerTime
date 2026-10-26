@@ -8,6 +8,7 @@ use App\Http\Middleware\ConsoleUserMiddleware;
 use App\Http\Middleware\InternalServiceMiddleware;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LanguageDetector;
+use App\Http\Middleware\NoindexQueryVariants;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrackPageViews;
@@ -70,6 +71,7 @@ class Kernel extends HttpKernel {
       HandleInertiaRequests::class,
       AddLinkHeadersForPreloadedAssets::class,
       TrackPageViews::class,
+      NoindexQueryVariants::class,
     ],
 
     'api' => [
