@@ -8,6 +8,9 @@
       "cron_restart": "0 0 * * *",
       "node_args": "--max-old-space-size=768",
       "max_memory_restart": "1G",
+      "out_file": "storage/logs/pm2-ssr-out.log",
+      "error_file": "storage/logs/pm2-ssr-error.log",
+      "merge_logs": true,
       "autorestart": true,
       "watch": false,
       "time": true
