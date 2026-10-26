@@ -301,6 +301,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Guw1a](https://crowdin.com/profile/maxim2010kor)
   - [JudDayLum Official](https://crowdin.com/profile/JudDayLum)
   - [JudeDM](https://crowdin.com/profile/JudeDM)
+  - [Kvant](https://crowdin.com/profile/kvant8)
   - [Livonski Homak](https://crowdin.com/profile/homaklivonski)
   - [Luna](https://crowdin.com/profile/NightyCloud)
   - [Melishy](https://crowdin.com/profile/melishy)
