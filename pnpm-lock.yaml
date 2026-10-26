@@ -129,8 +129,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))
       laravel-vue-i18n:
-        specifier: npm:@wentthefox-forks/laravel-vue-i18n@^2.9.1
-        version: '@wentthefox-forks/laravel-vue-i18n@2.9.1(typescript@6.0.3)'
+        specifier: npm:@wentthefox-forks/laravel-vue-i18n@^2.9.3
+        version: '@wentthefox-forks/laravel-vue-i18n@2.9.3(typescript@6.0.3)'
       lightningcss:
         specifier: ^1.33.0
         version: 1.33.0
@@ -1162,8 +1162,8 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@wentthefox-forks/laravel-vue-i18n@2.9.1':
-    resolution: {integrity: sha512-wGDyNJK5Ia2GUG7DcgFT2MGltevFqgVchMIwgONaU41e1xsZ5krKuXOrhcPKut2oybKQIRtfTnrkdKtnhr44Zw==}
+  '@wentthefox-forks/laravel-vue-i18n@2.9.3':
+    resolution: {integrity: sha512-7WouIjRz3LFJfhqcwpztFhV7air+hjMHdlq9sr1oK1KpK/E6jMff3Qk1NabfKGCITp/KGOxFw1brI3HL9CAUaw==}
 
   '@wentthefox-forks/vite-plugin-imagemin@2.2.2':
     resolution: {integrity: sha512-B5TotGiQy4cWrWsBmc+2BF1rQGYUvXiEf07/tOxg3UMywRdQ8abmwNNpVff/oRym6SySPZLrHYZwxxELTlHnvA==}
@@ -3439,7 +3439,7 @@ snapshots:
     dependencies:
       vue: 3.5.43(typescript@6.0.3)
 
-  '@wentthefox-forks/laravel-vue-i18n@2.9.1(typescript@6.0.3)':
+  '@wentthefox-forks/laravel-vue-i18n@2.9.3(typescript@6.0.3)':
     dependencies:
       php-parser: 3.7.0
       vue: 3.5.43(typescript@6.0.3)

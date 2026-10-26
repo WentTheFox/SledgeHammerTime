@@ -38,7 +38,7 @@
     "eslint": "^10.12.0",
     "eslint-plugin-vue": "^10.11.1",
     "laravel-vite-plugin": "^3.2.0",
-    "laravel-vue-i18n": "npm:@wentthefox-forks/laravel-vue-i18n@^2.9.1",
+    "laravel-vue-i18n": "npm:@wentthefox-forks/laravel-vue-i18n@^2.9.3",
     "lightningcss": "^1.33.0",
     "postcss": "^8.5.29",
     "sass": "^1.105.1",
