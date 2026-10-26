@@ -26,7 +26,7 @@ return [
     'reloadButton' => 'Kézi újratöltés',
     "supportServerButton" => "Támogatási Szerver",
     "contactDeveloperButton" => "Kapcsolatfelvétel a fejlesztővel",
-    "statusPageButton" => "Status Page",
+    "statusPageButton" => "Állapotoldal",
   ],
   'incompleteTranslations' => 'A fordítások hiányosak',
   'contributeTranslations' => 'Közreműködés',
@@ -42,7 +42,7 @@ return [
     'body' => "A böngésződ vagy nem támogatja a JavaScript-et vagy jelenleg ki van kapcsolva. Egyes böngészők biztonsági okokból alapértelmezetten kikapcsolják, viszont ennek az alkalmazásnak szüksége van rá. Kérlek engedélyezd és töltsd újra az oldalt, vagy használj egy másik böngészőt.",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'Menü',
     'botSettings' => 'App Beálítások',
     'profile' => 'Profil',
     'api' => 'API',
@@ -130,7 +130,7 @@ return [
       'openSourceSoftware' => 'Nyílt forráskódú szoftver',
       'viewSourceCode' => 'Forráskód megtekintése',
       'notAffiliated' => 'A projektnek semmilyen kapcsolata nincs a Discord-al.',
-      'status' => 'Service status',
+      'status' => 'Szolgáltatás állapota',
     ],
     'themeButton' => [
       'dark' => 'Sötét Téma',
