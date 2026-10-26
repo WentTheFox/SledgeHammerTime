@@ -6,6 +6,8 @@
       "exec_mode": "cluster",
       "instances": 2,
       "cron_restart": "0 0 * * *",
+      "node_args": "--max-old-space-size=768",
+      "max_memory_restart": "1G",
       "autorestart": true,
       "watch": false,
       "time": true
