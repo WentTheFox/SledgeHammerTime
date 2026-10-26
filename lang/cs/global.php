@@ -31,9 +31,9 @@ return [
   'incompleteTranslations' => 'Překlad není úplný',
   'contributeTranslations' => 'Přispět',
   'timezoneBadge' => [
-    'currently' => 'Observed currently',
-    'atPickedDate' => 'Observed at picked time',
-    'currentlyAndAtPickedDate' => 'Observed currently & at picked time',
+    'currently' => 'Aktuálně platný',
+    'atPickedDate' => 'Platný ve zvoleném čase',
+    'currentlyAndAtPickedDate' => 'Platný aktuálně a ve zvoleném čase',
   ],
   'copyToClipboard' => 'Zkopírovat do schránky',
   'copiedToClipboard' => 'Zkopírováno do schránky!',
@@ -74,7 +74,7 @@ return [
       ],
       'timezoneStickyHeaders' => [
         'label' => 'Záhlaví skupin časových pásem',
-        'description' => 'Show sticky group headers (e.g. America, Europe) in the timezone selector dropdown.',
+        'description' => 'Zobrazit fixované záhlaví skupin (např. America, Europe) v rozevíracím seznamu pro výběr časového pásma.',
       ],
       'hourCycle' => [
         'label' => 'Časový formát',

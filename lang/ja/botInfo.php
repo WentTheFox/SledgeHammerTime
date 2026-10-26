@@ -61,7 +61,7 @@ return [
     'choices' => '有効な値：',
     'usageGraphNoData' => '最近の使用データが見つかりませんでした',
     'usageSources' => [
-      'discord-bot' => 'Discord app',
+      'discord-bot' => 'Discordアプリ',
       'api' => 'API',
       'mcp' => 'MCP',
     ],
