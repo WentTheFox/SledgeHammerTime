@@ -8,6 +8,7 @@
 /storage/*.key
 /vendor
 /setup/deploy-config.sh
+/pm2.local.json
 .env
 .env.backup
 .env.production
