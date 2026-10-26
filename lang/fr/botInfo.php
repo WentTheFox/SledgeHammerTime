@@ -3,7 +3,7 @@
 return [
   'heading' => 'Appli Discord',
   'description' => 'L\'app HammerTime vous permet d\'obtenir des codes d\'horodatage faciles à copier depuis l\'interface utilisateur Discord en utilisant des commandes slash et de menu contextuels.',
-  'customizeSettingsGuest' => 'Certaines fonctionnalités peuvent aussi être customisées en <1>se connectant</1>, puis en visitant la page <3>Paramètres de l\'Appli</3> (également disponible en cliquant sur votre nom d\'utilisateur dans la barre latérale).',
+  'customizeSettingsGuest' => 'Certaines de ses fonctionnalités peuvent également être personnalisées en vous <1>connectant</1>, puis en vous rendant sur la page <3>Paramètres de l’application</3> (également accessible en cliquant sur votre nom d’utilisateur dans la barre latérale).',
   'customizeSettingsAuthenticated' => 'Certaines fonctionnalités peuvent aussi être customisées en visitant la page <1>Paramètres de l\'Appli</1> (également disponible en cliquant sur votre nom d\'utilisateur dans la barre latérale).',
   'addAppLead' => 'Ajoutez l\'appli sur votre serveur ou votre compte, et utilisez-la dès que vous avez besoin d\'un horodatage sans avoir à ouvrir votre navigateur.',
   'appDiscoveryLead' => 'L\'appli peut être trouvée sur la page Découverte d\'Applications de Discord, que vous pouvez consulter ici :',

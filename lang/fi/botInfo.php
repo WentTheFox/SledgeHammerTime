@@ -61,7 +61,7 @@ return [
     'choices' => 'Mahdolliset arvot:',
     'usageGraphNoData' => 'Viimeaikaisia käyttötietoja ei löytynyt',
     'usageSources' => [
-      'discord-bot' => 'Discord app',
+      'discord-bot' => 'Discord-sovellus',
       'api' => 'API',
       'mcp' => 'MCP',
     ],

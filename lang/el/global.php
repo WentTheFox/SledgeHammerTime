@@ -25,8 +25,8 @@ return [
     'autoReload' => 'Η σελίδα θα ανανεωθεί αυτόματα <1/>',
     'reloadButton' => 'Χειροκίνητη επαναφόρτωση',
     "supportServerButton" => "Διακομιστής Υποστήριξης",
-    "contactDeveloperButton" => "Contact Developer",
-    "statusPageButton" => "Status Page",
+    "contactDeveloperButton" => "Επικοινωνήστε με τον προγραμματιστή",
+    "statusPageButton" => "Σελίδα Κατάστασης",
   ],
   'incompleteTranslations' => 'Οι μεταφράσεις είναι ελλιπείς',
   'contributeTranslations' => 'Συνεισφέρετε',
@@ -42,7 +42,7 @@ return [
     'body' => "Ο περιηγητής σας είτε δεν υποστηρίζει JavaScript είτε είναι απενεργοποιημένη αυτή τη στιγμή. Μερικά προγράμματα περιήγησης απενεργοποιούν την JavaScript από προεπιλογή για λόγους ασφαλείας, αλλά είναι απαραίτητη για αυτήν την εφαρμογή. Παρακαλώ ενεργοποιήστε την και ανανεώστε τη σελίδα ή χρησιμοποιήστε διαφορετικό πρόγραμμα περιήγησης.",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'Μενού',
     'botSettings' => 'Ρυθμίσεις Εφαρμογής',
     'profile' => 'Προφίλ',
     'api' => 'API',
@@ -130,7 +130,7 @@ return [
       'openSourceSoftware' => 'Λογισμικό ανοικτού κώδικα',
       'viewSourceCode' => 'Προβολή πηγαίου κώδικα',
       'notAffiliated' => 'Αυτό το πρότζεκτ δεν σχετίζεται με το Discord.',
-      'status' => 'Service status',
+      'status' => 'Κατάσταση υπηρεσιών',
     ],
     'themeButton' => [
       'dark' => 'Σκοτεινή λειτουργία',
