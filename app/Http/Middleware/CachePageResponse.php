@@ -82,6 +82,13 @@ class CachePageResponse {
   }
 
   /**
+   * GET parameters that change the page content: the picker's locked timestamp and timezone (`t`, `tz`).
+   */
+  private function outputDependsOnQuery(Request $request, string $page): bool {
+    return $page === 'picker' && ($request->query('t') !== null || $request->query('tz') !== null);
+  }
+
+  /**
    * @param string|null $ttlSeconds Overrides the default cache lifetime, for pages whose data goes stale sooner than a day.
    */
   public function handle(Request $request, Closure $next, string $page, ?string $ttlSeconds = null): Response {
@@ -96,17 +103,10 @@ class CachePageResponse {
       return $next($request);
     }
 
-    // Bypass caching for requests with GET parameters that meaningfully change page content
-    if ($page === 'picker') {
-      $tQueryParam = $request->query('t');
-      if ($tQueryParam !== null) {
-        return $next($request);
-      }
-      $tzQueryParam = $request->query('tz');
-      if ($tzQueryParam !== null) {
-        return $next($request);
-      }
-    }
+    // A request carrying `t`/`tz` may still be served the cached generic page, but whatever it renders must never be
+    // stored: the values reach the rendered output through Ziggy's `location` shared prop (route().params), so the
+    // next visitor of the plain URL would get that timestamp baked in.
+    $outputDependsOnQuery = $this->outputDependsOnQuery($request, $page);
 
     // Inertia SPA navigations send X-Inertia header - serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
@@ -154,7 +154,7 @@ class CachePageResponse {
 
     $response = $next($request);
 
-    if ($response->getStatusCode() === 200 && $this->isValidPageContent($response->getContent())) {
+    if (!$outputDependsOnQuery && $response->getStatusCode() === 200 && $this->isValidPageContent($response->getContent())) {
       $lastModified = now()->utc()->timestamp;
       Cache::put($cacheKey, [
         'html' => $response->getContent(),
