@@ -1,5 +1,9 @@
 minimumReleaseAge: 20160
 
+# Our own forks are published by us and used right away, not after the quarantine for third-party releases
+minimumReleaseAgeExclude:
+  - '@wentthefox-forks/*'
+
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
