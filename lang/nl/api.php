@@ -1,20 +1,20 @@
 <?php
 
 return [
-  'heading' => 'API Access',
-  'description' => 'Generate timestamps and change your app settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
+  'heading' => 'API Toegang',
+  'description' => 'Genereer tijdstempels en verander app instellingen vanuit je eigen programma. Elk eindpunt komt overeen met een app commando. Verzoeken volgen de instellingen van het Discord account waarvoor de sleutel gemaakt is.',
   'overview' => [
     'baseUrl' => 'Base URL',
     'reference' => 'Interactive reference',
-    'spec' => 'OpenAPI specification',
+    'spec' => 'OpenAPI specificaties',
   ],
   'keys' => [
-    'loginPrompt' => 'Log in to create API keys. The keys act as one of the Discord accounts linked to your profile.',
+    'loginPrompt' => 'Log in om API-sleutels aan te maken. De sleutels gedragen zich als een Discord account wat aan je profiel is gelinkt.',
   ],
   'usage' => [
-    'heading' => 'Using the API',
-    'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
-    'example' => 'This returns the timestamp for 18:30 today in your saved time zone. The key in the examples is made up, use your own:',
+    'heading' => 'Gebruik de API',
+    'authentication' => 'Stuur je sleutel als bearer token in de Authorization header van elk verzoek.',
+    'example' => 'Dit retourneert de tijdstempel voor 18.30 uur vandaag in de door u opgeslagen tijdzone. De sleutel in de voorbeelden is verzonnen; gebruik uw eigen sleutel:',
     'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
     'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned telemetry off in your app settings.',
   ],

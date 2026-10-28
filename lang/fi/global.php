@@ -42,7 +42,7 @@ return [
     'body' => "Sinun selaimesi joko ei tue JavaScriptiä, tai se on pois käytöstä. Jotkut selaimet poistaa JavaScriptin käytöstä oletuksena turvallisuussyistä, mutta se on tarpeellinen tälle sovellukselle. Ole hyvä ja ota se käyttöön ja päivitä sivu, tai käytä eri selainta.",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'Valikko',
     'botSettings' => 'Sovelluksen asetukset',
     'profile' => 'Profiili',
     'api' => 'API',
@@ -130,7 +130,7 @@ return [
       'openSourceSoftware' => 'avoimen lähdekoodin ohjelmisto',
       'viewSourceCode' => 'Vilkaise lähdekoodia',
       'notAffiliated' => 'Tämä projekti ei ole sidoksissa Discordin kanssa.',
-      'status' => 'Service status',
+      'status' => 'Palvelun tila',
     ],
     'themeButton' => [
       'dark' => 'Tumma teema',
