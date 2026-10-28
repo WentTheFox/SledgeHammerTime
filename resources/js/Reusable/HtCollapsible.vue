@@ -6,11 +6,20 @@ const props = withDefaults(defineProps<{
   'class'?: string,
   maxHeight?: number;
   animate?: boolean;
+  /**
+   * Keep the collapsed content searchable with the browser's find-in-page (`hidden="until-found"`), emitting `found` when a match is about to be revealed
+   */
+  findable?: boolean;
 }>(), {
   'class': undefined,
   maxHeight: undefined,
   animate: true,
+  findable: false,
 });
+
+const emit = defineEmits<{
+  found: [];
+}>();
 
 const isSsr = import.meta.env.SSR;
 const collapsibleRef = useTemplateRef('collapsibleRef');
@@ -87,7 +96,9 @@ defineExpose(api);
     ref="collapsibleRef"
     :class="['collapsible', { visible: visible, 'limited-height': !!maxHeight, animate }, props.class]"
     :style="`min-height: ${visible ? effectiveHeight : 0}px`"
-    :inert="!visible"
+    :hidden="!visible && findable ? 'until-found' : undefined"
+    :inert="!visible && !findable"
+    @beforematch="emit('found')"
   >
     <div class="collapsible-inner">
       <slot />

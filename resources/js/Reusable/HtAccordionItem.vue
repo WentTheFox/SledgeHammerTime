@@ -37,7 +37,9 @@ const isOpen = computed(() => accordion.isOpen(props.id));
     </HtButton>
     <HtCollapsible
       :visible="isOpen"
+      :findable="true"
       class="mt-0"
+      @found="accordion.open(id)"
     >
       <div class="accordion-item-body">
         <slot />

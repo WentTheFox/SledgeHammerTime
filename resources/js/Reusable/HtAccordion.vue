@@ -20,14 +20,21 @@ const open = defineModel<string[]>('open', { default: () => [] });
 
 const openIds = computed(() => open.value);
 
+const openItem = (id: string) => {
+  if (!open.value.includes(id)) {
+    open.value = props.multiple ? [...open.value, id] : [id];
+  }
+};
+
 provide(accordionInject, {
+  open: openItem,
   openIds,
   isOpen: id => open.value.includes(id),
   toggle: (id) => {
     if (open.value.includes(id)) {
       open.value = open.value.filter(openId => openId !== id);
     } else {
-      open.value = props.multiple ? [...open.value, id] : [id];
+      openItem(id);
     }
   },
 });
