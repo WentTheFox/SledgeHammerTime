@@ -26,7 +26,7 @@ return [
     'reloadButton' => '手動で再読み込み',
     "supportServerButton" => "サポートサーバー",
     "contactDeveloperButton" => "開発者に連絡する",
-    "statusPageButton" => "Status Page",
+    "statusPageButton" => "状態ページ",
   ],
   'incompleteTranslations' => '翻訳は未完成です',
   'contributeTranslations' => '貢献',
@@ -42,7 +42,7 @@ return [
     'body' => "お使いのブラウザはJavaScriptをサポートしないか、無効化されています。一部ブラウザではセキュリティ上の理由でJavaScriptをデフォルトで無効化しますが、このアプリには必要です。有効にしてページを再読み込みするか、違うブラウザを使用してください。",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'メニュー',
     'botSettings' => 'アカウント設定',
     'profile' => 'プロフィール',
     'api' => 'API',
@@ -130,7 +130,7 @@ return [
       'openSourceSoftware' => 'オープンソース',
       'viewSourceCode' => 'ソースコードを見る',
       'notAffiliated' => 'このサイトとDiscordは関係していません。',
-      'status' => 'Service status',
+      'status' => 'サービス状態',
     ],
     'themeButton' => [
       'dark' => 'ダークモード',

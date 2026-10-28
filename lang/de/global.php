@@ -26,7 +26,7 @@ return [
     'reloadButton' => 'Manuell neu laden',
     "supportServerButton" => "Support-Server",
     "contactDeveloperButton" => "Entwickler kontaktieren",
-    "statusPageButton" => "Status Page",
+    "statusPageButton" => "Statusseite",
   ],
   'incompleteTranslations' => 'Übersetzungen sind unvollständig',
   'contributeTranslations' => 'Beitragen',
@@ -42,7 +42,7 @@ return [
     'body' => "Dein Browser unterstützt entweder kein JavaScript oder es ist derzeit deaktiviert. In einigen Browsern ist JavaScript aus Sicherheitsgründen standardmäßig deaktiviert, aber für diese Anwendung ist es notwendig. Bitte aktivieren es und aktualisiere die Seite, oder verwende einen anderen Browser.",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'Menü',
     'botSettings' => 'App-Einstellungen',
     'profile' => 'Profil',
     'api' => 'API',
@@ -130,7 +130,7 @@ return [
       'openSourceSoftware' => 'Open-Source Software',
       'viewSourceCode' => 'Quellcode anzeigen',
       'notAffiliated' => 'Dieses Projekt ist nicht mit Discord assoziiert.',
-      'status' => 'Service status',
+      'status' => 'Dienststatus',
     ],
     'themeButton' => [
       'dark' => 'Dunkles Design',
