@@ -6,7 +6,7 @@
   "scripts": {
     "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts --force",
     "dev:server": "vite",
-    "dev:queue": "sudo service horizon restart && sudo journalctl -xefu horizon --since \"$(date +\"%Y-%m-%d %H:%M:%S\")\"",
+    "dev:queue": "php artisan horizon",
     "dev": "concurrently -p name pnpm:dev:*",
     "lint": "eslint resources/**/*.{ts,vue}",
     "build:type-check": "vue-tsc",

@@ -7,7 +7,6 @@ import i18n from 'laravel-vue-i18n/vite';
 import viteImagemin from '@wentthefox-forks/vite-plugin-imagemin';
 import sharp from 'sharp';
 import { Features } from 'lightningcss';
-import { parse } from 'dotenv';
 
 const tryExec = (cmd) => {
   try {
@@ -58,7 +57,7 @@ export default defineConfig(({ mode }) => {
     }));
   }
 
-  const env = parse('./.env');
+  const env = process.env;
   return ({
     define: {
       __GIT_COMMIT_HASH__: JSON.stringify(gitCommitHash),
