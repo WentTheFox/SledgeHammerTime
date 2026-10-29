@@ -69,8 +69,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.12.0(supports-color@10.2.2))
       '@inertiajs/core':
-        specifier: 3.8.0
-        version: 3.8.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))
+        specifier: 3.9.1
+        version: 3.9.1(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))
       '@inertiajs/vite':
         specifier: ^3.8.0
         version: 3.8.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))
@@ -652,6 +652,14 @@ packages:
 
   '@inertiajs/core@3.8.0':
     resolution: {integrity: sha512-jTNnVtyGzyS016GH2WpAzgT0ZygWAZMe+J2QaY80zQaNBrOBR0KNOVVbQm5XwiF9oG5Eaqp0gpQwmGixnZjoCA==}
+    peerDependencies:
+      axios: ^1.15.2
+    peerDependenciesMeta:
+      axios:
+        optional: true
+
+  '@inertiajs/core@3.9.1':
+    resolution: {integrity: sha512-ScLQZ1/KXlvmqCEJMEZABSK5updJZIli1kaG/coWXpWMmpSLsazSJkR7esITYp7X5vTgrOGNIrcRmdMp/GQ0NA==}
     peerDependencies:
       axios: ^1.15.2
     peerDependenciesMeta:
@@ -2887,6 +2895,14 @@ snapshots:
     optional: true
 
   '@inertiajs/core@3.8.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))':
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.31
+      es-toolkit: 1.52.0
+      laravel-precognition: 2.1.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))
+    optionalDependencies:
+      axios: 1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
+
+  '@inertiajs/core@3.9.1(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       es-toolkit: 1.52.0
