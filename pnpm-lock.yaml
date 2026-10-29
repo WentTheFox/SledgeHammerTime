@@ -41,8 +41,8 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1
       chrono-node:
-        specifier: ^2.10.2
-        version: 2.10.2
+        specifier: ^2.10.3
+        version: 2.10.3
       date-fns:
         specifier: ^4.4.0
         version: 4.4.0
@@ -1300,8 +1300,8 @@ packages:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
     engines: {node: '>= 20.19.0'}
 
-  chrono-node@2.10.2:
-    resolution: {integrity: sha512-xBCwGGmodF2YVtzE7/8ewNDajbCg72jgZHyOXvhkuQiYhIQ1KbqyXJJJw2fLaQ603LL4oMVhOyjckEBve45S4w==}
+  chrono-node@2.10.3:
+    resolution: {integrity: sha512-MOfrzXgSMZTH4SZ5gyRKQCVwiCrCKY+uYkSJiWoRLXS88DA6WGJm8UjgS+VVEuUQeew/UUXaxrO+SeDn/WCisg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   classnames@2.5.1:
@@ -3583,7 +3583,7 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chrono-node@2.10.2: {}
+  chrono-node@2.10.3: {}
 
   classnames@2.5.1: {}
 
