@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@inertiajs/core": "3.8.0",
+    "@inertiajs/core": "3.9.1",
     "@inertiajs/vite": "^3.8.0",
     "@inertiajs/vue3": "^3.8.0",
     "@types/js-cookie": "^3.0.6",
