@@ -71,7 +71,7 @@
     "js-levenshtein": "^1.1.6",
     "lorem-ipsum": "^2.0.10",
     "md5": "^2.3.0",
-    "playwright": "^1.64.0",
+    "playwright": "^1.64.1",
     "the-new-css-reset": "^1.11.3",
     "vue-chartjs": "^5.3.4"
   },
