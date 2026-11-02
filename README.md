@@ -74,7 +74,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇨🇿 Czech
   - [Blurplix](https://crowdin.com/profile/Blurplix)
   - [Daniel5769](https://crowdin.com/profile/Daniel5769)
-  - [HolyRadek](https://crowdin.com/profile/holyradek)
+  - [itsradek](https://crowdin.com/profile/itsradek)
   - [Keša mot](https://crowdin.com/profile/kesamott.6534)
   - [klauny](https://crowdin.com/profile/klauny)
   - [O5](https://crowdin.com/profile/O5)
@@ -326,10 +326,12 @@ English and Hungarian translations have been included, so no translators will be
 - 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
 - 🇪🇸 Spanish
   - [?????](https://crowdin.com/profile/elpapuvanegas)
+  - [Abraham Morales](https://crowdin.com/profile/ionizadorplasmico)
   - [Alejandro Venancio Calviño](https://crowdin.com/profile/The-Pro-141106)
   - [Anomen77](https://crowdin.com/profile/Anomen77)
   - [ByDraXx 4K](https://crowdin.com/profile/bydraxx4k129)
   - [Daniel Víquez Delgado](https://crowdin.com/profile/Daniel12321)
+  - [David Azañedo](https://crowdin.com/profile/davidazanedo)
   - [DearReux](https://crowdin.com/profile/DearReux)
   - [Dino Poeta](https://crowdin.com/profile/ItsDino_593)
   - [DrakeZero](https://crowdin.com/profile/DrakeZero)
