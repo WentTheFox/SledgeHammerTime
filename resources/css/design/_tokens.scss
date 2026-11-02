@@ -1,0 +1,176 @@
+// App-specific design tokens, layered on top of the framework defaults
+// (see `@went.tf/hammertime-css`, configured in `_index.scss`).
+@use "sass:color";
+
+$_base-blue: #5865f2;
+
+$values: (
+  sidebar-spacing: .5rem,
+  sidebar-max-width: (
+    default: 25rem,
+    xl: 28rem,
+  ),
+  sidebar-border: .0625rem,
+  sidebar-divider-border: .0625rem,
+  sidebar-default-open-min-width: 1024px,
+  sidebar-section-spacing: .625rem,
+  sidebar-section-heading-font: 1.375rem,
+  sidebar-dev-credit-font-size: 1.25rem,
+  sidebar-dev-credit-line-height: 1.55,
+  sidebar-translation-credits-gap: 0.5em,
+  sidebar-build-info-font-size: 0.75em,
+  sidebar-build-info-opacity: 0.5,
+  language-selector-spacing: (
+    default: .5em,
+    md: .6em,
+    lg: .6875em,
+  ),
+  user-info-spacing: .5em,
+  profile-user-info-spacing: .5em,
+  profile-user-info-image-border-radius: 50%,
+  profile-user-info-image-size: 2rem,
+  profile-user-info-name-font-size: 1.25rem,
+  useful-link-padding: .25rem,
+  useful-link-spacing: .5rem,
+  useful-link-desc-font-size: .875rem,
+  useful-link-desc-line-height: 1.55,
+  useful-link-border-radius: .375rem,
+  useful-link-max-width: (
+    default: 175px,
+    sm: 225px,
+    md: 280px,
+  ),
+  useful-link-max-width-small-size: (
+    default: 120px,
+    sm: 140px,
+    md: 200px,
+  ),
+  bot-usage-graph-width: 200px,
+  bot-usage-graph-height: 100px,
+  bot-usage-graph-line-gap: 2px,
+  bot-usage-graph-line-min-width: 2px,
+  bot-usage-graph-tooltip-padding: .25rem,
+  bot-usage-graph-tooltip-usage-font-size: 1.5rem,
+  bot-usage-graph-tooltip-date-font-size: .75rem,
+  time-picker-max-width: 260px,
+  faq-list-gap: 0.25rem,
+  faq-blockquote-padding-left: 0.75rem,
+  faq-blockquote-border-left: 3px,
+  faq-blockquote-opacity: 0.8,
+  faq-list-padding-left: 1.5rem,
+);
+
+$colors: (
+  sidebar-bg: (
+    light: color.adjust($_base-blue, $lightness: 30%, $saturation: -10%),
+    dark: #1a1b1e,
+  ),
+  sidebar-border-color: (
+    light: color.adjust($_base-blue, $lightness: 20%, $saturation: -10%),
+    dark: #2c2e33,
+  ),
+  sidebar-divider-color: (
+    light: color.adjust($_base-blue, $lightness: 15%, $saturation: -10%),
+    dark: #373a40,
+  ),
+  calendar-button-selected-bg: (
+    light: rgba($_base-blue, .25),
+    dark: rgba($_base-blue, .5),
+  ),
+  calendar-red: (
+    light: #c00,
+    dark: #faa,
+  ),
+  calendar-blue: (
+    light: #0af,
+    dark: #adf,
+  ),
+  open-source: (
+    light: color.adjust(#3da639, $lightness: -15%),
+    dark: color.adjust(#3da639, $lightness: 10%),
+  ),
+  translation-contribution-cta: (
+    light: #559933,
+    dark: color.adjust(#559933, $lightness: 10%),
+  ),
+  progress-bar-approval: (
+    light: #6dc271,
+    dark: #6dc271,
+  ),
+  progress-bar-translation: (
+    light: #9cc7ff,
+    dark: #5b89c6,
+  ),
+  progress-bar-warning: (
+    light: color.adjust(#997733, $lightness: -5%),
+    dark: color.adjust(#997733, $lightness: 10%),
+  ),
+  add-app-bg: (
+    light: #FFFFFF,
+    dark: #323338,
+  ),
+  add-app-color: (
+    light: #313338,
+    dark: #DBDEE1,
+  ),
+  add-app-logo-border: (
+    light: rgba(0, 0, 0, 0.08),
+    dark: rgba(255, 255, 255, 0.08),
+  ),
+  add-app-link-bg: (
+    light: #F2F3F5,
+    dark: #2b2d31,
+  ),
+  add-app-link-hover-bg: (
+    light: #EBEBED,
+    dark: #3b3c41,
+  ),
+  add-app-link-icon: (
+    light: #4E5058,
+    dark: #b6bac0,
+  ),
+  add-app-link-title: (
+    light: #060607,
+    dark: #fff,
+  ),
+  add-app-link-description: (
+    light: #5C5E66,
+    dark: #969ba4,
+  ),
+  bot-usage-graph-line-bg: (
+    light: transparent,
+    dark: #444,
+  ),
+  bot-usage-graph-line-color: (
+    light: #8af,
+    dark: #8af,
+  ),
+  bot-usage-graph-source-api: (
+    light: #3c9f5a,
+    dark: #6fcf8a,
+  ),
+  bot-usage-graph-source-mcp: (
+    light: #9a55c8,
+    dark: #c792ea,
+  ),
+  useful-link-card-bg: (
+    light: rgba(0, 0, 0, .06),
+    dark: rgba(255, 255, 255, .05),
+  ),
+  profile-user-info-image-loading-bg: (
+    light: rgba(255, 255, 255, .5),
+    dark: rgba(0, 0, 0, .5),
+  ),
+  discord-mention-color: (
+    light: $_base-blue,
+    dark: $_base-blue,
+  ),
+  discord-mention-bg: (
+    light: rgba($_base-blue, .15),
+    dark: rgba($_base-blue, .15),
+  ),
+  discord-mention-bg-hover: (
+    light: rgba($_base-blue, .25),
+    dark: rgba($_base-blue, .25),
+  ),
+);

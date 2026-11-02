@@ -1,5 +1,7 @@
-@use '~the-new-css-reset/css/reset.css';
-@forward 'functions';
-@forward 'common';
-@forward 'mixins';
-@use 'layout';
+@use 'tokens';
+// The framework has to be loaded (and configured) through this file before anything else uses it
+@forward '@went.tf/hammertime-css/design' with (
+  $extend-values: tokens.$values,
+  $extend-colors: tokens.$colors,
+);
+@use 'app-layout';

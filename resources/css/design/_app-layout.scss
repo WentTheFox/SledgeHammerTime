@@ -1,0 +1,5 @@
+@use "@went.tf/hammertime-css/design" as design;
+
+.tippy-box {
+  font-size: #{design.app-value('base-font-size')};
+}
