@@ -1,3 +1,5 @@
-@use 'utils/index' as utils;
+// Load the configured framework first, everything else reuses that instance
+@use 'design';
+@use '@went.tf/hammertime-css/utils' as utils;
 @use 'components/index' as components;
 @use '~tippy.js/dist/tippy.css';
