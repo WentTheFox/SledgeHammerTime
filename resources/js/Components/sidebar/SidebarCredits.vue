@@ -106,6 +106,11 @@ const translationCredits = computed(() => {
                   {{ $t('global.sidebar.credits.chrono') }}
                 </HtExternalLink>
               </li>
+              <li>
+                <HtExternalLink href="https://wentthefox.github.io/HammerTimeCSS/">
+                  {{ $t('global.sidebar.credits.hammerTimeCss') }}
+                </HtExternalLink>
+              </li>
             </ul>
           </template>
         </HtTranslate>
