@@ -132,8 +132,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))
       laravel-vue-i18n:
-        specifier: npm:@wentthefox-forks/laravel-vue-i18n@^2.9.3
-        version: '@wentthefox-forks/laravel-vue-i18n@2.9.3(typescript@6.0.3)'
+        specifier: npm:@wentthefox-forks/laravel-vue-i18n@^2.9.4
+        version: '@wentthefox-forks/laravel-vue-i18n@2.9.4(typescript@6.0.3)'
       lightningcss:
         specifier: ^1.33.0
         version: 1.33.0
@@ -1169,8 +1169,8 @@ packages:
     resolution: {integrity: sha512-IoYrAl9/y7ny8lL26huEsRHdE3XuFcnh44ezFx4lgAa8gTpdSzW5M0tVy58uUSsdkuqK+35I86d+Gk/Ff97hwA==}
     engines: {node: '>=24'}
 
-  '@wentthefox-forks/laravel-vue-i18n@2.9.3':
-    resolution: {integrity: sha512-7WouIjRz3LFJfhqcwpztFhV7air+hjMHdlq9sr1oK1KpK/E6jMff3Qk1NabfKGCITp/KGOxFw1brI3HL9CAUaw==}
+  '@wentthefox-forks/laravel-vue-i18n@2.9.4':
+    resolution: {integrity: sha512-GOvkJb6dxE5M2+Rcn/CbKBkJpgcsEbqPhRtu7DRuPrJtrbERNDyoqB/2vxfruIVxiQg4qpr//eh3tfYSMliavA==}
 
   '@wentthefox-forks/vite-plugin-imagemin@2.2.2':
     resolution: {integrity: sha512-B5TotGiQy4cWrWsBmc+2BF1rQGYUvXiEf07/tOxg3UMywRdQ8abmwNNpVff/oRym6SySPZLrHYZwxxELTlHnvA==}
@@ -3450,7 +3450,7 @@ snapshots:
     dependencies:
       the-new-css-reset: 1.11.3
 
-  '@wentthefox-forks/laravel-vue-i18n@2.9.3(typescript@6.0.3)':
+  '@wentthefox-forks/laravel-vue-i18n@2.9.4(typescript@6.0.3)':
     dependencies:
       php-parser: 3.7.0
       vue: 3.5.43(typescript@6.0.3)
