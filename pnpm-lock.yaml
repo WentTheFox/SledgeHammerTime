@@ -102,8 +102,8 @@ importers:
         specifier: ^3.5.43
         version: 3.5.43
       '@went.tf/hammertime-css':
-        specifier: ^0.1.2
-        version: 0.1.2
+        specifier: ^1.1.0
+        version: 1.1.0
       '@wentthefox-forks/vite-plugin-imagemin':
         specifier: ^2.2.2
         version: 2.2.2(supports-color@10.2.2)(vite@8.3.4(@types/node@24.19.1)(esbuild@0.28.2)(sass@1.105.1)(tsx@4.23.15))
@@ -1165,8 +1165,8 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@went.tf/hammertime-css@0.1.2':
-    resolution: {integrity: sha512-RwQmSB1Y3IW0JDHdkjPPzJjJuwiK4JQ2yUlzf1pS7JQl0NkSQryPi2xDx5+mLRQOGYz1/y8HXJw8mySxJl/MJg==}
+  '@went.tf/hammertime-css@1.1.0':
+    resolution: {integrity: sha512-IoYrAl9/y7ny8lL26huEsRHdE3XuFcnh44ezFx4lgAa8gTpdSzW5M0tVy58uUSsdkuqK+35I86d+Gk/Ff97hwA==}
     engines: {node: '>=24'}
 
   '@wentthefox-forks/laravel-vue-i18n@2.9.3':
@@ -3446,7 +3446,7 @@ snapshots:
     dependencies:
       vue: 3.5.43(typescript@6.0.3)
 
-  '@went.tf/hammertime-css@0.1.2':
+  '@went.tf/hammertime-css@1.1.0':
     dependencies:
       the-new-css-reset: 1.11.3
 

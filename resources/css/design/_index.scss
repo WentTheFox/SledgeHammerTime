@@ -1,6 +1,10 @@
 @use 'tokens';
 // The framework has to be loaded (and configured) through this file before anything else uses it
 @forward '@went.tf/hammertime-css/design' with (
+  // The page background gradient is opt-in in the framework, keep the colors the app has always used
+  $background-gradient: true,
+  $bg-gradient-start: #585ef2,
+  $bg-gradient-end: #a55ea5,
   $extend-values: tokens.$values,
   $extend-colors: tokens.$colors,
 );
