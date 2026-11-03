@@ -12,9 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TrackPageViews {
   protected const TRACKED_ROUTES = [
-    'root' => true,
     'home' => true,
-    'login' => true,
     'settings' => true,
     'profile.edit' => true,
     'design' => true,
