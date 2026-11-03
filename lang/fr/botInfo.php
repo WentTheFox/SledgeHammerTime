@@ -61,7 +61,7 @@ return [
     'choices' => 'Valeurs possibles :',
     'usageGraphNoData' => 'Aucune donnée d\'utilisations récente trouvée',
     'usageSources' => [
-      'discord-bot' => 'Discord app',
+      'discord-bot' => 'Application Discord',
       'api' => 'API',
       'mcp' => 'MCP',
     ],
