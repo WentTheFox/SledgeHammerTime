@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'heading' => 'API Access',
+  'heading' => 'API Zugriff',
   'description' => 'Erstellen Sie Zeitstempel und ändern Sie die Einstellungen Ihrer App über Ihre eigenen Programme. Jeder Endpunkt entspricht einem App-Befehl, und die Anfragen richten sich nach den Einstellungen des Discord-Kontos, für das der Schlüssel erstellt wurde.',
   'overview' => [
     'baseUrl' => 'Basis-URL',

@@ -42,7 +42,7 @@ return [
     'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript z bezpečnostních důvodů vypínají ve výchozím nastavení, ale pro tuto aplikaci je nezbytný. Prosím, povolte jej a obnovte stránku, případně použijte jiný prohlížeč.",
   ],
   'nav' => [
-    'menu' => 'Menu',
+    'menu' => 'Nabídka',
     'botSettings' => 'Nastavení aplikace',
     'profile' => 'Můj účet',
     'api' => 'API',
@@ -126,6 +126,7 @@ return [
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
+      'hammerTimeCss' => 'HammerTimeCSS',
       'translatedBy' => 'Přeložili <1></1>',
       'openSourceSoftware' => 'Otevřený software',
       'viewSourceCode' => 'Zobrazit zdrojový kód',

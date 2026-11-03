@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Anda juga boleh kongsikan pautan di bawah dengan orang lain yang membolehkan mereka menambah aplikasi tersebut tanpa gangguan tambahan:',
   'webhookDeliveryStats' => [
     'title' => 'Masa Serahan Cangkuk Sesawang',
-    'description' => 'Aplikasi dijalankan di belakang Titik Akhir Interaksi HTTP milik Discord, maknanya setiap balasan mestilah dihantar semula dalam peruntukan masa yang ketat. Berikut data berapa laju aplikasi memberi tindak balas, dan berapa kerap sambutan tersebut gagal, dalam masa :hours jam yang lepas.',
+    'description' => 'Aplikasi dijalankan di belakang Titik Akhir Interaksi HTTP milik Discord, maknanya setiap balasan mestilah dihantar semula dalam peruntukan masa yang ketat. Berikut data berapa laju aplikasi memberi tindak balas, dan berapa kerap sambutan tersebut gagal, dalam masa :count jam yang lepas.',
     'noData' => 'Tiada data serahan yang dirakamkan lagi.',
     'latencyChartTitle' => 'Masa sambutan',
     'latencyAvgLabel' => 'Purata',

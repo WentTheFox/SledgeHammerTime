@@ -46,7 +46,7 @@ return [
       'scopes' => 'Permissions',
       'expiry' => 'Expires',
       'neverExpires' => 'Never',
-      'expiresInDays' => ':days days',
+      'expiresInDays' => ':count өдөр|:count өдөр',
       'submit' => 'Create key',
     ],
     'scopes' => [
