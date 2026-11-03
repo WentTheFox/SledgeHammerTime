@@ -26,7 +26,7 @@ return [
     'reloadButton' => 'Actualisation manuelle',
     "supportServerButton" => "Serveur de Support",
     "contactDeveloperButton" => "Contacter le développeur",
-    "statusPageButton" => "Status Page",
+    "statusPageButton" => "Statut de la Page",
   ],
   'incompleteTranslations' => 'La traduction est incomplète',
   'contributeTranslations' => 'Contribuer',
