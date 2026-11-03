@@ -136,17 +136,28 @@ const barChartData = computed(() => {
   };
 });
 
+/** The app's brand color, also used for the theme-color meta tag */
+const BRAND_COLOR = '#5865F2';
+
+/**
+ * The first (usually most common) entry gets the brand color, the rest get darker along a smooth ramp
+ * of blurple towards blue, so the less common an entry is, the further it is from the brand color.
+ */
 const generatePalette = (count: number, isLight: boolean) => {
-  const colors = [];
-  const saturation = isLight ? '60%' : '50%';
-  const lightness = isLight ? '50%' : '30%';
+  const colors: string[] = [];
+  // The brand color is hsl(235, 86%, 65%); the end of the ramp is a dark blue
+  const [endHue, endSaturation, endLightness] = isLight ? [228, 50, 30] : [226, 65, 30];
 
   for (let i = 0; i < count; i++) {
-    const hue = (i * (360 / Math.min(count, 10))) % 360;
-    // Using a golden angle approach for better distribution if the count is high
-    const hueGolden = (i * 137.508) % 360;
-    const finalHue = count <= 10 ? hue : hueGolden;
-    colors.push(`hsl(${finalHue}, ${saturation}, ${lightness})`);
+    if (i === 0) {
+      colors.push(BRAND_COLOR);
+      continue;
+    }
+    const progress = i / Math.max(count - 1, 1);
+    const hue = 235 + (endHue - 235) * progress;
+    const saturation = 86 + (endSaturation - 86) * progress;
+    const lightness = 65 + (endLightness - 65) * progress;
+    colors.push(`hsl(${Math.round(hue)}, ${Math.round(saturation)}%, ${Math.round(lightness)}%)`);
   }
   return colors;
 };
