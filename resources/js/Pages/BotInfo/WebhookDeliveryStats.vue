@@ -320,7 +320,7 @@ const hasData = computed(() => (props.stats ?? []).length > 0);
     </template>
 
     <p class="mb-3">
-      {{ $t('botInfo.webhookDeliveryStats.description', { hours: String(windowHours) }) }}
+      {{ $tChoice('botInfo.webhookDeliveryStats.description', windowHours, { hours: String(windowHours) }) }}
     </p>
 
     <div class="webhook-delivery-stats-charts">
