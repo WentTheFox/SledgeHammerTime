@@ -126,6 +126,7 @@ return [
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
+      'hammerTimeCss' => 'HammerTimeCSS',
       'translatedBy' => 'Translations by <1></1>',
       'openSourceSoftware' => 'Open-source software',
       'viewSourceCode' => 'View source code',

@@ -1,8 +1,8 @@
 <?php
 
 return [
-  'heading' => 'API Access',
-  'description' => 'Generate timestamps and change your app settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
+  'heading' => 'API-yhteys',
+  'description' => 'Luo aikaleimoja ja vaihda apin asetuksia omista ohjelmistasi. Jokainen päätepiste vastaa apin komentoa, ja pyynnöt seuraavat sen Discord-tilin asetuksia, jolle avain luotiin.',
   'overview' => [
     'baseUrl' => 'Juuriosoite',
     'reference' => 'Interaktiivinen viite',
@@ -13,10 +13,10 @@ return [
   ],
   'usage' => [
     'heading' => 'API:n käyttö',
-    'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
+    'authentication' => 'Lähetä avaimesi bearer-tunnisteena jokaisen pyynnös Authorization-otsikossa.',
     'example' => 'Tämä palauttaa aikaleiman, joka vastaa kello 18.30 tänään tallennetussa aikavyöhykkeessäsi. Avain esimerkeissä on keksitty, käytä omaasi:',
-    'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
-    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned telemetry off in your app settings.',
+    'limits' => 'Pyynntöjen määrää rajoitetaan avainkohtaisesti. Jokaisen vastauksen RateLimit-otsikot kertovat missä vaiheessa olet, ja HTTP-virhe 429 tulee Retry-After-otsikon mukana.',
+    'statistics' => 'Suoritukset lasketaan kuin appikomennot, ja vastaus ilmoittaa monesko suoritus se oli, ellet ole poistanut telemetriatietojen keräämistä käytöstä.',
   ],
   'permissions' => [
     'heading' => 'Käyttöoikeudet',
@@ -28,8 +28,8 @@ return [
     ],
     'scopes' => [
       'timestamps:create' => 'Aikaleimojen luominen aikaleima-päätepisteillä ja MCP-työkaluilla, Discord-tilinä jona avain toimii.',
-      'settings:read' => 'Reading the app settings of that account.',
-      'settings:write' => 'Changing the app settings of that account, only the fields that are sent.',
+      'settings:read' => 'Lukee käyttäjän apin asetuksia.',
+      'settings:write' => 'Vaihtaa käyttäjän apin asetuksia, vain kentät jotka lähetettiin.',
     ],
   ],
   'reference' => [
@@ -48,7 +48,7 @@ return [
   ],
   'mcp' => [
     'heading' => 'Käyttää MCP-palvelinta',
-    'description' => 'The MCP server uses the Streamable HTTP transport and the same keys. It offers one tool per command plus settings, and only the tools your key\'s permissions allow.',
+    'description' => 'MCP-palvelin käyttää Streamable HTTP -siirtotapaa ja samoja avaimia. Se tarjoaa yhden työkalun kutakin komentoia kohti sekä asetukset, ja vain niitä työkaluja joita avaimesi asetukset sallivat.',
     'url' => 'Palvelimen URL-osoite',
     'placeholderKey' => 'Avain seuraavissa esimerkeissä on keksitty, se ei toimi. Korvaa se yhdellä omista avaimistasi.',
     'claudeCode' => 'Lisää se Claude Codeen seuraavasti:',

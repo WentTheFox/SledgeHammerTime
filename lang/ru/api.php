@@ -1,8 +1,8 @@
 <?php
 
 return [
-  'heading' => 'API Access',
-  'description' => 'Generate timestamps and change your app settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
+  'heading' => 'Доступ через API',
+  'description' => 'Генерируйте временные метки и изменяйте настройки приложения из ваших собственных программ. Каждая конечная точка соответствует команде приложения, а запросы обрабатываются в соответствии с настройками учетной записи Discord, для которой был создан ключ.',
   'overview' => [
     'baseUrl' => 'Базовый URL',
     'reference' => 'Интерактивный справочник',
@@ -13,9 +13,9 @@ return [
   ],
   'usage' => [
     'heading' => 'Использование API',
-    'authentication' => 'Send your key as a bearer token in the Authorization header of every request.',
+    'authentication' => 'Отправляйте свой ключ в виде токена «bearer» в заголовке «Authorization» каждого запроса.',
     'example' => 'Эта команда возвращает временную метку, соответствующую 18:30 сегодняшнего дня в вашем сохраненном часовом поясе. Ключ в примерах является вымышленным, используйте свой собственный:',
-    'limits' => 'Requests are rate limited per key. The RateLimit headers of every response tell you where you stand, and a 429 response comes with a Retry-After header.',
+    'limits' => 'Количество запросов ограничено для каждого ключа. Заголовки RateLimit в каждом ответе показывают, на каком этапе вы находитесь, а ответ с кодом 429 содержит заголовок Retry-After.',
     'statistics' => 'Запуски учитываются так же, как команды приложения, и в ответе указывается, какой именно запуск имел место, если только вы не отключили телеметрию в настройках приложения.',
   ],
   'permissions' => [
@@ -34,9 +34,9 @@ return [
   ],
   'reference' => [
     'heading' => 'Endpoint reference',
-    'description' => 'Every endpoint with the fields it takes and the responses it gives. This is read from the OpenAPI specification of the API server, so it always matches the version that is running.',
-    'errors' => 'Errors',
-    'errorsDescription' => 'Every error response has this body. The status code tells what kind of error it is, and error.code the exact reason.',
+    'description' => 'Каждый конечный пункт с перечнем принимаемых им полей и возвращаемых ответов. Эта информация извлекается из спецификации OpenAPI сервера API, поэтому она всегда соответствует текущей версии.',
+    'errors' => 'Ошибки',
+    'errorsDescription' => 'Каждый ответ об ошибке содержит данное тело. Код статуса указывает, о каком типе ошибки идет речь, а параметр `error.code` — о конкретной причине.',
     'optional' => 'опционально',
     'unavailable' => 'В данный момент не удалось загрузить справочник. В интерактивном справочнике содержится та же информация.',
     'permission' => 'Права',

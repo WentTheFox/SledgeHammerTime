@@ -11,7 +11,7 @@ return [
   'shareableLink' => '以下のリンクを他の人と共有することもできます。これにより、追加の手間なくアプリを追加できます：',
   'webhookDeliveryStats' => [
     'title' => 'Webhookの配信時間',
-    'description' => 'このアプリはDiscordのHTTP Interactionsエンドポイントの背後で動作しているため、すべての返信は厳格な時間制限内に返送されなければなりません。以下は、過去 :hours 時間の間に、このアプリがどれほどの速さで応答していたか、また応答が失敗した頻度を示したものです。',
+    'description' => 'このアプリはDiscordのHTTP Interactionsエンドポイントの背後で動作しているため、すべての返信は厳格な時間制限内に返送されなければなりません。以下は、過去 :count 時間の間に、このアプリがどれほどの速さで応答していたか、また応答が失敗した頻度を示したものです。',
     'noData' => '配信データはまだ記録されていません。',
     'latencyChartTitle' => '応答時間',
     'latencyAvgLabel' => '平均',
