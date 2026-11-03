@@ -20,6 +20,7 @@ class TrackPageViews {
     'design' => true,
     'legal' => true,
     'botInfo' => true,
+    'api' => true,
     'addBot' => true,
     'addBotNoLocale' => true,
     'analytics' => true,
