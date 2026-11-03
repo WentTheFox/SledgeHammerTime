@@ -120,6 +120,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Angel_bzh](https://crowdin.com/profile/Angel_bzh)
   - [Arthur LUCAS](https://crowdin.com/profile/ablasters1)
   - [Biscotte](https://crowdin.com/profile/Ilovelinux68)
+  - [Charlie Quignion](https://crowdin.com/profile/j.h.pro)
   - [Cookie Kiro](https://crowdin.com/profile/Cookikui)
   - [Dylan Delobel](https://crowdin.com/profile/DylanDelobel)
   - [Hugo Castino](https://crowdin.com/profile/HugoCastino)
