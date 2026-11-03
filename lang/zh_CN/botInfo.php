@@ -11,7 +11,7 @@ return [
   'shareableLink' => '您也可以将下面的链接分享给他人，让他们直接添加此应用，而不会受到任何其他干扰：',
   'webhookDeliveryStats' => [
     'title' => 'Webhook Delivery Times',
-    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :hours hours.',
+    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last hour.|The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :count hours.',
     'noData' => 'No delivery data has been recorded yet.',
     'latencyChartTitle' => 'Response time',
     'latencyAvgLabel' => 'Average',

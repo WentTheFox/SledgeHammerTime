@@ -126,6 +126,7 @@ return [
       'dateFns' => 'date-fns',
       'vueTippy' => 'VueTippy',
       'chrono' => 'chrono',
+      'hammerTimeCss' => 'HammerTimeCSS',
       'translatedBy' => 'Fordítók: <1></1>',
       'openSourceSoftware' => 'Nyílt forráskódú szoftver',
       'viewSourceCode' => 'Forráskód megtekintése',

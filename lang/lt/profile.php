@@ -46,7 +46,7 @@ return [
       'scopes' => 'Permissions',
       'expiry' => 'Expires',
       'neverExpires' => 'Never',
-      'expiresInDays' => ':days days',
+      'expiresInDays' => ':count diena|:count dienos|:count dienų',
       'submit' => 'Create key',
     ],
     'scopes' => [

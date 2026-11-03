@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'heading' => 'API Access',
+  'heading' => 'Přístup k API',
   'description' => 'Generate timestamps and change your app settings from your own programs. Every endpoint matches an app command, and requests follow the settings of the Discord account the key was created for.',
   'overview' => [
     'baseUrl' => 'Base URL',

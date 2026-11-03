@@ -36,7 +36,7 @@ return [
     'heading' => 'Rujukan titik akhir',
     'description' => 'Setiap titik akhir dengan medan yang diterima dan sambutan yang diberi. Maklumat ini dibaca dari spesifikasi OpenAPI milik pelayan API, jadi ia sentiasa sepadan dengan versi yang dijalankan.',
     'errors' => 'Ralat',
-    'errorsDescription' => 'Every error response has this body. The status code tells what kind of error it is, and error.code the exact reason.',
+    'errorsDescription' => 'Setiap sambutan ralat mempunyai kandungan ini. Kod status memberitahu apakah jenis ralat, dan error.code memberitahu sebab tepatnya.',
     'optional' => 'pilihan',
     'unavailable' => 'Rujukan tidak dapat dimuatkan ketika ini. Rujukan interaktif mempunyai maklumat yang sama.',
     'permission' => 'Keizinan',

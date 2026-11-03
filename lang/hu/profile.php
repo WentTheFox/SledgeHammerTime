@@ -46,7 +46,7 @@ return [
       'scopes' => 'Jogosultságok',
       'expiry' => 'Lejárati idő',
       'neverExpires' => 'Soha',
-      'expiresInDays' => ':days nap',
+      'expiresInDays' => ':count nap|:count nap',
       'submit' => 'Kulcs létrehozása',
     ],
     'scopes' => [

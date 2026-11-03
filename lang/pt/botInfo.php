@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Também pode partilhar o link abaixo com outras pessoas, o que lhes permitirá adicionar a aplicação sem quaisquer distrações adicionais:',
   'webhookDeliveryStats' => [
     'title' => 'Prazos de entrega dos webhooks',
-    'description' => 'A aplicação funciona através do ponto de extremidade de interações HTTP do Discord, o que significa que cada resposta tem de ser enviada dentro de um limite de tempo rigoroso. Abaixo pode ver a rapidez com que tem vindo a responder e a frequência com que essas respostas falharam, nas últimas :hours horas.',
+    'description' => 'A aplicação funciona através do ponto de extremidade de interações HTTP do Discord, o que significa que cada resposta tem de ser enviada dentro de um limite de tempo rigoroso. Abaixo pode ver a rapidez com que tem vindo a responder e a frequência com que essas respostas falharam, na última hora.|A aplicação funciona através do ponto de extremidade de interações HTTP do Discord, o que significa que cada resposta tem de ser enviada dentro de um limite de tempo rigoroso. Abaixo pode ver a rapidez com que tem vindo a responder e a frequência com que essas respostas falharam, nas últimas :count horas.',
     'noData' => 'Nenhum dado de entrega foi registrado ainda.',
     'latencyChartTitle' => 'Tempo de Resposta',
     'latencyAvgLabel' => 'Média',
