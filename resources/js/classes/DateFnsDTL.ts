@@ -75,12 +75,13 @@ const localeImports: Record<string, () => Promise<Locale>> = {
   ptBR: () => import('date-fns/locale/pt-BR').then(m => m.ptBR),
   ro:   () => import('date-fns/locale/ro').then(m => m.ro),
   ru:   () => import('date-fns/locale/ru').then(m => m.ru),
-  sr:   () => import('date-fns/locale/sr').then(m => m.sr),
+  srLatn: () => import('date-fns/locale/sr-Latn').then(m => m.srLatn),
   es:   () => import('date-fns/locale/es').then(m => m.es),
   sv:   () => import('date-fns/locale/sv').then(m => m.sv),
   th:   () => import('date-fns/locale/th').then(m => m.th),
   tr:   () => import('date-fns/locale/tr').then(m => m.tr),
   uk:   () => import('date-fns/locale/uk').then(m => m.uk),
+  ur:   () => import('@/date-fns-locales/ur').then(m => m.ur),
   vi:   () => import('date-fns/locale/vi').then(m => m.vi),
 };
 

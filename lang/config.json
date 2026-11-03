@@ -237,7 +237,8 @@
         6,
         0
       ],
-      "laravelLocale": "sr_Latin"
+      "laravelLocale": "sr_Latin",
+      "dateFnsLocale": "sr-Latn"
     },
     "es": {
       "name": "Spanish",
