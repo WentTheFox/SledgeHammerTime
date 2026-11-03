@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Az alábbi linket is megoszthatod másokkal, amivel bármilyen zavaró tényező nélkül hozzá tudják adni az appot:',
   'webhookDeliveryStats' => [
     'title' => 'Webhook Kezelési Idő',
-    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last hour.|The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :count hours.',
+    'description' => 'Az alkalmazás a Discord HTTP Interactions végpontján keresztül működik, ami azt jelenti, hogy minden választ szigorú időkorláton belül kell visszaküldeni. Az alábbiakban látható, hogy az elmúlt :count óra alatt milyen gyorsan reagált az alkalmazás, és milyen gyakran voltak sikertelenek a válaszok.',
     'noData' => 'Még nincs rögzített kezelési adat.',
     'latencyChartTitle' => 'Válaszidő',
     'latencyAvgLabel' => 'Átlag',

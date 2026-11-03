@@ -41,7 +41,7 @@ return [
     'create' => [
       'heading' => 'Cipta kunci API',
       'name' => 'Nama',
-      'namePlaceholder' => 'What will it be used for?',
+      'namePlaceholder' => 'Apakah kegunaannya?',
       'account' => 'Bertindak sebagai akaun Discord',
       'scopes' => 'Keizinan',
       'expiry' => 'Tamat tempoh',
