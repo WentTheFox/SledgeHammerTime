@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'You can also share the link below with others which will let them add the app without any additional distractions:',
   'webhookDeliveryStats' => [
     'title' => 'Webhook Delivery Times',
-    'description' => 'The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last hour.|The app runs behind Discord\'s HTTP Interactions Endpoint, which means every reply has to be sent back within a strict time budget. Below is how quickly it has been responding, and how often those responses have failed, over the last :count hours.',
+    'description' => 'Lietotne darbojas aiz Discord HTTP mijiedarbības galapunkta, kas nozīmē, ka katra atbilde ir jānosūta atpakaļ stingri ierobežotā laikā. Tālāk redzams, cik ātri lietotne ir atbildējusi un cik bieži šīs atbildes ir cietušas neveiksmi pēdējo :count stundu laikā.|Lietotne darbojas aiz Discord HTTP mijiedarbības galapunkta, kas nozīmē, ka katra atbilde ir jānosūta atpakaļ stingri ierobežotā laikā. Tālāk redzams, cik ātri lietotne ir atbildējusi un cik bieži šīs atbildes ir cietušas neveiksmi pēdējās :count stundas laikā.|Lietotne darbojas aiz Discord HTTP mijiedarbības galapunkta, kas nozīmē, ka katra atbilde ir jānosūta atpakaļ stingri ierobežotā laikā. Tālāk redzams, cik ātri lietotne ir atbildējusi un cik bieži šīs atbildes ir cietušas neveiksmi pēdējo :count stundu laikā.',
     'noData' => 'No delivery data has been recorded yet.',
     'latencyChartTitle' => 'Response time',
     'latencyAvgLabel' => 'Average',
