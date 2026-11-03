@@ -350,7 +350,7 @@ const canCreate = computed(() => props.discordUsers.length > 0 && props.apiKeys.
                   :key="days"
                   :value="days"
                 >
-                  {{ $t('profile.apiKeys.create.expiresInDays', { days: String(days) }) }}
+                  {{ $tChoice('profile.apiKeys.create.expiresInDays', days, { days: String(days) }) }}
                 </option>
                 <option :value="null">
                   {{ $t('profile.apiKeys.create.neverExpires') }}
