@@ -46,7 +46,7 @@ return [
       'scopes' => 'Δικαιώματα',
       'expiry' => 'Λήγει',
       'neverExpires' => 'Ποτέ',
-      'expiresInDays' => ':days ημέρες',
+      'expiresInDays' => ':count ημέρα|:count ημέρες',
       'submit' => 'Δημιουργία κλειδιού',
     ],
     'scopes' => [

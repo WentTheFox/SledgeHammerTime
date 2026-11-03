@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Możesz również podzielić się poniższym linkiem z innymi osobami, co pozwoli im dodać aplikację bez żadnych dodatkowych przeszkód:',
   'webhookDeliveryStats' => [
     'title' => 'Czas dostawy Webhooków',
-    'description' => 'Aplikacja działa na podstawie punktu końcowego interakcji HTTP Discorda, co oznacza, że każda odpowiedź musi zostać wysłana w ściśle określonym limicie czasowym. Poniżej przedstawiono, jak szybko aplikacja odpowiadała i jak często odpowiedzi te kończyły się niepowodzeniem w ciągu ostatnich :hours godzin.',
+    'description' => 'Aplikacja działa na podstawie punktu końcowego interakcji HTTP Discorda, co oznacza, że każda odpowiedź musi zostać wysłana w ściśle określonym limicie czasowym. Poniżej przedstawiono, jak szybko aplikacja odpowiadała i jak często odpowiedzi te kończyły się niepowodzeniem w ciągu ostatniej godziny.|Aplikacja działa na podstawie punktu końcowego interakcji HTTP Discorda, co oznacza, że każda odpowiedź musi zostać wysłana w ściśle określonym limicie czasowym. Poniżej przedstawiono, jak szybko aplikacja odpowiadała i jak często odpowiedzi te kończyły się niepowodzeniem w ciągu ostatnich :count godzin.|Aplikacja działa na podstawie punktu końcowego interakcji HTTP Discorda, co oznacza, że każda odpowiedź musi zostać wysłana w ściśle określonym limicie czasowym. Poniżej przedstawiono, jak szybko aplikacja odpowiadała i jak często odpowiedzi te kończyły się niepowodzeniem w ciągu ostatnich :count godzin.',
     'noData' => 'Nie zarejestrowano dotąd żadnego przesyłu danych.',
     'latencyChartTitle' => 'Czas odpowiedzi',
     'latencyAvgLabel' => 'Średnia',

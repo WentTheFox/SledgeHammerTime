@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Du kannst den unten stehenden Link auch mit anderen teilen, damit diese die App ohne zusätzliche Ablenkung hinzufügen können:',
   'webhookDeliveryStats' => [
     'title' => 'Webhook Zustellzeiten',
-    'description' => 'Die App läuft über den HTTP-Interactions-Endpunkt von Discord, was bedeutet, dass jede Antwort innerhalb eines streng begrenzten Zeitrahmens zurückgesendet werden muss. Nachstehend sehen Sie, wie schnell die App in den letzten :hours Stunden reagiert hat und wie oft diese Antworten fehlgeschlagen sind.',
+    'description' => 'Die App läuft über den HTTP-Interactions-Endpunkt von Discord, was bedeutet, dass jede Antwort innerhalb eines streng begrenzten Zeitrahmens zurückgesendet werden muss. Nachstehend sehen Sie, wie schnell die App in der letzten Stunde reagiert hat und wie oft diese Antworten fehlgeschlagen sind.|Die App läuft über den HTTP-Interactions-Endpunkt von Discord, was bedeutet, dass jede Antwort innerhalb eines streng begrenzten Zeitrahmens zurückgesendet werden muss. Nachstehend sehen Sie, wie schnell die App in den letzten :count Stunden reagiert hat und wie oft diese Antworten fehlgeschlagen sind.',
     'noData' => 'Es wurden noch keine Lieferdaten erfasst.',
     'latencyChartTitle' => 'Antwortzeit',
     'latencyAvgLabel' => 'Durchschnitt',

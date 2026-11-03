@@ -46,7 +46,7 @@ return [
       'scopes' => 'Permissions',
       'expiry' => 'Expires',
       'neverExpires' => 'Never',
-      'expiresInDays' => ':days days',
+      'expiresInDays' => ':count يوم|يوم واحد|يومان|:count أيام|:count يومًا|:count يوم',
       'submit' => 'Create key',
     ],
     'scopes' => [

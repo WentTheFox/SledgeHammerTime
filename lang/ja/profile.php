@@ -46,7 +46,7 @@ return [
       'scopes' => '権限',
       'expiry' => '有効期限',
       'neverExpires' => '無期限',
-      'expiresInDays' => ':days 日',
+      'expiresInDays' => ':count日',
       'submit' => 'キーを作成',
     ],
     'scopes' => [

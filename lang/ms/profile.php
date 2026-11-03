@@ -46,7 +46,7 @@ return [
       'scopes' => 'Keizinan',
       'expiry' => 'Tamat tempoh',
       'neverExpires' => 'Takkan tamat',
-      'expiresInDays' => ':days hari',
+      'expiresInDays' => ':count hari',
       'submit' => 'Cipta kunci',
     ],
     'scopes' => [

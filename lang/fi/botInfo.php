@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Voit myös jakaa alhaalta löytyvän linkin joka antaa heidän lisätä apin ilman mitään häiriötekijöitä:',
   'webhookDeliveryStats' => [
     'title' => 'Webhook-toimitusajat',
-    'description' => 'Appi toimii Discordin HTTP-interaktiopäätepisteen kautta, joka tarkoittaa että jokainen vastaus on lähetettävä takaisin tiukassa aikarajassa. Alla näkyy kuinka nopeasti appi on vastannut, ja kuinka usein vastaukset ovat epäonnistuneet, viimeisen :hours tunnin sisään.',
+    'description' => 'Appi toimii Discordin HTTP-interaktiopäätepisteen kautta, joka tarkoittaa että jokainen vastaus on lähetettävä takaisin tiukassa aikarajassa. Alla näkyy kuinka nopeasti appi on vastannut, ja kuinka usein vastaukset ovat epäonnistuneet, viimeisen tunnin sisään.|Appi toimii Discordin HTTP-interaktiopäätepisteen kautta, joka tarkoittaa että jokainen vastaus on lähetettävä takaisin tiukassa aikarajassa. Alla näkyy kuinka nopeasti appi on vastannut, ja kuinka usein vastaukset ovat epäonnistuneet, viimeisen :count tunnin sisään.',
     'noData' => 'Toimitustietoja ei ole vielä tallennettu.',
     'latencyChartTitle' => 'Vasteaika',
     'latencyAvgLabel' => 'Keskimääräinen',

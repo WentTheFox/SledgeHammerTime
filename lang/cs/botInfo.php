@@ -11,7 +11,7 @@ return [
   'shareableLink' => 'Sdílejte s ostatními odkaz níže, díky němuž budou moci aplikaci přidat bez zbytečných rozptýlení:',
   'webhookDeliveryStats' => [
     'title' => 'Čas dodání webhooku',
-    'description' => 'Aplikace běží na základě koncového bodu HTTP Interactions služby Discord, což znamená, že každá odpověď musí být odeslána v rámci přísného časového limitu. Níže je uvedeno, jak rychle aplikace reaguje a jak často dochází k selhání těchto odpovědí za posledních :hours hodin.',
+    'description' => 'Aplikace běží na základě koncového bodu HTTP Interactions služby Discord, což znamená, že každá odpověď musí být odeslána v rámci přísného časového limitu. Níže je uvedeno, jak rychle aplikace reaguje a jak často dochází k selhání těchto odpovědí za poslední hodinu.|Aplikace běží na základě koncového bodu HTTP Interactions služby Discord, což znamená, že každá odpověď musí být odeslána v rámci přísného časového limitu. Níže je uvedeno, jak rychle aplikace reaguje a jak často dochází k selhání těchto odpovědí za poslední :count hodiny.|Aplikace běží na základě koncového bodu HTTP Interactions služby Discord, což znamená, že každá odpověď musí být odeslána v rámci přísného časového limitu. Níže je uvedeno, jak rychle aplikace reaguje a jak často dochází k selhání těchto odpovědí za posledních :count hodin.',
     'noData' => 'Zatím nebyly zaznamenány žádné údaje o dodání.',
     'latencyChartTitle' => 'Doba odezvy',
     'latencyAvgLabel' => 'Průměr',
@@ -61,7 +61,7 @@ return [
     'choices' => 'Možné návratové hodnoty:',
     'usageGraphNoData' => 'Nebyly nalezeny žádné nedávné údaje o používání',
     'usageSources' => [
-      'discord-bot' => 'Discord app',
+      'discord-bot' => 'Aplikace Discord',
       'api' => 'API',
       'mcp' => 'MCP',
     ],

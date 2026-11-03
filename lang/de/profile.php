@@ -32,21 +32,21 @@ return [
   'apiKeys' => [
     'heading' => 'API-Schlüssel',
     'description' => 'Mithilfe von API-Schlüsseln können Programme Zeitstempel generieren und die App-Einstellungen eines Ihrer verknüpften Discord-Konten ändern. Dabei richten sie sich nach den Einstellungen dieses Kontos, genau wie die App-Befehle.',
-    'none' => 'You have not created any API keys yet.',
+    'none' => 'Du hast noch keine API-Schlüssel erstellt.',
     'limitReached' => 'Sie können höchstens :max API-Schlüssel besitzen; um einen neuen zu erstellen, müssen Sie einen bestehenden widerrufen.',
     'newKey' => [
       'heading' => 'Ihr neuer API-Schlüssel „:name“',
       'warning' => 'Notieren Sie sich diesen Schlüssel jetzt, er wird nicht erneut angezeigt. Jeder, der über diesen Schlüssel verfügt, kann im Rahmen der von Ihnen erteilten Berechtigungen im Namen des Discord-Kontos handeln, für das der Schlüssel erstellt wurde.',
     ],
     'create' => [
-      'heading' => 'Create an API key',
+      'heading' => 'Erstelle einen API-Schlüssel',
       'name' => 'Name',
       'namePlaceholder' => 'Wofür wird er verwendet?',
       'account' => 'Fungiert als Discord-Konto',
       'scopes' => 'Berechtigungen',
       'expiry' => 'Endet am',
       'neverExpires' => 'Nie',
-      'expiresInDays' => ':days Tage',
+      'expiresInDays' => ':count Tag|:count Tage',
       'submit' => 'Schlüssel erstellen',
     ],
     'scopes' => [

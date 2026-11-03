@@ -30,8 +30,8 @@ return [
     ],
   ],
   'apiKeys' => [
-    'heading' => 'API Keys',
-    'description' => 'API keys let programs generate timestamps and change the app settings of one of your linked Discord accounts. They follow that account\'s settings, the same way the app commands do.',
+    'heading' => 'Kunci API',
+    'description' => 'Kunci API memungkinkan program untuk membuat stempel waktu serta mengubah pengaturan aplikasi pada salah satu akun Discord Anda yang telah ditautkan. Kunci ini mengikuti pengaturan akun tersebut, sama seperti yang dilakukan oleh perintah aplikasi.',
     'none' => 'You have not created any API keys yet.',
     'limitReached' => 'You can have at most :max API keys, revoke one to create another.',
     'newKey' => [
@@ -46,7 +46,7 @@ return [
       'scopes' => 'Permissions',
       'expiry' => 'Expires',
       'neverExpires' => 'Never',
-      'expiresInDays' => ':days days',
+      'expiresInDays' => ':count hari',
       'submit' => 'Create key',
     ],
     'scopes' => [
