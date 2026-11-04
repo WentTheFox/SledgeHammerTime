@@ -82,7 +82,7 @@ English and Hungarian translations have been included, so no translators will be
 - 🇩🇰 Danish
   - [James M. “Slippin jimmy” Mcgill](https://crowdin.com/profile/LargoEmbargo)
   - [jovictasor](https://crowdin.com/profile/jovictasor)
-  - [Lennart Christiansen](https://crowdin.com/profile/LennartDenmark)
+  - [Lennart Christiansen](https://crowdin.com/profile/LennartChristiansen)
   - [Lucas](https://crowdin.com/profile/LucasFromDK)
   - [MikeyDK](https://crowdin.com/profile/MikeyDK)
   - [Nicklas Plum](https://crowdin.com/profile/mastermustachejp)
