@@ -16,7 +16,7 @@ return [
     'authentication' => 'Hantar kunci anda sebagai token pembawa dalam pengepala Authorization bagi setiap permintaan.',
     'example' => 'Permintaan ini mengembalikan cap masa bagi jam 18:30 hari ini dalam zon masa yang anda simpan. Kunci dalam contoh ini dibuat-buat, gunakan kunci anda sendiri:',
     'limits' => 'Permintaan mempunyai had perkadaran bagi setiap kunci. Pengepala RateLimit bagi setiap sambutan memberitahu anda di manakah kedudukan anda, dan sambutan 429 didatangkan dengan pengepala Retry-After.',
-    'statistics' => 'Runs are counted like app commands, and the reply says which run it was, unless you turned telemetry off in your app settings.',
+    'statistics' => 'Jalanan API dikira seperti perintah aplikasi, dan balasannya menyatakan manakah jalanannya, melainkan anda mematikan telemetri dalam tetapan aplikasi anda.',
   ],
   'permissions' => [
     'heading' => 'Keizinan',
