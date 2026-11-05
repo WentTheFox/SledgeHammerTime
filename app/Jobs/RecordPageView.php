@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\PageView;
 use App\Services\OutdatedBrowserDetector;
+use App\Services\SyntheticBrowserDetector;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
@@ -37,7 +38,8 @@ class RecordPageView implements ShouldQueue
     $record->route_name = $this->routeName;
     $record->locale = $this->locale;
     $record->is_crawler = (new CrawlerDetect($this->uaHeaders))->isCrawler()
-      || (new OutdatedBrowserDetector())->isOutdated($this->uaHeaders['HTTP_USER_AGENT'] ?? null);
+      || (new OutdatedBrowserDetector())->isOutdated($this->uaHeaders['HTTP_USER_AGENT'] ?? null)
+      || (new SyntheticBrowserDetector())->isSynthetic($this->uaHeaders);
     $record->date = now('UTC')->toDateString();
     $record->save();
   }

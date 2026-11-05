@@ -47,8 +47,11 @@ class PageViewTrackingTest extends TestCase
 
   public function test_it_does_not_flag_page_views_from_browsers()
   {
-    $this->withHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0')
-      ->get('/en/legal');
+    $this->withHeaders([
+      'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0',
+      'Sec-Fetch-Mode' => 'navigate',
+      'Accept-Language' => 'en-US,en;q=0.5',
+    ])->get('/en/legal');
 
     $this->assertDatabaseHas('page_views', [
       'route_name' => 'legal',
@@ -85,6 +88,18 @@ class PageViewTrackingTest extends TestCase
     ]);
     $this->assertDatabaseMissing('page_views', [
       'route_name' => 'status',
+      'is_crawler' => true,
+    ]);
+  }
+
+  public function test_it_flags_browser_user_agents_without_browser_headers()
+  {
+    $this->withHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0')
+      ->get('/en/legal');
+
+    $this->assertDatabaseHas('page_views', [
+      'route_name' => 'legal',
+      'locale' => 'en',
       'is_crawler' => true,
     ]);
   }

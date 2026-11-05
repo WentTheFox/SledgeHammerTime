@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Jobs\RecordPageView;
+use App\Services\SyntheticBrowserDetector;
 use App\Support\ReadOnlyMode;
 use Closure;
 use Illuminate\Http\Request;
@@ -48,7 +49,10 @@ class TrackPageViews {
         // Only forward the headers crawler detection looks at, so cookies etc. stay out of the queue
         $uaHeaders = isset(self::CRAWLER_EXEMPT_ROUTES[$routeName])
           ? []
-          : array_intersect_key($request->server->all(), array_flip((new Headers())->getAll()));
+          : array_intersect_key(
+            $request->server->all(),
+            array_flip([...(new Headers())->getAll(), ...SyntheticBrowserDetector::HEADERS]),
+          );
         RecordPageView::dispatch($routeName, $isLocalized ? App::getLocale() : null, $uaHeaders);
       }
     }
