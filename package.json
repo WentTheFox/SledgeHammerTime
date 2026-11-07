@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts --force",
-    "dev:server": "vite",
-    "dev:queue": "php artisan horizon",
+    "dev:server": "infisical run --env=dev -- vite",
+    "dev:php": "git-deploy-dev hammertime-fpm",
+    "dev:queue": "git-deploy-dev hammertime-horizon",
     "dev": "concurrently -p name pnpm:dev:*",
     "lint": "eslint resources/**/*.{ts,vue}",
     "build:type-check": "vue-tsc",
