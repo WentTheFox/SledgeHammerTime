@@ -30,7 +30,7 @@
     "zonuexe/http-accept-language": "~0.6.0"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "v3.7.0",
+    "barryvdh/laravel-ide-helper": "v3.8.0",
     "fakerphp/faker": "^1.9.1",
     "fruitcake/laravel-debugbar": "^4.2",
     "larastan/larastan": "^v3.9.3",
