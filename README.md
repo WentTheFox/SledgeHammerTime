@@ -281,6 +281,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Tiago dos Santos Belluci](https://crowdin.com/profile/Belluci)
   - [Vinny7x](https://crowdin.com/profile/vinny7x)
   - [Wellery](https://crowdin.com/profile/Wellery)
+  - [ynpz](https://crowdin.com/profile/ynpz)
 - 🇷🇴 Romanian: [mihai](https://crowdin.com/profile/mihaiofficialRO)
 - 🇷🇺 Russian
   - [9900gvf4](https://crowdin.com/profile/AndruhaLoshorXyesosik)
@@ -370,6 +371,7 @@ English and Hungarian translations have been included, so no translators will be
   - [korayharman](https://crowdin.com/profile/korayharman)
   - [x0jony](https://crowdin.com/profile/x0jony)
 - 🇺🇦 Ukrainian
+  - [adri.kh06](https://crowdin.com/profile/adri.kh06)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Bohdan Buchko](https://crowdin.com/profile/Indi_Mops)
   - [GameHacker](https://crowdin.com/profile/GameHacker)
