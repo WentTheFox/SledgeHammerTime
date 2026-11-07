@@ -1,0 +1,18 @@
+[Unit]
+Description=HammerTime Laravel Horizon Queue Worker (local dev, secrets from Infisical)
+After=network.target redis.service
+
+[Service]
+# No User=: see hammertime-fpm.service. Same user as the local php-fpm (seinopsys).
+WorkingDirectory=/home/seinopsys/git/WentTheFox/SledgeHammerTime
+
+ExecStart=/usr/local/bin/git-deploy-run --user seinopsys hammertime -- /usr/bin/php artisan horizon
+# No ExecStop with `horizon:terminate`: it needs the cache credentials, which only exist inside the
+# wrapper. SIGTERM makes Horizon finish its current jobs and exit cleanly.
+TimeoutStopSec=60
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

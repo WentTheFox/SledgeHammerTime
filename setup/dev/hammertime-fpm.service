@@ -1,0 +1,21 @@
+[Unit]
+Description=HammerTime php-fpm (local dev, secrets from Infisical)
+After=network.target
+
+[Service]
+# No User=: git-deploy-run must start as root to read the root-only identity file
+# (/etc/infisical/identities/hammertime.env), then drops to seinopsys for php-fpm itself.
+WorkingDirectory=/home/seinopsys/git/WentTheFox/SledgeHammerTime
+
+# Runs as root before the drop, so the unprivileged master can create its pid file and socket.
+ExecStartPre=/usr/bin/install -d -o seinopsys -g seinopsys -m 0750 /run/hammertime-fpm
+ExecStart=/usr/local/bin/git-deploy-run --user seinopsys hammertime -- /usr/sbin/php-fpm8.5 -F -y /home/seinopsys/git/WentTheFox/SledgeHammerTime/setup/dev/php-fpm.conf
+# Secrets are fetched once at start: after rotating one in Infisical, `systemctl restart` (a reload
+# keeps the master's old environment).
+ExecReload=/bin/kill -USR2 $MAINPID
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
