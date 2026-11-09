@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'E-mailová adresa',
     'gravatarDescription' => '<1>Gravatar</1> vám umožňuje používat jeden avatar na více webových stránkách, které tuto službu podporují. Vaše e-mailová adresa bude uložena jako MD5 hash.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Účet',
     'url' => 'Odkaz',
     'visibility' => 'Viditelnost',

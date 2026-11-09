@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => '邮箱地址',
     'gravatarDescription' => '<1>Gravatar</1> 可让你在多个支持它的网站上使用同一个头像。你的邮箱地址将以 MD5 哈希值的形式保存。',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => '账号',
     'url' => '链接',
     'visibility' => '可见性',
