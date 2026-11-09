@@ -68,6 +68,7 @@ watch(() => copyForm.recentlySuccessful, (wasSuccessful) => {
         :id="`source-language-${translator.languageCode}`"
         :label="$t('profile.creditOverrides.creditSourceLanguage')"
         :label-icon="faLanguage"
+        :has-combobox="true"
       >
         <HtFormCombobox
           v-model="copyForm.sourceLanguage"
