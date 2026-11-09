@@ -81,10 +81,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'อีเมล',
     'gravatarDescription' => '<1>Gravatar</1>ช่วยให้คุณใช้รูปประจำตัวเดียวกันบนเว็บไซต์หลายแห่งที่รองรับบริการนี้ อีเมลของคุณจะถูกบันทึกเป็นรหัสแฮช MD5',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'บัญชี',
     'url' => 'ลิงค์',
     'visibility' => 'การเปิดเผย',

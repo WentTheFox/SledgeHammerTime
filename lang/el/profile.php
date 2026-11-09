@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'Διεύθυνση E-mail',
     'gravatarDescription' => 'Το <1>Gravatar</1> σας επιτρέπει να χρησιμοποιήσετε ένα ενιαίο avatar σε πολλές ιστοσελίδες που το υποστηρίζουν. Η διεύθυνση e-mail σας θα αποθηκευτεί ως ένα MD5 hash.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Λογαριασμός',
     'url' => 'Σύνδεσμος',
     'visibility' => 'Ορατότητα',

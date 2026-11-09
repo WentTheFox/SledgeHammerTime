@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'E-mail cím',
     'gravatarDescription' => 'A <1>Gravatar</1> lehetővé teszi, hogy egyetlen profilképet használj minden olyan weboldalon, ahol támogatott. Az e-mail címed MD5-ös hash-ként kerül elmentésre.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Fiók',
     'url' => 'Link',
     'visibility' => 'Láthatóság',
