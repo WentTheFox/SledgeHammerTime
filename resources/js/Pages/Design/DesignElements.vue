@@ -7,6 +7,7 @@ import DesignButtons from '@/Pages/Design/Elements/DesignButtons.vue';
 import DesignCollapsible from '@/Pages/Design/Elements/DesignCollapsible.vue';
 import DesignForms from '@/Pages/Design/Elements/DesignForms.vue';
 import HtCard from '@/Reusable/HtCard.vue';
+import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTable from '@/Reusable/HtTable.vue';
 import { loremIpsum } from 'lorem-ipsum';
 
@@ -14,6 +15,18 @@ const placeholderText = loremIpsum();
 </script>
 
 <template>
+  <HtCard>
+    <template #header>
+      <h2>HammerTimeCSS</h2>
+    </template>
+    <p>
+      These elements are styled by the shared design system, which is published separately as
+      <HtExternalLink href="https://wentthefox.github.io/HammerTimeCSS/">
+        HammerTimeCSS
+      </HtExternalLink>.
+    </p>
+  </HtCard>
+
   <DesignAlerts :placeholder-text="placeholderText" />
 
   <HtCard>
