@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'E-posta adresi',
     'gravatarDescription' => '<1>Gravatar</1>, destekleyen birden fazla web sitesinde tek bir avatar kullanmanıza olanak tanır. E-posta adresiniz bir MD5 karması (hash) olarak kaydedilecektir.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Hesap',
     'url' => 'Bağlantı',
     'visibility' => 'Görünürlük',

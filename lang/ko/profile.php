@@ -82,10 +82,12 @@ return [
     'avatarProviders' => [
         'discord' => '디스코드',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => '이메일 주소',
     'gravatarDescription' => '<1>Gravatar</1>을(를) 사용하면 이를 지원하는 여러 웹사이트에서 하나의 아바타를 사용할 수 있습니다. 귀하의 이메일 주소는 MD5 해시 형태로 저장됩니다.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => '계정',
     'url' => '링크',
     'visibility' => '표시 여부',

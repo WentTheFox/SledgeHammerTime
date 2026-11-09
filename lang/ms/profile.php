@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'Alamat e-mel',
     'gravatarDescription' => '<1>Gravatar</1> membolehkan anda menggunakan satu avatar merentasi pelbagai laman sesawang yang menyokongnya. Alamat e-mel anda akan disimpan sebagai cincangan MD5.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Akaun',
     'url' => 'Pautan',
     'visibility' => 'Keterlihatan',

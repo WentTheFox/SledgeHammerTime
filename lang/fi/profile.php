@@ -80,10 +80,12 @@ return [
     'avatarProviders' => [
         'discord' => 'Discord',
         'gravatar' => 'Gravatar',
+        'libravatar' => 'Libravatar',
         'crowdin' => 'Crowdin',
     ],
     'gravatarEmail' => 'Sähköpostiosoite',
     'gravatarDescription' => '<1>Gravatar</1> antaa sinun käyttää tiettyä avataria useilla sivustoilla, jotka sitä sallivat. Sähköpostisi tallennetaan MD5-hashina.',
+    'libravatarDescription' => '<1>Libravatar</1> is a free and open-source alternative to Gravatar that lets you use a single avatar across multiple websites that support it. Your e-mail address will be saved as an MD5 hash.',
     'avatarAccount' => 'Käyttäjä',
     'url' => 'Linkki',
     'visibility' => 'Näkyvyys',
