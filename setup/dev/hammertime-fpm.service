@@ -9,7 +9,7 @@ WorkingDirectory=@REPO@
 
 # Runs as root before the drop, so the unprivileged master can create its pid file and socket.
 ExecStartPre=/usr/bin/install -d -o @USER@ -g @USER@ -m 0750 /run/hammertime-fpm
-ExecStart=/usr/local/bin/git-deploy-run --user @USER@ hammertime -- /usr/sbin/php-fpm8.5 -F -y @FPM_CONF@
+ExecStart=@GIT_DEPLOY_RUN@ --user @USER@ hammertime -- @PHP_FPM@ -F -y @FPM_CONF@
 # Secrets are fetched once at start: after rotating one in Infisical, `systemctl restart` (a reload
 # keeps the master's old environment).
 ExecReload=/bin/kill -USR2 $MAINPID
