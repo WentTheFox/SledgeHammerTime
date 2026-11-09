@@ -14,6 +14,7 @@ jobs:
   update-i18n-credits:
     name: 'Update i18n credits'
     runs-on: ubuntu-24.04
+    timeout-minutes: 5
     permissions:
       contents: write
     steps:

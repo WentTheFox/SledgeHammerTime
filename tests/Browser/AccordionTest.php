@@ -1,9 +1,24 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
+
 /**
  * Visits the API reference, which is a page of accordions, and waits for the app to be interactive
+ *
+ * The reference is built from the API server's OpenAPI document, which CI can't reach (it uses the example .env), so
+ * the page is given a small document of its own instead of whatever the machine's API server answers.
  */
 function visitApiReference(): Pest\Browser\Api\PendingAwaitablePage {
+  Cache::put('public-api-openapi', [
+    'openapi' => '3.0.3',
+    'info' => ['title' => 'Test API', 'version' => '1.0.0'],
+    'tags' => [['name' => 'Timestamps', 'description' => 'Timestamp endpoints']],
+    'paths' => [
+      '/timestamps' => [
+        'get' => ['tags' => ['Timestamps'], 'summary' => 'List timestamps', 'responses' => ['200' => ['description' => 'OK']]],
+      ],
+    ],
+  ], 600);
   $page = visit(route('api', ['locale' => 'en']))->on()->desktop()->withTimezone('UTC');
   waitForApp($page);
 

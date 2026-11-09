@@ -63,6 +63,7 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-24.04
+    timeout-minutes: 5
     outputs:
       environments: ${{ steps.pick.outputs.environments }}
     steps:
@@ -97,7 +98,7 @@ jobs:
     needs: plan
     name: deploy (${{ matrix.environment }})
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 20
     # One environment at a time, in ENVIRONMENTS order (two builds of the
     # same app on one server at once would just compete for it), and stop
     # at the first failure instead of carrying on to the next environment.
