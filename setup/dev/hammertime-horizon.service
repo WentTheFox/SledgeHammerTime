@@ -6,7 +6,7 @@ After=network.target redis.service
 # No User=: see hammertime-fpm.service. Same user as the local php-fpm (@USER@).
 WorkingDirectory=@REPO@
 
-ExecStart=/usr/local/bin/git-deploy-run --user @USER@ hammertime -- /usr/bin/php artisan horizon
+ExecStart=@GIT_DEPLOY_RUN@ --user @USER@ hammertime -- @PHP@ artisan horizon
 # No ExecStop with `horizon:terminate`: it needs the cache credentials, which only exist inside the
 # wrapper. SIGTERM makes Horizon finish its current jobs and exit cleanly.
 TimeoutStopSec=60
