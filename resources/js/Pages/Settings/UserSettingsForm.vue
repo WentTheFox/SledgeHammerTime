@@ -93,6 +93,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
           :id="'timezone-'+entry.user.id"
           :label="$t('botSettings.fields.timezone.displayName')"
           :full-width="true"
+          :has-combobox="true"
         >
           <ControlledTimeZoneInput
             v-model="settingsForm.timezone"
@@ -112,6 +113,7 @@ const formatComboboxOptions = computed((): ComboboxOption[] => props.formatOptio
           :id="'format-'+entry.user.id"
           :label="$t('botSettings.fields.format.displayName')"
           :full-width="true"
+          :has-combobox="true"
         >
           <HtFormCombobox
             v-model="settingsForm.format"

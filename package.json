@@ -30,7 +30,7 @@
     "@vitest/coverage-v8": "^4.1.11",
     "@vue/language-server": "^3.3.12",
     "@vue/server-renderer": "^3.5.43",
-    "@went.tf/hammertime-css": "^1.1.0",
+    "@went.tf/hammertime-css": "^2.0.0",
     "@wentthefox-forks/vite-plugin-imagemin": "^2.2.2",
     "autoprefixer": "^10.6.1",
     "axios": "^1.20.0",

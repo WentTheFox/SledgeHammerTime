@@ -31,6 +31,7 @@ const options = computed(() => props.translators.map((translator): ComboboxOptio
     :id="`source-language-${currentLanguage}`"
     :label="$t('profile.creditOverrides.creditSourceLanguage')"
     :label-icon="faUser"
+    :has-combobox="true"
   >
     <HtFormCombobox
       v-model="model"

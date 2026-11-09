@@ -9,10 +9,12 @@ withDefaults(defineProps<{
   label: string;
   disabled?: boolean;
   fullWidth?: boolean;
+  hasCombobox?: boolean;
   labelIcon?: IconDefinition;
 }>(), {
   disabled: undefined,
   fullWidth: undefined,
+  hasCombobox: false,
   labelIcon: undefined,
 });
 </script>
@@ -23,7 +25,7 @@ withDefaults(defineProps<{
     :disabled="disabled"
     :full-width="fullWidth"
   >
-    <HtFormControlWrap>
+    <HtFormControlWrap :has-combobox="hasCombobox">
       <div class="form-control">
         <label
           class="form-control-label"
