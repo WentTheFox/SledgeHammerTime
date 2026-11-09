@@ -266,6 +266,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Allan Poubel (The Poubel)](https://crowdin.com/profile/allanpoubel)
   - [Allef Adolpho Hawatt de Moraes](https://crowdin.com/profile/twofrags)
   - [Allef Moraes](https://crowdin.com/profile/allef.moraes)
+  - [anxiety_y3](https://crowdin.com/profile/Diguu_0)
   - [Astro Ph_77](https://crowdin.com/profile/astroph.707)
   - [Chris](https://crowdin.com/profile/Chrisdbhr)
   - [Eduardo](https://crowdin.com/profile/Nirewen)
