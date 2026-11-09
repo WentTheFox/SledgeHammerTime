@@ -202,6 +202,7 @@ provide(avatarUrlMapInject, providedAvatarUrlMap);
     :id="`avatar-account-${translatorId}`"
     :label="$t('profile.creditOverrides.avatarAccount')"
     :label-icon="faUser"
+    :has-combobox="true"
   >
     <HtFormCombobox
       v-model="selectedAccountId"
