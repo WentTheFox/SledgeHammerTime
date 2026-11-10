@@ -41,6 +41,10 @@ return [
     'title' => 'เว็บไซต์นี้จำเป็นต้องใช้ JavaScript',
     'body' => "เบราว์เซอร์ของคุณอาจจะไม่รองรับ JavaScript หรือ JavaScript ถูกปิดอยู่ตอนนี้ บางเบราว์เซอร์ปิดการใช้ JavaScript โดยเริ่มต้นเพราะเหตุผลของความปลอดภัยแต่เว็บไซต์นี้จำเป็นที่จะใช้ JavaScript โปรดกรุณาเปิด JavaScript, รีเฟรชเว็บไซต์และลองอีกครั้งหรือใช้เบราว์เซอร์อื่นแทน",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'การตั้งค่าแอปพลิเคชั่น',

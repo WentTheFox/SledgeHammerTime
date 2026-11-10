@@ -41,6 +41,10 @@ return [
     'title' => 'ЖаваСкрипт хэрэгтэй',
     'body' => "Таны бровсэр ЖаваСкриптийг бологдоггүй, эсвэл одоо унтраачихсан байгаа. Зарим бровсэрүүд ЖаваСкриптийг аюулгүй байдалийн талаар унтраачихсан байдаг, тэгэхдээ энэ аппликатионд хэрэгтэй. Өөр бровсэр ашигла, пажээ рэфрэш хий эсвэл тэрийгээ асаа, гуйж байна.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',

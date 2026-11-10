@@ -41,6 +41,10 @@ return [
     'title' => 'جاوا اسکرپٹ ضروری ہے۔',
     'body' => "آپ کا براؤزر یا تو جاوا اسکرپٹ کو سپورٹ نہیں کرتا یا یہ فی الحال غیر فعال ہے۔ کچھ براؤزرز سیکیورٹی وجوہات کی بنا پر جاوا اسکرپٹ کو بطور ڈیفالٹ غیر فعال کرتے ہیں، لیکن یہ اس ایپلیکیشن کے لیے ضروری ہے۔ براہ کرم اسے فعال کریں اور صفحہ کو ریفریش کریں، یا کوئی مختلف براؤزر استعمال کریں۔",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',
