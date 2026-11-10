@@ -17,7 +17,15 @@ class ReadOnlyMode {
   }
 
   public static function isActive():bool {
-    return File::exists(self::path());
+    return self::isConfigured() || File::exists(self::path());
+  }
+
+  /**
+   * Set through APP_READ_ONLY for longer periods (e.g. a server cutover), as opposed to the short deploy-window
+   * file flag. Rejected writes carry no Retry-After in this case, so clients do not sit in retry loops.
+   */
+  public static function isConfigured():bool {
+    return (bool) config('app.read_only');
   }
 
   public static function enable():void {
