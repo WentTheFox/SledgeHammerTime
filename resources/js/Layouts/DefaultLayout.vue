@@ -20,6 +20,7 @@ const slots = useSlots();
 // so a flag baked into them would outlive the read-only window
 const readOnly = ref(false);
 onMounted(async () => {
+  return; // TEMPORARY: bisecting the Firefox LocalSettingsTest failure
   try {
     const { data } = await axios.get<{ readOnly: boolean }>('/frontend/read-only');
     readOnly.value = data.readOnly === true;
