@@ -42,6 +42,10 @@ return [
     'body' => "متصفحك لا يدعم جافا سكريبت أو الخاصية غير مفعّلة، بعض المتصفحات تمنع جافا سكريبت لأسباب أمنية ولكنها ضرورية لهذا التطبيق.
 من فضلك قم بتفعيلها ثم أعد فتح الصفحة أو استخدم متصفح آخر.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',

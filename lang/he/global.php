@@ -41,6 +41,10 @@ return [
     'title' => 'ג\'אווהסקריפט נדרש כאן',
     'body' => "הדפדפן שלכם ככל הנראה לא תומך בג'אווהסקריפט או שהוא חוסם אותו. כמה מהדפדפנים באופן אוטומטי חוסמים ג'אווהסקריפט מטעמי אבטחה, אבל זה חשוב בשביל האתר הזה. בבקשה הפעילו את הג'אווהסקריפט ותרעננו את הדף הזה, או שתחליפו את הדפדפן שלכם באחד אחר שכן תומך.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'הגדרות אפליקציה',

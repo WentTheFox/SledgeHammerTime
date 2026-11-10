@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript е необходим',
     'body' => "Вашият браузър не поддържа JavaScript или сте го изключили. Някой браузъри изключват JavaScript по подразбиране по съображения за сигурност, но е необходим за този сайт. Моля включете и опреснете или използвайте друг браузър.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',

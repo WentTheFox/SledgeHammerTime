@@ -41,6 +41,10 @@ return [
     'title' => 'Необходим JavaScript',
     'body' => "Ваш браузер либо не поддерживает JavaScript, либо он отключен. Некоторые браузеры отключают JavaScript по умолчанию из соображений безопасности, но для данного приложения он необходим. Пожалуйста, включите его и обновите страницу, или используйте другой браузер.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Меню',
     'botSettings' => 'Настройки приложения',

@@ -41,6 +41,10 @@ return [
     'title' => 'जावास्क्रिप्ट आवश्यक है',
     'body' => "आपका ब्राउज़र या तो जावास्क्रिप्ट का समर्थन नहीं करता है या यह वर्तमान में अक्षम है। कुछ ब्राउज़र सुरक्षा कारणों से डिफ़ॉल्ट रूप से जावास्क्रिप्ट को अक्षम कर देते हैं, लेकिन इस एप्लिकेशन के लिए यह आवश्यक है। कृपया इसे सक्षम करें और पृष्ठ को ताज़ा करें, या किसी भिन्न ब्राउज़र का उपयोग करें।",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'ऐप सेटिंग्स',
