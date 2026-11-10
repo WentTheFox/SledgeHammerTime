@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript este necesar',
     'body' => "Browserul dvs. fie nu acceptă JavaScript, fie este dezactivat în prezent. Unele browsere dezactivează JavaScript în mod implicit din motive de securitate, dar este necesar pentru această aplicație. Vă rugăm să îl activați și să reîncărcați pagina sau să folosiți un alt browser.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'Setări aplicație',

@@ -41,6 +41,10 @@ return [
     'title' => '需要启用 JavaScript',
     'body' => "您的浏览器不支持 JavaScript 或当前已禁用了该功能。部分浏览器出于安全考虑会默认禁用 JavaScript，但本应用需启用 JavaScript 才能正常运行。请启用后刷新页面，或更换其他浏览器。",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App 设置',

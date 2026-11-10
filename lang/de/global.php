@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript ist erforderlich',
     'body' => "Dein Browser unterstützt entweder kein JavaScript oder es ist derzeit deaktiviert. In einigen Browsern ist JavaScript aus Sicherheitsgründen standardmäßig deaktiviert, aber für diese Anwendung ist es notwendig. Bitte aktivieren es und aktualisiere die Seite, oder verwende einen anderen Browser.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menü',
     'botSettings' => 'App-Einstellungen',

@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript est nécessaire',
     'body' => "Votre navigateur ne prend pas en charge JavaScript ou il est actuellement désactivé. Certains navigateurs désactivent JavaScript par défaut pour des raisons de sécurité, mais il est nécessaire pour cette application. Veuillez l'activer et rafraîchir la page, ou utiliser un autre navigateur.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'Paramètres de l\'application',
