@@ -1,0 +1,12 @@
+// Compact alerts run the (bold) title and the text together on one line, wrapping like a sentence
+.alert.compact .alert-content {
+  > .alert-title:not(:empty),
+  > .alert-text:not(:empty) {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  > .alert-title:not(:empty) {
+    margin-inline-end: .25em;
+  }
+}
