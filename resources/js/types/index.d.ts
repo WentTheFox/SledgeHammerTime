@@ -20,6 +20,8 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     supportedLanguages: AvailableLanguage[];
     crowdinProjectId: string;
     statusPageUrl: string | null;
+    /** Writes are currently rejected (deploy window or APP_READ_ONLY) */
+    readOnly?: boolean;
     settingsCookie: string | null;
   }
   auth: {

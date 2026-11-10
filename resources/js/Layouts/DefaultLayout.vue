@@ -2,32 +2,24 @@
 import Navbar from '@/Components/CustomNavbar.vue';
 import { useLayout } from '@/composables/useLayout';
 import { defaultLayoutProps, LayoutProps } from '@/injection-keys';
+import { PageProps } from '@/types';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtContent from '@/Reusable/HtContent.vue';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- ESLint is drunk
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- ESLint is drunk
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import axios from 'axios';
-import { onMounted, ref, useSlots } from 'vue';
+import { usePage } from '@inertiajs/vue3';
+import { computed, useSlots } from 'vue';
 
 const props = withDefaults(defineProps<Partial<LayoutProps>>(), defaultLayoutProps);
 
 useLayout(props);
 const slots = useSlots();
 
-// Fetched on the client rather than read from the page props: pages are cached server-side for 24 hours,
-// so a flag baked into them would outlive the read-only window
-const readOnly = ref(false);
-onMounted(async () => {
-  return; // TEMPORARY: bisecting the Firefox LocalSettingsTest failure
-  try {
-    const { data } = await axios.get<{ readOnly: boolean }>('/frontend/read-only');
-    readOnly.value = data.readOnly === true;
-  } catch {
-    // The banner is informational, so failing to load it is not worth surfacing
-  }
-});
+// Not injected: useLayout() provides the page props from this very component, and inject() only sees ancestors
+const page = usePage<PageProps>();
+const readOnly = computed(() => page.props.app?.readOnly === true);
 </script>
 
 <template>
