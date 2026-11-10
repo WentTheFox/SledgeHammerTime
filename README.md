@@ -34,10 +34,12 @@ English and Hungarian translations have been included, so no translators will be
 
 - 🇸🇦 Arabic
   - [hello578205cd-ar](https://crowdin.com/profile/hello578205cd-ar)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [yn](https://crowdin.com/profile/user99)
 - 🇧🇬 Bulgarian
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
   - [Rxshi](https://crowdin.com/profile/Rxshi)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - Catalan
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Jordi.jeje](https://crowdin.com/profile/jordi.jeje)
@@ -45,6 +47,7 @@ English and Hungarian translations have been included, so no translators will be
   - [RGD](https://crowdin.com/profile/Rexitacio)
   - [Sr_Crix](https://crowdin.com/profile/Sr_Crix)
   - [sware](https://crowdin.com/profile/sware)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [wid32xp wid](https://crowdin.com/profile/wind32xp)
 - 🇨🇳 Chinese Simplified
   - [Chenyu Wang](https://crowdin.com/profile/w11039685)
@@ -55,6 +58,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Jack Batele](https://crowdin.com/profile/BateleJack)
   - [Toth.](https://crowdin.com/profile/Toth.)
   - [User670](https://crowdin.com/profile/User670)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [xianxiaojiu](https://crowdin.com/profile/xianxiaojiu)
   - [姓甚名谁](https://crowdin.com/profile/febilly)
   - [正阳](https://crowdin.com/profile/zhengyang3552)
@@ -63,6 +67,7 @@ English and Hungarian translations have been included, so no translators will be
   - [ms.investigator](https://crowdin.com/profile/ms.)
   - [notlin4](https://crowdin.com/profile/notlin4)
   - [sfgbfdce](https://crowdin.com/profile/3582452209)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [呂宥廷](https://crowdin.com/profile/avery11111102)
   - [煇煇](https://crowdin.com/profile/huihuila)
   - [神風神鵝 エホバ神魔狼](https://crowdin.com/profile/lalauya1122)
@@ -71,6 +76,7 @@ English and Hungarian translations have been included, so no translators will be
   - [net-tech-](https://crowdin.com/profile/net-tech-)
   - [tovhov](https://crowdin.com/profile/tovhov)
   - [Volvone](https://github.com/volvone)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇨🇿 Czech
   - [Blurplix](https://crowdin.com/profile/Blurplix)
   - [Daniel5769](https://crowdin.com/profile/Daniel5769)
@@ -78,6 +84,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Keša mot](https://crowdin.com/profile/kesamott.6534)
   - [klauny](https://crowdin.com/profile/klauny)
   - [O5](https://crowdin.com/profile/O5)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [イーテルニティ ☄️](https://crowdin.com/profile/Ethxrnity)
 - 🇩🇰 Danish
   - [James M. “Slippin jimmy” Mcgill](https://crowdin.com/profile/LargoEmbargo)
@@ -86,6 +93,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Lucas](https://crowdin.com/profile/LucasFromDK)
   - [MikeyDK](https://crowdin.com/profile/MikeyDK)
   - [Nicklas Plum](https://crowdin.com/profile/mastermustachejp)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇳🇱 Dutch
   - [🐧 Nico](https://crowdin.com/profile/nico_everywhere)
   - [1soldier1pro1](https://crowdin.com/profile/1soldier1pro1)
@@ -104,15 +112,19 @@ English and Hungarian translations have been included, so no translators will be
   - [SixieP](https://crowdin.com/profile/SixieP)
   - [TheSatanicFlame](https://crowdin.com/profile/TheSatanicFlame)
   - [Thomanski](https://crowdin.com/profile/Thomanski)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
+- 🇬🇧 English, United Kingdom: [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - Esperanto
   - [Rémi Simonnin](https://crowdin.com/profile/remsoff)
   - [Stela Verd](https://crowdin.com/profile/Verdstela)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇫🇮 Finnish
   - [Cookie](https://crowdin.com/profile/cookiethegamer33)
   - [dame da ne dame you dame dame yo](https://crowdin.com/profile/hibutima3)
   - [Deadly dead](https://crowdin.com/profile/cricribebe)
   - [John Wick](https://crowdin.com/profile/jw6942460)
   - [nicohele](https://crowdin.com/profile/nicohele)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇫🇷 French
   - [Alex6](https://crowdin.com/profile/Alex6_)
   - [Alexander](https://crowdin.com/profile/Mr.Shad)
@@ -140,6 +152,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Théo Navas](https://crowdin.com/profile/GrifGrif)
   - [ValouFCH](https://crowdin.com/profile/ValouFCH)
   - [Veivneorul](https://crowdin.com/profile/Veivneorul)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [XXL Steve](https://crowdin.com/profile/XXL_Steve)
 - 🇩🇪 German
   - [Ben](https://crowdin.com/profile/ben.0105)
@@ -158,24 +171,30 @@ English and Hungarian translations have been included, so no translators will be
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
   - [Tluxxa](https://crowdin.com/profile/Tluxxa)
   - [WennLenn](https://crowdin.com/profile/WennLenn)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇬🇷 Greek
   - [Belle Bernice](https://crowdin.com/profile/BelleBernice)
   - [dx4](https://crowdin.com/profile/dx4)
   - [MrCoookie](https://crowdin.com/profile/MrCoookie)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇮🇱 Hebrew
   - [Amit Cohen](https://crowdin.com/profile/ZeRealOne)
   - [Arthur](https://crowdin.com/profile/DuperKnight)
   - [didli789](https://crowdin.com/profile/didli789)
   - [Ipokin](https://crowdin.com/profile/Ipokin)
   - [LiadProtop](https://crowdin.com/profile/liadgreen1970)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
 - 🇮🇳 Hindi
   - [Balajiasli](https://crowdin.com/profile/Balajiasli)
   - [Natzu](https://crowdin.com/profile/natieon)
   - [Premium Global](https://crowdin.com/profile/premium.global.co)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
+- 🇭🇺 Hungarian: [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇮🇩 Indonesian
   - [Jckcr](https://github.com/Jckcr)
   - [Nina](https://crowdin.com/profile/krasnova.nina27)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇮🇹 Italian
   - [Alessandro Tenace](https://crowdin.com/profile/alessandrotenace123)
   - [Claudiocli](https://crowdin.com/profile/Claudiocli)
@@ -183,6 +202,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Lory Pelli](https://github.com/lorypelli)
   - [Spisp](https://crowdin.com/profile/Spisp)
   - [Tomi Adekoya](https://crowdin.com/profile/tomiadekoya23)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇯🇵 Japanese
   - [eai04191](https://crowdin.com/profile/eai04191)
   - [find](https://crowdin.com/profile/undefined9651)
@@ -193,6 +213,7 @@ English and Hungarian translations have been included, so no translators will be
   - [sakana](https://crowdin.com/profile/sakana0580)
   - [Shiny4649](https://crowdin.com/profile/Shiny4649)
   - [TheOnlyRAK](https://crowdin.com/profile/TheOnlyRAK)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [ちあたん](https://crowdin.com/profile/chiatan1006)
   - [ゆううゆ](https://crowdin.com/profile/yuuuyu)
 - 🇰🇷 Korean
@@ -208,6 +229,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Phrygia](https://github.com/sjkim04)
   - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
   - [Sehoon Park](https://crowdin.com/profile/sehoon.sese)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [zwxoz](https://crowdin.com/profile/zwxoz)
   - [공백](https://crowdin.com/profile/whiteblankzero)
   - [미르냥](https://crowdin.com/profile/Mirnyang)
@@ -216,12 +238,18 @@ English and Hungarian translations have been included, so no translators will be
 - 🇱🇻 Latvian
   - [Casper](https://crowdin.com/profile/JajarGG)
   - [Haralds R](https://crowdin.com/profile/haralds.re)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇱🇹 Lithuanian
   - [adome595](https://crowdin.com/profile/adome595)
   - [Seenoc](https://crowdin.com/profile/Seenoc)
   - [tayloryte](https://crowdin.com/profile/tayloryte)
-- 🇲🇾 Malay: [Nurul Azeera Hidayah Muhammad Nur Hidayat Yasuyoshi (MNH48)](https://crowdin.com/profile/mnh48)
-- Mongolian: [MerlinsBeard](https://crowdin.com/profile/MerlinsBeard)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
+- 🇲🇾 Malay
+  - [Nurul Azeera Hidayah Muhammad Nur Hidayat Yasuyoshi (MNH48)](https://crowdin.com/profile/mnh48)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
+- Mongolian
+  - [MerlinsBeard](https://crowdin.com/profile/MerlinsBeard)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇳🇴 Norwegian
   - [Hvalomi](https://crowdin.com/profile/hvalomi)
   - [Ivy Wilson](https://crowdin.com/profile/zach.lawnmower)
@@ -230,9 +258,11 @@ English and Hungarian translations have been included, so no translators will be
   - [Phillip Rødseth](https://crowdin.com/profile/philliphatrod)
   - [Sverre Strømodden Jerstad](https://crowdin.com/profile/sverrejerstad)
   - [Thor](https://crowdin.com/profile/thorarne94)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇮🇷 Persian
   - [Mohammad Safa Gray](https://crowdin.com/profile/DeadMarco)
   - [Not so nice potato](https://crowdin.com/profile/regimanhj)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇵🇱 Polish
   - [770skiyt](https://crowdin.com/profile/770skiyt)
   - [A O](https://crowdin.com/profile/TendoHydro)
@@ -251,6 +281,7 @@ English and Hungarian translations have been included, so no translators will be
   - [sz3fxx](https://crowdin.com/profile/sz3fxx)
   - [Taki sobie Krzak Internetowy](https://crowdin.com/profile/krzak.bushowski)
   - [Versus](https://crowdin.com/profile/Versus41)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [Wojciech Marzec](https://crowdin.com/profile/C.Ezra.M)
 - 🇵🇹 Portuguese
   - [ً](https://crowdin.com/profile/buckshot-)
@@ -262,6 +293,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Marcos](https://crowdin.com/profile/marcos.pqueirozz)
   - [Samir Simoes](https://crowdin.com/profile/Kazenca)
   - [Tiago](https://crowdin.com/profile/DemiCool)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇧🇷 Portuguese, Brazilian
   - [Allan Poubel (The Poubel)](https://crowdin.com/profile/allanpoubel)
   - [Allef Adolpho Hawatt de Moraes](https://crowdin.com/profile/twofrags)
@@ -282,8 +314,11 @@ English and Hungarian translations have been included, so no translators will be
   - [Tiago dos Santos Belluci](https://crowdin.com/profile/Belluci)
   - [Vinny7x](https://crowdin.com/profile/vinny7x)
   - [Wellery](https://crowdin.com/profile/Wellery)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [ynpz](https://crowdin.com/profile/ynpz)
-- 🇷🇴 Romanian: [mihai](https://crowdin.com/profile/mihaiofficialRO)
+- 🇷🇴 Romanian
+  - [mihai](https://crowdin.com/profile/mihaiofficialRO)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇷🇺 Russian
   - [9900gvf4](https://crowdin.com/profile/AndruhaLoshorXyesosik)
   - [aerial](https://crowdin.com/profile/aerial)
@@ -316,6 +351,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Timofey K.](https://crowdin.com/profile/timakimit)
   - [Vitaliy Kanev](https://crowdin.com/profile/vitalkanev)
   - [Vladimir](https://crowdin.com/profile/bill876)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [work 17](https://crowdin.com/profile/w17_)
   - [Zeru](https://crowdin.com/profile/ZeruGames)
   - [ZloyKoshak](https://crowdin.com/profile/ZloyKoshak)
@@ -326,7 +362,9 @@ English and Hungarian translations have been included, so no translators will be
   - [Рейт](https://crowdin.com/profile/helppriklreyta)
   - [Сергей Блохнов](https://crowdin.com/profile/servey22)
   - [Українский Лучший](https://crowdin.com/profile/kot2154)
-- 🇷🇸 Serbian (Latin): [net-tech-#7475](https://nettech.dev/)
+- 🇷🇸 Serbian (Latin)
+  - [net-tech-#7475](https://nettech.dev/)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇪🇸 Spanish
   - [?????](https://crowdin.com/profile/elpapuvanegas)
   - [Abraham Morales](https://crowdin.com/profile/ionizadorplasmico)
@@ -349,6 +387,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Street Dog](https://crowdin.com/profile/streetdog.arg)
   - [TT-Docs](https://crowdin.com/profile/TT-Docs)
   - [vAdrien](https://crowdin.com/profile/vAdrien)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [xledesma](https://crowdin.com/profile/SpyroTodile_)
   - [Yareaj](https://github.com/Yareaj/)
   - [zubzerozD](https://crowdin.com/profile/zubzerozD)
@@ -363,13 +402,16 @@ English and Hungarian translations have been included, so no translators will be
   - [Stryxen](https://crowdin.com/profile/Stryxen)
   - [swerocker gaming](https://crowdin.com/profile/swerocker1993)
   - [tunket](https://crowdin.com/profile/tunket)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇹🇭 Thai
   - [Suthipong Masopmao](https://crowdin.com/profile/Windsor_911)
   - [timelessnesses](https://timelessnesses.me)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇹🇷 Turkish
   - [Baran Mordoğan](https://crowdin.com/profile/okunamayanad)
   - [Dovg](https://crowdin.com/profile/tututuana)
   - [korayharman](https://crowdin.com/profile/korayharman)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [x0jony](https://crowdin.com/profile/x0jony)
 - 🇺🇦 Ukrainian
   - [adri.kh06](https://crowdin.com/profile/adri.kh06)
@@ -380,15 +422,18 @@ English and Hungarian translations have been included, so no translators will be
   - [Mykhailo Yaremenko](https://crowdin.com/profile/WhiteBear60)
   - [O5](https://crowdin.com/profile/O5)
   - [Sheva She](https://crowdin.com/profile/Sheva09)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [Артем](https://crowdin.com/profile/artenovis9020)
   - [Кухарчук Ярослав](https://crowdin.com/profile/Gamer_Yaroslaw)
   - [Сергій Коваленко](https://crowdin.com/profile/Serhii0659)
 - 🇵🇰 Urdu (Pakistan)
   - [Muhammad Dawood](https://crowdin.com/profile/Developer_X)
   - [muharslan](https://crowdin.com/profile/muharslan)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
 - 🇻🇳 Vietnamese
   - [Đức N5_Trịnh Hoài](https://crowdin.com/profile/anhduc08768)
   - [Minh Huy Hồ](https://crowdin.com/profile/minhhuyho15)
   - [Nguyễn Hoàng Long](https://crowdin.com/profile/fangcognosphere)
   - [Quan](https://crowdin.com/profile/quanonthecob)
   - [Tranhungdao A12](https://crowdin.com/profile/AKTVNTONYRBL7L)
+  - [WentTheFox](https://crowdin.com/profile/WentTheFox)
