@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript gerekli',
     'body' => "Tarayıcınız JavaScript'i desteklemiyor veya şu anda devre dışı. Bazı tarayıcılar güvenlik için JavaScript'i devre dışı bırakır, ancak bu siteyi kullanabilmek için JavaScript'i etkinleştirmeniz gerekmekte. Lütfen etkinleştirin ve sayfayı yenileyin veya farklı bir tarayıcı kullanın.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menü',
     'botSettings' => 'Uygulama Ayarları',

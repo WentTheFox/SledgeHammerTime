@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript 필요',
     'body' => "현재 사용하고 계시는 브라우저가 JavaScript를 지원하지 않거나, 비활성화되어 있습니다. 일부 브라우저는 보안상의 이유로 기본값으로 JavaScript를 비활성화하지만, 본 앱의 실행에 필요합니다. JavaScript를 활성화한 후 페이지를 새로고침하거나, 다른 브라우저를 사용해 주세요.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => '앱 설정',

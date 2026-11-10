@@ -41,6 +41,10 @@ return [
     'title' => '必須啟用 JavaScript',
     'body' => "您的瀏覽器不支援 JavaScript，或是目前已停用 JavaScript。部分瀏覽器基於安全考量，預設會停用 JavaScript，但此應用程式需要啟用 JavaScript 才能運作。請啟用 JavaScript 並重新整理頁面，或改用其他瀏覽器。",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => '應用程式設定',

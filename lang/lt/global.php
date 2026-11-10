@@ -41,6 +41,10 @@ return [
     'title' => 'Reikalingas JavaScript',
     'body' => "Tavo naršyklė nepalaiko JavaScript arba jis išjungtas. Saugumo sumetimais kai kuriose naršyklėse JavaScript yra išjungtas pagal nutylėjimą, tačiau šioje puslapyje jis yra būtinas. Įjunk jį ir atnaujink puslapį arba naudok kitą naršyklę.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',

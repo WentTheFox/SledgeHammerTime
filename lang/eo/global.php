@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript estas bezonata',
     'body' => "Via retumilo aŭ ne subtenas JavaScript aŭ tio nuntempe estas malaktiva. Kelkaj retumiloj malaktivigas JavaScript-on defaŭlte pro kialoj sekurecaj, sed ĝi estas bezonata por ĉi tiu aplikaĵo. Bonvolu aktivigi ĝin kaj aktualigu la retpaĝon, aŭ uzu alian retumilon.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App Settings',

@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript je nezbytný',
     'body' => "Váš prohlížeč buď nepodporuje JavaScript, nebo je momentálně vypnutý. Některé prohlížeče JavaScript z bezpečnostních důvodů vypínají ve výchozím nastavení, ale pro tuto aplikaci je nezbytný. Prosím, povolte jej a obnovte stránku, případně použijte jiný prohlížeč.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Nabídka',
     'botSettings' => 'Nastavení aplikace',

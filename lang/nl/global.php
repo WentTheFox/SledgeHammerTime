@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScript is noodzakelijk',
     'body' => "Uw browser ondersteunt JavaScript niet of het is momenteel uitgeschakeld. Sommige browsers deactiveren JavaScript standaard om veiligheidsredenen, maar het is noodzakelijk voor de werking van deze webapplicatie. Activeer JavaScript en ververs de pagina of gebruik een andere browser.",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'Menu',
     'botSettings' => 'App-instellingen',

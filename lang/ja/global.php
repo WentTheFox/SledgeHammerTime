@@ -41,6 +41,10 @@ return [
     'title' => 'JavaScriptが必要です',
     'body' => "お使いのブラウザはJavaScriptをサポートしないか、無効化されています。一部ブラウザではセキュリティ上の理由でJavaScriptをデフォルトで無効化しますが、このアプリには必要です。有効にしてページを再読み込みするか、違うブラウザを使用してください。",
   ],
+  'readOnly' => [
+    'title' => 'Read-only mode.',
+    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+  ],
   'nav' => [
     'menu' => 'メニュー',
     'botSettings' => 'アカウント設定',
