@@ -23,14 +23,20 @@ class ConfiguredReadOnlyModeTest extends TestCase {
     $this->assertFalse($response->headers->has('Retry-After'), 'Long read-only mode must not make clients retry');
   }
 
-  public function test_pages_flag_the_mode_to_the_frontend():void {
+  public function test_the_frontend_can_ask_whether_it_is_on():void {
     config(['app.read_only' => true]);
 
-    $this->get('/en')->assertOk()->assertInertia(fn(AssertableInertia $page) => $page->where('app.readOnly', true));
+    $this->getJson('/frontend/read-only')->assertOk()->assertExactJson(['readOnly' => true])->assertHeader('Cache-Control', 'no-store, private');
   }
 
   public function test_it_is_off_by_default():void {
-    $this->get('/en')->assertOk()->assertInertia(fn(AssertableInertia $page) => $page->where('app.readOnly', false));
+    $this->getJson('/frontend/read-only')->assertOk()->assertExactJson(['readOnly' => false]);
+  }
+
+  public function test_the_flag_is_kept_out_of_the_cacheable_page_props():void {
+    config(['app.read_only' => true]);
+
+    $this->get('/en')->assertOk()->assertInertia(fn(AssertableInertia $page) => $page->missing('app.readOnly'));
   }
 
   public function test_deploy_window_flag_still_sends_retry_after():void {
