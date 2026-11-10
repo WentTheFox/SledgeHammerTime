@@ -25,9 +25,9 @@ jobs:
           localization_branch_name: i18n_main
           crowdin_branch_name: main
           create_pull_request: true
-          pull_request_title: New Crowdin updates
+          pull_request_title: "chore(i18n): new Crowdin updates"
           pull_request_base_branch_name: main
-          commit_message: New Crowdin translations
+          commit_message: "chore(i18n): new Crowdin translations"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
