@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Services\Crowdin\CrowdinCreditsService;
 use App\Services\LocalSettingsService;
+use App\Support\ReadOnlyMode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Inertia\Middleware;
@@ -85,6 +86,7 @@ class HandleInertiaRequests extends Middleware {
    *     supportedLanguages: list<string>,
    *     crowdinProjectId: string,
    *     statusPageUrl: string|null,
+   *     readOnly: bool,
    *   },
    *   ziggy: callable(): array<mixed>,
    *   crowdinData: callable(): array<mixed>,
@@ -103,6 +105,7 @@ class HandleInertiaRequests extends Middleware {
         'supportedLanguages' => config('languages.supported_locales'),
         'crowdinProjectId' => config('services.crowdin.project_identifier'),
         'statusPageUrl' => config('app.status_page_url') ?: null,
+        'readOnly' => ReadOnlyMode::isActive(),
         'theme' => LocalSettingsService::resolveTheme($request),
       ],
       'ziggy' => fn() => new Ziggy(url: config('app.url'))->toArray(),
