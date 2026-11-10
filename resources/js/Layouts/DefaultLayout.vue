@@ -65,8 +65,10 @@ onMounted(async () => {
       :closable="false"
       class="mb-3"
     >
+      <template #title>
+        {{ $t('global.readOnly.title') }}
+      </template>
       <template #text>
-        <strong>{{ $t('global.readOnly.title') }}</strong>
         {{ $t('global.readOnly.body') }}
       </template>
     </HtAlert>
