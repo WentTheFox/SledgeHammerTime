@@ -202,6 +202,11 @@ return [
   // Public status page link shown in the sidebar; set to an empty value to hide it
   'status_page_url' => env('APP_STATUS_PAGE_URL', 'https://status.hammertime.cyou'),
 
+  // Long-running read-only mode (e.g. while cutting over to a new server): reads are served, writes are
+  // rejected with a 503 and a banner is shown on every page. Unlike the deploy-window file flag it needs no
+  // shell access and works across containers. Set APP_READ_ONLY=true to enable.
+  'read_only' => (bool) env('APP_READ_ONLY', false),
+
   'page_cache' => [
     'enabled' => env('APP_PAGE_CACHE_ENABLED', false),
     'version' => env('APP_PAGE_CACHE_VERSION', 0),

@@ -34,7 +34,7 @@ class BlockWritesInReadOnlyMode {
       return $next($request);
     }
 
-    $headers = ['Retry-After' => (string) ReadOnlyMode::RETRY_AFTER_SECONDS];
+    $headers = ReadOnlyMode::isConfigured() ? [] : ['Retry-After' => (string) ReadOnlyMode::RETRY_AFTER_SECONDS];
     if ($request->expectsJson()){
       return response()->json(['message' => 'The service is temporarily read-only while an update is being applied.'], 503, $headers);
     }
