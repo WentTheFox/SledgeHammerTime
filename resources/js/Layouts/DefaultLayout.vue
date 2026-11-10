@@ -60,15 +60,14 @@ onMounted(async () => {
 
     <HtAlert
       v-if="readOnly"
-      type="warning"
+      type="info"
+      compact
       :closable="false"
       class="mb-3"
     >
-      <template #title>
-        Read-only mode
-      </template>
       <template #text>
-        The site is temporarily in read-only mode. Everything can still be viewed, but changes (such as saving settings or logging in) will not work for now.
+        <strong>{{ $t('global.readOnly.title') }}</strong>
+        {{ $t('global.readOnly.body') }}
       </template>
     </HtAlert>
 
