@@ -13,10 +13,13 @@ const props = withDefaults(defineProps<{
   closable?: boolean;
   loading?: boolean;
   compact?: boolean;
+  /** Runs the title and text together on one line, implies compact spacing */
+  compactInline?: boolean;
 }>(), {
   closable: true,
   loading: false,
   compact: false,
+  compactInline: false,
 });
 
 const slots = useSlots();
@@ -37,7 +40,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div :class="['alert', type, { compact }]">
+  <div :class="['alert', type, { compact: compact || compactInline, 'compact-inline': compactInline }]">
     <div
       v-if="icon || loading"
       class="alert-icon"

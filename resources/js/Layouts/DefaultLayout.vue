@@ -61,7 +61,7 @@ onMounted(async () => {
     <HtAlert
       v-if="readOnly"
       type="info"
-      compact
+      compact-inline
       :closable="false"
       class="mb-3"
     >
