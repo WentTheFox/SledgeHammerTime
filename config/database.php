@@ -76,6 +76,9 @@ return [
       'prefix_indexes' => true,
       'search_path' => 'public',
       'sslmode' => 'prefer',
+      // Eloquent writes dates as offset-less strings in the app's timezone, which Postgres reads in the session's
+      // timezone: the two have to agree, or every timestamptz column is shifted by the difference
+      'timezone' => env('DB_TIMEZONE', env('APP_TIMEZONE', 'UTC')),
     ],
 
     'sqlsrv' => [
