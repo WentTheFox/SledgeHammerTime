@@ -83,6 +83,7 @@ jobs:
       - name: Work out names and tags
         id: meta
         run: |
+          echo "sha=$(git rev-parse --short=7 HEAD)" >> "$GITHUB_OUTPUT"
           echo "tag=$(git rev-parse --short=7 HEAD)-${{ matrix.arch }}" >> "$GITHUB_OUTPUT"
           echo "registry=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_OUTPUT"
           echo "date=$(git log -1 --format=%cI HEAD)" >> "$GITHUB_OUTPUT"
@@ -91,7 +92,7 @@ jobs:
         env:
           REGISTRY: ${{ steps.meta.outputs.registry }}
           TAGS: ${{ steps.meta.outputs.tag }}
-          GIT_COMMIT_HASH: ${{ github.sha }}
+          GIT_COMMIT_HASH: ${{ steps.meta.outputs.sha }}
           GIT_COMMIT_DATE: ${{ steps.meta.outputs.date }}
         with:
           files: docker/docker-bake.hcl
