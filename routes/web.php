@@ -70,7 +70,6 @@ Route::prefix('/frontend')->group(function () {
   Route::get('/app-usage', [BotInfoController::class, 'usage'])->name('app.usage');
   Route::get('/local-settings', [LocalSettingsController::class, 'get'])->name('app.getLocalSettings');
   Route::post('/local-settings', [LocalSettingsController::class, 'persist'])->name('app.persistLocalSettings');
-  Route::get('/read-only', [TimeSyncController::class, 'readOnly'])->name('app.readOnly');
   Route::get('/ntp', [TimeSyncController::class, 'ntp'])->name('app.ntp');
   Route::get('/local-user-info/{provider}/{id}', [LocalUserInfoController::class, 'forProvider'])->name('app.localUserInfo');
   Route::get('/user-info', [AuthController::class, 'userInfo'])->name('app.userInfo');
