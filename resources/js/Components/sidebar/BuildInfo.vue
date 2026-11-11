@@ -35,10 +35,13 @@ const commitTs = computed(() => commitDate && dtl?.value
       v-if="commitTs"
       #content
     >
-      <TimestampPreview
-        :ts="commitTs"
-        :format="MessageTimestampFormat.RELATIVE"
-      />
+      <!-- The relative time is rendered at request time (and may come from the page cache), so it differs from the client's by hydration -->
+      <span data-allow-mismatch="text">
+        <TimestampPreview
+          :ts="commitTs"
+          :format="MessageTimestampFormat.RELATIVE"
+        />
+      </span>
     </template>
   </Tippy>
 </template>
