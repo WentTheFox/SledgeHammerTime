@@ -1,10 +1,14 @@
 name: Publish container images
 
-# Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io when a push to main carries a version bump
-# according to the conventional commits since the last tag (feat -> minor, fix -> patch, breaking -> major; anything
-# else, such as docs/ci/chore only, publishes nothing). The same images serve prod and beta; environment
+# Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io for EVERY push to main, tagged <sha7> and
+# sha-<sha7>. When the push also carries a version bump according to the conventional commits since the last tag
+# (feat -> minor, fix -> patch, breaking -> major; docs/ci/chore only bump nothing), the release tags (<version>,
+# latest) are added and the git tag is created; non-release commits never move `latest` nor create a version. The same images serve prod and beta; environment
 # differences are runtime configuration only. No build inputs: the VITE_* values the frontend reads are non-secret
 # defaults in docker/Dockerfile.
+#
+# The sha-<sha7> tag is what Argo CD Image Updater follows. It is added to all three manifest lists as the very last
+# registry step, so it never exists on a partial set (fpm/web/ssr of one commit appear together).
 #
 # Each architecture is built natively on its own runner (no qemu emulation, which makes the PHP extension compile
 # take far too long), pushed as <sha7>-<arch>, then merged into one multi-arch tag per image.
@@ -58,7 +62,6 @@ jobs:
   build:
     name: 'Build ${{ matrix.arch }}'
     needs: version
-    if: needs.version.outputs.new_tag != ''
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
@@ -83,8 +86,8 @@ jobs:
       - name: Work out names and tags
         id: meta
         run: |
-          echo "sha=$(git rev-parse --short=7 HEAD)" >> "$GITHUB_OUTPUT"
-          echo "tag=$(git rev-parse --short=7 HEAD)-${{ matrix.arch }}" >> "$GITHUB_OUTPUT"
+          echo "sha=${GITHUB_SHA:0:7}" >> "$GITHUB_OUTPUT"
+          echo "tag=${GITHUB_SHA:0:7}-${{ matrix.arch }}" >> "$GITHUB_OUTPUT"
           echo "registry=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_OUTPUT"
           echo "date=$(git log -1 --format=%cI HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -124,15 +127,33 @@ jobs:
           NEW_VERSION: ${{ needs.version.outputs.new_version }}
         run: |
           registry="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}"
-          sha="$(git rev-parse --short=7 HEAD)"
+          sha="${GITHUB_SHA:0:7}"
           for image in fpm web ssr; do
             repo="$registry/sledgehammertime-$image"
-            docker buildx imagetools create \
-              -t "$repo:$NEW_VERSION" -t "$repo:$sha" -t "$repo:latest" \
-              "$repo:$sha-amd64" "$repo:$sha-arm64"
+            tags=(-t "$repo:$sha")
+            if [ -n "$NEW_VERSION" ]; then
+              tags+=(-t "$repo:$NEW_VERSION" -t "$repo:latest")
+            fi
+            docker buildx imagetools create "${tags[@]}" "$repo:$sha-amd64" "$repo:$sha-arm64"
+          done
+
+      # Last registry step: only now that all three multi-arch manifest lists exist is the tag Image Updater follows
+      # added (re-pointing the already-pushed manifest list, no rebuild), so it never exists on a partial set.
+      - name: Add sha- tag to all three images
+        run: |
+          registry="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}"
+          sha="${GITHUB_SHA:0:7}"
+          for image in fpm web ssr; do
+            repo="$registry/sledgehammertime-$image"
+            docker buildx imagetools inspect "$repo:$sha" > /dev/null
+          done
+          for image in fpm web ssr; do
+            repo="$registry/sledgehammertime-$image"
+            docker buildx imagetools create -t "$repo:sha-$sha" "$repo:$sha"
           done
 
       - name: Tag release
+        if: needs.version.outputs.new_tag != ''
         run: |
           git tag ${{ needs.version.outputs.new_tag }}
           git push origin ${{ needs.version.outputs.new_tag }}
