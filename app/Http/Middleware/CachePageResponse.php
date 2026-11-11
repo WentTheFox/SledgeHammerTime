@@ -14,9 +14,24 @@ use Symfony\Component\HttpFoundation\Response;
 class CachePageResponse {
   private const CACHE_TTL_SECONDS = 86400;
 
+  private static ?string $buildId = null;
+
+  /**
+   * Cached HTML embeds the hashed asset URLs of the build that rendered it, and a deploy replaces those files, so the
+   * cache key includes a fingerprint of the Vite manifest: every build starts with an empty page cache, with no
+   * separate clearing step to remember (the container deploys do not run one).
+   */
+  private static function buildId(): string {
+    return self::$buildId ??= (function(): string {
+      $manifest = public_path('build/manifest.json');
+      $hash = is_file($manifest) ? md5_file($manifest) : false;
+      return $hash === false ? 'nobuild' : substr($hash, 0, 8);
+    })();
+  }
+
   public static function cacheKey(string $page, string $locale, ?string $theme): string {
     $version = Config::get('app.page_cache.version', 0);
-    return "page-html-{$page}-{$locale}-{$theme}-v$version";
+    return "page-html-{$page}-{$locale}-{$theme}-v$version-".self::buildId();
   }
 
   /**
