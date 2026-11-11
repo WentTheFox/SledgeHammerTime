@@ -59,7 +59,11 @@ createInertiaApp({
           if (mountAC.signal.aborted)
             return;
           mountAC.abort();
-          dateFnsLocalePreload.then(() => app.mount(el));
+          dateFnsLocalePreload.then(() => {
+            app.mount(el);
+            // Lets the post-deploy smoke test (tests/smoke) know the client app is interactive; Vue's own data-v-app is not set when hydrating
+            el.dataset.mounted = 'true';
+          });
         },
       });
   },

@@ -59,6 +59,9 @@ RUN mkdir -p /runtime/node_modules/@fortawesome/fontawesome-free/css \
 
 # ---------------------------------------------------------------------------------------------------------
 FROM php-base AS fpm
+# reported as `build` by the JSON /status (config('app.build'))
+ARG GIT_COMMIT_HASH=unknown
+ENV GIT_COMMIT_HASH=${GIT_COMMIT_HASH}
 RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client && rm -rf /var/lib/apt/lists/*
 RUN { echo "memory_limit = 256M"; echo "expose_php = Off"; echo "short_open_tag = On"; \
       echo "upload_max_filesize = 20M"; echo "post_max_size = 24M"; echo "zend.exception_ignore_args = Off"; \

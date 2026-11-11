@@ -33,6 +33,12 @@ return [
   'env' => env('APP_ENV', 'production'),
 
   /*
+   | Short commit hash of the running build (baked into the image as GIT_COMMIT_HASH), reported by the JSON /status
+   | so a post-deploy smoke test can tell the new version from the old one.
+   */
+  'build' => env('GIT_COMMIT_HASH'),
+
+  /*
   |--------------------------------------------------------------------------
   | Application Debug Mode
   |--------------------------------------------------------------------------

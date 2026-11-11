@@ -50,6 +50,6 @@ class StaticController extends Controller {
     }
     $healthy = !in_array(false, $checks, true);
 
-    return response()->json(['status' => $healthy ? 'ok' : 'error', 'checks' => $checks], $healthy ? 200 : 503);
+    return response()->json(['status' => $healthy ? 'ok' : 'error', 'build' => config('app.build') ?? 'unknown', 'checks' => $checks], $healthy ? 200 : 503);
   }
 }
