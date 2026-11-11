@@ -32,7 +32,8 @@ const readOnly = computed(() => page.props.app?.readOnly === true);
     >
       <slot name="sidebarWidgets" />
     </template>
-    <noscript>
+    <!-- Browsers with JavaScript enabled parse the children of <noscript> as text, which Vue would report as a hydration mismatch -->
+    <noscript data-allow-mismatch="children">
       <div class="alert warning mb-3">
       <div class="alert-content">
       <div class="alert-title">
