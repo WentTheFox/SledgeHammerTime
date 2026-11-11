@@ -1,13 +1,12 @@
 # "Sync to production" button for SledgeHammerTime production.
 #
-# Images are built by the other workflows; the Rathalos cluster's Argo CD picks the newest one up for beta by itself, but production is
-# only changed on purpose. This workflow is that purpose: it creates a GitHub Deployment with task "argocd-sync" and GitHub delivers it
-# as a signed `deployment` webhook to the receiver in the cluster (https://deploy.hammertime.cyou, repo Rathalos platform/deploy-hook),
-# which checks the signature and asks Argo CD to sync the Application `sledgehammertime-prod` (the same as pressing Sync in the Argo CD UI,
-# including the migrate PreSync hook where the app has one). Nothing is stored in GitHub Actions secrets, the runner only uses its own
-# short-lived GITHUB_TOKEN, and the receiver decides the target itself: the request cannot choose an image, revision or application.
-# Progress and the result show up as the "production" deployment records that Argo CD notifications create on this repo. Like the old
-# toolkit, only the latest record per environment is kept: the last step deletes the older ones.
+# Images are built by the other workflows; the Rathalos cluster's Argo CD deploys beta by itself, but production is only changed on purpose.
+# This workflow is that purpose: running it makes GitHub send a signed `workflow_run` webhook (event `workflow_run`, action `requested`) to the
+# receiver in the cluster (https://webhook.hammertime.cyou, Rathalos repo platform/deploy-hook). The receiver checks the signature, that this
+# is the Deploy workflow started by hand (workflow_dispatch) on main, and then asks Argo CD to sync the Application `sledgehammertime-prod`
+# (the same as pressing Sync in the Argo CD UI, including the migrate hook where the app has one). It cannot choose an image, revision or
+# application. Nothing is stored in GitHub Actions secrets and no deployment record or environment is created: the job below only gives the
+# run something to show. The result is visible in Argo CD and in the "production" deployment records its notifications write.
 #
 # workflow_dispatch only, never automatic: syncing production is always a deliberate decision.
 name: Deploy
@@ -19,33 +18,12 @@ concurrency:
   group: deploy
   cancel-in-progress: false
 
-permissions:
-  contents: read
-  deployments: write
+permissions: {}
 
 jobs:
   sync:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 2
     steps:
-      - name: Ask Argo CD to sync production
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # A separate, transient environment keeps this request apart from the "production" records Argo CD writes itself.
-          id=$(jq -n --arg ref "$GITHUB_SHA" \
-                 '{ref: $ref, environment: "argocd-sync", task: "argocd-sync", auto_merge: false, required_contexts: [],
-                   transient_environment: true, description: "Sync sledgehammertime-prod"}' \
-               | gh api "repos/$GITHUB_REPOSITORY/deployments" --input - --jq .id)
-          echo "::notice::Sync requested (request $id). Follow it in Argo CD or the repository's Deployments."
-
-      - name: Keep only the latest deployment record per environment
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # Argo CD adds a record per sync; older ones are set inactive and deleted, the newest of each environment stays.
-          gh api "repos/$GITHUB_REPOSITORY/deployments?per_page=100" --paginate --jq '.[] | [.environment,.id] | @tsv' \
-            | awk -F'\t' '!seen[$1]++ {next} {print $2}' | while read -r id; do
-            gh api -X POST "repos/$GITHUB_REPOSITORY/deployments/$id/statuses" -f state=inactive >/dev/null || true
-            gh api -X DELETE "repos/$GITHUB_REPOSITORY/deployments/$id" >/dev/null || echo "::warning::could not delete deployment $id"
-          done
+      - name: Sync requested
+        run: echo "Sync of sledgehammertime-prod requested; the cluster receiver acts on GitHub's workflow_run webhook for this run."
