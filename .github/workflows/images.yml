@@ -1,11 +1,9 @@
 name: Publish container images
 
 # Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io for EVERY push to main, tagged <sha7> and
-# sha-<sha7>. When the push also carries a version bump according to the conventional commits since the last tag
-# (feat -> minor, fix -> patch, breaking -> major; docs/ci/chore only bump nothing), the release tags (<version>,
-# latest) are added and the git tag is created; non-release commits never move `latest` nor create a version. The same images serve prod and beta; environment
-# differences are runtime configuration only. No build inputs: the VITE_* values the frontend reads are non-secret
-# defaults in docker/Dockerfile.
+# sha-<sha7>. There are no version tags, no `latest` and no git tags: the commit is the version. The same images serve
+# prod and beta; environment differences are runtime configuration only. No build inputs: the VITE_* values the frontend
+# reads are non-secret defaults in docker/Dockerfile.
 #
 # The sha-<sha7> tag is what Argo CD Image Updater follows. It is added to all three manifest lists as the very last
 # registry step, so it never exists on a partial set (fpm/web/ssr of one commit appear together).
@@ -36,32 +34,9 @@ jobs:
       - name: Lint commits
         uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
 
-  version:
-    name: 'Compute next version'
-    needs: commitlint
-    runs-on: ubuntu-24.04
-    outputs:
-      new_tag: ${{ steps.tag.outputs.new_tag }}
-      new_version: ${{ steps.tag.outputs.new_version }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0
-
-      # dry_run: compute the next version without creating/pushing the tag yet. The tag is only created once the
-      # images have actually been published, so a failed build never leaves a version tag with no images.
-      - name: Compute next version from conventional commits
-        id: tag
-        uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: main
-          default_bump: false
-          dry_run: true
-
   build:
     name: 'Build ${{ matrix.arch }}'
-    needs: version
+    needs: commitlint
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
@@ -107,7 +82,7 @@ jobs:
 
   publish:
     name: 'Publish multi-arch tags'
-    needs: [ version, build ]
+    needs: build
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -123,18 +98,12 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge per-arch images into multi-arch tags
-        env:
-          NEW_VERSION: ${{ needs.version.outputs.new_version }}
         run: |
           registry="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}"
           sha="${GITHUB_SHA:0:7}"
           for image in fpm web ssr; do
             repo="$registry/sledgehammertime-$image"
-            tags=(-t "$repo:$sha")
-            if [ -n "$NEW_VERSION" ]; then
-              tags+=(-t "$repo:$NEW_VERSION" -t "$repo:latest")
-            fi
-            docker buildx imagetools create "${tags[@]}" "$repo:$sha-amd64" "$repo:$sha-arm64"
+            docker buildx imagetools create -t "$repo:$sha" "$repo:$sha-amd64" "$repo:$sha-arm64"
           done
 
       # Last registry step: only now that all three multi-arch manifest lists exist is the tag Image Updater follows
@@ -151,9 +120,3 @@ jobs:
             repo="$registry/sledgehammertime-$image"
             docker buildx imagetools create -t "$repo:sha-$sha" "$repo:$sha"
           done
-
-      - name: Tag release
-        if: needs.version.outputs.new_tag != ''
-        run: |
-          git tag ${{ needs.version.outputs.new_tag }}
-          git push origin ${{ needs.version.outputs.new_tag }}
