@@ -6,7 +6,8 @@
 # which checks the signature and asks Argo CD to sync the Application `sledgehammertime-prod` (the same as pressing Sync in the Argo CD UI,
 # including the migrate PreSync hook where the app has one). Nothing is stored in GitHub Actions secrets, the runner only uses its own
 # short-lived GITHUB_TOKEN, and the receiver decides the target itself: the request cannot choose an image, revision or application.
-# Progress and the result show up as the usual "production" deployment records that Argo CD notifications create on this repo.
+# Progress and the result show up as the "production" deployment records that Argo CD notifications create on this repo. Like the old
+# toolkit, only the latest record per environment is kept: the last step deletes the older ones.
 #
 # workflow_dispatch only, never automatic: syncing production is always a deliberate decision.
 name: Deploy
@@ -37,3 +38,14 @@ jobs:
                    transient_environment: true, description: "Sync sledgehammertime-prod"}' \
                | gh api "repos/$GITHUB_REPOSITORY/deployments" --input - --jq .id)
           echo "::notice::Sync requested (request $id). Follow it in Argo CD or the repository's Deployments."
+
+      - name: Keep only the latest deployment record per environment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Argo CD adds a record per sync; older ones are set inactive and deleted, the newest of each environment stays.
+          gh api "repos/$GITHUB_REPOSITORY/deployments?per_page=100" --paginate --jq '.[] | [.environment,.id] | @tsv' \
+            | awk -F'\t' '!seen[$1]++ {next} {print $2}' | while read -r id; do
+            gh api -X POST "repos/$GITHUB_REPOSITORY/deployments/$id/statuses" -f state=inactive >/dev/null || true
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/deployments/$id" >/dev/null || echo "::warning::could not delete deployment $id"
+          done
