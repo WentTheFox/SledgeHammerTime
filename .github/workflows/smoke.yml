@@ -1,28 +1,30 @@
-# Post-deploy smoke test for production (https://hammertime.cyou): fails when the live site is broken.
+# Smoke test for a live SledgeHammerTime environment (production https://hammertime.cyou, beta https://beta.hammertime.cyou): fails when
+# the live site is broken.
 #
-# The Deploy workflow only asks the cluster's Argo CD to sync, and finishes BEFORE the new version is live (PreSync migrate, rolling
-# update, PostSync page cache clear: ~1-3 minutes). So this waits until the running build (`build` in the JSON /status, the short
-# commit hash baked into the image) is the one that was deployed, and only then runs tests/smoke/smoke.cjs against the live site.
+# Triggered by the GitHub *deployment status* that Argo CD Notifications writes for every sync (webhook-triggered, manual or beta's
+# automatic one). The notification fires only when the sync finished AND the app is Healthy, PostSync hooks included, so the new version
+# is live by the time this runs: no waiting for the rollout. (deployment_status workflows always run from the default branch.)
+# It then runs tests/smoke/smoke.cjs against the environment_url of the deployment.
 #
-# Waiting is a poll on purpose: nothing tells GitHub when the sync finished. (An Argo CD notification that sends a
-# repository_dispatch after PostSync would make it event driven.)
-#
-# Manual run: optionally give the commit to wait for; without it the checks run against whatever is live right now.
+# Manual run: optionally give the commit the site must be running and/or another URL; without a sha the checks run against whatever is live.
 name: Smoke test
 
 on:
-  workflow_run:
-    workflows: [ Deploy ]
-    types: [ completed ]
+  deployment_status:
   workflow_dispatch:
     inputs:
       sha:
-        description: 'Commit (full or short hash) prod must be running before testing; empty tests whatever is live'
+        description: 'Commit (full or short hash) the site must be running before testing; empty tests whatever is live'
         required: false
+        type: string
+      url:
+        description: 'Site to test'
+        required: false
+        default: https://hammertime.cyou
         type: string
 
 concurrency:
-  group: smoke
+  group: smoke-${{ github.event.deployment.environment || inputs.url || 'manual' }}
   cancel-in-progress: false
 
 permissions:
@@ -30,44 +32,46 @@ permissions:
 
 env:
   PLAYWRIGHT_VERSION: 1.64.0
-  BASE_URL: https://hammertime.cyou
-  WAIT_TIMEOUT_SECONDS: 600
-  WAIT_INTERVAL_SECONDS: 15
 
 jobs:
   smoke:
-    name: Smoke test production
-    # A failed Deploy has nothing to verify
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    name: Smoke test ${{ github.event.deployment.environment || 'site' }}
+    # Argo CD also reports in_progress/failure states, only a successful, healthy sync is worth testing
+    if: github.event_name == 'workflow_dispatch' || github.event.deployment_status.state == 'success'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Wait for production to run the deployed build
+      - name: Check the environment is running the deployed build
         env:
-          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha || inputs.sha }}
+          SITE_URL: ${{ github.event.deployment_status.environment_url || inputs.url }}
+          EXPECTED_SHA: ${{ github.event.deployment.sha || inputs.sha }}
         run: |
+          # The URL ends up in a browser run by this job, so only our own sites are accepted
+          if ! [[ "$SITE_URL" =~ ^https://(beta\.)?hammertime\.cyou/?$ ]]; then
+            echo "::error::Refusing to test unexpected URL '$SITE_URL'"
+            exit 1
+          fi
+          echo "BASE_URL=${SITE_URL%/}" >> "$GITHUB_ENV"
           if [ -z "$EXPECTED_SHA" ]; then
-            echo "No commit to wait for, testing whatever is live."
+            echo "No commit to check, testing whatever is live."
             exit 0
           fi
+          # Argo already reported the sync healthy; this only absorbs Cloudflare/ingress settling
           expected="${EXPECTED_SHA:0:7}"
-          deadline=$((SECONDS + WAIT_TIMEOUT_SECONDS))
           running=unreachable
-          while :; do
-            running=$(curl -fsS --max-time 10 -H 'Accept: application/json' -A 'SledgeHammerTime-Smoke' "$BASE_URL/status" | jq -r '.build // "not reported"') || running=unreachable
+          for attempt in $(seq 1 12); do
+            running=$(curl -fsS --max-time 10 -H 'Accept: application/json' -A 'SledgeHammerTime-Smoke' "${SITE_URL%/}/status" | jq -r '.build // "not reported"') || running=unreachable
             if [ "$running" = "$expected" ]; then
-              echo "Production is running $expected"
+              echo "$SITE_URL is running $expected"
               exit 0
             fi
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::Prod still on $running, expected $expected after ${WAIT_TIMEOUT_SECONDS}s"
-              exit 1
-            fi
-            echo "Production is on $running, waiting for $expected"
-            sleep "$WAIT_INTERVAL_SECONDS"
+            echo "$SITE_URL is on $running, expected $expected (attempt $attempt/12)"
+            sleep 5
           done
+          echo "::error::${SITE_URL} still on $running, expected $expected"
+          exit 1
 
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
