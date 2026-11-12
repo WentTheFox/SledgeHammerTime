@@ -1,14 +1,14 @@
 import { ExportResultCode } from '@opentelemetry/core';
 import type { ReadableSpan, SpanExporter } from '@opentelemetry/sdk-trace-base';
 import { describe, expect, it, vi } from 'vitest';
-import { SanitizingExporter, stripQueryAndFragment } from './browser-tracing';
+import { SanitizingExporter, stripFragment } from './browser-tracing';
 
 const span = (name: string, attributes: Record<string, unknown>) => ({ name, attributes }) as unknown as ReadableSpan;
 
-describe('stripQueryAndFragment', () => {
-  it('keeps the origin and path only', () => {
-    expect(stripQueryAndFragment('https://beta.hammertime.cyou/en/app?t=1&token=x#frag')).toBe('https://beta.hammertime.cyou/en/app');
-    expect(stripQueryAndFragment('/en/app')).toBe('/en/app');
+describe('stripFragment', () => {
+  it('removes the fragment but keeps the query string', () => {
+    expect(stripFragment('https://beta.hammertime.cyou/en/app?t=1&tz=UTC#access_token=x')).toBe('https://beta.hammertime.cyou/en/app?t=1&tz=UTC');
+    expect(stripFragment('/en/app')).toBe('/en/app');
   });
 });
 
@@ -18,14 +18,14 @@ describe('SanitizingExporter', () => {
     return { inner, sanitizing: new SanitizingExporter(inner) };
   };
 
-  it('removes query strings from url attributes and drops url.query', () => {
+  it('removes fragments from url attributes and keeps the query string', () => {
     const { inner, sanitizing } = exporter();
-    const documentFetch = span('documentFetch', { 'url.full': 'https://x.test/en?a=1', 'http.url': '/en?b=2', 'url.query': 'a=1', 'user_agent.original': 'UA' });
+    const documentFetch = span('documentFetch', { 'url.full': 'https://x.test/en?a=1#top', 'http.url': '/en?b=2#x', 'url.query': 'a=1', 'user_agent.original': 'UA' });
 
     sanitizing.export([documentFetch], vi.fn());
 
     expect(inner.export).toHaveBeenCalledOnce();
-    expect(documentFetch.attributes).toEqual({ 'url.full': 'https://x.test/en', 'http.url': '/en', 'user_agent.original': 'UA' });
+    expect(documentFetch.attributes).toEqual({ 'url.full': 'https://x.test/en?a=1', 'http.url': '/en?b=2', 'url.query': 'a=1', 'user_agent.original': 'UA' });
   });
 
   it('drops per-resource spans and does not call the exporter when nothing is left', () => {
