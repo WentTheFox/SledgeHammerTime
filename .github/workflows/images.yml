@@ -1,6 +1,6 @@
 name: Publish container images
 
-# Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io for EVERY push to main, tagged <sha7> and
+# Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io for EVERY push to main or beta, tagged <sha7> and
 # sha-<sha7>. There are no version tags, no `latest` and no git tags: the commit is the version. The same images serve
 # prod and beta; environment differences are runtime configuration only. No build inputs: the VITE_* values the frontend
 # reads are non-secret defaults in docker/Dockerfile.
@@ -11,12 +11,12 @@ name: Publish container images
 # Each architecture is built natively on its own runner (no qemu emulation, which makes the PHP extension compile
 # take far too long), pushed as <sha7>-<arch>, then merged into one multi-arch tag per image.
 #
-# The `beta` branch (main plus beta-only commits, kept rebased by rebase-beta.yml) is built by the same workflow, started with workflow_dispatch
-# because a push made with GITHUB_TOKEN triggers nothing. Its images get the tag beta-sha-<sha7> instead of sha-<sha7>, so production
+# The `beta` branch (main plus beta-only commits, kept rebased by rebase-beta.yml) is built by the same workflow: directly on a normal push,
+# and by workflow_dispatch after rebase-beta.yml's own push, because a push made with GITHUB_TOKEN triggers nothing. Its images get the tag beta-sha-<sha7> instead of sha-<sha7>, so production
 # (which follows ^sha-<7 hex>$) never picks them up and beta (which follows ^beta-sha-<7 hex>$) never picks up main's.
 on:
   push:
-    branches: [ main ]
+    branches: [ main, beta ]
   workflow_dispatch:
 
 concurrency:
