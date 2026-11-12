@@ -2,7 +2,6 @@ import { markClientHydrated } from '@/composables/useClientHydrated';
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { PageProps } from '@/types';
 import { getAppName } from '@/utils/app';
-import { startBrowserTracingWhenIdle } from '@/utils/start-browser-tracing';
 import { withReadOnlyRetry } from '@/utils/read-only-retry';
 import { withRequestFailedToast } from '@/utils/request-failed-toast';
 import { renewTraceOptOut } from '@/utils/trace-opt-out';
@@ -69,7 +68,6 @@ createInertiaApp({
             el.dataset.mounted = 'true';
             markClientHydrated();
             renewTraceOptOut();
-            startBrowserTracingWhenIdle(pageAppProps?.browserTracing);
           });
         },
       });

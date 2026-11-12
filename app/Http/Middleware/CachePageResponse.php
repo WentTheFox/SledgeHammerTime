@@ -21,9 +21,7 @@ class CachePageResponse {
    */
   public static function cacheKey(string $page, string $locale, ?string $theme): string {
     $version = Config::get('app.page_cache.version', 0);
-    // the browser tracing settings are part of the cached page's props, so turning it on or off must not serve old pages
-    $tracing = Config::get('app.browser_tracing.enabled') ? '-bt' : '';
-    return "page-html-{$page}-{$locale}-{$theme}-v$version$tracing";
+    return "page-html-{$page}-{$locale}-{$theme}-v$version";
   }
 
   /**

@@ -131,9 +131,6 @@ const gdprArticle6Url = computed(() => getGdprArticle6Url(uiLocale.value));
         {{ $t('legal.privacy.performance.serverTraces') }}
       </p>
       <p>
-        {{ $t('legal.privacy.performance.browserMeasurements') }}
-      </p>
-      <p>
         <HtTranslate i18n-key="legal.privacy.performance.legalBasis">
           <template #1="slotProps">
             <HtExternalLink :href="gdprArticle6Url">
