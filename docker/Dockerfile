@@ -10,12 +10,12 @@ ARG NODE_IMAGE=node:24-trixie-slim
 # ---------------------------------------------------------------------------------------------------------
 FROM --platform=$BUILDPLATFORM ${PHP_IMAGE} AS php-base-build
 COPY --from=ghcr.io/mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets \
+RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry \
  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 FROM ${PHP_IMAGE} AS php-base
 COPY --from=ghcr.io/mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets \
+RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry \
  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 FROM --platform=$BUILDPLATFORM ${NODE_IMAGE} AS node-bin
@@ -88,6 +88,8 @@ COPY --from=build /app/bootstrap/ssr ./bootstrap/ssr
 COPY --from=build /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml ./
 RUN npm install -g pnpm@11 && pnpm install --frozen-lockfile --ignore-scripts \
  && npm uninstall -g pnpm && rm -rf /root/.npm /root/.cache
+COPY docker/otel.cjs ./otel.cjs
 USER node
 ENV NODE_OPTIONS=--max-old-space-size=192
-CMD ["node", "bootstrap/ssr/ssr.js"]
+# otel.cjs does nothing unless OTEL_EXPORTER_OTLP_ENDPOINT is set
+CMD ["node", "--require", "./otel.cjs", "bootstrap/ssr/ssr.js"]
