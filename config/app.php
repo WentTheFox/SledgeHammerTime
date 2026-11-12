@@ -213,6 +213,18 @@ return [
   // shell access and works across containers. Set APP_READ_ONLY=true to enable.
   'read_only' => (bool) env('APP_READ_ONLY', false),
 
+  // Browser (OpenTelemetry) tracing: off unless BROWSER_TRACING_ENABLED=true. The spans are sent to the same-origin
+  // `endpoint`, which the web server proxies to the collector (see docs/nginx/otel-browser-proxy.conf).
+  'browser_tracing' => [
+    'enabled' => (bool) env('BROWSER_TRACING_ENABLED', false),
+    'service_name' => env('BROWSER_TRACING_SERVICE_NAME', env('OTEL_SERVICE_NAME', 'sledgehammertime').'-web'),
+    // deployment.environment from OTEL_RESOURCE_ATTRIBUTES, so it is the same as on the server spans
+    'environment' => env('BROWSER_TRACING_ENVIRONMENT')
+      ?? (preg_match('/(?:^|,)deployment\.environment=([^,]+)/', (string) env('OTEL_RESOURCE_ATTRIBUTES'), $m) ? $m[1] : env('APP_ENV', 'production')),
+    'endpoint' => env('BROWSER_TRACING_ENDPOINT', '/_otel/v1/traces'),
+    'sample_ratio' => (float) env('BROWSER_TRACING_SAMPLE_RATIO', 0.1),
+  ],
+
   'page_cache' => [
     'enabled' => env('APP_PAGE_CACHE_ENABLED', false),
     'version' => env('APP_PAGE_CACHE_VERSION', 0),
