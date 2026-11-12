@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import { dateTimeLibraryInject } from '@/injection-keys';
+import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import HtButton from '@/Reusable/HtButton.vue';
 import HtFormCheckboxModelled from '@/Reusable/HtFormCheckboxModelled.vue';
-import { isTraceOptedOut, setTraceOptOut } from '@/utils/trace-opt-out';
-import { onMounted, ref } from 'vue';
+import HtTranslate from '@/Reusable/HtTranslate.vue';
+import { getTraceOptOutExpiry, isTraceOptedOut, setTraceOptOut } from '@/utils/trace-opt-out';
+import { computed, inject, onMounted, ref } from 'vue';
 
 // The cookie is only known in the browser: nothing is shown for SSR, and everything is read once mounted
 const mounted = ref(false);
@@ -10,17 +14,27 @@ const mounted = ref(false);
 const currentlyOptedOut = ref(false);
 const optedOut = ref(false);
 const justSaved = ref(false);
+const dtl = inject(dateTimeLibraryInject);
+/** The expiry the browser reports for the cookie, which can be sooner than what was asked for */
+const cookieExpiresAt = ref<number | null>(null);
+const cookieExpiry = computed(() => cookieExpiresAt.value === null ? undefined : dtl?.value.fromTimestampMsUtc(cookieExpiresAt.value));
 
-onMounted(() => {
+const readCookieExpiry = async () => {
+  cookieExpiresAt.value = currentlyOptedOut.value ? await getTraceOptOutExpiry() : null;
+};
+
+onMounted(async () => {
   currentlyOptedOut.value = isTraceOptedOut();
   optedOut.value = currentlyOptedOut.value;
   mounted.value = true;
+  await readCookieExpiry();
 });
 
-const save = () => {
+const save = async () => {
   setTraceOptOut(optedOut.value);
   currentlyOptedOut.value = isTraceOptedOut();
   justSaved.value = true;
+  await readCookieExpiry();
 };
 </script>
 
@@ -53,5 +67,21 @@ const save = () => {
     >
       {{ $t('actions.save') }}
     </HtButton>
+    <p v-if="mounted">
+      <HtTranslate
+        v-if="cookieExpiry"
+        i18n-key="legal.privacy.optOut.cookieExpiry"
+      >
+        <template #1>
+          <TimestampPreview
+            :ts="cookieExpiry"
+            :format="MessageTimestampFormat.RELATIVE"
+          />
+        </template>
+      </HtTranslate>
+      <template v-else>
+        {{ $t('legal.privacy.optOut.cookieLongest') }}
+      </template>
+    </p>
   </form>
 </template>
