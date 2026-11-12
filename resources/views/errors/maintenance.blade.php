@@ -159,6 +159,9 @@
       @endif
       <button class="btn" id="reload-btn" type="button">{{ __('global.maintenanceMode.reloadButton') }}</button>
     </div>
+    @if($traceId = \App\Http\Middleware\AddTraceIdHeader::currentTraceId())
+      <p style="margin:1rem 0 0;font-size:.8rem;color:var(--muted)">Trace ID: <code>{{ $traceId }}</code></p>
+    @endif
   </main>
 
   <script>
