@@ -20,10 +20,12 @@ class BlockWritesInReadOnlyMode {
   ];
 
   /**
-   * Non-GET routes that only read, so they keep working in the window
+   * Non-GET routes that do not write to the database, so they keep working in read-only mode
    */
   protected const READING_POST_PATTERNS = [
     'internal/keys/validate',
+    // only sets the visitor's preferences cookie
+    'frontend/local-settings',
   ];
 
   /**
@@ -36,7 +38,10 @@ class BlockWritesInReadOnlyMode {
 
     $headers = ReadOnlyMode::isConfigured() ? [] : ['Retry-After' => (string) ReadOnlyMode::RETRY_AFTER_SECONDS];
     if ($request->expectsJson()){
-      return response()->json(['message' => 'The service is temporarily read-only while an update is being applied.'], 503, $headers);
+      $message = ReadOnlyMode::isConfigured()
+        ? 'This instance is read-only, changes are not accepted.'
+        : 'The service is temporarily read-only while an update is being applied.';
+      return response()->json(['message' => $message], 503, $headers);
     }
 
     return response()->view('errors.maintenance', [
