@@ -66,6 +66,8 @@
     "@fortawesome/free-regular-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/vue-fontawesome": "^3.3.3",
+    "@opentelemetry/instrumentation-http": "^0.300.0",
+    "@opentelemetry/sdk-node": "^0.300.0",
     "@vueuse/core": "^15.0.0",
     "chart.js": "^4.5.1",
     "chrono-node": "^2.10.2",

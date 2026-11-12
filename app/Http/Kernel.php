@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AddTraceIdHeader;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\BlockWritesInReadOnlyMode;
 use App\Http\Middleware\ConsoleUserMiddleware;
@@ -45,6 +46,7 @@ class Kernel extends HttpKernel {
    */
   protected $middleware = [
     // \App\Http\Middleware\TrustHosts::class,
+    AddTraceIdHeader::class,
     TrustProxies::class,
     HandleCors::class,
     PreventRequestsDuringMaintenance::class,
