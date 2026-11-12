@@ -4,6 +4,8 @@ import { PageProps } from '@/types';
 import { getAppName } from '@/utils/app';
 import { startBrowserTracingWhenIdle } from '@/utils/start-browser-tracing';
 import { withReadOnlyRetry } from '@/utils/read-only-retry';
+import { withRequestFailedToast } from '@/utils/request-failed-toast';
+import { renewTraceOptOut } from '@/utils/trace-opt-out';
 import { xhrHttpClient } from '@inertiajs/core';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -21,7 +23,7 @@ const findLangJsonPath = (lang: string) => langJsonPaths.find(path => path.endsW
 
 createInertiaApp({
   // Writes rejected while a deploy has the site read-only (503 + Retry-After) are sent again once it is over
-  http: withReadOnlyRetry(xhrHttpClient),
+  http: withRequestFailedToast(withReadOnlyRetry(xhrHttpClient)),
   title: (title) => title ? `${title} - ${appName}` : appName,
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
@@ -66,6 +68,7 @@ createInertiaApp({
             // Lets the post-deploy smoke test (tests/smoke) know the client app is interactive; Vue's own data-v-app is not set when hydrating
             el.dataset.mounted = 'true';
             markClientHydrated();
+            renewTraceOptOut();
             startBrowserTracingWhenIdle(pageAppProps?.browserTracing);
           });
         },

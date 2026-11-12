@@ -31,6 +31,22 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Performance Monitoring Opt-out
+|--------------------------------------------------------------------------
+|
+| Visitors can opt out of OpenTelemetry tracing on the privacy policy page, which sets this cookie (readable by
+| JavaScript, so it is not encrypted by Laravel). The SDK is configured by the autoloader below, so it has to be
+| switched off before that: nothing at all is recorded for such a request.
+|
+*/
+
+if (($_COOKIE['ht_trace_optout'] ?? null) === '1'){
+  putenv('OTEL_SDK_DISABLED=true');
+  $_ENV['OTEL_SDK_DISABLED'] = $_SERVER['OTEL_SDK_DISABLED'] = 'true';
+}
+
 require __DIR__.'/../vendor/autoload.php';
 
 /*

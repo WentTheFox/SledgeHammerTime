@@ -1,4 +1,5 @@
 import type { PageProps } from '@/types';
+import { isTraceOptedOut } from '@/utils/trace-opt-out';
 
 type BrowserTracingProp = NonNullable<PageProps['app']>['browserTracing'];
 
@@ -7,7 +8,7 @@ type BrowserTracingProp = NonNullable<PageProps['app']>['browserTracing'];
  * browser is idle after the page is interactive, so it never competes with the first paint.
  */
 export function startBrowserTracingWhenIdle(config: BrowserTracingProp): void {
-  if (!config) {
+  if (!config || isTraceOptedOut()) {
     return;
   }
   const start = () => {

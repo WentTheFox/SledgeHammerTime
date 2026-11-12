@@ -13,9 +13,9 @@ describe('stripFragment', () => {
 });
 
 describe('SanitizingExporter', () => {
-  const exporter = () => {
+  const exporter = (optedOut = false) => {
     const inner: SpanExporter = { export: vi.fn(), shutdown: vi.fn(async () => undefined) };
-    return { inner, sanitizing: new SanitizingExporter(inner) };
+    return { inner, sanitizing: new SanitizingExporter(inner, () => optedOut) };
   };
 
   it('removes fragments from url attributes and keeps the query string', () => {
@@ -33,6 +33,16 @@ describe('SanitizingExporter', () => {
     const callback = vi.fn();
 
     sanitizing.export([span('resourceFetch', {})], callback);
+
+    expect(inner.export).not.toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledWith({ code: ExportResultCode.SUCCESS });
+  });
+
+  it('sends nothing once the visitor opted out, even for spans that were already recorded', () => {
+    const { inner, sanitizing } = exporter(true);
+    const callback = vi.fn();
+
+    sanitizing.export([span('documentLoad', { 'url.full': 'https://x.test/en' })], callback);
 
     expect(inner.export).not.toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith({ code: ExportResultCode.SUCCESS });

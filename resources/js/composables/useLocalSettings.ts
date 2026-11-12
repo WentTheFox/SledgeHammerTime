@@ -106,6 +106,19 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     nullByDefault,
   );
   const {
+    value: privacyNoticeDismissedAt,
+    setValue: setPrivacyNoticeDismissedAt,
+  } = useLocalSelectSetting(
+    settingSource,
+    'privacy-notice-dismissed-at',
+    // Anything that is not a date is dropped (and erased from the stored settings)
+    v => {
+      const isValid = v !== null && !isNaN(Date.parse(v));
+      return { result: isValid ? v : null, save: v !== null && !isValid };
+    },
+    (v): v is string | null => v === null || typeof v === 'string',
+  );
+  const {
     value: hourCycle,
     setValueBySelectEvent: setHourCycle,
   } = useLocalSelectSetting(
@@ -199,6 +212,8 @@ export const useLocalSettings = (currentLanguage: Ref<CurrentLanguageData> | und
     toggleTimezoneStickyHeaders,
     hideHowTo,
     setHideHowTo,
+    privacyNoticeDismissedAt,
+    setPrivacyNoticeDismissedAt,
     naturalLanguageInputAvailable,
     hourCycle,
     setHourCycle,
