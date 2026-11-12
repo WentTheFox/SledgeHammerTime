@@ -88,8 +88,8 @@ COPY --from=build /app/bootstrap/ssr ./bootstrap/ssr
 COPY --from=build /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml ./
 RUN npm install -g pnpm@11 && pnpm install --frozen-lockfile --ignore-scripts \
  && npm uninstall -g pnpm && rm -rf /root/.npm /root/.cache
-COPY docker/otel.cjs ./otel.cjs
+COPY docker/otel.cjs docker/profiling.cjs ./
 USER node
 ENV NODE_OPTIONS=--max-old-space-size=192
-# otel.cjs does nothing unless OTEL_EXPORTER_OTLP_ENDPOINT is set
-CMD ["node", "--require", "./otel.cjs", "bootstrap/ssr/ssr.js"]
+# otel.cjs does nothing unless OTEL_EXPORTER_OTLP_ENDPOINT is set, profiling.cjs unless PYROSCOPE_SERVER_ADDRESS is set
+CMD ["node", "--require", "./otel.cjs", "--require", "./profiling.cjs", "bootstrap/ssr/ssr.js"]

@@ -10,6 +10,7 @@ allowBuilds:
   esbuild: true
   sharp: true
   protobufjs: false
+  '@datadog/pprof': false
 
 overrides:
   brace-expansion: '>=5.0.12'
