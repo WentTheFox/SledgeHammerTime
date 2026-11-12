@@ -2,9 +2,11 @@
 import { BotInfoUsageData, usageDataFetcherInject, UsageDataFetchFunction } from '@/injection-keys';
 import { BotCommand, BotCommandOption, DiscordBotCommandOptionType, DiscordBotCommandType } from '@/model/discord';
 import BotCommandInfo from '@/Pages/BotInfo/BotCommandInfo.vue';
-import { randomlyGenerateCommandUsageData } from '@/utils/app';
+import { createSeededRandom, randomlyGenerateCommandUsageData } from '@/utils/app';
 import { provide } from 'vue';
 
+// The totals are rendered, so they must be identical on the server and in the browser
+const seededRandom = createSeededRandom(2);
 const upToSuffix = ', up to 100 characters long';
 const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] => {
   const deleted_at = deleted ? new Date().toISOString() : null;
@@ -19,7 +21,7 @@ const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] =
       min_value: null,
       max_value: null,
       required: false,
-      total_uses: Math.round(Math.random() * 5e3),
+      total_uses: Math.round(seededRandom() * 5e3),
       deleted_at,
     },
     {
@@ -32,7 +34,7 @@ const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] =
       min_value: null,
       max_value: null,
       required: true,
-      total_uses: Math.round(Math.random() * 5e3),
+      total_uses: Math.round(seededRandom() * 5e3),
       deleted_at,
     },
     {
@@ -45,7 +47,7 @@ const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] =
       min_value: 0,
       max_value: 99999,
       required: true,
-      total_uses: Math.round(Math.random() * 5e3),
+      total_uses: Math.round(seededRandom() * 5e3),
       deleted_at,
     },
     {
@@ -58,7 +60,7 @@ const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] =
       min_value: null,
       max_value: null,
       required: false,
-      total_uses: Math.round(Math.random() * 5e3),
+      total_uses: Math.round(seededRandom() * 5e3),
       deleted_at,
     },
     {
@@ -71,7 +73,7 @@ const getStaticCommandOptions = (deleted: boolean = false): BotCommandOption[] =
       min_value: 0.001,
       max_value: 99999.999,
       required: false,
-      total_uses: Math.round(Math.random() * 5e3),
+      total_uses: Math.round(seededRandom() * 5e3),
       deleted_at,
     },
   ];
@@ -83,7 +85,7 @@ const staticCommands: BotCommand[] = [
     type: DiscordBotCommandType.ChatInput,
     description: `Slash command description${upToSuffix}`,
     options: getStaticCommandOptions(),
-    total_executions: Math.round(Math.random() * 10e3),
+    total_executions: Math.round(seededRandom() * 10e3),
   },
   {
     id: 'slash-command-with-deleted-options',
@@ -91,21 +93,21 @@ const staticCommands: BotCommand[] = [
     type: DiscordBotCommandType.ChatInput,
     description: `Slash command description${upToSuffix}`,
     options: getStaticCommandOptions(true),
-    total_executions: Math.round(Math.random() * 10e3),
+    total_executions: Math.round(seededRandom() * 10e3),
   },
   {
     id: 'user-command',
     name: 'User command',
     type: DiscordBotCommandType.User,
     description: `User command description${upToSuffix}`,
-    total_executions: Math.round(Math.random() * 10e3),
+    total_executions: Math.round(seededRandom() * 10e3),
   },
   {
     id: 'message-command',
     name: 'Message command',
     type: DiscordBotCommandType.Message,
     description: `Message command description${upToSuffix}`,
-    total_executions: Math.round(Math.random() * 10e3),
+    total_executions: Math.round(seededRandom() * 10e3),
   },
 ];
 const staticTranslations: Record<string, string> = {};

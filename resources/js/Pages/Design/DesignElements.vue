@@ -9,9 +9,10 @@ import DesignForms from '@/Pages/Design/Elements/DesignForms.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTable from '@/Reusable/HtTable.vue';
+import { createSeededRandom } from '@/utils/app';
 import { loremIpsum } from 'lorem-ipsum';
 
-const placeholderText = loremIpsum();
+const placeholderText = loremIpsum({ random: createSeededRandom(1) });
 </script>
 
 <template>
