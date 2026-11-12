@@ -15,10 +15,18 @@ class AddTraceIdHeader {
   public function handle(Request $request, Closure $next): Response {
     /** @var Response $response */
     $response = $next($request);
-    $context = Span::getCurrent()->getContext();
-    if ($context->isValid()){
-      $response->headers->set('X-Trace-Id', $context->getTraceId());
+    $traceId = self::currentTraceId();
+    if ($traceId !== null){
+      $response->headers->set('X-Trace-Id', $traceId);
     }
     return $response;
+  }
+
+  /**
+   * The trace id of the active request, or null when tracing is not enabled.
+   */
+  public static function currentTraceId(): ?string {
+    $context = Span::getCurrent()->getContext();
+    return $context->isValid() ? $context->getTraceId() : null;
   }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Http\Middleware\AddTraceIdHeader;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Inertia\Inertia;
 use Throwable;
@@ -53,6 +54,7 @@ class Handler extends ExceptionHandler {
     return match ($status) {
       404 => Inertia::render('Errors/NotFound', [
         'discordUrl' => config('services.discord.invite_url'),
+        'traceId' => AddTraceIdHeader::currentTraceId(),
       ])->toResponse($request)->setStatusCode($status),
       default => $response
     };
