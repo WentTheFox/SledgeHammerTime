@@ -38,4 +38,22 @@ class ConfiguredReadOnlyModeTest extends TestCase {
 
     $this->postJson('/logout')->assertStatus(503)->assertHeader('Retry-After');
   }
+
+  public function test_configured_mode_message_is_not_about_an_update():void {
+    config(['app.read_only' => true]);
+
+    $this->postJson('/logout')->assertStatus(503)->assertJsonPath('message', 'This instance is read-only, changes are not accepted.');
+  }
+
+  public function test_deploy_window_message_mentions_the_update():void {
+    ReadOnlyMode::enable();
+
+    $this->postJson('/logout')->assertStatus(503)->assertJsonPath('message', 'The service is temporarily read-only while an update is being applied.');
+  }
+
+  public function test_local_settings_cookie_is_still_persisted():void {
+    config(['app.read_only' => true]);
+
+    $this->postJson('/frontend/local-settings', [])->assertSuccessful();
+  }
 }
