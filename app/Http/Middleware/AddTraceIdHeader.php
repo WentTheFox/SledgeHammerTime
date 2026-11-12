@@ -18,6 +18,9 @@ class AddTraceIdHeader {
     $traceId = self::currentTraceId();
     if ($traceId !== null){
       $response->headers->set('X-Trace-Id', $traceId);
+      if (config('app.browser_tracing.enabled') && str_contains((string) $response->headers->get('Content-Type'), 'text/html')){
+        $this->addServerTimingTraceparent($response);
+      }
     }
     return $response;
   }
@@ -28,5 +31,18 @@ class AddTraceIdHeader {
   public static function currentTraceId(): ?string {
     $context = Span::getCurrent()->getContext();
     return $context->isValid() ? $context->getTraceId() : null;
+  }
+
+  /**
+   * Gives the browser the trace context of this page request, for its page load spans to join the server trace. It is
+   * a header and not a <meta> tag in the HTML, as the HTML is cached and would carry the trace id of another request.
+   * The frontend reads it from the navigation timing (same origin, so no Timing-Allow-Origin is needed).
+   */
+  private function addServerTimingTraceparent(Response $response): void {
+    $context = Span::getCurrent()->getContext();
+    $traceparent = sprintf('00-%s-%s-%02x', $context->getTraceId(), $context->getSpanId(), $context->getTraceFlags());
+    $existing = $response->headers->get('Server-Timing');
+    $entry = sprintf('traceparent;desc="%s"', $traceparent);
+    $response->headers->set('Server-Timing', $existing ? "$existing, $entry" : $entry);
   }
 }
