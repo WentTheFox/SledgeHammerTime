@@ -10,9 +10,14 @@ name: Publish container images
 #
 # Each architecture is built natively on its own runner (no qemu emulation, which makes the PHP extension compile
 # take far too long), pushed as <sha7>-<arch>, then merged into one multi-arch tag per image.
+#
+# The `beta` branch (main plus beta-only commits, kept rebased by rebase-beta.yml) is built by the same workflow, started with workflow_dispatch
+# because a push made with GITHUB_TOKEN triggers nothing. Its images get the tag beta-sha-<sha7> instead of sha-<sha7>, so production
+# (which follows ^sha-<7 hex>$) never picks them up and beta (which follows ^beta-sha-<7 hex>$) never picks up main's.
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 concurrency:
   group: ci-images-${{ github.ref }}
@@ -25,6 +30,8 @@ permissions:
 jobs:
   commitlint:
     name: 'Lint commit messages'
+    # The beta branch is main rebased plus beta-only commits; they may be work in progress
+    if: github.ref_name == 'main'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -37,6 +44,8 @@ jobs:
   build:
     name: 'Build ${{ matrix.arch }}'
     needs: commitlint
+    # commitlint is skipped on beta; always() lets the build run then, but not after a failed lint
+    if: ${{ !cancelled() && (needs.commitlint.result == 'success' || needs.commitlint.result == 'skipped') }}
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
@@ -108,15 +117,20 @@ jobs:
 
       # Last registry step: only now that all three multi-arch manifest lists exist is the tag Image Updater follows
       # added (re-pointing the already-pushed manifest list, no rebuild), so it never exists on a partial set.
-      - name: Add sha- tag to all three images
+      - name: Add sha- tag (beta-sha- on the beta branch) to all three images
         run: |
           registry="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}"
           sha="${GITHUB_SHA:0:7}"
+          case "$GITHUB_REF_NAME" in
+            main) prefix=sha ;;
+            beta) prefix=beta-sha ;;
+            *) echo "::error::Images are only published from main and beta"; exit 1 ;;
+          esac
           for image in fpm web ssr; do
             repo="$registry/sledgehammertime-$image"
             docker buildx imagetools inspect "$repo:$sha" > /dev/null
           done
           for image in fpm web ssr; do
             repo="$registry/sledgehammertime-$image"
-            docker buildx imagetools create -t "$repo:sha-$sha" "$repo:$sha"
+            docker buildx imagetools create -t "$repo:$prefix-$sha" "$repo:$sha"
           done

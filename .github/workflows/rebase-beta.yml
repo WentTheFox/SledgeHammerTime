@@ -1,0 +1,46 @@
+# Keeps the `beta` branch (main plus beta-only commits) rebased on top of main, then builds its images.
+#
+# Beta (https://beta.hammertime.cyou) runs the images of this branch: images.yml tags them beta-sha-<sha7>, which only beta's Image Updater follows.
+# A push made with GITHUB_TOKEN does not trigger other workflows, so the image build is started explicitly with workflow_dispatch.
+# A rebase conflict fails this run and leaves beta (branch and deployment) where it was; resolve it by hand and force-push beta.
+name: Rebase beta branch onto main
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: rebase-beta
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  rebase:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Rebase beta onto main
+        run: |
+          git checkout beta
+          git rebase origin/main
+
+      - name: Push rebased branch
+        run: git push origin beta --force-with-lease
+
+      - name: Build beta images
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run images.yml --ref beta
