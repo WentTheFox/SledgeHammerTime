@@ -5,7 +5,7 @@ const props = defineProps<{
   alt?: string;
 }>();
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = import.meta.env.PROD;
 </script>
 
 <template>
