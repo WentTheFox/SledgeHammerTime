@@ -10,6 +10,7 @@
  *
  * Every page of every public type is loaded twice (the second hit comes from the page cache), and must answer 200 without
  * console errors, page errors, failed requests or 4xx/5xx responses (this catches /build/assets/* and /storage/fonts/* 404s).
+ * That includes Vue's 'Hydration completed but contains mismatches': the server render and the client's first render must be identical.
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -59,8 +60,6 @@ async function openPage(browser, name) {
     const text = msg.text();
     // The browser logs a generic line for every failed request, the response/requestfailed listeners report those with the URL
     if (text.startsWith('Failed to load resource')) return;
-    // Known and reported separately; it must not turn every deploy red
-    if (text.startsWith('Hydration completed but contains mismatches')) return void console.warn(`warning: ${text} (${page.url()})`);
     problems.push(`console error: ${text} (${msg.location().url})`);
   });
   page.on('pageerror', (error) => problems.push(`page error: ${error.message}`));
