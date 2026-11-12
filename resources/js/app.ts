@@ -1,3 +1,4 @@
+import { markClientHydrated } from '@/composables/useClientHydrated';
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { PageProps } from '@/types';
 import { getAppName } from '@/utils/app';
@@ -63,6 +64,7 @@ createInertiaApp({
             app.mount(el);
             // Lets the post-deploy smoke test (tests/smoke) know the client app is interactive; Vue's own data-v-app is not set when hydrating
             el.dataset.mounted = 'true';
+            markClientHydrated();
           });
         },
       });
