@@ -4,7 +4,10 @@
  * for PHP and AppServiceProvider for the SSR request). While it is set, nothing is recorded for the visitor anywhere.
  */
 export const TRACE_OPT_OUT_COOKIE = 'ht_trace_optout';
-/** Five years from the moment the cookie is written, which happens again on every page load (see renewTraceOptOut) */
+/**
+ * Asked for, but browsers may allow less (Chrome: 400 days, Safari: 7 days for cookies written by JavaScript). It is written
+ * again on every page load (see renewTraceOptOut), which starts the period over.
+ */
 const FIVE_YEARS_SECONDS = 5 * 365 * 24 * 60 * 60;
 
 export const hasTraceOptOutCookie = (cookieString: string): boolean =>
@@ -23,5 +26,23 @@ export const setTraceOptOut = (optedOut: boolean): void => {
 export const renewTraceOptOut = (): void => {
   if (isTraceOptedOut()) {
     setTraceOptOut(true);
+  }
+};
+
+/**
+ * When the browser says the cookie expires (epoch milliseconds), which can be less than was asked for, or null when the
+ * cookie is not set or the browser cannot tell: only the Cookie Store API reports expiry, `document.cookie` does not.
+ */
+export const getTraceOptOutExpiry = async (): Promise<number | null> => {
+  if (typeof window === 'undefined' || !('cookieStore' in window)) {
+    return null;
+  }
+  try {
+    // `expires` is part of the specification, TypeScript's DOM types do not have it yet
+    const cookie = await window.cookieStore.get(TRACE_OPT_OUT_COOKIE) as { expires?: number | null } | null;
+
+    return typeof cookie?.expires === 'number' ? cookie.expires : null;
+  } catch {
+    return null;
   }
 };

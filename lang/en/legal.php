@@ -35,7 +35,9 @@ return [
     'optOut' => [
       'heading' => 'Opt Out of Performance Monitoring',
       'intro' => 'You can opt out of performance monitoring at any time. While you are opted out, no traces or measurements of your visits are recorded, neither on our server nor in your browser.',
-      'cookie' => 'Your choice is remembered in a cookie on your device. The cookie stays on this device for five years after your last interaction with the Site: its expiry is renewed each time you open a page while you are opted out. Clearing your cookies removes your choice.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
       'label' => 'Do not record performance traces and measurements of my visits',
       'statusOptedOut' => 'You are currently opted out on this device.',
       'statusNotOptedOut' => 'You are currently not opted out on this device.',
@@ -50,7 +52,7 @@ return [
       'heading' => 'Cookies',
       'intro' => 'Cookies are files with small amount of data. Cookies are sent to your browser from a web site and stored on your computer\'s hard drive.',
       'disable' => 'We use "cookies" to retain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.',
-      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device. It stays for five years after your last interaction with the Site, as its expiry is renewed each time you open a page.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'For logged in users a persistent cookie is used to remember the logged in status across browser sessions for 30 days. If you want to stop being remembered you can either sign out or clear the cookies set by our Site.',
     ],
     'rights' => [
