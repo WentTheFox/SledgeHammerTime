@@ -4,6 +4,7 @@ import TimestampCard from '@/Components/home/TimestampCard.vue';
 import UsefulLinks from '@/Components/home/UsefulLinks.vue';
 import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
+import { clientHydrated } from '@/composables/useClientHydrated';
 import { useRouteParams } from '@/composables/useRouteParams';
 import { useUiLocale } from '@/composables/useUiLocale';
 import {
@@ -29,8 +30,8 @@ const pageProps = inject(pagePropsInject);
 const route = useRoute();
 const locale = useLocale(pageProps);
 const uiLocale = useUiLocale(pageProps, locale);
-// const routeParams = useRouteParams(route, pageProps);
-const routeParams = useRouteParams(route, pageProps);
+// The initial state comes from the `t` and `tz` query parameters; the page cache never stores renders for URLs that carry them
+const routeParams = useRouteParams(route, pageProps, { includeQueryOnServer: true });
 
 const defaultUnixTimestamp = computed(() => {
   const tParam = routeParams.value.t;
@@ -59,13 +60,16 @@ const dateTimeSelectionChanged = ref(false);
 const currentTimestampDirect = computed((): DateTimeLibraryValue | null => dtl?.value.getValueForIsoZonedDateTime(dateString.value, timeString.value, currentTimezone.value) ?? null);
 const currentTimestamp = computed((): DateTimeLibraryValue | null => (nlpDate.value as DateTimeLibraryValue | null) ?? currentTimestampDirect.value);
 const isLocked = computed(() => defaultUnixTimestamp.value !== null);
+// The server render is cached and shared, so these links only get the timestamp and timezone once the client has taken over
 const lockedTimestampUrl = computed(() => {
+  if (!clientHydrated.value) return `/${uiLocale.value}`;
   const params = new URLSearchParams();
   params.set('t', String(currentTimestamp.value?.getUnixSeconds()));
   params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
   return `/${uiLocale.value}?${params}`;
 });
 const unlockedTimestampUrl = computed(() => {
+  if (!clientHydrated.value) return `/${uiLocale.value}`;
   const params = new URLSearchParams();
   params.set('tz', convertTimeZoneSelectionToString(currentTimezone.value));
   return `/${uiLocale.value}?${params}`;
