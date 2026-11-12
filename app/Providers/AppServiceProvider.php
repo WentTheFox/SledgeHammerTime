@@ -6,6 +6,7 @@ use App\Jobs\RefreshCrowdinUserInfo;
 use App\Jobs\RefreshDiscordUserInfo;
 use App\Models\PersonalAccessToken;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\RateLimiter;
 use Inertia\Ssr\HttpGateway;
@@ -15,6 +16,9 @@ use Laravel\Sanctum\Sanctum;
 use SocialiteProviders\Crowdin\Provider as CrowdinProvider;
 
 class AppServiceProvider extends ServiceProvider {
+  /** Set on the privacy policy page by visitors who opt out of performance monitoring (see public/index.php) */
+  public const TRACE_OPT_OUT_COOKIE = 'ht_trace_optout';
+
   /**
    * Register any application services.
    */
@@ -27,6 +31,8 @@ class AppServiceProvider extends ServiceProvider {
    */
   public function boot():void {
     $this->bootCrowdinSocialite();
+    // Written by JavaScript on the privacy policy page, so it is plain text
+    EncryptCookies::except(self::TRACE_OPT_OUT_COOKIE);
     $this->propagateTraceContextToSsr();
 
     Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
@@ -57,6 +63,11 @@ class AppServiceProvider extends ServiceProvider {
    */
   private function propagateTraceContextToSsr(): void {
     $this->app->make(HttpGateway::class)->configureRequestUsing(function (PendingRequest $request): PendingRequest {
+      if (request()->cookie(self::TRACE_OPT_OUT_COOKIE) === '1'){
+        // PHP records nothing for this visitor, so the SSR server must not either: a valid but unsampled parent
+        // makes its sampler drop the trace
+        return $request->withHeaders(['traceparent' => sprintf('00-%s-%s-00', bin2hex(random_bytes(16)), bin2hex(random_bytes(8)))]);
+      }
       $headers = [];
       TraceContextPropagator::getInstance()->inject($headers);
 

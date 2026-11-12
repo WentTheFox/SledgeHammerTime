@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { DateTimeLibraryValue } from '@/classes/DateTimeLibraryValue';
 import TimestampPreview from '@/Components/home/table/TimestampPreview.vue';
+import { useLocale } from '@/composables/useLocale';
 import { useRoute } from '@/composables/useRoute';
 import { useRouteParams } from '@/composables/useRouteParams';
+import { useUiLocale } from '@/composables/useUiLocale';
 import { pagePropsInject } from '@/injection-keys';
 import { MessageTimestampFormat } from '@/model/message-timestamp-format';
 import LegalHeading from '@/Pages/Legal/LegalHeading.vue';
+import PerformanceOptOutForm from '@/Pages/Legal/PerformanceOptOutForm.vue';
 import HtCard from '@/Reusable/HtCard.vue';
 import HtExternalLink from '@/Reusable/HtExternalLink.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { DEVELOPER_NAME } from '@/utils/app';
-import { LegalSectionIds } from '@/utils/legal';
+import { getGdprArticle6Url, LegalSectionIds } from '@/utils/legal';
 import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject } from 'vue';
@@ -23,6 +26,9 @@ const route = useRoute();
 const pageProps = inject(pagePropsInject);
 const routeParams = useRouteParams(route, pageProps);
 const developerUrl = computed(() => pageProps?.value.developerUrl ?? '');
+const locale = useLocale(pageProps);
+const uiLocale = useUiLocale(pageProps, locale);
+const gdprArticle6Url = computed(() => getGdprArticle6Url(uiLocale.value));
 </script>
 
 <template>
@@ -113,6 +119,55 @@ const developerUrl = computed(() => pageProps?.value.developerUrl ?? '');
 
     <section class="legal-section">
       <LegalHeading
+        :id="LegalSectionIds.PERFORMANCE_MONITORING"
+        :level="3"
+      >
+        {{ $t('legal.privacy.performance.heading') }}
+      </LegalHeading>
+      <p>
+        {{ $t('legal.privacy.performance.intro') }}
+      </p>
+      <p>
+        {{ $t('legal.privacy.performance.serverTraces') }}
+      </p>
+      <p>
+        {{ $t('legal.privacy.performance.browserMeasurements') }}
+      </p>
+      <p>
+        <HtTranslate i18n-key="legal.privacy.performance.legalBasis">
+          <template #1="slotProps">
+            <HtExternalLink :href="gdprArticle6Url">
+              {{ slotProps.text }}
+            </HtExternalLink>
+          </template>
+        </HtTranslate>
+      </p>
+      <p>
+        {{ $t('legal.privacy.performance.reporting') }}
+      </p>
+      <p>
+        {{ $t('legal.privacy.performance.retention') }}
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <LegalHeading
+        :id="LegalSectionIds.OPT_OUT"
+        :level="3"
+      >
+        {{ $t('legal.privacy.optOut.heading') }}
+      </LegalHeading>
+      <p>
+        {{ $t('legal.privacy.optOut.intro') }}
+      </p>
+      <PerformanceOptOutForm />
+      <p>
+        {{ $t('legal.privacy.optOut.cookie') }}
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <LegalHeading
         :id="LegalSectionIds.TELEMETRY_STATISTICS"
         :level="3"
       >
@@ -147,6 +202,42 @@ const developerUrl = computed(() => pageProps?.value.developerUrl ?? '');
       </p>
       <p>
         {{ $t('legal.privacy.cookies.session') }}
+      </p>
+      <p>
+        {{ $t('legal.privacy.cookies.optOut') }}
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <LegalHeading
+        :id="LegalSectionIds.YOUR_RIGHTS"
+        :level="3"
+      >
+        {{ $t('legal.privacy.rights.heading') }}
+      </LegalHeading>
+      <p>
+        {{ $t('legal.privacy.rights.intro') }}
+      </p>
+      <p>
+        <HtTranslate i18n-key="legal.privacy.rights.complaint">
+          <template #1="slotProps">
+            <HtExternalLink href="https://www.edpb.europa.eu/about-edpb/about-edpb/members_en">
+              {{ slotProps.text }}
+            </HtExternalLink>
+          </template>
+        </HtTranslate>
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <LegalHeading
+        :id="LegalSectionIds.RIGHT_TO_OBJECT"
+        :level="3"
+      >
+        {{ $t('legal.privacy.objection.heading') }}
+      </LegalHeading>
+      <p>
+        {{ $t('legal.privacy.objection.text') }}
       </p>
     </section>
 

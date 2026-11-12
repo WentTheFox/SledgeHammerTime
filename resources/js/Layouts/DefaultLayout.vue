@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Navbar from '@/Components/CustomNavbar.vue';
+import PrivacyUpdateNotice from '@/Components/PrivacyUpdateNotice.vue';
+import ToastHost from '@/Components/ToastHost.vue';
 import { useLayout } from '@/composables/useLayout';
 import { defaultLayoutProps, LayoutProps } from '@/injection-keys';
 import { PageProps } from '@/types';
@@ -67,6 +69,10 @@ const readOnly = computed(() => page.props.app?.readOnly === true);
       </template>
     </HtAlert>
 
+    <PrivacyUpdateNotice />
+
     <slot />
+
+    <ToastHost />
   </HtContent>
 </template>
