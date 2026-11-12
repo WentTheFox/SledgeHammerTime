@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\DiscordUser;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use OpenTelemetry\SDK\Trace\TracerProvider;
@@ -24,18 +23,19 @@ class EndUserSpanAttributeTest extends TestCase {
     }
   }
 
-  public function test_the_discord_user_id_of_a_logged_in_user_is_on_the_span():void {
+  public function test_a_logged_in_request_is_marked_without_saying_who():void {
     $user = User::factory()->create();
-    DiscordUser::create(['id' => '123456789012345678', 'name' => 'x', 'discriminator' => '0', 'user_id' => $user->id]);
 
-    $attributes = $this->attributesAfter(fn() => $this->actingAs($user)->getJson('/frontend/user-info')->assertOk());
+    $attributes = $this->attributesAfter(fn() => $this->actingAs($user)->withSession([])->getJson('/frontend/user-info')->assertOk());
 
-    $this->assertSame('123456789012345678', $attributes['enduser.id'] ?? null);
+    $this->assertTrue($attributes['app.user.logged_in'] ?? false);
+    $this->assertArrayNotHasKey('enduser.id', $attributes);
+    $this->assertStringNotContainsString($user->id, json_encode($attributes));
   }
 
-  public function test_guests_get_no_end_user_attribute():void {
+  public function test_guests_are_not_marked():void {
     $attributes = $this->attributesAfter(fn() => $this->getJson('/frontend/user-info'));
 
-    $this->assertArrayNotHasKey('enduser.id', $attributes);
+    $this->assertArrayNotHasKey('app.user.logged_in', $attributes);
   }
 }
