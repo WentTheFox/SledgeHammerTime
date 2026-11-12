@@ -6,7 +6,10 @@ use App\Jobs\RefreshCrowdinUserInfo;
 use App\Jobs\RefreshDiscordUserInfo;
 use App\Models\PersonalAccessToken;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\RateLimiter;
+use Inertia\Ssr\HttpGateway;
+use OpenTelemetry\API\Trace\Propagation\TraceContextPropagator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
 use SocialiteProviders\Crowdin\Provider as CrowdinProvider;
@@ -24,6 +27,7 @@ class AppServiceProvider extends ServiceProvider {
    */
   public function boot():void {
     $this->bootCrowdinSocialite();
+    $this->propagateTraceContextToSsr();
 
     Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
 
@@ -45,5 +49,18 @@ class AppServiceProvider extends ServiceProvider {
         return $socialite->buildProvider(CrowdinProvider::class, $config);
       }
     );
+  }
+
+  /**
+   * The auto-instrumentation records the SSR call as a client span but does not send `traceparent`, so the SSR server's
+   * spans would start separate traces. Only the (internal) SSR server gets the header, not third-party HTTP calls.
+   */
+  private function propagateTraceContextToSsr(): void {
+    $this->app->make(HttpGateway::class)->configureRequestUsing(function (PendingRequest $request): PendingRequest {
+      $headers = [];
+      TraceContextPropagator::getInstance()->inject($headers);
+
+      return $headers === [] ? $request : $request->withHeaders($headers);
+    });
   }
 }
