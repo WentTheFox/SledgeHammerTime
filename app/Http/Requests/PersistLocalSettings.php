@@ -31,6 +31,7 @@ class PersistLocalSettings extends FormRequest {
       'light-theme' => ['nullable', 'string', Rule::in(['true', 'false'])],
       'local-format-order' => ['nullable', 'string', 'json', 'min:2', 'max:64'],
       'local-hidden-formats' => ['nullable', 'string', 'json', 'min:2', 'max:64'],
+      'privacy-notice-dismissed-at' => ['nullable', 'string', 'max:40', 'date'],
       'nlp-input' => ['nullable', 'string', Rule::in(['true', 'false'])],
       'sidebar-right' => ['nullable', 'string', Rule::in(['true', 'false'])],
       'timezone-sticky-headers' => ['nullable', 'string', Rule::in(['true', 'false'])],

@@ -57,6 +57,8 @@ export interface LocalSettingsValue {
   readonly sidebarOpen: boolean | null;
   readonly isLightTheme: boolean | null;
   readonly hideHowTo: boolean | null;
+  /** ISO timestamp of when the site-wide notice was dismissed, compared to the time of the latest update */
+  readonly privacyNoticeDismissedAt: string | null;
   readonly hourCycle: HourCycle | null;
   readonly firstDayOfWeek: DateTimeLibraryWeekday | null;
   readonly timezoneStickyHeaders: boolean | null;
@@ -76,6 +78,7 @@ export interface LocalSettingsValue {
   readonly setFirstDayOfWeek: (e: Event) => void;
   readonly toggleTimezoneStickyHeaders: (e: Event) => void;
   readonly setHideHowTo: (value: boolean) => void;
+  readonly setPrivacyNoticeDismissedAt: (isoTimestamp: string | null) => void;
 }
 
 export const localSettingsInject = Symbol('localSettings') as InjectionKey<LocalSettingsValue>;

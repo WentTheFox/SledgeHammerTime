@@ -5,11 +5,25 @@
  */
 
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
+import { showRequestFailedToast } from '@/composables/useToasts';
+import { getFailedRequestTraceId } from '@/utils/request-failed-toast';
 import axios from 'axios';
 
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+// A failed request shows the trace id the server sent with it, which a user can report
+window.axios.interceptors.response.use(undefined, (error: unknown) => {
+  if (axios.isAxiosError(error)) {
+    const traceId = getFailedRequestTraceId(error.response?.status, error.response?.headers);
+    if (traceId) {
+      showRequestFailedToast(traceId);
+    }
+  }
+
+  return Promise.reject(error);
+});
 
 fontAwesomeConfig.autoAddCss = false;
 

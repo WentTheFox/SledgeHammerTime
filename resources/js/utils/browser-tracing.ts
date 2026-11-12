@@ -16,6 +16,7 @@ import {
 } from '@opentelemetry/sdk-trace-base';
 import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
 import { type Metric, onCLS, onINP, onLCP } from 'web-vitals';
+import { isTraceOptedOut } from '@/utils/trace-opt-out';
 
 export type BrowserTracingConfig = {
   serviceName: string;
@@ -39,10 +40,15 @@ export const stripFragment = (url: string): string => url.replace(/#.*$/, '');
  * removes URL fragments (and per-resource spans, which would be a lot of volume for little value).
  */
 export class SanitizingExporter implements SpanExporter {
-  constructor(private readonly inner: SpanExporter) {
+  constructor(private readonly inner: SpanExporter, private readonly isOptedOut: () => boolean = isTraceOptedOut) {
   }
 
   export(spans: ReadableSpan[], resultCallback: Parameters<SpanExporter['export']>[1]): void {
+    // Checked on every export, so opting out also stops what a page that is already open still has to send
+    if (this.isOptedOut()) {
+      resultCallback({ code: ExportResultCode.SUCCESS });
+      return;
+    }
     const kept = spans.filter((span) => span.name !== 'resourceFetch');
     kept.forEach((span) => {
       const attributes = span.attributes as Record<string, unknown>;
