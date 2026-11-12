@@ -26,15 +26,17 @@ export type BrowserTracingConfig = {
   sampleRatio: number;
 };
 
-const URL_ATTRIBUTES = ['url.full', 'http.url', 'http.target', 'url.path'];
-const QUERY_ATTRIBUTES = ['url.query'];
-
-/** Keeps only the origin and path of a URL: no query string and no fragment */
-export const stripQueryAndFragment = (url: string): string => url.replace(/[?#].*$/, '');
+const URL_ATTRIBUTES = ['url.full', 'http.url', 'http.target'];
 
 /**
- * Privacy: timings and route names only. Everything leaves the browser through here, so it is the single place that
- * removes query strings (and per-resource spans, which would be a lot of volume for little value).
+ * Removes the fragment: it never reaches the server and can hold tokens in some OAuth flows. The query string is kept
+ * (as on the server spans), the collector redacts the values of credential-looking parameters for every span.
+ */
+export const stripFragment = (url: string): string => url.replace(/#.*$/, '');
+
+/**
+ * Privacy: timings and page URLs only. Everything leaves the browser through here, so it is the single place that
+ * removes URL fragments (and per-resource spans, which would be a lot of volume for little value).
  */
 export class SanitizingExporter implements SpanExporter {
   constructor(private readonly inner: SpanExporter) {
@@ -46,10 +48,9 @@ export class SanitizingExporter implements SpanExporter {
       const attributes = span.attributes as Record<string, unknown>;
       URL_ATTRIBUTES.forEach((key) => {
         if (typeof attributes[key] === 'string') {
-          attributes[key] = stripQueryAndFragment(attributes[key]);
+          attributes[key] = stripFragment(attributes[key]);
         }
       });
-      QUERY_ATTRIBUTES.forEach((key) => delete attributes[key]);
     });
     if (kept.length === 0) {
       resultCallback({ code: ExportResultCode.SUCCESS });
