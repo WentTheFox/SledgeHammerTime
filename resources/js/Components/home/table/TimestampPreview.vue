@@ -49,6 +49,7 @@ const localTimestamp = computed(() => props.ts?.local());
     v-else-if="localTimestamp && dateLibLocale"
     :title="localTimestamp.setLocale(dateLibLocale).formatDiscordTimestamp(MessageTimestampFormat.LONG_FULL, settings?.hourCycle)"
     :datetime="localTimestamp.toISOString()"
+    :data-allow-mismatch="fromNow ? 'text' : undefined"
   >
     <template v-if="fromNow">
       {{ localTimestamp.setLocale(dateLibLocale).fromNow() }}
