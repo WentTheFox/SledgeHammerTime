@@ -30,8 +30,6 @@ permissions:
 jobs:
   commitlint:
     name: 'Lint commit messages'
-    # The beta branch is main rebased plus beta-only commits; they may be work in progress
-    if: github.ref_name == 'main'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -44,8 +42,6 @@ jobs:
   build:
     name: 'Build ${{ matrix.arch }}'
     needs: commitlint
-    # commitlint is skipped on beta; always() lets the build run then, but not after a failed lint
-    if: ${{ !cancelled() && (needs.commitlint.result == 'success' || needs.commitlint.result == 'skipped') }}
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
@@ -92,8 +88,6 @@ jobs:
   publish:
     name: 'Publish multi-arch tags'
     needs: build
-    # Without this the skipped commitlint job (beta) upstream would skip this job too
-    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
