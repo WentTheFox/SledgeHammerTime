@@ -6,6 +6,8 @@ import { Head } from '@inertiajs/vue3';
 
 defineProps<{
   discordUrl?: string;
+  // set only while tracing is enabled, to quote in bug reports
+  traceId?: string | null;
 }>();
 </script>
 
@@ -26,5 +28,12 @@ defineProps<{
     </HtAlert>
 
     <NotFoundSuggestions :discord-url="discordUrl" />
+
+    <p
+      v-if="traceId"
+      class="trace-id"
+    >
+      Trace ID: <code>{{ traceId }}</code>
+    </p>
   </Layout>
 </template>
