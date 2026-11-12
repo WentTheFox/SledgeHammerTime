@@ -39,6 +39,14 @@ watch(fromNow, (fromNowValue) => {
 }, { immediate: true });
 
 const localTimestamp = computed(() => props.ts?.local());
+
+// Not a computed: the relative text must be re-evaluated on every forced render
+const getDisplayText = () => {
+  if (!localTimestamp.value || !dateLibLocale.value) return '';
+  const localized = localTimestamp.value.setLocale(dateLibLocale.value);
+  if (fromNow.value) return localized.fromNow();
+  return props.format ? localized.formatDiscordTimestamp(props.format, settings?.hourCycle) : '';
+};
 </script>
 
 <template>
@@ -50,12 +58,5 @@ const localTimestamp = computed(() => props.ts?.local());
     :title="localTimestamp.setLocale(dateLibLocale).formatDiscordTimestamp(MessageTimestampFormat.LONG_FULL, settings?.hourCycle)"
     :datetime="localTimestamp.toISOString()"
     :data-allow-mismatch="fromNow ? 'text' : undefined"
-  >
-    <template v-if="fromNow">
-      {{ localTimestamp.setLocale(dateLibLocale).fromNow() }}
-    </template>
-    <template v-else-if="format">
-      {{ localTimestamp.setLocale(dateLibLocale).formatDiscordTimestamp(format, settings?.hourCycle) }}
-    </template>
-  </time>
+  >{{ getDisplayText() }}</time>
 </template>
