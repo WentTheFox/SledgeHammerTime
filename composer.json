@@ -94,6 +94,7 @@
     "sort-packages": true,
     "allow-plugins": {
       "pestphp/pest-plugin": true,
+      "tbachert/spi": true,
       "php-http/discovery": true
     }
   },
