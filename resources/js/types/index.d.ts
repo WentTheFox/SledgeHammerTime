@@ -22,6 +22,13 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     statusPageUrl: string | null;
     /** Writes are currently rejected (deploy window or APP_READ_ONLY) */
     readOnly?: boolean;
+    /** Browser (OpenTelemetry) tracing settings, null/absent while it is not enabled */
+    browserTracing?: {
+      serviceName: string;
+      environment: string;
+      endpoint: string;
+      sampleRatio: number;
+    } | null;
     settingsCookie: string | null;
   }
   auth: {

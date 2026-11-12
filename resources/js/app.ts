@@ -2,6 +2,7 @@ import { markClientHydrated } from '@/composables/useClientHydrated';
 import { getDateFnsNormalizedLocaleName, preloadDateFnsLocale } from '@/classes/DateFnsDTL';
 import { PageProps } from '@/types';
 import { getAppName } from '@/utils/app';
+import { startBrowserTracingWhenIdle } from '@/utils/start-browser-tracing';
 import { withReadOnlyRetry } from '@/utils/read-only-retry';
 import { xhrHttpClient } from '@inertiajs/core';
 import { createInertiaApp } from '@inertiajs/vue3';
@@ -65,6 +66,7 @@ createInertiaApp({
             // Lets the post-deploy smoke test (tests/smoke) know the client app is interactive; Vue's own data-v-app is not set when hydrating
             el.dataset.mounted = 'true';
             markClientHydrated();
+            startBrowserTracingWhenIdle(pageAppProps?.browserTracing);
           });
         },
       });
