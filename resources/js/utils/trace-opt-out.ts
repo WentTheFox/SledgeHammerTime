@@ -1,7 +1,7 @@
 /**
  * Visitors can opt out of performance monitoring on the privacy policy page. The choice is a plain persistent cookie
- * (deliberately not HttpOnly): the browser tracing reads it here, and the server reads it from the request (public/index.php
- * for PHP and AppServiceProvider for the SSR request). While it is set, nothing is recorded for the visitor anywhere.
+ * (deliberately not HttpOnly, so the page can show and renew it); the server reads it from the request (public/index.php
+ * for PHP and AppServiceProvider for the SSR request). While it is set, nothing is recorded for the visitor.
  */
 export const TRACE_OPT_OUT_COOKIE = 'ht_trace_optout';
 /**

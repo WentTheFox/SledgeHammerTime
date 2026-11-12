@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use OpenTelemetry\API\Trace\Span;
-use OpenTelemetry\API\Trace\SpanContextInterface;
 use OpenTelemetry\API\Trace\SpanInterface;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,9 +28,6 @@ class AddTraceIdHeader {
     if ($context->isValid()){
       $this->markLoggedInUser($request, $span);
       $response->headers->set('X-Trace-Id', $context->getTraceId());
-      if (config('app.browser_tracing.enabled') && str_contains((string) $response->headers->get('Content-Type'), 'text/html')){
-        $this->addServerTimingTraceparent($response, $context);
-      }
     }
     return $response;
   }
@@ -44,18 +40,6 @@ class AddTraceIdHeader {
     $context = ($requestSpan instanceof SpanInterface ? $requestSpan : Span::getCurrent())->getContext();
 
     return $context->isValid() ? $context->getTraceId() : null;
-  }
-
-  /**
-   * Gives the browser the trace context of this page request, for its page load spans to join the server trace. It is
-   * a header and not a <meta> tag in the HTML, as the HTML is cached and would carry the trace id of another request.
-   * The frontend reads it from the navigation timing (same origin, so no Timing-Allow-Origin is needed).
-   */
-  private function addServerTimingTraceparent(Response $response, SpanContextInterface $context): void {
-    $traceparent = sprintf('00-%s-%s-%02x', $context->getTraceId(), $context->getSpanId(), $context->getTraceFlags());
-    $existing = $response->headers->get('Server-Timing');
-    $entry = sprintf('traceparent;desc="%s"', $traceparent);
-    $response->headers->set('Server-Timing', $existing ? "$existing, $entry" : $entry);
   }
 
   /**
