@@ -35,4 +35,14 @@ class ServerTimingTraceparentTest extends TestCase {
   public function test_the_shared_props_have_no_browser_tracing_by_default():void {
     $this->assertFalse((bool) config('app.browser_tracing.enabled'));
   }
+
+  public function test_an_ordinary_page_that_queries_the_database_still_gets_the_trace_id():void {
+    config(['app.browser_tracing.enabled' => true]);
+    $this->withActiveSpan(function ($span) {
+      $response = $this->get('/en')->assertOk();
+
+      $response->assertHeader('X-Trace-Id', $span->getContext()->getTraceId());
+      $this->assertStringContainsString('traceparent;desc="00-'.$span->getContext()->getTraceId(), (string) $response->headers->get('Server-Timing'));
+    });
+  }
 }
