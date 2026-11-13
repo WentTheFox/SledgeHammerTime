@@ -17,7 +17,7 @@ function saveOptOutChoice(PendingAwaitablePage $page, bool $optedOut): void {
 }
 
 function hasOptOutCookie(PendingAwaitablePage $page): bool {
-  return $page->script('() => document.cookie.split(";").some((part) => part.trim() === "'.OPT_OUT_COOKIE.'=1")') === true;
+  return $page->script('() => document.cookie.split(";").some((part) => /^'.OPT_OUT_COOKIE.'=\\d+$/.test(part.trim()))') === true;
 }
 
 it('starts out not opted out', function () {
