@@ -11,9 +11,10 @@ const maxAgeInSeconds = 400 * 24 * 60 * 60;
 
 describe('trace opt-out cookie', () => {
   it('is set for 400 days, for the whole site and readable by JavaScript', () => {
-    const cookie = buildTraceOptOutCookie(true, true);
+    const now = new Date();
+    const cookie = buildTraceOptOutCookie(true, true, now);
 
-    expect(cookie).toBe(`${TRACE_OPT_OUT_COOKIE}=1; Max-Age=${maxAgeInSeconds}; Path=/; SameSite=Lax; Secure`);
+    expect(cookie).toBe(`${TRACE_OPT_OUT_COOKIE}=${now.getTime()}; Max-Age=${maxAgeInSeconds}; Path=/; SameSite=Lax; Secure`);
     expect(cookie).not.toMatch(/HttpOnly/i);
   });
 
@@ -25,10 +26,11 @@ describe('trace opt-out cookie', () => {
     expect(buildTraceOptOutCookie(false, true)).toContain('Max-Age=0');
   });
 
-  it('is found among other cookies and only with the exact value', () => {
+  it('is found among other cookies and with any numeric value', () => {
     expect(hasTraceOptOutCookie(`a=b; ${TRACE_OPT_OUT_COOKIE}=1; c=d`)).toBe(true);
+    expect(hasTraceOptOutCookie(`${TRACE_OPT_OUT_COOKIE}=0`)).toBe(true);
+    expect(hasTraceOptOutCookie(`${TRACE_OPT_OUT_COOKIE}=1794546078708`)).toBe(true);
     expect(hasTraceOptOutCookie('')).toBe(false);
-    expect(hasTraceOptOutCookie(`${TRACE_OPT_OUT_COOKIE}=0`)).toBe(false);
     expect(hasTraceOptOutCookie(`x${TRACE_OPT_OUT_COOKIE}=1`)).toBe(false);
   });
 });
