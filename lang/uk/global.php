@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript необхідний',
     'body' => "Ваш браузер або не підтримує JavaScript, або він наразі вимкнений. Деякі браузери вимикають JavaScript за умовчанням з міркувань безпеки, але це необхідно для цієї програми. Увімкніть його та оновіть сторінку або скористайтеся іншим браузером.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

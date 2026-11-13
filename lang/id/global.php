@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript diperlukan',
     'body' => "Browser Anda tidak mendukung JavaScript atau sedang dinonaktifkan. Beberapa browser menonaktifkan JavaScript secara bawaan untuk alasan keamanan, tetapi itu diperlukan untuk aplikasi ini. Harap aktifkan dan segarkan halaman, atau gunakan browser lain.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript è necessario',
     'body' => "Il tuo browser non supporta JavaScript o è attualmente disabilitato. Alcuni browser disabilitano JavaScript per motivi di sicurezza, ma è necessario per questa applicazione. Si prega di abilitare e aggiornare la pagina, o utilizzare un browser differente.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

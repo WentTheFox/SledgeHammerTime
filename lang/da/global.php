@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript er nødvendigt',
     'body' => "Din browser understøtter enten ikke JavaScript, eller også er det deaktiveret i øjeblikket. Nogle browsere deaktiverer JavaScript som standard af sikkerhedsmæssige årsager, men det er nødvendigt for denne applikation. Aktivér det, og opdater siden, eller brug en anden browser.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
