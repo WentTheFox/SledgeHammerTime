@@ -14,7 +14,7 @@ describe('trace opt-out cookie', () => {
     const now = new Date();
     const cookie = buildTraceOptOutCookie(true, true, now);
 
-    expect(cookie).toBe(`${TRACE_OPT_OUT_COOKIE}=${now.getTime()}; Max-Age=${maxAgeInSeconds}; Path=/; SameSite=Lax; Secure`);
+    expect(cookie).toBe(`${TRACE_OPT_OUT_COOKIE}=${now.getTime() + maxAgeInSeconds * 1000}; Max-Age=${maxAgeInSeconds}; Path=/; SameSite=Lax; Secure`);
     expect(cookie).not.toMatch(/HttpOnly/i);
   });
 
@@ -63,6 +63,13 @@ describe('getTraceOptOutExpiry', () => {
     stubBrowser(`${TRACE_OPT_OUT_COOKIE}=1`, { get: async () => ({ name: TRACE_OPT_OUT_COOKIE, value: '1', expires: reported }) });
 
     expect(await getTraceOptOutExpiry()).toBe(reported);
+  });
+
+  it('is the expiry stored in the cookie value when the browser reports no expiry (Firefox)', async () => {
+    const stored = now + 10 * 24 * 60 * 60 * 1000;
+    stubBrowser(`${TRACE_OPT_OUT_COOKIE}=${stored}`, { get: async () => ({ name: TRACE_OPT_OUT_COOKIE, value: String(stored) }) });
+
+    expect(await getTraceOptOutExpiry()).toBe(stored);
   });
 
   it('assumes 400 days from now when the browser reports the cookie without an expiry (Firefox)', async () => {
