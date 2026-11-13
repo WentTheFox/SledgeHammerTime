@@ -49,6 +49,9 @@ if (($_COOKIE['ht_trace_optout'] ?? null) === '1'){
 
 require __DIR__.'/../vendor/autoload.php';
 
+// Samples a share of the requests for Pyroscope when it is configured (does nothing otherwise)
+App\Support\PyroscopeProfiler::startForRequest();
+
 /*
 |--------------------------------------------------------------------------
 | Run The Application
