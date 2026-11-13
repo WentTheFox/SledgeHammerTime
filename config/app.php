@@ -218,6 +218,14 @@ return [
     'version' => env('APP_PAGE_CACHE_VERSION', 0),
   ],
 
+  /*
+   * Content-Security-Policy in report-only mode (App\Services\ContentSecurityPolicy). Violations are posted to
+   * `report_uri`; with it empty no policy is sent.
+   */
+  'csp' => [
+    'report_uri' => env('CSP_REPORT_URI', ''),
+  ],
+
   'settings_cookie_name' => env(
     'SETTINGS_COOKIE_NAME',
     Str::slug(env('APP_NAME', 'laravel'), '_').'_settings'
