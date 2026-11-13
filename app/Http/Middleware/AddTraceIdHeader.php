@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use OpenTelemetry\API\Trace\Span;
 use OpenTelemetry\API\Trace\SpanInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 /**
  * Exposes the OpenTelemetry trace id of the current request as `X-Trace-Id`, so a user can quote it in a bug report.
@@ -19,7 +20,7 @@ class AddTraceIdHeader {
   public function handle(Request $request, Closure $next): Response {
     // Taken before the request is handled: the active span is not reliable afterwards, instrumentation of the code that
     // handles the request (database queries) can leave the context without it by the time the response is returned
-    $span = Span::getCurrent();
+    $span = self::activeSpan();
     $request->attributes->set(self::SPAN_ATTRIBUTE, $span);
 
     /** @var Response $response */
@@ -33,11 +34,23 @@ class AddTraceIdHeader {
   }
 
   /**
+   * The active span, or an invalid one when the context cannot be read: the browser tests serve the app from inside a
+   * fiber that has no OpenTelemetry context, which throws instead of returning no span
+   */
+  private static function activeSpan(): SpanInterface {
+    try {
+      return Span::getCurrent();
+    } catch (Throwable) {
+      return Span::getInvalid();
+    }
+  }
+
+  /**
    * The trace id of the current request, or null when tracing is not enabled for it.
    */
   public static function currentTraceId(): ?string {
     $requestSpan = request()->attributes->get(self::SPAN_ATTRIBUTE);
-    $context = ($requestSpan instanceof SpanInterface ? $requestSpan : Span::getCurrent())->getContext();
+    $context = ($requestSpan instanceof SpanInterface ? $requestSpan : self::activeSpan())->getContext();
 
     return $context->isValid() ? $context->getTraceId() : null;
   }
