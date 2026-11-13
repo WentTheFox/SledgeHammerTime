@@ -33,7 +33,7 @@ return [
     ],
     'optOut' => [
       'heading' => 'Opt Out of Performance Monitoring',
-      'intro' => 'You can opt out of performance monitoring at any time. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
       'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
       'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
       'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
