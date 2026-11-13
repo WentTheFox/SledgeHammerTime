@@ -42,7 +42,7 @@ jobs:
         uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
         with:
           php-version: 8.5
-          extensions: bcmath intl pcntl pdo_pgsql opentelemetry
+          extensions: bcmath, intl, pcntl, pdo_pgsql, opentelemetry
 
       - name: Cache Composer dependencies
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
