@@ -3,7 +3,7 @@ export enum LegalSectionIds {
   INFO_COLLECTION = 'info-collection',
   LOG_DATA = 'log-data',
   PERFORMANCE_MONITORING = 'performance-monitoring',
-  OPT_OUT = 'opt-out',
+  PERFORMANCE_MONITORING_OPT_OUT = 'performance-monitoring-opt-out',
   TELEMETRY_STATISTICS = 'telemetry-statistics',
   COOKIES = 'cookies',
   YOUR_RIGHTS = 'your-rights',

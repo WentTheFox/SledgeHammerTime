@@ -16,7 +16,7 @@ export const DEVELOPER_NAME = 'WentTheFox';
 export const GITHUB_REPO_URL = 'https://github.com/WentTheFox/SledgeHammerTime';
 
 export const TERMS_UPDATE_DATE_ISO = "2025-05-11T04:15:14.251Z";
-export const PRIVACY_UPDATE_DATE_ISO = "2026-11-12T23:00:57.000Z";
+export const PRIVACY_UPDATE_DATE_ISO = "2026-11-13T00:31:57.000Z";
 
 export const inputRangeLimitBlurHandlerFactory = (targetRef: Ref<number> | ModelRef<number>) => (e: FocusEvent): void => {
   const limitedValue = rangeLimitInput(e.target);

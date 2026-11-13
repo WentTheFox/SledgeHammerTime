@@ -149,18 +149,18 @@ const gdprArticle6Url = computed(() => getGdprArticle6Url(uiLocale.value));
 
     <section class="legal-section">
       <LegalHeading
-        :id="LegalSectionIds.OPT_OUT"
-        :level="3"
+        :id="LegalSectionIds.PERFORMANCE_MONITORING_OPT_OUT"
+        :level="4"
       >
         {{ $t('legal.privacy.optOut.heading') }}
       </LegalHeading>
       <p>
         {{ $t('legal.privacy.optOut.intro') }}
       </p>
-      <PerformanceOptOutForm />
       <p>
         {{ $t('legal.privacy.optOut.cookie') }}
       </p>
+      <PerformanceOptOutForm />
     </section>
 
     <section class="legal-section">

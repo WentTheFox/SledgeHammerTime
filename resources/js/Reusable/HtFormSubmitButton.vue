@@ -46,7 +46,6 @@ provide(formControlDisabledInject, computed(() => props.disabled));
     <FormMessage
       type="success"
       :message="form.recentlySuccessful ? successText : undefined"
-      class="mt-2"
     />
   </div>
 </template>
