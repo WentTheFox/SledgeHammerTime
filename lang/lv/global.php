@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScripts ir nepieciešams',
     'body' => "Jūsu pārlūkprogramma vai nu neatbalsta JavaScript, vai arī tas pašlaik ir atspējots. Dažās pārlūkprogrammās JavaScript ir atspējots pēc noklusējuma drošības apsvērumu dēļ, taču šajā lietojumprogrammā tas ir nepieciešams. Lūdzu, iespējojiet to un atsvaidziniet lapu vai izmantojiet citu pārlūkprogrammu.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

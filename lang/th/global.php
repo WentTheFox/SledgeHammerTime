@@ -41,6 +41,14 @@ return [
     'title' => 'เว็บไซต์นี้จำเป็นต้องใช้ JavaScript',
     'body' => "เบราว์เซอร์ของคุณอาจจะไม่รองรับ JavaScript หรือ JavaScript ถูกปิดอยู่ตอนนี้ บางเบราว์เซอร์ปิดการใช้ JavaScript โดยเริ่มต้นเพราะเหตุผลของความปลอดภัยแต่เว็บไซต์นี้จำเป็นที่จะใช้ JavaScript โปรดกรุณาเปิด JavaScript, รีเฟรชเว็บไซต์และลองอีกครั้งหรือใช้เบราว์เซอร์อื่นแทน",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

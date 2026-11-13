@@ -23,6 +23,25 @@ return [
       'debugging' => 'Botul poate primi interacțiuni de la utilizatori prin intermediul clientului Discord, care include comenzi slash și comenzi din meniul contextual („Acțiune”, „Comandă” sau, colectiv, „Comenzi”). Comenzile slash pot fi executate suplimentar cu perechi structurate de chei-valori furnizate de utilizator („Opțiuni”). Botul înregistrează execuțiile comenzilor în scopuri de depanare, și anume: numele de utilizator Discord și identificatorul Snowflake („ID”) al utilizatorului care a executat comanda, numele comenzii (inclusiv toate opțiunile) și ID-ul serverului pe care a fost executată comanda. Aceste date sunt stocate pe serverul proiectului timp de maximum 30 de zile și sunt accesibile numai dezvoltatorului.',
       'noPii' => 'Când executați comenzi, ar trebui să evitați includerea oricăror informații personale. Anumite informații pot fi păstrate în jurnalul nostru de aplicații, așa că vă rugăm să ne contactați folosind metodele descrise la sfârșitul acestui document pentru a ne anunța dacă este necesară intervenția noastră.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetrie & Statistici',
       'statsCollection' => 'Pentru a evalua utilizarea Botului și a lua astfel decizii de dezvoltare (de exemplu, adăugarea/eliminarea de funcții), poate fi colectat un set specific de date despre comenzi și utilizarea acestora („Telemetrie”). Informațiile telemetrice se limitează la comenzile și opțiunile utilizate și la momentul utilizării acestora, fără a include informații de identificare (prin urmare, nu includ niciodată ID-urile serverului sau ale utilizatorului, nici valorile furnizate de utilizator și sunt complet anonime). Telemetria este stocată pe termen nelimitat, iar statisticile derivate din aceasta sunt destinate afișării și partajării publice sub formă agregată.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Cookie-uri',
       'intro' => 'Cookie-urile sunt fișiere cu o cantitate mică de date. Cookie-urile sunt trimise către browserul dvs. de pe un site web și stocate pe hard diskul computerului dvs.',
       'disable' => 'Utilizăm „cookie-uri” pentru a stoca informații. Puteți seta browserul să refuze toate cookie-urile sau să vă avertizeze când un cookie este trimis. Cu toate acestea, dacă nu acceptați cookie-urile, este posibil să nu puteți utiliza anumite părți ale site-ului nostru.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Pentru utilizatorii conectați, se utilizează un cookie persistent pentru a memora starea de conectare pe durata sesiunilor de navigare timp de 30 de zile. Dacă doriți să nu mai fiți memorat, vă puteți deconecta sau șterge cookie-urile setate de site-ul nostru.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Securitate',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Modificări & Revizuiri',
     'effectiveFrom' => 'Termenii și condițiile și Politica de confidențialitate, denumite colectiv „Documente”, intră în vigoare la data ultimei actualizări și vor rămâne în vigoare, cu excepția oricăror modificări ale prevederilor sale în viitor, care vor intra în vigoare imediat după publicarea pe această pagină.',
     'rightToChange' => 'Ne rezervăm dreptul de a actualiza sau modifica aceste Documente în orice moment, iar dumneavoastră trebuie să verificați periodic această pagină. Utilizarea în continuare a Proiectului după publicarea oricăror modificări aduse Documentelor pe această pagină va constitui recunoașterea modificărilor și consimțământul dumneavoastră de a respecta și de a fi obligat să respectați Documentele modificate.',
-    'willNotify' => 'Dacă vom aduce modificări semnificative acestor Documente, vă vom notifica prin afișarea unui anunț vizibil pe site-ul nostru web, precum și prin publicarea unui anunț pe serverul de suport Discord al Botului.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contactați-ne',

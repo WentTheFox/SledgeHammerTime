@@ -23,6 +23,25 @@ return [
       'debugging' => 'Бот может принимать взаимодействия от пользователей через клиент Discord, которые включают в себя слэш-команды и команды контекстного меню ("Действие", "Команда", или в совокупности "Команды"). Слэш-команды могут быть дополнительно выполнены с помощью предоставленных пользователем структурированных пар ключ-значений ("Опции"). Бот записывает выполнение команд в целях отладки, а именно: имя пользователя Discord и идентификатор Snowflake ("ID") пользователя, выполнившего команду, название команды (включая все опции) и ID сервера, на котором была выполнена команда. Эти данные хранятся на сервере проекта до 30 дней и доступны только Разработчику.',
       'noPii' => 'При выполнении команд следует избегать предоставления каких-либо персональных данных. Некоторая информация может сохраняться в нашем журнале заявок, поэтому, если потребуется наше вмешательство, свяжитесь с нами способами, описанными в конце этого документа. ',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Телеметрия и статистика',
       'statsCollection' => 'Для оценки бота и принятия решений о разработке(к примеру, добавление/удаление функций) может собираться определенные данные о командах и их использовании ("Телеметрия"). Телеметрическая информация ограничивается указанием использованных команд и параметров, а также временем их использования, без какой-либо идентифицирующей информации (поэтому она не включает идентификаторы сервера или пользователя, а также любые введенные пользователем значения и является полностью анонимной). Телеметрия хранится неограниченный срок, и полученная статистика предназначена для отображения и публичного распространения в обобщенном виде.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Файлы Cookies',
       'intro' => 'Cookies - это файлы с небольшим количеством данных. Cookies отправляются в Ваш браузер с веб-сайта и хранятся исключительно на жестком диске Вашего компьютера.',
       'disable' => 'Мы используем "cookies" для сохранения информации. Вы можете настроить свой браузер так, чтобы он отказывался от всех "куки" или указывал, когда отправляются "куки". Однако, если Вы не принимаете "cookies", Вы не сможете пользоваться некоторыми разделами нашего Сайта.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Для пользователей, вошедших в систему, используется постоянный файл cookie, который запоминает статус входа в систему в течение 30 дней в разных сеансах работы браузера. Если Вы хотите, чтобы о Вас перестали помнить, Вы можете выйти из системы или очистить файлы cookie, установленные нашим Сайтом.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Безопасность',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Изменения и пересмотры',
     'effectiveFrom' => 'Положения и условия и Политика конфиденциальности, вместе взятые "Документы", вступают в силу с даты их последнего обновления и остаются в силе, за исключением любых изменений в их положениях в будущем, которые вступят в силу сразу после размещения на этой странице.',
     'rightToChange' => 'Мы оставляем за собой право обновлять или изменять эти Документы в любое время, и Вам следует периодически проверять эту страницу. Ваше дальнейшее использование Проекта после того, как мы опубликуем любые изменения в Документах на этой странице, будет означать Ваше согласие с изменениями и Ваше согласие соблюдать и быть связанным измененными Документами.',
-    'willNotify' => 'Если мы внесем какие-либо существенные изменения в эти Документы, мы уведомим Вас об этом, разместив уведомление на нашем сайте, а также опубликуем объявление на сервере поддержки Бота Discord.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Свяжитесь с нами',

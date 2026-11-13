@@ -23,6 +23,25 @@ return [
       'debugging' => 'Bot; Discord istemcisi aracılığıyla Kullanıcılardan, eğik çizgi komutları ve bağlam menüsü komutlarını ("Eylem", "Komut" veya topluca "Komutlar") içeren etkileşimler alabilir. Eğik çizgi komutları ek olarak Kullanıcı tarafından sağlanan yapılandırılmış anahtar-değer çiftleri ("Seçenekler") ile çalıştırılabilir. Bot; hata ayıklama amacıyla Komut çalıştırma işlemlerini, yani Komutu çalıştıran Kullanıcının Discord kullanıcı adını ve Snowflake tanımlayıcısını ("ID"), (tüm Seçenekler dahil olmak üzere) Komut adını ve Komutun çalıştırıldığı Sunucunun ID\'sini kaydeder. Bu veriler Proje sunucusunda 30 güne kadar saklanır ve yalnızca Geliştirici tarafından erişilebilir.',
       'noPii' => 'Komutları çalıştırırken herhangi bir Kişisel Bilgiyi dahil etmekten kaçınmalısınız. Bazı bilgiler Uygulama Günlüğümüzde yine de saklanabilir; bu nedenle müdahalemize ihtiyaç duyulması halinde bizi bilgilendirmek için lütfen bu belgenin sonunda açıklanan yöntemleri kullanarak bizimle iletişime geçin.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetri ve İstatistikler',
       'statsCollection' => 'Bot\'un kullanımını değerlendirmek ve böylece geliştirme kararlarına (ör. özelliklerin eklenmesi/kaldırılması) yön vermek amacıyla; Komutlar ve bunların kullanımına ilişkin belirli bir veri kümesi toplanabilir ("Telemetri"). Telemetri bilgileri; herhangi bir tanımlayıcı bilgi içermeksizin (dolayısıyla asla sunucu veya kullanıcı kimliklerini ya da kullanıcı tarafından sağlanan değerleri içermez ve tamamen anonimdir), hangi komutun ve seçeneklerin kullanıldığı ve bunların ne zaman kullanıldığı ile sınırlıdır. Telemetri süresiz olarak saklanır ve bundan türetilen istatistiklerin, toplu biçimde kamuya açık olarak görüntülenmesi ve paylaşılması amaçlanmaktadır.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Çerezler',
       'intro' => 'Çerezler, az miktarda veri içeren dosyalardır. Çerezler, bir web sitesinden tarayıcınıza gönderilir ve bilgisayarınızın sabit diskinizde saklanır.',
       'disable' => 'Bilgileri saklamak için "çerezler" kullanıyoruz. Tarayıcınıza tüm çerezleri reddetmesi veya bir çerez gönderildiğinde bunu belirtmesi talimatını verebilirsiniz. Ancak, çerezleri kabul etmezseniz, sitemizin bazı bölümlerini kullanamayabilirsiniz.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Oturum açan kullanıcılar için, oturum durumunu tarayıcı oturumları arasında 30 gün boyunca hatırlamak için kalıcı bir çerez kullanılır. Hatırlanmayı durdurmak istiyorsanız, çıkış yapabilir veya sitemiz tarafından ayarlanan çerezleri temizleyebilirsiniz.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Güvenlik',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Değişiklikler ve Revizyonlar',
     'effectiveFrom' => 'Topluca "Belgeler" olarak anılan Şartlar ve Koşullar ile Gizlilik Politikası, son güncelleme tarihi itibarıyla yürürlüktedir ve gelecekte hükümlerinde yapılacak herhangi bir değişiklik haricinde yürürlükte kalmaya devam edecektir; söz konusu değişiklikler bu sayfada yayınlandıktan hemen sonra yürürlüğe girecektir.',
     'rightToChange' => 'Bu Belgeleri herhangi bir zamanda güncelleme veya değiştirme hakkını saklı tutuyoruz; bu nedenle bu sayfayı periyodik olarak kontrol etmelisiniz. Belgeler üzerinde yaptığımız değişiklikleri bu sayfada yayınlamamızın ardından Projeyi kullanmaya devam etmeniz; değişiklikleri kabul ettiğiniz ve değiştirilmiş Belgelere uymayı ve bunlarla bağlı kalmayı onayladığınız anlamına gelecektir.',
-    'willNotify' => 'Bu Belgelerde herhangi bir önemli değişiklik yapmamız durumunda; web sitemizde belirgin bir bildirim yayınlayarak ve Botun Discord destek sunucusunda bir duyuru paylaşarak sizi bilgilendireceğiz.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Bize Ulaşın',

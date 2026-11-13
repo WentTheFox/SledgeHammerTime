@@ -30,6 +30,25 @@ return [
       'noPii' => 'เมื่อคุณเรียกใช้คำสั่ง ควรหลีกเลี่ยงการใส่ข้อมูลส่วนบุคคลใด ๆ ลงไป
 เนื่องจากข้อมูลบางส่วนอาจถูกเก็บไว้ใน บันทึกการทำงานของแอปพลิเคชัน หากคุณต้องการให้เราช่วยลบหรือจัดการข้อมูลดังกล่าว โปรดติดต่อเราผ่านช่องทางที่ระบุไว้ในตอนท้ายของเอกสารนี้',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'ข้อมูลการใช้งานและสถิติ',
       'statsCollection' => 'เพื่อประเมินรูปแบบการใช้งานของบอท และใช้เป็นแนวทางในการตัดสินใจพัฒนา (เช่น การเพิ่มหรือลบฟีเจอร์) ระบบอาจเก็บข้อมูลเฉพาะชุดหนึ่งเกี่ยวกับคำสั่งและการใช้งานของคำสั่งเหล่านั้น (“ข้อมูลการใช้งาน”)
@@ -43,8 +62,18 @@ return [
       'disable' => 'เราใช้ “คุกกี้” เพื่อเก็บรักษาข้อมูลบางอย่าง
 คุณสามารถตั้งค่าเบราว์เซอร์ของคุณให้ ปฏิเสธคุกกี้ทั้งหมด หรือให้ แจ้งเตือนเมื่อมีการส่งคุกกี้ ได้
 อย่างไรก็ตาม หากคุณไม่ยอมรับการใช้คุกกี้ บางส่วนของเว็บไซต์ของเราอาจไม่สามารถใช้งานได้',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'สำหรับผู้ใช้ที่เข้าสู่ระบบแล้ว เว็บไซต์จะใช้ คุกกี้แบบถาวร เพื่อจดจำสถานะการเข้าสู่ระบบต่อเนื่องระหว่างการใช้งานเบราว์เซอร์เป็นเวลา 30 วัน
 หากคุณไม่ต้องการให้ระบบจำการเข้าสู่ระบบอีกต่อไป คุณสามารถ ออกจากระบบ หรือ ล้างคุกกี้ ที่เว็บไซต์ของเราตั้งค่าไว้ได้',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'ความปลอดภัย',
@@ -75,7 +104,7 @@ return [
     'effectiveFrom' => 'ข้อกำหนดและเงื่อนไข และนโยบายความเป็นส่วนตัว ซึ่งรวมเรียกว่า “เอกสาร” มีผลบังคับใช้ตั้งแต่วันที่อัปเดตล่าสุด และจะยังคงมีผลต่อไป เว้นแต่จะมีการเปลี่ยนแปลงในส่วนใดในอนาคต ซึ่งการเปลี่ยนแปลงนั้นจะมีผลทันทีหลังจากที่ถูกประกาศบนหน้านี้',
     'rightToChange' => 'เราขอสงวนสิทธิ์ในการอัปเดตหรือแก้ไขเอกสารเหล่านี้ได้ทุกเมื่อ และคุณควรตรวจสอบหน้านี้เป็นระยะ ๆ
 การที่คุณยังคงใช้งานโปรเจ็กต์หลังจากที่เราได้เผยแพร่การแก้ไขใด ๆ ของเอกสารเหล่านี้บนหน้านี้ จะถือว่าคุณได้รับทราบการเปลี่ยนแปลงนั้นแล้ว และยินยอมที่จะปฏิบัติตามและผูกพันตามเอกสารที่ได้รับการแก้ไขแล้ว',
-    'willNotify' => 'หากเรามีการเปลี่ยนแปลงที่สำคัญต่อเอกสารเหล่านี้ เราจะแจ้งให้คุณทราบโดยการแสดงประกาศอย่างชัดเจนบนเว็บไซต์ของเรา รวมถึงโพสต์ประกาศในเซิร์ฟเวอร์สนับสนุน Discord ของบอท',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'ติดต่อเรา',

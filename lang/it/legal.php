@@ -23,6 +23,25 @@ return [
       'debugging' => 'Il Bot può ricevere interazioni dagli Utenti tramite il client Discord, che include comandi slash e comandi del menu contestuale ("Azione", "Comando" o collettivamente "Comandi"). I comandi slash possono essere eseguiti anche con coppie chiave-valore strutturate fornite dall\'Utente ("Opzioni"). Il Bot registra le esecuzioni dei Comandi a scopo di debug, vale a dire: il nome utente Discord e l\'identificatore Snowflake ("ID") dell\'Utente che ha eseguito il Comando, il nome del Comando (comprese tutte le Opzioni) e l\'ID del Server in cui è stato eseguito il Comando. Questi dati sono conservati sul server del Progetto per un massimo di 30 giorni e sono accessibili solo allo Sviluppatore.',
       'noPii' => 'Quando esegui i comandi dovresti evitare di includere le informazioni personali. Alcune informazioni potrebbero essere conservate nel nostro Registro Applicazioni, quindi vi preghiamo di contattarci utilizzando i metodi descritti alla fine del presente documento per informarci se il nostro intervento è necessario.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetria & Statistiche',
       'statsCollection' => 'Al fine di valutare l\'utilizzo del Bot e quindi guidare le decisioni di sviluppo (ad esempio, l\'aggiunta/eliminazione di funzioni), può essere raccolta una serie specifica di dati sui comandi e sul loro utilizzo ("Telemetria"). Le informazioni di telemetria si limitano a quali comandi e opzioni sono stati utilizzati e quando sono stati utilizzati, senza alcuna informazione identificativa (pertanto non includono mai ID del server o dell\'utente, né valori forniti dall\'utente, e sono completamente anonimi). La telemetria viene archiviata a tempo indeterminato e le statistiche che ne derivano sono destinate ad essere visualizzate e condivise pubblicamente in forma aggregata.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Cookie',
       'intro' => 'I cookie sono file con una piccola quantità di dati. I cookie vengono inviati al browser da un sito web e memorizzati sul disco rigido del computer.',
       'disable' => 'Utilizziamo i "cookie" per conservare le informazioni. Puou indicare al tuo browser di rifiutare tutti i cookie o di segnalare l\'invio di un cookie. Tuttavia, se non accetti i cookie, potresti non essere in grado di utilizzare alcune parti del nostro Sito.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Per gli utenti che hanno effettuato l\'accesso, viene utilizzato un cookie persistente per ricordare lo stato di accesso attraverso le sessioni del browser per 30 giorni. Se desideri non essere più ricordato, puoi uscire o cancellare i cookie impostati dal nostro Sito.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Sicurezza',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Modifiche & Revisioni',
     'effectiveFrom' => 'I Termini e le Condizioni e l\'Informativa sulla privacy, collettivamente "Documenti", sono in vigore alla data del loro ultimo aggiornamento e rimarranno in vigore, salvo per quanto riguarda eventuali modifiche future delle sue disposizioni, che saranno in vigore immediatamente dopo la pubblicazione su questa pagina.',
     'rightToChange' => 'Ci riserviamo il diritto di aggiornare o modificare questi Documenti in qualsiasi momento e lei dovrebbe controllare periodicamente questa pagina. L\'uso continuato del Progetto da parte dell\'utente dopo la pubblicazione di eventuali modifiche ai Documenti su questa pagina costituirà il riconoscimento delle modifiche e il consenso a rispettare ed essere vincolati dai Documenti modificati.',
-    'willNotify' => 'Se apportiamo modifiche sostanziali a questi Documenti, la informeremo inserendo un avviso in evidenza sul nostro sito web, nonché pubblicando un annuncio nel server di supporto Discord del Bot.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contattaci',

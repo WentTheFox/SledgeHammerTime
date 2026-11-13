@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript е необходим',
     'body' => "Вашият браузър не поддържа JavaScript или сте го изключили. Някой браузъри изключват JavaScript по подразбиране по съображения за сигурност, но е необходим за този сайт. Моля включете и опреснете или използвайте друг браузър.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
