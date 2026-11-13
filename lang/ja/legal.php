@@ -23,6 +23,25 @@ return [
       'debugging' => 'ボットはDiscordクライアント経由でユーザーからの操作を受け取ることができ、これにはスラッシュコマンドとコンテキストメニューコマンド（アクション、コマンド、または総称してコマンド）が含まれます。スラッシュコマンドは、ユーザーが提供する構造化されたキーと値のペア（オプション）を付加して実行することも可能です。ボットはデバッグ目的でコマンド実行を記録します。具体的には：コマンドを実行したユーザーのDiscordユーザー名とSnowflake識別子（ID）、コマンド名（すべてのオプションを含む）、およびコマンドが実行されたサーバーのIDです。このデータはプロジェクトサーバーに最大30日間保存され、開発者のみがアクセス可能です。',
       'noPii' => 'コマンドを実行する際には、個人情報の含めることを避けてください。一部の情報はアプリケーションログに保持される可能性がありますので、当社の介入が必要な場合は、本文書末尾に記載の方法で当社までご連絡ください。',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'テレメトリーと統計',
       'statsCollection' => 'ボットの使用状況を評価し、それに基づいて開発上の決定（機能の追加・削除など）を推進するため、コマンドとその使用状況に関する特定のデータ（「テレメトリ」）が収集される場合があります。テレメトリー情報は、どのコマンドとオプションがいつ使用されたかに限定され、個人を特定する情報は一切含まれません（したがってサーバーIDやユーザーID、ユーザー入力値は一切含まれず、完全に匿名化されています）。テレメトリーは無期限に保存され、そこから導出される統計データは集計形式で公開・共有されることを目的としています。',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Cookies',
       'intro' => 'Cookiesは少量のデータを含むファイルです。cookiesはウェブサイトからブラウザに送信され、コンピュータのハードドライブに保存されます。',
       'disable' => '当社は情報を保持するために「cookies」を使用します。お客様はブラウザの設定で、すべてのクッキーを拒否するか、クッキーが送信される際に通知するように設定できます。ただし、クッキーを受け入れない場合、当サイトの一部をご利用いただけない可能性があります。',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'ログイン済みユーザーは、ブラウザセッションをまたいで30日間ログイン状態を記憶するために永続的なcookiesが使用されます。保存情報を削除したい場合は、サインアウトするか、当サイトが設定したcookiesを削除してください。',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => '安全',
@@ -52,7 +81,7 @@ return [
     'heading' => '変更と改訂',
     'effectiveFrom' => '利用規約およびプライバシーポリシー、以下、総称して「本規約」は、最終更新日をもって発効し、将来的にその規定に変更が生じた場合を除き、引き続き有効です。変更が生じた場合、当該変更は本ページに掲載された直後に発効します。',
     'rightToChange' => '当社は、これらの文書を随時更新または変更する権利を留保します。お客様は定期的にこのページを確認する必要があります。当社が本ページに文書の変更を掲載した後もプロジェクトを継続してご利用になる場合、お客様は変更を承認し、変更後の文書に従い拘束されることに同意したものとみなされます。',
-    'willNotify' => 'これらの文書に重要な変更を加えた場合、当社ウェブサイトに目立つ通知を掲載するとともに、ボットのDiscordサポートサーバーに告知を掲示して通知いたします。',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => '連絡先',

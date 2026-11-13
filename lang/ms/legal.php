@@ -23,6 +23,25 @@ return [
       'debugging' => 'Bot boleh menerima interaksi daripada Para Pengguna melalui klien Discord, yang merangkumi perintah tanda miring dan perintah menu konteks ("Tindakan", "Perintah", atau bersama-sama dipanggil "Para Perintah"). Perintah tanda miring juga boleh dijalankan dengan pasangan kekunci-nilai berstruktur yang disediakan oleh Pengguna ("Pilihan"). Bot merekodkan penjalanan Perintah untuk tujuan nyahpepijat, yakni: nama pengguna Discord dan pengenal pasti Snowflake ("ID") bagi Pengguna yang menjalankan Perintah tersebut, nama Perintah berkenaan (termasuk kesemua Pilihan) dan juga ID bagi Pelayan di mana Perintah tersebut dijalankan. Data ini disimpan di pelayan Projek sehingga 30 hari, dan hanya boleh dicapai oleh Pembangun.',
       'noPii' => 'Apabila anda menjalankan Para Perintah anda patut mengelak daripada menyertakan sebarang Maklumat Peribadi. Sesetengah maklumat mungkin masih disimpan di Log Aplikasi kami, jadi sila hubungi kami menerusi kaedah yang dinyatakan di akhir dokumen ini untuk memberitahu kami sekiranya campur tangan kami diperlukan.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetri & Statistik',
       'statsCollection' => 'Untuk menaksir kegunaan Bot dan seterusnya memacu keputusan pembangunan (cth. penambahan/pengeluaran suatu ciri), suatu set data yang khusus mengenai Para Perintah dan kegunaannya boleh dikumpulkan ("Telemetri"). Maklumat Telemetri hanya terhad kepada perintah mana dan pilihan apa yang digunakan, dan bilakah penggunaanya, tanpa sebarang maklumat yang boleh mengenal pasti (oleh itu tidak pernah termasuknya ID pelayan atau pengguna, mahupun sebarang nilai yang disediakan pengguna, dan tanpa nama sepenuhnya). Telemetri disimpan selama-lamanya dan statistik yang diterbitkan daripadanya bertujuan untuk dipaparkan dan dikongsikan secara umum dalam bentuk agregat.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Kuki',
       'intro' => 'Kuki ialah fail-fail dengan jumlah data yang kecil. Kuki dihantar ke pelayar anda dari suatu laman sesawang dan disimpan di pemacu keras komputer anda.',
       'disable' => 'Kami menggunakan "kuki" untuk menyimpan maklumat. Anda boleh mengarahkan pelayar anda untuk menolaj kesemua kuki atau untuk menunjukkan apabila suatu kuki sedang dihantar. Walau bagaimanapun, sekiranya anda tidak menerima kuki, anda mungkin tidak boleh menggunakan sesetengah bahagian Laman kami.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Untuk para pengguna yang sudah log masuk, suatu kuki berterusan digunakan untuk mengingat status log masuk merentasi sesi pelayar selama 30 hari. Sekiranya anda ingin berhenti diingati, anda boleh sama ada log keluar atau pun kosongkan kuki yang ditetapkan oleh Laman kami.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Keselamatan',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Perubahan & Semakan',
     'effectiveFrom' => 'Terma & Syarat dan Polisi Privasi ini, bersama-sama dipanggil "Dokumen", berkuat kuasa mulai tarikh kemas kini terakhirnya dan kekal berkuat kuasa kecuali berhubung dengan sebarang perubahan dalam peruntukannya pada masa hadapan, yang akan berkuat kuasa secara serta merta setelah dimasukkan ke halaman ini.',
     'rightToChange' => 'Kami berhak untuk mengemas kini atau mengubah Dokumen ini pada bila-bila masa dan anda patut semak halaman ini secara berkala. Penggunaan anda secara berterusan pada Projek ini setelah kami memasukkan sebarang pengubahsuaian terhadap Dokumen di halaman ini membentuk perakuan anda mengenai pengubahsuaian tersebut dan persetujuan anda untuk mematuhi dan terikat pada Dokumen yang diubahsuai.',
-    'willNotify' => 'Sekiranya kami melakukan sebarang perubahan bahan pada Dokumen ini, kami akan memberitahu anda dengan meletakkan notis yang ulung di laman sesawang kami, dan juga menghantar pengumuman di pelayan sokongan Discord milik Bot ini.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Hubungi Kami',

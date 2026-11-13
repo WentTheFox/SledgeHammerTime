@@ -23,6 +23,25 @@ return [
       'debugging' => 'Bot od uživatelů prostřednictvím Discord klienta přijímá interakce, které zahrnují lomítkové příkazy a příkazy v kontextové nabídce (také "akce", "příkaz" nebo pod společným názvem "příkazy"). Lomítkové příkazy můžou navíc být vykonávány s pomocí uživatelem zadaných strukturovaných dvojic klíč-hodnota (dále jen "možnosti"). Bot zaznamenává vykonávání příkazů pro účely ladění, konkrétně: uživatelské jméno na Discordu a identifikátor Snowflake (dále jen "ID") uživatele, informaci o tom, který příkaz provedl, název příkazu (včetně všech možností), a ID Serveru, na kterém byl daný příkaz proveden. Tyto údaje jsou uloženy na serveru projektu na dobu až 30 dnů a jsou zpřístupněny pouze vývojáři.',
       'noPii' => 'Při spouštění příkazů se prosím vyvarujte uvádění jakýchkoli osobních údajů, protože některé informace mohou být uchovány v našem aplikačním protokolu. Pokud tato situace nastane a vyžaduje náš zásah, kontaktujte nás prosím prostřednictvím postupů uvedených na konci tohoto dokumentu.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetrie a statistiky',
       'statsCollection' => 'Za účelem vyhodnocování využívání bota a následného ovlivňování vývojových rozhodnutí (např. přidávání či odebírání funkcí) může být shromažďován specifický soubor údajů o příkazech a jejich používání (tzv. telemetrie). Telemetrie je omezena na informaci o tom, který příkaz a jaké možnosti byly použity a kdy k jejich použití došlo, bez jakýchkoli identifikátorů (tudíž nikdy nezahrnuje ID serverů ani uživatelů, ani žádné hodnoty zadané uživatelem, a je zcela anonymní). Telemetrie je uchovávána neomezeně dlouho a statistiky z ní odvozené jsou určeny k veřejnému zobrazování a sdílení v souhrnné podobě.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Cookies',
       'intro' => 'Cookies jsou soubory s malým množstvím dat. Webová stránka je odesílá do vašeho prohlížeče a ten je ukládá na pevný disk vašeho zařízení.',
       'disable' => 'Cookies používáme k uchovávání informací. Váš prohlížeč můžete nastavit tak, aby všechny soubory cookie odmítal, nebo aby vás upozornil, když má být cookie odeslána. Pokud nepovolíte přijímání cookies, některé části našeho webu můžou pro vás přestat být dostupné či funkční.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Pro přihlášené uživatele používáme trvalou cookie, která uchovává stav přihlášení napříč relacemi prohlížeče na dobu 30 dnů. Chcete-li zabránit dalšímu uchovávání tohoto stavu, můžete se buď odhlásit, nebo smazat cookies uložené naším webem.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Zabezpečení',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Změny a revize',
     'effectiveFrom' => 'Smluvní podmínky a Zásady ochrany osobních údajů (pod společným názvem "Dokumenty") jsou platné ke dni jejich poslední aktualizace a zůstávají v platnosti až do případných budoucích změn, které nabývají účinnosti okamžitě po jejich zveřejnění na této stránce.',
     'rightToChange' => 'Vyhrazujeme si právo tyto dokumenty kdykoli aktualizovat nebo změnit bez předchozího upozornění, a proto vám doporučujeme tuto stránku pravidelně kontrolovat. Pokračováním v používání projektu po zveřejnění jakýchkoli změn na této stránce potvrzujete, že změny berete na vědomí a souhlasíte s tím, že se zavazujete upravenými dokumenty řídit.',
-    'willNotify' => 'Pokud provedeme zásadní změny v těchto dokumentech, budeme vás informovat zřetelným oznámením na našem webu a také zveřejněním oznámení na Discord serveru podpory bota.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Kontakt',

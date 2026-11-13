@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript لازم است',
     'body' => "مرورگر شما یا از JavaScript پشتیبانی نمی کند یا در حال حاضر غیرفعال است. برخی از مرورگرها به دلایل امنیتی JavaScript را به طور پیش فرض غیرفعال می کنند، اما برای این برنامه ضروری است. لطفاً آن را فعال کنید و صفحه را بازخوانی کنید یا از مرورگر دیگری استفاده کنید.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

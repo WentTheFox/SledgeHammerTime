@@ -23,6 +23,25 @@ return [
       'debugging' => 'A Bot a Discord kliensen keresztül interakciókat fogadhat a Felhasználóktól, amelyek magukban foglalják a slash parancsokat és a környezeti menü parancsaokat (továbbiakban "Művelet", "Parancs", vagy együttesen "Parancsok"). A slash parancsok ezen felül a Felhasználó által megadott strukturált kulcs-érték párokkal (továbbiakban "Paraméterek") is végrehajthatók. A Bot hibakeresési célokra rögzíti a Parancsok végrehajtását, nevezetesen: a Parancsot végrehajtó Felhasználó Discord felhasználónevét és Snowflake azonosítóját (továbbiakban "ID"), a Parancs nevét (beleértve az összes Paramétert) és annak a szervernek az ID-ját, amelyen a Parancsot végrehajtották. Ezeket az adatokat a Projekt szerverén legfeljebb 30 napig tároljuk, és csak a Fejlesztő számára hozzáférhetőek.',
       'noPii' => 'A parancsok végrehajtásakor kerülje a személyes adatok megadását. Egyes információk továbbra is megmaradhatnak az Alkalmazás naplójában, ezért kérjük, ha beavatkozásunkra van szükség, értesítsen minket a jelen dokumentum végén leírt módszerek egyikén.',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => 'Telemetria és statisztikák',
       'statsCollection' => 'A bot használatának felmérése és ezáltal a fejlesztési döntések (pl. a funkciók hozzáadása/eltávolítása) segítése érdekében a parancsokról és azok használatáról meghatározott adatok kerülhetnek gyűjtésre ("Telemetria"). A Telemetriai információk arra korlátozódnak, hogy melyik parancsot és opciót használták, illetve mikor használták, bármiféle azonosító információ nélkül (ezért soha nem tartalmaznak szerver- vagy felhasználói ID-t, sem a felhasználó által megadott értékeket, és teljesen anonimak). A telemetriát korlátlan ideig tároljuk, és a belőle származó statisztikákat összesített formában kívánjuk megjeleníteni és nyilvánosan megosztani.',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Sütik',
       'intro' => 'A sütik kis mennyiségű adatot tartalmazó fájlok. A sütiket egy weboldal küldi el az Ön böngészőjének, és a számítógépe merevlemezén vanna tárolva.',
       'disable' => 'A "sütiket" információ megőrzésére használjuk. Ön utasíthatja böngészőjét, hogy utasítsa el az összes sütit, vagy jelezze, ha mi sütit küldünk. Viszont, ha nem fogadja el a sütiket, előfordulhat, hogy nem tudja használni Webhely egyes részeit.',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => 'Bejelentkezett felhasználók számára egy maradandó süti segítségével 30 napig megjegyzésre kerül a bejelentkezett státusz a böngésző munkamenetek között. Ha nem szeretne bejeletkezve maradni, akkor kijelentkezhet, vagy törölheti a Webhelyünk által beállított sütiket.',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => 'Biztonság',
@@ -52,7 +81,7 @@ return [
     'heading' => 'Változások és újabb verziók',
     'effectiveFrom' => 'Az Általános Szerződési Feltételek és az Adatvédelmi irányelvek, együttesen "Dokumentumok", az utolsó frissítésük időpontjától érvényesek, és továbbra is hatályban maradnak, kivéve a rendelkezések jövőbeni módosításait, amelyek az ezen az oldalon történő közzétételt követően azonnal hatályba lépnek.',
     'rightToChange' => 'Fenntartjuk a jogot, hogy ezeket a Dokumentumokat bármikor frissítsük vagy módosítsuk, ezért rendszeresen ellenőrizze ezt az oldalt. A Projekt további használata azt követően, hogy a Dokumentumok bármely módosítását közzétesszük ezen az oldalon, a módosítások tudomásul vételének, valamint a módosított Dokumentumok betartásához való hozzájárulásának minősül.',
-    'willNotify' => 'Ha lényeges változtatásokat eszközlünk a jelen Dokumentumokban, erről a weboldalunkon elhelyezett, jól látható közleményben, valamint a Bot Discord támogatási szerverén közzétett közleményben értesítjük Önt.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Kapcsolatfelvétel',

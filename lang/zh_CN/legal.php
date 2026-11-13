@@ -23,6 +23,25 @@ return [
       'debugging' => '本机器人可以接收用户通过 Discord 客户端发起的交互，其中包括斜杠命令（slash commands）和上下文菜单命令（统称为“操作”、“命令”）。斜杠命令还可以附带用户提供的结构化键值对（“选项”）来执行。本机器人会记录命令的执行情况以便进行调试，具体包括：执行命令的用户的 Discord 用户名和 Snowflake 标识符（“ID”）、命令名称（包括所有选项）以及执行该命令的服务器 ID。这些数据在项目服务器上最多保留 30 天，且仅供开发者访问。',
       'noPii' => '在执行命令时，您应避免包含任何个人信息。某些信息可能仍会保留在我们的应用程序日志中，因此如果需要我们的介入，请使用本文档末尾描述的方法通知我们。',
     ],
+    'performance' => [
+      'heading' => 'Performance Monitoring',
+      'intro' => 'To find errors and slow pages we record performance traces: short records of how a request to the Site was handled.',
+      'serverTraces' => 'A trace of a request to the Site contains the address of the page requested (including its query string), the browser type (user agent), timings, the structure of the database queries involved (which can include identifiers of records) and whether the request was made by a logged in user (but not which one). The values of query parameters that look like credentials (such as codes, tokens and keys) are replaced before storage, and IP addresses are not included in traces.',
+      'legalBasis' => 'We do this based on our legitimate interest in keeping the Site working and fast (<1>GDPR Article 6(1)(f)</1>).',
+      'reporting' => 'When a request fails, the reference (trace ID) of its trace is shown in a message, so that you can include it when reporting the problem.',
+      'retention' => 'Traces are kept for 14 days and then discarded automatically. They are stored only on our own server, can only be read by the Developer and are not shared with any third party. As individual traces cannot be deleted before they expire, a request to remove them is fulfilled by their expiry.',
+    ],
+    'optOut' => [
+      'heading' => 'Opt Out of Performance Monitoring',
+      'intro' => 'You can opt out of performance monitoring at any time using the form below. While you are opted out, no performance traces of your visits are recorded on our server.',
+      'cookie' => 'Your choice is remembered in a cookie on your device. Its expiry is renewed each time you open a page of the Site while you are opted out, and clearing your cookies removes your choice.',
+      'cookieLongest' => 'The cookie stays on this device for the longest time your browser allows.',
+      'cookieExpiry' => 'The cookie stays on this device for the longest time your browser allows, which currently means it expires <1/>.',
+      'label' => 'Do not record performance traces of my visits',
+      'statusOptedOut' => 'You are currently opted out on this device.',
+      'statusNotOptedOut' => 'You are currently not opted out on this device.',
+      'saved' => 'Your choice was saved.',
+    ],
     'telemetry' => [
       'heading' => '遥测与统计数据',
       'statsCollection' => '为了评估本机器人的使用情况从而指导开发决策（例如功能的添加/删除），我们可能会收集有关命令及其使用情况的一组特定数据（“遥测数据”）。遥测信息仅限于使用了哪些命令和选项，以及使用时间，不包含任何身份验证信息（因此它绝不会包括服务器或用户 ID，也不包含任何用户提供的值，是完全匿名的）。遥测数据将无限期存储，由此得出的统计数据旨在以汇总的形式公开展示和共享。',
@@ -32,7 +51,17 @@ return [
       'heading' => 'Cookies',
       'intro' => 'Cookies 是包含少量数据的文件。Cookies 从网站发送到您的浏览器并存储在您计算机的硬盘上。',
       'disable' => '我们使用“cookies”来保留信息。您可以指示您的浏览器拒绝所有 cookies 或在发送 cookie 时进行提示。但是，如果您不接受 cookies，您可能无法使用本网站的某些部分。',
+      'optOut' => 'If you opt out of performance monitoring, a cookie remembering your choice is stored on your device for the longest time your browser allows, as its expiry is renewed each time you open a page of the Site.',
       'session' => '对于已登录的用户，我们会使用持久性 cookie 在浏览器会话之间记住登录状态，有效期为 30 天。如果您希望取消记住状态，您可以注销或清除本网站设置的 cookies。',
+    ],
+    'rights' => [
+      'heading' => 'Your Rights',
+      'intro' => 'You have the right to ask us for a copy of the personal data we hold about you, to have it corrected or erased, to restrict its processing and to receive it in a portable format. To use these rights, contact us using the methods described at the end of this document.',
+      'complaint' => 'You also have the right to lodge a complaint with a data protection supervisory authority, for example in the country where you live or work. The <1>European Data Protection Board</1> lists the authorities of the EU member states.',
+    ],
+    'objection' => [
+      'heading' => 'Right to Object',
+      'text' => 'Where we process your personal data based on our legitimate interests, which includes performance monitoring, you have the right to object at any time on grounds relating to your particular situation. You can do so by opting out of performance monitoring (see above), or by contacting us.',
     ],
     'security' => [
       'heading' => '安全',
@@ -52,7 +81,7 @@ return [
     'heading' => '变更与修订',
     'effectiveFrom' => '条款与条件以及隐私政策统称为“文档”，自其最后更新日期起生效，并将会持续有效（除非未来对其条款进行任何更改）。对条款的更改将在本页面发布后立即生效。',
     'rightToChange' => '如果我们对这些文档做出任何重大更改，我们将通过在我们网站上放置显眼的通知以及在本机器人的 Discord 支持服务器中发布公告来通知您。',
-    'willNotify' => '如果您对这些文档有任何疑问，或者希望要求删除我们存储的任何个人身份信息（PII），请通过本机器人的 Discord 服务器或使用开发者网站上列出的任何方法联系我们。',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, which is shown for up to two weeks after the update (unless you dismiss it earlier), as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => '联系我们',

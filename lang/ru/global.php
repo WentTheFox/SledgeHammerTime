@@ -41,6 +41,14 @@ return [
     'title' => 'Необходим JavaScript',
     'body' => "Ваш браузер либо не поддерживает JavaScript, либо он отключен. Некоторые браузеры отключают JavaScript по умолчанию из соображений безопасности, но для данного приложения он необходим. Пожалуйста, включите его и обновите страницу, или используйте другой браузер.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

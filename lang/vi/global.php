@@ -41,6 +41,14 @@ return [
     'title' => 'Cần sử dụng JavaScript',
     'body' => "Trình duyệt của bạn có thể không hỗ trợ JavaScript hoặc chức năng này đã bị tắt. Một số trình duyệt mặc định vô hiệu hóa JavaScript vì lý do bảo mật, nhưng nó cần thiết cho hoạt động của ứng dụng chúng tôi. Vui lòng bật JavaScript và tải lại trang, hoặc sử dụng một trình duyệt khác.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

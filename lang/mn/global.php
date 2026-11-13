@@ -41,6 +41,14 @@ return [
     'title' => 'ЖаваСкрипт хэрэгтэй',
     'body' => "Таны бровсэр ЖаваСкриптийг бологдоггүй, эсвэл одоо унтраачихсан байгаа. Зарим бровсэрүүд ЖаваСкриптийг аюулгүй байдалийн талаар унтраачихсан байдаг, тэгэхдээ энэ аппликатионд хэрэгтэй. Өөр бровсэр ашигла, пажээ рэфрэш хий эсвэл тэрийгээ асаа, гуйж байна.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
