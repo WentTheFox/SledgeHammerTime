@@ -10,12 +10,12 @@ ARG NODE_IMAGE=node:24-trixie-slim
 # ---------------------------------------------------------------------------------------------------------
 FROM --platform=$BUILDPLATFORM ${PHP_IMAGE} AS php-base-build
 COPY --from=ghcr.io/mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry \
+RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry excimer \
  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 FROM ${PHP_IMAGE} AS php-base
 COPY --from=ghcr.io/mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry \
+RUN install-php-extensions bcmath exif gd intl opcache pcntl pdo_pgsql redis igbinary zip sockets opentelemetry excimer \
  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 FROM --platform=$BUILDPLATFORM ${NODE_IMAGE} AS node-bin
