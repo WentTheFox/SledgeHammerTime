@@ -108,6 +108,16 @@ function visitHome(array $query = [], string $locale = 'en'): PendingAwaitablePa
 }
 
 /**
+ * Opens the legal page (privacy policy, terms) and waits for the app to be interactive
+ */
+function visitLegal(string $locale = 'en'): PendingAwaitablePage {
+  $page = visit(route('legal', ['locale' => $locale]))->on()->desktop()->withTimezone('UTC');
+  waitForApp($page);
+
+  return $page;
+}
+
+/**
  * Reloads the page (keeping localStorage) and waits for the app to be interactive again
  */
 function reloadPage(PendingAwaitablePage $page): void {
