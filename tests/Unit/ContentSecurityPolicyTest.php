@@ -53,6 +53,8 @@ test('the policy allows only this site and the listed hashes for scripts', funct
         ->toContain("object-src 'none'")
         ->toContain('https://seccdn.libravatar.org')
         ->toContain('https://cdn.discordapp.com')
+        ->toContain("style-src 'self' 'unsafe-inline' https://fonts.googleapis.com")   // the font fallback
+        ->toContain("font-src 'self' data: https://fonts.gstatic.com")
         ->toContain('https://crowdin-static.cf-downloads.crowdin.com')
         ->toContain('report-uri https://csp.example/r; report-to csp-endpoint')
         ->not->toContain('unsafe-eval')
