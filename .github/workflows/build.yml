@@ -120,6 +120,14 @@ jobs:
 
       - name: Run browser tests (in Firefox)
         run: php artisan test --filter="Browser" --browser firefox -vvv
+        env:
+          # Set here because phpunit.xml applies its env after the autoloader has registered the hooks; the app runs inside a
+          # fiber in these tests, where the hooks cannot read the OpenTelemetry context and only log warnings
+          OTEL_PHP_DISABLED_INSTRUMENTATIONS: all
 
       - name: Run browser tests (in Chrome)
         run: php artisan test --filter="Browser" --browser chrome -vvv
+        env:
+          # Set here because phpunit.xml applies its env after the autoloader has registered the hooks; the app runs inside a
+          # fiber in these tests, where the hooks cannot read the OpenTelemetry context and only log warnings
+          OTEL_PHP_DISABLED_INSTRUMENTATIONS: all
