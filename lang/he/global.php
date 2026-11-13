@@ -41,6 +41,14 @@ return [
     'title' => 'ג\'אווהסקריפט נדרש כאן',
     'body' => "הדפדפן שלכם ככל הנראה לא תומך בג'אווהסקריפט או שהוא חוסם אותו. כמה מהדפדפנים באופן אוטומטי חוסמים ג'אווהסקריפט מטעמי אבטחה, אבל זה חשוב בשביל האתר הזה. בבקשה הפעילו את הג'אווהסקריפט ותרעננו את הדף הזה, או שתחליפו את הדפדפן שלכם באחד אחר שכן תומך.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

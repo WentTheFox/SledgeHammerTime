@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript je neophodan',
     'body' => "Vaš preglednik ili ne podržava JavaScript ili je trenutno onemogućen. Neki preglednici onemogućuju JavaScript prema zadanim postavkama iz sigurnosnih razloga, ali to je neophodno za ovu aplikaciju. Omogućite ga i osvježite stranicu ili upotrijebite drugi preglednik.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

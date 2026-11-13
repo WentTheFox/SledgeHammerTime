@@ -41,6 +41,14 @@ return [
     'title' => 'Η JavaScript είναι απαραίτητη',
     'body' => "Ο περιηγητής σας είτε δεν υποστηρίζει JavaScript είτε είναι απενεργοποιημένη αυτή τη στιγμή. Μερικά προγράμματα περιήγησης απενεργοποιούν την JavaScript από προεπιλογή για λόγους ασφαλείας, αλλά είναι απαραίτητη για αυτήν την εφαρμογή. Παρακαλώ ενεργοποιήστε την και ανανεώστε τη σελίδα ή χρησιμοποιήστε διαφορετικό πρόγραμμα περιήγησης.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',

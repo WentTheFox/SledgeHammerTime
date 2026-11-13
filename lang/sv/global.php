@@ -41,6 +41,14 @@ return [
     'title' => 'JavaScript krävs',
     'body' => "Din webbläsare stödjer inte JavaScript eller så är det inaktiverat för tillfället. Vissa webbläsare inaktiverar JavaScript som standard för säkerhetsskäl, men det är nödvändigt för den här applikationen. Aktivera det och uppdatera sidan, eller använd en annan webbläsare.",
   ],
+  'privacyUpdated' => [
+    'title' => 'Privacy Policy updated.',
+    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+  ],
+  'requestFailed' => [
+    'title' => 'Something went wrong.',
+    'body' => 'If it keeps happening, include this reference when you report the problem:',
+  ],
   'readOnly' => [
     'title' => 'Read-only mode.',
     'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
