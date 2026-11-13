@@ -5,7 +5,7 @@ import { localSettingsInject, pagePropsInject } from '@/injection-keys';
 import HtAlert from '@/Reusable/HtAlert.vue';
 import HtTranslate from '@/Reusable/HtTranslate.vue';
 import { PRIVACY_UPDATE_DATE_ISO } from '@/utils/app';
-import { LegalSectionIds, shouldShowPrivacyNotice } from '@/utils/legal';
+import { shouldShowPrivacyNotice } from '@/utils/legal';
 import { safeRoute } from '@/utils/safe-route';
 import { Link } from '@inertiajs/vue3';
 import { computed, inject, onMounted, ref } from 'vue';
@@ -50,7 +50,7 @@ onMounted(() => {
     <template #text>
       <HtTranslate i18n-key="global.privacyUpdated.body">
         <template #1="slotProps">
-          <Link :href="`${safeRoute('legal', route, { routeParams })}#${LegalSectionIds.OPT_OUT}`">
+          <Link :href="safeRoute('legal', route, { routeParams })">
             {{ slotProps.text }}
           </Link>
         </template>
