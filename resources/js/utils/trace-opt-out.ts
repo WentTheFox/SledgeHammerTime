@@ -13,10 +13,16 @@ export const COOKIE_MAX_AGE_DAYS = 400;
 const COOKIE_MAX_AGE_SECONDS = COOKIE_MAX_AGE_DAYS * 24 * 60 * 60;
 
 export const hasTraceOptOutCookie = (cookieString: string): boolean =>
-  cookieString.split(';').some((part) => part.trim() === `${TRACE_OPT_OUT_COOKIE}=1`);
+  cookieString.split(';').some((part) => {
+    const partTrimmed = part.trim();
+    return partTrimmed.startsWith(`${TRACE_OPT_OUT_COOKIE}=`) && /=\d+$/.test(partTrimmed);
+  });
 
-export const buildTraceOptOutCookie = (optedOut: boolean, secure: boolean): string =>
-  `${TRACE_OPT_OUT_COOKIE}=${optedOut ? '1' : ''}; Max-Age=${optedOut ? COOKIE_MAX_AGE_SECONDS : 0}; Path=/; SameSite=Lax${secure ? '; Secure' : ''}`;
+export const buildTraceOptOutCookie = (optedOut: boolean, secure: boolean, now = new Date()): string => {
+  // Persist the expected expiry date as the cookie value to be able to show expiry
+  const cookieValue = optedOut ? String(now.getTime() + (COOKIE_MAX_AGE_SECONDS * 1000)) : '';
+  return `${TRACE_OPT_OUT_COOKIE}=${cookieValue}; Max-Age=${optedOut ? COOKIE_MAX_AGE_SECONDS : 0}; Path=/; SameSite=Lax${secure ? '; Secure' : ''}`;
+};
 
 export const isTraceOptedOut = (): boolean => typeof document !== 'undefined' && hasTraceOptOutCookie(document.cookie);
 
@@ -41,12 +47,22 @@ const getReportedTraceOptOutExpiry = async (): Promise<number | null> => {
   }
   try {
     // `expires` is part of the specification, TypeScript's DOM types do not have it yet
-    const cookie = await window.cookieStore.get(TRACE_OPT_OUT_COOKIE) as { expires?: number | null } | null;
+    const cookie = await window.cookieStore.get(TRACE_OPT_OUT_COOKIE) as (CookieListItem & { expires?: number | null }) | null;
 
-    return typeof cookie?.expires === 'number' ? cookie.expires : null;
-  } catch {
-    return null;
+    // Does not work in firefox
+    if (typeof cookie?.expires === 'number') {
+      return cookie.expires;
+    }
+
+    // Fall back to stored cookie value if it's >1 (logic used ot set 1 prior to this change)
+    const valueNumber = parseInt(cookie?.value ?? '', 10);
+    if (!isNaN(valueNumber) && isFinite(valueNumber) && valueNumber > 1) {
+      return valueNumber;
+    }
+  } catch (error) {
+    console.debug('getReportedTraceOptOutExpiry error', error);
   }
+  return null;
 };
 
 /**
