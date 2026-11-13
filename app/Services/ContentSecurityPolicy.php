@@ -63,9 +63,11 @@ final class ContentSecurityPolicy {
       implode(' ', ["script-src 'self'", ...$scriptHashes]),
       "script-src-attr 'none'",
       // Components and the markdown preview set style attributes; styles are not where scripts get injected from
-      "style-src 'self' 'unsafe-inline'",
+      // fonts.googleapis.com / fonts.gstatic.com: the fonts are cached locally (google-fonts:fetch), but spatie/laravel-google-fonts
+      // falls back to Google's own stylesheet and font files in production when the local copy is missing
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       implode(' ', ["img-src 'self' data:", ...self::IMAGE_HOSTS]),
-      "font-src 'self' data:",
+      "font-src 'self' data: https://fonts.gstatic.com",
       "connect-src 'self'",
       "object-src 'none'",
       "base-uri 'self'",
