@@ -13,9 +13,14 @@ use Tests\TestCase;
 class StaticCachedRoutesTest extends TestCase {
   use DatabaseTransactions;
 
-  /** @return array<RouteName> */
+  /** @return array<string, array{RouteName}> */
   public static function cachedPageRoutes(): array {
-    return CachePageResponse::ENABLED_ROUTES;
+    $routes = [];
+    foreach (CachePageResponse::ENABLED_ROUTES as $route) {
+      $routes[$route->value] = [$route];
+    }
+
+    return $routes;
   }
 
   /**

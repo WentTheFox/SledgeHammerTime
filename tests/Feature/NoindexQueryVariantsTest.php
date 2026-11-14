@@ -16,10 +16,7 @@ class NoindexQueryVariantsTest extends TestCase {
       'picker t' => ['/en?t=1792969080', true],
       'picker tz' => ['/en?tz=Asia%2FShanghai', true],
       'picker t and tz' => ['/en?t=1792969080&tz=GMT%2000:00', true],
-      'picker amp' => ['/en?amp', true],
-      'picker amp with empty value' => ['/en?amp=', true],
       'login amp' => ['/en/login?amp', true],
-      'legal amp' => ['/en/legal?amp=&t=1791156240', true],
       'plain legal' => ['/en/legal', false],
       // t and tz only mean something to the picker
       'legal t' => ['/en/legal?t=1791156240', false],
@@ -37,5 +34,20 @@ class NoindexQueryVariantsTest extends TestCase {
     } else {
       $response->assertHeaderMissing('X-Robots-Tag');
     }
+  }
+
+  /** @return array<string, array{string, string}> */
+  public static function redirectedUrls(): array {
+    return [
+      'picker amp' => ['/en?amp', '/en'],
+      'picker amp with empty value' => ['/en?amp=', '/en'],
+      'legal amp' => ['/en/legal?amp=&t=1791156240', '/en/legal'],
+    ];
+  }
+
+  /** The useless parameters are removed by redirecting, so these variants never get rendered */
+  #[DataProvider('redirectedUrls')]
+  public function test_useless_query_variants_are_redirected(string $url, string $target): void {
+    $this->get($url)->assertRedirect(url($target));
   }
 }

@@ -15,10 +15,12 @@ class RemoveUselessQueryParams {
    * @param Closure(Request): (Response) $next
    */
   public function handle(Request $request, Closure $next):Response {
-    if ($request->isMethod(Request::METHOD_GET)){
+    $routeName = RouteName::tryFrom((string) $request->route()?->getName());
+    // Only the public pages are cleaned up. Other web routes (signed bot login links, frontend JSON endpoints, ...) depend on their query string
+    if ($routeName !== null && in_array($routeName, CachePageResponse::ENABLED_ROUTES, true) && $request->isMethod(Request::METHOD_GET)){
       $queryParamsInput = $request->query->all();
       $queryParamsOutput = [];
-      if ($request->route()->getName() === RouteName::HOME->value){
+      if ($routeName === RouteName::HOME){
         $this->appendQueryParamIfExists($queryParamsInput, 't', $queryParamsOutput);
         $this->appendQueryParamIfExists($queryParamsInput, 'tz', $queryParamsOutput);
       }

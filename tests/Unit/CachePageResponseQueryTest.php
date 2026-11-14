@@ -25,6 +25,8 @@ class CachePageResponseQueryTest extends TestCase {
 
   private function handle(string $url, string $renderedMarker, string $page = RouteName::HOME->value) {
     $request = Request::create($url);
+    $route = app('router')->getRoutes()->match($request);
+    $request->setRouteResolver(fn() => $route);
 
     return (new CachePageResponse())->handle($request, fn() => response($this->page($renderedMarker)), $page);
   }
@@ -66,8 +68,14 @@ class CachePageResponseQueryTest extends TestCase {
     $this->assertStringNotContainsString('locked', $content);
   }
 
-  public function test_t_and_tz_only_matter_for_the_picker(): void {
-    $this->handle('http://localhost/en/legal?t=1', 'legal', 'legal');
+  public function test_renders_with_any_query_are_never_stored_on_other_pages(): void {
+    $this->handle('http://localhost/en/legal?t=1', 'legal', RouteName::LEGAL->value);
+
+    $this->assertNull(Cache::get(CachePageResponse::cacheKey(RouteName::LEGAL, App::getLocale(), null)));
+  }
+
+  public function test_plain_requests_are_stored_on_other_pages(): void {
+    $this->handle('http://localhost/en/legal', 'legal', RouteName::LEGAL->value);
 
     $this->assertNotNull(Cache::get(CachePageResponse::cacheKey(RouteName::LEGAL, App::getLocale(), null)));
   }
