@@ -21,9 +21,9 @@ on:
     branches: [ main, beta ]
   workflow_dispatch:
 
-concurrency:
-  group: ci-images-${{ github.ref }}
-  cancel-in-progress: false
+# There is deliberately no concurrency group on this workflow: a newer push may cancel the tests of an older commit (see build.yml), which
+# then builds no images, but once the image jobs have started they always run to the end, so a commit never ends up with only some of
+# its images (one architecture built, the other cancelled, or tags added to only some manifests).
 
 permissions:
   contents: write

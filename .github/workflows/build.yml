@@ -7,6 +7,8 @@ on:
     branches: [ main ]
   workflow_call:
 
+# A newer run on the same ref cancels the older one. From images.yml that only ever cancels the tests of an older commit, so that commit gets
+# no images at all; once its image jobs have started nothing can cancel them (see the comment in images.yml)
 concurrency:
   group: ci-node-${{ github.ref }}
   cancel-in-progress: true
