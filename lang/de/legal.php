@@ -52,7 +52,7 @@ return [
     'heading' => 'Änderungen & Revisionen',
     'effectiveFrom' => 'Die Allgemeinen Geschäftsbedingungen und die Datenschutzrichtlinie, zusammenfassend "Dokumente" genannt, gelten ab dem Datum ihrer letzten Aktualisierung und bleiben in Kraft, außer im Hinblick auf zukünftige Änderungen ihrer Bestimmungen, die unmittelbar nach ihrer Veröffentlichung auf dieser Seite in Kraft treten werden.',
     'rightToChange' => 'Wir behalten uns das Recht vor, diese Dokumente jederzeit zu aktualisieren oder zu ändern, und du solltest diese Seite in regelmäßigen Abständen überprüfen. Wenn du das Projekt weiterhin nutzt, nachdem wir Änderungen an den Dokumenten auf dieser Seite veröffentlicht haben, erkennen du die Änderungen an und erklärst dich damit einverstanden, die geänderten Dokumente einzuhalten und an sie gebunden zu sein.',
-    'willNotify' => 'Wenn wir wesentliche Änderungen an diesen Dokumenten vornehmen, werden wir dich durch einen auffälligen Hinweis auf unserer Website sowie durch eine Ankündigung auf dem Discord-Supportserver des Bots informieren.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Kontaktiere uns',

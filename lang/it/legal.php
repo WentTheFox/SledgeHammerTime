@@ -52,7 +52,7 @@ return [
     'heading' => 'Modifiche & Revisioni',
     'effectiveFrom' => 'I Termini e le Condizioni e l\'Informativa sulla privacy, collettivamente "Documenti", sono in vigore alla data del loro ultimo aggiornamento e rimarranno in vigore, salvo per quanto riguarda eventuali modifiche future delle sue disposizioni, che saranno in vigore immediatamente dopo la pubblicazione su questa pagina.',
     'rightToChange' => 'Ci riserviamo il diritto di aggiornare o modificare questi Documenti in qualsiasi momento e lei dovrebbe controllare periodicamente questa pagina. L\'uso continuato del Progetto da parte dell\'utente dopo la pubblicazione di eventuali modifiche ai Documenti su questa pagina costituirà il riconoscimento delle modifiche e il consenso a rispettare ed essere vincolati dai Documenti modificati.',
-    'willNotify' => 'Se apportiamo modifiche sostanziali a questi Documenti, la informeremo inserendo un avviso in evidenza sul nostro sito web, nonché pubblicando un annuncio nel server di supporto Discord del Bot.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contattaci',

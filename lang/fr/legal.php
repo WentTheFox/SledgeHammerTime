@@ -52,7 +52,7 @@ return [
     'heading' => 'Changements et révisions',
     'effectiveFrom' => 'Les Conditions Générales d’Utilisation et la Politique de Confidentialité, collectivement dénommées "Documents", entrent en vigueur à la date de leur dernière mise à jour et le resteront, sauf en ce qui concerne les modifications futures de leurs dispositions, qui entreront en vigueur immédiatement après leur publication sur cette page.',
     'rightToChange' => 'Nous nous réservons le droit de mettre à jour ou de modifier ces Documents à tout moment et nous vous conseillons de consulter régulièrement cette page. En continuant à utiliser le Projet après la publication de toute modification des Documents sur cette page, vous reconnaissez les modifications et acceptez de vous conformer et d\'être lié par les Documents modifiés.',
-    'willNotify' => 'Si nous apportons des modifications importantes à ces Documents, nous vous en informerons en plaçant une notification bien visible sur notre site web, ainsi qu\'en publiant une annonce sur le serveur de support Discord du Bot.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Nous contacter',

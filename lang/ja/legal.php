@@ -52,7 +52,7 @@ return [
     'heading' => '変更と改訂',
     'effectiveFrom' => '利用規約およびプライバシーポリシー、以下、総称して「本規約」は、最終更新日をもって発効し、将来的にその規定に変更が生じた場合を除き、引き続き有効です。変更が生じた場合、当該変更は本ページに掲載された直後に発効します。',
     'rightToChange' => '当社は、これらの文書を随時更新または変更する権利を留保します。お客様は定期的にこのページを確認する必要があります。当社が本ページに文書の変更を掲載した後もプロジェクトを継続してご利用になる場合、お客様は変更を承認し、変更後の文書に従い拘束されることに同意したものとみなされます。',
-    'willNotify' => 'これらの文書に重要な変更を加えた場合、当社ウェブサイトに目立つ通知を掲載するとともに、ボットのDiscordサポートサーバーに告知を掲示して通知いたします。',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => '連絡先',

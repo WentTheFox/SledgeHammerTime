@@ -53,7 +53,7 @@ return [
     'heading' => 'Zmiany i poprawki',
     'effectiveFrom' => 'Regulamin i Polityka prywatności, zwane "Dokumentami", obowiązują od daty ich ostatniej aktualizacji i pozostaną w mocy, z wyjątkiem wszelkich zmian ich postanowień w przyszłości, które wejdą w życie natychmiast po ich opublikowaniu na tej stronie.',
     'rightToChange' => 'Zastrzegamy sobie prawo do aktualizacji lub zmiany niniejszych Dokumentów w dowolnym momencie i powinni Państwo okresowo sprawdzać tę stronę. Dalsze korzystanie przez Państwa z Projektu po opublikowaniu przez nas jakichkolwiek modyfikacji Dokumentów na tej stronie będzie stanowić Państwa potwierdzenie tych modyfikacji oraz zgodę na przestrzeganie i związanie się zmodyfikowanymi Dokumentami.',
-    'willNotify' => 'Jeśli wprowadzimy jakiekolwiek istotne zmiany w tych dokumentach, powiadomimy Cię poprzez umieszczenie na naszej stronie widocznego wpisu, a także opublikowanie ogłoszenia na serwerze wsparcia Discorda.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Skontaktuj się z nami',
