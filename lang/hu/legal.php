@@ -52,7 +52,7 @@ return [
     'heading' => 'Változások és újabb verziók',
     'effectiveFrom' => 'Az Általános Szerződési Feltételek és az Adatvédelmi irányelvek, együttesen "Dokumentumok", az utolsó frissítésük időpontjától érvényesek, és továbbra is hatályban maradnak, kivéve a rendelkezések jövőbeni módosításait, amelyek az ezen az oldalon történő közzétételt követően azonnal hatályba lépnek.',
     'rightToChange' => 'Fenntartjuk a jogot, hogy ezeket a Dokumentumokat bármikor frissítsük vagy módosítsuk, ezért rendszeresen ellenőrizze ezt az oldalt. A Projekt további használata azt követően, hogy a Dokumentumok bármely módosítását közzétesszük ezen az oldalon, a módosítások tudomásul vételének, valamint a módosított Dokumentumok betartásához való hozzájárulásának minősül.',
-    'willNotify' => 'Ha lényeges változtatásokat eszközlünk a jelen Dokumentumokban, erről a weboldalunkon elhelyezett, jól látható közleményben, valamint a Bot Discord támogatási szerverén közzétett közleményben értesítjük Önt.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Kapcsolatfelvétel',

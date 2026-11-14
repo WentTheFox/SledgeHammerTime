@@ -52,7 +52,7 @@ return [
     'heading' => 'Muutokset & korjaukset',
     'effectiveFrom' => 'Ehdot ja tietosuojakäytäntö (yhdessä ”Asiakirjat”) ovat voimassa niiden viimeisimmästä päivityksestä alkaen ja pysyvät voimassa, lukuun ottamatta mahdollisia tulevia muutoksia niiden määräyksiin. Tällaiset muutokset tulevat voimaan heti, kun ne ovat julkaistu tällä sivulla.',
     'rightToChange' => 'Pidätämme oikeuden päivittää tai muuttaa näitä asiakirjoja milloin tahansa, ja sinun pitäisi tarkistaa tämä sivu määräajoin. Sinun jatkuva projektin käyttö sen jälkeen kun muutamme asiakirjoja sivulla muodostaa tunnustuksenne muutoksista ja suostumuksesi noudattaa muutettuja asiakirjoja ja sitoutua niihin.',
-    'willNotify' => 'Jos muutamme asiakirjojen materiaalia, tiedotamme sinulle lisäämällä sivullemme näkyvän huomautuksen, sekä julkaisemalla ilmoituksen botin Discord tukipalvelimelle.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Ole meihin yhteydessä',

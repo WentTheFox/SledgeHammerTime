@@ -52,7 +52,7 @@ return [
     'heading' => 'Změny a revize',
     'effectiveFrom' => 'Smluvní podmínky a Zásady ochrany osobních údajů (pod společným názvem "Dokumenty") jsou platné ke dni jejich poslední aktualizace a zůstávají v platnosti až do případných budoucích změn, které nabývají účinnosti okamžitě po jejich zveřejnění na této stránce.',
     'rightToChange' => 'Vyhrazujeme si právo tyto dokumenty kdykoli aktualizovat nebo změnit bez předchozího upozornění, a proto vám doporučujeme tuto stránku pravidelně kontrolovat. Pokračováním v používání projektu po zveřejnění jakýchkoli změn na této stránce potvrzujete, že změny berete na vědomí a souhlasíte s tím, že se zavazujete upravenými dokumenty řídit.',
-    'willNotify' => 'Pokud provedeme zásadní změny v těchto dokumentech, budeme vás informovat zřetelným oznámením na našem webu a také zveřejněním oznámení na Discord serveru podpory bota.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Kontakt',

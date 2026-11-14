@@ -52,7 +52,7 @@ return [
     'heading' => 'Perubahan & Semakan',
     'effectiveFrom' => 'Terma & Syarat dan Polisi Privasi ini, bersama-sama dipanggil "Dokumen", berkuat kuasa mulai tarikh kemas kini terakhirnya dan kekal berkuat kuasa kecuali berhubung dengan sebarang perubahan dalam peruntukannya pada masa hadapan, yang akan berkuat kuasa secara serta merta setelah dimasukkan ke halaman ini.',
     'rightToChange' => 'Kami berhak untuk mengemas kini atau mengubah Dokumen ini pada bila-bila masa dan anda patut semak halaman ini secara berkala. Penggunaan anda secara berterusan pada Projek ini setelah kami memasukkan sebarang pengubahsuaian terhadap Dokumen di halaman ini membentuk perakuan anda mengenai pengubahsuaian tersebut dan persetujuan anda untuk mematuhi dan terikat pada Dokumen yang diubahsuai.',
-    'willNotify' => 'Sekiranya kami melakukan sebarang perubahan bahan pada Dokumen ini, kami akan memberitahu anda dengan meletakkan notis yang ulung di laman sesawang kami, dan juga menghantar pengumuman di pelayan sokongan Discord milik Bot ini.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Hubungi Kami',

@@ -52,7 +52,7 @@ return [
     'heading' => 'Perubahan & Revisi',
     'effectiveFrom' => 'Syarat & Ketentuan dan Kebijakan Privasi, secara kolektif disebut "Dokumen", berlaku sejak tanggal pembaruan terakhirnya dan akan tetap berlaku kecuali terdapat perubahan pada ketentuannya di masa mendatang, yang akan berlaku segera setelah diposting di halaman ini.',
     'rightToChange' => 'Kami berhak untuk memperbarui atau mengubah Dokumen ini kapan saja dan Anda harus memeriksa halaman ini secara berkala. Penggunaan Proyek secara berkelanjutan setelah kami memposting modifikasi apa pun pada Dokumen di halaman ini akan dianggap sebagai pengakuan Anda atas modifikasi tersebut dan persetujuan Anda untuk mematuhi dan terikat oleh Dokumen yang telah dimodifikasi.',
-    'willNotify' => 'Jika kami melakukan perubahan material apa pun pada Dokumen ini, kami akan memberi tahu Anda dengan menempatkan pemberitahuan yang jelas di situs web kami, serta memposting pengumuman di server dukungan Discord Bot.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Hubungi Kami',
