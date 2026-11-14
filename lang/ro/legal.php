@@ -52,7 +52,7 @@ return [
     'heading' => 'Modificări & Revizuiri',
     'effectiveFrom' => 'Termenii și condițiile și Politica de confidențialitate, denumite colectiv „Documente”, intră în vigoare la data ultimei actualizări și vor rămâne în vigoare, cu excepția oricăror modificări ale prevederilor sale în viitor, care vor intra în vigoare imediat după publicarea pe această pagină.',
     'rightToChange' => 'Ne rezervăm dreptul de a actualiza sau modifica aceste Documente în orice moment, iar dumneavoastră trebuie să verificați periodic această pagină. Utilizarea în continuare a Proiectului după publicarea oricăror modificări aduse Documentelor pe această pagină va constitui recunoașterea modificărilor și consimțământul dumneavoastră de a respecta și de a fi obligat să respectați Documentele modificate.',
-    'willNotify' => 'Dacă vom aduce modificări semnificative acestor Documente, vă vom notifica prin afișarea unui anunț vizibil pe site-ul nostru web, precum și prin publicarea unui anunț pe serverul de suport Discord al Botului.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contactați-ne',

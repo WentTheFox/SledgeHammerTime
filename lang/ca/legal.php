@@ -52,7 +52,7 @@ return [
     'heading' => 'Canvis i revisions',
     'effectiveFrom' => 'Els Termes i Condicions i la Política de privadesa, col·lectivament anomenats «Documents», són vigents des de la data de l\'última actualització i continuaran vigents, excepte pel que fa a qualsevol canvi en les seves disposicions en el futur, que entraran en vigor immediatament després de ser publicats en aquesta pàgina.',
     'rightToChange' => 'Ens reservem el dret d\'actualitzar o modificar aquests Documents en qualsevol moment i hauríeu de consultar aquesta pàgina periòdicament. El vostre ús continuat del Projecte després que publiquem qualsevol modificació dels Documents en aquesta pàgina constituirà el vostre reconeixement de les modificacions i el vostre consentiment per acatar i estar vinculats als Documents modificats.',
-    'willNotify' => 'Si fem qualsevol canvi substancial en aquests Documents, us ho notificarem mitjançant un avís destacat al nostre lloc web, així com publicant un anunci al servidor de suport de Discord del Bot.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contacteu-nos',

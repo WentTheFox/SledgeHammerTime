@@ -52,7 +52,7 @@ return [
     'heading' => 'Wijzigingen & herzieningen',
     'effectiveFrom' => 'De Algemene voorwaarden en het Privacybeleid, gezmanlijk de "Documenten", zijn van kracht vanaf de datum waarop ze voor het laatst zijn bijgewerkt en blijven van kracht, behalve met betrekking tot eventuele toekomstige wijzigingen in de bepalingen, die onmiddelijk van kracht zijn nadat ze op deze pagina zijn geplaatst.',
     'rightToChange' => 'Wij behouden het recht om deze Documenten ten alle tijde bij te werken of te wijzigen en u dient deze pagina regelmatig te controleren. Als u het Project blijft gebruiken nadat wij wijzigingen aan de Documenten op deze pagina hebben geplaatst, betekent dit dat u de wijzigingen erkent en ermee instemt u er aan te houden en gebonden te zijn door de gewijzigde Documenten.',
-    'willNotify' => 'Als wij verandering maken in deze Documenten, zullen wij u hiervan op de hoogte stellen door een prominente kennisgeving op onze website te plaatsen, evenals aankondiging in de Bots ondersteuningsserver.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Contacteer ons',

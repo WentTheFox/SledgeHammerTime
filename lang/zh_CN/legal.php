@@ -52,7 +52,7 @@ return [
     'heading' => '变更与修订',
     'effectiveFrom' => '条款与条件以及隐私政策统称为“文档”，自其最后更新日期起生效，并将会持续有效（除非未来对其条款进行任何更改）。对条款的更改将在本页面发布后立即生效。',
     'rightToChange' => '如果我们对这些文档做出任何重大更改，我们将通过在我们网站上放置显眼的通知以及在本机器人的 Discord 支持服务器中发布公告来通知您。',
-    'willNotify' => '如果您对这些文档有任何疑问，或者希望要求删除我们存储的任何个人身份信息（PII），请通过本机器人的 Discord 服务器或使用开发者网站上列出的任何方法联系我们。',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => '联系我们',

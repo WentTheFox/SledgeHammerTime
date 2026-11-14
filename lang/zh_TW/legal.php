@@ -52,7 +52,7 @@ return [
     'heading' => '變更與修訂',
     'effectiveFrom' => '《條款與細則》及《隱私權政策》（統稱「文件」）自其最後更新日期起生效，並將持續有效；惟未來若對其條款進行任何變更，該等變更將於本頁面發布後立即生效。',
     'rightToChange' => '我們保留隨時更新或修改本文件的權利，您應定期查閱本頁面。當我們在本頁面發布任何文件修改內容後，您若繼續使用本專案，即視為您已知悉該等修改，並同意遵守及受修改後之文件約束。',
-    'willNotify' => '若我們對這些文件進行任何重大變更，我們將透過在網站上發布醒目通知，以及在該機器人的 Discord 支援伺服器中發布公告，向您通知。',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => '聯絡我們',

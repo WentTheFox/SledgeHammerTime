@@ -52,7 +52,7 @@ return [
     'heading' => 'Değişiklikler ve Revizyonlar',
     'effectiveFrom' => 'Topluca "Belgeler" olarak anılan Şartlar ve Koşullar ile Gizlilik Politikası, son güncelleme tarihi itibarıyla yürürlüktedir ve gelecekte hükümlerinde yapılacak herhangi bir değişiklik haricinde yürürlükte kalmaya devam edecektir; söz konusu değişiklikler bu sayfada yayınlandıktan hemen sonra yürürlüğe girecektir.',
     'rightToChange' => 'Bu Belgeleri herhangi bir zamanda güncelleme veya değiştirme hakkını saklı tutuyoruz; bu nedenle bu sayfayı periyodik olarak kontrol etmelisiniz. Belgeler üzerinde yaptığımız değişiklikleri bu sayfada yayınlamamızın ardından Projeyi kullanmaya devam etmeniz; değişiklikleri kabul ettiğiniz ve değiştirilmiş Belgelere uymayı ve bunlarla bağlı kalmayı onayladığınız anlamına gelecektir.',
-    'willNotify' => 'Bu Belgelerde herhangi bir önemli değişiklik yapmamız durumunda; web sitemizde belirgin bir bildirim yayınlayarak ve Botun Discord destek sunucusunda bir duyuru paylaşarak sizi bilgilendireceğiz.',
+    'willNotify' => 'If we make any material changes to these Documents, we will notify you by placing a prominent notice on our website, as well as posting an announcement in the Bot\'s Discord support server.',
   ],
   'contact' => [
     'heading' => 'Bize Ulaşın',
