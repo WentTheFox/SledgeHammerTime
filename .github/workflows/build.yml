@@ -1,10 +1,11 @@
 name: Build
 
+# Pushes to main and beta are not a trigger here: images.yml calls this workflow (workflow_call) and only builds the container images
+# when it succeeds, so a failing lint, PHPStan or test run never produces images.
 on:
-  push:
-    branches: [ main, beta ]
   pull_request:
     branches: [ main ]
+  workflow_call:
 
 concurrency:
   group: ci-node-${{ github.ref }}

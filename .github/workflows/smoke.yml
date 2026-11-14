@@ -35,7 +35,7 @@ env:
 
 jobs:
   smoke:
-    name: Smoke test ${{ github.event.deployment.environment || 'site' }}
+    name: 'Smoke test ${{ github.event.deployment.environment || inputs.url }}'
     # Argo CD also reports in_progress/failure states, only a successful, healthy sync is worth testing
     if: github.event_name == 'workflow_dispatch' || github.event.deployment_status.state == 'success'
     runs-on: ubuntu-24.04

@@ -8,6 +8,8 @@ name: Publish container images
 # The sha-<sha7> tag is what Argo CD Image Updater follows. It is added to all three manifest lists as the very last
 # registry step, so it never exists on a partial set (fpm/web/ssr of one commit appear together).
 #
+# Nothing is built unless the Build workflow (lint, PHPStan, unit/feature/browser tests) passes first, via the `test` job.
+#
 # Each architecture is built natively on its own runner (no qemu emulation, which makes the PHP extension compile
 # take far too long), pushed as <sha7>-<arch>, then merged into one multi-arch tag per image.
 #
@@ -29,7 +31,12 @@ permissions:
 
 jobs:
   build:
-    name: 'Build ${{ matrix.arch }}'
+    name: 'Lint, PHPStan and tests'
+    uses: ./.github/workflows/build.yml
+
+  bake:
+    name: 'Bake ${{ matrix.arch }}'
+    needs: build
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
@@ -75,7 +82,7 @@ jobs:
 
   publish:
     name: 'Publish multi-arch tags'
-    needs: build
+    needs: bake
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
