@@ -39,67 +39,52 @@ jobs:
 
       - run: git config --global --add safe.directory /app
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
-        with:
-          php-version: 8.5
-          extensions: bcmath, intl, pcntl, pdo_pgsql, opentelemetry
-
-      - name: Cache Composer dependencies
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: vendor
-          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
-
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
-        with:
-          version: 11
-
-      - name: Setup Node.js
-        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
-        with:
-          node-version: '24'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
+      - uses: ./.github/actions/setup
 
       - run: pnpm run lint
 
       - run: pnpm run test
 
-      - run: pnpm run build
-
-      - name: Prepare .env
-        run: |
-          cp .env.example .env
-          # Configure Laravel to use built-in PostgreSQL
-          sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=pgsql/' .env
-          sed -i 's/DB_HOST=.*/DB_HOST=127.0.0.1/' .env
-          sed -i 's/DB_PORT=.*/DB_PORT=5432/' .env
-          sed -i 's/DB_DATABASE=.*/DB_DATABASE=laravel_test/' .env
-          sed -i 's/DB_USERNAME=.*/DB_USERNAME=laravel_test/' .env
-          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=hunter2/' .env
-
-      - name: Generate app key
-        run: php artisan key:generate
-
-      - name: Start built-in PostgreSQL
-        run: |
-          sudo systemctl start postgresql.service
-          sudo systemctl status postgresql.service
-          sudo -u postgres psql -c "CREATE DATABASE laravel_test;"
-          sudo -u postgres psql -c "CREATE USER laravel_test PASSWORD 'hunter2' SUPERUSER;"
-
-      - name: Run migrations
-        run: php artisan migrate --force
-
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyse --error-format=github
+
+      - name: Run unit and feature tests
+        run: php artisan test --filter="Unit|Feature"
+
+      - name: Run deploy-window tests (new code on the previous release's schema)
+        run: php artisan test --group=deploy-window
+        env:
+          DEPLOY_BASE_REF: origin/${{ github.base_ref || 'main' }}
+
+  # One job per browser, running side by side once lint-and-test (including PHPStan) has passed; each has its own runner, database and Redis
+  browser-tests:
+    name: 'Browser tests (${{ matrix.browser }})'
+    needs: lint-and-test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [ firefox, chrome ]
+    env:
+      CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
+      CROWDIN_PROJECT_IDENTIFIER: ${{ vars.CROWDIN_PROJECT_IDENTIFIER }}
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - run: git config --global --add safe.directory /app
+
+      - uses: ./.github/actions/setup
 
       - name: Cache Playwright browsers
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
@@ -111,23 +96,8 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run unit and feature tests
-        run: php artisan test --filter="Unit|Feature"
-
-      - name: Run deploy-window tests (new code on the previous release's schema)
-        run: php artisan test --group=deploy-window
-        env:
-          DEPLOY_BASE_REF: origin/${{ github.base_ref || 'main' }}
-
-      - name: Run browser tests (in Firefox)
-        run: php artisan test --filter="Browser" --browser firefox -vvv
-        env:
-          # Set here because phpunit.xml applies its env after the autoloader has registered the hooks; the app runs inside a
-          # fiber in these tests, where the hooks cannot read the OpenTelemetry context and only log warnings
-          OTEL_PHP_DISABLED_INSTRUMENTATIONS: all
-
-      - name: Run browser tests (in Chrome)
-        run: php artisan test --filter="Browser" --browser chrome -vvv
+      - name: Run browser tests (in ${{ matrix.browser }})
+        run: php artisan test --filter="Browser" --browser ${{ matrix.browser }} -vvv
         env:
           # Set here because phpunit.xml applies its env after the autoloader has registered the hooks; the app runs inside a
           # fiber in these tests, where the hooks cannot read the OpenTelemetry context and only log warnings
