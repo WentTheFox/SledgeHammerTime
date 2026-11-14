@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\RouteName;
 use App\Services\LocalSettingsService;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,21 +20,34 @@ class CachePageResponse {
    * emptied on every deploy: the cluster runs `php artisan app:clear-page-cache` as a PostSync hook after each sync. Bumping
    * APP_PAGE_CACHE_VERSION invalidates everything by hand, e.g. when that hook failed.
    */
-  public static function cacheKey(string $page, string $locale, ?string $theme): string {
+  /**
+   * @var array<RouteName>
+   */
+  public const ENABLED_ROUTES = [
+    RouteName::HOME,
+    RouteName::BOT_INFO,
+    RouteName::LEGAL,
+    RouteName::ANALYTICS,
+  ];
+
+  public static function cacheKey(RouteName $routeName, string $locale, ?string $theme): string {
     $version = Config::get('app.page_cache.version', 0);
-    return "page-html-{$page}-{$locale}-{$theme}-v$version";
+    return "page-html-{$routeName->value}-{$locale}-{$theme}-v$version";
   }
 
   /**
    * Forget all locale variants of a cached page.
    * Call this whenever the underlying data for a page changes.
    */
-  public static function forgetPage(string $page): void {
+  public static function forgetPage(RouteName $routeName): int {
+    $count = 0;
     foreach (Config::get('languages.ui_locale_map', []) as $locale) {
+      $count++;
       foreach(LocalSettingsService::THEMES as $theme) {
-        Cache::forget(static::cacheKey($page, $locale, $theme));
+        Cache::forget(static::cacheKey($routeName, $locale, $theme));
       }
     }
+    return $count;
   }
 
   /**
@@ -86,18 +100,19 @@ class CachePageResponse {
     ];
   }
 
-  /**
-   * GET parameters that change the page content: the picker's locked timestamp and timezone (`t`, `tz`).
-   */
-  private function outputDependsOnQuery(Request $request, string $page): bool {
-    return $page === 'picker' && ($request->query('t') !== null || $request->query('tz') !== null);
-  }
-
-  /**
-   * @param string|null $ttlSeconds Overrides the default cache lifetime, for pages whose data goes stale sooner than a day.
-   */
-  public function handle(Request $request, Closure $next, string $page, ?string $ttlSeconds = null): Response {
+  public function handle(Request $request, Closure $next): Response {
     if (!Config::get('app.page_cache.enabled')) {
+      return $next($request);
+    }
+
+    // Do not cache unnamed routes
+    $routeName = $request->route()->getName();
+    if ($routeName === null) {
+      return $next($request);
+    }
+    $knownRouteName = RouteName::tryFrom($routeName);
+    if ($knownRouteName === null || !in_array($knownRouteName, self::ENABLED_ROUTES, true)) {
+      // Skip caching on unsupported route name
       return $next($request);
     }
 
@@ -108,11 +123,6 @@ class CachePageResponse {
       return $next($request);
     }
 
-    // A request carrying `t`/`tz` may still be served the cached generic page, but whatever it renders must never be
-    // stored: the values reach the rendered output through Ziggy's `location` shared prop (route().params), so the
-    // next visitor of the plain URL would get that timestamp baked in.
-    $outputDependsOnQuery = $this->outputDependsOnQuery($request, $page);
-
     // Inertia SPA navigations send X-Inertia header - serve those fresh so shared
     // props (crowdinData, ziggy, etc.) stay up to date across client-side navigations.
     if ($request->inertia()) {
@@ -121,7 +131,7 @@ class CachePageResponse {
 
     $locale = App::getLocale();
     $theme = LocalSettingsService::resolveTheme($request);
-    $cacheKey = static::cacheKey($page, $locale, $theme);
+    $cacheKey = static::cacheKey($knownRouteName, $locale, $theme);
 
     /** @var array{html: string, last_modified: int}|string|null $cached */
     $cached = Cache::get($cacheKey);
@@ -159,12 +169,12 @@ class CachePageResponse {
 
     $response = $next($request);
 
-    if (!$outputDependsOnQuery && $response->getStatusCode() === 200 && $this->isValidPageContent($response->getContent())) {
+    if ($this->canCacheResponse($request, $response)) {
       $lastModified = now()->utc()->timestamp;
       Cache::put($cacheKey, [
         'html' => $response->getContent(),
         'last_modified' => $lastModified,
-      ], $ttlSeconds !== null ? (int)$ttlSeconds : self::CACHE_TTL_SECONDS);
+      ], $this->getCacheTtlSeconds($knownRouteName));
 
       foreach ($this->cacheHeaders($lastModified) as $name => $value) {
         $response->headers->set($name, $value);
@@ -172,5 +182,26 @@ class CachePageResponse {
     }
 
     return $response;
+  }
+
+  protected function canCacheResponse(Request $request, Response $response): bool {
+    if ($response->getStatusCode() !== 200) {
+      return false;
+    }
+
+    // A request carrying query parameters may still be served the cached generic page, but whatever it renders must
+    // never be stored: the values reach the rendered output through Ziggy's `location` shared prop (route().params),
+    // so the next visitor of the plain URL would get that queries baked in.
+    // TODO Allow exact query parameters to be cached per-page if one is ever introduced (currently there are none)
+    $requestHasQuery = $request->query->count() > 0;
+
+    return !$requestHasQuery && $this->isValidPageContent($response->getContent());
+  }
+
+  protected function getCacheTtlSeconds(RouteName $routeName): int {
+    return match ($routeName) {
+      RouteName::ANALYTICS => config('analytics.cache_ttl_minutes') * 60,
+      default => self::CACHE_TTL_SECONDS,
+    };
   }
 }

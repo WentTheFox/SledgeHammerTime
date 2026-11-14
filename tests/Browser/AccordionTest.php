@@ -51,6 +51,7 @@ it('opens a closed accordion item when find-in-page reveals a match inside it', 
     location.hash = "#find-in-page-marker";
   }');
 
+  // TODO Investigate why test hangs here
   $page->page()->waitForFunction('() => document.querySelector(".api-operation .accordion-item-toggle").getAttribute("aria-expanded") === "true"');
   expect($toggle->getAttribute('aria-expanded'))->toBe('true')
     ->and($item->locator('.collapsible')->getAttribute('hidden'))->toBeNull();

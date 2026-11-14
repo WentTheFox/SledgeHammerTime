@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Enums\RouteName;
 use App\Http\Middleware\CachePageResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -22,14 +23,14 @@ class CachePageResponseQueryTest extends TestCase {
     return sprintf(self::VALID_PAGE, $marker);
   }
 
-  private function handle(string $url, string $renderedMarker, string $page = 'picker') {
+  private function handle(string $url, string $renderedMarker, string $page = RouteName::HOME->value) {
     $request = Request::create($url);
 
     return (new CachePageResponse())->handle($request, fn() => response($this->page($renderedMarker)), $page);
   }
 
   private function cacheKey(): string {
-    return CachePageResponse::cacheKey('picker', App::getLocale(), null);
+    return CachePageResponse::cacheKey(RouteName::HOME, App::getLocale(), null);
   }
 
   public function test_plain_requests_are_stored(): void {
@@ -68,6 +69,6 @@ class CachePageResponseQueryTest extends TestCase {
   public function test_t_and_tz_only_matter_for_the_picker(): void {
     $this->handle('http://localhost/en/legal?t=1', 'legal', 'legal');
 
-    $this->assertNotNull(Cache::get(CachePageResponse::cacheKey('legal', App::getLocale(), null)));
+    $this->assertNotNull(Cache::get(CachePageResponse::cacheKey(RouteName::LEGAL, App::getLocale(), null)));
   }
 }

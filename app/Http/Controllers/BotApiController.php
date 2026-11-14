@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\DiscordBotCommandOptionType;
 use App\Enums\ReviewDecision;
+use App\Enums\RouteName;
 use App\Enums\TelemetrySource;
 use App\Http\Middleware\CachePageResponse;
 use App\Http\Requests\CreateBotLoginLinkRequest;
@@ -18,9 +19,7 @@ use App\Models\BotCommand;
 use App\Models\BotCommandOption;
 use App\Models\BotCommandOptionChoice;
 use App\Models\BotTimezone;
-use App\Models\DiscordUser;
 use App\Models\FaqEntry;
-use App\Models\Settings;
 use App\Models\TranslationCreditOverride;
 use App\Models\TranslationCreditOverrideProposal;
 use App\Models\User;
@@ -175,7 +174,7 @@ class BotApiController extends Controller {
       return $commands;
     });
 
-    CachePageResponse::forgetPage('botinfo');
+    CachePageResponse::forgetPage(RouteName::BOT_INFO);
 
     return response()->json($commands);
   }

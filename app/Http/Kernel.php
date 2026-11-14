@@ -2,17 +2,19 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AddContentSecurityPolicy;
 use App\Http\Middleware\AddTraceIdHeader;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\BlockWritesInReadOnlyMode;
+use App\Http\Middleware\CachePageResponse;
 use App\Http\Middleware\ConsoleUserMiddleware;
-use App\Http\Middleware\InternalServiceMiddleware;
 use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Middleware\InternalServiceMiddleware;
 use App\Http\Middleware\LanguageDetector;
-use App\Http\Middleware\AddContentSecurityPolicy;
 use App\Http\Middleware\NoindexQueryVariants;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\RemoveUselessQueryParams;
 use App\Http\Middleware\TrackPageViews;
 use App\Http\Middleware\TranslatorMiddleware;
 use App\Http\Middleware\TrimStrings;
@@ -37,6 +39,7 @@ use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 
 class Kernel extends HttpKernel {
   /**
@@ -70,12 +73,14 @@ class Kernel extends HttpKernel {
       ShareErrorsFromSession::class,
       PreventRequestForgery::class,
       SubstituteBindings::class,
+      RemoveUselessQueryParams::class,
       LanguageDetector::class,
       HandleInertiaRequests::class,
       AddLinkHeadersForPreloadedAssets::class,
       TrackPageViews::class,
       NoindexQueryVariants::class,
       AddContentSecurityPolicy::class,
+      CachePageResponse::class,
     ],
 
     'api' => [
@@ -105,7 +110,7 @@ class Kernel extends HttpKernel {
     'verified' => EnsureEmailIsVerified::class,
     'console-user' => ConsoleUserMiddleware::class,
     // Sanctum's: the token has to have (one of) the ability, a token with * has them all
-    'ability' => \Laravel\Sanctum\Http\Middleware\CheckForAnyAbility::class,
+    'ability' => CheckForAnyAbility::class,
     'internal-service' => InternalServiceMiddleware::class,
     'translator' => TranslatorMiddleware::class,
   ];
