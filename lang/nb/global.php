@@ -55,7 +55,7 @@ return [
   ],
   'nav' => [
     'menu' => 'Menu',
-    'botSettings' => 'App Settings',
+    'botSettings' => 'App innstillinger',
     'profile' => 'Profil',
     'api' => 'API',
     'legal' => 'Legal Information',

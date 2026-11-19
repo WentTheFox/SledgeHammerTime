@@ -42,16 +42,16 @@ return [
     'body' => "Ваш браузер либо не поддерживает JavaScript, либо он отключен. Некоторые браузеры отключают JavaScript по умолчанию из соображений безопасности, но для данного приложения он необходим. Пожалуйста, включите его и обновите страницу, или используйте другой браузер.",
   ],
   'privacyUpdated' => [
-    'title' => 'Privacy Policy updated.',
-    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+    'title' => 'Обновление Политики конфиденциальности.',
+    'body' => 'В настоящее время мы проводим анализ производительности с целью выявления ошибок и страниц, загружающихся слишком медленно. Вы можете отказаться от участия в соответствии с <1>Политикой конфиденциальности</1>.',
   ],
   'requestFailed' => [
-    'title' => 'Something went wrong.',
-    'body' => 'If it keeps happening, include this reference when you report the problem:',
+    'title' => 'Что-то пошло не так.',
+    'body' => 'Если эта проблема будет повторяться, укажите эту ссылку при отправке сообщения о неисправности:',
   ],
   'readOnly' => [
-    'title' => 'Read-only mode.',
-    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+    'title' => 'Режим "Только для чтения".',
+    'body' => 'Всё по-прежнему доступно для просмотра, однако в данный момент невозможно выполнить такие действия, как сохранение настроек или вход в систему.',
   ],
   'nav' => [
     'menu' => 'Меню',

@@ -25,8 +25,8 @@ return [
     'autoReload' => 'De pagina wordt automatisch herladen <1/>',
     'reloadButton' => 'Handmatig herladen',
     "supportServerButton" => "Support Server",
-    "contactDeveloperButton" => "Contact Developer",
-    "statusPageButton" => "Status Page",
+    "contactDeveloperButton" => "Contacteer ontwikkelaar",
+    "statusPageButton" => "Status pagina",
   ],
   'incompleteTranslations' => 'Vertalingen zijn onvolledig',
   'contributeTranslations' => 'Draag bij',
@@ -42,16 +42,16 @@ return [
     'body' => "Uw browser ondersteunt JavaScript niet of het is momenteel uitgeschakeld. Sommige browsers deactiveren JavaScript standaard om veiligheidsredenen, maar het is noodzakelijk voor de werking van deze webapplicatie. Activeer JavaScript en ververs de pagina of gebruik een andere browser.",
   ],
   'privacyUpdated' => [
-    'title' => 'Privacy Policy updated.',
-    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+    'title' => 'Privacybeleid bijgewerkt.',
+    'body' => 'Vanaf nu meten we de prestaties om problemen en langzame pagina\'s te vinden. Je kunt je afmelden in het <1>Privacybeleid</1>.',
   ],
   'requestFailed' => [
-    'title' => 'Something went wrong.',
-    'body' => 'If it keeps happening, include this reference when you report the problem:',
+    'title' => 'Er is iets fout gegaan.',
+    'body' => 'Mocht dit blijven gebeuren, vermeld dan deze referentie wanneer u het probleem rapporteert:',
   ],
   'readOnly' => [
-    'title' => 'Read-only mode.',
-    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+    'title' => 'Alleen-lezen modus.',
+    'body' => 'Alles kan nog bekeken worden, maar wijzigingen zoals instellingen opslaan of inloggen zijn momenteel niet mogelijk.',
   ],
   'nav' => [
     'menu' => 'Menu',
@@ -143,7 +143,7 @@ return [
       'openSourceSoftware' => 'Open-source software',
       'viewSourceCode' => 'Bekijk de source code',
       'notAffiliated' => 'Dit project is niet geassocieerd met Discord.',
-      'status' => 'Service status',
+      'status' => 'Servicestatus',
     ],
     'themeButton' => [
       'dark' => 'Donker Thema',
