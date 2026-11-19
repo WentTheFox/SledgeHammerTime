@@ -1,51 +1,51 @@
 <?php
 
 return [
-  'title' => 'App Settings',
-  'description' => 'Below you can see your current settings in the HammerTime App for each connected account.',
+  'title' => 'Налаштування',
+  'description' => 'Нижче ви можете побачити поточні налаштування у застосунку HammerTime для кожного долученого профілю',
   'learnMore' => 'Not sure what the app is or curious about what it can do? Visit the <1>Discord App</1> link to learn more.',
   'advancedSettings' => [
-    'toggleText' => 'Advanced settings',
+    'toggleText' => 'Додаткові налаштування',
   ],
-  'defaultOption' => 'Default',
+  'defaultOption' => 'За замовчуванням',
   'fields' => [
     'timezone' => [
       'displayName' => 'Часовий пояс',
     ],
     'format' => [
-      'displayName' => 'Format',
+      'displayName' => 'Формат',
     ],
     'formatMinimalReply' => [
-      'displayName' => 'Preview-only reply when using format option',
+      'displayName' => 'Тільки для перегляду відповідь при використанні налаштувань формату',
     ],
     'columns' => [
-      'displayName' => 'Columns',
+      'displayName' => 'Колонки',
     ],
     'ephemeral' => [
-      'displayName' => 'Ephemeral',
+      'displayName' => 'Тимчасовий',
     ],
     'header' => [
-      'displayName' => 'Header',
+      'displayName' => 'Заголовок',
     ],
     'boldPreview' => [
-      'displayName' => 'Format preview as bold',
+      'displayName' => 'Попередній перегляд формату жирним шрифтом',
     ],
     'defaultAtHour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:atCommandName command',
+      'displayName' => 'Параметр ":hourOptionName" для команди /:atCommandName',
     ],
     'defaultAtMinute' => [
-      'displayName' => 'Default ":minuteOptionName" option for /:atCommandName command',
+      'displayName' => 'Параметр ":minuteOptionName" для команди /:atCommandName',
     ],
     'defaultAtSecond' => [
-      'displayName' => 'Default ":secondOptionName" option for /:atCommandName command',
+      'displayName' => 'Параметр ":secondOptionName" для команди /:atCommandName',
     ],
     'telemetry' => [
-      'displayName' => 'Allow Telemetry collection',
-      'explanation' => 'This is entirely optional and has no effect your ability to use the bot. See the <1/> page for details.',
+      'displayName' => 'Дозволити збір телеметричних даних',
+      'explanation' => 'Це повністю необов’язково і ніяк не впливає на вашу можливість користуватися ботом. Детальнішу інформацію дивіться на сторінці <1/>.',
     ],
     'defaultAt12Hour' => [
-      'displayName' => 'Default ":hourOptionName" option for /:at12CommandName command',
+      'displayName' => 'Параметр за замовчуванням «:hourOptionName» для команди /:at12CommandName',
     ],
   ],
-  'saveSuccess' => 'Your settings have been saved successfully.',
+  'saveSuccess' => 'Ваші налаштування успішно збережено',
 ];

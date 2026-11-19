@@ -52,6 +52,6 @@ return [
     'url' => 'Server URL',
     'placeholderKey' => 'The key in the examples below is made up, it will not work. Replace it with one of your own keys.',
     'claudeCode' => 'Add it to Claude Code with:',
-    'otherClients' => 'Other clients take a similar configuration, with the URL and an Authorization header:',
+    'otherClients' => 'Outros clientes utilizam uma configuração semelhante, com a URL e um cabeçalho de autorização:',
   ],
 ];

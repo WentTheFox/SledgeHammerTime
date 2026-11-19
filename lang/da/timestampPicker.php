@@ -35,13 +35,13 @@ return [
     'syntaxColumn' => 'Syntaks',
     'resultColumn' => 'Resultat',
     'editFormats' => 'Customize formats',
-    'resetFormats' => 'Reset to defaults',
-    'hideFormat' => 'Hide this format',
-    'showFormat' => 'Show this format',
-    'unhideInProfile' => 'Unhide in profile settings',
+    'resetFormats' => 'Nulstil til standard',
+    'hideFormat' => 'Skjul dette format',
+    'showFormat' => 'Vis dette format',
+    'unhideInProfile' => 'Vis under profilindstillinger',
   ],
   'faq' => [
-    'title' => 'Frequently Asked Questions',
+    'title' => 'Ofte Stillede Spørgsmål',
     'description' => 'This section is English-only for now, and it\'s heavily based on content from <1>our Discord server</1>. Some links might not work as expected unless you are a member.',
   ],
   'usefulLinks' => [
@@ -56,7 +56,7 @@ return [
     ],
     'oldSite' => [
       'header' => 'HammerTime Old Website',
-      'p' => 'The old website of the project, still available until further notice',
+      'p' => 'Projektets gamle hjemmeside er stadig tilgængelig indtil videre',
     ],
     'textColor' => [
       'header' => 'Rebanes <1>farvede</1> tekstgenerator',

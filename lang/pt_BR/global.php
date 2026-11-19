@@ -2,7 +2,7 @@
 
 return [
   'seoDescription' => 'Gere indicadores de timestamp para mensagens do Discord',
-  'changeLanguage' => 'Mudar linguagem',
+  'changeLanguage' => 'Mudar idioma',
   "notFound" => [
     "heading" => "Página não encontrada",
     "content" => "Nada para ver aqui.",
@@ -25,8 +25,8 @@ return [
     'autoReload' => 'A página irá recarregar automaticamente <1/>',
     'reloadButton' => 'Recarregar manualmente',
     "supportServerButton" => "Servidor de Suporte",
-    "contactDeveloperButton" => "Contact Developer",
-    "statusPageButton" => "Status Page",
+    "contactDeveloperButton" => "Entrar em contato com o desenvolvedor",
+    "statusPageButton" => "Página de status",
   ],
   'incompleteTranslations' => 'As traduções estão incompletas',
   'contributeTranslations' => 'Contribuir',
@@ -42,7 +42,7 @@ return [
     'body' => "Seu navegador não suporta JavaScript ou está atualmente desabilitado. Alguns navegadores desativam o JavaScript por padrão por razões de segurança, mas é necessário para este aplicativo. Ative-o e atualize a página, ou use um navegador diferente.",
   ],
   'privacyUpdated' => [
-    'title' => 'Privacy Policy updated.',
+    'title' => 'Nossa Política de Privacidade foi atualizada.',
     'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
   ],
   'requestFailed' => [
@@ -143,7 +143,7 @@ return [
       'openSourceSoftware' => 'Software de código aberto',
       'viewSourceCode' => 'Ver código fonte',
       'notAffiliated' => 'Esse projeto não é filiado ao Discord.',
-      'status' => 'Service status',
+      'status' => 'Estado dos serviços',
     ],
     'themeButton' => [
       'dark' => 'Tema Escuro',

@@ -42,16 +42,16 @@ return [
     'body' => "Sinun selaimesi joko ei tue JavaScriptiä, tai se on pois käytöstä. Jotkut selaimet poistaa JavaScriptin käytöstä oletuksena turvallisuussyistä, mutta se on tarpeellinen tälle sovellukselle. Ole hyvä ja ota se käyttöön ja päivitä sivu, tai käytä eri selainta.",
   ],
   'privacyUpdated' => [
-    'title' => 'Privacy Policy updated.',
-    'body' => 'We now measure performance to find errors and slow pages. You can opt out in the <1>Privacy Policy</1>.',
+    'title' => 'Tietosuojakäytäntö päivitetty.',
+    'body' => 'Mittaamme nyt suorituskykyä löytääksemme virheitä ja hitaita sivuja. Voit jättäytyä pois <1>tietosuojakäytännössä</1>.',
   ],
   'requestFailed' => [
-    'title' => 'Something went wrong.',
-    'body' => 'If it keeps happening, include this reference when you report the problem:',
+    'title' => 'Jokin meni vikaan.',
+    'body' => 'Jos ongelma toistuu, mainitse tämä viite ilmoittaessa ongelmasta:',
   ],
   'readOnly' => [
-    'title' => 'Read-only mode.',
-    'body' => 'Everything can still be viewed, but changes such as saving settings or logging in are not possible right now.',
+    'title' => 'Vain luku -tila.',
+    'body' => 'Kaikki on silti nähtävissä, mutta muutokset, kuten asetusten tallentaminen ja sisään kirjautuminen eivät ole tällä hetkellä mahdollista.',
   ],
   'nav' => [
     'menu' => 'Valikko',

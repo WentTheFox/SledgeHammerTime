@@ -25,11 +25,11 @@ return [
     'autoReload' => 'Siden genindlæses automatisk <1/>',
     'reloadButton' => 'Genindlæs manuelt',
     "supportServerButton" => "Supportserver",
-    "contactDeveloperButton" => "Contact Developer",
-    "statusPageButton" => "Status Page",
+    "contactDeveloperButton" => "Kontakt udvikler",
+    "statusPageButton" => "Statusside",
   ],
   'incompleteTranslations' => 'Oversættelserne er ufuldstændige',
-  'contributeTranslations' => 'Bidrage',
+  'contributeTranslations' => 'Bidrag',
   'timezoneBadge' => [
     'currently' => 'Observeres i øjeblikket',
     'atPickedDate' => 'Observeret på det valgte tidspunkt',
@@ -143,7 +143,7 @@ return [
       'openSourceSoftware' => 'Open source software',
       'viewSourceCode' => 'Se kildekoden',
       'notAffiliated' => 'Dette projekt er ikke forbundet med Discord.',
-      'status' => 'Service status',
+      'status' => 'Tjeneste status',
     ],
     'themeButton' => [
       'dark' => 'Mørkt tema',
