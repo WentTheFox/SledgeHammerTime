@@ -411,6 +411,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Baran Mordoğan](https://crowdin.com/profile/okunamayanad)
   - [Dovg](https://crowdin.com/profile/tututuana)
   - [korayharman](https://crowdin.com/profile/korayharman)
+  - [Nelfense](https://crowdin.com/profile/Nelfense)
   - [WentTheFox](https://crowdin.com/profile/WentTheFox)
   - [x0jony](https://crowdin.com/profile/x0jony)
 - 🇺🇦 Ukrainian
