@@ -7,12 +7,9 @@
 /public/storage
 /storage/*.key
 /vendor
-/setup/deploy-config.sh
-/pm2.local.json
 .env
 .env.backup
 .env.production
-.infisical.yaml
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -32,5 +29,5 @@ crowdin_report*.json5
 /coverage/
 /smoke-artifacts/
 
-# pm2 logs written by the SSR process (see deploy.conf / deploy.logrotate)
-/logs/
+
+.infisical.yaml

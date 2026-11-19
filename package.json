@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "generate-translation-credits": "tsx --tsconfig ./tsconfig.utils.json ./utils/translation-credits.ts --force",
-    "dev:server": "infisical run --env=dev -- vite",
-    "dev:php": "git-deploy-dev hammertime-fpm",
-    "dev:queue": "git-deploy-dev hammertime-horizon",
+    "dev:server": "setup/dev/with-secrets.sh vite",
+    "dev:php": "setup/dev/with-secrets.sh php-fpm -F -O -y setup/dev/php-fpm.conf",
+    "dev:queue": "setup/dev/with-secrets.sh php artisan horizon",
     "dev": "concurrently -p name pnpm:dev:*",
     "lint": "eslint resources/**/*.{ts,vue}",
     "build:type-check": "vue-tsc",
