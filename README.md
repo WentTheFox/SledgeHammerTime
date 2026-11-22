@@ -225,6 +225,7 @@ English and Hungarian translations have been included, so no translators will be
   - [Drawingpasu](https://crowdin.com/profile/Drawingpasu)
   - [haav](https://crowdin.com/profile/haav)
   - [Hweesang W.](https://crowdin.com/profile/hwswoo)
+  - [Junny1219](https://crowdin.com/profile/Junny1219)
   - [Nomu Ako](https://crowdin.com/profile/irisfernwyn)
   - [Phrygia](https://github.com/sjkim04)
   - [pinedapple (pinedapple)](https://crowdin.com/profile/jayden0108lee)
