@@ -1,7 +1,7 @@
 name: Publish container images
 
 # Publishes the three images (fpm, web, ssr), multi-arch, to ghcr.io for EVERY push to main or beta, tagged <sha7> and
-# sha-<sha7>. There are no version tags, no `latest` and no git tags: the commit is the version. The same images serve
+# sha-<sha7>. There are no version tags, no git tags (`latest` is also pushed from main, never from beta as a moving convenience tag; deployments pin sha-<sha7>): the commit is the version. The same images serve
 # prod and beta; environment differences are runtime configuration only. No build inputs: the VITE_* values the frontend
 # reads are non-secret defaults in docker/Dockerfile.
 #
@@ -108,7 +108,7 @@ jobs:
 
       # Last registry step: only now that all three multi-arch manifest lists exist is the tag Image Updater follows
       # added (re-pointing the already-pushed manifest list, no rebuild), so it never exists on a partial set.
-      - name: Add sha- tag (beta-sha- on the beta branch) to all three images
+      - name: Add latest (main only) and sha- tag (beta-sha- on the beta branch) to all three images
         run: |
           registry="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}"
           sha="${GITHUB_SHA:0:7}"
@@ -123,5 +123,6 @@ jobs:
           done
           for image in fpm web ssr; do
             repo="$registry/sledgehammertime-$image"
+            if [ "$prefix" = sha ]; then docker buildx imagetools create -t "$repo:latest" "$repo:$sha"; fi
             docker buildx imagetools create -t "$repo:$prefix-$sha" "$repo:$sha"
           done
