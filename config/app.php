@@ -219,11 +219,12 @@ return [
   ],
 
   /*
-   * Content-Security-Policy in report-only mode (App\Services\ContentSecurityPolicy). Violations are posted to
-   * `report_uri`; with it empty no policy is sent.
+   * Content-Security-Policy (App\Services\ContentSecurityPolicy). Violations are posted to `report_uri`; with it empty
+   * no policy is sent. By default the policy is report-only (nothing is blocked); `enforce` makes the browser block.
    */
   'csp' => [
     'report_uri' => env('CSP_REPORT_URI', ''),
+    'enforce' => (bool)env('CSP_ENFORCE', false),
   ],
 
   'settings_cookie_name' => env(

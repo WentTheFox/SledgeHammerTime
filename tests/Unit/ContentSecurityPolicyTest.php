@@ -62,8 +62,9 @@ test('the policy allows only this site and the listed hashes for scripts', funct
     expect(ContentSecurityPolicy::reportingEndpoints('https://csp.example/r'))->toBe('csp-endpoint="https://csp.example/r"');
 });
 
-function runCspMiddleware(Response|JsonResponse $response, ?string $reportUri = 'https://csp.example/r'): \Symfony\Component\HttpFoundation\Response {
+function runCspMiddleware(Response|JsonResponse $response, ?string $reportUri = 'https://csp.example/r', bool $enforce = false): \Symfony\Component\HttpFoundation\Response {
     Config::set('app.csp.report_uri', $reportUri);
+    Config::set('app.csp.enforce', $enforce);
 
     return (new AddContentSecurityPolicy())->handle(Request::create('/en'), fn () => $response);
 }
@@ -74,7 +75,19 @@ test('adds the report-only policy computed from the final body to HTML pages', f
 
     expect($result->headers->get('Content-Security-Policy-Report-Only'))->toContain(cspHash($script))
         ->and($result->headers->get('Reporting-Endpoints'))->toBe('csp-endpoint="https://csp.example/r"')
-        ->and($result->headers->has('Content-Security-Policy'))->toBeFalse();   // never enforced
+        ->and($result->headers->has('Content-Security-Policy'))->toBeFalse();   // report-only unless CSP_ENFORCE is on
+});
+
+test('enforces the same policy instead of only reporting when enabled', function () {
+    $script = 'const Ziggy={"url":"https:\/\/hammertime.cyou"};';
+    $page = fn () => new Response('<html><script>' . $script . '</script></html>', 200, ['Content-Type' => 'text/html']);
+
+    $report = runCspMiddleware($page());
+    $enforced = runCspMiddleware($page(), enforce: true);
+
+    expect($enforced->headers->has('Content-Security-Policy-Report-Only'))->toBeFalse()
+        ->and($enforced->headers->get('Content-Security-Policy'))->toBe($report->headers->get('Content-Security-Policy-Report-Only'))
+        ->and($enforced->headers->get('Reporting-Endpoints'))->toBe('csp-endpoint="https://csp.example/r"');   // violations still reported
 });
 
 test('sends no policy without a report endpoint, or for responses that are not pages', function (Response|JsonResponse $response, ?string $reportUri) {

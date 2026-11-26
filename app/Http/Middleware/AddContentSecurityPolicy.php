@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Sends the Content-Security-Policy in report-only mode (see ContentSecurityPolicy) with the report endpoint from
- * `app.csp.report_uri`; nothing is sent while that is empty. Set as a header on the final response, so it also covers
+ * Sends the Content-Security-Policy (see ContentSecurityPolicy) with the report endpoint from `app.csp.report_uri`;
+ * nothing is sent while that is empty. It is report-only unless `app.csp.enforce` is on. Set as a header on the final response, so it also covers
  * cached pages and never becomes part of the stored HTML.
  */
 class AddContentSecurityPolicy {
@@ -26,7 +26,8 @@ class AddContentSecurityPolicy {
     }
 
     $hashes = ContentSecurityPolicy::inlineScriptHashes((string)$response->getContent());
-    $response->headers->set('Content-Security-Policy-Report-Only', ContentSecurityPolicy::build($hashes, $reportUri));
+    $header = Config::get('app.csp.enforce') ? 'Content-Security-Policy' : 'Content-Security-Policy-Report-Only';
+    $response->headers->set($header, ContentSecurityPolicy::build($hashes, $reportUri));
     $response->headers->set('Reporting-Endpoints', ContentSecurityPolicy::reportingEndpoints($reportUri));
 
     return $response;
